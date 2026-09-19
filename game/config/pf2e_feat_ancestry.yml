@@ -21,6 +21,14 @@ pf2e_feats:
     prereq:
       level: 9
       heritage: Changeling
+    rules:
+      - key: "DamageDice"
+        category: "persistent"
+        selector: "claw-damage"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "mental"
+        critical: true
   Adapted Cantrip:
     feat_type:
       - Ancestry
@@ -82,6 +90,11 @@ pf2e_feats:
     shortdesc: "Over the long course of your adventuring life, your adaptability has let you pick up numerous useful abilities. You gain a general feat of 7th level or lower. You must meet the feat's prerequisites.%r%r**Special** You can select this feat multiple times, choosing a different feat each time."
     prereq:
       level: 13
+    rules:
+      - key: "ChoiceSet"
+        flag: "advancedGeneralTraining"
+        prompt: "Select a 7th-level or lower general feat."
+        choices: {"filter": [{"lte": ["item:level", 7]}, "item:trait:general"], "itemType": "feat"}
   Ageless Patience:
     feat_type:
       - Ancestry
@@ -92,6 +105,29 @@ pf2e_feats:
     shortdesc: "You work at a pace born from longevity that enhances your thoroughness. You can voluntarily spend twice as much time as normal on a Perception check or skill check that takes 1 action or longer. If you do, you gain a +2 circumstance bonus to the check and don't automatically reduce your degree of success on a natural 1 (you get a critical failure only if your result is 10 lower than the DC). For example, you could get these benefits if you spent 2 actions to Seek, which normally takes 1 action. You can get these benefits during exploration by taking twice as long exploring as normal, or in downtime by spending twice as much downtime.%r%rThe GM might determine a situation doesn't grant you a benefit if a delay would be directly counterproductive to your success, such as a tense negotiation with an impatient creature."
     prereq:
       level: 5
+    rules:
+      - key: "RollOption"
+        option: "ageless-patience"
+        domain: "check"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: ["perception", "skill-check"]
+        type: "circumstance"
+        value: 2
+        predicate: ["ageless-patience"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "skill-check"
+        adjustment: {"all": "one-degree-better"}
+        predicate: ["ageless-patience", "check:total:natural:1", {"gte": ["check:total:delta", -9]}]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "perception"
+        adjustment: {"all": "one-degree-better"}
+        predicate: ["ageless-patience", "check:total:natural:1", {"gte": ["check:total:delta", -9]}]
+      - key: "Note"
+        selector: ["perception", "skill-check"]
+        title: "{item|name}"
+        text: "You don't treat a natural 1 as worse than usual on this check; you get a critical failure only if your result is 10 lower than the DC."
+        predicate: ["ageless-patience", "check:total:natural:1", {"not": {"gte": ["check:total", "check:total:delta"]}}]
   Agonizing Rebuke:
     feat_type:
       - Ancestry
@@ -102,6 +138,12 @@ pf2e_feats:
     shortdesc: When you terrorize your enemies, you also cause them painful mental distress. When you successfully Demoralize an enemy, that enemy takes 1d4 mental damage at the start of each of its turns. This effect ends if the creature loses the frightened condition, if it is more than 30 feet away from you, or if 1 minute passes, whichever comes first. If you have master proficiency in Intimidation, the damage increases to 2d4, and if you have legendary proficiency, the damage increases to 3d4.
     prereq:
       level: 5
+    rules:
+      - key: "Note"
+        selector: "intimidation"
+        title: "{item|name}"
+        text: "When you successfully Demoralize a foe, that foe takes ]{1d4 mental damage} at the start of each of its turns as long as it remains Frightened and continues to engage in combat with you. If you have master proficiency in Intimidation, the damage increases to 2d4, and if you have legendary proficiency, the damage increases to 3d4."
+        predicate: ["action:demoralize"]
   Alchemical Scholar:
     feat_type:
       - Ancestry
@@ -125,6 +167,16 @@ pf2e_feats:
     shortdesc: You have accumulated a vast array of lived knowledge over the years. During your daily preparations, you can reflect upon your life experiences to gain the trained proficiency rank in one skill of your choice. This proficiency lasts until you prepare again. Since this proficiency is temporary, you can't use it as a prerequisite for a skill increase or a permanent character option like a feat.
     prereq:
       level: 1
+    rules:
+      - key: "RollOption"
+        option: "ancestral-longevity"
+        toggleable: true
+        alwaysActive: true
+        suboptions: {"config": "skills", "predicate": ["skill:{choice|value}:rank:0"]}
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.ancestralLongevity}.rank"
+        mode: "upgrade"
+        value: 1
   Ancestral Suspicion:
     feat_type:
       - Ancestry
@@ -135,6 +187,23 @@ pf2e_feats:
     shortdesc: Long-lived sildanyari have seen civilizations rise and fall, often at the hands of outside forces. As a result, they have developed a wariness of others who might seek to influence or control them. You've been trained to resist such manipulation, gaining a +2 circumstance bonus to saving throws against effects that would make you controlled, such as *dominate*, and to Perception checks to Sense Motive when trying to determine if a creature is under the influence of such an effect. When you roll a success on a saving throw against such an effect, you get a critical success instead.
     prereq:
       level: 5
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 2
+        predicate: ["inflicts:controlled"]
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        predicate: ["action:sense-motive", "ancestral-suspicion"]
+      - key: "Note"
+        selector: "saving-throw"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "When you roll a success on a saving throw against an effect that would make you controlled, you get a critical success instead."
+        predicate: ["inflicts:controlled"]
   Angelkin:
     feat_type:
       - Ancestry
@@ -163,6 +232,11 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Aesa
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.society.rank"
+        mode: "upgrade"
+        value: 1
   Animal Accomplice:
     feat_type:
       - Ancestry
@@ -186,6 +260,12 @@ pf2e_feats:
     shortdesc: You hear animal sounds as conversations instead of unintelligent noise, and you can respond in turn. You can ask questions of, receive answers from, and use the Diplomacy skill with animals. In most cases, wild animals will give you time to make your case. You gain a +1 circumstance bonus to Make an Impression on animals.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "circumstance"
+        value: 1
+        predicate: ["target:trait:animal", "action:make-an-impression"]
   Arvek Lore:
     feat_type:
       - Ancestry
@@ -301,6 +381,17 @@ pf2e_feats:
     shortdesc: Surviving in hostile terrain has given you a great talent for mobility. Whenever you roll a success on an Athletics check to Climb or Swim, you get a critical success instead.
     prereq:
       level: 5
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "athletics"
+        adjustment: {"success": "one-degree-better"}
+        type: "skill"
+        predicate: [{"or": ["action:climb", "action:swim"]}]
+      - key: "Note"
+        selector: "athletics"
+        title: "{item|name}"
+        text: "Whenever you roll a success on an Athletics check to Climb or Swim, you get a critical success instead."
+        predicate: [{"or": ["action:climb", "action:swim"]}]
   Avenge Ally:
     feat_type:
       - Ancestry
@@ -378,6 +469,15 @@ pf2e_feats:
     shortdesc: You have an impressive innate ability to tame and command ferocious beasts. You become trained in the Nature skill and gain your choice of the Pet general feat or the Train Animal skill feat.
     prereq:
       level: 1
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.nature.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "feat"
+        prompt: "Select a feat."
+        choices: [{"value": "Compendium.pf2e.feats-srd.Item.Pet"}, {"value": "Compendium.pf2e.feats-srd.Item.Train Animal"}]
   Bestial Manifestation:
     feat_type:
       - Ancestry
@@ -399,6 +499,50 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Niasa
+    rules:
+      - key: "ChoiceSet"
+        flag: "bestialManifestation"
+        rollOption: "bestial-manifestation"
+        prompt: "Select an unarmed attack."
+        choices: [{"img": "icons/commodities/claws/claw-bear-brown-grey.webp", "label": "Claw", "value": "claw"}, {"img": "icons/commodities/biological/foot-black-grey.webp", "label": "Hoof", "value": "hoof"}, {"img": "icons/creatures/abilities/mouth-teeth-long-red.webp", "label": "Jaws", "value": "jaws"}, {"img": "icons/creatures/abilities/tail-swipe-green.webp", "label": "Tail", "value": "tail"}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "claw"
+        damage: {"base": {"damageType": "slashing", "dice": 1, "die": "d4"}}
+        traits: ["agile", "finesse", "unarmed", "versatile-p"]
+        label: "Claw"
+        predicate: ["bestial-manifestation:claw"]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d6"}}
+        traits: ["finesse", "unarmed"]
+        label: "Hoof"
+        predicate: ["bestial-manifestation:hoof"]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "jaws"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d6"}}
+        traits: ["finesse", "unarmed"]
+        label: "Jaws"
+        predicate: ["bestial-manifestation:jaws"]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d4"}}
+        traits: ["agile", "finesse", "unarmed"]
+        label: "Tail"
+        predicate: ["bestial-manifestation:tail"]
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "deadly-d6"
+        predicate: ["feat:bestial-brutality"]
+      - key: "CriticalSpecialization"
+        predicate: ["feat:bestial-brutality", "item:id:{item|id}"]
   Big Mouth:
     feat_type:
       - Ancestry
@@ -453,6 +597,13 @@ pf2e_feats:
     prereq:
       level: 9
       heritage: Dar
+    rules:
+      - key: "DamageDice"
+        selector: "fangs-damage"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "bleed"
+        critical: true
   Bloody Blows:
     feat_type:
       - Ancestry
@@ -463,6 +614,14 @@ pf2e_feats:
     shortdesc: Your lethal unarmed attacks leave bloody gouges or cause severe internal bleeding. When you critically hit with a Strike using an unarmed attack that isn't nonlethal, the target takes 1d4 persistent bleed damage. This can be because you're taking the penalty to use a fist for a lethal attack or because you have an unarmed attack without the nonlethal trait due to Tusks or a similar ability.
     prereq:
       level: 5
+    rules:
+      - key: "DamageDice"
+        selector: "unarmed-damage"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "bleed"
+        critical: true
+        predicate: [{"not": "nonlethal"}]
   Bone Investiture:
     feat_type:
       - Ancestry
@@ -533,6 +692,18 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Changeling
+    rules:
+      - key: "Note"
+        selector: "athletics"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "When you roll a success on an Athletics check to swim, you get a critical success instead."
+        predicate: ["action:swim"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "athletics"
+        adjustment: {"success": "one-degree-better"}
+        type: "save"
+        predicate: ["action:swim"]
   Burn It!:
     feat_type:
       - Ancestry
@@ -543,6 +714,27 @@ pf2e_feats:
     shortdesc: Fire fascinates you. Your spells and alchemical items that deal fire damage gain a status bonus to damage equal to half the spell's rank or one-quarter the item's level (minimum bonus +1). You also gain a +1 status bonus to any persistent fire damage you deal.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        type: "status"
+        value: "max(floor(@weapon.level/4), 1)"
+        damageType: "fire"
+        slug: "burn-it-strike"
+        predicate: ["item:trait:alchemical"]
+      - key: "FlatModifier"
+        selector: "spell-damage"
+        type: "status"
+        value: "max(floor(@spell.level/2), 1)"
+        damageType: "fire"
+        slug: "burn-it-spell"
+      - key: "FlatModifier"
+        selector: "damage"
+        type: "status"
+        value: 1
+        damageType: "fire"
+        damageCategory: "persistent"
+        slug: "burn-it-persistent"
   Call the Swarm:
     feat_type:
       - Ancestry
@@ -578,6 +770,23 @@ pf2e_feats:
     prereq:
       level: 5
       heritage: Changeling
+    rules:
+      - key: "FlatModifier"
+        selector: "will"
+        type: "circumstance"
+        value: 1
+        predicate: ["mental"]
+      - key: "Note"
+        selector: "saving-throw"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "When you roll a success on an saving throw against a mental effect that would make you controlled, you get a critical success instead."
+        predicate: ["mental", "inflicts:controlled"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        type: "save"
+        predicate: ["mental", "inflicts:controlled"]
   Callow May:
     feat_type:
       - Ancestry
@@ -628,6 +837,11 @@ pf2e_feats:
     shortdesc: The life energy that helped create the first arvek is particularly potent in you, protecting you from ongoing maladies. If you roll a success on a saving throw against a disease or poison, you get a critical success instead. If you have a different ability that would improve the save in this way (such as the Battle Hardened fighter class feature), if you roll a critical failure on the save you get a failure instead.
     prereq:
       level: 1
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        predicate: [{"or": ["item:trait:disease", "item:trait:poison"]}]
   Cantorian Rejuvenation:
     feat_type:
       - Ancestry
@@ -679,6 +893,10 @@ pf2e_feats:
     shortdesc: After years of clambering through caverns, you can climb easily anywhere you go. You gain a climb Speed of 10 feet.
     prereq:
       level: 9
+    rules:
+      - key: "BaseSpeed"
+        selector: "climb"
+        value: 10
   Ceaseless Shadows:
     feat_type:
       - Ancestry
@@ -716,6 +934,11 @@ pf2e_feats:
         - Lawbringer
         - Musetouched
       heritage: Aesa
+    rules:
+      - key: "ChoiceSet"
+        flag: "spell"
+        prompt: "Select a spell."
+        choices: {"filter": [{"or": ["item:slug:clear-mind", "item:slug:sure-footing", "item:slug:share-life", "item:slug:revealing-light", "item:slug:humanoid-form", "item:slug:everlight"]}], "itemType": "spell", "slugsAsValues": true}
   Celestial Mercy:
     feat_type:
       - Ancestry
@@ -776,6 +999,15 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Changeling
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.deception.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "system.skills.occultism.rank"
+        mode: "upgrade"
+        value: 1
   Cheek Pouches:
     feat_type:
       - Ancestry
@@ -881,6 +1113,32 @@ pf2e_feats:
     shortdesc: "You know that the greatest treasures often look like refuse. You gain a +1 circumstance bonus to checks to Subsist, and you can use Society or Survival when you Subsist in a settlement.%r%r**Special** If you have the irongut goblin heritage, increase the bonuses to +2."
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: ["society", "survival"]
+        type: "circumstance"
+        value: 1
+        slug: "scavenger-subsist"
+        predicate: ["action:subsist"]
+      - key: "FlatModifier"
+        selector: ["society", "survival"]
+        type: "circumstance"
+        value: 1
+        slug: "scavenger-earn"
+        label: "City Scavenger \u2014 Earn Income"
+        predicate: ["action:earn-income", "with-subsist"]
+      - key: "AdjustModifier"
+        mode: "add"
+        selectors: ["society", "survival"]
+        value: 1
+        slug: "scavenger-subsist"
+        predicate: ["heritage:irongut-goblin"]
+      - key: "AdjustModifier"
+        mode: "add"
+        selectors: ["society", "survival"]
+        value: 1
+        slug: "scavenger-earn"
+        predicate: ["heritage:irongut-goblin"]
   Clever Improviser:
     feat_type:
       - Ancestry
@@ -915,6 +1173,12 @@ pf2e_feats:
     shortdesc: The short human life span lends perspective and has taught you from a young age to set aside differences and work with others to achieve greatness. You gain a +4 circumstance bonus on checks to Aid.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "check"
+        type: "circumstance"
+        value: 4
+        predicate: ["action:aid"]
   Cooperative Soul:
     feat_type:
       - Ancestry
@@ -925,6 +1189,11 @@ pf2e_feats:
     shortdesc: You have developed a soul-deep bond with your comrades and maintain an even greater degree of cooperation with them. If you are at least an expert in the skill you are Aiding, when you roll a failure or critical failure to Aid a skill check, you get a success instead.
     prereq:
       level: 9
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "skill-check"
+        adjustment: {"criticalFailure": "to-success", "failure": "to-success"}
+        predicate: ["action:aid", {"or": ["proficiency:expert", "proficiency:master", "proficiency:legendary"]}]
   Cornered Fury:
     feat_type:
       - Ancestry
@@ -954,6 +1223,11 @@ pf2e_feats:
     shortdesc: During your adventures, you've honed your ability to adapt to the culture of the predominant ancestry around you. You gain the Adopted Ancestry general feat, and you also gain one 1st-level ancestry feat from the ancestry you chose for the Adopted Ancestry feat.
     prereq:
       level: 5
+    rules:
+      - key: "ChoiceSet"
+        flag: "feat"
+        prompt: "Select a 1st-level ancestry feat."
+        choices: {"filter": ["item:level:1", "item:trait:{actor|system.details.ancestry.adopted}"]}
   Dance Underfoot:
     feat_type:
       - Ancestry
@@ -988,6 +1262,16 @@ pf2e_feats:
       level: 5
       feat:
         - Oruch Ferocity
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.attributes.dying.recoveryDC"
+        mode: "downgrade"
+        value: 9
+      - key: "ActiveEffectLike"
+        path: "system.attributes.dying.recoveryDC"
+        mode: "downgrade"
+        value: 8
+        predicate: ["feat:toughness"]
   Defy the Darkness:
     feat_type:
       - Ancestry
@@ -1057,6 +1341,12 @@ pf2e_feats:
       orheritage:
         - Aesa
         - Niasa
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["item:trait:divine"]
   Divine Declaration:
     feat_type:
       - Ancestry
@@ -1138,6 +1428,16 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Changeling
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 2
+        predicate: [{"or": ["sleep", "dream"]}]
+      - key: "ActiveEffectLike"
+        path: "system.attributes.hp.recoveryMultiplier"
+        mode: "add"
+        value: 1
   Earned Glory:
     feat_type:
       - Ancestry
@@ -1161,6 +1461,21 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Silyara
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.performance.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "Note"
+        selector: "performance"
+        title: "{item|name}"
+        text: "If you roll a critical failure when you Make an Impression on an elf, you get a failure instead."
+        predicate: ["action:make-an-impression", "target:trait:elf"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "performance"
+        adjustment: {"criticalFailure": "one-degree-better"}
+        type: "skill"
+        predicate: ["action:make-an-impression", "target:trait:elf"]
   Eat Fortune:
     feat_type:
       - Ancestry
@@ -1329,6 +1644,16 @@ pf2e_feats:
       level: 9
       feat:
         - Ancestral Longevity
+    rules:
+      - key: "RollOption"
+        option: "expert-longevity"
+        toggleable: true
+        alwaysActive: true
+        suboptions: {"config": "skills", "predicate": ["skill:{choice|value}:rank:1"]}
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.expertLongevity}.rank"
+        mode: "upgrade"
+        value: 2
   Extraplanar Supplication:
     feat_type:
       - Ancestry
@@ -1397,6 +1722,14 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Dar
+    rules:
+      - key: "Strike"
+        range: null
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d6"}}
+        traits: ["grapple", "unarmed"]
+        label: "Fangs"
   Fell Rider:
     feat_type:
       - Ancestry
@@ -1432,6 +1765,17 @@ pf2e_feats:
     shortdesc: "Your enhanced fey connection (either through your blood or via prolonged contact with their kind) affords you a warmer reception from creatures of the First World as well as tools to foil their tricks or withstand their magic. You gain a +2 circumstance bonus to both Perception checks and saving throws against fey.%r%rIn addition, whenever you meet a fey creature in a social situation, you can immediately attempt a Diplomacy check to Make an Impression on that creature rather than needing to converse for 1 minute. You take a –5 penalty to the check. If you fail, you can engage in 1 minute of conversation and attempt a new check at the end of that time rather than accepting the failure or critical failure result."
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        predicate: ["target:trait:fey"]
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 2
+        predicate: ["origin:trait:fey"]
   Fiendish Magic:
     feat_type:
       - Ancestry
@@ -1457,6 +1801,11 @@ pf2e_feats:
         - Pitborn
         - Hellspawn
       heritage: Niasa
+    rules:
+      - key: "ChoiceSet"
+        flag: "spell"
+        prompt: "Select a spell."
+        choices: {"filter": [{"or": ["item:slug:paranoia", "item:slug:shatter", "item:slug:disguise-magic", "item:slug:see-the-unseen", "item:slug:false-vitality", "item:slug:invisibility"]}], "itemType": "spell", "slugsAsValues": true}
   Flexible Tail:
     feat_type:
       - Ancestry
@@ -1487,6 +1836,24 @@ pf2e_feats:
     shortdesc: Watching your friends age and die fills you with moroseness that protects you against harmful emotions. You gain a +1 circumstance bonus to saving throws against emotion effects. If you roll a success on a saving throw against an emotion effect, you get a critical success instead.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        label: "Against emotion effects"
+        predicate: ["emotion"]
+      - key: "Note"
+        selector: "saving-throw"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "If you roll a success on a saving throw against an emotion effect, you get a critical success instead."
+        predicate: ["item:trait:emotion"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        type: "save"
+        predicate: ["emotion"]
   Form of the Bat:
     feat_type:
       - Ancestry
@@ -1538,6 +1905,15 @@ pf2e_feats:
     shortdesc: "You cling to walls with a preternatural grip. You gain the Combat Climber feat as a bonus feat, and if you roll a success on an Athletics check to climb, you get a critical success instead.%r%r**Special** If you have the pantli ciith heritage, you instead gain a climb Speed of 15 feet."
     prereq:
       level: 5
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "athletics"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["action:climb", {"not": "heritage:cliffscale-lizardfolk"}]
+      - key: "BaseSpeed"
+        selector: "climb"
+        value: 15
+        predicate: ["heritage:cliffscale-lizardfolk"]
   General Training:
     repeatable: true
     feat_type:
@@ -1554,6 +1930,11 @@ pf2e_feats:
     shortdesc: "Your adaptability manifests in your mastery of a range of useful abilities. You gain a 1st-level general feat. You must meet the feat's prerequisites, but if you select this feat during character creation, you can select the feat later in the process in order to determine which prerequisites you meet.%r%r**Special** You can select this feat multiple times, choosing a different feat each time."
     prereq:
       level: 1
+    rules:
+      - key: "ChoiceSet"
+        flag: "feat"
+        prompt: "Select a 1st-level general feat."
+        choices: {"filter": ["item:level:1", "item:trait:general"], "itemType": "feat"}
   Ghost Hunter:
     feat_type:
       - Ancestry
@@ -1575,6 +1956,23 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Ashen One
+    rules:
+      - key: "RollOption"
+        option: "target:trait:incorporeal"
+        toggleable: "totm"
+        label: "Enable abilities that require an incorporeal target"
+      - key: "AdjustStrike"
+        property: "property-runes"
+        mode: "add"
+        definition: ["item:magical"]
+        value: "ghost-touch"
+        predicate: ["target:trait:incorporeal"]
+      - key: "AdjustStrike"
+        property: "weapon-traits"
+        mode: "add"
+        definition: [{"not": "item:magical"}]
+        value: "magical"
+        predicate: ["target:trait:incorporeal"]
   Gnome Obsession:
     feat_type:
       - Ancestry
@@ -1601,6 +1999,19 @@ pf2e_feats:
     shortdesc: "You favor unusual weapons tied to your people, such as blades with curved and peculiar shapes. You gain access to kukris and all uncommon weapons with the gnome trait. You have familiarity with weapons with the gnome trait plus the glaive and kukri—for the purposes of proficiency, you treat any of these that are martial weapons as simple weapons and any that are advanced weapons as martial weapons.%r%rAt 5th level, whenever you get a critical hit with one of these weapons, you get its critical specialization effect."
     prereq:
       level: 1
+    rules:
+      - key: "MartialProficiency"
+        definition: [{"or": [{"and": ["item:trait:gnome", "item:category:martial"]}, "item:base:glaive", "item:base:kukri"]}]
+        sameAs: "simple"
+        slug: "martial-gnome-weapons"
+        label: "Martial Gnome Weapons"
+      - key: "MartialProficiency"
+        definition: ["item:trait:gnome", "item:category:advanced"]
+        sameAs: "martial"
+        slug: "advanced-gnome-weapons"
+        label: "Advanced Gnome Weapons"
+      - key: "CriticalSpecialization"
+        predicate: [{"gte": ["self:level", 5]}, {"or": ["item:trait:gnome", "item:base:glaive", "item:base:kukri"]}]
   Goblin Lore:
     feat_type:
       - Ancestry
@@ -1618,6 +2029,15 @@ pf2e_feats:
     shortdesc: "You've picked up skills and tales from your goblin community. You gain the trained proficiency rank in Nature and Stealth. If you would automatically become trained in one of those skills (from your background or class, for example), you instead become trained in a skill of your choice.%r%rYou also gain the Additional Lore general feat for Goblin Lore."
     prereq:
       level: 1
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.nature.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "system.skills.stealth.rank"
+        mode: "upgrade"
+        value: 1
   Goblin Scuttle:
     feat_type:
       - Ancestry
@@ -1650,6 +2070,19 @@ pf2e_feats:
     shortdesc: "Others might look upon them with disdain, but you know that the weapons of your people are as effective as they are sharp. You gain access to all uncommon weapons with the goblin trait. You have familiarity with weapons with the goblin trait—for the purposes of proficiency, you treat any of these that are martial weapons as simple weapons and any that are advanced weapons as martial weapons.%r%rAt 5th level, whenever you get a critical hit with one of these weapons, you get its critical specialization effect."
     prereq:
       level: 1
+    rules:
+      - key: "MartialProficiency"
+        definition: ["item:trait:goblin", "item:category:martial"]
+        sameAs: "simple"
+        slug: "martial-goblin-weapons"
+        label: "Martial Goblin Weapons"
+      - key: "MartialProficiency"
+        definition: ["item:trait:goblin", "item:category:advanced"]
+        sameAs: "martial"
+        slug: "advanced-goblin-weapons"
+        label: "Advanced Goblin Weapons"
+      - key: "CriticalSpecialization"
+        predicate: [{"gte": ["self:level", 5]}, "item:trait:goblin"]
   Gravesight:
     feat_type:
       - Ancestry
@@ -1798,6 +2231,15 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Changeling
+    rules:
+      - key: "Strike"
+        range: null
+        category: "unarmed"
+        group: "brawling"
+        baseType: "claw"
+        damage: {"base": {"damageType": "slashing", "dice": 1, "die": "d4"}}
+        traits: ["agile", "finesse", "unarmed"]
+        label: "Claw"
   Hag Magic:
     feat_type:
       - Ancestry
@@ -1819,6 +2261,11 @@ pf2e_feats:
     prereq:
       level: 13
       heritage: Changeling
+    rules:
+      - key: "ChoiceSet"
+        flag: "hagMagic"
+        prompt: "Select a spell."
+        choices: {"filter": [{"or": ["item:slug:augury", "item:slug:charm", "item:slug:clairaudience", "item:slug:clairvoyance", "item:slug:dream-message", "item:slug:illusory-disguise", {"and": ["feat:brine-may", {"or": ["item:slug:humanoid-form", "item:slug:water-walk"]}]}, {"and": ["feat:callow-may", {"or": ["item:slug:honeyed-words", "item:slug:outcasts-curse"]}]}, {"and": [{"or": ["feat:dream-may", "feat:veil-may"]}, "item:slug:nightmare"]}, {"and": ["feat:slag-may", "item:slug:earthbind"]}, {"and": ["feat:snow-may", "item:slug:solid-fog"]}, {"and": ["feat:virga-may", "item:slug:hydraulic-torrent"]}]}], "itemType": "spell", "slugsAsValues": true}
   Hag's Sight:
     feat_type:
       - Ancestry
@@ -1861,6 +2308,11 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Aesa
+    rules:
+      - key: "RollOption"
+        option: "halo-active"
+        toggleable: true
+        value: true
   Harbinger's Caw:
     feat_type:
       - Ancestry
@@ -1886,6 +2338,19 @@ pf2e_feats:
     shortdesc: There's no journey too far or burden too heavy when you have friends at your side or hope within your heart. Increase your maximum and encumbered Bulk limits by 1. In addition, you gain a +10-foot circumstance bonus to your Speed during overland travel.
     prereq:
       level: 9
+    rules:
+      - key: "ActiveEffectLike"
+        path: "inventory.bulk.encumberedAfterAddend"
+        mode: "add"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "inventory.bulk.maxAddend"
+        mode: "add"
+        value: 1
+      - key: "FlatModifier"
+        selector: "travel-speed"
+        type: "circumstance"
+        value: 10
   Haughty Obstinacy:
     feat_type:
       - Ancestry
@@ -1896,6 +2361,12 @@ pf2e_feats:
     shortdesc: Your powerful ego makes it harder for others to order you around. If you roll a success on a saving throw against a mental effect that attempts to directly control your actions, you critically succeed instead. If a creature rolls a failure on a check to Coerce you using Intimidation, it gets a critical failure instead (so it can't try to Coerce you again for 1 week).
     prereq:
       level: 1
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+        type: "save"
+        predicate: ["mental", "inflicts:controlled"]
   Hellspawn:
     feat_type:
       - Ancestry
@@ -1924,6 +2395,11 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Niasa
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.deception.rank"
+        mode: "upgrade"
+        value: 1
   Heroic Presence:
     feat_type:
       - Ancestry
@@ -1979,6 +2455,12 @@ pf2e_feats:
     shortdesc: "Your ancestors spent their days cloaked and cradled in illusions, and as a result, sensing illusion magic is second nature to you. You gain a +1 circumstance bonus to both Perception checks and Will saves against illusions.%r%rWhen you come within 10 feet of an illusion that can be disbelieved, the GM rolls a secret check for you to disbelieve it, even if you didn't spend an action to Interact with the illusion."
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: ["perception", "will"]
+        type: "circumstance"
+        value: 1
+        predicate: ["illusion"]
   Incredible Ferocity:
     feat_type:
       - Ancestry
@@ -2005,6 +2487,16 @@ pf2e_feats:
         - Clever Improviser
     actions: free
     frequency: once per day
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 4
+        predicate: ["proficiency:untrained", "incredible-improvisation"]
+      - key: "RollOption"
+        option: "incredible-improvisation"
+        domain: "skill-check"
+        toggleable: true
   Inspire Imitation:
     feat_type:
       - Ancestry
@@ -2050,6 +2542,17 @@ pf2e_feats:
     shortdesc: Your fists have been forged by battle, your naturally tough skin and dense bone further hardened by conflict. Your fist unarmed attacks no longer have the nonlethal trait and gain the shove weapon trait.
     prereq:
       level: 1
+    rules:
+      - key: "ItemAlteration"
+        itemId: "xxxxxxFISTxxxxxx"
+        property: "traits"
+        mode: "add"
+        value: "shove"
+      - key: "ItemAlteration"
+        itemId: "xxxxxxFISTxxxxxx"
+        property: "traits"
+        mode: "remove"
+        value: "nonlethal"
   Irrepressible (Bassin):
     feat_type:
       - Ancestry
@@ -2169,6 +2672,16 @@ pf2e_feats:
     shortdesc: You've spent more than your share of time in an alchemy lab. You have been exposed to a wide variety of alchemical poisons and harmful substances, leaving you with an increased tolerance of their effects. You have a +1 circumstance bonus to saves against poisons and diseases. If you roll a success on your saving throw against a poison or disease, you get a critical success instead.
     prereq:
       level: 5
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: [{"or": ["item:trait:disease", "item:trait:poison"]}]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        predicate: [{"or": ["item:trait:disease", "item:trait:poison"]}]
   Lawbringer:
     feat_type:
       - Ancestry
@@ -2192,6 +2705,23 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Aesa
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["emotion"]
+      - key: "Note"
+        selector: "saving-throw"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "When you roll a success on a save against an emotion effect, you get a critical success instead."
+        predicate: ["emotion"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        type: "save"
+        predicate: ["emotion"]
   Leech-Clip:
     feat_type:
       - Ancestry
@@ -2363,6 +2893,12 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Ghaluch
+    rules:
+      - key: "FlatModifier"
+        selector: ["diplomacy", "perception"]
+        type: "circumstance"
+        value: 1
+        predicate: ["monstrous-peacemaker"]
   Mountain's Stoutness:
     feat_type:
       - Ancestry
@@ -2373,6 +2909,20 @@ pf2e_feats:
     shortdesc: "Your hardiness lets you withstand more punishment than most. Increase your maximum Hit Points by your level. When you have the dying 1 condition, the DC of your recovery checks is equal to 9 + your dying value (instead of 10 + your dying value).%r%rIf you also have the Toughness feat, the Hit Points gained from it and this feat are cumulative, and the DC of your recovery checks is equal to 6 + your dying value."
     prereq:
       level: 9
+    rules:
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "@actor.level"
+      - key: "ActiveEffectLike"
+        path: "system.attributes.dying.recoveryDC"
+        mode: "downgrade"
+        value: 9
+        predicate: [{"not": "feat:toughness"}]
+      - key: "ActiveEffectLike"
+        path: "system.attributes.dying.recoveryDC"
+        mode: "downgrade"
+        value: 6
+        predicate: ["feat:toughness"]
   Multitalented:
     feat_type:
       - Ancestry
@@ -2383,6 +2933,11 @@ pf2e_feats:
     shortdesc: "You've learned to split your focus between multiple classes with ease. You gain a 2nd-level multiclass dedication feat, even if you normally couldn't take another dedication feat until you take more feats from your current archetype.%r%rIf you have the silyara heritage, you don't need to meet the feat's attribute modifier prerequisites."
     prereq:
       level: 9
+    rules:
+      - key: "ChoiceSet"
+        flag: "multitalented"
+        prompt: "Select a multiclass dedication feat."
+        choices: {"filter": ["item:level:2", "item:category:class", "item:trait:dedication", "item:trait:multiclass"], "itemType": "feat"}
   Musetouched:
     feat_type:
       - Ancestry
@@ -2406,6 +2961,40 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Aesa
+    rules:
+      - key: "FlatModifier"
+        selector: ["attack", "acrobatics", "athletics"]
+        type: "circumstance"
+        value: 1
+        label: "Musetouched (to Escape)"
+        predicate: ["action:escape"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "attack-roll"
+        adjustment: {"criticalFailure": "one-degree-better", "success": "one-degree-better"}
+        predicate: ["action:escape"]
+      - key: "Note"
+        selector: "attack"
+        title: "{item|name}"
+        text: "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead."
+        predicate: ["action:escape"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "athletics"
+        adjustment: {"criticalFailure": "one-degree-better", "success": "one-degree-better"}
+        predicate: ["action:escape"]
+      - key: "Note"
+        selector: "athletics"
+        title: "{item|name}"
+        text: "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead."
+        predicate: ["action:escape"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "acrobatics"
+        adjustment: {"criticalFailure": "one-degree-better", "success": "one-degree-better"}
+        predicate: ["action:escape"]
+      - key: "Note"
+        selector: "acrobatics"
+        title: "{item|name}"
+        text: "When you roll a critical failure on a check to Escape, you get a failure instead, and when you roll a success, you get a critical success instead."
+        predicate: ["action:escape"]
   Natural Ambition:
     feat_type:
       - Ancestry
@@ -2422,6 +3011,11 @@ pf2e_feats:
     shortdesc: You were raised to be ambitious and always reach for the stars, leading you to progress quickly in your chosen field. You gain a 1st-level class feat for your class. You must meet the prerequisites, but you can select the feat later in the character creation process in order to determine which prerequisites you meet.
     prereq:
       level: 1
+    rules:
+      - key: "ChoiceSet"
+        flag: "naturalAmbition"
+        prompt: "Select a 1st-level class feat."
+        choices: {"filter": ["item:level:1", "item:category:class", "item:trait:{actor|system.details.class.trait}", {"or": ["feature:dragon-instinct", {"not": "item:draconic-arrogance"}]}, {"nor": ["item:animal-companion", "item:animal-companion-druid", "item:bardic-lore", "item:fire-lung", "item:lingering-composition", "item:leshy-familiar", "item:martial-performance", "item:shore-step", "item:steadying-stone", "item:storm-born", "item:versatile-performance", "item:untamed-form"]}], "itemType": "feat"}
   Natural Skill:
     feat_type:
       - Ancestry
@@ -2436,6 +3030,23 @@ pf2e_feats:
     shortdesc: Your ingenuity allows you to learn a wide variety of skills. You gain the trained proficiency rank in two skills of your choice.
     prereq:
       level: 1
+    rules:
+      - key: "ChoiceSet"
+        flag: "skillOne"
+        prompt: "Select a skill."
+        choices: {"config": "skills", "predicate": ["skill:{choice|value}:rank:0"]}
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.skillOne}.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "skillTwo"
+        prompt: "Select a skill."
+        choices: {"config": "skills", "predicate": ["skill:{choice|value}:rank:0"]}
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.skillTwo}.rank"
+        mode: "upgrade"
+        value: 1
   Necromantic Physiology:
     feat_type:
       - Ancestry
@@ -2457,6 +3068,16 @@ pf2e_feats:
     prereq:
       level: 5
       heritage: Dar
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 2
+        predicate: ["item:trait:disease"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["item:trait:disease"]
   Nephilim Eyes:
     feat_type:
       - Ancestry
@@ -2525,6 +3146,19 @@ pf2e_feats:
       orheritage:
         - Aesa
         - Niasa
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "skill"
+        prompt: "Select a skill."
+        choices: [{"label": "Diplomacy", "predicate": ["skill:diplomacy:rank:0"], "value": "diplomacy"}, {"label": "Intimidation", "predicate": ["skill:intimidation:rank:0"], "value": "intimidation"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.skill}.rank"
+        mode: "upgrade"
+        value: 1
   Nephilim Resistance:
     feat_type:
       - Ancestry
@@ -2549,6 +3183,14 @@ pf2e_feats:
       orheritage:
         - Aesa
         - Niasa
+    rules:
+      - key: "ChoiceSet"
+        flag: "featCelestialResistance"
+        prompt: "Select a type of energy associated with your bloodline."
+        choices: [{"label": "Fire", "value": "fire"}, {"label": "Acid", "value": "acid"}, {"label": "Cold", "value": "cold"}, {"label": "Sonic", "value": "sonic"}, {"label": "Electricity", "value": "electricity"}]
+      - key: "Resistance"
+        type: "{item|flags.system.rulesSelections.featCelestialResistance}"
+        value: 5
   Night Magic:
     feat_type:
       - Ancestry
@@ -2599,6 +3241,10 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Niasa
+    rules:
+      - key: "FlatModifier"
+        selector: "land-speed"
+        value: 5
   Nimble Sil:
     feat_type:
       - Ancestry
@@ -2631,6 +3277,12 @@ pf2e_feats:
       level: 9
       skill: Occultism/expert
       heritage: Changeling
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["item:trait:occult"]
   One-Toed Hop:
     feat_type:
       - Ancestry
@@ -2774,6 +3426,16 @@ pf2e_feats:
     shortdesc: "You were hatched from an unfertilized egg during hard times for your people, and are a biological copy of your mother. You gain a +1 circumstance bonus to saving throws against diseases. If you roll a success on a saving throw against a disease, you get a critical success instead. If you have a different ability that would improve the save in this way (such as the battle hardened fighter class feature), if you roll a critical failure on the save you get a failure instead.%r%rYou take damage only every 2 hours from thirst and every 2 days from starvation, rather than every hour and every day.%r%r**Special** You can select this feat only at 1st level."
     prereq:
       level: 1
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["item:trait:disease"]
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["item:trait:disease"]
   Pervasive Superstition:
     feat_type:
       - Ancestry
@@ -2786,6 +3448,9 @@ pf2e_feats:
       level: 9
       feat:
         - Oruch Superstition
+    rules:
+      - key: "RollOption"
+        option: "orc-superstition"
   Pitborn:
     feat_type:
       - Ancestry
@@ -2818,6 +3483,15 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Niasa
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.athletics.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "feat"
+        prompt: "Select a skill feat."
+        choices: [{"value": "Compendium.pf2e.feats-srd.Item.Armor Assist"}, {"value": "Compendium.pf2e.feats-srd.Item.Combat Climber"}, {"value": "Compendium.pf2e.feats-srd.Item.Hefty Hauler"}, {"value": "Compendium.pf2e.feats-srd.Item.Quick Jump"}, {"value": "Compendium.pf2e.feats-srd.Item.Titan Wrestler"}, {"value": "Compendium.pf2e.feats-srd.Item.Underwater Marauder"}]
   Prairie Rider:
     feat_type:
       - Ancestry
@@ -2831,6 +3505,16 @@ pf2e_feats:
     shortdesc: You grew up riding your clan's shaggy ponies and riding dogs. You become trained in Nature. If you would automatically become trained in Nature (from your background or class, for example), you instead become trained in a skill of your choice. You also get a +1 circumstance bonus to Command an Animal if the target is a traditional bassin mount, such as a pony or riding dog.
     prereq:
       level: 1
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.nature.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "FlatModifier"
+        selector: "nature"
+        type: "circumstance"
+        value: 1
+        predicate: ["action:command-an-animal", {"or": ["target:pony", "target:riding-dog"]}]
   Pride in Arms:
     feat_type:
       - Ancestry
@@ -2946,6 +3630,23 @@ pf2e_feats:
     prereq:
       level: 9
       heritage: Ashen One
+    rules:
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        value: "ternary(gte(@weapon.system.runes.potency,3),2,1)"
+        damageType: "vitality"
+        slug: "spirit-strikes-undead"
+        predicate: ["target:mode:undead"]
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        value: "ternary(gte(@weapon.system.runes.potency,3),2,1)"
+        damageType: "void"
+        slug: "spirit-strikes-living"
+        predicate: ["target:mode:living"]
+      - key: "AdjustStrike"
+        property: "traits"
+        mode: "add"
+        value: "magical"
   Rallying Cry:
     feat_type:
       - Ancestry
@@ -2982,6 +3683,11 @@ pf2e_feats:
     shortdesc: You have a pet rat that has become magically bonded to you. You gain a familiar, and this familiar must be a rat. It still gets the benefits of familiar abilities, but its base form remains a rat.
     prereq:
       level: 1
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.attributes.familiarAbilities.value"
+        mode: "upgrade"
+        value: 2
   Rat Form:
     feat_type:
       - Ancestry
@@ -3058,6 +3764,11 @@ pf2e_feats:
     prereq:
       level: 5
     actions: free
+    rules:
+      - key: "Note"
+        selector: "initiative"
+        title: "{item|name}"
+        text: "You interact and draw a weapon."
   Remorseless Lash:
     feat_type:
       - Ancestry
@@ -3068,6 +3779,13 @@ pf2e_feats:
     shortdesc: You're skilled at beating an enemy when their morale is already breaking. When you succeed at a melee weapon Strike against a Frightened enemy, that enemy can't reduce their frightened condition below 1 until the beginning of your next turn.
     prereq:
       level: 1
+    rules:
+      - key: "Note"
+        selector: "strike-attack-roll"
+        outcome: ["success", "criticalSuccess"]
+        title: "{item|name}"
+        text: "{item|system.description.value}"
+        predicate: ["target:condition:frightened", "item:melee"]
   Reptile Speaker:
     feat_type:
       - Ancestry
@@ -3105,6 +3823,10 @@ pf2e_feats:
     prereq:
       level: 13
       heritage: Ashen One
+    rules:
+      - key: "Resistance"
+        type: "void"
+        value: 5
   Rock Runner:
     feat_type:
       - Ancestry
@@ -3115,6 +3837,17 @@ pf2e_feats:
     shortdesc: Your innate connection to stone makes you adept at moving across uneven surfaces. You can ignore difficult terrain caused by stone (such as rubble or gravel) and uneven ground made of stone and earth. In addition, when you use the Acrobatics skill to Balance on narrow surfaces or uneven ground made of stone or earth, you aren't off-guard, and when you roll a success at one of these Acrobatics checks, you get a critical success instead.
     prereq:
       level: 1
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "acrobatics"
+        adjustment: {"success": "one-degree-better"}
+        type: "save"
+        predicate: ["action:balance", {"or": ["terrain:stone", "terrain:earth"]}]
+      - key: "Note"
+        selector: "acrobatics"
+        title: "{item|name}"
+        text: "When you use the Acrobatics skill to Balance on narrow surfaces or uneven ground made of stone or earth, you aren't off-guard, and when you roll a success at one of these Acrobatics checks, you get a critical success instead."
+        predicate: ["action:balance"]
   Rough Rider:
     feat_type:
       - Ancestry
@@ -3128,6 +3861,12 @@ pf2e_feats:
     shortdesc: "You are especially good at riding traditional goblin mounts. You gain the Ride feat, even if you don't meet the prerequisites. You gain a +1 circumstance bonus to Nature checks to use Command an Animal on a goblin dog or wolf mount.%r%rIf you gain a wolf as an animal companion, it gains the mount special ability (and if you gain an ability that grants you an animal companion with the mount special ability, you can choose a wolf)."
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "nature"
+        type: "circumstance"
+        value: 1
+        predicate: ["action:command-an-animal", {"or": ["target:goblin-dog", "target:wolf"]}]
   Runtsage:
     feat_type:
       - Ancestry
@@ -3148,6 +3887,10 @@ pf2e_feats:
     shortdesc: Unlike most of your kind, who dismiss goblins as embarrassments or expendable annoyances, you have studied the methodology behind their irresponsible and incomprehensible actions. You gain the Adopted Ancestry general feat and must select goblin as the feat's chosen ancestry. You also gain one 1st-level goblin ancestry feat.
     prereq:
       level: 5
+    rules:
+      - key: "ChoiceSet"
+        prompt: "Select a 1st-level ancestry feat."
+        choices: {"filter": ["item:level:1", "item:category:ancestry", "item:trait:goblin"], "itemType": "feat"}
   Scar-Thick Skin:
     feat_type:
       - Ancestry
@@ -3158,6 +3901,13 @@ pf2e_feats:
     shortdesc: Glorious, storied scars cover and protect much of your body, girding you in fleshly armor that resists any wound weaker than those you have already survived. Your DC on flat checks to end persistent bleed damage is reduced from 15 to 10, or from 10 to a 5 after receiving especially appropriate assistance.
     prereq:
       level: 5
+    rules:
+      - key: "ItemAlteration"
+        itemType: "condition"
+        property: "pd-recovery-dc"
+        mode: "downgrade"
+        value: 10
+        predicate: ["item:damage:type:bleed"]
   Scavenger's Search:
     feat_type:
       - Ancestry
@@ -3168,6 +3918,12 @@ pf2e_feats:
     shortdesc: You're always on the lookout for supplies and valuables. You gain a +2 circumstance bonus to locate objects (including secret doors and hazards) you search for within 30 feet with a Seek action.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        predicate: ["item:tag:object"]
   Scion Transformation:
     feat_type:
       - Ancestry
@@ -3179,6 +3935,20 @@ pf2e_feats:
     shortdesc: You go into hibernation for twenty-four hours and perform a ritual dedicated to your ancestors, undergoing a one-time metamorphosis. You permanently gain the effects of *enlarge*, and your maximum Hit Points increase by your level. The ritual transforms most of your gear to the appropriate size for your new body (though powerful items like artifacts or items strongly tied to their original size may not transform, at the GM's discretion).
     prereq:
       level: 17
+    rules:
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "@actor.level"
+      - key: "FlatModifier"
+        selector: "melee-strike-damage"
+        type: "status"
+        value: 2
+      - key: "CreatureSize"
+        reach: {"override": 10}
+        value: "large"
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Clumsy"
+        inMemoryOnly: true
   Scion of Many Planes:
     feat_type:
       - Ancestry
@@ -3209,6 +3979,11 @@ pf2e_feats:
       orheritage:
         - Aesa
         - Niasa
+    rules:
+      - key: "ChoiceSet"
+        flag: "lineage"
+        prompt: "Pick a lineage feat"
+        choices: {"filter": ["item:trait:lineage", "item:trait:nephilim", "item:type:feat"]}
   Sense Allies:
     feat_type:
       - Ancestry
@@ -3378,6 +4153,20 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Changeling
+    rules:
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "claw"
+        damage: {"base": {"damageType": "slashing", "dice": 1, "die": "d6"}}
+        traits: ["grapple"]
+        slug: "slag-may-claw"
+        label: "Claw"
+      - key: "AdjustStrike"
+        property: "materials"
+        mode: "add"
+        definition: ["item:slug:slag-may-claw"]
+        value: "cold-iron"
   Slip Sideways:
     feat_type:
       - Ancestry
@@ -3432,6 +4221,15 @@ pf2e_feats:
       heritage: Skyborn Egalrin
     actions: 1
     frequency: once per round
+    rules:
+      - key: "RollOption"
+        option: "soaring-flight"
+        toggleable: true
+        predicate: [{"not": "feat:soaring-form"}]
+      - key: "BaseSpeed"
+        selector: "fly"
+        value: 20
+        predicate: ["soaring-flight"]
   Soaring Form:
     feat_type:
       - Ancestry
@@ -3444,6 +4242,10 @@ pf2e_feats:
       level: 9
       feat:
         - Soaring Flight
+    rules:
+      - key: "BaseSpeed"
+        selector: "fly"
+        value: 20
   Spell Devourer:
     feat_type:
       - Ancestry
@@ -3456,6 +4258,13 @@ pf2e_feats:
       level: 13
       feat:
         - Pervasive Superstition
+    rules:
+      - key: "Note"
+        selector: "saving-throw"
+        outcome: ["criticalSuccess", "success"]
+        title: "{item|name}"
+        text: "Whenever you succeed at a saving throw against a spell or magical effect, you gain temporary Hit Points equal to double the spell's rank, or equal to the level if the magical effect isn't a spell. These temporary Hit Points last until the end of your next turn."
+        predicate: [{"or": ["arcane", "divine", "primal", "occult", "magical"]}]
   Spirit Soother:
     feat_type:
       - Ancestry
@@ -3477,6 +4286,12 @@ pf2e_feats:
     prereq:
       level: 5
       heritage: Ashen One
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 1
+        predicate: ["origin:trait:haunt"]
   Squad Tactics:
     feat_type:
       - Ancestry
@@ -3487,6 +4302,11 @@ pf2e_feats:
     shortdesc: You are adept at working with your allies to surround an enemy. If an enemy is within reach of you and at least two of your allies, that enemy is Off-Guard to you.
     prereq:
       level: 9
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.attributes.flanking.canGangUp"
+        mode: "add"
+        value: 2
   Squawk!:
     feat_type:
       - Ancestry
@@ -3530,6 +4350,12 @@ pf2e_feats:
     shortdesc: You've mastered the art of composure, even in the face of fear. You gain a +1 circumstance bonus to saves against effects with the fear trait and a +2 circumstance bonus to your Will DC against Intimidation skill actions, such as Demoralize.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["item:trait:fear"]
   Stonegate:
     feat_type:
       - Ancestry
@@ -3564,6 +4390,16 @@ pf2e_feats:
     shortdesc: "You understand the intricacies of stonework. You become trained in Crafting. If you're already trained in Crafting, you instead gain the Specialty Crafting skill feat for stonemasonry.%r%rYou also gain a +2 circumstance bonus to Perception checks to notice unusual stonework. This bonus applies to checks to discover mechanical traps made of stone or hidden within stone.%r%rIf you aren't using the Seek action or searching, the GM automatically rolls a secret check for you to notice unusual stonework anyway. This check doesn't gain your normal circumstance bonus."
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        predicate: ["action:seek", "terrain:unusual-stonework"]
+      - key: "ActiveEffectLike"
+        path: "system.skills.crafting.rank"
+        mode: "upgrade"
+        value: 1
   Stonewalker:
     feat_type:
       - Ancestry
@@ -3633,6 +4469,12 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Dar
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 1
+        predicate: [{"or": ["action:sense-motive", "action:lie"]}]
   Stubborn Persistence:
     feat_type:
       - Ancestry
@@ -3703,6 +4545,25 @@ pf2e_feats:
     shortdesc: Whether keeping your balance or climbing, your feet easily find purchase. If you roll a success on an Acrobatics check to Balance or an Athletics check to Climb, you get a critical success instead. You're not off-guard when you attempt to Balance or Climb.
     prereq:
       level: 1
+    rules:
+      - key: "Note"
+        selector: "acrobatics"
+        title: "{item|name}"
+        text: "If you roll a success on an Acrobatics check to Balance, you get a critical success instead. You're not off-guard when you attempt to Balance."
+        predicate: ["action:balance"]
+      - key: "Note"
+        selector: "athletics"
+        title: "{item|name}"
+        text: "If you roll a success on an Athletics check to Climb, you get a critical success instead. You're not off-guard when you attempt to Climb."
+        predicate: ["action:climb"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "acrobatics"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["action:balance"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "athletics"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["action:climb"]
   Svetocher:
     feat_type:
       - Ancestry
@@ -3729,6 +4590,20 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Dar
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.diplomacy.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "AdjustModifier"
+        mode: "add"
+        selector: "fortitude"
+        value: 1
+        slug: "drained"
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "@actor.level"
+        predicate: ["self:condition:drained"]
   Swift Swimmer:
     feat_type:
       - Ancestry
@@ -3739,6 +4614,14 @@ pf2e_feats:
     shortdesc: "You gain a swim Speed of 15 feet.%r%r**Special** If you have the makar ciith heritage, your swim Speed instead increases to 25 feet."
     prereq:
       level: 5
+    rules:
+      - key: "BaseSpeed"
+        selector: "swim"
+        value: 15
+      - key: "BaseSpeed"
+        selector: "swim"
+        value: 25
+        predicate: ["heritage:wetlander-lizardfolk"]
   Symphony of Blood:
     feat_type:
       - Ancestry
@@ -3776,6 +4659,16 @@ pf2e_feats:
     shortdesc: You channel strength from the earth beneath your feet to pummel your enemies. When making a melee Strike against a target who is standing on the same earth or stone surface as you are, you gain a circumstance bonus to the damage roll equal to the number of weapon damage dice.
     prereq:
       level: 13
+    rules:
+      - key: "FlatModifier"
+        selector: "melee-strike-damage"
+        type: "circumstance"
+        value: "@weapon.system.damage.dice"
+        predicate: ["telluric-power"]
+      - key: "RollOption"
+        option: "telluric-power"
+        domain: "damage"
+        toggleable: true
   Terrain Advantage:
     feat_type:
       - Ancestry
@@ -3811,6 +4704,11 @@ pf2e_feats:
     shortdesc: You're trained in Crafting. If you are trained in Crafting from another source (from your background or class, for example), you instead become trained in a skill of your choice. You can Repair an item without using a repair toolkit without taking the –2 circumstance penalty, improvising tools from whatever you have at hand. You gain a +1 circumstance bonus to Crafting checks to Repair an item when you have a repair toolkit.
     prereq:
       level: 1
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.crafting.rank"
+        mode: "upgrade"
+        value: 1
   Titan Slinger:
     feat_type:
       - Ancestry
@@ -3821,6 +4719,11 @@ pf2e_feats:
     shortdesc: You have learned how to use your sling to fell enormous creatures. When you hit on an attack with a weapon of the sling group against a Large or larger creature, increase the size of the weapon damage die by one step.
     prereq:
       level: 1
+    rules:
+      - key: "DamageDice"
+        selector: "sling-weapon-group-damage"
+        override: {"upgrade": true}
+        predicate: [{"gte": ["target:size", 3]}]
   Toppling Dance:
     feat_type:
       - Ancestry
@@ -3833,6 +4736,16 @@ pf2e_feats:
       level: 13
       feat:
         - Dance Underfoot
+    rules:
+      - key: "RollOption"
+        option: "toppling-dance"
+        toggleable: true
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "traits"
+        mode: "add"
+        value: "trip"
+        predicate: ["item:melee", "toppling-dance"]
   Tree Climber (Sildanyar):
     feat_type:
       - Ancestry
@@ -3873,6 +4786,17 @@ pf2e_feats:
     shortdesc: "You've learned techniques first devised by your ancestors during their ancient conflicts with the khazad-rukh, allowing you to comfortably wear massive suits of armor. Ignore the reduction to your Speed from any armor you wear.%r%rIn addition, any time you're taking a penalty to your Speed for some other reason (such as from the encumbered condition or from a spell), deduct 5 feet from the penalty. For example, the encumbered condition normally gives a –10-foot penalty to Speed, but this feat would reduce it to a –5-foot penalty. If your Speed is taking multiple penalties, pick only one penalty to reduce."
     prereq:
       level: 1
+    rules:
+      - key: "AdjustModifier"
+        selectors: ["land-speed"]
+        suppress: true
+        slug: "armor-speed-penalty"
+      - key: "AdjustModifier"
+        mode: "add"
+        selectors: ["land-speed"]
+        maxApplications: 1
+        value: 5
+        predicate: [{"not": "penalty:slug:armor-speed-penalty"}, {"lte": ["penalty:value", -5]}]
   Uncanny Agility:
     feat_type:
       - Ancestry
@@ -3931,6 +4855,27 @@ pf2e_feats:
     prereq:
       level: 5
       heritage: Dar
+    rules:
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        type: "circumstance"
+        value: "@weapon.system.damage.dice"
+        slug: "undead-slayer"
+        predicate: ["target:mode:undead"]
+      - key: "AdjustModifier"
+        mode: "multiply"
+        selector: "strike-damage"
+        value: "2"
+        slug: "undead-slayer"
+        predicate: ["target:trait:vampire"]
+      - key: "RollOption"
+        option: "target:mode:undead"
+        toggleable: "totm"
+        label: "Enable abilities that require an undead target"
+      - key: "RollOption"
+        option: "target:trait:vampire"
+        toggleable: "totm"
+        label: "Enable abilities that require a vampire target"
   Undying Ferocity:
     feat_type:
       - Ancestry
@@ -3992,6 +4937,17 @@ pf2e_feats:
     shortdesc: "Your mystic control and meditations allow you to resist external influences upon your consciousness. Whenever you are affected by a mental effect that lasts at least 2 rounds, you can reduce the duration by 1 round.%r%rYou still require natural sleep, but you treat your saving throws against effects that would cause you to fall asleep as one degree of success better. This protects only against sleep effects, not against other forms of falling unconscious."
     prereq:
       level: 1
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"all": "one-degree-better"}
+        type: "save"
+        predicate: ["sleep"]
+      - key: "Note"
+        selector: "saving-throw"
+        title: "{item|name}"
+        text: "Treat your saving throws against effects that would cause you to fall asleep as one degree of success better."
+        predicate: ["sleep"]
   Vampire Lore:
     feat_type:
       - Ancestry
@@ -4020,6 +4976,15 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Dar
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.society.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
   Vandal:
     feat_type:
       - Ancestry
@@ -4033,6 +4998,11 @@ pf2e_feats:
     shortdesc: "You have a knack for breaking and dismantling things. Putting them back together is the boring part, so you largely don't bother with that. You become trained in Thievery. If you would automatically become trained in Thievery (from your background or class, for example), you instead become trained in a skill of your choice.%r%rIn addition, whenever you hit with a Strike against a trap or an unattended object, you ignore the first 5 points of the object's Hardness."
     prereq:
       level: 5
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.thievery.rank"
+        mode: "upgrade"
+        value: 1
   Very Sneaky:
     feat_type:
       - Ancestry
@@ -4065,6 +5035,16 @@ pf2e_feats:
     shortdesc: Your jaws unarmed attack deals 1d6 piercing damage instead of 1d4, and gains the backstabber trait. You can file down your teeth and regrow them later on, enabling you to select this feat at any level, and to retrain into and out of this feat.
     prereq:
       level: 1
+    rules:
+      - key: "DamageDice"
+        selector: "jaws-damage"
+        override: {"dieSize": "d6"}
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "traits"
+        mode: "add"
+        value: "backstabber"
+        predicate: ["item:slug:jaws"]
   Vigorous Health:
     feat_type:
       - Ancestry
@@ -4106,6 +5086,12 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Dar
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "circumstance"
+        value: 1
+        predicate: ["action:make-an-impression", {"or": ["target:tag:bat", "target:tag:rat", "target:tag:wolf"]}]
   War Conditioning:
     feat_type:
       - Ancestry
@@ -4116,6 +5102,11 @@ pf2e_feats:
     shortdesc: You have extensive training in remote environments, allowing you to move through these areas easily. When you gain this feat, you can choose to gain either a climb Speed of 20 feet or a swim Speed of 20 feet.
     prereq:
       level: 13
+    rules:
+      - key: "ChoiceSet"
+        flag: "warConditioning"
+        prompt: "Select a movement type."
+        choices: [{"label": "Climb", "value": "climb"}, {"label": "Swim", "value": "swim"}]
   Ward Against Corruption:
     feat_type:
       - Ancestry
@@ -4137,6 +5128,18 @@ pf2e_feats:
     prereq:
       level: 5
       heritage: Ashen One
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: [{"or": ["item:trait:death", "item:trait:disease", "origin:mode:undead", "origin:trait:sakhil"]}]
+      - key: "AdjustModifier"
+        mode: "add"
+        selector: "saving-throw"
+        value: 1
+        slug: "ward-against-corruption"
+        predicate: [{"or": ["item:trait:disease", "item:trait:death"]}, {"or": ["origin:mode:undead", "origin:trait:sakhil"]}]
   Warren Digger:
     feat_type:
       - Ancestry
@@ -4147,6 +5150,10 @@ pf2e_feats:
     shortdesc: You've learned to put your sturdy claws to work digging through the earth. You gain a burrow Speed of 15 feet.
     prereq:
       level: 13
+    rules:
+      - key: "BaseSpeed"
+        selector: "burrow"
+        value: 15
   Warren Navigator:
     feat_type:
       - Ancestry
@@ -4160,6 +5167,18 @@ pf2e_feats:
     shortdesc: You gain the trained proficiency rank in Survival. If you would automatically become trained in Survival (from your background or class, for example), you become trained in another skill of your choice. When you Sense Direction or attempt a roll against a *quandary* spell, you get a result one degree of success better than you rolled. You don't take a penalty to Sense Direction when you lack a compass.
     prereq:
       level: 1
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.survival.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "AdjustDegreeOfSuccess"
+        selector: "all"
+        adjustment: {"all": "one-degree-better"}
+        predicate: [{"or": ["action:sense-direction", "item:slug:quandary"]}]
+      - key: "RollOption"
+        option: "compass-in-possession"
+        domain: "skill-check"
   Watchful Bassin:
     feat_type:
       - Ancestry

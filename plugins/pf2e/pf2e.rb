@@ -60,6 +60,10 @@ module AresMUSH
           return PF2ShowSheetCmd
         when "combat"
           return PF2DisplayCombatSheetCmd
+        when "why"
+          return PF2StatBreakdownCmd
+        when "option", "options"
+          return PF2RollOptionCmd
         else
           return PF2DisplaySheetCmd
         end
@@ -148,8 +152,57 @@ module AresMUSH
         when "set"
           return PF2ConditionSetCmd
         end
-      when "encounter", "initiative", "init"
+      when "effect"
         case cmd.switch
+        when "add"
+          return PF2EffectAddCmd
+        when "remove"
+          return PF2EffectRemoveCmd
+        when "view"
+          return PF2EffectViewCmd
+        when "search"
+          return PF2EffectSearchCmd
+        end
+      when "effects"
+        return PF2EffectListCmd
+      when "action"
+        # `action/available/combat` arrives as one switch.
+        return PF2ActionAvailableCmd if cmd.switch.to_s.start_with?('available')
+
+        case cmd.switch
+        when "use"
+          return PF2ActionUseCmd
+        when "search"
+          return PF2ActionSearchCmd
+        when nil
+          return PF2ActionViewCmd
+        end
+      when "encounter", "initiative", "init", "e"
+        case cmd.switch
+        when "act"
+          return PF2EncounterActCmd
+        when "strike"
+          return PF2EncounterStrikeCmd
+        when "cast"
+          return PF2EncounterCastCmd
+        when "as"
+          return PF2EncounterAsCmd
+        when "why"
+          return PF2EncounterWhyCmd
+        when "turn"
+          return PF2EncounterTurnCmd
+        when "cover"
+          return PF2EncounterCoverCmd
+        when "conceal"
+          return PF2EncounterConcealCmd
+        when "trust", "untrust"
+          return PF2EncounterTrustCmd
+        when "creature"
+          return PF2EncounterCreatureCmd
+        when "bestiary"
+          return PF2EncounterBestiaryCmd
+        when "enter", "leave"
+          return PF2EncounterAuraCmd
         when "start"
           return PF2InitiateCombatCmd
         when "view"
@@ -285,6 +338,12 @@ module AresMUSH
         return PF2SkillFeatsHandler
       when "pf2DedicationFeats"
         return PF2DedicationFeatsHandler
+      when "pf2Encounter"
+        return PF2EncounterHandler
+      when "pf2Actions"
+        return PF2ActionsHandler
+      when "pf2LastRoll"
+        return PF2LastRollHandler
       end
 
       nil

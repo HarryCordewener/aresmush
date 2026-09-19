@@ -1,0 +1,1111 @@
+---
+"Ainamuuren":
+  pack: "gatewalkers-bestiary"
+  level: 12
+  size: "large"
+  rarity: "unique"
+  traits: ["cold", "humanoid"]
+  ac: 32
+  hp: 215
+  perception: 23
+  saves: {"fortitude": 23, "reflex": 22, "will": 23}
+  abilities: {"cha": 0, "con": 5, "dex": 4, "int": 0, "str": 7, "wis": 5}
+  speeds: {"land": 35}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 25, "Stealth": 22}
+  immunities: ["cold", "controlled", "disease"]
+  resistances: {"fire": 10, "mental": 10}
+  strikes: [{"name": "Tentacle", "bonus": 26, "damage": [["3d6+10", "bludgeoning", null]], "traits": ["reach-10", "unarmed"], "effects": ["Blackfrost Dead Blackfrost"]}, {"name": "Horns", "bonus": 26, "damage": [["3d8+10", "bludgeoning", null], ["1d6", "cold", null]], "traits": ["agile", "cold", "unarmed"], "effects": ["Knockdown"]}]
+  actions: [{"name": "+1 Status Bonus to Saves Against Holy Spells and Effects", "type": "passive", "traits": []}, {"name": "Blackfrost Evasion", "type": "reaction", "traits": [], "text": "Trigger Ainamuuren takes at least 35 physical damage from a single attack, and he isn't currently discorporated%rEffect Ainamuuren discorporates into a whirling blizzard of blackfrost for 3 rounds. During this time, he gains resistance 10 to physical damage and weakness 10 to force damage. He gains a fly Speed of 40 feet, but the only action he can take is to Fly. While discorporated, the first time each round that Ainamuuren enters another creature's space or a creature enters Ainamuuren's…"}, {"name": "Reactive Strike (Tentacle Only)", "type": "reaction", "traits": []}, {"name": "Reactive Tentacles", "type": "passive", "traits": [], "text": "At the start of his turn, when Ainamuuren regains his actions, he gains an additional reaction that can be used only to make an Attack of Opportunity."}, {"name": "Dreams of the Blackfrost Whale", "type": "action", "traits": ["incapacitation", "mental"], "cost": 2, "text": "Frequency once per day%rEffect Ainamuuren fixes his many-eyed gaze upon a single target he can see within 60 feet, then opens wide his maw to release a torrent of whispers channeled from Osoyo's slumbering mind. The targeted creature must attempt a DC 32 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature endures a brief moment where they believe they are imprisoned in the ice, as Osoyo has been for thousands of years, and is Slowed 1 for 1 round.%rFailure The vision…"}, {"name": "Invasive Blackfrost", "type": "passive", "traits": ["cold", "curse", "disease", "occult"], "text": "Gatewalker characters are not immune to blackfrost effects inflicted by Ainamuuren%rThis affliction can't be reduced below stage 1, nor the damage from it healed, until successfully treated with Cleanse Affliction or a similar effect; the affliction can then be removed as a normal disease. A creature that dies from cold damage while cursed with blackfrost rises as a blackfrost dead after 24 hours. Blackfrost has a counteract rank of 10.%rSaving Throw DC 32 Fortitude%rStage 1 4d6 cold (1…"}, {"name": "Twist Deviance", "type": "action", "traits": ["mental", "occult"], "cost": 2, "text": "Ainamuuren reaches out, then clutches his fingers into a fist and twists his arm, as if he were wrenching and tugging. At the same moment, all gatewalkers in a 60-foot that Ainamuuren can see feel the signs they've worn on their bodies since they emerged from their Missing Moment spike with pain, as if Ainamuuren had Grabbed that flesh and was twisting and tearing it. The targets must attempt a DC 32 Will save. Ainamuuren can't use Twist Deviance again for 1d4 rounds.%rCritical Success The…"}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 32, "attack": 24, "spells": {"0": ["Daze"], "5": ["Slither", "Synaptic Pulse"], "6": ["Never Mind", "Phantasmal Calamity"]}}]
+"Alkoasha":
+  pack: "gatewalkers-bestiary"
+  level: 6
+  size: "huge"
+  rarity: "unique"
+  traits: ["beast"]
+  ac: 23
+  hp: 90
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 12, "will": 10}
+  abilities: {"cha": -1, "con": 5, "dex": 4, "int": -3, "str": 7, "wis": 2}
+  speeds: {"land": 25, "burrow": 25}
+  hp_details: "hydra regeneration"
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 17, "Stealth": 12}
+  strikes: [{"name": "Fangs", "bonus": 16, "damage": [["2d6+7", "piercing", null]], "traits": ["reach-10"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Hydra Regeneration", "type": "passive", "traits": [], "text": "The hydra has regeneration equal to 3 x the number of heads it has. If a hydra's body is missing any heads and the remaining stumps have not been cauterized, the hydra attempts a DC 25 Fortitude save after it regains Hit Points from regeneration. On a success, one uncauterized stump regrows one head; on a critical success, two uncauterized stumps regrow. The hydra's regeneration only fully deactivates if all its heads are severed and all stumps are cauterized, at which point it dies."}, {"name": "Alkoasha's Head Regrowth", "type": "passive", "traits": [], "text": "Alkoasha has ten heads. A creature can attempt to sever one of the hydra's heads by specifically targeting it and dealing damage equal to the head's Hit Points. A head that is not completely severed returns to full Hit Points at the end of any creature's turn.%rAlkoasha can regrow a severed head using Hydra Regeneration. A creature can prevent this regrowth by dealing acid or fire damage to the stump, cauterizing it. Single-target acid or fire effects need to be targeted at a specific stump,…"}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Multiple Opportunities", "type": "passive", "traits": [], "text": "A hydra gains an extra reaction per round for each of its heads beyond the first, which it can use only to make Attacks of Opportunity. It can't use more than 1 reaction on the same triggering action, even if a creature leaves several squares within its reach, and the hydra must use a different head for each Attack of Opportunity it makes. Whenever one of the hydra's heads is severed, the hydra loses 1 of its extra reactions per round."}, {"name": "Focused Assault", "type": "action", "traits": [], "cost": 2, "text": "The hydra attacks a single target with its heads, overwhelming its foe with multiple attacks and leaving almost nowhere to dodge. The hydra Strikes with its fangs. On a successful attack, the hydra deals damage from its fangs Strike to the target, plus an additional 1d6 damage for every head it has beyond the first. Even on a failed attack, the hydra deals the damage from one fangs Strike to the target creature, though it still misses completely on a critical failure. This counts toward the…"}, {"name": "Storm of Jaws", "type": "action", "traits": [], "cost": 2, "text": "The hydra makes a number of Strikes up to its number of heads, each against a different target. These attacks count toward the hydra's multiple attack penalty, but the multiple attack penalty doesn't increase until after the hydra makes all its attacks."}]
+"Amelekana":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "large"
+  rarity: "uncommon"
+  traits: ["amphibious", "beast"]
+  ac: 21
+  hp: 72
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 11, "will": 14}
+  abilities: {"cha": 0, "con": 4, "dex": 1, "int": -3, "str": 5, "wis": 4}
+  speeds: {"land": 20, "swim": 20}
+  senses: ["lifesense"]
+  skills: {"Acrobatics": 10, "Athletics": 10, "Stealth": 12, "Survival": 12}
+  strikes: [{"name": "Pseudopod", "bonus": 13, "damage": [["2d4+8", "bludgeoning", null]], "traits": ["unarmed"]}, {"name": "Lob Amoeba", "bonus": 14, "damage": [["2d4+8", "bludgeoning", null]], "traits": [], "effects": ["Lob Amoeba"]}]
+  actions: [{"name": "Lifesense 100 feet", "type": "passive", "traits": []}, {"name": "Reflective Shell", "type": "passive", "traits": [], "text": "An amelekana submerged in water gains a +4 circumstance bonus to Stealth checks. If the water is moving, this bonus increases to +8."}, {"name": "Lob Amoeba", "type": "action", "traits": [], "cost": 1, "text": "The amelekana flings a Symbiotic Amoeba at a target within 40 feet—this is a ranged attack that doesn't count toward the amelekana's multiple attack penalty, and its multiple attack penalty doesn't apply to this attack.%rSuccess The target takes (2d4+8) bludgeoning and the symbiotic amoeba lands in a square adjacent to the target.%rFailure The target takes no damage, but the symbiotic amoeba still spawns in a square adjacent to the target.%rCritical Failure The target takes no damage and the…"}, {"name": "Symbiotic Amoeba", "type": "passive", "traits": [], "text": "An amoeba produced by the amelekana is a Tiny, mindless, semi-independent creature controlled by the amelekana. It has the minion trait, AC 15, 1 Hit Point, and the same skills and saving throws as the amelekana. Each round, the amelekana can Command a Minion to make an amoeba Step or Swim 20 feet and make a pseudopod Strike (Melee pseudopod +13, Damage 2d4 acid). If an amelekana is killed, its symbiotic amoebas are also killed by the host creature's psychic backlash. An amelekana can have up…"}]
+"Ancient Tupilaq":
+  pack: "gatewalkers-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["construct"]
+  ac: 32
+  hp: 145
+  perception: 22
+  saves: {"fortitude": 22, "reflex": 20, "will": 18}
+  abilities: {"cha": -5, "con": 5, "dex": 5, "int": -5, "str": 7, "wis": 5}
+  speeds: {"land": 40, "swim": 40}
+  senses: ["darkvision"]
+  skills: {"Athletics": 24}
+  immunities: ["mental"]
+  strikes: [{"name": "Jaws", "bonus": 24, "damage": [["2d8 + 13", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Construct Armor (Hardness 11)", "type": "passive", "traits": [], "text": "Like normal objects, a tupilaq has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a tupilaq is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, it loses its Hardness, and its Armor Class is reduced to 28."}, {"name": "Carver's Curse", "type": "passive", "traits": [], "text": "When a tupilaq is created, the curse imparted by its creator manifests in the form of a single 5th-rank Lightning Bolt the tupilaq can cast three times per day. The particular spell is a reflection of the creator's wish for vengeance."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 30, "attack": 22, "spells": {"5": ["Lightning Bolt"]}}]
+"Animate Dream":
+  pack: "gatewalkers-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["dream", "incorporeal"]
+  ac: 24
+  hp: 110
+  perception: 14
+  saves: {"fortitude": 15, "reflex": 18, "will": 14}
+  abilities: {"cha": 6, "con": 3, "dex": 4, "int": 0, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Deception": 18, "Intimidation": 18, "Occultism": 12, "Stealth": 18}
+  immunities: ["disease", "paralyzed", "poison", "precision", "sleep"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Nightmare Tendril", "bonus": 20, "damage": [["4d8", "void", null]], "traits": ["agile", "finesse"], "effects": ["Endless Nightmare"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Endless Nightmare", "type": "passive", "traits": ["curse", "emotion", "fear", "mental", "occult"], "text": "An animate dream's touch fills the victim's mind with terrifying visions%rSaving Throw DC 26 Fortitude%rStage 1 Fatigued (1 day)%rStage 2 fatigued and Stupefied 1 (1 day)%rStage 3 The victim falls Unconscious and can't be awakened as long as they remain at this stage (1 day)."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 26, "attack": 16, "spells": {"3": ["Fear"], "4": ["Confusion", "Nightmare", "Sleep", "Translocate (At Will)", "Vision of Death"]}}]
+"Apothecary's Cabinet":
+  pack: "gatewalkers-bestiary"
+  level: 6
+  size: "large"
+  rarity: "rare"
+  traits: ["construct", "mindless"]
+  ac: 24
+  hp: 80
+  perception: 11
+  saves: {"fortitude": 17, "reflex": 11, "will": 11}
+  abilities: {"cha": -5, "con": 5, "dex": -3, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 15}
+  senses: ["darkvision"]
+  skills: {"Athletics": 15}
+  strikes: [{"name": "Drawer", "bonus": 17, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["magical"]}, {"name": "Poison Bottle", "bonus": 14, "damage": [["2d6+3", "bludgeoning", null]], "traits": ["magical", "thrown-20"], "effects": ["Poison Stock"]}]
+  actions: [{"name": "Construct Armor (Hardness 10)", "type": "passive", "traits": [], "text": "Like normal objects, an apothecary's cabinet has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once an apothecary's cabinet is reduced to fewer than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 20."}, {"name": "Poison Stock", "type": "passive", "traits": [], "text": "When the cabinet hits a creature with its poison bottle Strike, roll 1d4 to determine what kind of poison splashes onto the struck creature:%rnerve poison (Clumsy 1) weakening poison (Enfeebled 1) noxious poison (Sickened 1) clouded mind poison (Stupefied 1). The target must attempt a DC 24 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 1d6 poison.%rFailure The creature takes 2d6 poison and is afflicted with the rolled poison's associated condition…"}]
+"Arctic Bloom":
+  pack: "gatewalkers-bestiary"
+  level: 8
+  size: "large"
+  rarity: "uncommon"
+  traits: ["mindless", "plant"]
+  ac: 24
+  hp: 170
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 11, "will": 13}
+  abilities: {"cha": 0, "con": 6, "dex": -5, "int": -5, "str": 6, "wis": 3}
+  speeds: {"land": 10, "climb": 10}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 18, "Stealth": 7}
+  immunities: ["visual"]
+  weaknesses: {"fire": 5, "slashing": 5}
+  resistances: {"cold": 10}
+  strikes: [{"name": "Bite", "bonus": 18, "damage": [["2d12+8", "piercing", null]], "traits": ["reach-10", "unarmed"], "effects": ["Improved Grab"]}, {"name": "Spore Sap", "bonus": 7, "damage": [], "traits": [], "effects": ["Alluring Spores"]}]
+  actions: [{"name": "Alluring Spores", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 19 Fortitude%rMaximum Duration 6 rounds%rStage 1 Fascinated by the arctic bloom (1 round)%rStage 2 Controlled by the arctic bloom (1 round)"}, {"name": "Feed", "type": "action", "traits": [], "cost": 3, "text": "The arctic bloom draws nutrients from a living creature it has swallowed, regaining (3d8+24) healing HP. The swallowed creature takes (2d12+8) bludgeoning damage."}, {"name": "Paralyzing Poison", "type": "passive", "traits": ["poison"], "text": "The plants send out runner shoots that quickly develop purple bulbs. These bulbs, the plant's polyps, sprout many long, hooked vines before detaching from the mother plant. Dusk poppies are short lived but active, foraging for a week or so before they shrivel and die. The poppies aren't dangerous unless handled, as they secrete a fine dust that seizes the nervous system of creatures who come in contact with them.%rSaving Throw DC 19 Fortitude%rMaximum Duration 6 rounds%rStage 1 Off-Guard and…"}, {"name": "Pheromones", "type": "passive", "traits": ["aura"], "text": "5 miles. Arctic blooms communicate with others of their kind via airborne pheromones. They can use this form of communication to determine their relative distance to each other, call for help if they are under attack or need sustenance, announce that they've detected prey, and convey similar basic concepts. Pheromones coat everything within the aura and allow dusk poppies to perceive with their pheromones."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Medium, (2d12+8) bludgeoning, Rupture 18"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Aspect of Ruun":
+  pack: "gatewalkers-bestiary"
+  level: 5
+  size: "small"
+  rarity: "uncommon"
+  traits: ["beast", "incorporeal", "spirit"]
+  ac: 22
+  hp: 75
+  perception: 15
+  saves: {"fortitude": 9, "reflex": 12, "will": 15}
+  abilities: {"cha": 2, "con": 0, "dex": 3, "int": 2, "str": 0, "wis": 5}
+  speeds: {"land": 10, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Diplomacy": 13, "Nature": 14, "Survival": 12}
+  immunities: ["cold"]
+  strikes: [{"name": "Talon", "bonus": 13, "damage": [["2d6+3", "force", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Warning Hoot", "type": "free", "traits": ["auditory"], "text": "Trigger The stone-breasted owl is about to roll a Perception or Survival check to determine initiative%rEffect The stone-breasted owl lets out a hoot to warn allies, granting each ally a +1 circumstance bonus to their initiative roll.%rEffect: Warning Hoot"}, {"name": "Bond with Mortal", "type": "action", "traits": ["mental", "primal"], "cost": 2, "text": "Frequency once per day%rEffect The spirit guide forms a bond with a mortal creature. While the bond exists, the spirit guide's current and maximum Hit Points increase by 14, the spirit guide gains a +2 status bonus to attack and damage rolls, and the spirit guide and bonded mortal can communicate telepathically as long as they're on the same plane. The spirit guide can be bonded with only one mortal at a time, and can take this action again to end the bond or to form a new bond (which also ends…"}, {"name": "Bonded Strike", "type": "action", "traits": [], "cost": 2, "text": "Requirements The spirit guide is currently Bonded with a Mortal%rEffect The spirit guide makes a talon Strike. If this attack hits, the bonded mortal can spend their reaction to Strike the same target."}, {"name": "Empowered Healing", "type": "passive", "traits": [], "text": "When the stone-breasted owl casts heal, it rolls d10s instead of d8s."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Guidance", "Know the Way", "Stabilize"], "1": ["Cleanse Cuisine", "Detect Poison"], "2": ["Clear Mind", "Sound Body"], "3": ["Cleanse Affliction", "Heal"], "5": ["Truespeech (Constant)"]}}]
+"Blackfrost Guecubu":
+  pack: "gatewalkers-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "rare"
+  traits: ["cold", "earth", "undead"]
+  ac: 27
+  hp: 110
+  perception: 15
+  saves: {"fortitude": 17, "reflex": 16, "will": 15}
+  abilities: {"cha": 3, "con": 3, "dex": 4, "int": 4, "str": 6, "wis": 3}
+  speeds: {"land": 25, "burrow": 15}
+  hp_details: "void healing"
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 16, "Athletics": 18, "Intimidation": 15, "Stealth": 16}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"electricity": 10, "physical": 10}
+  strikes: [{"name": "Jaws", "bonus": 20, "damage": [["2d8+8", "piercing", null]], "traits": ["agile", "unarmed"], "effects": ["Blackfrost Dead Blackfrost", "Wrathful Misfortune"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blackfrost", "type": "passive", "traits": ["cold", "curse", "disease", "occult"], "text": "This affliction can't be reduced below stage 1, nor the damage from it healed, until successfully treated with Cleanse Affliction or a similar effect; the affliction can then be removed as a normal disease. A creature that dies from cold damage while cursed with blackfrost rises as a blackfrost dead after 24 hours. Blackfrost has a counteract rank of 10.%rSaving Throw DC 27 Fortitude%rStage 1 4d6 cold (1 minute)%rStage 2 weakness to cold 5 and Drained 1 (1 day)%rStage 3 weakness to cold 10 and…"}, {"name": "Break Ground", "type": "action", "traits": ["arcane", "earth"], "cost": 2, "text": "The guecubu stomps, and the ground breaks and ripples in a 30-foot, erupting in razor-sharp, crisscrossing spikes of rock that deal 3d8 piercing|options:area-damage damage to creatures in the area (DC 26 Reflex save).%rThe area becomes difficult terrain and hazardous terrain, with each square dealing 3 piercing damage to a creature that moves through it. A guecubu is immune to these effects.%rGround under the effects of a Consecrate ritual or a Circle of Protection spell tuned against evil or…"}, {"name": "Shattering Death", "type": "passive", "traits": ["cold"], "text": "When the blackfrost guecubu is destroyed, it shatters and fills the air around it with a cloud of razor-sharp shards of ice. Creatures in a 10-foot take 8d8 cold|options:area-damage (DC 26 Reflex). Creatures that critically fail this save also take 1d6 bleed."}, {"name": "Shove into Ice", "type": "passive", "traits": ["arcane", "earth"], "text": "When the blackfrost guecubu successfully Shoves a creature into an ice or frozen earth barrier, the target must succeed at a DC 26 Reflex save or become merged with the barrier, with the effects of One with Stone until the target Escapes."}, {"name": "Tundra Glide", "type": "passive", "traits": [], "text": "The blackfrost guecubu can Burrow through any frozen earth, ice, or snow, not including rock. When it does so, the blackfrost guecubu moves at its full burrow Speed, leaving no tunnels or signs of its passing."}, {"name": "Wrathful Misfortune", "type": "passive", "traits": ["arcane", "curse"], "text": "A creature damaged by a guecubu must succeed at a DC 26 Will save or become cursed with consummate bad luck. The creature becomes Clumsy 2.%rEach time that creature rolls initiative, on their next roll they must roll twice and use the worse result; this is a misfortune effect."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 26, "attack": 18, "spells": {"4": ["Shape Stone (At Will)"]}}]
+"Blackfrost Prophet":
+  pack: "gatewalkers-bestiary"
+  level: 9
+  size: "large"
+  rarity: "rare"
+  traits: ["cold", "undead", "unholy"]
+  ac: 28
+  hp: 180
+  perception: 21
+  saves: {"fortitude": 20, "reflex": 18, "will": 18}
+  abilities: {"cha": 1, "con": 5, "dex": 4, "int": 2, "str": 6, "wis": 4}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 21, "Intimidation": 18, "Stealth": 17}
+  immunities: ["bleed", "cold", "death-effects", "disease", "mental", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 10}
+  strikes: [{"name": "Halberd", "bonus": 21, "damage": [["2d10+10", "piercing", null]], "traits": ["magical", "reach-10", "versatile-s"]}, {"name": "Horns", "bonus": 21, "damage": [["2d6+6", "bludgeoning", null], ["2d6", "cold", null]], "traits": ["agile"], "effects": ["Blackfrost"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Ice Climb 30 feet", "type": "passive", "traits": [], "text": "The blackfrost dead can climb on ice as though it had the listed climb Speed. It ignores difficult terrain and greater difficult terrain from ice and snow and doesn't risk falling when crossing ice."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blackfrost", "type": "passive", "traits": ["cold", "curse", "disease", "occult"], "text": "This affliction can't be reduced below stage 1, nor the damage from it healed, until successfully treated with Cleanse Affliction or a similar effect; the affliction can then be removed as a normal disease. A creature that dies from cold damage while cursed with blackfrost rises as a blackfrost dead after 24 hours. Blackfrost has a counteract rank of 10.%rSaving Throw DC 27 Fortitude%rStage 1 4d6 cold (1 minute)%rStage 2 weakness to cold 5 and Drained 1 (1 day)%rStage 3 weakness to cold 10 and…"}, {"name": "Imprison Mind", "type": "action", "traits": ["mental", "occult"], "cost": 2, "text": "The blackfrost prophet concentrates on a creature within 60 feet, filling the target's mind with befuddling susurrations. The creature must succeed at a DC 28 Will save or take (4d8+8) mental and become Stupefied 1 for 1 minute (Stupefied 2 on a critical failure). The creature is Slowed 1 as long as it's stupefied."}, {"name": "Raise Blackfrost", "type": "action", "traits": ["cold", "occult"], "cost": 2, "text": "The blackfrost prophet selects a point within 60 feet, then calls upon shards of blackfrost to stab up through the crust in a 30-foot. Creatures in the area take 2d8 piercing damage plus 2d8 cold damage (DC 28 Reflex). A creature that takes cold damage from this ability is exposed to blackfrost. Until the next time the blackfrost prophet uses Raise Blackfrost, the affected area is difficult terrain."}]
+"Blackfrost Zombie":
+  pack: "gatewalkers-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "rare"
+  traits: ["cold", "mindless", "undead", "unholy", "zombie"]
+  ac: 23
+  hp: 120
+  perception: 10
+  saves: {"fortitude": 16, "reflex": 12, "will": 8}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -5, "str": 5, "wis": 0}
+  speeds: {"land": 20}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 15}
+  immunities: ["bleed", "cold", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 5}
+  strikes: [{"name": "Fist", "bonus": 15, "damage": [["2d6+5", "bludgeoning", null], ["1d6", "cold", null]], "traits": ["unarmed"]}, {"name": "Jaws", "bonus": 15, "damage": [["2d4+5", "piercing", null], ["1d6", "cold", null]], "traits": ["unarmed"], "effects": ["Blackfrost"]}]
+  actions: [{"name": "Ice Climb 20 feet", "type": "passive", "traits": [], "text": "The blackfrost dead can climb on ice as though it had the listed climb Speed. It ignores difficult terrain and greater difficult terrain from ice and snow and doesn't risk falling when crossing ice."}, {"name": "Opportune Bite", "type": "reaction", "traits": [], "text": "Trigger A creature critically fails a Strike within 10 feet of the blackfrost zombie%rEffect The blackfrost zombie Steps toward the triggering creature, then makes a jaws Strike against that creature."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blackfrost", "type": "passive", "traits": ["cold", "curse", "disease", "occult"], "text": "This affliction can't be reduced below stage 1, nor the damage from it healed, until successfully treated with Cleanse Affliction or a similar effect; the affliction can then be removed as a normal disease. A creature that dies from cold damage while cursed with blackfrost rises as a blackfrost dead after 24 hours. Blackfrost has a counteract rank of 10.%rSaving Throw DC 27 Fortitude%rStage 1 4d6 cold (1 minute)%rStage 2 weakness to cold 5 and Drained 1 (1 day)%rStage 3 weakness to cold 10 and…"}, {"name": "Blackfrost Breath", "type": "action", "traits": ["occult"], "cost": 2, "text": "The blackfrost dead gasps sharply, then exhales a mist of dark-blue blackfrost particles in a 5-foot. All creatures within the mist become Concealed, and all creatures outside the mist become concealed to creatures within it. The mist persists for 1 minute. A creature that ends its turn in the mist is exposed to blackfrost. The blackfrost dead can't use Blackfrost Breath again for 1d4 rounds."}]
+"Bolan Nogasso":
+  pack: "gatewalkers-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 18
+  hp: 40
+  perception: 11
+  saves: {"fortitude": 8, "reflex": 8, "will": 11}
+  abilities: {"cha": 2, "con": 0, "dex": 2, "int": 0, "str": 2, "wis": 4}
+  speeds: {"land": 20}
+  skills: {"Acrobatics": 7, "Athletics": 7, "Intimidation": 8, "Nature": 8, "Stealth": 5, "Survival": 8}
+  strikes: [{"name": "Staff", "bonus": 9, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["magical", "two-hand-d8"]}]
+  actions: [{"name": "Guardian Thorns", "type": "action", "traits": ["primal"], "cost": 2, "text": "Bolan compels plant-based materials within 10 feet of him to grow sharp thorns and spiky branches. This ability affects all walls, floors, and large objects made from dead organic material, such as wood. Affected areas become difficult terrain. Non-fey and non-plant creatures in the affected area or those who move through an affected square take 2d10 piercing|options:area-damage (DC 18 Reflex). This ability does not affect stone, dirt, living plants, or other materials. The effect ends when…"}, {"name": "Item Treachery", "type": "action", "traits": ["primal"], "cost": 1, "text": "Bolan targets a held item (such as a bow stave, wooden shield, or scroll) within 60 feet composed, at least partially, of wood, cotton, or other dead plant matter. The plant-based part of this item animates and attempts to wriggle free of its holder's grasp. The holder must attempt a DC 18 Reflex save.%rSuccess The creature holds onto the item with no ill effect.%rFailure The creature struggles to hold onto the item. Until the start of the creature's next turn, attempts to Disarm the creature…"}, {"name": "Vengeful Fibers", "type": "action", "traits": ["primal"], "cost": 1, "text": "A piece of clothing animates and attacks its wearer at Bolan's command. Bolan targets a creature within 60 feet wearing clothing made from plants, such as cotton, hemp, or grass. The clothing chokes its wearer, restricts their movement, and abrades their skin. The target takes 2d10 bludgeoning (DC 18 Fortitude). A creature that takes damage in this way is also Off-Guard and takes a –10-foot circumstance penalty to Speed until the beginning of Bolan's next turn.%rEffect: Vengeful Fibers"}]
+  spellcasting: [{"name": "Druid Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 18, "attack": 10, "spells": {"0": ["Caustic Blast", "Frostbite", "Guidance", "Light", "Tangle Vine"], "1": ["Breathe Fire", "Fleet Step", "Runic Body", "Runic Weapon"]}}, {"name": "Druid Order Spells", "tradition": "primal", "type": "focus", "dc": 18, "attack": 10, "spells": {"1": ["Untamed Shift"]}}]
+"Capstan Swabbie":
+  pack: "gatewalkers-bestiary"
+  level: 7
+  size: "large"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 25
+  hp: 115
+  perception: 12
+  saves: {"fortitude": 17, "reflex": 12, "will": 10}
+  abilities: {"cha": -5, "con": 5, "dex": 2, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 17}
+  strikes: [{"name": "Anchor", "bonus": 18, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["reach-10"]}, {"name": "Rope", "bonus": 18, "damage": [["2d6+9", "slashing", null]], "traits": ["disarm", "reach-10"], "effects": ["Knockdown"]}, {"name": "Anchor", "bonus": 14, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["tethered", "thrown-30"]}]
+  actions: [{"name": "Attached Anchor", "type": "passive", "traits": [], "text": "A capstan swabbie is attached to its anchor by a 100-foot-long rope, most of which it keeps coiled around its body. If the capstan swabbie tries to move more than 100 feet from its attached anchor, its Speed is reduced to 10 feet as it drags the anchor along with it. If this rope is severed (AC 12 when uncoiled, Hardness 4, HP 16), the capstan swabbie can move freely, but its ranged anchor Strike loses the tethered trait."}, {"name": "Mate's Expertise", "type": "passive", "traits": [], "text": "The capstan swabbie can use Athletics to Aid an ally's Sailing Lore check (to hoist or lower sails or the anchor, for instance). On a success or critical success, the capstan swabbie grants its ally a +2 circumstance bonus to the triggering check."}, {"name": "Jury-Rig", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "The capstan swabbie uses built-in tools to quickly patch itself up. The swabbie gains 10 temporary Hit Points. The swabbie can also use this section on an adjacent section of a ship. The temporary Hit Points last for 1 minute. The target is then temporarily immune for 1 hour.%rEffect: Jury-Rig"}, {"name": "Loose the Pawls", "type": "action", "traits": [], "cost": 2, "text": "The capstan swabbie spins around rapidly, its loose ropes whipping everyone in reach. The capstan swabbie makes a rope Strike against each creature within 10 feet and compares its attack roll to the AC of each creature within 10 feet."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Captain Salah":
+  pack: "gatewalkers-bestiary"
+  level: 3
+  size: "large"
+  rarity: "unique"
+  traits: ["beast", "centaur", "humanoid"]
+  ac: 20
+  hp: 40
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 9, "will": 9}
+  abilities: {"cha": 1, "con": 1, "dex": 2, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Athletics": 11, "Diplomacy": 6, "Intimidation": 6, "Nature": 7, "Survival": 7}
+  strikes: [{"name": "Hoof", "bonus": 9, "damage": [["1d10+4", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Longsword", "bonus": 11, "damage": [["1d8+4", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Spear", "bonus": 11, "damage": [["1d6+4", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 9, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, hoof, DC 18 Reflex"}]
+"Cliffhunter Pteranodon":
+  pack: "gatewalkers-bestiary"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 18
+  hp: 35
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 10, "will": 6}
+  abilities: {"cha": -1, "con": 1, "dex": 4, "int": -4, "str": 3, "wis": 2}
+  speeds: {"land": 10, "fly": 40}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 10, "Athletics": 7}
+  strikes: [{"name": "Beak", "bonus": 10, "damage": [["1d10+3", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Pluck", "type": "free", "traits": [], "text": "The cliff hunter pteranodon attempts to fling its prey of a cliff or into some other hazardous situation%rFrequency once per round%rTrigger The pteranodon's last action this turn was a successful beak Strike. The pteranodon can use this ability mid-Swoop%rEffect The pteranodon attempts to fling the struck creature into harm's way. The pteranodon makes an Athletics check against the target's Fortitude DC.%rSuccess The target creature is flung 15 feet in a direction of the pteranodon's choosing…"}, {"name": "Swoop", "type": "action", "traits": [], "cost": 2, "text": "The pteranodon Flies up to its Speed and makes one beak Strike at any point during that movement."}]
+"Creeping Evil":
+  pack: "gatewalkers-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["mindless", "ooze", "unholy"]
+  ac: 16
+  hp: 185
+  perception: 11
+  saves: {"fortitude": 20, "reflex": 12, "will": 13}
+  abilities: {"cha": -5, "con": 6, "dex": 0, "int": -4, "str": 6, "wis": 1}
+  speeds: {"land": 20, "climb": 20}
+  senses: ["motion-sense"]
+  skills: {"Athletics": 20, "Stealth": 17}
+  immunities: ["visual", "bleed", "critical-hits", "mental", "precision", "unconscious"]
+  weaknesses: {"holy": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Pseudopod", "bonus": 20, "damage": [["2d8+9", "bludgeoning", null], ["2d6", "void", null]], "traits": [], "effects": ["Grab"]}]
+  actions: [{"name": "Motion Sense", "type": "passive", "traits": [], "text": "A creeping evil can feel nearby motion through vibration and air movement."}, {"name": "Slithering Strike", "type": "action", "traits": [], "cost": 2, "text": "The creeping evil Strides twice, then makes a pseudopod Strike. The target is Off-Guard against this Strike unless it has seen a Slithering Strike before."}, {"name": "Stir Doubts", "type": "action", "traits": ["concentrate", "emotion", "fear", "mental"], "cost": 2, "text": "The creeping evil reaches psychically into a creature's innermost thoughts, taking hold of that creature's insecurities and bringing them to front of mind. One creature Grabbed or Restrained by the creeping evil takes 4d8 mental damage (DC 28 Will save). A creature that fails the save is also Frightened 1 (or Frightened 2 on a critical failure)."}, {"name": "Variable Volume", "type": "action", "traits": ["concentrate", "move"], "cost": 1, "text": "The creeping evil squeezes itself into a container or other space large enough to fit a Tiny creature. It can exit the container by taking this action again, immediately returning to its normal size. If creatures or objects would occupy the creeping evil's space, it automatically pushes those creatures and objects out of the way to fill a space."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Crownbound Constellation":
+  pack: "gatewalkers-bestiary"
+  level: 8
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["astral"]
+  ac: 30
+  hp: 98
+  perception: 19
+  saves: {"fortitude": 19, "reflex": 16, "will": 13}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": 4, "str": 7, "wis": 3}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 16, "Athletics": 21, "Stealth": 16, "Lamashtu Lore": 14, "Star Lore": 16}
+  immunities: ["electricity", "precision", "swarm-mind", "holy"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  resistances: {"bludgeoning": 5, "slashing": 8, "piercing": 8}
+  strikes: [{"name": "Star Greatsword", "bonus": 21, "damage": [["2d12+10", "slashing", null]], "traits": ["magical", "versatile-p"], "effects": ["Starburst"]}, {"name": "Star Composite Longbow", "bonus": 18, "damage": [["2d8+7", "piercing", null]], "traits": ["deadly-d10", "magical", "reload-0", "volley-30"], "range": 100, "effects": ["Starburst"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Solar Instability", "type": "passive", "traits": [], "text": "The crownbound constellation is Fatigued and Invisible when in direct contact with the rays of the sun."}, {"name": "Starlight", "type": "passive", "traits": ["aura", "light"], "text": "15 feet. The glow of the crownbound constellation creates dim light. It can suppress or resume this ability as a free action."}, {"name": "Dazzling Assault", "type": "action", "traits": ["visual"], "cost": 1, "text": "Each enemy in the crownbound constellation's space takes 7d4 bludgeoning (DC 23 Reflex). Creatures that fail this save are also Dazzled until the end of their next turn."}, {"name": "Star Weapons", "type": "action", "traits": [], "cost": 1, "text": "The crownbound constellation reforms its two weapons as +1 striking common or uncommon simple or martial weapons. These star weapons can't be disarmed, broken, dropped, destroyed, or stolen. Ranged star weapons don't require ammunition and those with a reload of 2 have a reload of 0 instead. When the crownbound constellation dies or uses its swarm shape its star weapons disappear."}, {"name": "Starburst", "type": "passive", "traits": ["visual"], "text": "A creature that takes damage from a crownbound constellation's attack must succeed at a DC 23 Fortitude save or be Dazzled for 1 minute."}, {"name": "Swarm Shape", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The crownbound constellation disperses into a shapeless swarm of Small stars. It drops all held, worn, and carried items. While discorporated, the crownbound constellation can't use attack actions, but it has a fly Speed of 40 feet and can move through areas small enough for its individual stars to fit without having to Squeeze. It can use Swarm Shape again to coalesce back into its normal form, at which point its star weapons reappear."}]
+"Delphon":
+  pack: "gatewalkers-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "rare"
+  traits: ["dwarf", "humanoid"]
+  ac: 16
+  hp: 15
+  perception: 6
+  saves: {"fortitude": 4, "reflex": 6, "will": 8}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": -2, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Intimidation": 5, "Nature": 6}
+  strikes: [{"name": "Staff", "bonus": 6, "damage": [["1d4+2", "bludgeoning", null]], "traits": ["two-hand-d8"]}, {"name": "Acid Flask (Lesser)", "bonus": 5, "damage": [["1d6", "acid", null], ["1", "acid", "splash"]], "traits": ["bomb", "consumable", "splash"], "range": 30}]
+  actions: [{"name": "Untamed Shift", "type": "action", "traits": ["concentrate", "manipulate", "morph", "primal"], "cost": 2, "text": "Frequency once per day%rEffect The Oaksteward's hands transform into wild claws for 1 minute. The Oaksteward gains the following Strike.%rMelee 1 claw +7 (agile, finesse), Damage 1d6+2 slashing"}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 16, "attack": 8, "spells": {"0": ["Frostbite", "Light", "Stabilize", "Tangle Vine"], "1": ["Fear", "Runic Weapon"]}}]
+"Demonic Muckrager":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "large"
+  rarity: "common"
+  traits: ["earth", "elemental", "unholy"]
+  ac: 20
+  hp: 85
+  perception: 10
+  saves: {"fortitude": 14, "reflex": 9, "will": 10}
+  abilities: {"cha": 0, "con": 4, "dex": 1, "int": -1, "str": 4, "wis": 3}
+  speeds: {"land": 50, "burrow": 30}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 12}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"cold-iron": 5, "holy": 5}
+  strikes: [{"name": "Lance Arm", "bonus": 14, "damage": [["2d8+6", "piercing", null]], "traits": ["deadly-d8", "reach-10"], "effects": ["Lancing Charge"]}, {"name": "Hoof", "bonus": 14, "damage": [["2d6+6", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Tremorsense 60 feet", "type": "passive", "traits": []}, {"name": "Earth Glide", "type": "passive", "traits": [], "text": "An earthen destrier can Burrow through earthen matter, including rock. When it does so, it moves at its full burrow Speed, leaving no tunnels or signs of its passing."}, {"name": "Lancing Charge", "type": "passive", "traits": [], "text": "If the destrier moved at least 10 feet directly before its lance arm Strike, it gains a +2 circumstance bonus to its damage roll."}, {"name": "Tilting Strike", "type": "reaction", "traits": [], "text": "Trigger The earthen destrier tramples a creature%rEffect The earthen destrier makes a lance arm Strike against the creature it's trampling at a -5 penalty."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, hoof, DC 20 Reflex"}]
+"Demontangle":
+  pack: "gatewalkers-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["aquatic", "ooze", "unholy"]
+  ac: 12
+  hp: 170
+  perception: 9
+  saves: {"fortitude": 16, "reflex": 6, "will": 9}
+  abilities: {"cha": -5, "con": 5, "dex": -5, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 15, "swim": 30}
+  skills: {"Athletics": 15}
+  immunities: ["critical-hits", "mental", "unconscious"]
+  weaknesses: {"bludgeoning": 5, "cold-iron": 5, "holy": 5}
+  strikes: [{"name": "Tendril", "bonus": 15, "damage": [["2d8 + 6", "bludgeoning", null]], "traits": [], "effects": ["Grab", "Nauseating Slap"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "30 feet. DC 19 Fortitude"}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d8+6) bludgeoning, DC 22 Fortitude"}, {"name": "Nauseating Slap", "type": "passive", "traits": ["poison"], "text": "A living creature struck by a demontangle's tendril must attempt a DC 19 Fortitude save. On a failure, the creature becomes Sickened 1. If the creature is already sickened, the condition value increases by 1, to a maximum of sickened 4.%rOnce a creature succeeds at its saving throw, it is temporarily immune for 24 hours."}, {"name": "Saturated", "type": "passive", "traits": [], "text": "A demontangle can survive for 1 hour out of the water, after which it risks drowning and suffocation."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Deniigi":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 11, "will": 8}
+  abilities: {"cha": 0, "con": 2, "dex": 1, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Athletics": 12, "Intimidation": 8, "Nature": 8, "Stealth": 10, "Survival": 12, "Hunting Lore": 13}
+  strikes: [{"name": "Dagger", "bonus": 12, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 12, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}, {"name": "Spear", "bonus": 12, "damage": [["1d6+4", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 12, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Arctic Forager", "type": "passive", "traits": [], "text": "While using Survival to Subsist in arctic environments, if Deniigi rolls a failure or a critical failure, she gets a success instead. If Deniigi rolls a success, she can provide food for 4 additional creatures that eat about as much as a human, or 8 creatures on a critical success."}, {"name": "Snow Tracker", "type": "passive", "traits": [], "text": "In an arctic environment, Deniigi can Track while moving at full speed."}, {"name": "Cooperative Hunting", "type": "passive", "traits": [], "text": "After Deniigi attempts a Strike at a Large or larger target (regardless of success or failure), the next Strike one of her allies makes against the same target gains a +2 circumstance bonus to the attack roll.%rEffect: Cooperative Hunting"}]
+"Desa-Desa":
+  pack: "gatewalkers-bestiary"
+  level: 2
+  size: "small"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 18
+  hp: 34
+  perception: 10
+  saves: {"fortitude": 5, "reflex": 11, "will": 8}
+  abilities: {"cha": 1, "con": 1, "dex": 5, "int": -4, "str": 2, "wis": 4}
+  speeds: {"land": 40, "climb": 20}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 8, "Athletics": 7, "Stealth": 9, "Survival": 8}
+  weaknesses: {"electricity": 2}
+  resistances: {"fire": 4}
+  strikes: [{"name": "Bite", "bonus": 11, "damage": [["1d4+2", "piercing", null]], "traits": [], "effects": ["Bubble Venom"]}]
+  actions: [{"name": "Bubble Venom", "type": "passive", "traits": [], "text": "A creature bit by a desa-desa breaks out in large, painful blisters which expand and pop as water in the victim's body turns into volatile gasses. Magical healing of any kind counteracts the bubble venom%rSaving Throw DC 18 Fortitude%rMaximum Duration 6 rounds%rStage 1 weakness to fire 2 and 1d6 piercing (1 round)%rStage 2 weakness to fire 4 and 2d6 piercing (1 round)"}, {"name": "Fire Blast", "type": "action", "traits": ["arcane", "fire"], "cost": 2, "text": "The desa-desa releases a burst of explosive gasses in all directions, dealing 3d6 fire|options:area-damage to all creatures in a 5-foot. The desa-desa can't use Fire Blast again for 1d4 rounds."}, {"name": "Volatile Gasses", "type": "passive", "traits": [], "text": "Whenever a desa-desa takes electricity damage, it must attempt a DC 18 Fortitude save. On a failure, the sparks cause the desa-desa to immediately use Fire Blast if it can, and the desa-desa becomes off-guard for 1 round."}]
+"Dreamscraper":
+  pack: "gatewalkers-bestiary"
+  level: 7
+  size: "large"
+  rarity: "uncommon"
+  traits: ["aberration", "dream"]
+  ac: 24
+  hp: 115
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 18, "will": 15}
+  abilities: {"cha": 2, "con": 4, "dex": 6, "int": 2, "str": 2, "wis": 4}
+  speeds: {"land": 20, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Athletics": 13, "Deception": 13, "Stealth": 17, "Thievery": 15}
+  immunities: ["cold", "fatigued", "sleep"]
+  weaknesses: {"electricity": 5}
+  strikes: [{"name": "Claws", "bonus": 17, "damage": [["2d8+8", "void", null]], "traits": ["agile", "finesse", "magical"], "effects": ["Stolen Dreams"]}, {"name": "Dream Barb", "bonus": 16, "damage": [], "traits": ["incorporeal", "magical"], "effects": ["Stolen Dreams"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Tireless", "type": "passive", "traits": [], "text": "Dreamscrapers never sleep or dream themselves. They gain the benefits of an 8-hour rest after 1 hour of minimal activity."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 22 Will"}, {"name": "Dream Step", "type": "action", "traits": [], "cost": 1, "text": "The dreamscraper shifts to either the Dimension of Dreams or the Universe. While in the Dimension of Dreams, it can see clearly into the Universe with a range of 60 feet. On its first round in an encounter, the dreamscraper can use this ability once as a free action."}, {"name": "Stolen Dreams", "type": "passive", "traits": ["mental", "occult"], "text": "The dreamscraper catches hold of the target creature's dreams and tries to rip them away. The target must attempt a DC 22 Will save.%rSuccess The creature is unaffected.%rFailure The dreamscraper manages to only scrape at the target creature's dreams. The target becomes Fatigued.%rCritical Failure The dreamscraper rips the target's dreams away and captures them. The target creature becomes fatigued. Furthermore, the target can never dream, can't be affected by spells that cause or affect…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 25, "attack": 17, "spells": {"2": ["Darkness"], "4": ["Sleep", "Unfettered Movement (Constant)"]}}]
+"Elder Thing":
+  pack: "gatewalkers-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration", "amphibious"]
+  ac: 21
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 15, "reflex": 9, "will": 12}
+  abilities: {"cha": 3, "con": 4, "dex": 2, "int": 5, "str": 4, "wis": 3}
+  speeds: {"land": 25, "fly": 20, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Arcana": 14, "Athletics": 13, "Crafting": 12, "Medicine": 12, "Occultism": 14, "Survival": 12, "Thievery": 11, "Astronomy Lore": 14}
+  immunities: ["cold"]
+  resistances: {"fire": 5}
+  strikes: [{"name": "Tentacle", "bonus": 13, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "No Breath", "type": "passive", "traits": [], "text": "The elder thing doesn't breathe and is immune to effects that require breathing (such as inhaled poison)."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d6+6) bludgeoning, DC 22 Fortitude"}, {"name": "Hibernate", "type": "passive", "traits": [], "text": "The elder thing enters a state of hibernation after focusing its thoughts for 1 minute. While hibernating, an elder thing is Unconscious. The elder thing can remain in hibernation as long as it wishes—while hibernating, it doesn't need to eat or drink, nor does it age. Time effectively stands still for a hibernating elder thing. Any effect that would normally rouse an unconscious creature can end an elder thing's hibernation, but the elder thing must attempt a DC 25 Will save. On a success, the…"}, {"name": "Unnatural Flight", "type": "passive", "traits": [], "text": "The elder thing's wings allow it to fly in regions where flight is normally impossible, such as outer space. It gains a +2 circumstance bonus to checks made to Maneuver in Flight, and on saving throws against effects that impede flight."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Elder Thing Researcher":
+  pack: "gatewalkers-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration", "amphibious"]
+  ac: 29
+  hp: 218
+  perception: 21
+  saves: {"fortitude": 19, "reflex": 17, "will": 21}
+  abilities: {"cha": 3, "con": 5, "dex": 3, "int": 7, "str": 5, "wis": 5}
+  speeds: {"land": 25, "fly": 20, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Arcana": 21, "Athletics": 19, "Crafting": 21, "Medicine": 21, "Occultism": 23, "Survival": 19, "Thievery": 19, "Astronomy Lore": 14}
+  immunities: ["cold"]
+  resistances: {"fire": 10}
+  strikes: [{"name": "Tentacle", "bonus": 20, "damage": [["2d8+11", "bludgeoning", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "No Breath", "type": "passive", "traits": [], "text": "The elder thing doesn't breathe and is immune to effects that require breathing (such as inhaled poison)."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d8+11) bludgeoning, DC 29 Fortitude"}, {"name": "Eldritch Insight", "type": "action", "traits": ["occult"], "cost": 3, "text": "Frequency once per day%rEffect By focusing its senses and thoughts on a single concept, an elder thing researcher can draw upon the thousands of years of deep memories. It then selects one of the following skills: Arcana, any Lore, Nature, Religion, or Society. Once the skill is chosen, the elder thing researcher can attempt checks for the selected skill using its Occultism modifier. This effect lasts until the elder thing researcher uses Eldritch Insight again to change its focus. If no focus…"}, {"name": "Hibernate", "type": "passive", "traits": [], "text": "The elder thing enters a state of hibernation after focusing its thoughts for 1 minute. While hibernating, an elder thing is Unconscious. The elder thing can remain in hibernation as long as it wishes—while hibernating, it doesn't need to eat or drink, nor does it age. Time effectively stands still for a hibernating elder thing. Any effect that would normally rouse an unconscious creature can end an elder thing's hibernation, but the elder thing must attempt a DC 25 Will save. On a success, the…"}, {"name": "Unnatural Flight", "type": "passive", "traits": [], "text": "The elder thing's wings allow it to fly in regions where flight is normally impossible, such as outer space. It gains a +2 circumstance bonus to checks made to Maneuver in Flight, and on saving throws against effects that impede flight."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 29, "attack": 21, "spells": {"0": ["Daze", "Read Aura", "Sigil", "Telekinetic Hand", "Telekinetic Projectile"], "3": ["Hypercognition", "Mind Reading"], "4": ["Phantom Pain", "Rewrite Memory"], "5": ["Mind Probe", "Slither", "Summon Entity"]}}]
+"Equendia":
+  pack: "gatewalkers-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["cold", "mummy", "undead", "unholy"]
+  ac: 31
+  hp: 175
+  perception: 21
+  saves: {"fortitude": 22, "reflex": 21, "will": 21}
+  abilities: {"cha": 7, "con": 5, "dex": 4, "int": 5, "str": 7, "wis": 4}
+  speeds: {"land": 20}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Arcana": 20, "Athletics": 22, "Deception": 22, "Occultism": 22, "Survival": 21, "Astronomy Lore": 20}
+  immunities: ["bleed", "cold", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 10}
+  strikes: [{"name": "Fist", "bonus": 24, "damage": [["2d8+13", "bludgeoning", null], ["1d6", "cold", null]], "traits": ["agile", "magical", "unarmed"], "effects": ["Blackfrost Dead Blackfrost"]}, {"name": "Composite Longbow", "bonus": 22, "damage": [["2d6 + 13", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Great Despair", "type": "passive", "traits": ["aura", "emotion", "fear", "incapacitation", "mental", "occult"], "text": "30 feet. Living creatures are Frightened 1 while in Equendia's great despair aura. They can't naturally recover from this fear while in the area but recover instantly once they leave it. When a creature first enters the area, it must succeed at a DC 27 Will save (after taking the penalty from being frightened) or be Paralyzed for 1d4 rounds. The creature is then temporarily immune for 24 hours.%rEffect: Despair"}, {"name": "Snow Vision", "type": "passive", "traits": [], "text": "Equendia ignores the Concealed condition from falling snow."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blackfrost Rot", "type": "passive", "traits": ["cold", "curse", "disease", "occult"], "text": "This affliction can't be reduced below stage 1, nor the damage from it healed, until successfully treated with Cleanse Affliction or a similar effect; the affliction can then be removed as a normal disease. A creature that dies from cold damage while cursed with blackfrost rises as a blackfrost dead after 24 hours. Blackfrost has a counteract rank of 10.%rSaving Throw DC 30 Fortitude%rStage 1 4d6 cold (1 minute)%rStage 2 weakness to cold 5 and Drained 1 (1 day)%rStage 3 weakness to cold 10 and…"}, {"name": "Frozen Breath", "type": "action", "traits": ["cold", "concentrate", "divine"], "cost": 2, "text": "Equendia exhales a 60-foot of icy shards that deal 6d6 cold and 6d6 slashing (DC 30 Reflex). She can't use Frozen Breath again for 1d4 rounds."}, {"name": "Hissing Command", "type": "action", "traits": ["auditory"], "cost": 1, "text": "Equendia utters a swift command in Necril to strike at adjacent enemies. Any blackfrost zombies within 30 feet can use a reaction to attempt a melee Strike."}, {"name": "Invasive Blackfrost", "type": "passive", "traits": [], "text": "If a gatewalker is critically hit by any of Equendia's Strikes, the wound takes on an unnerving blackened appearance, as if from advanced frostbite or charring. For the next 24 hours, the gatewalker is no longer immune to blackfrost."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 30, "attack": 22, "spells": {"3": ["Enthrall (At Will)"], "4": ["Honeyed Words", "Suggestion"], "5": ["Command", "Subconscious Suggestion", "Truespeech"], "6": ["Dominate"]}}]
+"Etward Ritalson":
+  pack: "gatewalkers-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 28
+  hp: 140
+  perception: 18
+  saves: {"fortitude": 16, "reflex": 18, "will": 20}
+  abilities: {"cha": 2, "con": 1, "dex": 3, "int": 4, "str": 1, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Arcana": 17, "Crafting": 19, "Deception": 18, "Medicine": 20, "Occultism": 21, "Society": 19, "Survival": 18, "Academia Lore": 19}
+  strikes: [{"name": "Dagger", "bonus": 19, "damage": [["2d4+4", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Dagger", "bonus": 19, "damage": [["2d4+4", "piercing", null]], "traits": ["agile", "magical", "thrown-10", "versatile-s"]}, {"name": "Moderate Alchemist's Fire", "bonus": 19, "damage": [["2d8", "fire", null], ["2", "fire", "persistent"], ["2", "fire", "splash"]], "traits": ["splash"], "range": 30}]
+  actions: [{"name": "Infused Items", "type": "passive", "traits": [], "text": "Etward carries the following infused items, which last for 24 hours or until the next time he makes his daily preparations:%rAlchemist's Fire (Moderate) (8) Cognitive Mutagen (Moderate) Comprehension Elixir (Greater) (2) Elixir of Life (Moderate) (6) Psychic Colors Elixir Vat-Grown Brain Winter Wolf Elixir (Lesser) (2)"}, {"name": "Dream Invasion", "type": "passive", "traits": ["mental", "occult"], "text": "When Etward casts Dream Message and targets a gatewalker (like one of the PCs), he manifests inside the character's dream, appearing as he does when he cast the spell. (Typically, Etward disguises himself as a saumen kar when he does this, to further unnerve the target.) Rather than send a message to the target of a dream invasion, Etward can instead sift through the target's recent memories to gain a vague idea of what they did and where they were in the past 24 hours. This leaves the target…"}, {"name": "Nightmarish Attack", "type": "action", "traits": ["illusion", "mental", "occult"], "cost": 2, "text": "Requirements Etward has used Dream Invasion on the target at some point in the past%rEffect Etward draws upon a target's deepest fears and capitalizes upon the nature of their nightmares in an attempt to do them grievous harm. He attempts a melee dagger Strike against a target, and as he does so, that target briefly sees Etward's appearance change to reflect their deepest fear. Someone who's afraid of fire might see Etward and his dagger catch aflame. A person who fears darkness might see…"}, {"name": "Use Occult Scrolls", "type": "passive", "traits": [], "text": "Etward can Cast a Spell from scrolls, as long as it's an occult spell of 5th level or lower."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 28, "attack": 20, "spells": {"0": ["Daze", "Detect Magic", "Read Aura", "Telekinetic Projectile"], "2": ["Telekinetic Maneuver"], "4": ["Dream Message", "Nightmare"], "5": ["Telekinetic Haul", "Vision of Death"]}}]
+"Ghodrak the Quick":
+  pack: "gatewalkers-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["goblin", "hobgoblin", "humanoid"]
+  ac: 22
+  hp: 80
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 15, "will": 9}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 1, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 10, "Diplomacy": 12, "Intimidation": 13, "Stealth": 13, "Warfare Lore": 12}
+  strikes: [{"name": "Hatchet", "bonus": 14, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "sweep"]}, {"name": "Hatchet", "bonus": 14, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "thrown-10"]}]
+  actions: [{"name": "Into the Fray", "type": "free", "traits": [], "text": "Trigger Ghodrak rolls initiative%rEffect Ghodrak Interacts to draw one of his hatchets. On his turn, before doing anything else, he can Stride toward an enemy he can see as a free action."}, {"name": "Axe Critical Specialization", "type": "passive", "traits": [], "text": "When Ghodrak lands a critical hit with a hatchet Strike, he can choose one creature adjacent to the initial target (and within reach if the critical hit was a melee Strike). If the creature's AC is lower than Ghodrak's attack roll result for the critical hit, he deals damage to that creature equal to the result of the weapon damage die rolled. This amount isn't doubled, and no bonuses or other additional dice apply to this damage."}]
+"Glimmervine":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["mindless", "plant"]
+  ac: 21
+  hp: 90
+  perception: 11
+  saves: {"fortitude": 14, "reflex": 8, "will": 11}
+  abilities: {"cha": 1, "con": 3, "dex": 0, "int": -5, "str": 5, "wis": 4}
+  speeds: {"land": 10}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 12, "Stealth": 12}
+  weaknesses: {"fire": 5, "slashing": 5}
+  strikes: [{"name": "Vine", "bonus": 14, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["reach-10"], "effects": ["Grab"]}]
+  actions: [{"name": "Tremorsense (Precise) 60 feet", "type": "passive", "traits": []}, {"name": "Camouflage", "type": "passive", "traits": [], "text": "The glimmervine can hide in natural environments even if it doesn't have cover."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d6+4) bludgeoning, DC 21 Fortitude"}, {"name": "Dazzling Blooms", "type": "action", "traits": ["visual"], "cost": 1, "text": "The glimmervine shakes its iridescent blossoms to astound nearby foes. All creatures within 30 feet, except other glimmervines, must attempt a DC 21 Fortitude save. The glimmervine then can't use Dazzling Blooms for 1d4 rounds.%rSuccess The creature is unaffected.%rFailure The creature is Dazzled for 1 round.%rCritical Failure The creature is Blinded for 1 round, then dazzled for 1 round."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Gokeki":
+  pack: "gatewalkers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 19
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 10, "will": 8}
+  abilities: {"cha": -3, "con": 3, "dex": 3, "int": -5, "str": 4, "wis": 1}
+  speeds: {"land": 15, "climb": 15}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 12, "Stealth": 11}
+  strikes: [{"name": "Claw", "bonus": 11, "damage": [["2d6+5", "slashing", null]], "traits": ["unarmed"]}, {"name": "Harpoon", "bonus": 12, "damage": [["2d6+5", "piercing", null]], "traits": [], "effects": ["Barbed Filament"]}]
+  actions: [{"name": "Barbed Filament", "type": "passive", "traits": [], "text": "A creature hit by the tree fisher's barbed filament is Grabbed. The tree fisher can move while it has a creature grabbed with its filament, but automatically releases the Grab if the tree fisher moves beyond the filament's 60-foot length. A creature grabbed by the filament at the beginning of its turn takes 5 bleed.%rThe tree fisher can sever the filament and release any creature grabbed by it as a free action. The filament can be severed by a Strike that deals at least 10 slashing damage to…"}]
+"Green Monkey":
+  pack: "gatewalkers-bestiary"
+  level: 3
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["beast", "incorporeal", "spirit"]
+  ac: 19
+  hp: 50
+  perception: 12
+  saves: {"fortitude": 6, "reflex": 12, "will": 9}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 2, "str": 0, "wis": 2}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Stealth": 10, "Survival": 9, "Thievery": 10}
+  strikes: [{"name": "Jaws", "bonus": 12, "damage": [["1d8+6", "force", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Aura of Good Cheer", "type": "passive", "traits": ["aura", "emotion", "mental"], "text": "30 feet. The green monkey's affable demeanor is contagious. Allies within the aura gain a +1 status bonus to Will saves against emotion effects.%rEffect: Aura of Good Cheer"}, {"name": "Nimble Dodge", "type": "reaction", "traits": [], "text": "Trigger The green monkey is targeted with a melee or ranged attack by an attacker it can see%rEffect The green monkey gains a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Bond with Mortal", "type": "action", "traits": ["mental", "primal"], "cost": 2, "text": "Frequency once per day%rEffect The spirit guide forms a bond with a mortal creature. While the bond exists, the spirit guide's current and maximum Hit Points increase by 10, the spirit guide gains a +2 status bonus to attack and damage rolls, and the spirit guide and bonded mortal can communicate telepathically as long as they're on the same plane. The spirit guide can be bonded with only one mortal at a time, and can take this action again to end the bond or to form a new bond (which also ends…"}, {"name": "Bonded Strike", "type": "action", "traits": [], "cost": 2, "text": "Requirements The spirit guide is currently Bonded with a Mortal%rEffect The spirit guide makes a jaws Strike. If this attack hits, the bonded mortal can spend their reaction to Strike the same target."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 20, "attack": 12, "spells": {"1": ["Tailwind"], "2": ["Gecko Grip"], "5": ["Truespeech (Constant)"]}}]
+"Ilakni":
+  pack: "gatewalkers-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "humanoid"]
+  ac: 30
+  hp: 195
+  perception: 22
+  saves: {"fortitude": 18, "reflex": 22, "will": 22}
+  abilities: {"cha": 0, "con": 3, "dex": 5, "int": 7, "str": 6, "wis": 5}
+  speeds: {"land": 25, "burrow": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 23, "Occultism": 22}
+  immunities: ["cold"]
+  weaknesses: {"fire": 10}
+  resistances: {"slashing": 10}
+  strikes: [{"name": "Tentacle", "bonus": 22, "damage": [["2d8+12", "bludgeoning", null]], "traits": ["agile", "magical", "reach-10", "unarmed"], "effects": ["Grab"]}, {"name": "Blackfrost Ice Shard", "bonus": 22, "damage": [["2d6 + 6", "piercing", null], ["2d6", "cold", null]], "traits": ["occult"], "effects": ["Blackfrost Dead Blackfrost"]}]
+  actions: [{"name": "+1 Circumstance vs. Diseases and Poisons", "type": "passive", "traits": []}, {"name": "Blackfrost", "type": "passive", "traits": ["cold", "curse", "disease", "occult"], "text": "This affliction can't be reduced below stage 1, nor the damage from it healed, until successfully treated with Cleanse Affliction or a similar effect; the affliction can then be removed as a normal disease. A creature that dies from cold damage while cursed with blackfrost rises as a blackfrost dead after 24 hours. Blackfrost has a counteract rank of 10.%rSaving Throw DC 27 Fortitude%rStage 1 4d6 cold (1 minute)%rStage 2 weakness to cold 5 and Drained 1 (1 day)%rStage 3 weakness to cold 10 and…"}, {"name": "Blackfrost Breath", "type": "action", "traits": [], "cost": 2, "text": "Ilakni breathes out a 60-foot of black wind. All creatures in the area take 10d6 cold|options:area-damage damage (DC 30 Reflex); a creature that fails the save is also exposed to blackfrost. Ilakni can't use Blackfrost Breath again for 1d4 rounds."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d8+12) bludgeoning, DC 30 Fortitude"}, {"name": "Siphon Mind", "type": "action", "traits": ["mental", "occult"], "cost": 2, "text": "Requirements The target creature is Grabbed by Ilakni, is helpless, or is willing, and is adjacent to Ilakni%rEffect Ilakni extrudes a seething forest of tendrils from his mouth to wrap around the target's head. These tendrils begin siphoning away the target's mind to make them an empty vessel, ready to be inhabited by Osoyo in the future. The target must attempt a DC 30 Will save.%rCritical Success The target is unaffected and is temporarily immune to Siphon Mind for 24 hours.%rSuccess The…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Ilverani Sentry":
+  pack: "gatewalkers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "rare"
+  traits: ["elf", "humanoid"]
+  ac: 25
+  hp: 115
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 17, "will": 15}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 1, "str": 4, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Intimidation": 11, "Nature": 17, "Stealth": 17, "Survival": 17, "Arctic Lore": 13}
+  strikes: [{"name": "Shortsword", "bonus": 18, "damage": [["1d6+9", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Composite Longbow", "bonus": 18, "damage": [["1d8+8", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Arctic Forager", "type": "passive", "traits": [], "text": "While using Survival to Subsist in arctic environments, if the Ilverani sentry rolls a failure or a critical failure, they get a success instead. If the sentry rolls a success, they can provide food for 4 additional creatures that eat about as much as a human, or 8 creatures on a critical success."}, {"name": "Snow Walker", "type": "passive", "traits": [], "text": "The Ilverani sentry ignores the effects of difficult terrain from snowy environments. When moving through snow, an Ilverani sentry minimizes traces left behind and makes it harder for others to find them. The DC of checks to Track an Ilverani sentry through snowy terrain gains a +4 status bonus."}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The Ilverani sentry designates a single creature they can see and hear, or one they're Tracking, as their prey. The sentry gains a +2 circumstance bonus to Perception checks to Seek the prey and to Survival checks to Track the prey. The first time the sentry hits the designated prey in a round, they deal an additional 1d8 precision damage. The sentry ignores the penalty for making ranged attacks within their second range increment. These effects last until the sentry uses Hunt Prey again."}]
+"Immolis":
+  pack: "gatewalkers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["beast"]
+  ac: 19
+  hp: 50
+  perception: 12
+  saves: {"fortitude": 6, "reflex": 12, "will": 9}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": -3, "str": 3, "wis": 3}
+  speeds: {"land": 40, "climb": 40}
+  skills: {"Acrobatics": 10, "Athletics": 10, "Intimidation": 9, "Stealth": 10, "Survival": 9}
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d10+5", "slashing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Heatsense 120 feet", "type": "passive", "traits": [], "text": "An immolis can sense creatures whose bodies are hotter than their surroundings as a precise sense at the listed range. Creatures that produce no heat—such as many undead or constructs—are Concealed to an immolis, as are creatures who successfully mask their body heat (such as by submerging themselves in cold water)."}, {"name": "Heat Beam", "type": "action", "traits": ["fire", "occult"], "cost": 1, "text": "The immolis targets a living creature within 30 feet and directs a beam of volatile psychic energy toward it, increasing the rate at which the creature's body produces heat. The target must attempt a DC 20 Fortitude save. The second and third time an immolis uses Heat Beam in the same round, the DC lowers to DC 16 Fortitude or DC 12 Fortitude, respectively.%rSuccess The creature is unaffected.%rFailure The creature takes (2d6+5) fire damage.%rCritical Failure The creature takes 4d6+5 fire…"}]
+"Innumma":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 20
+  hp: 55
+  perception: 12
+  saves: {"fortitude": 10, "reflex": 10, "will": 13}
+  abilities: {"cha": 0, "con": 2, "dex": 2, "int": 1, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 8, "Athletics": 8, "Diplomacy": 10, "Nature": 8, "Stealth": 10, "Survival": 12, "Weather Lore": 12}
+  strikes: [{"name": "Spear", "bonus": 9, "damage": [["1d6", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 9, "damage": [["1d6", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Predict Weather", "type": "passive", "traits": ["concentrate"], "text": "Requirements Innumma is outdoors%rFrequency once per day%rEffect Innumma spends 10 minutes observing the environment, trying to predict the day's weather. He attempts a DC 20 Survival or DC 20 Weather Lore check. This check is reduced to DC 15 in an arctic environment such as the Crown of the World (DC 15 Survival or DC 15 Weather Lore).%rCritical Success Innumma accurately predicts the day's weather. He learns if a weather event will occur in the region within the next 24 hours, and if so,…"}]
+"Jarvs":
+  pack: "gatewalkers-bestiary"
+  level: 3
+  size: "tiny"
+  rarity: "unique"
+  traits: ["aberration"]
+  ac: 18
+  hp: 45
+  perception: 11
+  saves: {"fortitude": 6, "reflex": 10, "will": 11}
+  abilities: {"cha": 0, "con": 1, "dex": 3, "int": 4, "str": -2, "wis": 4}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Arcana": 11, "Occultism": 9, "Stealth": 8, "Library Lore": 11, "Scribing Lore": 11}
+  strikes: [{"name": "Fountain Pen", "bonus": 10, "damage": [["1d6+2", "piercing", null]], "traits": ["agile", "finesse", "magical"], "effects": ["Inkstain"]}, {"name": "Morpheme Glyph", "bonus": 10, "damage": [["3d6", "force", null]], "traits": ["magical"]}]
+  actions: [{"name": "Mage Bond", "type": "passive", "traits": [], "text": "After performing a 1-hour ritual, a scalescribe can bond with one willing creature capable of Casting Spells.%rThe scalescribe can Aid their bonded caster in Crafting a scroll, and they can make their Transcribed spell available to the caster so long as the spell is of the caster's tradition.%rA bonded prepared caster can prepare the spell. A bonded spontaneous caster can add the spell to their spell repertoire during their daily preparations, and it remains as long as the Transcribed scroll…"}, {"name": "+2 Status Bonus on Saves vs. Linguistic Effects", "type": "passive", "traits": []}, {"name": "Transcribe", "type": "reaction", "traits": [], "text": "Trigger Another creature targets the scalescribe with a spell requiring verbal components%rEffect The scalescribe attempts to copy the incantation onto a scroll by attempting a counteract check (counteract rank 2, counteract modifier +10) with the following effects instead of the normal effects of counteracting. The spell still affects the scalescribe, regardless of the results of this check.%rThe scalescribe can Cast a Spell from any scroll they Transcribe as if it were on their spell list.…"}, {"name": "Inkstain", "type": "passive", "traits": [], "text": "When the scalescribe deals damage to a creature with their fountain pen, the creature takes 1d4 persistent poison.%rWhen a creature taking this damage attempts to take an action with the concentrate trait, it must succeed at a DC 5 Flat check or the action is disrupted."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Detect Magic", "Message", "Read Aura", "Sigil"], "2": ["Dispel Magic", "Translate (Self Only)"]}}]
+"Kaneepo the Slim":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["fey"]
+  ac: 20
+  hp: 80
+  perception: 14
+  saves: {"fortitude": 9, "reflex": 14, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 2, "str": 3, "wis": 3}
+  speeds: {"land": 30}
+  skills: {"Arcana": 10, "Intimidation": 12, "Occultism": 12, "Stealth": 12, "Survival": 8, "First World Lore": 10}
+  immunities: ["fear-effects"]
+  weaknesses: {"cold-iron": 5}
+  strikes: [{"name": "Claw", "bonus": 14, "damage": [["1d6+1", "slashing", null]], "traits": ["unarmed"], "effects": ["Shadowfeed"]}]
+  actions: [{"name": "Phasic Defenses", "type": "reaction", "traits": [], "text": "Requirements Kaneepo hasn't Slimstepped since the beginning of their last turn%rTrigger Kaneepo would take damage from an attack%rEffect Kaneepo Slimsteps, taking no damage if their new square would move them out of the range or area of the attack."}, {"name": "Create Breach", "type": "passive", "traits": [], "text": "Once per day, Kaneepo can tear open the fabric between planes, creating a portal between the Thinlands and a point anywhere in Sevenarches. This portal lasts for up to 1 hour, but Kaneepo can close it at will."}, {"name": "Shadow Pull", "type": "action", "traits": [], "cost": 2, "text": "All creatures in a 60-foot are affected by Kaneepo's shadowfeed ability."}, {"name": "Shadowfeed", "type": "passive", "traits": ["emotion", "fear", "mental"], "text": "Whenever Kaneepo hits a creature with an attack, Kaneepo's flayed strips of flesh wrap around the target's shadow, causing the victim's body to wither. The struck creature must attempt a DC 21 Fortitude saving throw.%rSuccess The creature is unaffected.%rFailure The creature takes 3d6 mental and is Frightened 1.%rCritical Failure The creature takes 6d6 mental and is Frightened 2."}, {"name": "Slimstep", "type": "action", "traits": ["primal", "shadow", "teleportation"], "cost": 1, "text": "Requirements Kaneepo is in dim light or darkness%rFrequency once per round%rEffect Kaneepo instantly transports themself from one shadow to another. Kaneepo teleports themself and any items they're holding to a clear space within 30 feet that's in dim light or darkness. If this would bring any other creature with Kaneepo, the ability is disrupted."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 21, "attack": 13, "spells": {"3": ["Mind Reading", "Paralyze"]}}]
+"Kareq":
+  pack: "gatewalkers-bestiary"
+  level: 5
+  size: "large"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 22
+  hp: 95
+  perception: 15
+  saves: {"fortitude": 15, "reflex": 13, "will": 10}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -4, "str": 5, "wis": 3}
+  speeds: {"land": 40, "climb": 20}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 12, "Athletics": 13, "Intimidation": 13, "Stealth": 12, "Survival": 10}
+  immunities: ["sonic"]
+  strikes: [{"name": "Claw", "bonus": 14, "damage": [["2d10+5", "slashing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Boomstrike", "type": "action", "traits": [], "cost": 2, "text": "The kareq beats its legs against its reverberation chamber, creating a blast of sound concentrated enough to ignite the air around it. The kareq chooses to affect either a 30-foot (which deals sonic damage) or a 60-foot (which deals fire damage). Affected creatures must attempt a DC 21 Fortitude save.%rSuccess The creature takes no damage.%rFailure The creature takes 3d6 fire|options:area-damage or 3d6 sonic|options:area-damage.%rCritical Failure The creature takes 6d6 fire|options:area-damage…"}]
+"Kitari Lambossa":
+  pack: "gatewalkers-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 23
+  hp: 90
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 12, "will": 14}
+  abilities: {"cha": 3, "con": 0, "dex": 2, "int": 1, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 10, "Athletics": 12, "Diplomacy": 11, "Intimidation": 13, "Survival": 10, "Sailing Lore": 17}
+  strikes: [{"name": "Main-Gauche", "bonus": 16, "damage": [["1d4+10", "piercing", null]], "traits": ["agile", "disarm", "parry", "versatile-s"]}, {"name": "Scimitar", "bonus": 17, "damage": [["1d6+10", "slashing", null]], "traits": ["forceful", "magical", "sweep"]}, {"name": "Hand Crossbow", "bonus": 14, "damage": [["1d6+6", "piercing", null]], "traits": ["reload-1"], "range": 60}]
+  actions: [{"name": "Bravery", "type": "passive", "traits": [], "text": "When the Ship Captain rolls a success on a Will save against a fear effect, they get a critical success instead. In addition, any time they gain the Frightened condition, reduce its value by 1."}, {"name": "Dual Disarm", "type": "action", "traits": [], "cost": 2, "text": "The captain makes two Strikes, one with their rapier and one with their main-gauche (in either order). If both Strikes hit, the ship captain can attempt to Disarm the target.%rTheir multiple attack penalty increases only after all the attacks are made."}, {"name": "No Quarter!", "type": "action", "traits": ["auditory", "concentrate", "emotion", "linguistic", "mental"], "cost": 1, "text": "The captain orders their shipmates to fight without mercy. All allied creatures of equal or lower level within 20 feet of the ship captain gain a +1 status bonus to attack rolls and damage rolls until the end of the ship captain's next turn.%rEffect: No Quarter!"}]
+"Kvernknurr":
+  pack: "gatewalkers-bestiary"
+  level: 5
+  size: "large"
+  rarity: "uncommon"
+  traits: ["amphibious", "fey", "water"]
+  ac: 22
+  hp: 80
+  perception: 12
+  saves: {"fortitude": 15, "reflex": 12, "will": 9}
+  abilities: {"cha": -2, "con": 4, "dex": 2, "int": -1, "str": 5, "wis": 1}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 13, "Intimidation": 13, "Stealth": 10}
+  weaknesses: {"cold-iron": 5}
+  resistances: {"cold": 5}
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["2d6+8", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Fist", "bonus": 14, "damage": [["2d4+8", "bludgeoning", null]], "traits": ["agile", "reach-10", "unarmed"]}]
+  actions: [{"name": "Swallow Projectile", "type": "reaction", "traits": [], "text": "Trigger A creature the kvernknurr can see targets it with a ranged Strike%rRequirements The kvernknurr doesn't have a creature Grabbed in its jaws%rEffect The kvernknurr attempts to swallow the projectile, gaining a +4 circumstance bonus to AC against the triggering attack. If the attack misses, the kvernknurr consumes the projectile harmlessly."}, {"name": "Frightening Bellow", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 2, "text": "Requirements The kvernknurr doesn't have a creature Grabbed in its jaws%rEffect The kvernknurr lets out a deep-throated shout to scare away its foes. Each non-kvernknurr creature within 60 feet must attempt a DC 20 Will save, and then they are temporarily immune to that kvenknurr's Frightening Bellow for 24 hours.%rCritical Success The creature is unaffected.%rSuccess The creature is Frightened 1.%rFailure The creature is Frightened 2.%rCritical Failure The creature is frightened 2 and is…"}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Medium, (1d6+5) bludgeoning, Rupture 15"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Leiko":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["shadow"]
+  ac: 21
+  hp: 45
+  perception: 10
+  saves: {"fortitude": 9, "reflex": 11, "will": 10}
+  abilities: {"cha": 3, "con": 1, "dex": 5, "int": 3, "str": 3, "wis": 2}
+  speeds: {"land": 25, "fly": 35}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Deception": 9, "Occultism": 11, "Stealth": 13, "Netherworld Lore": 11}
+  immunities: ["precision"]
+  resistances: {"cold": 5, "void": 5}
+  strikes: [{"name": "Dagger", "bonus": 13, "damage": [["1d4+5", "piercing", null], ["1d6", "cold", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 13, "damage": [["1d4+5", "piercing", null], ["1d6", "cold", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Shadow Shift", "type": "passive", "traits": [], "text": "Beingmade partially of shadow themselves, shae are Concealed in dim light or darkness even to creatures that can see clearly in those light levels."}, {"name": "Counterattack", "type": "reaction", "traits": [], "text": "Trigger Leiko is targeted by an attack from an adjacent creature that misses due to Leiko being Concealed%rRequirements Leiko is aware of the attack%rEffect Leiko makes a Strike against the attacker."}, {"name": "Slip", "type": "reaction", "traits": [], "text": "Trigger A creature moves adjacent to Leiko%rEffect Leiko teleports to a clear space adjacent to another creature she can see within 30 feet."}, {"name": "Bide", "type": "action", "traits": [], "cost": 2, "text": "Leiko prepares to take action against her foes, watching her opponent and waiting for the right opportunity to respond. Leiko gains a second reaction until the start of her next turn, though she still can't use more than one reaction on the same triggering action."}, {"name": "Swift Steps", "type": "passive", "traits": [], "text": "Leiko's movement doesn't trigger reactions."}, {"name": "Tenebral Form", "type": "passive", "traits": [], "text": "Leiko can Fly at full Speed in Vapor Form."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 21, "attack": 13, "spells": {"0": ["Detect Magic", "Void Warp"], "4": ["Vapor Form"], "7": ["Interplanar Teleport (Self Only; to Netherworld or the Universe Only)"]}}]
+"Mindmoppet":
+  pack: "gatewalkers-bestiary"
+  level: 5
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["lawful", "ooze"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 9, "reflex": 12, "will": 15}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 5, "str": 2, "wis": 3}
+  speeds: {"land": 0, "fly": 40}
+  skills: {"Acrobatics": 13, "Crafting": 14, "Deception": 11, "Intimidation": 11, "Medicine": 10, "Occultism": 14, "Society": 14, "Stealth": 13, "Thievery": 13}
+  immunities: ["acid", "critical-hits", "piercing", "precision", "unconscious", "visual"]
+  weaknesses: {"electricity": 5}
+  resistances: {"slashing": 5}
+  strikes: [{"name": "Telekinetic Slam", "bonus": 15, "damage": [["2d12", "force", null]], "traits": ["force", "occult"], "range": 20, "effects": ["Improved Push"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Mindsense (Precise) 120 feet", "type": "passive", "traits": [], "text": "The mindmoppet senses the thoughts of intelligent creatures and builds a perception of reality from this information, allowing the mindmoppet to \"see\" as a precise sense. Invisible intelligent creatures are visible to it."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Prognosticate", "type": "passive", "traits": [], "text": "When the mindmoppet uses a reaction, it can Step before or after taking the reaction."}, {"name": "Shell", "type": "passive", "traits": [], "text": "The mindmoppet believes its shell is an important part of itself. Breaking the mindmoppet's shell (AC 25, Hardness 1, HP 6, BT 3) causes it to become Fascinated with its shell. This condition ends when its shell is repaired."}, {"name": "Synapse Glow", "type": "passive", "traits": ["aura", "light"], "text": "5 feet. The firing of the mindmoppet's synapses create dim light. The range increases to 10 feet if its shell is destroyed."}, {"name": "Anticipate", "type": "action", "traits": [], "cost": 1, "text": "The mindmoppet attempts to anticipate its opponent's actions. Until the end of its next turn, the mindmoppet gains one reaction."}, {"name": "Redirect Attack", "type": "reaction", "traits": ["mental"], "text": "Trigger The mindmoppet is targeted by a melee or ranged Strike%rEffect The mindmoppet attempts a Reflex saving throw, using the attack roll as the DC for the check. On a success, it redirects the attack at another target within the attacker's range. On a failure, the attack resolves as normal."}, {"name": "Improved Push", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Telekinetic Hand", "Telekinetic Projectile"], "1": ["Command", "Mending", "Mindlink (Constant)"], "2": ["Telekinetic Maneuver"]}}]
+"Myroga":
+  pack: "gatewalkers-bestiary"
+  level: 6
+  size: "large"
+  rarity: "rare"
+  traits: ["dragon"]
+  ac: 24
+  hp: 120
+  perception: 17
+  saves: {"fortitude": 16, "reflex": 15, "will": 14}
+  abilities: {"cha": 5, "con": 4, "dex": 3, "int": 2, "str": 4, "wis": 2}
+  speeds: {"land": 20, "fly": 50}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 15, "Athletics": 14, "Intimidation": 15, "Occultism": 14}
+  immunities: ["paralyzed", "sleep"]
+  strikes: [{"name": "Fangs", "bonus": 16, "damage": [["2d8+7", "piercing", null]], "traits": ["reach-10"]}, {"name": "Tail", "bonus": 16, "damage": [["2d6+7", "bludgeoning", null]], "traits": ["reach-15"]}, {"name": "Talon", "bonus": 16, "damage": [["2d6+7", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Ley Line Sense (Imprecise)", "type": "passive", "traits": [], "text": "The myroga can sense the presence, direction, and strength of any ley line within 1 mile."}, {"name": "Reactive Strike (Fangs Only)", "type": "reaction", "traits": []}, {"name": "Resistance 5 to Physical Near a Ley Line", "type": "passive", "traits": [], "text": "The myroga has resistance to physical 5 while within 500 feet of a ley line."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The myroga makes two talon Strikes and one tail Strike in any order."}, {"name": "Ley Line Empowerment", "type": "action", "traits": ["force", "occult"], "cost": 2, "text": "Requirements The myroga is within 500 feet of a ley line%rEffect The myroga wreathes itself in raw destructive energy converted from the ley line's ambient magic. The myroga deals an additional 2d6 force with each of its next successful fangs, tail, and talon Strike. Once its dealt damage with one of these Strikes, the energy is discharged from that body part, but not the others."}, {"name": "Ley Line Rupture", "type": "action", "traits": ["attack", "force", "occult"], "cost": 1, "text": "Requirements The myroga is within 500 feet of a ley line%rEffect The myroga diverts some of the ley line's magic into a deadly and distant explosion. The myroga creates a detonation of force in a 5-foot square within a mile of its ley line and that it can see, dealing 5d6 force to creatures (DC 24 Reflex). A myroga can will the detonation into existence anywhere within a mile of the ley line, possibly allowing it to ignore cover the target might have from, for example, an obstacle between…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 23, "attack": 15, "spells": {"3": ["Grim Tendrils"]}}]
+"Oaksteward Enforcer":
+  pack: "gatewalkers-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "rare"
+  traits: ["human", "humanoid"]
+  ac: 16
+  hp: 15
+  perception: 6
+  saves: {"fortitude": 4, "reflex": 6, "will": 8}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": -2, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Intimidation": 5, "Nature": 6}
+  strikes: [{"name": "Staff", "bonus": 6, "damage": [["1d4+2", "bludgeoning", null]], "traits": ["two-hand-d8"]}, {"name": "Dagger", "bonus": 6, "damage": [["1d4+2", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 6, "damage": [["1d4+2", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Untamed Shift", "type": "action", "traits": ["concentrate", "manipulate", "morph", "primal"], "cost": 2, "text": "Frequency once per day%rEffect The Oaksteward's hands transform into wild claws for 1 minute. The Oaksteward gains the following Strike.%rMelee 1 claw +7 (agile, finesse), Damage 1d6+2 slashing"}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 16, "attack": 8, "spells": {"0": ["Frostbite", "Light", "Stabilize", "Tangle Vine"], "1": ["Fear", "Runic Weapon"]}}]
+"Oaksteward Enforcer (Gatehouse)":
+  pack: "gatewalkers-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "rare"
+  traits: ["human", "humanoid"]
+  ac: 16
+  hp: 15
+  perception: 6
+  saves: {"fortitude": 4, "reflex": 6, "will": 8}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": -2, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Intimidation": 5, "Nature": 6}
+  strikes: [{"name": "Staff", "bonus": 6, "damage": [["1d4+2", "bludgeoning", null]], "traits": ["two-hand-d8"]}, {"name": "Heavy Crossbow", "bonus": 5, "damage": [["1d10", "piercing", null]], "traits": ["reload-2"], "range": 120}]
+  actions: [{"name": "Untamed Shift", "type": "action", "traits": ["concentrate", "manipulate", "morph", "primal"], "cost": 2, "text": "Frequency once per day%rEffect The Oaksteward's hands transform into wild claws for 1 minute. The Oaksteward gains the following Strike.%rMelee 1 claw +7 (agile, finesse), Damage 1d6+2 slashing"}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 16, "attack": 8, "spells": {"0": ["Frostbite", "Light", "Stabilize", "Tangle Vine"], "1": ["Fear", "Runic Weapon"]}}]
+"Ocluai":
+  pack: "gatewalkers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["fey"]
+  ac: 18
+  hp: 55
+  perception: 12
+  saves: {"fortitude": 6, "reflex": 12, "will": 12}
+  abilities: {"cha": 1, "con": 0, "dex": 4, "int": 2, "str": 1, "wis": 4}
+  speeds: {"land": 10, "fly": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 10, "Deception": 8, "Intimidation": 10, "Nature": 8, "Stealth": 10}
+  weaknesses: {"cold-iron": 5}
+  strikes: [{"name": "Talon", "bonus": 10, "damage": [["3d4+3", "slashing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Lost in the Dark", "type": "passive", "traits": ["aura", "darkness", "mental"], "text": "60 feet. An ocluai's presence distorts nearby creatures' senses of direction. Nonmagical bright light within the aura becomes dim light, and nonmagical dim light with the aura becomes darkness. Any non-gorga within range of the ocluai's aura that attempts to move must declare where they intend to move. Before moving, however, the creature must attempt a secret DC 20 Will saving throw. An ocluai can exempt specific creatures from this effect. Magical light anywhere within the ocluai's aura…"}, {"name": "Corner of the Eye", "type": "action", "traits": ["illusion", "mental", "primal", "visual"], "cost": 2, "text": "The ocluai creates a wave of disturbing illusory images in a 10-foot centered on a point within 60 feet. Any creature caught in this burst takes 3d6 mental|options:area-damage (DC 20 Will) as their peripheral vision churns with terrifying visions of worm-eaten corpses and monsters ready to pounce."}]
+"Ogmunzorius":
+  pack: "gatewalkers-bestiary"
+  level: 11
+  size: "large"
+  rarity: "unique"
+  traits: ["dream", "incorporeal"]
+  ac: 28
+  hp: 145
+  perception: 21
+  saves: {"fortitude": 19, "reflex": 21, "will": 22}
+  abilities: {"cha": 6, "con": 4, "dex": 5, "int": 4, "str": -5, "wis": 4}
+  speeds: {"land": 0, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Deception": 21, "Intimidation": 21, "Occultism": 23, "Stealth": 22}
+  immunities: ["disease", "paralyzed", "poison", "precision", "sleep", "cold"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Nightmare Tendril", "bonus": 22, "damage": [["5d8", "cold", null]], "traits": ["agile", "finesse", "reach-10"], "effects": ["Endless Nightmare"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Frozen Nightmare", "type": "passive", "traits": ["curse", "emotion", "fear", "mental", "occult"], "text": "Ogmunzorius's touch fills the victim's mind with realistic hallucinations and visions of being stranded alone and naked in an endless expanse of ice. The only point of reference in this vision when it manifests are strange dark spires looming impossibly tall on the horizon.%rSaving Throw DC 30 Fortitude%rStage 1 Fatigued (1 day)%rStage 2 fatigued and Enfeebled 1 (1 day)%rStage 3 The victim falls asleep and becomes covered in a rime of frost. They can't be awakened as long as they remain at this…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 30, "attack": 22, "spells": {"4": ["Nightmare", "Sleep"], "5": ["Confusion", "Translocate (At Will)"], "6": ["Fear", "Teleport", "Vision of Death"]}}]
+"Pholebis":
+  pack: "gatewalkers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["amphibious", "fey", "nymph", "water"]
+  ac: 26
+  hp: 100
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 18, "will": 17}
+  abilities: {"cha": 7, "con": 4, "dex": 5, "int": 3, "str": 0, "wis": 4}
+  speeds: {"land": 25, "swim": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 16, "Athletics": 9, "Diplomacy": 20, "Medicine": 15, "Nature": 15, "Performance": 20, "Stealth": 14, "Survival": 15}
+  weaknesses: {"cold-iron": 10}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Aqueous Fist", "bonus": 17, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "water"]}]
+  actions: [{"name": "Tied to the Land", "type": "passive", "traits": [], "text": "A nymph queen is intrinsically tied to a specific region, such as a forest for a dryad queen. As long as the queen is healthy, the environment is exceptionally resilient, allowing the nymph queen to automatically attempt to counteract spells and rituals such as Blight that would harm the environment, using her Spell DC with a counteract rank equal to the highest-level druid spell she can cast. When the nymph queen becomes physically or psychologically unhealthy, however, her warded region…"}, {"name": "Wild Empathy", "type": "passive", "traits": [], "text": "The naiad can use Diplomacy to make-an-impression on and make very simple Requests of animals."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Nymph's Beauty", "type": "passive", "traits": ["aura", "emotion", "mental", "primal", "visual"], "text": "30 feet. On a failed save, the target is Stunned 1 for this turn and whenever it begins its turn within 30 feet of the naiad queen for the next 24 hours, even if it can't see her on subsequent turns.%rCreatures that start their turn in the aura must succeed at a DC 23 Will save or suffer an effect described in the nymph queen's entry."}, {"name": "Change Shape", "type": "action", "traits": ["polymorph", "primal"], "cost": 1, "text": "Nymph queens can transform between their original form, which looks much like a typical nymph of their kind, and any Small or Medium humanoid form, typically choosing a more humanoid-looking version of their natural form."}, {"name": "Focus Beauty", "type": "action", "traits": ["emotion", "mental", "primal", "visual"], "cost": 1, "text": "On a failed save, if the target was already affected by the naiad queen's beauty, the image of the queen sears into the creature's mind, allowing no further sight and effectively Blinding the creature until restored via Sound Body or a similar effect, or until the naiad queen chooses to remove the effect using a single action, which has the concentrate trait.%rThe nymph queen focuses her beauty upon a target within her aura. The creature must attempt a DC 23 Will save. On a failure, it is…"}, {"name": "Inspiration", "type": "action", "traits": ["emotion", "mental", "primal"], "cost": 3, "text": "A nymph queen can inspire a single intelligent creature by giving that creature a token of her favor, typically a lock of her hair. As long as the creature carries her token and remains in good standing with the nymph queen, the creature gains a +1 status bonus to all Crafting checks, Performance checks, and Will saves.%rIf a nymph queen grants her Inspiration to a bard and the nymph queen is that bard's muse, the bard gains an additional benefit depending on their muse theme: for lore muse,…"}, {"name": "Water Healing", "type": "action", "traits": ["concentrate", "healing", "primal"], "cost": 2, "text": "While within any body of water in her domain, the naiad queen heals 28 healing Hit Points every 10 minutes."}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 28, "attack": 18, "spells": {"0": ["Detect Magic", "Guidance", "Light", "Ray of Frost", "Stabilize"], "1": ["Fleet Step", "Gust of Wind", "Heal", "Negate Aroma", "Summon Animal"], "2": ["Animal Messenger", "Faerie Fire", "Tree Shape"], "3": ["Earthbind", "Haste"]}}, {"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 28, "attack": 20, "spells": {"1": ["Charm", "Create Water"], "2": ["Speak with Animals (Constant)"], "4": ["Tidal Surge (At Will)"]}}]
+"Protosoul":
+  pack: "gatewalkers-bestiary"
+  level: 11
+  size: "large"
+  rarity: "unique"
+  traits: ["mindless", "undead", "unholy"]
+  ac: 28
+  hp: 245
+  perception: 19
+  saves: {"fortitude": 24, "reflex": 22, "will": 17}
+  abilities: {"cha": -5, "con": 7, "dex": 5, "int": -5, "str": 5, "wis": 0}
+  speeds: {"land": 0, "fly": 40}
+  hp_details: "void healing"
+  senses: ["lifesense"]
+  skills: {"Acrobatics": 22}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious", "visual", "critical-hits"]
+  strikes: [{"name": "Void Tendril", "bonus": 22, "damage": [["3d10 + 11", "void", null]], "traits": ["divine", "magical", "reach-10", "void"]}, {"name": "Void Bolt", "bonus": 22, "damage": [["2d10+11", "void", null]], "traits": ["divine", "magical", "void"], "range": 30}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Unstable Magic", "type": "action", "traits": ["divine", "void"], "cost": 2, "text": "The protosoul takes 10 force|options:area-damage damage as it releases a burst of uncontained void energy in a 30-foot emanation. Creatures in the area take 5d8 void|options:area-damage damage (DC 30 Fortitude save)."}]
+"Quarry Construct":
+  pack: "gatewalkers-bestiary"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["construct", "earth", "mindless"]
+  ac: 18
+  hp: 23
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 4, "will": 4}
+  abilities: {"cha": -5, "con": 5, "dex": -2, "int": -5, "str": 4, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9}
+  strikes: [{"name": "Warhammer", "bonus": 10, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["shove"]}]
+  actions: [{"name": "Construct Armor (Hardness 4)", "type": "passive", "traits": [], "text": "Like normal objects, a quarry construct has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a quarry construct is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 14."}]
+"Sakuachi":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["good", "human", "humanoid"]
+  ac: 21
+  hp: 60
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 10, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 1, "int": 1, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Medicine": 10, "Nature": 12, "Occultism": 15, "Religion": 12, "Survival": 10, "Astronomy Lore": 15, "Fortune-Telling Lore": 15}
+  strikes: [{"name": "Spear", "bonus": 9, "damage": [["1d6", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 10, "damage": [["1d6", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Search the Stars", "type": "passive", "traits": ["concentrate", "manipulate"], "text": "Requirements Sakuachi is holding an astrolabe and can see the stars%rEffect Sakuachi spends 1 hour attempting to gain a vague glimpse of the future written in the stars. She attempts a Fortune-Telling Lore or DC 24 Occultism check.%rCritical Success Sakuachi receives an accurate vision of an event to come within the next week. While this vision can be vague and confusing, it's typically true.%rSuccess As critical success, but the vision is of an event that will occur within the next day. If…"}]
+  spellcasting: [{"name": "Occult Prepared Spells", "tradition": "occult", "type": "prepared", "dc": 18, "attack": 12, "spells": {"0": ["Detect Magic", "Guidance", "Light", "Read Aura", "Shield"], "1": ["Bless", "Liberating Command", "Sleep"], "2": ["Augury", "Resist Energy", "Silence"]}}]
+"Sickly Eshmok":
+  pack: "gatewalkers-bestiary"
+  level: 8
+  size: "large"
+  rarity: "uncommon"
+  traits: ["demon", "fiend", "fungus", "unholy"]
+  ac: 25
+  hp: 180
+  perception: 16
+  saves: {"fortitude": 14, "reflex": 17, "will": 16}
+  abilities: {"cha": 5, "con": 3, "dex": 4, "int": 2, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Athletics": 17, "Intimidation": 18, "Religion": 16, "Stealth": 17}
+  weaknesses: {"cold-iron": 10, "holy": 10}
+  resistances: {"poison": 10}
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Harmony Vulnerability", "type": "passive", "traits": [], "text": "An eshmok's wrathful infestations defines them, and forcing peace upon them wrenches at their soul. If they fail a save against calm or a similar effect forcing them to be peaceful, an eshmok takes 4d6 mental damage."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The eshmok turns into their fungus form or back into their normal humanoid wasp form. In fungus form, they lose their fly Speed and can't make stinger Strikes. In fungus form, they gain a tendril melee Strike (+21 for 2d8+9 slashing plus eshmok infection); the tendril strike has the agile, magical, reach 10 feet, and unholy traits."}, {"name": "Eshmok Infection", "type": "passive", "traits": ["mental", "poison"], "text": "A creature that's Quickened by eshmok infection can use the extra action each round for only Strike actions. A creature that's Confused by eshmok infection never considers an eshmok in fungal form as a target%rSaving Throw DC 26 Will%rMaximum Duration 6 rounds%rStage 1 confused (1 round)%rStage 2 confused and quickened (1 round)%rStage 3 confused, Off-Guard, and quickened (1 round)"}, {"name": "Infesting Exhalation", "type": "action", "traits": ["olfactory", "poison"], "cost": 1, "text": "The eshmok exhales a wave of stinging fiendish wasps out in a 30-foot cone, dealing 4d8 poison|options:area-damage damage to every creature within the cone (DC 28 Reflex save). The swarming fiend wasps linger in the area for 6 rounds or until the eshmok is able to use Infesting Exhalation again, whichever comes first. Each creature damaged by Infesting Exhalation or that enters the area must succeed at a DC 28 Fortitude save or take 2d8 persistent poison damage and become Clumsy 1 as the poison…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 28, "attack": 18, "spells": {"3": ["Fear"], "4": ["Confusion", "Translocate (At Will)"], "5": ["Translocate", "Wall of Thorns"]}}]
+"Skin Beetle":
+  pack: "gatewalkers-bestiary"
+  level: 3
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 18
+  hp: 55
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 13, "will": 7}
+  abilities: {"cha": -2, "con": 2, "dex": 4, "int": -5, "str": 1, "wis": 2}
+  speeds: {"land": 20, "burrow": 15, "fly": 15}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 10, "Medicine": 9, "Stealth": 10}
+  strikes: [{"name": "Mandibles", "bonus": 13, "damage": [["1d8+4", "piercing", null]], "traits": ["agile", "finesse"]}, {"name": "Spit", "bonus": 13, "damage": [["1d6+4", "acid", null]], "traits": [], "effects": ["Anesthetic Saliva"]}]
+  actions: [{"name": "Surgical Mandibles", "type": "passive", "traits": [], "text": "A skin beetle can use its mandibles as a Healer's Toolkit."}, {"name": "Anesthetic Saliva", "type": "passive", "traits": ["poison"], "text": "A creature exposed to a skin beetle's saliva must succeed on a DC 19 Fortitude save or become Clumsy 1 for 1 round."}, {"name": "Harvest Flesh", "type": "action", "traits": [], "cost": 2, "text": "The skin beetle makes a mandibles Strike against an animal or humanoid. If the Strike deals damage, the beetle tears of a large portion of flesh, dealing an additional 1d6 bleed."}]
+"Skin Beetle Swarm":
+  pack: "gatewalkers-bestiary"
+  level: 8
+  size: "large"
+  rarity: "uncommon"
+  traits: ["animal", "swarm"]
+  ac: 26
+  hp: 125
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 20, "will": 13}
+  abilities: {"cha": -2, "con": 4, "dex": 6, "int": -5, "str": 2, "wis": 3}
+  speeds: {"land": 20, "burrow": 15, "fly": 15}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 18, "Stealth": 18}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  resistances: {"bludgeoning": 5, "slashing": 8, "piercing": 8}
+  actions: [{"name": "Swarming Bites", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 5d6 piercing|options:area-damage (DC 23 Reflex). A creature that fails the saving throw also takes 1d4 bleed and is Clumsy 1 as long as it's taking bleed damage."}]
+"Snowy Owl":
+  pack: "gatewalkers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 21
+  hp: 60
+  perception: 16
+  saves: {"fortitude": 11, "reflex": 10, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 1, "int": 1, "str": 0, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Medicine": 16, "Nature": 16, "Occultism": 15, "Religion": 14, "Survival": 16, "Astronomy Lore": 15, "Fortune-Telling Lore": 15}
+  immunities: ["cold"]
+  strikes: [{"name": "Fist", "bonus": 12, "damage": [["1d4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Ruun's Blessing", "type": "passive", "traits": [], "text": "The presence of Ruun's soul merged with her own grants Snowy Owl immunity to cold. In addition, she no longer needs to eat or drink, but often chooses to do so out of habit or politeness."}, {"name": "Ruun's Wings", "type": "action", "traits": ["occult"], "cost": 1, "text": "Snowy Owl manifests a spectral pair of owl's wings that grant her a fly Speed of 25 feet. She can use this action again to hide her wings, which she often does when in mixed company in order to avoid drawing too much attention. If she falls, she can activate this ability as a reaction to immediately arrest her fall."}]
+  spellcasting: [{"name": "Occult Prepared Spells", "tradition": "occult", "type": "prepared", "dc": 18, "attack": 12, "spells": {"0": ["Detect Magic", "Guidance", "Light", "Read Aura", "Shield"], "1": ["Alarm", "Bless", "Soothe"], "2": ["Cleanse Affliction", "Dispel Magic", "Resist Energy"], "3": ["Hypercognition"], "4": ["Read Omens"]}}]
+"Stone-Breasted Owl":
+  pack: "gatewalkers-bestiary"
+  level: 5
+  size: "small"
+  rarity: "uncommon"
+  traits: ["beast", "incorporeal", "spirit"]
+  ac: 22
+  hp: 75
+  perception: 15
+  saves: {"fortitude": 9, "reflex": 12, "will": 15}
+  abilities: {"cha": 2, "con": 0, "dex": 3, "int": 2, "str": 0, "wis": 5}
+  speeds: {"land": 10, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Diplomacy": 13, "Nature": 14, "Survival": 12}
+  strikes: [{"name": "Talon", "bonus": 13, "damage": [["2d6+3", "force", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Warning Hoot", "type": "free", "traits": ["auditory"], "text": "Trigger The stone-breasted owl is about to roll a Perception or Survival check to determine initiative%rEffect The stone-breasted owl lets out a hoot to warn allies, granting each ally a +1 circumstance bonus to their initiative roll.%rEffect: Warning Hoot"}, {"name": "Bond with Mortal", "type": "action", "traits": ["mental", "primal"], "cost": 2, "text": "Frequency once per day%rEffect The spirit guide forms a bond with a mortal creature. While the bond exists, the spirit guide's current and maximum Hit Points increase by 14, the spirit guide gains a +2 status bonus to attack and damage rolls, and the spirit guide and bonded mortal can communicate telepathically as long as they're on the same plane. The spirit guide can be bonded with only one mortal at a time, and can take this action again to end the bond or to form a new bond (which also ends…"}, {"name": "Bonded Strike", "type": "action", "traits": [], "cost": 2, "text": "Requirements The spirit guide is currently Bonded with a Mortal%rEffect The spirit guide makes a talon Strike. If this attack hits, the bonded mortal can spend their reaction to Strike the same target."}, {"name": "Empowered Healing", "type": "passive", "traits": [], "text": "When the stone-breasted owl casts heal, it rolls d10s instead of d8s."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Guidance", "Know the Way", "Stabilize"], "1": ["Cleanse Cuisine", "Detect Poison"], "2": ["Clear Mind", "Sound Body"], "3": ["Cleanse Affliction", "Heal"], "5": ["Truespeech (Constant)"]}}]
+"Symbiotic Amoeba":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["beast", "mindless", "minion"]
+  ac: 15
+  hp: 1
+  perception: 0
+  saves: {"fortitude": 14, "reflex": 11, "will": 14}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 5, "swim": 20}
+  skills: {"Acrobatics": 10, "Athletics": 10, "Stealth": 12, "Survival": 12}
+  strikes: [{"name": "Pseudopod", "bonus": 13, "damage": [["2d4", "acid", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Symbiotic Amoeba", "type": "passive", "traits": [], "text": "An amoeba produced by the Amelekana is a Tiny, mindless, semi-independent creature controlled by the amelekana. It has the minion trait, AC 15, 1 Hit Point, and the same skills and saving throws as the amelekana. Each round, the amelekana can Command a Minion to make an amoeba Step or Swim 20 feet and make a pseudopod Strike (Melee pseudopod +13, Damage 2d4 acid). If an amelekana is killed, its symbiotic amoebas are also killed by the host creature's psychic backlash. An amelekana can have up…"}]
+"Temagyr":
+  pack: "gatewalkers-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["fey"]
+  ac: 16
+  hp: 25
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 10, "will": 5}
+  abilities: {"cha": 1, "con": 2, "dex": 3, "int": -2, "str": 2, "wis": 3}
+  speeds: {"land": 40}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 7, "Stealth": 8}
+  weaknesses: {"cold-iron": 3}
+  strikes: [{"name": "Bite", "bonus": 9, "damage": [["1d4+4", "piercing", null]], "traits": []}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Cloak of Shadows", "type": "passive", "traits": [], "text": "Temagyrs are constantly surrounded by shifting shadows. A temagyr can always Hide in dim light or darkness."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shadow Bite", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The temagyr attempts to tear away and swallow a gobbet of shadow from a creature within reach. The creature must attempt a DC 17 Fortitude save.%rSuccess The target takes no damage.%rFailure The target takes (1d4+4) piercing and the temagyr gains 2 temporary Hit Points for 1 minute.%rCritical Failure The target takes (2d4+8) piercing and the temagyr gains 4 temporary Hit Points for 1 minute."}, {"name": "Umbral Leap", "type": "action", "traits": ["primal", "teleportation"], "cost": 2, "text": "Frequency once per day%rEffect The temagyr bends light and darkness to leap into a creature's shadow. The temagyr targets a creature that it can see who is in dim or brighter light within 120 feet. The temagyr teleports to a space adjacent to the target creature."}]
+"The Guest":
+  pack: "gatewalkers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "humanoid"]
+  ac: 24
+  hp: 130
+  perception: 15
+  saves: {"fortitude": 17, "reflex": 14, "will": 13}
+  abilities: {"cha": 0, "con": 4, "dex": 3, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 17}
+  weaknesses: {"slashing": 10}
+  resistances: {"bludgeoning": 10, "cold": 10}
+  strikes: [{"name": "Claw", "bonus": 17, "damage": [["2d6 + 10", "slashing", null], ["1d6", "cold", null]], "traits": ["unarmed", "versatile-b"]}]
+  actions: [{"name": "Fall Apart", "type": "passive", "traits": ["occult"], "text": "When one of the Guests dies, its body falls apart into a tangle of meat, gristle, fur, bone, and gore. All creatures within a 10-foot (other than other Guests) must make a DC 22 Will save to avoid becoming Sickened 2 (Sickened 4 on a critical failure) at the sight and smell of this fate."}, {"name": "Frozen Wind", "type": "action", "traits": [], "cost": 2, "text": "The guest exhales a blast of freezing wind from its body in a 20-foot. All creatures in this area take 8d6 cold|options:area-damage (DC 25 Reflex). The Guest can't use Frozen Wind again for 1d4 rounds."}, {"name": "Stunning Critical", "type": "passive", "traits": [], "text": "If a Guest critically hits a creature with a claw Strike, the target must make a DC 25 Fortitude save or be Stunned 1."}, {"name": "Trigger Memory", "type": "free", "traits": ["emotion", "fear", "mental", "occult"], "text": "Trigger A gatewalker attempts to Strike a Guest or target a Guest with a spell%rEffect The first time a gatewalker (including any PC) attempts to Strike a Guest or target it with a spell, a repressed memory from their Missing Moment surfaces. For a brief instant, the character recalls facing down a much larger and fully formed saumen kar, one with four horns and glowing runes on its fur. This memory of the character's first encounter with Ainamuuren evokes waves of fear and shame. The character…"}]
+"The Looksee Man":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["fetchling", "humanoid", "shadow"]
+  ac: 21
+  hp: 70
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 14, "will": 14}
+  abilities: {"cha": -2, "con": 2, "dex": 4, "int": 4, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Arcana": 12, "Crafting": 12, "Medicine": 10, "Nature": 8, "Occultism": 12, "Stealth": 10}
+  strikes: [{"name": "Dagger", "bonus": 12, "damage": [["1d4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 12, "damage": [["1d4", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Shadow Blending", "type": "passive", "traits": [], "text": "When the Looksee Man is Concealed as a result of dim light, the flat check to target him has a DC of DC 7 Flat, not 5."}, {"name": "Shadow Stride", "type": "action", "traits": ["illusion", "occult", "shadow"], "cost": 1, "text": "Requirements The Looksee Man is in dim light%rEffect The Looksee Man Strides. He has a +10-foot status bonus to his Speed during this Stride. The DC from shadow blending increases to DC 11 Flat during this Stride, and the Looksee Man remains Concealed by dim light until the end of the movement, even if he leaves dim light during the Stride."}, {"name": "Stalk Goggles Specialist", "type": "passive", "traits": [], "text": "As long as he wears his Greater Stalk Goggles, the Looksee Man can't be flanked by creatures of 4th level or lower."}]
+  spellcasting: [{"name": "Wizard Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 21, "attack": 14, "spells": {"0": ["Shield", "Tangle Vine", "Telekinetic Hand"], "1": ["Force Barrage", "Thunderstrike"], "2": ["Acid Grip", "Blazing Bolt", "Gecko Grip"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 21, "attack": 14, "spells": {"1": ["Illusory Disguise"]}}, {"name": "School of Protean Form Spell", "tradition": "arcane", "type": "focus", "dc": 21, "attack": 14, "spells": {"1": ["Scramble Body"]}}]
+"Ulikuq":
+  pack: "gatewalkers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 20
+  hp: 60
+  perception: 13
+  saves: {"fortitude": 10, "reflex": 11, "will": 14}
+  abilities: {"cha": 0, "con": 2, "dex": 2, "int": 1, "str": 1, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Medicine": 10, "Nature": 10, "Occultism": 8, "Religion": 10, "Survival": 10, "Astronomy Lore": 12, "Fortune-Telling Lore": 10, "Sailing Lore": 12}
+  strikes: [{"name": "Spear", "bonus": 9, "damage": [["1d6", "piercing", null]], "traits": ["thrown-20"]}, {"name": "Spear", "bonus": 9, "damage": [["1d6", "piercing", null]], "traits": []}]
+  actions: [{"name": "Chart a Course", "type": "passive", "traits": ["concentrate"], "text": "Ulikuq spends 10 minutes to plot a course and attempts a DC 20 Sailing Lore or DC 20 Survival check. This check is reduced to DC 15 in an arctic environment such as the Crown of the World (DC 15 Sailing Lore or DC 15 Survival). On a success, the severity of environmental conditions during the journey is reduced by one step for 24 hours (two steps on a critical success). This changes moderate damage to minor damage, winds that create greater difficult terrain cause only difficult terrain, and so…"}]
+"Valmar":
+  pack: "gatewalkers-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "humanoid"]
+  ac: 23
+  hp: 99
+  perception: 12
+  saves: {"fortitude": 16, "reflex": 11, "will": 12}
+  abilities: {"cha": 1, "con": 4, "dex": 3, "int": 1, "str": 5, "wis": 2}
+  speeds: {"land": 35}
+  hp_details: "immortal flesh"
+  senses: ["darkvision"]
+  skills: {"Athletics": 15, "Intimidation": 9, "Medicine": 14, "Stealth": 13, "Survival": 10}
+  immunities: ["disease"]
+  strikes: [{"name": "Claw", "bonus": 17, "damage": [["2d6+8", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Shield Spikes", "bonus": 17, "damage": [["1d6+8", "piercing", null]], "traits": []}, {"name": "War Razor", "bonus": 18, "damage": [["2d4+8", "slashing", null]], "traits": ["agile", "backstabber", "deadly-d8", "finesse", "magical"]}]
+  actions: [{"name": "+2 Status to All Saves vs. Poison", "type": "passive", "traits": []}, {"name": "Flesh Grafting", "type": "passive", "traits": [], "text": "An umasi can spend 10 minutes grafting the flesh of other living or recently dead humanoids onto their body, attempting a DC 20 Medicine check with the effects of Treat Wounds. This process is the only way an umasi can recover Hit Points."}, {"name": "Immortal Flesh", "type": "passive", "traits": [], "text": "Umasi can't heal or recover HP in any way except their Flesh Grafting techniques. However, despite being living creatures, they don't take damage from either vitality or void damage."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Consume Organ", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The umasi is adjacent to the corpse of a Small or larger creature that died within the last minute%rEffect The umasi harvests and consumes a vital organ from the corpse, gaining 15 temporary Hit Points and a +1 status bonus to attack and damage rolls for 10 minutes. They can gain this benefit only once from any given corpse.%rEffect: Consume Organ"}]
+"Vhisa Resgrido":
+  pack: "gatewalkers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["aiuvarin", "elf", "human", "humanoid"]
+  ac: 18
+  hp: 40
+  perception: 6
+  saves: {"fortitude": 5, "reflex": 8, "will": 10}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 2, "str": 0, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 8, "Deception": 11, "Diplomacy": 9, "Occultism": 7, "Performance": 11, "Society": 7, "Stealth": 8, "Thievery": 8, "Underworld Lore": 9}
+  strikes: [{"name": "Shortsword", "bonus": 10, "damage": [["1d6+2", "piercing", null]], "traits": ["agile", "versatile-s"]}, {"name": "Sap", "bonus": 7, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["agile", "nonlethal"]}]
+  actions: [{"name": "Versatile Performance", "type": "passive", "traits": [], "text": "The charlatan can use Performance instead of Diplomacy to make-an-impression statistic=performance and instead of Intimidation to demoralize statistic=performance. They can also use an acting Performance instead of Deception to impersonate statistic=performance."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The charlatan deals an extra 1d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 20, "attack": 10, "spells": {"0": ["Daze", "Ghost Sound", "Mage Hand", "Message", "Prestidigitation"], "1": ["Illusory Disguise", "Magic Aura", "Unseen Servant", "Ventriloquism"], "2": ["Charm", "Invisibility"]}}, {"name": "Bard Composition Spells", "tradition": "occult", "type": "focus", "dc": 19, "attack": 10, "spells": {"0": ["Inspire Courage"], "1": ["Counter Performance"]}}]
+"Yaiafineti":
+  pack: "gatewalkers-bestiary"
+  level: 8
+  size: "large"
+  rarity: "uncommon"
+  traits: ["mindless", "plant"]
+  ac: 24
+  hp: 170
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 11, "will": 13}
+  abilities: {"cha": 0, "con": 6, "dex": -5, "int": -5, "str": 6, "wis": 3}
+  speeds: {"land": 10, "climb": 10}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 18, "Stealth": 7}
+  immunities: ["visual"]
+  weaknesses: {"fire": 5, "slashing": 5}
+  resistances: {"cold": 10}
+  strikes: [{"name": "Bite", "bonus": 18, "damage": [["2d12+8", "piercing", null]], "traits": ["reach-10"], "effects": ["Improved Grab"]}, {"name": "Spore Sap", "bonus": 7, "damage": [], "traits": [], "effects": ["Alluring Spores"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 120 feet", "type": "passive", "traits": []}, {"name": "Pheromones", "type": "passive", "traits": ["aura"], "text": "5 miles. Yaiafinetis communicate with others of their kind via airborne pheromones. They can use this form of communication to determine their relative distance to each other, call for help if they are under attack or need sustenance, announce that they've detected prey, and convey similar basic concepts. Pheromones coat everything within the aura and allow all dusk poppies to perceive with their pheromone sense."}, {"name": "Alluring Spores", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 19 Fortitude%rMaximum Duration 6 rounds%rStage 1 Fascinated by the yaiafineti (1 round)%rStage 2 Controlled by the yaiafineti (1 round)"}, {"name": "Feed", "type": "action", "traits": [], "cost": 3, "text": "The yaiafineti draws nutrients from a living creature it has swallowed, regaining (3d8+24) healing HP. The swallowed creature takes (2d12+8) bludgeoning."}, {"name": "Paralyzing Poison", "type": "passive", "traits": ["poison"], "text": "The plants send out runner shoots that quickly develop purple bulbs. These bulbs, the plant's polyps, sprout many long, hooked vines before detaching from the mother plant. Polyps are short lived but active, foraging for a week or so before they shrivel and die. These polyps aren't dangerous unless handled. They secrete a fine dust that acts as a paralyzing poison that seizes the nervous system of creatures who come in contact with them.%rSaving Throw DC 19 Fortitude%rMaximum Duration 6…"}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Medium, (2d12+8) bludgeoning, Rupture 18"}, {"name": "Improved Grab", "type": "free", "traits": []}]

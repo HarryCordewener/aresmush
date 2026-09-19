@@ -1,0 +1,463 @@
+---
+"Azlanti Mystic":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 15
+  hp: 23
+  perception: 10
+  saves: {"fortitude": 6, "reflex": 5, "will": 9}
+  abilities: {"cha": 0, "con": 2, "dex": 1, "int": 4, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Arcana": 8, "Occultism": 8, "Astronomy Lore": 12}
+  strikes: [{"name": "Staff", "bonus": 7, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["two-hand-d8"]}, {"name": "Fist", "bonus": 8, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Living Sextant", "type": "passive", "traits": [], "text": "If the astronomer is able to see the night sky, they can Sense Direction using Astronomy Lore."}, {"name": "Reject Myth", "type": "reaction", "traits": [], "text": "Trigger A creature within 30 feet Casts a Spell or uses an ability with the fortune or misfortune trait%rEffect The astronomer's rejection of such fantasy becomes manifest. The astronomer attempts to counteract the triggering effect with a counteract modifier of +9 and a counteract rank of 1."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 17, "attack": 9, "spells": {"0": ["Daze", "Frostbite", "Shield", "Telekinetic Projectile", "Void Warp"], "1": ["Command", "Fear", "Grim Tendrils", "Hydraulic Push"]}}]
+"Blostin":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 15
+  hp: 30
+  perception: 7
+  saves: {"fortitude": 8, "reflex": 5, "will": 7}
+  abilities: {"cha": 1, "con": 2, "dex": 1, "int": 2, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 8, "Crafting": 8, "Society": 6, "Gladiatorial Lore": 6, "Labor Lore": 6}
+  strikes: [{"name": "Greatpick Handle", "bonus": 9, "damage": [["1d6", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Quick Repair", "type": "passive", "traits": [], "text": "For Blostin, the Repair activity loses the exploration trait and takes 1 minute instead of 10 minutes."}]
+"Cherub":
+  pack: "the-dead-gods-hand-bestiary"
+  level: -1
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["celestial", "holy"]
+  ac: 15
+  hp: 7
+  perception: 5
+  saves: {"fortitude": 3, "reflex": 5, "will": 7}
+  abilities: {"cha": 2, "con": 1, "dex": 3, "int": 1, "str": -1, "wis": 3}
+  speeds: {"land": 20, "fly": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 5, "Diplomacy": 4, "Medicine": 5}
+  weaknesses: {"unholy": 2}
+  resistances: {"mental": 2}
+  strikes: [{"name": "Rapier", "bonus": 7, "damage": [["1d6-1", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse", "holy", "reach-0"]}, {"name": "Shortbow", "bonus": 6, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10", "holy", "reload-0"], "range": 60}]
+  actions: [{"name": "Cherub’s Arrow", "type": "action", "traits": ["attack", "concentrate", "divine", "emotion", "mental"], "cost": 2, "text": "The cherub concentrates on an arrow they have nocked in their bow, imbuing it with supernatural power before firing it at a target within 30 feet. The arrow inflicts no damage on a hit, and instead has one of the following effects, chosen by the cherub. While the cherub can use this ability every round if they so choose, they can never pick the same effect twice in a row. A creature struck must succeed at a DC 16 Will save or be affected as follows, depending on the cherub's choice (on a…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 13, "attack": 5, "spells": {"0": ["Guidance", "Light", "Stabilize"], "1": ["Charm", "Sanctuary"]}}]
+"Deravon":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 20
+  hp: 63
+  perception: 10
+  saves: {"fortitude": 14, "reflex": 8, "will": 12}
+  abilities: {"cha": 4, "con": 4, "dex": 1, "int": 2, "str": 5, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 11, "Deception": 12, "Diplomacy": 12, "Intimidation": 12, "Religion": 10, "Aroden Lore": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"vitality": 5, "persistent-damage": 3}
+  strikes: [{"name": "Destiny Blade", "bonus": 14, "damage": [["2d8+7", "slashing", null]], "traits": ["magical", "versatile-p"], "effects": ["Muddle Mind"]}]
+  actions: [{"name": "Proof of Undeath", "type": "passive", "traits": [], "text": "A sanctum knight believes themself to be a living immortal, but if offered proof that they are in fact undead, they must succeed at a DC 20 Will save or become Frightened 1 (or Frightened 3 on a critical failure). On a critical success, they're temporarily immune to this fear for 24 hours. Once they recover from being frightened, their memories of the proof offered fade and they once again regard themselves as living immortals. Proof of undeath includes whenever they take vitality damage,…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Aeon Blast", "type": "action", "traits": [], "cost": 2, "text": "The sanctum knight chooses one of the aeon stars, then fires it from its orbit to detonate into a 20-foot-radius blast at any point within 120 feet, dealing 2d6 untyped damage to creatures in the area (basic DC 21 Reflex save). The damage type depends on the color of the aeon star.%rBlack Aeon Star void damage%rGold Aeon Star electricity damage%rGreen Aeon Star acid damage%rWhite Aeon Star spirit damage"}, {"name": "Aeon Stars", "type": "passive", "traits": [], "text": "A sanctum knight has four tiny motes of light that constantly orbit their head. These four aeon stars are black, gold, green, and white, and each provides illumination equivalent to that of a lit candle. A sanctum knight can expend an aeon star to make an Aeon Blast (see above), but once a sanctum knight has used all of their aeon stars, they become Slowed 1. An expended aeon star returns to its orbit around the sanctum knight's head automatically after 1 hour has passed."}, {"name": "Muddle Mind", "type": "passive", "traits": ["mental"], "text": "The first time each round a creature takes damage from a throneglass weapon wielded by a sanctum knight, it must attempt a DC 21 Will save to avoid becoming Stupefied 1 for 1 minute (or stupefied 1 for 24 hours on a critical failure). Regardless of the result of its save, the creature is temporarily immune to muddle mind for 1 round."}]
+"Deravon's Ghost":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 25
+  hp: 115
+  perception: 18
+  saves: {"fortitude": 19, "reflex": 17, "will": 16}
+  abilities: {"cha": 6, "con": 4, "dex": 4, "int": 3, "str": -5, "wis": 3}
+  speeds: {"land": 0, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 19, "Intimidation": 19, "Religion": 16, "Aroden Lore": 18}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Ghostly Sword", "bonus": 17, "damage": [["2d8+10", "bludgeoning", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Helm Dependent", "type": "passive", "traits": [], "text": "Deravon is incorporeal, but the magical helm he wears is physical, perched atop his head as securely as if he were a physical creature. He cannot pass through solid objects while wearing his helm, but without it he is weakened. A PC can remove his helm with a DC 27 Athletics check to disarm, and if Deravon's ghost critically fails a Reflex save, he must immediately attempt a second Reflex save against the same DC. On a failure, his helm topples from his head. While he can move through solid…"}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "Destroying Deravon's link to the world—his magical helm—prevents him from rejuvenating and allows him to move on to the afterlife once he is destroyed.%rWhen a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Site Bound", "type": "passive", "traits": [], "text": "Deravon's ghost can travel anywhere in the Sanctum of Aroden (areas B29–B34 ) but not beyond."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Aeon Star's Curse", "type": "action", "traits": ["curse", "divine", "emotion", "mental"], "cost": 2, "text": "Deravon's ghost has four tiny motes of darkness that constantly orbit the glowing helm atop his head. When he activates the Aeon Star's Curse, one of these motes of darkness fires from its orbit to strike a living creature within 120 feet. That creature takes 5d6 spirit damage and must attempt a DC 28 Will save. An expended Aeon Star returns to its orbit around Deravon's head automatically after 1 hour has passed, but if no Aeon Stars orbit his head, Deravon's ghost can't activate Aeon Star's…"}, {"name": "Bow Before Me", "type": "action", "traits": ["auditory", "concentrate", "divine", "linguistic", "mental"], "cost": 1, "text": "Frequency once per round%rEffect Deravon's ghost can use the \"Bow Before Aroden\" activation of his helm at will as a single action once per round rather than once per day as a two-action activity, as long as the command he issues is to bow before him and not before Aroden."}, {"name": "Slice of Death", "type": "action", "traits": ["divine", "void"], "cost": 2, "text": "Deravon's ghost swings his ghostly longsword in an arc before him, unleashing a 30-foot cone of void energy. Creatures in the area take 8d6 void|options:area-damage damage and must make a DC 28 Fortitude save against the following additional effects. Deravon's ghost can't use Slice Of Death for 1d4 rounds.%rCritical Success The creature takes no damage and is unaffected.%rSuccess The creature takes half damage.%rFailure The creature takes full damage and an additional 2d6 persistent…"}]
+"Elharris":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "unique"
+  traits: ["elf", "humanoid"]
+  ac: 16
+  hp: 15
+  perception: 7
+  saves: {"fortitude": 3, "reflex": 6, "will": 7}
+  abilities: {"cha": 1, "con": 0, "dex": 3, "int": 3, "str": 0, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Arcana": 6, "Society": 6, "Academia Lore": 6, "Art Lore": 6}
+  strikes: [{"name": "Fist", "bonus": 6, "damage": [["1d4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Scholarly Assistance", "type": "reaction", "traits": ["auditory", "concentrate", "linguistic"], "text": "Requirements Elharris has recovered from her poisoning and is communicative%rTrigger An allied creature attempts a skill check to Recall Knowledge while not in combat%rEffect Elharris provides additional context, theories, and suppositions to assist the triggering creature's attempt to Recall Knowledge, granting them a +1 circumstance bonus to the check. If the triggering creature is attempting to Recall Knowledge from a subject that's particularly academic or artistic in nature, this increases…"}]
+"Garenne":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 20
+  hp: 60
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 10, "will": 14}
+  abilities: {"cha": 3, "con": 4, "dex": 2, "int": 0, "str": 5, "wis": 4}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 11, "Deception": 12, "Intimidation": 11, "Religion": 12, "Aroden Lore": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"vitality": 5}
+  strikes: [{"name": "Destiny Blade", "bonus": 14, "damage": [["2d8+7", "slashing", null]], "traits": ["magical", "versatile-p"], "effects": ["Muddle Mind"]}]
+  actions: [{"name": "Proof of Undeath", "type": "passive", "traits": [], "text": "A sanctum knight believes themself to be a living immortal, but if offered proof that they are in fact undead, they must succeed at a DC 20 Will save or become Frightened 1 (or Frightened 3 on a critical failure). On a critical success, they're temporarily immune to this fear for 24 hours. Once they recover from being frightened, their memories of the proof offered fade and they once again regard themselves as living immortals. Proof of undeath includes whenever they take vitality damage,…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Aeon Blast", "type": "action", "traits": [], "cost": 2, "text": "The sanctum knight chooses one of the aeon stars, then fires it from its orbit to detonate into a 20-foot-radius blast at any point within 120 feet, dealing 2d6 untyped damage to creatures in the area (basic DC 21 Reflex save). The damage type depends on the color of the aeon star.%rBlack Aeon Star void damage%rGold Aeon Star electricity damage%rGreen Aeon Star acid damage%rWhite Aeon Star spirit damage"}, {"name": "Aeon Stars", "type": "passive", "traits": [], "text": "A sanctum knight has four tiny motes of light that constantly orbit their head. These four aeon stars are black, gold, green, and white, and each provides illumination equivalent to that of a lit candle. A sanctum knight can expend an aeon star to make an Aeon Blast (see above), but once a sanctum knight has used all of their aeon stars, they become Slowed 1. An expended aeon star returns to its orbit around the sanctum knight's head automatically after 1 hour has passed."}, {"name": "Muddle Mind", "type": "passive", "traits": ["mental"], "text": "The first time each round a creature takes damage from a throneglass weapon wielded by a sanctum knight, it must attempt a DC 21 Will save to avoid becoming Stupefied 1 for 1 minute (or stupefied 1 for 24 hours on a critical failure). Regardless of the result of its save, the creature is temporarily immune to muddle mind for 1 round."}]
+"Greely":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 14
+  hp: 16
+  perception: 7
+  saves: {"fortitude": 4, "reflex": 4, "will": 7}
+  abilities: {"cha": 1, "con": 1, "dex": 1, "int": 3, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Diplomacy": 4, "Society": 6, "Genealogy Lore": 6, "Heraldry Lore": 6, "Mercantile Lore": 8}
+  strikes: [{"name": "Fist", "bonus": 4, "damage": [["1d4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Additional Information", "type": "action", "traits": [], "cost": 3, "text": "Requirements Greely isn't in combat, and a PC has missed or forgotten a key piece of information%rEffect Greely can step in to provide additional information or context, or remind the PCs of something they learned but appear to have forgotten, provided the information in question has something to do with history, Absalom's society, or one of Greely's Lore skills. Once he provides this aid, he grows smug and disdainful, and won't provide Additional Information again for the remainder of the day…"}]
+"Heart of Sarnax":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["construct", "unholy"]
+  ac: 24
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 16, "reflex": 13, "will": 14}
+  abilities: {"cha": 4, "con": 4, "dex": 2, "int": 0, "str": 5, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 15, "Intimidation": 14}
+  resistances: {"piercing": 5, "slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 17, "damage": [["2d10+8", "bludgeoning", null]], "traits": ["backswing"]}, {"name": "Void Bolt", "bonus": 14, "damage": [["3d8", "void", null]], "traits": [], "range": 20}]
+  actions: [{"name": "Hear Heartbeat", "type": "passive", "traits": [], "text": "The Heart of Sarnax can hear a living creature's heartbeat as a precise sense in the listed range."}, {"name": "Speak to Inner Evils", "type": "action", "traits": ["auditory", "emotion", "linguistic", "mental"], "cost": 1, "text": "Frequency once per round%rEffect The Heart of Sarnax speaks to a creature it can hear the heartbeat of within 60 feet, beckoning that creature to give in to their inner desires to commit evil acts. The Heart of Sarnax attempts an Intimidation check against the target's Will DC, with the following results.%rCritical Success The inner evils take over fully, and the target becomes Confused for 1 minute. While confused, the creature will never attack the Heart of Sarnax, attacking themself instead…"}, {"name": "Void Beam", "type": "action", "traits": ["arcane", "void"], "cost": 2, "text": "The Heart of Sarnax fires a 60-foot line of spiraling, shadowy void energy from the cavity in its chest. Creatures in the area take 7d6 void|options:area-damage damage (DC 24 Fortitude). The Heart of Sarnax can't use Void Beam again for 1d4 rounds."}]
+"Irabel of Eiseth":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 20
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 11, "will": 9}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 35}
+  skills: {"Acrobatics": 10, "Athletics": 10, "Religion": 9, "Society": 5, "Eiseth Lore": 7, "Underworld Lore": 7}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Asp Stance", "type": "action", "traits": ["stance"], "cost": 1, "text": "Irabel enters a stance wherein she adopts a fluid, sinuous set of motions that mimic the striking of a venomous serpent. Her fist Strikes deal piercing damage while she's in Asp Stance, and she gains a +1 circumstance bonus to AC. When she targets the same creature with two Strikes from her Flurry of Blows, if both Strikes hit, the target becomes Sickened 1 from the pain."}, {"name": "Flurry of Blows", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Irabel makes two fist Strikes. If both hit the same creature, combine the damage for the purpose of resistances and weaknesses. Apply her multiple attack penalty to the Strikes normally."}, {"name": "Powerful Fist", "type": "passive", "traits": [], "text": "Irabel doesn't take the normal –2 circumstance penalty when making a lethal attack with her fist or any other unarmed attack."}]
+"Jona Clay":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 19
+  hp: 74
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 11, "will": 9}
+  abilities: {"cha": 4, "con": 0, "dex": 2, "int": 2, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 12, "Deception": 13, "Diplomacy": 13, "Nature": 10, "Occultism": 11, "Performance": 13, "Society": 11, "Stealth": 11, "Survival": 10, "Absalom Lore": 11, "Pathfinder Society Lore": 11}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Martial Performance", "type": "passive", "traits": [], "text": "When Jona has a courageous anthem, rallying anthem, or song of strength composition active, and he damages an enemy with a Strike, the spell's duration is extended by 1 round."}, {"name": "Signature Spells", "type": "passive", "traits": [], "text": "Jona can flexibly cast dispel magic, heroism, and soothe, and is able to heighten these spells freely."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 22, "attack": 14, "spells": {"0": ["Daze", "Light", "Message", "Prestidigitation", "Telekinetic Hand"], "1": ["Charm", "Fear", "Protection", "Soothe"], "2": ["Cleanse Affliction", "Dispel Magic", "Noise Blast"], "3": ["Haste", "Heroism"]}}]
+"Kalatryx":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 7
+  size: "large"
+  rarity: "unique"
+  traits: ["arcane", "dragon"]
+  ac: 23
+  hp: 120
+  perception: 16
+  saves: {"fortitude": 12, "reflex": 13, "will": 16}
+  abilities: {"cha": 6, "con": 3, "dex": 4, "int": 4, "str": 5, "wis": 5}
+  speeds: {"land": 40, "climb": 20, "fly": 120}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 15, "Arcana": 15, "Athletics": 14, "Crafting": 15, "Deception": 17, "Diplomacy": 15, "Performance": 15, "Stealth": 15, "Thievery": 15, "Illusion Lore": 17}
+  immunities: ["fascinated", "paralyzed", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 16, "damage": [["2d10+7", "piercing", null]], "traits": ["magical", "reach-10", "unarmed"]}, {"name": "Claws", "bonus": 16, "damage": [["2d8+7", "slashing", null]], "traits": ["agile", "magical"]}, {"name": "Tail", "bonus": 16, "damage": [["2d6+7", "bludgeoning", null]], "traits": ["magical", "reach-15"]}]
+  actions: [{"name": "Camouflage", "type": "passive", "traits": [], "text": "The dragon can hide in natural environments even if they don't have cover."}, {"name": "+2 Status to All Saves vs. Arcane", "type": "passive", "traits": []}, {"name": "Scintillating Defense", "type": "reaction", "traits": ["visual"], "text": "Trigger The dragon is targeted with an attack%rEffect The dragon flashes their iridescent scales at the triggering creature to throw off the attack. The dragon gains Concealment against the triggering attack."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The dragon makes two claw Strikes and one tail Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "The dragon recharges their Hallucinatory Breath whenever they score a critical hit with a Strike."}, {"name": "Hallucinatory Breath", "type": "action", "traits": ["arcane", "emotion", "mental"], "cost": 2, "text": "The dragon breathes a cloud that assaults the senses and deals 5d6 mental|options:area-damage damage in a 30-foot (DC 25 Will save). A creature that fails its save is also Confused for 1 round (1 minute on a critical failure) and is then temporarily immune to being confused by Hallucinatory Breath for 1 hour.%rThe dragon can't use Hallucinatory Breath again for 1d4 rounds."}, {"name": "Lunging Bite", "type": "action", "traits": [], "cost": 2, "text": "The dragon lunges their head forward, making a jaws Strike with an extended reach of 20 feet."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The dragon's Strikes deal an additional 1d6 precision damage to Off-Guard targets."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Figment", "Message"], "2": ["Invisibility"], "4": ["Illusory Creature", "Illusory Object (At Will)", "Mirage"]}}]
+"Kaltos Orthux":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["duergar", "dwarf", "humanoid"]
+  ac: 16
+  hp: 32
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 6, "will": 8}
+  abilities: {"cha": 3, "con": 2, "dex": 0, "int": 1, "str": 2, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8, "Deception": 5, "Intimidation": 5, "Occultism": 5, "Religion": 4, "Stealth": 7, "Survival": 6}
+  strikes: [{"name": "Chimera's Claw", "bonus": 9, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["magical"]}, {"name": "Crossbow", "bonus": 6, "damage": [["1d8+2", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  actions: [{"name": "+2 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Iron Mind", "type": "passive", "traits": [], "text": "Hryngar taskmasters automatically disbelieve all illusions of 1st rank or lower."}, {"name": "Light Blindness", "type": "passive", "traits": []}, {"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "Requirements You are wielding a shield.%rYou position your shield to protect yourself. When you have Raised a Shield, you gain its listed circumstance bonus to AC. Your shield remains raised until the start of your next turn."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Take Them Down!", "type": "action", "traits": [], "cost": 1, "text": "The hryngar taskmaster smashes their maul into the ground and invokes Droskar's name to rally their allies to action. All allied hryngars of equal or lower level that are within 20 feet of the hryngar taskmaster gain a +1 status bonus to attack rolls and damage rolls until the end of the hryngar taskmaster's next turn.%rEffect: Take Them Down!"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 18, "attack": 10, "spells": {"0": ["Sigil"], "2": ["Blood Vendetta", "Paranoia"]}}]
+"Krell":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["halfling", "humanoid"]
+  ac: 18
+  hp: 30
+  perception: 6
+  saves: {"fortitude": 6, "reflex": 10, "will": 4}
+  abilities: {"cha": 3, "con": 1, "dex": 4, "int": 1, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 8, "Athletics": 6, "Deception": 7, "Society": 5, "Stealth": 8, "Thievery": 8}
+  strikes: [{"name": "Fist", "bonus": 8, "damage": [["1d4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Distracting Halfling", "type": "action", "traits": [], "cost": 1, "text": "Requirements Krell has taken 2 actions%rEffect Krell scuttles around underfoot and behind a foe to leave them open to an attack by an ally. He attempts to tumble-through a single creature's space. If he's successful, that creature is Off-Guard to the next attack made against them before Krell's next turn."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Krell does an additional 1d6 precision damage to Off-Guard targets."}]
+"Labella":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 18
+  hp: 29
+  perception: 7
+  saves: {"fortitude": 5, "reflex": 10, "will": 7}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": 0, "str": 2, "wis": 1}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 8, "Athletics": 6, "Performance": 8, "Absalom Lore": 6, "Theater Lore": 6}
+  strikes: [{"name": "Fist", "bonus": 8, "damage": [["1d4+2", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+"Lord Pandelay":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: []
+  ac: 24
+  hp: 99
+  perception: 10
+  saves: {"fortitude": 16, "reflex": 14, "will": 11}
+  abilities: {"cha": 3, "con": 3, "dex": 1, "int": 1, "str": 4, "wis": 0}
+  speeds: {"land": 20}
+  skills: {"Athletics": 14, "Intimidation": 13, "Society": 10}
+  strikes: [{"name": "Twinslayer", "bonus": 16, "damage": [["2d8+6", "slashing", null]], "traits": ["magical", "versatile-p"]}]
+  actions: [{"name": "Nauseating Glyphs", "type": "reaction", "traits": ["mental", "occult", "visual"], "text": "Trigger Lord Pandelay is hit by a weapon Strike%rEffect The runes on Lord Pandelay's ebon regalia flash in an unpleasant shimmering blast of light, increasing Pandelay's AC against the strike by 2 to AC 26, potentially causing the strike to miss or not be a critical hit. Pandelay reflexively directs this light to focus on any adjacent creature; that creature must succeed at a DC 21 Will save or become Sickened 1 from the blast of color (Sickened 2 on a critical failure). If there are no viable…"}, {"name": "Activate Glyph", "type": "action", "traits": ["concentrate", "occult"], "cost": 2, "text": "Lord Pandelay focuses his concentration on Twinslayer, causing one of the glyphs on the blade to glow and granting the sword one of three different effects, chosen from below.%rEnervating Glyph (void) Twinslayer shimmers with seething black energy, and then Pandelay fires a beam of darkness from the blade, targeting a creature within 30 feet and dealing 4d6 void damage (DC 24 Fortitude save)%rPallid Glyph (mental) Twinslayer glows with a pale white sheen that inflicts overwhelming pain. This…"}]
+"Mullun":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 4
+  size: "large"
+  rarity: "unique"
+  traits: ["giant", "humanoid"]
+  ac: 18
+  hp: 58
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 8, "will": 9}
+  abilities: {"cha": 1, "con": 4, "dex": 0, "int": 0, "str": 6, "wis": 1}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Intimidate": 11, "Intimidation": 10, "Stealth": 8, "Survival": 6}
+  strikes: [{"name": "Greatclub", "bonus": 14, "damage": [["1d10+8", "bludgeoning", null]], "traits": ["backswing", "magical", "shove"]}]
+  actions: [{"name": "Recognizable Stench", "type": "passive", "traits": ["aura", "emotion", "fear", "mental", "olfactory"], "text": "10 feet. While Mullun's odor isn't normally overwhelming, the mix of ogre sweat, filth, and blood that surrounds him is enough to trigger lingering trauma in the minds of any former Clan Orthux captives (including the PCs and their NPC allies). A PC who ends their turn in the aura must succeed at a DC 18 Will save.%rCritical Success The character is unaffected and immune to the aura.%rSuccess The character is unaffected.%rFailure The character becomes Frightened 1.%rCritical Failure The…"}, {"name": "Spooked", "type": "passive", "traits": ["emotion", "fear", "mental"], "text": "For the duration of this encounter, Mullun has the Frightened 1 condition, but unlike the Orthux guards, his frightened condition reduces normally once combat begins; his stats have not been adjusted to take this condition into account."}, {"name": "Flea Infested", "type": "passive", "traits": [], "text": "A character who successfully Strikes Mullun with an unarmed weapon or a Light weapon, or who is Grabbed or Shoved by Mullun, must succeed at a DC 14 Fortitude save or become infested with fleas.%rFleas (disease)%rSaving Throw DC 14 Fortitude%rStage 1 infested but suffering no obvious effects (1 hour)%rStage 2 Sickened 1 (1 hour)%rStage 3 Sickened 2 and can't reduce its sickened value below 1 (1 day)"}, {"name": "Shove", "type": "action", "traits": ["attack"], "cost": 1, "text": "Requirements You have at least one hand free. The target can't be more than one size larger than you.%rYou push a creature away from you. Attempt an Athletics check against your target's Fortitude DC.%rCritical Success You push your target up to 10 feet away from you. You can Stride after it, but you must move the same distance and in the same direction.%rSuccess You push your target back 5 feet. You can Stride after it, but you must move the same distance and in the same direction.%rCritical…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Orthux Guard":
+  pack: "the-dead-gods-hand-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["duergar", "dwarf", "humanoid"]
+  ac: 14
+  hp: 14
+  perception: 3
+  saves: {"fortitude": 6, "reflex": 6, "will": 3}
+  abilities: {"cha": -2, "con": 2, "dex": 2, "int": 0, "str": 1, "wis": 1}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 3, "Intimidation": 2, "Religion": 3, "Stealth": 4}
+  strikes: [{"name": "Light Mace", "bonus": 6, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "finesse", "shove"]}, {"name": "Crossbow", "bonus": 6, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}, {"name": "Dagger", "bonus": 6, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 6, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "+2 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Light Blindness", "type": "passive", "traits": []}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 12, "attack": 4, "spells": {"0": ["Sigil"], "1": ["Command", "Phantom Pain"]}}]
+"Reglok":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration"]
+  ac: 21
+  hp: 60
+  perception: 10
+  saves: {"fortitude": 9, "reflex": 9, "will": 12}
+  abilities: {"cha": 3, "con": 3, "dex": 3, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Athletics": 12, "Deception": 13, "Stealth": 13, "Thievery": 9}
+  resistances: {"bludgeoning": 5}
+  strikes: [{"name": "Longsword", "bonus": 14, "damage": [["1d8+6", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Claw", "bonus": 12, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}, {"name": "Blowgun", "bonus": 12, "damage": [["1", "piercing", null]], "traits": ["agile", "magical", "nonlethal", "reload-1"], "range": 20, "effects": ["Graveroot"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+2 Status to All Saves vs. Auditory and Visual", "type": "passive", "traits": []}, {"name": "Assume Form", "type": "passive", "traits": ["concentrate", "occult", "polymorph"], "text": "The ugothol spends 10 minutes reshaping its appearance to take on the shape of any Small or Medium humanoid. It gains a +4 circumstance bonus to Deception checks to pass as that creature."}, {"name": "Beguiling Tune", "type": "action", "traits": ["auditory", "emotion", "mental", "occult"], "cost": 1, "text": "Frequency once per round%rEffect Reglok uses his unusual blowgun as a wind instrument, playing an eerie, haunting tune and targeting a single character within 30 feet. That creature must succeed at a DC 21 Will save or become overwhelmed with emotion at the strange music, and is Slowed 1 on their next turn (or Slowed 2 on a critical failure)."}, {"name": "Blood Nourishment", "type": "action", "traits": [], "cost": 1, "text": "The ugothol uses its three-pronged tongue to drink the blood of an adjacent Restrained or Unconscious creature. The creature gains Drained 1"}, {"name": "Compression", "type": "passive", "traits": [], "text": "When the ugothol successfully Squeezes, it moves through the tight space at full speed. Narrow confines are not difficult terrain for an ugothol."}, {"name": "Revert Form", "type": "free", "traits": [], "text": "Requirements The ugothol is in an assumed form%rEffect The ugothol resumes its true form. Until the start of its next turn, it gains a +2 status bonus to attack rolls, damage rolls, saving throws, and skill checks.%rEffect: Revert Form"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The ugothol deals 1d6 extra precision damage to Off-Guard creatures."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 19, "attack": 11, "spells": {"5": ["Truespeech (Constant)"]}}]
+"Reglok's Mount":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 2
+  size: "large"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 17
+  hp: 26
+  perception: 7
+  saves: {"fortitude": 8, "reflex": 11, "will": 6}
+  abilities: {"cha": -2, "con": 3, "dex": 4, "int": -4, "str": 3, "wis": 1}
+  speeds: {"land": 20, "climb": 20, "swim": 20}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 9, "Athletics": 8, "Stealth": 8, "Survival": 6}
+  strikes: [{"name": "Fangs", "bonus": 11, "damage": [["1d8+3", "piercing", null]], "traits": ["finesse"], "effects": ["Giant Viper Venom"]}]
+  actions: [{"name": "Coiled Strike (Special)", "type": "reaction", "traits": [], "text": "As Reactive Strike, but the snake can use this reaction only if it's Coiled."}, {"name": "Coil", "type": "action", "traits": [], "cost": 1, "text": "The giant viper uses an action to coil itself. While Coiled, the reach of its fangs is 10 feet and it has the Reactive Strike reaction. After the giant viper Strikes with its fangs, it becomes uncoiled."}, {"name": "Giant Viper Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 17 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage (1 round)%rStage 2 1d6 poison damage and Drained 1"}]
+"Sanctum Knight":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "rare"
+  traits: ["undead", "unholy"]
+  ac: 19
+  hp: 28
+  perception: 7
+  saves: {"fortitude": 11, "reflex": 4, "will": 7}
+  abilities: {"cha": 3, "con": 3, "dex": 0, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8, "Intimidation": 7, "Religion": 5}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"vitality": 5}
+  strikes: [{"name": "Longsword", "bonus": 10, "damage": [["1d8+6", "slashing", null]], "traits": ["versatile-p"], "effects": ["Muddle Mind"]}]
+  actions: [{"name": "Proof of Undeath", "type": "passive", "traits": [], "text": "A sanctum knight believes themself to be a living immortal, but if offered proof that they are in fact undead, they must succeed at a DC 20 Will save or become Frightened 1 (or Frightened 3 on a critical failure). On a critical success, they're temporarily immune to this fear for 24 hours. Once they recover from being frightened, their memories of the proof offered fade and they once again regard themselves as living immortals. Proof of undeath includes whenever they take vitality damage,…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Aeon Blast", "type": "action", "traits": [], "cost": 2, "text": "The sanctum knight chooses one of the aeon stars, then fires it from its orbit to detonate into a 20-foot-radius blast at any point within 120 feet, dealing 2d6 untyped damage to creatures in the area (basic DC 18 Reflex save). The damage type depends on the color of the aeon star.%rBlack Aeon Star void damage%rGold Aeon Star electricity damage%rGreen Aeon Star acid damage%rWhite Aeon Star spirit damage"}, {"name": "Aeon Stars", "type": "passive", "traits": [], "text": "A sanctum knight has four tiny motes of light that constantly orbit their head. These four aeon stars are black, gold, green, and white, and each provides illumination equivalent to that of a lit candle. A sanctum knight can expend an aeon star to make an Aeon Blast (see above), but once a sanctum knight has used all of their aeon stars, they become Slowed 1. An expended aeon star returns to its orbit around the sanctum knight's head automatically after 1 hour has passed."}, {"name": "Muddle Mind", "type": "passive", "traits": ["mental"], "text": "The first time each round a creature takes damage from a throneglass weapon wielded by a sanctum knight, it must attempt a DC 18 Will save to avoid becoming Stupefied 1 for 1 minute (or stupefied 1 for 24 hours on a critical failure). Regardless of the result of its save, the creature is temporarily immune to muddle mind for 1 round."}]
+"Shevala Iorae":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 23
+  hp: 126
+  perception: 13
+  saves: {"fortitude": 13, "reflex": 15, "will": 17}
+  abilities: {"cha": 4, "con": 1, "dex": 3, "int": 2, "str": 1, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Arcana": 16, "Occultism": 14, "Society": 14, "Absalom Lore": 14, "Academia Lore": 14, "Pathfinder Society Lore": 16}
+  strikes: [{"name": "Fist", "bonus": 15, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Drained Bloodline", "type": "passive", "traits": [], "text": "Shevala is drained 7 when the PCs first rescue her. In addition, the horrible experiments the anadi torturer Shulgurk performed on her in his attempt to extract her bloodline's magic has limited her spellcasting—her spell DC is 7 lower than normal, and she currently can only cast 1st-rank spells and cantrips, and does not have access to her imperial bloodline spells."}, {"name": "Identification Knack", "type": "passive", "traits": [], "text": "Shevala has long studied magical items and their properties, becoming something of a local legend for her ability to figure out how obscure magical items function. When she uses the Identify Magic activity to examine a magic item, she only needs 1 minute to perform the activity, and she gains a +2 circumstance bonus on the check."}, {"name": "Sorcerer Bloodline Spells", "type": "passive", "traits": [], "text": "As long as Shevala's bloodline remains drained, she cannot use any of her bloodline spells."}]
+  spellcasting: [{"name": "Arcane Spontaneous Spells", "tradition": "arcane", "type": "spontaneous", "dc": 19, "attack": 11, "spells": {"0": ["Detect Magic", "Electric Arc", "Light", "Message", "Sigil"], "1": ["Breathe Fire", "Command", "Force Barrage", "Mystic Armor", "Phantasmal Minion"]}}]
+"Shevala Iorae (Recovered)":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 25
+  hp: 126
+  perception: 13
+  saves: {"fortitude": 13, "reflex": 15, "will": 17}
+  abilities: {"cha": 4, "con": 1, "dex": 3, "int": 2, "str": 1, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Arcana": 16, "Occultism": 14, "Society": 14, "Absalom Lore": 14, "Academia Lore": 14, "Pathfinder Society Lore": 16}
+  strikes: [{"name": "Fist", "bonus": 15, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Sickle", "bonus": 16, "damage": [["2d6+1", "slashing", null], ["1d6", "cold", null]], "traits": ["agile", "finesse", "magical", "trip"]}]
+  actions: [{"name": "Blood Magic", "type": "passive", "traits": [], "text": "When Shevala casts detect magic, dispel magic, force barrage, haste, translocate, or casts a bloodline spell using a Focus Point, she gains her choice of either a +1 status bonus to AC or a +1 status bonus to saving throws."}, {"name": "Identification Knack", "type": "passive", "traits": [], "text": "Shevala has long studied magical items and their properties, becoming something of a local legend for her ability to figure out how obscure magical items function. When she uses the Identify Magic activity to examine a magic item, she only needs 1 minute to perform the activity, and she gains a +2 circumstance bonus on the check."}, {"name": "Reach Spell", "type": "action", "traits": ["concentrate", "spellshape"], "cost": 1, "text": "If Shevala's next action is to Cast a Spell that has a range, increase that spell's range by 30 feet."}, {"name": "Signature Spells", "type": "passive", "traits": [], "text": "Shevala can freely heighten the following spells rather than having to learn higher rank versions of them separately: breathe fire, dispel magic, fireball, and wall of fire."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If a reaction would disrupt Shevala's spellcasting action, she attempts a DC 15 Flat. If she succeeds, the action isn't disrupted."}]
+  spellcasting: [{"name": "Arcane Spontaneous Spells", "tradition": "arcane", "type": "spontaneous", "dc": 26, "attack": 18, "spells": {"0": ["Detect Magic", "Electric Arc", "Light", "Message", "Sigil"], "1": ["Breathe Fire", "Command", "Force Barrage", "Mystic Armor", "Phantasmal Minion"], "2": ["Blazing Bolt", "Dispel Magic", "Environmental Endurance", "Resist Energy", "Translate"], "3": ["Cozy Cabin", "Fireball", "Haste", "Levitate", "Veil of Privacy"], "4": ["Fly", "Suggestion", "Translocate", "Wall of Fire", "Weapon Storm"]}}, {"name": "Arcane Focus Spells", "tradition": "arcane", "type": "focus", "dc": 28, "attack": 18, "spells": {"1": ["Ancestral Memories"], "3": ["Extend Blood Magic"]}}]
+"Shulgurk":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["anadi", "humanoid"]
+  ac: 18
+  hp: 45
+  perception: 7
+  saves: {"fortitude": 0, "reflex": 0, "will": 0}
+  abilities: {"cha": 0, "con": 1, "dex": 3, "int": 4, "str": 2, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Athletics": 10, "Crafting": 9, "Stealth": 10}
+  strikes: [{"name": "Infernal Machine Hose", "bonus": 10, "damage": [], "traits": ["finesse"], "effects": ["Attach Sanguine Hose"]}]
+  actions: [{"name": "Spider-speak", "type": "passive", "traits": ["primal"], "text": "Shulgurk can speak with spiders, with the same effects and limitations as speak with animals."}, {"name": "Web Sense", "type": "passive", "traits": [], "text": "Shulgurk has imprecise tremorsense to detect the vibrations of creatures touching any webbing in areas A12–A15 ."}, {"name": "Anadi Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 17 Fortitude%rMaximum Duration 4 rounds%rStage 1 1d6 poison damage and Off-Guard (1 round)%rStage 2 1d6 poison damage, off-guard, and Clumsy 1 (1 round)"}, {"name": "Attach Sanguine Hose", "type": "passive", "traits": ["manipulate"], "text": "Shulgurk attempts to embed a toothy sphincter at the end of a leather hose attached to his infernal machine in the flesh of a living creature that's also within 10 feet of the infernal machine. The torturer makes an infernal machine hose Strike against the Restrained creature, with a hit successfully attaching the hose to the creature, that's thereafter Off-Guard and susceptible to Exsanguinate Subject until the hose is detached.%rSafely removing an attached sanguine hose from a living subject…"}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "Shulgurk changes into his hybrid form, spider form, or human form. The above statistics assume he's in his hybrid form. While in human form, he can't use his fangs attack and loses his climb speed. While in spider form, he can't use weapons."}, {"name": "Exsanguinate Subject", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Frequency once per round%rEffect Shulgurk manipulates the infernal machine to deal 1d6 persistent bleed damage as long as a creature remains attached to the infernal machine by a sanguine hose. If a creature takes this bleed damage, it must succeed at a DC 17 Fortitude save or become Enfeebled 1 for 1 minute."}, {"name": "Fire Cone", "type": "action", "traits": ["fire", "manipulate"], "cost": 1, "text": "Frequency once per round%rEffect Shulgurk releases a lever on the infernal machine to send a dose of lesser alchemist's fire through a pliable metal hose, dealing 1d8 fire|options:area-damage damage in a 20-foot cone (DC 16 Reflex save). Each time Shulgurk uses this ability, reduce the total doses of lesser alchemist's fire available to the infernal machine by 1."}, {"name": "Spin Silk", "type": "passive", "traits": ["concentrate", "exploration", "manipulate"], "text": "By spending several minutes, Shulgurk can produce silk to craft items made of webbing or cloth. He can produce enough silk in a day to craft a single garment."}]
+"Thorgrim":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["dwarf", "humanoid"]
+  ac: 14
+  hp: 34
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 4, "will": 8}
+  abilities: {"cha": 4, "con": 1, "dex": 0, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7, "Deception": 8, "Intimidation": 8, "Society": 4, "Thievery": 6, "Razmir Lore": 6}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Bravado in Numbers", "type": "passive", "traits": [], "text": "As long as Thorgrim is adjacent to an ally, he gains a +1 circumstance bonus to all Will saves"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Thorgrim deals an additional 1d6 precision damage to Off-Guard foes."}, {"name": "You're Next", "type": "reaction", "traits": ["emotion", "fear", "mental", "visual"], "text": "Trigger Thorgrim reduces a foe to 0 Hit Points%rEffect Thorgrim attempts to demoralize a creature within 60 feet, with a +2 circumstance bonus."}]
+"Ugothol Wretch":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["aberration", "amphibious"]
+  ac: 15
+  hp: 15
+  perception: 6
+  saves: {"fortitude": 2, "reflex": 5, "will": 6}
+  abilities: {"cha": 0, "con": 0, "dex": 1, "int": -2, "str": 2, "wis": 2}
+  speeds: {"land": 25, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6}
+  resistances: {"bludgeoning": 5}
+  strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+4", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "+2 Status to All Saves vs. Auditory and Visual", "type": "passive", "traits": []}, {"name": "Blood Nourishment", "type": "action", "traits": [], "cost": 1, "text": "The ugothol uses its three-pronged tongue to drink the blood of an adjacent Restrained or Unconscious creature. The creature gains Drained 1"}, {"name": "Compression", "type": "passive", "traits": [], "text": "When the ugothol successfully Squeezes, it moves through the tight space at full speed. Narrow confines are not difficult terrain for an ugothol."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The ugothol deals 1d4 extra precision damage to Off-Guard creatures."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Weary":
+  pack: "the-dead-gods-hand-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "rare"
+  traits: ["undead", "unholy"]
+  ac: 14
+  hp: 9
+  perception: 5
+  saves: {"fortitude": 4, "reflex": 4, "will": 5}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": -2, "str": 1, "wis": 1}
+  speeds: {"land": 15}
+  skills: {"Athletics": 4}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"vitality": 5}
+  strikes: [{"name": "Jaws", "bonus": 5, "damage": [["1d4+1", "piercing", null]], "traits": [], "effects": ["Exhausting Torpor"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Corpse", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time they act, the weary appears to be an unanimated corpse. They have an automatic result of 22 on Deception checks and DCs to pass as a corpse."}, {"name": "Empty Yawn", "type": "action", "traits": ["auditory", "divine", "emotion", "fear", "mental"], "cost": 2, "text": "Frequency once per hour%rEffect The weary's jaws stretch open to an unnatural extent, giving cry to a horrific, chilling wail of exhaustion that cuts into the minds of nearby living creatures. Instilled in their thoughts is the sensation of the anguish of being dead, yet conscious of the body's slow decay. Living creatures within a 20-foot emanation take 1d6 mental|options:area-damage damage with a DC 16 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature takes half…"}, {"name": "Exhausting Torpor", "type": "passive", "traits": ["divine", "void"], "text": "When a living creature is bitten by a weary, the undead infects the living flesh with the exhaustion of the grave. The creature bitten must attempt a DC 16 Fortitude save or become Enfeebled 1 for 1 round (Enfeebled 2 for 1 round on a critical failure)."}, {"name": "Overwhelming Numbers", "type": "passive", "traits": [], "text": "A weary gains a +2 circumstance bonus on melee attack rolls against a target who has been struck earlier in that round by a different weary."}]
+"Zulgara":
+  pack: "the-dead-gods-hand-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["duergar", "dwarf", "humanoid"]
+  ac: 14
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 5, "will": 11}
+  abilities: {"cha": 2, "con": 2, "dex": 1, "int": 0, "str": 1, "wis": 3}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 4, "Crafting": 5, "Intimidation": 7, "Religion": 8}
+  strikes: [{"name": "Light Hammer", "bonus": 6, "damage": [["1d6+1", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Light Hammer", "bonus": 6, "damage": [["1d6+1", "bludgeoning", null]], "traits": ["agile", "thrown-20"]}, {"name": "Crossbow", "bonus": 6, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  actions: [{"name": "+2 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Light Blindness", "type": "passive", "traits": []}, {"name": "Command Brazier", "type": "action", "traits": ["concentrate", "divine"], "cost": 1, "text": "Zulgara focuses her gaze upon one of the braziers in area A19 while she's also in the room. If the brazier is unlit but contains flammable material, it lights up with a flash (something she sometimes uses in front of other hryngars to frighten and momentarily blind them). If the brazier is lit, it immediately extinguishes."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 17, "attack": 0, "spells": {"0": ["Divine Lance", "Prestidigitation", "Read Aura", "Shield", "Stabilize"], "1": ["Bane", "Fear", "Heal"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 17, "attack": 0, "spells": {"0": ["Sigil"], "2": ["Blood Vendetta", "Paranoia"]}}]

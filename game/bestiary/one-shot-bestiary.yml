@@ -1,0 +1,473 @@
+---
+"Armored Cave Bears":
+  pack: "one-shot-bestiary"
+  level: 9
+  size: "large"
+  rarity: "rare"
+  traits: ["animal", "primal"]
+  ac: 28
+  hp: 155
+  perception: 17
+  saves: {"fortitude": 21, "reflex": 15, "will": 17}
+  abilities: {"cha": 2, "con": 6, "dex": 3, "int": -4, "str": 6, "wis": 3}
+  speeds: {"land": 35}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 21, "Survival": 16}
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["2d10+9", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 21, "damage": [["2d12+7", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Broken Armor", "type": "passive", "traits": [], "text": "When an armored cave bear is reduced to half its Hit Points or less or it's hit with a critical hit from an adamantine weapon, it loses its physical resistance."}, {"name": "Armored Charge", "type": "action", "traits": [], "cost": 3, "text": "The armored cave bear Strides up to its Speed in a straight line, slamming its armored skull into every creature whose space it moves into. Each creature in this line of movement must attempt a DC 26 Fortitude save. The armored cave bear can't use Armored Charge again for 1d4 rounds.%rCritical Success The creature takes no damage and stops the armored cave bear's movement.%rSuccess The creature takes no damage.%rFailure The creature takes 4d8 bludgeoning damage.%rCritical Failure The creature…"}, {"name": "Mauler", "type": "passive", "traits": [], "text": "The armored cave bear gains a +4 circumstance bonus to damage rolls against creatures it has Grabbed."}, {"name": "Rush", "type": "action", "traits": [], "cost": 2, "text": "The armored cave bear Strides with a +10-foot circumstance bonus to its Speed and makes a Strike at the end of that movement."}]
+"Auldegrund Grimcarver":
+  pack: "one-shot-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["devil", "dwarf", "evil", "fiend", "humanoid", "lawful", "unholy"]
+  ac: 24
+  hp: 125
+  perception: 11
+  saves: {"fortitude": 15, "reflex": 16, "will": 13}
+  abilities: {"cha": 2, "con": 2, "dex": 3, "int": 4, "str": 2, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 17, "Athletics": 14, "Crafting": 13, "Deception": 15, "Occultism": 17, "Religion": 15, "Society": 17}
+  weaknesses: {"silver": 5}
+  resistances: {"fire": 5, "physical": 5}
+  strikes: [{"name": "Warhammer", "bonus": 15, "damage": [["1d8+2", "bludgeoning", null]], "traits": ["shove", "unholy"]}, {"name": "Shortbow", "bonus": 17, "damage": [["2d6+5", "piercing", null]], "traits": ["deadly-d10", "propulsive", "unholy"], "range": 60}]
+  actions: [{"name": "Invoke Alocer", "type": "reaction", "traits": ["divine"], "text": "Trigger Auldegrund is reduced to 60 or fewer Hit Points%rFrequency once per day%rEffect Auldegrund calls out, in Infernal, \"Give me the strength to slay these foes in your name, almighty Alocer!\" As he does so, his skin darkens to red, diabolic horns jut from his brow, a flaming lion-like mane appears around his head, burning wings burst from his shoulders, and his weapons ignite with black fire.%rHe immediately heals (3d6+7) healing Hit Points, gains a fly speed of 25 feet, and deals an…"}, {"name": "Cruel Shot", "type": "action", "traits": [], "cost": 2, "text": "Auldegrund takes time to line up a shot with his bow and smiles cruelly as he makes a ranged Strike with it.%rIf he hits, he deals 2d6 precision damage and 1d6 bleed damage. Even if he misses, he still deals 2d6 untyped damage from the glancing blow. Only on a critical miss does his cruel shot deal no damage."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 22, "attack": 14, "spells": {"1": ["True Strike"], "2": ["Undetectable Alignment"], "3": ["Crisis of Faith"], "4": ["Glibness", "Summon Animal (lion only)"]}}]
+"Carl The Cobbler":
+  pack: "one-shot-bestiary"
+  level: 5
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "fey"]
+  ac: 21
+  hp: 60
+  perception: 12
+  saves: {"fortitude": 11, "reflex": 15, "will": 10}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 1, "str": 4, "wis": 1}
+  speeds: {"land": 50}
+  hp_details: "fast healing 10"
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 13, "Athletics": 15, "Crafting": 13, "Deception": 11, "Intimidation": 13, "Nature": 10, "Stealth": 13}
+  weaknesses: {"cold-iron": 5}
+  strikes: [{"name": "Scythe", "bonus": 15, "damage": [["1d10+10", "slashing", null]], "traits": ["deadly-d10", "trip"]}, {"name": "Boot", "bonus": 13, "damage": [["1d6+8", "piercing", null]], "traits": ["agile", "versatile-b"]}]
+  actions: [{"name": "Red Cap", "type": "passive", "traits": ["primal"], "text": "A redcap's woolen hat is dyed with the blood of its victims. If the redcap loses its cap, it no longer benefits from fast healing and takes a -4 status penalty to its damage rolls. It can create a new cap in 10 minutes, but that cap doesn't grant its powers until the redcap has turned it red with Blood Soak. A cap has no benefit for creatures other than the redcap who made it.%rEffect: Lost Red Cap"}, {"name": "Fast Healing 10", "type": "passive", "traits": []}, {"name": "Divine Revulsion", "type": "passive", "traits": ["emotion", "fear", "mental"], "text": "If a redcap sees a creature brandish a religious symbol of a good deity (which requires an interact action by that creature) or use one to cast a divine spell, the redcap must attempt a DC 19 Will save. It then becomes temporarily immune to all brandished religious symbols for 10 minutes.%rCritical Success The redcap is unaffected%rSuccess The redcap is Frightened 2%rFailure The redcap gains the Fleeing condition for 1 round and is Frightened 4"}, {"name": "Blood Soak", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "The redcap dips its cap in the blood of a slain foe. The foe must have died in the last minute, and the redcap must have helped kill it. The redcap gains a +4 status bonus to damage rolls for 1 minute.%rEffect: Blood Soak"}, {"name": "Deadly Cleave", "type": "reaction", "traits": [], "text": "Trigger The redcap reduces a creature to 0 Hit Points with a scythe Strike.%rEffect The redcap makes another scythe Strike against a different creature, using the same multiple attack penalty as the scythe Strike that triggered this reaction. This counts toward its multiple attack penalty."}, {"name": "Stomp", "type": "action", "traits": [], "cost": 1, "text": "The redcap Strides up to half its Speed and makes a boot Strike at any point during that movement. If the boot Strike hits a Prone creature, it deals an extra 2d6 bleed."}]
+"Cultist of Alocer":
+  pack: "one-shot-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 20
+  hp: 45
+  perception: 10
+  saves: {"fortitude": 7, "reflex": 9, "will": 10}
+  abilities: {"cha": 0, "con": 0, "dex": 2, "int": 3, "str": 1, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Crafting": 10, "Deception": 8, "Nature": 8, "Occultism": 10, "Religion": 10, "Survival": 8}
+  strikes: [{"name": "Spiked Gauntlet", "bonus": 8, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "free-hand"]}, {"name": "Composite Shortbow", "bonus": 9, "damage": [["1d6+1", "piercing", null]], "traits": ["deadly-d10"], "range": 60}]
+  spellcasting: [{"name": "Divine Spells Prepared", "tradition": "divine", "type": "prepared", "dc": 20, "attack": 12, "spells": {"0": ["Daze", "Divine Lance", "Forbidding Ward", "Message", "Shield"], "1": ["Command", "Harm", "Heal", "Ray of Enfeeblement"], "2": ["Spiritual Weapon", "Undetectable Alignment"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 20, "attack": 12, "spells": {"1": ["Weapon Surge"]}}, {"name": "Divine Font", "tradition": "divine", "type": "innate", "dc": 20, "attack": 12, "spells": {"2": ["Harm"]}}]
+"Darius":
+  pack: "one-shot-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 19
+  hp: 45
+  perception: 7
+  saves: {"fortitude": 11, "reflex": 10, "will": 5}
+  abilities: {"cha": 1, "con": 2, "dex": 1, "int": 3, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Athletics": 8, "Crafting": 10, "Deception": 8, "Occultism": 8, "Society": 10}
+  strikes: [{"name": "Wax Stirring Stick", "bonus": 10, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Metabolize Mutagen", "type": "action", "traits": ["concentrate", "manipulate"], "cost": 1, "text": "Darius metabolizes the power of an active mutagen to regain 2d6 healing Hit Points. If he does so (or if he's confronted by a stealthy party before he's had a chance to drink a mutagen), he loses his jaws and claw unarmed attacks, his bonus on Athletics checks decreases by 2, his AC increases by 1, and his Reflex save bonus increases by 2.%rEffect: Active Mutagen"}, {"name": "Crystaline Mutation", "type": "passive", "traits": [], "text": "When Darius drinks any mutagen, his teeth and fingernails grow sharp crystalline edges."}, {"name": "Spray Hot Wax", "type": "action", "traits": [], "cost": 2, "text": "Darius sprays hot wax from his improvised wax sprayer in a 15-foot. All creatures in the area must attempt a DC 20 Reflex save. Scented candle homonoculi in the area take no damage, instead healing 2d6 healing damage. After using the hot wax cannon, Darius can't use it again until he takes two Interact actions while adjacent to the cauldron of bubbling wax to reload the sprayer.%rCritical Success The creature takes no damage.%rSuccess The creature takes 2d6 fire|options:area-damage…"}]
+"Doatara the Poisoner":
+  pack: "one-shot-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid"]
+  ac: 25
+  hp: 115
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 18, "will": 14}
+  abilities: {"cha": 3, "con": 1, "dex": 5, "int": 4, "str": 1, "wis": 1}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 16, "Crafting": 17, "Deception": 16, "Intimidation": 14, "Religion": 12, "Stealth": 16, "Thievery": 14, "Assassin Lore": 15}
+  resistances: {"poison": 5}
+  strikes: [{"name": "Shortsword", "bonus": 17, "damage": [["2d6+7", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 16, "damage": [["1d4+7", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}, {"name": "Alchemist's Fire", "bonus": 16, "damage": [["2d8", "fire", null], ["2", "fire", "persistent"], ["2", "fire", "splash"]], "traits": ["splash"], "range": 30}, {"name": "Bottled Lightning", "bonus": 16, "damage": [["2d6", "electricity", null], ["2", "electricity", "splash"]], "traits": ["splash"], "range": 30}]
+  actions: [{"name": "Reckless Toxin", "type": "reaction", "traits": [], "text": "Trigger A creature critically fails a melee Strike against Doatara%rRequirements The triggering creature is affected by a poison%rEffect The poison makes it difficult to distinguish friend from foe. The triggering creature makes a melee Strike against another creature of Doatara's choice within its reach. The triggering creature's multiple attack penalty doesn't apply to this Strike."}, {"name": "Blackfingers's Blessing", "type": "passive", "traits": [], "text": "Doatara deals an extra 2d6 poison damage when she deals piercing or slashing damage to Off-Guard creatures."}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "Doatara Interacts to draw a bomb, then Strikes with it."}, {"name": "Toxic Flourish", "type": "action", "traits": [], "cost": 2, "text": "Requirements Doatara has one hand free%rEffect Doatara Interacts to draw an injury poison, applies that poison to one piercing or slashing weapon she's wielding, and then Strikes."}]
+"Doatara the Priest":
+  pack: "one-shot-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid"]
+  ac: 25
+  hp: 115
+  perception: 17
+  saves: {"fortitude": 14, "reflex": 16, "will": 17}
+  abilities: {"cha": 3, "con": 1, "dex": 5, "int": 1, "str": 1, "wis": 4}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 16, "Crafting": 12, "Deception": 16, "Intimidation": 14, "Religion": 17, "Stealth": 16, "Thievery": 14, "Assassin Lore": 12}
+  resistances: {"poison": 5}
+  strikes: [{"name": "Shortsword", "bonus": 17, "damage": [["2d6+7", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 16, "damage": [["1d4+7", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Channel Smite", "type": "action", "traits": [], "cost": 2, "text": "Requirements Doatara expends a Harm spell%rEffect Doatara makes a melee Strike and adds the harm spell's void damage to the Strike's damage."}, {"name": "Poison Weapon", "type": "action", "traits": [], "cost": 1, "text": "Requirements Doatara is wielding a piercing or slashing weapon%rEffect Doatara Interacts to draw an injury poison and applies the poison to the required weapon. If her next attack with that weapon before the end of her next turn hits and deals damage, it applies the effects of the poison. If she critically fails the attack roll, the poison is wasted as normal."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Detect Magic", "Guidance", "Shield"], "1": ["Fear", "Harm", "Heal"], "2": ["Darkvision", "Dispel Magic", "Faerie Fire", "Invisibility", "Restore Senses"], "3": ["Vampiric Touch"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 25, "attack": 17, "spells": {"1": ["Sudden Shift"]}}]
+"Giant Pirate Skeleton":
+  pack: "one-shot-bestiary"
+  level: 8
+  size: "large"
+  rarity: "common"
+  traits: ["evil", "mindless", "skeleton", "undead", "unholy"]
+  ac: 26
+  hp: 125
+  perception: 18
+  saves: {"fortitude": 17, "reflex": 15, "will": 14}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": -5, "str": 7, "wis": 2}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 22, "Intimidation": 17}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Gaff Hook", "bonus": 20, "damage": [["2d10+10", "piercing", null]], "traits": ["reach-10"], "effects": ["Impaling Hook"]}, {"name": "Claw", "bonus": 19, "damage": [["2d8+10", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"]}]
+  actions: [{"name": "Easily Distracted", "type": "passive", "traits": [], "text": "The giant pirate skeleton's poor vision makes it easily distracted by creatures that flank it. Whenever it has the off-guard condition from being flanked, increase the penalty to its AC to -4."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Focused Assault", "type": "action", "traits": [], "cost": 2, "text": "The giant pirate skeleton makes two Strikes with its claw against one foe. The multiple attack penalty doesn't increase until after both attacks are resolved.%rThe giant pirate skeleton doesn't use this ability if there is more than one creature within its reach that it can see."}, {"name": "Impaling Hook", "type": "passive", "traits": [], "text": "A creature critically hit by the giant pirate skeleton's gaff hook is impaled upon it.%rThe creature is Grabbed by the giant pirate skeleton and whenever the giant pirate skeleton maintains the grab, the creature takes (1d10+10) piercing damage from the agonizing wound."}]
+"Jinkin Ripclaw":
+  pack: "one-shot-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "fey", "gremlin"]
+  ac: 17
+  hp: 19
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 10, "will": 7}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 2, "str": -2, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Crafting": 5, "Deception": 5, "Nature": 5, "Stealth": 7, "Thievery": 7}
+  weaknesses: {"cold-iron": 2}
+  strikes: [{"name": "Pincer Claw", "bonus": 9, "damage": [["1d8-2", "piercing", null]], "traits": ["finesse"], "effects": ["Grab"]}, {"name": "Fist", "bonus": 9, "damage": [["1d4-2", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "nonlethal", "reach-0", "unarmed"]}]
+  actions: [{"name": "Rip Flesh", "type": "action", "traits": [], "cost": 1, "text": "Requirements A jinkin has a creature Grabbed with their pincer claw%rEffect The jinkin forcefully pulls the pincer claw out of the creature, ripping flesh and cackling in sadistic glee. The creature takes 1d8 piercing damage and is no longer grabbed."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The jinkin deals 1d6 extra precision damage to Off-Guard creatures."}, {"name": "Tinker", "type": "passive", "traits": ["curse", "primal"], "text": "A group of six jinkins can work together for an hour to imbue an item with a curse at a range of 60 feet. While this process is lengthy, it's also unobtrusive and can be performed while Hiding. Jinkins prefer to use this ability on magic items. The curse makes the item unreliable (DC 5 Flat or waste any action to Interact with or Activate the item), adds a bizarre requirement to use the item, or imparts some other curse of a similar caliber."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Prestidigitation"]}}]
+"Kelorbeyan Guard":
+  pack: "one-shot-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "human", "humanoid"]
+  ac: 21
+  hp: 60
+  perception: 12
+  saves: {"fortitude": 11, "reflex": 13, "will": 10}
+  abilities: {"cha": 1, "con": 1, "dex": 3, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 11, "Athletics": 12, "Intimidation": 9, "Society": 8}
+  strikes: [{"name": "Longsword", "bonus": 14, "damage": [["1d8+8", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Sap", "bonus": 14, "damage": [["1d6+8", "bludgeoning", null]], "traits": ["agile", "nonlethal"]}, {"name": "Composite Shortbow", "bonus": 13, "damage": [["1d6+6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Combat Grab", "type": "action", "traits": [], "cost": 1, "text": "Requirements The Kelorbeyan guard has one hand free, and their target is in reach of that hand%rEffect The guard makes a melee Strike while keeping one hand free. If the Strike hits, they grab the target using their free hand. The creature remains Grabbed until the end of the guard's next turn or until it Escapes, whichever comes first."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 2, "text": "The Kelorbeyan guard makes an attack to knock a foe off-balance, then follows up immediately with a sweep to topple them. The guard makes a melee Strike. If it hits and deals damage, they attempt an Athletics check to Trip the creature they hit. Both attacks count toward their multiple attack penalty, but the penalty doesn't increase until after they've made both."}]
+"Lawn Crawfish":
+  pack: "one-shot-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["aberration", "aquatic", "chaotic"]
+  ac: 20
+  hp: 17
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 9, "will": 4}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": -3, "str": 1, "wis": 1}
+  speeds: {"land": 25, "burrow": 10, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 4}
+  strikes: [{"name": "Claw", "bonus": 9, "damage": [["1d6+1", "slashing", null]], "traits": ["finesse", "unarmed"], "effects": ["Crawfish Venom", "Grab"]}]
+  actions: [{"name": "Death Frenzy", "type": "reaction", "traits": [], "text": "Trigger The reefclaw is reduced to 0 Hit Points.%rEffect The reefclaw makes a claw Strike before dying."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "1d6 bludgeoning, DC 17 Fortitude"}, {"name": "Crawfish Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 17 Fortitude%rMaximum Duration 4 rounds%rStage 1 1d6 poison damage and Enfeebled 1 (1 round)%rStage 2 1d6 poison damage and Enfeebled 2 (1 round)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "Requirements The monster's last action was a success with a Strike that lists Grab in its damage entry, or it has a creature grabbed using this action.%rEffect The monster automatically Grabs the target until the end of the monster's next turn. The creature is grabbed by whichever body part the monster attacked with, and that body part can't be used to Strike creatures until the grab is ended. Using Grab extends the duration of the monster's Grab until the end of its next turn for all creatures…"}]
+"Meliosa's Leshy":
+  pack: "one-shot-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["leshy", "plant"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 6, "Nature": 6, "Stealth": 8}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Verdant Burst", "type": "passive", "traits": ["healing"], "text": "When a leshy dies, a burst of primal energy explodes from its body, restoring 2d8 healing Hit Points to each plant creature within a 30-foot. This area is filled with plants of the same type as the leshy, becoming difficult terrain. If the terrain isn't a viable environment for these plants, they wither after 24 hours."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The leshy transforms into a Small plant. This ability otherwise uses the effects of One with Plants."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 16, "attack": 8, "spells": {"4": ["Speak with Plants"]}}]
+"Meliosa's Leshy (Golden Bamboo Leshy)":
+  pack: "one-shot-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["leshy", "plant"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 6, "Nature": 6, "Stealth": 8}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Verdant Burst", "type": "passive", "traits": ["healing"], "text": "When a leshy dies, a burst of primal energy explodes from its body, restoring 2d8 healing Hit Points to each plant creature within a 30-foot. This area is filled with plants of the same type as the leshy, becoming difficult terrain. If the terrain isn't a viable environment for these plants, they wither after 24 hours."}, {"name": "Bend Back", "type": "action", "traits": [], "cost": 1, "text": "The golden bamboo leshy uses an action to bend itself back, ready to whip forward, increasing its reach with its fists to 10 feet. After the golden bamboo Strikes with its fist, it's no longer Bent Back."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The leshy transforms into a Small plant. This ability otherwise uses the effects of One with Plants."}, {"name": "Coiled Opportunity", "type": "reaction", "traits": [], "text": "As Attack of Opportunity, but the golden bamboo leshy can use this reaction only if it's Bent Back."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 16, "attack": 8, "spells": {"4": ["Speak with Plants"]}}]
+"Meliosa's Leshy (Minkaian Honeysuckle Leshy)":
+  pack: "one-shot-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["leshy", "plant"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 6, "Nature": 6, "Stealth": 8}
+  resistances: {"physical": 3}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Agile Leshy", "type": "passive", "traits": [], "text": "The honeysuckle leshy gains a +1 status bonus to Reflex and Fortitude saves and DCs against trip and forced movement."}, {"name": "Verdant Burst", "type": "passive", "traits": ["healing"], "text": "When a leshy dies, a burst of primal energy explodes from its body, restoring 2d8 healing Hit Points to each plant creature within a 30-foot. This area is filled with plants of the same type as the leshy, becoming difficult terrain. If the terrain isn't a viable environment for these plants, they wither after 24 hours."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The leshy transforms into a Small plant. This ability otherwise uses the effects of One with Plants."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 16, "attack": 8, "spells": {"4": ["Speak with Plants"]}}]
+"Meliosa's Leshy (Mint Leshy)":
+  pack: "one-shot-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["leshy", "plant"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 6, "Nature": 6, "Stealth": 8}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Verdant Burst", "type": "passive", "traits": ["healing"], "text": "When a leshy dies, a burst of primal energy explodes from its body, restoring 2d8 healing Hit Points to each plant creature within a 30-foot. This area is filled with plants of the same type as the leshy, becoming difficult terrain. If the terrain isn't a viable environment for these plants, they wither after 24 hours."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The leshy transforms into a Small plant. This ability otherwise uses the effects of One with Plants."}, {"name": "Engulf", "type": "action", "traits": [], "cost": 2, "text": "DC 18 Reflex, 1d6 bludgeoning,1d6 poison damage, escape dc=18, Rupture 6"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 16, "attack": 8, "spells": {"4": ["Speak with Plants"]}}]
+"Meliosa's Leshy (Wisteria Leshy)":
+  pack: "one-shot-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["leshy", "plant"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 6, "Nature": 6, "Stealth": 8}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Verdant Burst", "type": "passive", "traits": ["healing"], "text": "When a leshy dies, a burst of primal energy explodes from its body, restoring 2d8 healing Hit Points to each plant creature within a 30-foot. This area is filled with plants of the same type as the leshy, becoming difficult terrain. If the terrain isn't a viable environment for these plants, they wither after 24 hours."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The leshy transforms into a Small plant. This ability otherwise uses the effects of One with Plants."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d6+4) bludgeoning, DC 18 Fortitude"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 16, "attack": 8, "spells": {"4": ["Speak with Plants"]}}]
+"Ogden":
+  pack: "one-shot-bestiary"
+  level: 7
+  size: "huge"
+  rarity: "common"
+  traits: ["mindless", "skeleton", "undead", "unholy"]
+  ac: 25
+  hp: 105
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 15, "will": 13}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": -5, "str": 7, "wis": 2}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Intimidation": 15}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious", "bleed"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Claw", "bonus": 18, "damage": [["2d6+11", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Broad Swipe", "type": "action", "traits": [], "cost": 2, "text": "The giant makes two Strikes with its claw against two adjacent foes, both of whom are within its reach. Both attacks count toward the giant's multiple attack penalty, but the penalty doesn't increase until after both attacks.."}, {"name": "Massive Rush", "type": "action", "traits": [], "cost": 2, "text": "The hulk Strides and makes a claw Strike with a +4 circumstance bonus to damage. If the strike hits, the hulk automatically pushes the target 10 feet."}]
+"Pairaka (One-Shot #4)":
+  pack: "one-shot-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["div", "evil", "fiend", "lawful", "unholy"]
+  ac: 24
+  hp: 105
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 16, "will": 17}
+  abilities: {"cha": 7, "con": 3, "dex": 5, "int": 2, "str": 3, "wis": 4}
+  speeds: {"land": 25, "fly": 35}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 14, "Arcana": 13, "Deception": 20, "Diplomacy": 20, "Intimidation": 16, "Religion": 13, "Society": 13, "Stealth": 16}
+  immunities: ["disease"]
+  weaknesses: {"cold-iron": 5, "holy": 5}
+  strikes: [{"name": "Claw", "bonus": 16, "damage": [["2d8+6", "slashing", null], ["1d6", "spirit", null]], "traits": ["agile", "finesse", "magical", "unarmed", "unholy"], "effects": ["Bubonic Plague"]}, {"name": "Poisoned Dart", "bonus": 16, "damage": [["1d4+6", "piercing", null], ["1d8", "poison", null]], "traits": ["agile", "thrown-20", "unholy"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Hatred of Red", "type": "passive", "traits": [], "text": "Pairakas hate the color red. They won't wear the color or willingly enter any place painted red. Given a choice, they'll attack a creature wearing red first.%rIf barred from expressing their displeasure toward the color by force or some magical effect, they take 2d6 mental damage at the end of their turn."}, {"name": "Bubonic Plague", "type": "passive", "traits": ["disease"], "text": "A creature can't remove the fatigued condition while infected%rSaving Throw DC 23 Fortitude%rOnset 1 day%rStage 1 Fatigued (1 day)%rStage 2 Enfeebled 2 and fatigued (1 day)%rStage 3 Enfeebled 3, fatigued, and take 1d6 bleed every 1d20 minutes (1 day)"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The pairaka can take the appearance of any Small or Medium humanoid or animal. This doesn't change their Speed or their attack and damage modifiers with the Strikes, but it might change the damage type their strikes deal."}, {"name": "Tormenting Dreams", "type": "action", "traits": ["divine", "emotion", "mental"], "cost": 2, "text": "Frequency once per day%rEffect The pairaka torments a sleeping creature within 100 feet with visions of betrayals by loved ones and friends. The target must attempt a DC 25 Will save, with the effects of the Nightmare spell."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 25, "attack": 15, "spells": {"0": ["Detect Magic"], "4": ["Charm (At Will)", "Dimension Door (At Will)", "Misdirection (At Will, Self Only)", "Outcast's Curse (At Will)", "Suggestion (At Will)"]}}]
+"Phistophilus":
+  pack: "one-shot-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 30
+  hp: 150
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 18, "will": 23}
+  abilities: {"cha": 5, "con": 4, "dex": 4, "int": 7, "str": 3, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Arcana": 19, "Athletics": 19, "Deception": 23, "Diplomacy": 21, "Intimidation": 21, "Religion": 19, "Society": 19, "Stealth": 18, "Legal Lore": 25}
+  immunities: ["fire"]
+  weaknesses: {"holy": 10}
+  resistances: {"physical": 10, "poison": 10}
+  strikes: [{"name": "Binding Contract", "bonus": 23, "damage": [["3d6+11", "slashing", null]], "traits": ["agile", "disarm", "magical", "reach-10", "trip", "unholy"], "effects": ["Grab", "Infernal Wound"]}, {"name": "Horn", "bonus": 21, "damage": [["3d10+11", "piercing", null]], "traits": ["magical", "unarmed"], "effects": ["Infernal Wound"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Ward Contract", "type": "passive", "traits": [], "text": "A signed contract carried by a living contract devil (including draped over its horns) is immune to damage from all creatures other than that contract devil. A contract devil is immune to mental effects that would make it destroy, nullify, or alter a contract."}, {"name": "Draft Contract", "type": "action", "traits": ["divine", "manipulate"], "cost": 3, "text": "The contract devil produces an infernal contract for a single living mortal. This contract can grant a wide range of abilities and effects, akin to the power of a Wish ritual but fulfilled to the letter by the contract devil. To receive any of those benefits, the mortal must willingly sign its true name to the contract. At that point, the mortal's soul is bound to the contract devil and Hell.%rWhile the contract is in effect, the victim can't be restored to life except by wish or similar magic.…"}, {"name": "Infernal Investment", "type": "passive", "traits": [], "text": "A contract devil can cast a 10th-rank innate Scrying spell at will, but only to target a creature with which they have a contract.%rThe target automatically critically fails its save."}, {"name": "Infernal Wound", "type": "passive", "traits": ["divine"], "text": "The wounds from a contract devil's Strikes resist healing.%rA spellcaster or item attempting to use healing magic on a creature suffering first attempts to counteract infernal wound (DC 29). If it is not counteracted, the healing has no effect."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 31, "attack": 23, "spells": {"0": ["Detect Magic"], "3": ["Mind Reading (At Will)"], "4": ["Peaceful Bubble", "Silence", "Translocate (At Will)"], "5": ["Fireball", "Illusory Scene", "Lightning Bolt", "Locate (At Will)", "Mind Probe", "Sending (At Will)", "Translocate", "Truespeech (Constant)"], "7": ["Interplanar Teleport"], "10": ["Scrying (At Will, See Infernal Investment)"]}}]
+"Princess Sunset":
+  pack: "one-shot-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["construct", "mindless"]
+  ac: 17
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 9, "reflex": 5, "will": 3}
+  abilities: {"cha": -5, "con": 4, "dex": 0, "int": -5, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Athletics": 9}
+  strikes: [{"name": "Headbutt", "bonus": 8, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Construct Armor (Hardness 5)", "type": "passive", "traits": [], "text": "Like normal objects, an animated rocking horse has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once the animated rocking horse is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 13."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Princess Sunset Strides up to double its Speed and can move through the spaces of creatures of size Small or smaller, Trampling each creature whose space it enters. Princess Sunset can attempt to Trample the same creature only once in a single use of Trample. The monster deals the damage of the headbutt Strike, but trampled creatures can attempt a basic Reflex save at DC 14 Reflex"}]
+"Scented Candle Homunculus":
+  pack: "one-shot-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "rare"
+  traits: ["construct", "evil"]
+  ac: 17
+  hp: 17
+  perception: 3
+  saves: {"fortitude": 2, "reflex": 7, "will": 3}
+  abilities: {"cha": -2, "con": 0, "dex": 3, "int": 1, "str": -1, "wis": 1}
+  speeds: {"land": 15, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 5, "Stealth": 5}
+  strikes: [{"name": "Jaws", "bonus": 7, "damage": [["1d4", "piercing", null], ["1d4", "fire", "persistent"]], "traits": ["finesse", "magical", "unarmed"]}, {"name": "Wax Glob", "bonus": 8, "damage": [["1d4", "fire", "persistent"]], "traits": ["magical"], "range": 20}]
+  actions: [{"name": "Master Link", "type": "passive", "traits": ["arcane", "mental"], "text": "A homunculus can't speak, but it is telepathically linked to its creator. It can share information back and forth, including its master's knowledge and everything the homunculus hears. The range of this link is 1,500 feet. The homunculus adopts the same alignment as its creator and is utterly faithful. If the homunculus is destroyed, the master takes 2d10 mental damage. If the master is slain, the homunculus becomes mindless, claims its current location as its lair, and instinctively attacks…"}, {"name": "Perfume Aura", "type": "passive", "traits": ["aura", "olfactory", "poison"], "text": "5 feet. The scented candle homunculus's fragrance of lavender is overwhelmingly intense. Any creature other than the homunculus's master who enters the aura must attempt a DC 15 Fortitude save.%rCritical Success The creature is temporarily immune to the homunculus's aura for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature is Sickened 1.%rCritical Failure The creature is Stupefied 1 for 1 round and sickened 1."}, {"name": "Dunk in Wax", "type": "action", "traits": ["move"], "cost": 2, "text": "A scented candle homunculus who is adjacent to the large wax cauldron can dunk itself in wax, healing 2d6 healing damage."}]
+"Simulacrum":
+  pack: "one-shot-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "rare"
+  traits: ["dwarf", "humanoid", "minion"]
+  ac: 20
+  hp: 60
+  perception: 12
+  saves: {"fortitude": 11, "reflex": 11, "will": 11}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 10, "Deception": 10}
+  strikes: [{"name": "Warhammer", "bonus": 12, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["shove"]}]
+"Soulbound Guardian":
+  pack: "one-shot-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "rare"
+  traits: ["construct", "soulbound"]
+  ac: 20
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 8, "will": 14}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": 1, "str": 2, "wis": 1}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Occultism": 8, "Stealth": 10}
+  strikes: [{"name": "Fist", "bonus": 14, "damage": [["2d8+5", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Personality Fragments", "type": "passive", "traits": [], "text": "A soulbound guardian shares fragments of its donor soul's personality, though none of that creature's memories. This causes a soulbound guardian to match a strong personality trait of its donor soul. Because of its soul sliver, a soulbound guardian is not immune to spirit as most constructs are."}, {"name": "Mannequin", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the soulbound guardian appears to be a harmless mannequin. It has an automatic result of 30 on Deception checks and DCs to pass as a mannequin."}, {"name": "Splitsoul", "type": "action", "traits": ["concentrate", "manipulate"], "cost": 3, "text": "Frequency once per day%rEffect The soulbound guardian lends some of the energy animating it to other inanimate objects in the area. Three Small items or pieces of furniture within 60 feet come to life for 1 minute. These objects have the minion trait, though all the objects can act when the soulbound guardian uses a single action to issue them commands. The soulbound guardian can also issue commands to each object as part of using this ability.%rEach object animated in this way has a Speed of…"}]
+"Splitsoul Object":
+  pack: "one-shot-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["construct", "minion"]
+  ac: 16
+  hp: 14
+  perception: 0
+  saves: {"fortitude": 0, "reflex": 0, "will": 0}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 20}
+  strikes: [{"name": "Object", "bonus": 11, "damage": [["1d6+3", "bludgeoning", null]], "traits": []}]
+"Taxidermic Dog":
+  pack: "one-shot-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["evil", "mindless", "undead", "unholy"]
+  ac: 16
+  hp: 17
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 5, "will": 3}
+  abilities: {"cha": -1, "con": 2, "dex": 2, "int": -5, "str": 2, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 5, "Athletics": 7, "Survival": 5}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Jaws", "bonus": 7, "damage": [["1d6+2", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Pack Attack", "type": "passive", "traits": [], "text": "A taxidermic dog's Strikes deal 1d4 extra damage to creatures within the reach of the taxidermic dog's two allies."}]
+"Vilm":
+  pack: "one-shot-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "fey", "gremlin"]
+  ac: 17
+  hp: 19
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 10, "will": 7}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 2, "str": -2, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Crafting": 5, "Deception": 5, "Nature": 5, "Stealth": 7, "Thievery": 7}
+  weaknesses: {"cold-iron": 2}
+  strikes: [{"name": "Pincer Claw", "bonus": 9, "damage": [["1d8-2", "piercing", null]], "traits": ["finesse"], "effects": ["Grab"]}, {"name": "Fist", "bonus": 9, "damage": [["1d4-2", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "nonlethal", "reach-0", "unarmed"]}, {"name": "Shortbow", "bonus": 9, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Rip Flesh", "type": "action", "traits": [], "cost": 1, "text": "Requirements A jinkin has a creature Grabbed with their pincer claw%rEffect The jinkin forcefully pulls the pincer claw out of the creature, ripping flesh and cackling in sadistic glee. The creature takes 1d8 piercing damage and is no longer grabbed."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The jinkin deals 1d6 extra precision damage to Off-Guard creatures."}, {"name": "Tinker", "type": "passive", "traits": ["curse", "primal"], "text": "A group of six jinkins can work together for an hour to imbue an item with a curse at a range of 60 feet. While this process is lengthy, it's also unobtrusive and can be performed while Hiding. Jinkins prefer to use this ability on magic items. The curse makes the item unreliable (DC 5 Flat or waste any action to Interact with or Activate the item), adds a bizarre requirement to use the item, or imparts some other curse of a similar caliber."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Prestidigitation"]}}]
+"Yrdris, Master of the Fanespire":
+  pack: "one-shot-bestiary"
+  level: 7
+  size: "huge"
+  rarity: "unique"
+  traits: ["construct"]
+  ac: 26
+  hp: 100
+  perception: 13
+  saves: {"fortitude": 17, "reflex": 10, "will": 9}
+  abilities: {"cha": -5, "con": 6, "dex": -1, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 17}
+  strikes: [{"name": "Stone Fist", "bonus": 19, "damage": [["2d12+6", "bludgeoning", null]], "traits": ["magical"], "effects": ["Grab"]}]
+  actions: [{"name": "Construct Armor (Hardness 10)", "type": "passive", "traits": [], "text": "Like normal objects, a giant animated statue has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a giant animated statue is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 22."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Caustic Blast", "Daze", "Detect Magic", "Frostbite", "Read Aura"], "1": ["Fear", "Fleet Step", "Grease", "Mending"], "2": ["Acid Grip", "Blur", "Environmental Endurance", "Laughing Fit", "See the Unseen"], "3": ["Fireball", "Slow"], "4": ["Clairvoyance", "Dispelling Globe", "Wall of Fire"]}}]
+"Zikritrax":
+  pack: "one-shot-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "unique"
+  traits: ["dragon", "primal"]
+  ac: 33
+  hp: 220
+  perception: 23
+  saves: {"fortitude": 25, "reflex": 20, "will": 23}
+  abilities: {"cha": 5, "con": 6, "dex": 3, "int": 3, "str": 8, "wis": 4}
+  speeds: {"land": 30, "burrow": 40, "fly": 150}
+  senses: ["darkvision", "scent", "tremorsense"]
+  skills: {"Acrobatics": 22, "Athletics": 27, "Intimidation": 24, "Nature": 23, "Survival": 25, "Mining Lore": 24}
+  immunities: ["paralyzed", "petrified", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 27, "damage": [["3d12+14", "piercing", null]], "traits": ["magical", "reach-15", "unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 27, "damage": [["3d8+14", "slashing", null]], "traits": ["agile", "magical", "reach-10", "unarmed"], "effects": ["Knockdown"]}, {"name": "Tail", "bonus": 25, "damage": [["3d10+14", "bludgeoning", null]], "traits": ["magical", "reach-20"]}, {"name": "Rock", "bonus": 25, "damage": [["3d8+14", "bludgeoning", null]], "traits": ["brutal"], "range": 120}]
+  actions: [{"name": "Tremorsense (Imprecise) 90 feet", "type": "passive", "traits": []}, {"name": "+2 Status to All Saves vs. Primal", "type": "passive", "traits": []}, {"name": "Abandon Armor", "type": "passive", "traits": [], "text": "Once Zikritrax is reduced to fewer than half his Hit Points, his resistance is reduced by 10 and he gains a +10 circumstance bonus to his Speeds."}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 30 Will"}, {"name": "Resilient Form", "type": "reaction", "traits": [], "text": "Trigger Zikritrax is critically hit with a weapon or unarmed attack%rEffect The dragon's tough scales ward off deadly attacks. The dragon attempts a DC 17 Flat. On a success, the triggering attack becomes a normal hit."}, {"name": "Adamantine Body", "type": "passive", "traits": [], "text": "The dragon's unarmed melee Strikes are adamantine."}, {"name": "Avalanche Breath", "type": "action", "traits": ["primal"], "cost": 2, "text": "Zikritrax belches a mass of boulders that deals 11d8 bludgeoning|options:area-damage damage in a 40-foot cone (DC 33 Reflex save). He can't use Avalanche Breath again for 1d4 rounds."}, {"name": "Burrowing Pounce", "type": "action", "traits": [], "cost": 3, "text": "Requirements Zikritrax is burrowed%rEffect Zikritrax Burrows, then Leaps out of the ground, landing at a point within 25 feet. Zikritrax makes a melee Strike against a creature within reach when he lands. If the Strike is a critical hit, the target is knocked Prone."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "Zikritrax makes two claw Strikes and one tail Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "Zikritrax recharges his Avalanche Breath whenever he scores a critical hit with a Strike."}, {"name": "Rock Tunneler", "type": "passive", "traits": [], "text": "Zikritrax can burrow through solid stone at a Speed of 20 feet. He can leave a tunnel if he desires, but he usually doesn't."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, (3d12+7) bludgeoning, Rupture 29"}, {"name": "Throw Rock", "type": "action", "traits": [], "cost": 1}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]

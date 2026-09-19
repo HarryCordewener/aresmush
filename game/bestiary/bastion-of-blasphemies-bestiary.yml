@@ -1,0 +1,1242 @@
+---
+"Alisendra Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["hag", "humanoid"]
+  ac: 30
+  hp: 190
+  perception: 20
+  saves: {"fortitude": 17, "reflex": 22, "will": 18}
+  abilities: {"cha": 5, "con": 2, "dex": 5, "int": 2, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["bloodsense", "darkvision"]
+  skills: {"Acrobatics": 20, "Athletics": 21, "Deception": 21, "Diplomacy": 19, "Occultism": 19, "Society": 19}
+  immunities: ["bleed"]
+  weaknesses: {"cold-iron": 10}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["2d12+11", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 21, "damage": [["2d8+11", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}, {"name": "Firebolt", "bonus": 19, "damage": [["6d6", "fire", null]], "traits": ["agile", "fire", "occult"]}]
+  actions: [{"name": "Bloodsense (Imprecise) 90 feet", "type": "passive", "traits": [], "text": "A blood hag can sense the presence of blood and creatures with blood. They can tell the difference between spilled blood and the blood within a living creature."}, {"name": "Borrowed Skin", "type": "passive", "traits": [], "text": "Alisandra's \"borrowed skin\" is her own skin from her previous life.%rA blood hag wears a covering of skin stolen from a humanoid creature they've killed, hiding their true form. They appear as the creature whose skin they're wearing, including to spells that would detect that creature. Creatures can still potentially detect the deception as described in the Impersonate action.%rSpreading coarse salt inside the skin prevents the hag from putting it back on, forcing them to keep their fiery form…"}, {"name": "Coven", "type": "passive", "traits": ["mental", "occult"], "text": "Although Alisendra is on her own, the ambient energies of the Bastardhall Curse bolster her as if she were a part of a coven. She adds Nightmare, Outcast's Curse, and Scrying to her innate spells."}, {"name": "Assume Fiery Form", "type": "action", "traits": ["concentrate", "fire", "occult", "polymorph"], "cost": 3, "text": "The blood hag removes their borrowed skin and transforms into a brilliant ball of fire. They become amorphous (allowing them to move through a gap at least 1 foot wide without Squeezing and move at full Speed while Squeezing), gain the fire trait and a fly Speed of 60 feet, become immune to fire, and emit light as a torch. They lose their melee Strikes and can't Drain Blood, but they deal 4d6 fire|options:area-damage damage with a DC 29 Reflex save to each creature that touches them, including…"}, {"name": "Drain Blood", "type": "action", "traits": ["occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the blood hag's reach%rEffect The hag sinks their fangs into the creature to drink its blood. This requires a successful Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The victim becomes Drained 1. The hag regains 15 healing Hit Points, gaining any excess HP as temporary Hit Points that last for 1 hour. Drinking blood from a…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 26, "attack": 18, "spells": {"4": ["Charm", "Nightmare", "Outcast's Curse", "Sleep"], "6": ["Scrying"]}}]
+"Amondi":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 27
+  hp: 113
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 21, "will": 17}
+  abilities: {"cha": 4, "con": 0, "dex": 6, "int": 3, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Intimidation": 19, "Stealth": 19}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Ghostly Weapon", "bonus": 21, "damage": [["2d10+9", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "These three ghosts can only leave the crypts when Bastardhall appears on Golarion, and even then, they can't leave the island."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "The three adventurers re-form after 2d4 days here in the crypts unless someone carries their respective urn of ashes down to the temple in Maiserene (area A9 ) to be cleansed by Shirail."}, {"name": "Amondi's Cruel Shiv", "type": "action", "traits": ["divine", "move"], "cost": 2, "text": "Amondi Flies once, moving through a target creature's space; this movement doesn't trigger reactions. As she moves through the target's space, she makes a ghostly weapon Strike against the target. If she hits, she deals an additional 3d6 persistent bleed damage, and the creature struck becomes Sickened 1 from the pain of the bloody wound."}, {"name": "Malevolent Possession", "type": "action", "traits": ["incapacitation", "mental", "possession"], "cost": 2, "text": "The ghost attempts to possess an adjacent corporeal creature. This has the same effect as the Possession spell (DC 23 Will), except since the ghost doesn't have a physical body, it is unaffected by that restriction of the spell."}]
+"Amyleda Blackwell":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["demon", "fiend", "unholy"]
+  ac: 27
+  hp: 145
+  perception: 17
+  saves: {"fortitude": 17, "reflex": 15, "will": 19}
+  abilities: {"cha": 7, "con": 4, "dex": 4, "int": 5, "str": 3, "wis": 4}
+  speeds: {"land": 25, "fly": 35}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Athletics": 18, "Deception": 22, "Diplomacy": 20, "Intimidation": 18, "Occultism": 18, "Religion": 18, "Society": 18}
+  weaknesses: {"cold-iron": 10, "holy": 10}
+  strikes: [{"name": "Bladed Scarf", "bonus": 20, "damage": [["2d6+9", "slashing", null]], "traits": ["disarm", "finesse", "magical", "reach-10", "sweep", "trip"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Rejection Vulnerability", "type": "passive", "traits": [], "text": "As succubi are beings of pure lust, creatures that reject their lust can metaphysically harm them. When a succubus fails a Diplomacy check to Embrace or Request, or when a creature succeeds at its save against a succubus's mental spell or ability, the succubus takes 2d8 mental damage.%rFor 1 hour after causing mental damage to a succubus in this way, a creature can deal 2d8 mental damage to the succubus with a successful Demoralize action incorporating its rejection."}, {"name": "Seductive Presence", "type": "passive", "traits": ["aura", "emotion", "mental"], "text": "10 feet.%rAny creature in the aura that could be sexually attracted to a succubus takes a –2 circumstance penalty to checks and DCs to oppose the succubus's mental spells, Deception, and Diplomacy."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The succubus can take on the appearance of any Small or Medium humanoid. This doesn't change their Speed or their attack and damage modifiers with their Strikes, but it might change the damage type their Strikes deal (typically to bludgeoning)."}, {"name": "Embrace", "type": "action", "traits": ["attack"], "cost": 1, "text": "The succubus attempts to Grapple a creature using their Diplomacy bonus instead of Athletics. If the creature is willing, the succubus automatically succeeds."}, {"name": "Passionate Kiss", "type": "action", "traits": ["divine", "emotion", "mental", "unholy", "void"], "cost": 1, "text": "Frequency once per round%rEffect The succubus engages a creature they have Grabbed or Restrained in an embrace or other act of passion to drain its vital essence.%rThe kiss makes the creature Drained 1 or increases its drained value by 1, to a maximum of 4. The creature takes 3d6 void damage and the succubus regains Hit Points equal to the damage dealt. The target must succeed at a DC 28 Will save or be affected by a Suggestion to submit to more actions of passion rather than trying to Escape."}, {"name": "Profane Gift", "type": "action", "traits": ["divine", "mental"], "cost": 3, "text": "Frequency once per day%rEffect The succubus gives a willing humanoid a profane gift. That creature gains a +1 status bonus to attack rolls, skill checks, and saving throws. As long as the gift persists, the succubus can communicate telepathically with the target at any distance, see through the creature's senses, and target the creature with suggestion through the telepathic link. In addition, the creature uses an outcome one degree of success worse than it rolls on saving throws against the…"}, {"name": "Spiritual Anguish", "type": "action", "traits": ["divine", "emotion", "mental", "unholy"], "cost": 2, "text": "Amyleda gives a creature within 30 feet a wistful smile, then instills within their mind the sudden conviction that someone who loved them in the past has either betrayed them or died. The targeted creature takes 8d6 mental damage and must attempt a DC 28 Will save. Amyleda can't use Spiritual Anguish again for 1 hour or until she gives a creature a Passionate Kiss—whichever comes first.%rCritical Success The creature is unaffected and is temporarily immune for 24 hours.%rSuccess The creature…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 28, "attack": 20, "spells": {"1": ["Charm (At Will)"], "3": ["Mind Reading (At Will)"], "4": ["Suggestion (At Will)", "Translocate (At Will)"], "5": ["Translocate", "Truespeech (Constant)"], "6": ["Dominate"]}}]
+"Anophilex":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "rare"
+  traits: ["fiend", "sahkil", "unholy"]
+  ac: 31
+  hp: 200
+  perception: 22
+  saves: {"fortitude": 20, "reflex": 23, "will": 22}
+  abilities: {"cha": 6, "con": 5, "dex": 6, "int": 3, "str": 4, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 21, "Athletics": 21, "Stealth": 23}
+  immunities: ["bleed", "fear-effects"]
+  weaknesses: {"holy": 10}
+  strikes: [{"name": "Jaws", "bonus": 23, "damage": [["1d6", "spirit", null], ["2d12+7", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Drain Blood"]}, {"name": "Thorny Lash", "bonus": 0, "damage": [["2d6", "bleed", "persistent"], ["1d6", "spirit", null], ["2d4+7", "slashing", null]], "traits": ["agile", "finesse", "reach-10", "unarmed"]}]
+  actions: [{"name": "Easy to Call", "type": "passive", "traits": [], "text": "An anophilex's level is considered 2 lower for the purpose of being conjured by the Binding Circle ritual (and potentially other rituals, at the GM's discretion), but it is always free to attack or leave instead of negotiate unless the primary caster's check is a critical success."}, {"name": "Fearful Bleeding", "type": "passive", "traits": ["auditory", "aura", "divine", "emotion", "fear", "mental", "visual"], "text": "30 feet. The sight and sound of the anophilex's constantly bleeding body fills non-sahkils with fears that their own blood wants to flow and surge from their veins as well. Creatures taking persistent bleed damage become Frightened 1 when they enter the aura or start their turn in the aura."}, {"name": "Drain Blood", "type": "passive", "traits": [], "text": "When the anophilex uses a jaws strike against a creature that's taking persistent bleed damage, they drink the blood. The creature must succeed at a DC 30 Fortitude save or become Enfeebled 1 (Enfeebled 2 on a critical failure). The anophilex becomes Quickened on the following round, and can use the extra action to Stride or Strike."}, {"name": "Skip Between", "type": "action", "traits": ["divine", "teleportation"], "cost": 1, "text": "The sahkil moves from the Universe to the Ethereal Plane or vice-versa. While in the Ethereal Plane, they're unable to affect anything in the Universe, and they cannot be seen by beings or abilities in the Universe, unless these have an ability that can gaze into the Ethereal Plane. While on the Material Plane the inverse is true for anything on the Ethereal Plane. A summoned sahkil can't use Skip Between."}, {"name": "Spray Vile Blood", "type": "action", "traits": ["divine"], "cost": 2, "text": "The anophilex twists their body into a knot, causing their thorns to pierce their body so that unholy blood sprays out in a 30-foot emanation. Non-sahkil creatures in this area take 12d6 spirit|options:area-damage damage (DC 30 Will save). The anophilex can't Spray Vile Blood again for 1d4 rounds."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Detect Magic", "Divine Lance"], "2": ["Blood Vendetta (At Will)"], "3": ["Fear"], "4": ["Suggestion"], "5": ["Translocate", "Vampiric Feast"], "6": ["Blood Vendetta", "Fly (Constant)", "Vampiric Exsanguination"]}}]
+"Aron Mordimus":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 19
+  hp: 60
+  perception: 13
+  saves: {"fortitude": 14, "reflex": 9, "will": 11}
+  abilities: {"cha": 4, "con": 5, "dex": 2, "int": 2, "str": -5, "wis": 4}
+  speeds: {"land": null}
+  senses: ["darkvision"]
+  skills: {"Athletics": -5, "Crafting": 11, "Diplomacy": 13, "Society": 11}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  strikes: [{"name": "Phantom Clan Dagger", "bonus": 12, "damage": [["2d4+4", "piercing", null]], "traits": ["agile", "dwarf", "finesse", "magical", "parry", "versatile-b"]}, {"name": "Phantom Crossbow", "bonus": 0, "damage": [["2d8+2", "piercing", null]], "traits": ["magical", "reload-1"], "range": 120}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, Aron exists fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "–1 Status Penalty to All Saves vs. Death", "type": "passive", "traits": []}, {"name": "Bound Even in Death", "type": "passive", "traits": [], "text": "As phantom, but if Aron is reduced to 0 Hit Points by any means, his soul does not return to the River of Souls. Instead, his soul is drawn into the soul vortex in the vault under Bastardhall (area I )."}, {"name": "Physical Manifestation", "type": "passive", "traits": [], "text": "Upon reaching rank 1, Aron manifests a semi-physical body. He loses the incorporeal trait, his immunities and resistances, and his fly Speed, and gains a land Speed of 25 feet. He has a Strength modifier of +0, an Athletics modifier of +7, an AC of 21, 80 HP, and Pour Elixir. His other statistics do not change."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}, {"name": "Pour Elixir", "type": "action", "traits": ["manipulate", "occult"], "cost": 3, "text": "Requirements Aron has a physical body%rFrequency twice per day%rEffect Aron forms a pitcher in one hand from ectoplasm, then pours liquid from the pitcher out onto a solid surface. As the liquid pours, it forms into a single glass vial filled with an alchemical elixir of Aron's choice. He's always willing and eager to Pour an Elixir for the PCs when asked. An elixir created by this ability vanishes if not used within 24 hours of being poured. He can choose from the following options when he…"}]
+"Arth Wiltur":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "fey"]
+  ac: 27
+  hp: 130
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 21, "will": 18}
+  abilities: {"cha": 5, "con": 2, "dex": 6, "int": 0, "str": 5, "wis": 3}
+  speeds: {"land": 40, "swim": 40}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 18, "Deception": 18, "Intimidation": 20, "Nature": 16, "Survival": 16, "Hunting Lore": 15, "Sailing Lore": 15}
+  weaknesses: {"cold-iron": 10}
+  strikes: [{"name": "Fish Hook", "bonus": 20, "damage": [["2d10+11", "piercing", null]], "traits": ["trip"], "effects": ["Hooked"]}, {"name": "Oar", "bonus": 20, "damage": [["2d8+11", "bludgeoning", null]], "traits": ["shove"]}, {"name": "Fish Hook", "bonus": 21, "damage": [["2d10+11", "piercing", null]], "traits": ["thrown-30"], "effects": ["Hooked"]}]
+  actions: [{"name": "–2 Status Penalty to All Saves vs. Curses", "type": "passive", "traits": []}, {"name": "Hooked", "type": "passive", "traits": [], "text": "A creature struck by Arth's fish hook is skewered, taking 1d4 persistent bleed damage as long as the hook remains stuck. A creature can escape dc=28 from the hook."}, {"name": "Humiliate the Fish", "type": "action", "traits": [], "cost": 1, "text": "Requirements A creature is hooked by Arth's fish hook and adjacent to Arth%rEffect Arth yanks the hook free, causing 4d8 slashing damage to the creature (DC 28 Fortitude save), who also falls Prone if they fail that Fortitude save."}, {"name": "Reel In", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Arth pulls the rope attached to his hook. If he has no creature hooked, the fish hook returns to his hand. If a creature is hooked, Arth attempts an Athletics check against the creature's Fortitude DC, pulling it up to 30 feet closer on a success (60 feet on a critical success)."}, {"name": "Swear", "type": "action", "traits": ["auditory", "curse", "primal"], "cost": 1, "text": "Arth unleashes a string of invectives. Each creature that hears him must attempt a DC 28 Will save, with the effects of Mariner's Curse, and is then temporarily immune for 24 hours. Even on a failed save, the curse ends automatically after 24 hours."}]
+"Augsten Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 8
+  size: "large"
+  rarity: "unique"
+  traits: ["giant", "humanoid"]
+  ac: 24
+  hp: 170
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 12, "will": 15}
+  abilities: {"cha": 5, "con": 4, "dex": 2, "int": 0, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18, "Intimidation": 19}
+  strikes: [{"name": "Whip", "bonus": 21, "damage": [["1d6", "bleed", "persistent"], ["2d4+9", "slashing", null]], "traits": ["disarm", "finesse", "magical", "reach-10", "trip"]}, {"name": "Hurled Rubble", "bonus": 20, "damage": [["2d6+9", "bludgeoning", null]], "traits": ["brutal", "thrown-10"]}]
+  actions: [{"name": "Bully the Bully", "type": "passive", "traits": ["auditory", "concentrate", "emotion", "linguistic", "mental"], "text": "Augsten's sense of strength and self-worth shatters whenever someone calls him \"Little Lord Augie.\" A PC can attempt to send Augsten into a tantrum by calling him by this insult as part of a special attempt to create-a-diversion dc=24 traits=auditory,linguistic that has the auditory and linguistic traits, with the following results.%rCritical Success Augsten is cut deep by your teasing! He becomes Stunned 1 by his rage, and is Off-Guard to your attacks for the next 24 hours. During this time,…"}, {"name": "Reactive Bullying", "type": "reaction", "traits": [], "text": "Trigger A creature Augsten can see fails an attack roll or skill check%rEffect Augsten attempts to demoralize the triggering creature by taunting it with cruel laughter and insults about its ability."}, {"name": "Bullying Command", "type": "action", "traits": ["auditory", "emotion", "fear", "linguistic", "mental"], "cost": 1, "text": "Frequency once per round%rEffect Augsten bellows out an insulting, bullying order to a bugbear tormentor he can see. That bugbear tormentor becomes Quickened until the end of their next turn, and can use the extra action to Interact, Step, Stride, or Strike."}, {"name": "Cruel Lashes", "type": "passive", "traits": [], "text": "When Augsten wields a whip, the whip loses its nonlethal trait. He deals an additional 1d6 precision damage with a whip against frightened foes."}, {"name": "Cudgeling Blow", "type": "action", "traits": ["manipulate", "primal"], "cost": 1, "text": "Requirements Augsten is carrying his cudgel in one hand%rFrequency once per round%rEffect Augsten smashes his cudgel against an adjacent creature with astonishing force, dealing 3d8 bludgeoning damage and forcing the target to attempt a DC 26 Fortitude save.%rCritical Success The creature takes no damage.%rSuccess The creature takes half damage.%rFailure The creature takes full damage and is Off-Guard until the start of its next turn.%rCritical Failure The creature takes double damage, is…"}]
+"Ausken Dast":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 20
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 14, "reflex": 11, "will": 9}
+  abilities: {"cha": 4, "con": 4, "dex": 5, "int": 2, "str": -5, "wis": 2}
+  speeds: {"land": null}
+  senses: ["darkvision"]
+  skills: {"Athletics": -5, "Diplomacy": 13, "Intimidation": 13, "Society": 11}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  strikes: [{"name": "Phantom Longsword", "bonus": 15, "damage": [["2d8+7", "slashing", null]], "traits": ["finesse", "magical", "versatile-p"]}, {"name": "Phantom Shortbow", "bonus": 15, "damage": [["2d8+5", "piercing", null]], "traits": ["deadly-d10", "magical"], "range": 60}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, Ausken exists fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "–1 Status Penalty to All Saves vs. Death", "type": "passive", "traits": []}, {"name": "Bound Even in Death", "type": "passive", "traits": [], "text": "As phantom, but if Ausken is reduced to 0 Hit Points by any means, his soul does not return to the River of Souls. Instead, his soul is drawn into the soul vortex in the vault under Bastardhall (area I )."}, {"name": "Physical Manifestation", "type": "passive", "traits": [], "text": "Upon reaching rank 1, Ausken manifests a semi-physical body. He loses the incorporeal trait, his immunities and resistances, and his fly Speed, and gains a land Speed of 25 feet. He has a Strength modifier of +5, an Athletics modifier of +12, an AC of 22, 78 HP, and can use Sheriff's Blessing. His other statistics do not change."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}, {"name": "Sheriff's Blessing", "type": "action", "traits": [], "cost": 3, "text": "Requirements Ausken has a physical body%rFrequency once per day%rEffect Ausken touches a willing character and infuses their mind and spirit with bravery. Until the next sunset, the touched character gains a +1 status bonus to all saving throws against fear effects, and any time the character gains the frightened condition, reduce its value by 1. Ausken is always willing and eager to give his blessing to a PC when asked.%rRank 2 The blessed character now treats any success on a saving throw…"}]
+"Aznithakantus":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 13
+  size: "large"
+  rarity: "unique"
+  traits: ["mummy", "undead", "unholy"]
+  ac: 33
+  hp: 265
+  perception: 24
+  saves: {"fortitude": 24, "reflex": 19, "will": 26}
+  abilities: {"cha": 7, "con": 5, "dex": 4, "int": 8, "str": 8, "wis": 5}
+  speeds: {"land": 35, "fly": 40}
+  hp_details: "void healing"
+  senses: ["darkvision", "see-invisibility"]
+  skills: {"Arcana": 27, "Athletics": 25, "Deception": 24, "Intimidation": 26, "Occultism": 27, "Religion": 24, "Bardic Lore": 27}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 15}
+  strikes: [{"name": "Claw", "bonus": 27, "damage": [["2d6", "void", null], ["3d6+11", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Bardic Lore", "type": "passive", "traits": [], "text": "Sphinxes are naturally curious, and their love of puzzles and mysteries leads them to gather information on a broad range of topics. Sphinxes have Bardic Lore, a special Lore skill that can be used only to Recall Knowledge, but on any topic."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When Aznithakantus is destroyed, the energies of the Bastardhall Curse rebuild her body on the steps of the onyx ziggurat over 1d10 days; if her body is destroyed during that time, the process starts as new. She can be destroyed permanently if the Bastardhall Curse is lifted."}, {"name": "+1 Status to All Saves vs. Vitality", "type": "passive", "traits": []}, {"name": "Blindingly Flammable", "type": "passive", "traits": ["aura", "light", "occult"], "text": "30 feet. Aznithakantus's leathery undead flesh is infused with strange reagents. Whenever she takes fire damage, the fire flares blindingly bright, and any creature in the aura's area must succeed at a DC 30 Fortitude save or become Dazzled for 1 round (or Blinded for 1 minute on a critical failure); this is a visual effect. When she takes persistent fire damage, these flames leap out and burn any creature in the aura for an equal amount of damage (DC 30 Reflex save)."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Claw Rake", "type": "action", "traits": [], "cost": 3, "text": "The sphinx rears back on their hind legs and makes two claw Strikes at the same target, using the same attack bonus as their highest melee attack. If both attacks deal damage, the target takes extra damage equal to one claw Strike."}, {"name": "Gift of Dust", "type": "action", "traits": ["occult", "void"], "cost": 1, "text": "Requirements Aznithakantus's last action was a successful claw Strike%rEffect Dust from Aznithakantus's claw seeps into the wound, infecting the target with painful aches as the flesh around the wound grows gray and begins to flake away in dusty chunks. The creature takes 5d8 void damage with a DC 24 Will save. If the creature critically fails the saving throw, it becomes Stunned 3."}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "The sphinx Strides and makes a Strike at the end of that movement. If the sphinx began this action Hidden, they remain hidden until after the attack."}, {"name": "Riddler's Rune", "type": "passive", "traits": [], "text": "Once per week, a Sphinx can create a magical symbol as the Rune Trap ritual. The sphinx usually shapes it to take the form of a written riddle and sets the password to the answer.%rA creature that gives the wrong answer or tries to pass without answering must succeed at a DC 33 Will save or be affected by one of the following spells, chosen by the sphinx when creating the symbol: Synaptic Pulse (7th), Charm (7th), Fear (7th), Phantom Pain (7th), Sleep (7th). The sphinx learns the identity of…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 25, "spells": {"0": ["Daze", "Detect Magic"], "6": ["Dispel Magic", "Locate", "Spellwrack"], "7": ["Clairaudience (At Will)", "Clairvoyance (At Will)", "Cleanse Affliction", "Outcast's Curse", "Read Omens", "Retrocognition", "See the Unseen (Constant)", "Truespeech (Constant)"]}}]
+"Banijer Greely":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 19
+  hp: 52
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 9, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 2, "int": 4, "str": -5, "wis": 5}
+  speeds: {"land": null}
+  senses: ["darkvision"]
+  skills: {"Athletics": -1, "Deception": 13, "Diplomacy": 11, "Nature": 14}
+  strikes: [{"name": "Phantom Sickle", "bonus": 12, "damage": [["2d4+4", "slashing", null]], "traits": ["agile", "finesse", "magical", "trip"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, Banijer exists fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "–1 Status Penalty to All Saves vs. Death", "type": "passive", "traits": []}, {"name": "Bound Even in Death", "type": "passive", "traits": [], "text": "As phantom, but if Banijer is reduced to 0 Hit Points by any means, his soul does not return to the River of Souls. Instead, his soul is drawn into the soul vortex in the vault under Bastardhall (area I )."}, {"name": "Physical Manifestation", "type": "passive", "traits": [], "text": "Upon reaching rank 1, Banijer manifests a semi-physical body. He loses the incorporeal trait, his immunities and resistances, and his fly Speed, and gains a land Speed of 25 feet. He has a Strength modifier of +1, an Athletics modifier of +9, an AC of 21, 73 HP, and primal innate spells. His other statistics do not change."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}, {"name": "Spellcasting", "type": "passive", "traits": [], "text": "Once Banijer is rank 1 and has a physical body, he gains the following primal innate spells. As his rank increases, his primal spell DC and spell attack modifier increase, and he gains additional innate spells.%rPrimal Innate Spells DC 22, attack +14; 3rd Cleanse Affliction, Heal; 2nd Cleanse Affliction, Heal, Sure Footing; 1st Cleanse Cuisine, Heal, Mending; Cantrips (3rd) Caustic Blast, Detect Magic, Light, Read Aura, Tangle Vine%rRank 2 DC 24, attack +16; 4th Cleanse Affliction; 3rd Water…"}]
+  spellcasting: [{"name": "Primal Innate Spells (Rank 1)", "tradition": "primal", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Caustic Blast", "Detect Magic", "Light", "Read Aura", "Tangle Vine"], "1": ["Cleanse Cuisine", "Heal", "Mending"], "2": ["Cleanse Affliction", "Heal", "Sure Footing"], "3": ["Cleanse Affliction", "Heal"]}}, {"name": "Primal Innate Spells (Rank 2)", "tradition": "primal", "type": "innate", "dc": 24, "attack": 16, "spells": {"0": ["Caustic Blast", "Detect Magic", "Light", "Read Aura", "Tangle Vine"], "1": ["Cleanse Cuisine", "Heal", "Mending"], "2": ["Cleanse Affliction", "Heal", "Sure Footing"], "3": ["Cleanse Affliction", "Heal", "Water Breathing"], "4": ["Cleanse Affliction"]}}, {"name": "Primal Innate Spells (Rank 3)", "tradition": "primal", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Caustic Blast", "Detect Magic", "Light", "Read Aura", "Tangle Vine"], "1": ["Cleanse Cuisine", "Heal", "Mending"], "2": ["Cleanse Affliction", "Heal", "Sure Footing"], "3": ["Cleanse Affliction", "Heal", "Water Breathing"], "4": ["Cleanse Affliction", "Heal"], "5": ["Sure Footing"]}}]
+"Bastardhall Rat":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 21
+  hp: 74
+  perception: 13
+  saves: {"fortitude": 13, "reflex": 11, "will": 11}
+  abilities: {"cha": 0, "con": 4, "dex": 4, "int": -4, "str": 5, "wis": 4}
+  speeds: {"land": 25, "climb": 15, "swim": 15}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 11, "Athletics": 12, "Stealth": 13}
+  immunities: ["disease", "poison"]
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["1d6", "poison", null], ["2d6+5", "piercing", null]], "traits": ["deadly-d8", "unarmed"], "effects": ["Ratpox"]}]
+  actions: [{"name": "Ratpox", "type": "passive", "traits": ["curse"], "text": "A creature that takes damage from a Bastardhall rat's bite is exposed to a painful and debilitating curse, and must attempt a DC 22 Fortitude save against the following effects.%rCritical Success The creature is unaffected by the curse.%rSuccess Pain shoots through the creature as angry redringed blisters form in the vicinity of the bite. The creature becomes Sickened 1 by the pain.%rFailure As success, but Sickened 2. In addition, the blisters linger even after the initial pain abates, leaving…"}]
+"Brensen Firecask":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 7
+  size: "small"
+  rarity: "unique"
+  traits: ["fey"]
+  ac: 25
+  hp: 90
+  perception: 15
+  saves: {"fortitude": 13, "reflex": 17, "will": 15}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 2, "str": 5, "wis": 4}
+  speeds: {"land": 50}
+  hp_details: "fast healing 10"
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 13, "Athletics": 16, "Deception": 15, "Intimidation": 15, "Society": 13, "Alcohol Lore": 17}
+  weaknesses: {"cold-iron": 10}
+  strikes: [{"name": "Glaive", "bonus": 17, "damage": [["2d8+7", "slashing", null]], "traits": ["deadly-d8", "forceful", "magical", "reach-10"]}, {"name": "Iron Boot", "bonus": 16, "damage": [["2d6+7", "piercing", null]], "traits": ["agile", "versatile-b"]}]
+  actions: [{"name": "Red Cap", "type": "passive", "traits": ["primal"], "text": "A redcap's woolen hat is dyed with the blood of their victims. If the redcap loses their cap, they no longer benefit from fast healing and take a –4 status penalty to their damage rolls. They can create a new cap in 10 minutes, but that cap doesn't grant them powers until the redcap has turned it red with Blood Soak. A cap has no benefit for creatures other than the redcap who made it.%rEffect: Lost Red Cap"}, {"name": "Fast Healing 10", "type": "passive", "traits": []}, {"name": "Bolster Life", "type": "action", "traits": ["concentrate", "manipulate"], "cost": 2, "text": "Frequency once per day%rEffect When held to the chest and focused upon, the soul energy within the soulheart floods outward and bolsters your life force, granting you 6 temporary Hit Points (or 3 temporary Hit Points if it's nighttime). These temporary Hit Points last for 8 hours."}, {"name": "Divine Revulsion", "type": "passive", "traits": ["emotion", "fear", "mental"], "text": "If a redcap sees a creature brandish a religious symbol of a deity (which requires an Interact action by that creature) or cast a divine spell while wearing a religious symbol, the redcap must attempt a DC 24 Will save. The DC is DC 26 Will against a symbol of Shelyn and DC 34 Will against his lucky dawnsilver corkscrew.%rThey then become temporarily immune to all brandished religious symbols for 10 minutes.%rCritical Success The redcap is unaffected.%rSuccess The redcap is Frightened…"}, {"name": "Sommelier's Mockery", "type": "reaction", "traits": ["mental"], "text": "Trigger A creature Brensen can see within 30 feet spends an action retching in an attempt to recover from the sickened condition and fails%rEffect Brensen points and laughs at the triggering creature, causing their sickened condition value to increase by 1, or to fall Prone if their sickened condition value is already Sickened 3."}, {"name": "Soak Cap", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Brensen dips his cap into red wine or blood from a slain foe. Wine must have been opened by Brensen within the last minute. Blood must be from a creature Brensen helped kill and must have died within the last minute. He gains a +4 status bonus to damage rolls and Fortitude saves for 1 minute.%rEffect: Blood Soak"}, {"name": "Sommelier's Trick", "type": "action", "traits": ["manipulate", "mental", "primal"], "cost": 2, "text": "Brensen takes a deep gulp of alcohol, then winks at a creature he can see within 30 feet. The alcohol he imbibed suddenly infuses the belly of the target, causing them to attempt a DC 25 Fortitude save with the following effects.%rCritical Success The creature is unaffected.%rSuccess The creature becomes Sickened 1.%rFailure The creature becomes Sickened 2 and falls Prone.%rCritical Failure As failure, but the creature becomes Slowed 1 as long as it's remain sickened."}, {"name": "Stomp", "type": "action", "traits": [], "cost": 1, "text": "The redcap Strides up to half its Speed and makes a boot Strike at any point during that movement. If the boot Strike hits a Prone creature, it deals an extra 2d6 bleed."}]
+"Carrion Angel":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "rare"
+  traits: ["undead", "unholy"]
+  ac: 31
+  hp: 225
+  perception: 22
+  saves: {"fortitude": 18, "reflex": 21, "will": 24}
+  abilities: {"cha": 7, "con": 3, "dex": 4, "int": 3, "str": 7, "wis": 5}
+  speeds: {"land": 30, "fly": 40}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 21, "Athletics": 24, "Deception": 22, "Intimidation": 24, "Religion": 22, "Stealth": 22}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"holy": 10}
+  strikes: [{"name": "Claw", "bonus": 24, "damage": [["2d6", "spirit", null], ["2d6+13", "slashing", null]], "traits": ["magical", "unarmed", "unholy"], "effects": ["Decaying Touch"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Vitality", "type": "passive", "traits": []}, {"name": "Blasphemous Stench", "type": "passive", "traits": ["aura", "divine", "olfactory"], "text": "30 feet. A creature entering or starting its turn in the aura must succeed at a DC 27 Fortitude save or become Sickened 1 (plus Slowed 1 as long as it's sickened on a critical failure). A holy creature takes a –2 status penalty to this saving throw. A creature that succeeds at its save or recovers from being sickened is temporarily immune to blasphemous stench for 1 minute unless it is holy."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Decaying Touch", "type": "passive", "traits": ["curse", "divine", "unholy", "void"], "text": "The first time each round that a living creature takes damage from a carrion angel's claw Strike, it must attempt a DC 30 Fortitude save to avoid becoming Sickened 1 and Drained 1 on a failure (Sickened 2 and Drained 2 on a critical failure)."}, {"name": "Living Facade", "type": "action", "traits": ["concentrate", "divine", "illusion"], "cost": 1, "text": "The carrion angel hides their true appearance behind a potent illusion that makes them appear as they did in life. The carrion angel has an automatic result of 42 on Deception checks and DCs to pass as living. While Living Facade is in effect, the carrion angel loses void healing and can be healed as if they were alive. This illusion lasts until the start of the carrion angel's next turn, but the angel can Sustain it indefinitely—when the carrion angel chooses to stop Sustaining it, they cannot…"}]
+"Caydserris Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "unique"
+  traits: ["fiend", "human", "humanoid", "sahkil", "unholy"]
+  ac: 37
+  hp: 200
+  perception: 22
+  saves: {"fortitude": 23, "reflex": 27, "will": 26}
+  abilities: {"cha": 5, "con": 2, "dex": 4, "int": 3, "str": 3, "wis": 1}
+  speeds: {"land": 0, "fly": 25}
+  skills: {"Acrobatics": 27, "Athletics": 24, "Intimidation": 28, "Occultism": 26, "Religion": 24, "Society": 26}
+  immunities: ["fear-effects"]
+  weaknesses: {"holy": 10}
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Charg's Final Gift", "type": "passive", "traits": [], "text": "As soon as Caydserris is reduced to 0 Hit Points, he shrieks in exaltation. His head rips free from his body, which crumbles to the ground as a matrix of flesh and bone extend outward around his head, transforming him into a monstrous unique sahkil. His head and face remain, but rather than atop a humanoid body, it sits at the center of a great wheel of bone and gristle, held in place at the center by thick strings of viscera, entrails, veins, and vertebrae. Eyes and mouths open and weep along…"}, {"name": "Florin's Revenge", "type": "passive", "traits": [], "text": "On the start of each of Caydserris's turns, after he's gained Charg's final gift, Florin's vengeful soul deals 6d6 spirit damage to him (DC 35 Will save)."}, {"name": "Charg's Blessing", "type": "action", "traits": ["curse", "cursebound", "divine", "morph"], "cost": 2, "text": "Caydserris increases his Cursebound condition's value by 1, then targets a creature he can see within 60 feet. That creature's body distorts and partially transforms, changing limbs into monstrous appendages that are difficult to control. The target must attempt a DC 36 Fortitude save with the following results; regardless of the save, the target is temporarily immune to Charg's Blessing for 24 hours.%rCritical Success The target recovers their body's shape immediately and is unaffected;…"}, {"name": "Curse of Ancestral Meddling", "type": "passive", "traits": [], "text": "When Caydserris has the Cursebound condition, he becomes Clumsy with a value equal to his cursebound value as Arudora spirits—particularly that of Florin Kindler—vie for control of his mind and hinder his movements."}, {"name": "Terror", "type": "passive", "traits": ["emotion", "fear", "mental"], "text": "Caydserris can only make fearful claw Strikes once he receives Charg's Final Gift. A creature that takes damage from a fearful claw strike becomes Frightened 1 (Frightened 2 on a critical hit)."}, {"name": "Unholy Bloodshed", "type": "reaction", "traits": ["concentrate"], "text": "Frequency once per day%rTrigger Caydserris critically succeeds at an attack roll against a holy creature with his Unholy Mace%rEffect The target takes 3d8 bleed."}, {"name": "Whispers of Weakness", "type": "action", "traits": ["cursebound"], "cost": 1, "text": "Spirits guide Caydserris. He increases his Cursebound value by 1, then targets one creature within 60 feet and gains knowledge of their weaknesses, which of their saving throw modifiers is lowest, and a +2 status bonus to his next attack roll against that foe before the end of his turn; the target is then temporarily immune for 1 day."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 36, "attack": 28, "spells": {"0": ["Daze", "Divine Lance", "Guidance", "Light", "Shield", "Void Warp"], "1": ["Bane", "Command", "Enfeeble", "Ill Omen", "Sanctuary"], "2": ["Darkness", "Ghostly Carrier", "Resist Energy", "Silence", "Water Breathing"], "3": ["Chilling Darkness", "Dream Message", "Fear", "Locate"], "4": ["Divine Wrath", "Outcast's Curse", "Read Omens", "Unfettered Movement"], "5": ["Command", "Dreaming Potential", "Invoke Spirits", "Shadow Blast", "Truespeech"], "6": ["Blood Vendetta", "Repulsion", "Spirit Blast", "Truesight"], "7": ["Dispel Magic", "Eclipse Burst", "Execute", "Vampiric Feast"], "8": ["Crisis of Faith", "Divine Immolation", "Fly (Constant)", "Heal"]}}, {"name": "Oracle Revelation Spells", "tradition": "divine", "type": "focus", "dc": 36, "attack": 28, "spells": {"1": ["Ancestral Touch", "Death's Call"], "3": ["Ancestral Defense"]}}]
+"Danrasteian The Magnificent":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["aberration"]
+  ac: 22
+  hp: 60
+  perception: 10
+  saves: {"fortitude": 9, "reflex": 9, "will": 12}
+  abilities: {"cha": 3, "con": 3, "dex": 3, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Athletics": 12, "Deception": 13, "Stealth": 13, "Thievery": 9}
+  resistances: {"bludgeoning": 5}
+  strikes: [{"name": "Longsword", "bonus": 14, "damage": [["1d8+6", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Claw", "bonus": 12, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+2 Status to All Saves vs. Auditory and Visual", "type": "passive", "traits": []}, {"name": "Assume Form", "type": "passive", "traits": ["concentrate", "occult", "polymorph"], "text": "The ugothol spends 10 minutes reshaping its appearance to take on the shape of any Small or Medium humanoid. It gains a +4 circumstance bonus to Deception checks to pass as that creature."}, {"name": "Blood Nourishment", "type": "action", "traits": [], "cost": 1, "text": "The ugothol uses its three-pronged tongue to drink the blood of an adjacent Restrained or Unconscious creature. The creature gains Drained 1"}, {"name": "Compression", "type": "passive", "traits": [], "text": "When the ugothol successfully Squeezes, it moves through the tight space at full speed. Narrow confines are not difficult terrain for an ugothol."}, {"name": "Revert Form", "type": "free", "traits": [], "text": "Requirements The ugothol is in an assumed form%rEffect The ugothol resumes its true form. Until the start of its next turn, it gains a +2 status bonus to attack rolls, damage rolls, saving throws, and skill checks.%rEffect: Revert Form"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The ugothol deals 1d6 extra precision damage to Off-Guard creatures."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 19, "attack": 11, "spells": {"5": ["Truespeech (Constant)"]}}]
+"Dazerien Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["beast", "human", "humanoid", "werecreature"]
+  ac: 30
+  hp: 250
+  perception: 22
+  saves: {"fortitude": 18, "reflex": 22, "will": 22}
+  abilities: {"cha": 5, "con": 3, "dex": 5, "int": 3, "str": 7, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 20, "Athletics": 22, "Intimidation": 22, "Medicine": 20, "Stealth": 22, "Survival": 20, "Bastardhall Lore": 20}
+  weaknesses: {"silver": 10}
+  strikes: [{"name": "Composite Longbow", "bonus": 24, "damage": [["3d8+8", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"], "range": 100}, {"name": "Jaws", "bonus": 24, "damage": [["2d12+13", "piercing", null]], "traits": [], "effects": ["Werecreature Curse Of The Werecreature"]}, {"name": "Claw", "bonus": 24, "damage": [["2d8+13", "slashing", null]], "traits": ["agile"], "effects": ["Grab"]}]
+  actions: [{"name": "Wolf Empathy", "type": "passive", "traits": [], "text": "The werecreature can ask questions of, receive answers from, and use the Diplomacy skill with animals of its general kind."}, {"name": "Fearful of the Frost", "type": "passive", "traits": [], "text": "Dazerien lost a few toes to frostbite, but what clings in his mind is the agony of the cold that seeped into his bones as he endured a particularly cruel punishment from his father. The first time each round he takes cold damage, Dazerien takes 2d6 mental damage and becomes Frightened 1 (Frightened 2 if the triggering cold damage was in excess of 20)."}, {"name": "Abduct", "type": "action", "traits": ["move"], "cost": 1, "text": "Requirements Dazerien has a Medium or smaller creature Grabbed%rEffect Dazerien attempts to carry off his victim. The grabbed creature attempts a DC 30 Fortitude save with the following effects.%rCritical Success The grabbed creature escapes and is no longer grabbed.%rSuccess The grabbed creature remains grabbed.%rFailure As success, but Dazerien can Stride, and carries the grabbed creature with him. When he's Large as a result of Moon Frenzy, Dazerien can carry up to 22 Bulk without becoming…"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Human%rMelee fist +24 Damage 1d4+13%rWolf%rSpeed 40 feet%rKnockdown%rThe werecreature changes into its humanoid, hybrid, or animal shape. Each shape has a specific, persistent appearance. A true werecreature's natural form is its hybrid shape.%rIn humanoid shape, the werecreature uses its original humanoid size, loses its jaws and claws Strikes, and gains a melee fist Strike that deals bludgeoning damage equal to the slashing damage dealt by its claw.%rIn animal shape, its Speed and size change…"}, {"name": "Coat Longbow", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Requirements At least one magic oil or poison is stored inside the rune's extradimensional space%rEffect For 1 minute, you can apply stored oils and poisons to the weapon without needing any hands free. Applying them takes the same number of actions as normal. An oil or poison applied this way pours directly from the extradimensional space onto the weapon, and when it's fully applied, its empty vial is ejected."}, {"name": "Curse of the Werewolf", "type": "passive", "traits": ["curse", "primal"], "text": "This curse affects only humanoids.%rSaving Throw DC 30 Fortitude%rOn each full moon, the cursed creature must succeed at another Fortitude save or turn into the same kind of werecreature until dawn.%rThe creature is under the GM's control and goes on a rampage for half the night before falling unconscious until dawn."}, {"name": "Moon Frenzy", "type": "passive", "traits": ["polymorph", "primal"], "text": "When a full moon appears in the night sky, the werecreature must enter hybrid form, can't Change Shape thereafter, becomes one size larger, increases its reach by 5 feet, and increases the damage of its jaws by 2.%rWhen the moon sets or the sun rises, the werecreature returns to humanoid form and is Fatigued for 2d4 hours.%rEffect: Moon Frenzy"}, {"name": "Painful Wound", "type": "reaction", "traits": [], "text": "Trigger Dazerien deals damage with a melee Strike%rEffect Dazerien tears at the victim's flesh, dealing 1d6 bleed and causing the victim to become Sickened 1 from the pain (Sickened 2 on a failed DC 30 Fortitude save)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}, {"name": "Knockdown (Wolf Form)", "type": "action", "traits": [], "cost": 1}]
+"Eragayl Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "common"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 27
+  hp: 135
+  perception: 17
+  saves: {"fortitude": 16, "reflex": 19, "will": 22}
+  abilities: {"cha": 6, "con": 0, "dex": 3, "int": 6, "str": -5, "wis": 3}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Arcana": 22, "Intimidation": 22, "Stealth": 21}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "precision", "unconscious", "bleed"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Ghostly Hand", "bonus": 21, "damage": [["2d8+12", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "A typical ghost can stray only a short distance from where it was killed or the place it haunts. A typical limit is 120 feet. Some ghosts are instead bound to a room, building, item, or creature that was special to it rather than a location."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "If he's destroyed, he rejuvenates in 2d4 days unless the Bastardhall Curse is lifted."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blasphemous Decree", "type": "action", "traits": ["divine", "mental"], "cost": 1, "text": "Frequency once per round%rEffect Eragayl points out a creature he can see within 60 feet with his blade, proclaiming them to be heretics deserving of death. The target creature's faith quakes and strains under the decree, and the target creature must attempt a DC 29 Will save with the following effects. Worshippers of Shelyn gain a +2 status bonus to this saving throw. This ability replaces the ghost mage's arcane innate spells.%rCritical Success The creature is unaffected. If the creature is a…"}, {"name": "Frightful Moan", "type": "action", "traits": ["auditory", "divine", "emotion", "fear", "mental"], "cost": 1, "text": "The ghost laments its fate, forcing each living creature within 30 feet to attempt a DC 29 Will save. On a failure, a creature becomes Frightened 2 (or Frightened 3 on a critical failure). On a success, a creature is temporarily immune to this ghost's frightful moan for 1 minute."}, {"name": "Reminders of Life", "type": "passive", "traits": [], "text": "Eragayl is shocked if anyone addresses him by the nickname his wife Tasifinie had for him: \"tiger.\" The first time someone does so in a round, Eragayl must attempt a DC 35 Will save to avoid becoming Slowed 1 for 1 round by the distraction. If the person who used this name on him openly wields Fearcutter, his memories usurp his nature automatically; he shrieks in rage and turns his wrath on Irrokcis instead, cursing his son's name as he uses a combination of Blasphemous Decrees and Telekinetic…"}, {"name": "Telekinetic Assault", "type": "action", "traits": ["divine"], "cost": 2, "text": "The ghost cries out in pain and anguish as small objects and debris fly about in a 30-foot. Creatures in this area take 6d6 bludgeoning|options:area-damage damage, subject to a DC 29 Reflex save."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 29, "attack": 23, "spells": {"0": ["Detect Magic", "Figment", "Prestidigitation", "Read Aura", "Telekinetic Hand"], "1": ["Enfeeble"], "2": ["Telekinetic Maneuver"], "3": ["Blindness", "Dispel Magic", "Veil of Privacy"], "4": ["Suggestion", "Vision of Death"], "5": ["Hallucination", "Howling Blizzard"]}}]
+"Esmira Vermidian":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 19
+  hp: 50
+  perception: 11
+  saves: {"fortitude": 9, "reflex": 13, "will": 11}
+  abilities: {"cha": 4, "con": 2, "dex": 4, "int": 5, "str": -5, "wis": 2}
+  speeds: {"land": null}
+  senses: ["darkvision"]
+  skills: {"Arcana": 14, "Athletics": -5, "Diplomacy": 13, "Performance": 13, "Society": 12}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  strikes: [{"name": "Phantom Dagger", "bonus": 12, "damage": [["2d4+4", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, Esmira exists fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "–1 Status Penalty to All Saves vs. Death", "type": "passive", "traits": []}, {"name": "Bound Even in Death", "type": "passive", "traits": [], "text": "As phantom, but if Esmira is reduced to 0 Hit Points by any means, her soul does not return to the River of Souls. Instead, her soul is drawn into the soul vortex in the vault under Bastardhall (area I )."}, {"name": "Physical Manifestation", "type": "passive", "traits": [], "text": "Upon reaching rank 1, Esmira manifests a semi-physical body. She loses the incorporeal trait, her immunities and resistances, and her fly Speed, and gains a land Speed of 25 feet. She has a Strength modifier of +1, an Athletics modifier of +8, an AC of 21, 72 HP, and arcane innate spells. Her other statistics do not change."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}, {"name": "Spellcasting", "type": "passive", "traits": [], "text": "Once Esmira is rank 1 and has a physical body, she gains the following arcane innate spells. As her rank increases, her arcane spell DC and spell attack modifier increase, and she gains additional innate spells.%rArcane Innate Spells DC 22, attack +14; 3rd Fireball, Haste; 2nd Dispel Magic, Invisibility, Resist Energy; 1st Charm, Force Barrage, Illusory Object; Cantrips (3rd) Detect Magic, Electric Arc, Light, Read Aura, Telekinetic Hand%rRank 2 DC 24, attack +16; 4th Fly; 3rd Slow. Her…"}]
+  spellcasting: [{"name": "Arcane Innate Spells (Rank 1)", "tradition": "arcane", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Detect Magic", "Electric Arc", "Light", "Read Aura", "Telekinetic Hand"], "1": ["Charm", "Force Barrage", "Illusory Object"], "2": ["Dispel Magic", "Invisibility", "Resist Energy"], "3": ["Fireball", "Haste"]}}, {"name": "Arcane Innate Spells (Rank 2)", "tradition": "arcane", "type": "innate", "dc": 24, "attack": 16, "spells": {"0": ["Detect Magic", "Electric Arc", "Light", "Read Aura", "Telekinetic Hand"], "1": ["Charm", "Force Barrage", "Illusory Object"], "2": ["Dispel Magic", "Invisibility", "Resist Energy"], "3": ["Fireball", "Haste", "Slow"], "4": ["Fly"]}}, {"name": "Arcane Innate Spells (Rank 3)", "tradition": "arcane", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Detect Magic", "Electric Arc", "Light", "Read Aura", "Telekinetic Hand"], "1": ["Charm", "Force Barrage", "Illusory Object"], "2": ["Dispel Magic", "Invisibility", "Resist Energy"], "3": ["Fireball", "Haste", "Slow"], "4": ["Fly", "Translocate"], "5": ["Impaling Spike"]}}]
+"Ghostlight Sister":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 23
+  hp: 70
+  perception: 14
+  saves: {"fortitude": 12, "reflex": 17, "will": 14}
+  abilities: {"cha": 5, "con": 2, "dex": 5, "int": 3, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Athletics": 13, "Diplomacy": 13, "Intimidation": 15, "Performance": 17, "Theater Lore": 13}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5, "sonic": 5}
+  strikes: [{"name": "Stamping Foot", "bonus": 17, "damage": [["2d8+7", "bludgeoning", null]], "traits": ["finesse", "unarmed"]}, {"name": "Dissonant Chord", "bonus": 17, "damage": [["2d6+7", "sonic", null]], "traits": ["magical", "sonic"]}]
+  actions: [{"name": "Rhapsodic Flourish", "type": "reaction", "traits": ["occult", "sonic"], "text": "Trigger The Ghostlight Sister would roll a save against an auditory or sonic effect%rEffect The Ghostlight Sister performs a refrain that deflects sonic vibrations and rolls a Performance check in place of the triggering saving throw. Sonic feedback rebounds from the effect, dealing 1d6 sonic damage to the source of the triggering effect if the Performance check succeeded or 2d6 sonic damage to the Ghostlight Sister on a failure."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Soloist's Curse", "type": "action", "traits": ["curse", "occult"], "cost": 2, "text": "Requirements Trio's Torment is in effect%rEffect The Ghostlight Sister performs a haunting solo. This sustains an ongoing Trio's Torment if at least one other Ghostlight Sister is taking part. The Ghostlight Sister targets a single creature she can see within 60 feet as the focus of her unsettling music; that creature must attempt a DC 24 Will save with the following effects. The Ghostlight Sister can't use Soloist's Curse again for 1 minute; if all Ghostlight Sisters in a Trio's Torment can't…"}, {"name": "Trio's Torment", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 2, "text": "The Ghostlight Sister begins playing a catchy song that compels others to dance. If other Ghostlight Sisters within 30 feet of her want to join the Trio's Torment, the Ghostlight Sister can delay to begin the torment. In this case, the effect occurs after the last Ghostlight Sister uses Trio's Torment or when one of them chooses to complete that round of the torment. Each non–Ghostlight Sister in a 50-foot emanation must attempt a DC 24 Will save; for each additional Ghostlight Sister involved,…"}]
+"Ghostly Guest":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "rare"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 23
+  hp: 60
+  perception: 14
+  saves: {"fortitude": 10, "reflex": 17, "will": 14}
+  abilities: {"cha": 5, "con": 0, "dex": 5, "int": 4, "str": -5, "wis": 4}
+  speeds: {"land": null, "fly": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Intimidation": 15, "Society": 14}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Ghostly Touch", "bonus": 17, "damage": [["2d8+4", "void", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "The ghostly guests cannot leave the reception halls."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When a ghostly guest is destroyed, they reform after 2d4 days fully healed and can be encountered again. They're only permanently destroyed once the Bastardhall Curse is lifted at the end of the Adventure Path."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Join Us!", "type": "action", "traits": ["divine", "emotion", "mental"], "cost": 2, "text": "The ghostly guest Flies over to a space adjacent to a creature, then extends their arms in an invitation to join the ghost in whatever form of revelry it appears to be engaged in at the moment, be it dancing, drinking, or eating. The target must attempt a DC 24 Will save to resist the invitation. On a failed save, roll 1d6#Revelry to determine what the ghost's current revelry is and what effect the creature endures. If the target fails its save against Join Us! while already enduring a…"}]
+"Ghoulish Gardener":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 22
+  hp: 62
+  perception: 12
+  saves: {"fortitude": 9, "reflex": 14, "will": 12}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 3, "str": 4, "wis": 3}
+  speeds: {"land": 25, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Athletics": 11, "Deception": 13, "Nature": 13, "Carpentry Lore": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Claw", "bonus": 14, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "finesse"]}, {"name": "Jaws", "bonus": 14, "damage": [["2d8+6", "piercing", null]], "traits": ["finesse"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet. DC 19 Fortitude"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains 3d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Whispers", "type": "action", "traits": ["auditory", "linguistic", "occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, or Unconscious creature is within the ghoul's reach%rEffect The ghoul whispers dark thoughts and vile cravings into the creature's ears. The creature must save against the forbidden cravings curse.%rForbidden Cravings (curse) A creature can still eat and drink while sickened by this curse%rSaving Throw DC 22 Will%rStage 1 carrier with no ill effects (1 day)%rStage 2 2d6 void damage and the target is Sickened 1 until it consumes raw meat (1…"}, {"name": "Grave Knowledge", "type": "passive", "traits": ["occult"], "text": "Frequency once per hour%rEffect The ghoul calls upon knowledge it retains from one creature it has consumed in the past 7 days. The ghoul attempts a skill check using a skill in which the consumed creature was trained (if it's unclear whether the creature was trained, the GM decides). The ghoul is treated as trained and has a +13 skill modifier. This takes the same amount of actions or time as usual for the check.%rThe ghoul can instead automatically learn something specific known by a creature…"}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 19, "attack": 11, "spells": {"0": ["Prestidigitation", "Tangle Vine"], "3": ["Fear", "Wall of Thorns"]}}]
+"Ghoulrilla":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 8
+  size: "large"
+  rarity: "unique"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 25
+  hp: 160
+  perception: 16
+  saves: {"fortitude": 18, "reflex": 13, "will": 16}
+  abilities: {"cha": 0, "con": 4, "dex": 3, "int": -3, "str": 6, "wis": 4}
+  speeds: {"land": 30, "burrow": 5, "climb": 30}
+  hp_details: "void healing"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 15, "Athletics": 18}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 20, "damage": [["2d8+9", "piercing", null]], "traits": []}, {"name": "Claw", "bonus": 20, "damage": [["2d4+9", "slashing", null]], "traits": ["agile"], "effects": ["Grab"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet. DC 23 Fortitude"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains 5d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Whispers", "type": "action", "traits": ["auditory", "linguistic", "occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, or Unconscious creature is within the ghoul's reach%rEffect The ghoul whispers dark thoughts and vile cravings into the creature's ears. The creature must save against the forbidden cravings curse.%rForbidden Cravings (curse) A creature can still eat and drink while sickened by this curse%rSaving Throw DC 26 Will%rStage 1 carrier with no ill effects (1 day)%rStage 2 2d6 void damage and the target is Sickened 1 until it consumes raw meat (1…"}, {"name": "Grisly Display", "type": "action", "traits": ["emotion", "fear", "mental", "visual"], "cost": 1, "text": "The ghoulrilla howls and claws at its flesh, flinging bits of matted fur, gristle, and rancid meat in a nauseating display. The ghoulrilla takes 1d6 slashing damage, and all creatures within 30-foot emanation feet must attempt a DC 23 Fortitude save. While a creature is sickened by this ability, it is Off-Guard to the ghoulrilla.%rCritical Success The creatures is unaffected and temporarily immune for 1 minute.%rSuccess The creature is unaffected.%rFailure The creature is Sickened 1.%rCritical…"}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Gogiteth (Bastion of Blasphemies)":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 12
+  size: "large"
+  rarity: "common"
+  traits: ["aberration"]
+  ac: 31
+  hp: 250
+  perception: 21
+  saves: {"fortitude": 25, "reflex": 22, "will": 20}
+  abilities: {"cha": 0, "con": 4, "dex": 3, "int": -2, "str": 6, "wis": 1}
+  speeds: {"land": 40, "climb": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 19, "Athletics": 24, "Stealth": 21, "Survival": 17}
+  resistances: {"poison": 10}
+  strikes: [{"name": "Jaws", "bonus": 26, "damage": [["3d10+12", "piercing", null]], "traits": ["unarmed"], "effects": ["Improved Grab"]}, {"name": "Leg", "bonus": 26, "damage": [["3d6+12", "piercing", null]], "traits": ["agile", "reach-10"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Skittering Reposition", "type": "reaction", "traits": ["move"], "text": "Trigger A creature that starts its move outside the gogiteth's reach moves into its reach.%rEffect The gogiteth moves 10 feet. This does not trigger reactions."}, {"name": "Carry Off Prey", "type": "passive", "traits": [], "text": "The gogiteth can move at its full Speed while it has a creature Grabbed in its jaws, bringing the grabbed creature along."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(3d6+12) bludgeoning, DC 32 Fortitude"}, {"name": "Skittering Assault", "type": "action", "traits": [], "cost": 2, "text": "The gogiteth Strides three times. Once per Stride, it can attempt a leg Strike against a creature in its reach at any point during the Stride; it must make each attack against a different creature, but it doesn't apply its multiple attack penalty until after making all its Strikes. If any of the Strikes result in a critical failure, Skittering Assault ends."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 32, "attack": 24, "spells": {"6": ["Water Walk (Constant)"]}}]
+"Grampa Sizzle":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 6
+  size: "tiny"
+  rarity: "unique"
+  traits: ["construct", "soulbound"]
+  ac: 23
+  hp: 69
+  perception: 10
+  saves: {"fortitude": 14, "reflex": 17, "will": 10}
+  abilities: {"cha": 5, "con": 4, "dex": 5, "int": 4, "str": -2, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Deception": 15, "Performance": 15}
+  immunities: ["fire"]
+  resistances: {"bludgeoning": 5, "piercing": 9, "slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 15, "damage": [["2d8", "bludgeoning", null], ["2d6", "fire", null]], "traits": ["agile", "finesse", "magical", "reach-0", "unarmed"]}, {"name": "Spit Fire", "bonus": 15, "damage": [["1d6", "fire", "persistent"], ["2d6", "fire", null]], "traits": [], "range": 20}]
+  actions: [{"name": "Personality Fragments", "type": "passive", "traits": [], "text": "A soulbound doll shares fragments of its donor soul's personality, though none of that creature's memories. This causes a soulbound doll to match a strong personality trait of the donor soul. Because of its soul sliver, a soulbound doll is not immune to spirit as most constructs are.%rWhen Grampa Sizzle casts Vision of Death, targets experience the terror of burning alive, and when he casts Phantom Pain, the targets suddenly recall painful burns."}, {"name": "Pratfall", "type": "reaction", "traits": [], "text": "Trigger Grampa Sizzle fails or critically fails an attack roll or a skill check%rEffect Grampa Sizzle makes a quick scene out of his failure, such as by falling and suddenly bouncing back to his feet or making a ridiculous face. If he has a Laughing Fit spell available, he can cast it as part of this reaction."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 24, "attack": 16, "spells": {"0": ["Light", "Prestidigitation", "Telekinetic Hand"], "2": ["Laughing Fit"], "3": ["Levitate", "Phantom Pain"], "4": ["Vision of Death"]}}]
+"Grinder-Widget":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "small"
+  rarity: "common"
+  traits: ["construct", "mindless"]
+  ac: 23
+  hp: 65
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 14, "will": 7}
+  abilities: {"cha": -5, "con": 1, "dex": 5, "int": -5, "str": 2, "wis": 0}
+  speeds: {"land": 30, "burrow": 15}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 12, "Athletics": 9, "Stealth": 14, "Thievery": 15}
+  strikes: [{"name": "Corkscrew", "bonus": 14, "damage": [["2d8+4", "piercing", null]], "traits": ["finesse"]}, {"name": "Pliers", "bonus": 14, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["finesse"], "effects": ["Grab"]}]
+  actions: [{"name": "Tremorsense 30 feet", "type": "passive", "traits": []}, {"name": "Infiltration Tools", "type": "passive", "traits": [], "text": "A dig-widget's face consists of a set of Infiltrator Thieves' Tools. They can be salvaged from a destroyed dig-widget with a successful DC 20 Crafting check. On a failed check, the tools are destroyed."}, {"name": "Mechanical Vulnerability", "type": "passive", "traits": [], "text": "A creature with expert proficiency in Thievery can attempt a check to disable-device dc=20 to damage a dig-widget. The DC is 20, and each success deals 18 untyped damage."}, {"name": "Fastening Leap", "type": "action", "traits": [], "cost": 1, "text": "The dig-widget Leaps up 20 feet onto a creature or object and attempts a corkscrew Strike against it. If the Strike damages the target, the dig-widget attaches to the target (typically to the back of a creature). This is similar to Grabbing the creature, but the dig-widget moves with that creature rather than holding it in place. While attached, the dig-widget can't use its corkscrew. The dig-widget can be Shoved off, or it can detach itself with an Interact action."}, {"name": "Grind Bones", "type": "action", "traits": ["manipulate", "move"], "cost": 2, "text": "Requirements A grinder-widget adjacent to the millstone in area C41 has a creature Grabbed%rEffect The grinder-widget attaches pliers to one of the millstone's handles and Strides around it, causing the Grabbed character to be painfully ground and pulped by the stone. The ground character must attempt a DC 23 Reflex save with the following results.%rCritical Success The character is unaffected and automatically Escapes from the grapple.%rSuccess The character takes (1d8+2) bludgeoning damage…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A dig-widget's Strikes deal an additional 1d6 precision damage to Off-Guard creatures."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Grindylow Stalker":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 2
+  size: "small"
+  rarity: "rare"
+  traits: ["aberration", "amphibious"]
+  ac: 18
+  hp: 28
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 10, "will": 8}
+  abilities: {"cha": 2, "con": 3, "dex": 4, "int": 0, "str": 1, "wis": 4}
+  speeds: {"land": 10, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7, "Deception": 8, "Stealth": 8, "Survival": 8}
+  strikes: [{"name": "Bite", "bonus": 10, "damage": [["1d6+3", "piercing", null]], "traits": ["finesse"]}, {"name": "Tentacle", "bonus": 10, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "finesse", "trip"], "effects": ["Grab"]}, {"name": "Bola", "bonus": 10, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["nonlethal", "ranged-trip", "thrown-20"]}]
+  actions: [{"name": "Reactive Strike (Special)", "type": "reaction", "traits": [], "text": "A grindylow gains 1 extra reaction at the start of each of their turns that they can use only to make a Reactive Strike with a tentacle. They can't use more than one Reactive Strike triggered by the same action or choice."}, {"name": "Clinging Suckers", "type": "passive", "traits": [], "text": "When a grindylow successfully Grabs a creature larger than themself, they attach to that creature. The Grabbed creature is not Immobilized, but if it moves, the grindylow moves with it.%rIf the creature is Medium or smaller, it takes a –5-foot status penalty to its Speeds while the grindylow is attached. The grindylow is Off-Guard while attached to a creature.%rEffect: Clinging Suckers"}, {"name": "Jet", "type": "action", "traits": ["move"], "cost": 2, "text": "The grindylow moves up to 60 feet in a straight line through the water without triggering reactions."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A grindylow stalker deals 1d4 extra precision damage to creatures who are Off-Guard."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 15, "attack": 7, "spells": {"0": ["Void Warp"], "1": ["Fear", "Force Barrage", "Phantom Pain"]}}]
+"Ilana Greenbough":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 19
+  hp: 53
+  perception: 13
+  saves: {"fortitude": 9, "reflex": 11, "will": 13}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 5, "str": -5, "wis": 4}
+  speeds: {"land": null}
+  senses: ["darkvision"]
+  skills: {"Athletics": -5, "Crafting": 12, "Occultism": 14, "Society": 12}
+  immunities: ["bleed", "precision", "disease", "poison", "paralyzed"]
+  strikes: [{"name": "Phantom Warhammer", "bonus": 12, "damage": [["2d8+4", "bludgeoning", null]], "traits": ["finesse", "magical", "shove"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, Ilana exists fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "–1 Status Penalty to All Saves vs. Death", "type": "passive", "traits": []}, {"name": "Bound Even in Death", "type": "passive", "traits": [], "text": "As phantom, but if Ilana is reduced to 0 Hit Points by any means, her soul does not return to the River of Souls. Instead, her soul is drawn into the soul vortex in the vault under Bastardhall (area I )."}, {"name": "Physical Manifestation", "type": "passive", "traits": [], "text": "Upon reaching rank 1, Ilana manifests a semi-physical body. She loses the incorporeal trait, her immunities and resistances, and her fly Speed, and gains a land Speed of 25 feet. She has a Strength modifier of +3, an Athletics modifier of +10, an AC of 21, 74 HP, and occult innate spells. Her other statistics do not change."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}, {"name": "Spellcasting", "type": "passive", "traits": [], "text": "Once Ilana is rank 1 and has a physical body, she gains the following occult innate spells. As her rank increases, her occult spell DC and spell attack modifier increase, and she gains additional innate spells.%rOccult Innate Spells DC 22, attack +14; 3rd Locate, Soothe; 2nd Clear Mind, Everlight, Soothe; 1st Force Barrage, Mending, Soothe; Cantrips (3rd) Daze, Detect Magic, Light, Read Aura, Telekinetic Projectile%rRank 2 DC 24, attack +16; 4th Clear Mind; 3rd Hypercognition. Her cantrips are…"}]
+  spellcasting: [{"name": "Occult Innate Spells (Rank 1)", "tradition": "occult", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Daze", "Detect Magic", "Light", "Read Aura", "Telekinetic Projectile"], "1": ["Force Barrage", "Mending", "Soothe"], "2": ["Clear Mind", "Everlight", "Soothe"], "3": ["Locate", "Soothe"]}}, {"name": "Occult Innate Spells (Rank 2)", "tradition": "occult", "type": "innate", "dc": 24, "attack": 16, "spells": {"0": ["Daze", "Detect Magic", "Light", "Read Aura", "Telekinetic Projectile"], "1": ["Force Barrage", "Mending", "Soothe"], "2": ["Clear Mind", "Everlight", "Soothe"], "3": ["Hypercognition", "Locate", "Soothe"], "4": ["Clear Mind"]}}, {"name": "Occult Innate Spells (Rank 3)", "tradition": "occult", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Daze", "Detect Magic", "Light", "Read Aura", "Telekinetic Projectile"], "1": ["Force Barrage", "Mending", "Soothe"], "2": ["Clear Mind", "Everlight", "Soothe"], "3": ["Hypercognition", "Locate", "Soothe"], "4": ["Clear Mind", "Soothe"], "5": ["Dreaming Potential"]}}]
+"Ilgrunthin":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "amphibious"]
+  ac: 24
+  hp: 80
+  perception: 14
+  saves: {"fortitude": 12, "reflex": 12, "will": 16}
+  abilities: {"cha": 5, "con": 2, "dex": 2, "int": 2, "str": 4, "wis": 4}
+  speeds: {"land": 10, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 14, "Deception": 13, "Intimidation": 15, "Occultism": 12, "Religion": 14, "Stealth": 7, "Survival": 12}
+  strikes: [{"name": "Bite", "bonus": 10, "damage": [["1d6+3", "piercing", null]], "traits": ["finesse"]}, {"name": "Tentacle", "bonus": 10, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "finesse", "trip", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Reactive Strike (Special)", "type": "reaction", "traits": [], "text": "A grindylow gains 1 extra reaction at the start of each of their turns that they can use only to make a Reactive Strike with a tentacle. They can't use more than one Reactive Strike triggered by the same action or choice."}, {"name": "Clinging Suckers", "type": "passive", "traits": [], "text": "When a grindylow successfully Grabs a creature larger than themself, they attach to that creature. The Grabbed creature is not Immobilized, but if it moves, the grindylow moves with it.%rIf the creature is Medium or smaller, it takes a –5-foot status penalty to its Speeds while the grindylow is attached. The grindylow is Off-Guard while attached to a creature.%rEffect: Clinging Suckers"}, {"name": "Jet", "type": "action", "traits": ["move"], "cost": 2, "text": "The grindylow moves up to 60 feet in a straight line through the water without triggering reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 21, "attack": 13, "spells": {"0": ["Void Warp"], "1": ["Force Barrage", "Phantom Pain", "Soothe"], "2": ["Noise Blast", "Soothe", "Spiritual Armament"], "3": ["Fear", "Vampiric Feast"]}}]
+"Irrokcis Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 32
+  hp: 210
+  perception: 23
+  saves: {"fortitude": 21, "reflex": 24, "will": 23}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Arcana": 27, "Crafting": 15, "Deception": 26, "Intimidation": 24, "Occultism": 27, "Religion": 23, "Society": 25, "Stealth": 24}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 10}
+  strikes: [{"name": "Hand", "bonus": 24, "damage": [["4d8", "bludgeoning", null]], "traits": ["finesse", "magical", "unarmed"], "effects": ["Lich Siphon Life"]}, {"name": "Staff", "bonus": 27, "damage": [["1d4+7", "bludgeoning", null]], "traits": ["magical", "two-hand-d8"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Vitality", "type": "passive", "traits": []}, {"name": "Arachnophobia", "type": "passive", "traits": [], "text": "The first time in a round that a creature utilizes any spider-themed action in Irrokcis's presence (such as casting illusory creature to create a spider, or using summon animal to summon spiders), the lich becomes Slowed 1 for 1 round from his horror. As long as a spider is visible to him (including a work of art, such as the Horrid Figurine from area F14 ), he takes a –1 status penalty to saves against fear effects and loses steady spellcasting. The horrid figurine from area F14 is…"}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "60 feet. DC 30 Will"}, {"name": "Rejuvenation", "type": "passive", "traits": ["arcane"], "text": "When a lich is destroyed, its soul immediately transfers to their Lich Soul Cage . A lich can be permanently destroyed only if their soul cage is found and destroyed."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Drain Soul Cage", "type": "free", "traits": [], "text": "7th rank%rFrequency once per day%rEffect The lich taps into their Soul Cage 's power to cast any arcane spell up to the highest rank the lich can cast, even if the spell being cast is not one of the lich's prepared spells. The lich's soul cage doesn't need to be present for the lich to use this ability."}, {"name": "Reach Spell", "type": "action", "traits": ["concentrate", "spellshape"], "cost": 1, "text": "If the next action Irrokcis takes is to Cast a Spell that has a range, increase that spell's range by 30 feet."}, {"name": "Siphon Life", "type": "passive", "traits": [], "text": "A lich's form draws forth life from those who come into contact with it. When the lich damages a living creature with an unarmed attack, the lich gains 5 temporary Hit Points and the creature must succeed at a DC 35 Fortitude save or become Drained 1.%rIf the lich is Grabbed or Restrained at the start of its turn, each creature grabbing or restraining it must succeed at a Fortitude save or become drained 1. If the lich siphons a creature's life again, the drained value increase by 1, to a…"}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "As long as Irrokcis isn't in the presence of spiders, if a reaction would disrupt Irrokcis's spellcasting action, he attempts a DC 15 Flat. On a success, the action isn't disrupted."}]
+  spellcasting: [{"name": "Occult Prepared Spells", "tradition": "occult", "type": "prepared", "dc": 37, "attack": 29, "spells": {"0": ["Daze", "Prestidigitation", "Shield", "Telekinetic Hand", "Void Warp"], "1": ["Command", "Enfeeble", "Fear", "Force Barrage", "Grim Tendrils", "Illusory Object"], "2": ["Dispel Magic", "Invisibility", "Resist Energy", "Stupefy"], "3": ["Haste", "Slow", "Vampiric Feast"], "4": ["Fly", "Outcast's Curse", "Vapor Form"], "5": ["Mariner's Curse"], "6": ["Spellwrack", "Spirit Blast"], "7": ["Warp Mind"]}}, {"name": "Hex Spells", "tradition": "occult", "type": "focus", "dc": 37, "attack": 29, "spells": {"0": ["Evil Eye"], "1": ["Needle of Vengeance"], "5": ["Curse of Death"]}}]
+"Jazlin":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 27
+  hp: 113
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 21, "will": 17}
+  abilities: {"cha": 4, "con": 0, "dex": 6, "int": 3, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Intimidation": 19, "Stealth": 19}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Ghostly Weapon", "bonus": 21, "damage": [["2d10+9", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "These three ghosts can only leave the crypts when Bastardhall appears on Golarion, and even then, they can't leave the island."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "The three adventurers re-form after 2d4 days here in the crypts unless someone carries their respective urn of ashes down to the temple in Maiserene (area A9 ) to be cleansed by Shirail."}, {"name": "Jazlin's Haunted Arrows", "type": "action", "traits": ["divine"], "cost": 2, "text": "Jazlin manifests a shortbow and fires a ghostly, shrieking arrow at a target he can see within 30 feet. The target must attempt a DC 28 Will save with the following results.%rCritical Success The target is unaffected.%rSuccess The target takes 2d6 spirit damage.%rFailure The target takes 4d6 spirit damage and is Frightened 1.%rCritical Failure The target takes 8d6 spirit damage and is Frightened 3."}, {"name": "Malevolent Possession", "type": "action", "traits": ["incapacitation", "mental", "possession"], "cost": 2, "text": "The ghost attempts to possess an adjacent corporeal creature. This has the same effect as the Possession spell (DC 23 Will), except since the ghost doesn't have a physical body, it is unaffected by that restriction of the spell."}]
+"Jinnivere Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 25
+  hp: 150
+  perception: 18
+  saves: {"fortitude": 16, "reflex": 12, "will": 18}
+  abilities: {"cha": 4, "con": 2, "dex": 0, "int": 2, "str": 6, "wis": 4}
+  speeds: {"land": 20}
+  senses: ["lifesense"]
+  skills: {"Athletics": 18, "Intimidation": 16, "Nature": 18, "Survival": 16}
+  immunities: ["bleed", "death-effects", "disease", "fear-effects", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"holy": 10}
+  strikes: [{"name": "Striking Wounding Bastard Sword", "bonus": 19, "damage": [["2d8+8", "slashing", null], ["1d6", "bleed", "persistent"]], "traits": ["magical", "two-hand-d12"]}, {"name": "Riding Crop", "bonus": 18, "damage": [["4d6", "mental", null]], "traits": ["agile", "magical"], "effects": ["Agonizing Welts"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Fast Healing 5", "type": "passive", "traits": []}, {"name": "Easy to Enrage", "type": "passive", "traits": ["auditory", "concentrate", "emotion", "linguistic", "mental"], "text": "Jinnivere still carries anger and frustration about the way her brother Augsten used to mercilessly tease her agility and lanky frame. A PC can attempt to insult her in the same way by making a special attempt to demoralize her with a DC 24 Intimidation check, with the following results.%rCritical Success The insult cuts deep. Jinnivere loses the effects of her Head Hunter ability and Frightful Presence for the next hour, becomes Slowed 1 on her next turn as she spends one of her actions…"}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "30 feet. DC 23 Will"}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Agonizing Welts", "type": "passive", "traits": ["curse", "occult"], "text": "Jinnivere can wield her riding crop as a melee weapon to create agonizing pain in the minds of those she strikes. It also inflict a curse that causes their mental pain to manifest as painful visible welts and seeping wounds that never seem to heal. If she inflicts agonizing welts on a creature already afflicted by it, the victim attempts a new save, ignoring the result if it's better than a failure.%rSaving Throw DC 26 Fortitude%rStage 1 Clumsy 1 (1 round)%rStage 2 Clumsy 2 and all speeds are…"}, {"name": "Head Hunter", "type": "passive", "traits": [], "text": "Any slashing weapon gains the Keen rune while a dullahan wields it, and any hatchet they wield gains the Returning rune as well. If the dullahan kills a creature with a critical hit using a slashing weapon, the target is decapitated as though the dullahan had used Reap on the target."}, {"name": "Reap", "type": "action", "traits": [], "cost": 2, "text": "The dullahan removes the head of a dead creature within reach. Each creature within the area of the dullahan's frightful presence must attempt a new save, even if it is temporarily immune."}, {"name": "Summon Steed", "type": "action", "traits": ["occult"], "cost": 2, "text": "The dullahan summons a war horse with elite adjustments and the fiend and unholy traits. This steed remains until it is slain, the dullahan Dismisses this effect, or the dullahan Summons a Steed again."}]
+"Junth Rundel":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["alchemical", "construct"]
+  ac: 27
+  hp: 150
+  perception: 15
+  saves: {"fortitude": 20, "reflex": 19, "will": 15}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 4, "str": 6, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 22}
+  resistances: {"physical": 10, "spells": 10}
+  strikes: [{"name": "Syringe", "bonus": 22, "damage": [["2d10+6", "piercing", null]], "traits": ["magical", "reach-10"], "effects": ["Alchemical Injection"]}, {"name": "Blood Siphon", "bonus": 20, "damage": [["1d4+6", "piercing", null]], "traits": ["magical", "tethered", "thrown-10"], "effects": ["Attach Siphon"]}]
+  actions: [{"name": "Alchemical Chambers", "type": "passive", "traits": [], "text": "A noxious needler's body contains six alchemical chambers filled with different substances. When a noxious needler's ability calls upon a randomly determined alchemical effect, roll 1d6 and consult the following (if you roll the result of a chamber that was shattered, there is no alchemical effect):%r1d6 #Alchemical Chambers Alchemical Effect 1 Acid Damage%r2 Cold Damage 3 Electricity Damage 4 Fire Damage 5 Poison Damage 6 Sickness: DC 26 Fortitude save or Sickened 1 (Sickened 2 on a critical…"}, {"name": "Alchemical Rupture", "type": "passive", "traits": [], "text": "When a noxious needler takes physical damage from a critical hit or is affected by a shatter spell, one glass chamber within its body shatters, spewing alchemical liquid in a 5-foot. Roll on the alchemical chambers list to determine which one shatters—on a roll of 1–5, creatures in the area take 10d6 damage of the appropriate type (DC 28 basic Reflex). On a roll of 6, creatures must instead save against the sickness effect.%r1d6 #Alchemical Rupture Alchemical Effect 1 10d6…"}, {"name": "Alchemical Injection", "type": "passive", "traits": [], "text": "When a noxious needler hits a creature with a syringe Strike, roll 1d6 on the alchemical chambers list to determine the additional effect of the attack. The syringe deals an additional 2d6 damage of the appropriate type (or exposes the target to the sickness effect, as appropriate).%r1d6 #Alchemical Injection Alchemical Effect 1 2d6 acid damage%r2 2d6 cold damage 3 2d6 electricity damage 4 2d6 fire damage 5 2d6 poison damage 6 Sickness: DC 26 Fortitude save or Sickened 1 (Sickened 2 on a…"}, {"name": "Attach Siphon", "type": "passive", "traits": [], "text": "A creature that takes any damage from a blood siphon Strike must attempt a DC 28 Reflex save. On a failure, the siphon attaches to the creature. It's attached to Junth by a long length of flexible leather hose, so if he misses with a blood siphon he can retract it as an Interact action. The tether can also be severed (AC 27, Hardness 10, 10 HP), and the creature to which it has been attached can escape dc=28."}, {"name": "Siphon Blood", "type": "action", "traits": [], "cost": 1, "text": "Requirements Junth has a blood siphon attached to a target creature%rFrequency once per round%rEffect Junth drains blood from the target creature, dealing 5d6 bleed damage. Unlike most bleed damage, this isn't persistent damage. A creature that takes any of this bleed damage must also attempt a DC 28 Fortitude save.%rCritical Success The creature takes no damage.%rSuccess The creature takes half damage.%rFailure The creature takes full damage and becomes Enfeebled 1 for 1 hour.%rCritical…"}]
+"Korven Willachur":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 26
+  hp: 101
+  perception: 18
+  saves: {"fortitude": 13, "reflex": 16, "will": 18}
+  abilities: {"cha": 6, "con": 3, "dex": 4, "int": 3, "str": -5, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Intimidation": 18, "Bastardhall Lore": 15}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Bloody Tendril", "bonus": 19, "damage": [["2d6+12", "void", null]], "traits": ["agile", "finesse", "magical"], "effects": ["Phantom Amputation"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "Area C28%rA typical ghost can stray only a short distance from where it was killed or the place it haunts. A typical limit is 120 feet. Some ghosts are instead bound to a room, building, item, or creature that was special to it rather than a location."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Compelling Order", "type": "action", "traits": ["auditory", "divine", "emotion", "linguistic", "mental"], "cost": 2, "text": "Frequency once per round%rEffect Korven barks out an order at a creature within 30 feet, filling his command with humiliating insults and implied threats of punishment if the order is disobeyed, choosing from one of the following commands: \"drop your weapons,\" \"kneel,\" \"stand at attention,\" or \"pledge your loyalty.\" The target must attempt a DC 26 Will save with the following results, after which it is immune to Compelling Order for 1 minute.%rCritical Success The creature can ignore the order;…"}, {"name": "Phantom Amputation", "type": "passive", "traits": ["divine", "emotion", "fear", "mental"], "text": "Each time a creature takes damage in a round from the bloody tendril Strike extending from Korven's wrist, it believes its fingers, hand, or similar appendage has been amputated. The creature must succeed at a DC 26 Will save or become Frightened 1 (Frightened 2 on a critical failure). If the creature is already frightened, it instead becomes Clumsy 1 for 24 hours on a failed save (or Clumsy 2 for 24 hours on critical failure)."}]
+"Lavinia Bavah":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 20
+  hp: 30
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 11, "will": 8}
+  abilities: {"cha": 2, "con": 0, "dex": 3, "int": 0, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Stealth": 12, "Dwelling Lore (applies to the place the ghost is bound to)": 10}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "precision", "unconscious", "bleed"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Ghostly Hand", "bonus": 13, "damage": [["2d6+2", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "A typical ghost can stray only a short distance from where it was killed or the place it haunts. A typical limit is 120 feet. Some ghosts are instead bound to a room, building, item, or creature that was special to it rather than a location."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "Setting right the injustice that led to the commoner's death allows it to move on to the afterlife.%rWhen a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Haunted by the Night", "type": "passive", "traits": [], "text": "After dark, Lavinia loses all reason and becomes overtaken by the curse. She loses the ability to speak and attacks the PCs on sight. While haunted by the night, Lavinia is Quickened, and can use the extra action to make a ghostly hand Strike."}, {"name": "Infect Shame", "type": "action", "traits": ["divine", "emotion", "mental"], "cost": 2, "text": "Lavinia stares at a creature she can see within 30 feet, and transfers her overwhelming shame into that creature's mind. That creature takes 3d6 mental damage and must attempt a DC 22 Will save with the following effects.%rCritical Success No effect and temporarily immune for 1 minute.%rSuccess The creature takes half damage.%rFailure The creature takes full damage, and is Slowed 1 for 1 round as they agonize internally over its shame.%rCritical Failure As failure, but double damage and slowed…"}]
+"Lerrisu":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 27
+  hp: 113
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 21, "will": 17}
+  abilities: {"cha": 4, "con": 0, "dex": 6, "int": 3, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Intimidation": 19, "Stealth": 19}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Ghostly Weapon", "bonus": 21, "damage": [["2d10+9", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "These three ghosts can only leave the crypts when Bastardhall appears on Golarion, and even then, they can't leave the island."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "The three adventurers re-form after 2d4 days here in the crypts unless someone carries their respective urn of ashes down to the temple in Maiserene (area A9 ) to be cleansed by Shirail."}, {"name": "Lerrisu's Dirge", "type": "action", "traits": ["auditory", "divine", "emotion", "mental"], "cost": 1, "text": "Lerrisu begins to sing a mournful dirge that unsettles the living but bolsters her ghostly allies. Each living creature within 30 feet must attempt a DC 28 Will save with the following results, while each of her ghostly companions within 30 feet become Quickened until the start of Lerrisu's next turn; they can use the extra action only to Fly or Strike.%rCritical Success The target is unaffected.%rSuccess The target is Off-Guard by sadness invoked by the dirge until the start of Lerrisu's next…"}, {"name": "Malevolent Possession", "type": "action", "traits": ["incapacitation", "mental", "possession"], "cost": 2, "text": "The ghost attempts to possess an adjacent corporeal creature. This has the same effect as the Possession spell (DC 23 Will), except since the ghost doesn't have a physical body, it is unaffected by that restriction of the spell."}]
+"Madam Skerzana":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["earth", "fey"]
+  ac: 27
+  hp: 104
+  perception: 20
+  saves: {"fortitude": 17, "reflex": 14, "will": 20}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Athletics": 18, "Deception": 18, "Nature": 18, "Occultism": 18, "Fortune Lore": 20}
+  immunities: ["paralyzed", "petrified", "visual"]
+  weaknesses: {"cold-iron": 5}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Claw", "bonus": 20, "damage": [["2d6+12", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Stone Curse"]}]
+  actions: [{"name": "Mirrosight", "type": "passive", "traits": [], "text": "As long as Madam Skerzana holds a hand mirror, she can see through the mirror with darkvision and the effects of truesight. She's blind when she isn't holding a mirror."}, {"name": "Light Sickness", "type": "passive", "traits": [], "text": "A stygira in an area of bright light is Sickened 1."}, {"name": "Mirror Gaze", "type": "action", "traits": ["emotion", "fear", "mental", "primal"], "cost": 1, "text": "Madam Skerzana holds aloft her antique silver mirror and gazes through it into the past or future of a creature within 30 feet, infusing its thoughts with visions of their helplessness as a new-born baby or of a potential death from violence or peril in the future. Madam Skerzana chooses if she's showing the past or the future when she uses Mirror Gaze. The targeted creature must attempt a DC 26 Will save or become affected as indicated below, depending on which vision Madam Skerzana chose to…"}, {"name": "Stone Curse", "type": "passive", "traits": ["curse", "primal"], "text": "Wounds dealt by the stygira's claws leave the flesh bleached of color and turn the blood that runs from them dark gray. Each time a creature is damaged by the stygira's claw Strike, it must succeed at a DC 26 Fortitude save or become permanently Slowed 1 (Slowed 2 on a critical failure) as its flesh stiffens like stone. If a creature is reduced to 0 Hit Points from the stygira's claw Strike and fails the saving throw against stone curse, it's petrified. A creature that spends 8 hours in direct…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Know the Way", "Read Aura"], "2": ["Augury"], "3": ["Clairaudience", "Earthbind"], "4": ["Clairvoyance", "Read Omens", "Shape Stone"]}}]
+"Middenworm":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "small"
+  rarity: "rare"
+  traits: ["aberration", "amphibious"]
+  ac: 21
+  hp: 75
+  perception: 13
+  saves: {"fortitude": 15, "reflex": 9, "will": 11}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -4, "str": 5, "wis": 4}
+  speeds: {"land": 20, "climb": 10, "swim": 30}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 12}
+  immunities: ["disease"]
+  resistances: {"fire": 5, "poison": 5}
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["2d8+5", "piercing", null], ["1d6", "poison", null]], "traits": ["unarmed"], "effects": ["Midden Fever"]}, {"name": "Tails", "bonus": 14, "damage": [["2d6+5", "piercing", null]], "traits": ["agile", "reach-10", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Nauseating Presence", "type": "passive", "traits": ["aura"], "text": "30 feet. DC 19 Fortitude%rAs stench, but the aura affects a creature that sees, hears, or smells the middenworm."}, {"name": "Blood Drain", "type": "action", "traits": [], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within reach of the middenworm's tails%rEffect The middenworm drains blood from the victim, which must succeed at a DC 22 Fortitude save or become Drained 1. If the creature is already drained, its drained value increases by 1 (to a maximum of drained 4). The middenworm becomes Quickened until the end of its next turn, and can use the extra action to Stride, Climb, Swim, or Strike."}, {"name": "Midden Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 22 Fortitude%rStage 1 carrier with no ill effects (1 day)%rStage 2 Enfeebled 1 (1 day)%rStage 3 Enfeebled 2 (1 day)%rStage 4 enfeebled 2 and Fatigued (1 day)%rStage 5 Paralyzed (1 day)"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Milsindi Mopsindur":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 26
+  hp: 135
+  perception: 18
+  saves: {"fortitude": 13, "reflex": 16, "will": 18}
+  abilities: {"cha": 4, "con": 3, "dex": 6, "int": 3, "str": 4, "wis": 6}
+  speeds: {"land": 25, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 18, "Athletics": 14, "Deception": 16, "Nature": 18, "Society": 17, "Carpentry Lore": 17, "Labor Lore": 15}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 20, "damage": [["2d12+7", "piercing", null]], "traits": ["finesse"]}, {"name": "Claw", "bonus": 20, "damage": [["2d8+7", "slashing", null]], "traits": ["agile", "finesse"], "effects": ["Grab"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet. DC 23 Fortitude"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains 5d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Whispers", "type": "action", "traits": ["auditory", "linguistic", "occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, or Unconscious creature is within the ghoul's reach%rEffect The ghoul whispers dark thoughts and vile cravings into the creature's ears. The creature must save against the forbidden cravings curse.%rForbidden Cravings (curse) A creature can still eat and drink while sickened by this curse%rSaving Throw DC 26 Will%rStage 1 carrier with no ill effects (1 day)%rStage 2 2d6 void damage and the target is Sickened 1 until it consumes raw meat (1…"}, {"name": "Grave Knowledge", "type": "passive", "traits": ["occult"], "text": "Frequency once per hour%rEffect The ghoul calls upon knowledge it retains from one creature it has consumed in the past 7 days. The ghoul attempts a skill check using a skill in which the consumed creature was trained (if it's unclear whether the creature was trained, the GM decides). The ghoul is treated as trained with a +18 skill modifier. This takes the same amount of actions or time as usual for the check.%rThe ghoul can instead automatically learn something specific known by a creature it…"}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 23, "attack": 15, "spells": {"0": ["Electric Arc", "Tangle Vine"], "2": ["Blazing Bolt", "Speak with Animals"], "3": ["Mad Monkeys", "Wall of Thorns"]}}]
+"Mister Moxie":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 23
+  hp: 70
+  perception: 14
+  saves: {"fortitude": 12, "reflex": 17, "will": 14}
+  abilities: {"cha": 5, "con": 2, "dex": 5, "int": 4, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 12, "Deception": 15, "Diplomacy": 13, "Performance": 15, "Society": 12, "Thievery": 15, "Games Lore": 14}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Whip", "bonus": 18, "damage": [["2d4+7", "slashing", null]], "traits": ["disarm", "finesse", "magical", "nonlethal", "reach-10", "trip"]}, {"name": "Claw", "bonus": 17, "damage": [["2d8+7", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Change of Luck", "type": "free", "traits": ["occult"], "text": "Frequency once per day%rTrigger A creature within 30 feet of the bone croupier attempts a check but hasn't rolled the check yet%rEffect The bone croupier pulls on the threads of luck that bind all things. The target rolls twice, and then the bone croupier decides which result applies. If the bone croupier chooses the lower roll, this is a misfortune effect; if the bone croupier chooses the higher roll, it's a fortune effect; if they're the same, the croupier decides which trait to apply. If…"}, {"name": "Pick a Card, Any Card", "type": "action", "traits": ["occult"], "cost": 2, "text": "Mister Moxie designates an adjacent living creature who must pick a card from his deck of harrow cards. The chosen creature finds a phantasmal duplicate deck of cards in their hand and is compelled by fate to draw a card; it can and must do so even if its hands are full, or it's unable to act. The creature rolls 1d6#suit to determine the suit of the card drawn to determine the effect (or if you have a harrow deck handy, have the player draw a card to determine the suit).%r1—Hammer: (void) The…"}]
+"Mymnian":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "rare"
+  traits: ["fiend", "sahkil", "unholy"]
+  ac: 34
+  hp: 235
+  perception: 24
+  saves: {"fortitude": 21, "reflex": 26, "will": 24}
+  abilities: {"cha": 8, "con": 7, "dex": 8, "int": 5, "str": 5, "wis": 5}
+  speeds: {"land": 30, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 24, "Athletics": 24, "Deception": 27, "Intimidation": 27, "Occultism": 24, "Society": 24, "Stealth": 26}
+  immunities: ["fear-effects"]
+  weaknesses: {"holy": 10}
+  strikes: [{"name": "Claw", "bonus": 26, "damage": [["3d6+11", "slashing", null], ["2d6", "spirit", null]], "traits": ["agile", "finesse", "reach-10"]}]
+  actions: [{"name": "Easy to Call", "type": "passive", "traits": [], "text": "A mymnian's level is considered 2 lower for the purpose of being conjured by the Binding Circle ritual (and potentially other rituals, at the GM's discretion), but it is always free to attack or leave instead of negotiate unless the primary caster's check is a critical success."}, {"name": "Watchful Presence", "type": "passive", "traits": ["aura", "divine", "emotion", "fear", "mental", "visual"], "text": "60 feet. Even when a mymnian doesn't notice you, you feel like they—or something worse—are watching. A creature that begins its turn inside the aura feels an overwhelming sense of being watched, gaining a +2 status bonus to Perception checks but taking a –2 penalty to saving throws against fear effects. A creature in the aura can't reduce the value of its Frightened condition below 1.%rEffect: Watchful Presence"}, {"name": "Doomed to Rise", "type": "passive", "traits": [], "text": "A creature that dies from an attack by a mymnian while frightened becomes a ghost within the next 24 hours."}, {"name": "Extract Ghost", "type": "action", "traits": ["divine", "emotion", "fear", "mental"], "cost": 1, "text": "Frequency once per round%rEffect The mymnian attempts a claw Strike. If it hits, it deals no damage—instead, the mymnian's claws hook onto the target's soul and, for a moment, tug it out of the body so that the victim can catch a glimpse of how it will look after it dies. The target takes 5d8 mental damage with a DC 33 Will save.%rCritical Success The target takes no damage.%rSuccess The target takes half damage.%rFailure The target takes full damage and becomes Frightened 1.%rCritical Failure…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 25, "spells": {"0": ["Figment", "Void Warp"], "3": ["Fear"], "5": ["Translocate", "Vapor Form (At Will)"], "6": ["Illusory Creature", "Illusory Scene"], "7": ["Possession", "Spirit Blast"]}}]
+"Nulferion":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 2
+  size: "large"
+  rarity: "unique"
+  traits: ["animal", "fiend", "unholy"]
+  ac: 17
+  hp: 36
+  perception: 6
+  saves: {"fortitude": 8, "reflex": 7, "will": 6}
+  abilities: {"cha": -2, "con": 4, "dex": 3, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 7, "Athletics": 11}
+  strikes: [{"name": "Hoof", "bonus": 9, "damage": [["1d6+5", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Buck", "type": "reaction", "traits": [], "text": "DC 17 Reflex"}, {"name": "Gallop", "type": "action", "traits": [], "cost": 2, "text": "The war horse Strides twice. It has a +10-foot circumstance bonus to its Speed during these Strides."}]
+"Phantom Knight (Bastion of Blasphemies)":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 21
+  hp: 45
+  perception: 13
+  saves: {"fortitude": 8, "reflex": 12, "will": 13}
+  abilities: {"cha": 4, "con": 0, "dex": 4, "int": 0, "str": -5, "wis": 5}
+  speeds: {"land": 0, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Intimidation": 12}
+  immunities: ["disease", "paralyzed", "poison", "precision", "bleed"]
+  resistances: {"all-damage": 3}
+  strikes: [{"name": "Phantom Sword", "bonus": 14, "damage": [["1d8+7", "slashing", null]], "traits": ["finesse", "magical", "versatile-p"]}, {"name": "Phantom Bow", "bonus": 14, "damage": [["1d8+5", "piercing", null]], "traits": ["deadly-d10", "magical", "volley-30"], "range": 120}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, these phantoms exist fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "-1 Status to All Saves vs. Death Effects", "type": "passive", "traits": []}, {"name": "Susceptible to Death", "type": "passive", "traits": [], "text": "Though phantoms aren't alive, neither are they undead, and they are uniquely vulnerable to the effects of death.%rA phantom whose Hit Points are reduced to 0 as a result of a death effect (such as from a spell like Execute) is immediately whisked away to the River of Souls, where their soul resumes the usual path to the afterlife."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}]
+"Raudltz Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy", "vampire"]
+  ac: 32
+  hp: 161
+  perception: 22
+  saves: {"fortitude": 20, "reflex": 24, "will": 24}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 4, "str": 6, "wis": 4}
+  speeds: {"land": 25, "climb": 25}
+  hp_details: "coffin restoration, fast healing 10, void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 24, "Intimidation": 20, "Nature": 22, "Occultism": 22, "Society": 20, "Stealth": 22}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Claw", "bonus": 24, "damage": [["3d8+12", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Children of the Night", "type": "passive", "traits": ["divine", "mental"], "text": "Raudltz's ability to issue telepathic orders extends throughout the private halls and can be issued to any of his vampiric \"children.\"%rThe vampire's presence brings forth creatures of the night to do the master's bidding. These typically include Rat Swarms, Bat Swarms, and Wolves, but can include other creatures.%rThe vampire can give telepathic orders to these creatures as long as they are within 100 feet, but they can't communicate back."}, {"name": "Fast Healing 10", "type": "passive", "traits": []}, {"name": "Coffin Restoration", "type": "passive", "traits": ["divine", "void"], "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, it falls Unconscious. If its body rests in its coffin for 1 hour, the vampire gains 1 HP, after which its fast healing begins to function normally."}, {"name": "Mist Escape", "type": "free", "traits": [], "text": "Trigger The vampire is reduced to 0 HP.%rEffect The vampire uses Turn to Mist. They can take move actions to move toward its coffin even though it's at 0 HP. While at 0 HP in this form, the vampire is unaffected by further damage.%rThey automatically returns to its corporeal form, unconscious, if they reaches their coffin or after 2 hours, whichever comes first."}, {"name": "Vampire Vulnerabilities", "type": "passive", "traits": [], "text": "As vampire, but Raudltz is particularly sensitive if anyone even hints at the idea that not all of his children are legitimate heirs to the Arudora fortune and name. Any attempt to demoralize or feint against Raudltz that incorporates the linguistic trait and taunts him about rumors of illegitimate children gain a +2 circumstance bonus to the check. On a success, Raudltz is Stupefied 1 for 1 round in addition to the other effects (stupefied 1 for 1 minute on a critical success). If he has any…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "Giant bat with fangs +24 for 3d8+16 piercing"}, {"name": "Create Servitor", "type": "passive", "traits": ["divine", "downtime"], "text": "If a creature dies after being reduced to 0 HP by Drink Blood, the vampire can turn this victim into a vampire servitor by donating some of their own blood to the victim and burying the victim in earth for 3 nights.%rA vampiric servitor is compelled to obey its creator, but if a vampire controls too many vampiric servitors at once (as determined by the GM), or if the servitor is a higher level than the vampire that created it, strong-willed servitors can free themselves by succeeding at a Will…"}, {"name": "Dominate", "type": "action", "traits": ["divine", "incapacitation", "mental", "visual"], "cost": 2, "text": "The vampire can cast Dominate at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait (Will). The save DC uses the high spell DC of the vampire's level, and a creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours.%rFully destroying the vampire ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell."}, {"name": "Drink Blood", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirement A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the vampire's reach.%rEffect The vampire sinks its fangs into that creature to drink its blood. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions.%rThe victim is Drained 2 and the vampire regains 16 healing HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't…"}, {"name": "Turn to Mist", "type": "action", "traits": ["air", "concentrate", "divine", "polymorph"], "cost": 1, "text": "The vampire turns into a cloud of vapor, as the Vapor Form spell, or back to its normal form. The vampire loses fast healing while in gaseous form.%rThe vampire can remain in this form indefinitely."}]
+  spellcasting: [{"name": "Occult Prepared Spells", "tradition": "occult", "type": "prepared", "dc": 32, "attack": 24, "spells": {"0": ["Daze", "Figment", "Shield", "Telekinetic Projectile", "Void Warp"], "1": ["Command", "Fear", "Sanctuary"], "2": ["Darkness", "Invisibility", "Paranoia"], "3": ["Dream Message", "Hypnotize", "Slow"], "4": ["Confusion", "Nightmare", "Translocate"], "5": ["Illusory Scene", "Shadow Blast", "Wave of Despair"], "6": ["Phantasmal Calamity", "Spirit Blast", "Vampiric Exsanguination"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 32, "attack": 14, "spells": {"6": ["Dominate (At Will)"]}}]
+"Rembles Worthy":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["beast", "unholy"]
+  ac: 22
+  hp: 115
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 12, "will": 14}
+  abilities: {"cha": 4, "con": 5, "dex": 2, "int": 2, "str": 5, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 15, "Deception": 12, "Diplomacy": 9, "Intimidation": 14, "Stealth": 12, "Survival": 14}
+  weaknesses: {"holy": 5}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Claw", "bonus": 13, "damage": [["2d6+5", "slashing", null]], "traits": ["agile", "unarmed", "unholy"], "effects": ["Unhealing Wound"]}]
+  actions: [{"name": "Primal Hunt", "type": "reaction", "traits": ["primal", "teleportation"], "text": "Trigger A creature within the barghest's reach takes a move or teleportation action%rEffect After the triggering action, the barghest can teleport up to 60 feet to a space adjacent to that creature."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The barghest takes on the shape of a humanoid, a dog, or its true form. Their size changes to match the new form. When the barghest is a humanoid, their claw Strike deals bludgeoning damage and they lose their jaws Strike. When the barghest is a dog, their Speed changes to 35 feet. Each individual barghest has only one humanoid form and one dog form."}, {"name": "Isolating Howl", "type": "action", "traits": ["auditory", "emotion", "incapacitation", "mental", "primal"], "cost": 2, "text": "Rembles lets loose an unearthly howl filled with utter despair. All creatures other than barghests within a 60 foot emanation who hear the howl become filled with the sense that they're all alone in the world, and that an impossible distance spans between themselves and anything remotely connected to companionship. Affected creatures must attempt a DC 24 Will save with the following effects.%rRembles can't use Isolating Howl again for 1d4 rounds.%rCritical Success The creature is…"}, {"name": "Unhealing Wound", "type": "passive", "traits": ["curse", "primal"], "text": "A creature damaged by the barghest's claws must succeed at a DC 24 Fortitude save or be cursed. The cursed creature can't regain Hit Points except via magic until it returns to maximum Hit Points. The creature can attempt a new saving throw against the curse every 24 hours."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 24, "attack": 16, "spells": {"0": ["Figment", "Frostbite", "Light"], "2": ["Invisibility", "Mist"], "3": ["Fear"]}}]
+"Ryhasphinea Arudora":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 13
+  size: "large"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 33
+  hp: 285
+  perception: 25
+  saves: {"fortitude": 24, "reflex": 21, "will": 27}
+  abilities: {"cha": 5, "con": 5, "dex": 4, "int": 4, "str": 8, "wis": 8}
+  speeds: {"land": 0, "fly": 40}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 23, "Athletics": 25, "Crafting": 23, "Deception": 24, "Intimidation": 26, "Religion": 27, "Society": 23}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"vitality": 15}
+  strikes: [{"name": "Scything Blade", "bonus": 27, "damage": [["1d6", "void", null], ["3d10+14", "slashing", null]], "traits": ["deadly-d10", "magical", "reach-10", "trip", "unholy"]}, {"name": "Pallid Touch", "bonus": 27, "damage": [["3d8+14", "void", null]], "traits": ["agile", "disease", "magical", "reach-10", "unholy"], "effects": ["Soulphage"]}]
+  actions: [{"name": "Religious Disgust", "type": "passive", "traits": [], "text": "A character who openly wears religious iconography or the religious symbol of either Pharasma or Shelyn gains a +2 status bonus to their AC for attacks from Ryhasphinea. If a PC attempts to demoralize Ryhasphinea by invoking either deity, they can attempt to Demoralize with a Religion check instead of an Intimidation check. If she becomes frightened by this attempt, she also becomes Slowed 1 as long as she remains frightened out of disgust."}, {"name": "Share Blessings", "type": "passive", "traits": ["disease", "divine", "unholy"], "text": "When Ryhasphinea is destroyed, she explodes in a blast of infectious rot. All creatures in a 10-foot emanation are exposed to soulphage."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Feed the Dead", "type": "action", "traits": ["divine", "unholy"], "cost": 2, "text": "Frequency once per minute%rRequirements Ryhasphinea is adjacent to an undead creature%rEffect Ryhasphinea siphons void energy into the undead creature, granting it 30 temporary Hit Points and making it Quickened for 3 rounds. The undead creature's temporary Hit Points last as long as it remains quickened, and it can use the extra action only to Stride or Strike."}, {"name": "Soulphage", "type": "passive", "traits": ["disease", "divine", "unholy", "virulent"], "text": "Saving Throw DC 33 Fortitude%rStage 1 carrier (1 day)%rStage 2 3d8 void damage and Drained 1 (1 day)%rStage 3 4d8 void damage, drained 1, and Enfeebled 2 (1 day)%rStage 4 4d8 void damage, drained 1, enfeebled 2, and Clumsy 3 (1 day)%rStage 5 4d8 void damage, Drained 2, Enfeebled 3, clumsy 3, and Doomed 3%rStage 6 dead. A creature that dies while infected with soulphage rises as a War Wraith"}, {"name": "Visceral Reap", "type": "action", "traits": [], "cost": 2, "text": "Ryhasphinea makes a scything blade Strike and compares the attack roll result to the AC of up to two foes, each of whom must be within her melee reach. Roll damage only once, and apply it to each creature hit. The first creature damaged by Visceral Reap also takes 1d6 persistent bleed damage. Reap counts as two attacks for Ryhasphinea's multiple attack penalty."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 33, "attack": 25, "spells": {"0": ["Divine Lance", "Message", "Read Aura", "Shield", "Void Warp"], "1": ["Command", "Enfeeble", "Fear", "Harm", "Sanctuary"], "2": ["Blood Vendetta", "Resist Energy"], "3": ["Crisis of Faith", "Vampiric Feast"], "4": ["Divine Wrath"], "5": ["Invoke Spirits", "Shadow Blast"], "6": ["Spirit Blast", "Vampiric Exsanguination"], "7": ["Eclipse Burst"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 33, "attack": 25, "spells": {"5": ["Bind Undead"], "6": ["Harm", "Sudden Blight"]}}]
+"Sahkil Imp":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "common"
+  traits: ["fiend", "unholy"]
+  ac: 17
+  hp: 15
+  perception: 7
+  saves: {"fortitude": 5, "reflex": 9, "will": 7}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 1, "str": -1, "wis": 2}
+  speeds: {"land": 20, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Arcana": 6, "Deception": 7, "Religion": 5}
+  weaknesses: {"holy": 3}
+  resistances: {"poison": 3}
+  strikes: [{"name": "Stinger", "bonus": 9, "damage": [["1d4-1", "piercing", null]], "traits": ["agile", "finesse", "magical", "reach-0", "unholy"], "effects": ["Imp Venom"]}]
+  actions: [{"name": "Telepathy (Touch)", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 1, "text": "The imp takes on the appearance of a Medium or smaller animal. While transformed, the imp loses their normal senses, innate spells, and special actions, but doesn't otherwise change their statistics and can still speak and use telepathy. The imp also gains any special senses of the animal and any Speeds the animal has.%rThis doesn't change the attack and damage modifiers of their Strikes but might change the damage type their Strikes deal (depending on what kinds of attacks the animal has) and…"}, {"name": "Fiendish Healing", "type": "action", "traits": ["concentrate", "divine", "healing", "vitality"], "cost": 1, "text": "Frequency once per round.%rEffect The imp regains 1d6 healing Hit Points."}, {"name": "Fiendish Temptation", "type": "action", "traits": ["concentrate", "divine", "fortune", "unholy"], "cost": 1, "text": "Frequency once per day%rEffect The imp offers a nonfiend within 15 feet a bargain, granting a boon of good luck if the creature accepts voluntarily. The boon lasts for 1 hour once accepted.%rOnce during the hour, the creature can roll an attack roll or saving throw twice and use the higher result. If the creature dies while the boon is in place, the imp decides where the creature's soul travels. This typically makes the soul bound for eternity in the imp's home plane, and the creature unable to…"}, {"name": "Imp Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 16 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage and Clumsy 1 (1 round)%rStage 2 1d6 poison damage, clumsy 1, and Slowed 1 (1 round)"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Detect Magic"], "1": ["Charm"], "2": ["Invisibility (At Will, Self Only)"], "4": ["Read Omens"]}}]
+"Sanctum Guardian":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 12
+  size: "large"
+  rarity: "rare"
+  traits: ["fiend", "giant", "humanoid", "unholy"]
+  ac: 32
+  hp: 215
+  perception: 25
+  saves: {"fortitude": 22, "reflex": 19, "will": 25}
+  abilities: {"cha": 4, "con": 6, "dex": 3, "int": 3, "str": 7, "wis": 7}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision", "lifesense"]
+  skills: {"Athletics": 25, "Medicine": 25, "Occultism": 23, "Religion": 25, "Stealth": 21}
+  immunities: ["aging", "bleed", "death-effects"]
+  weaknesses: {"holy": 10}
+  resistances: {"piercing": 10, "slashing": 10}
+  strikes: [{"name": "Scythe", "bonus": 27, "damage": [["2d10+13", "slashing", null], ["1d4", "void", null]], "traits": ["deadly-d10", "magical", "reach-10", "trip"]}, {"name": "Claw", "bonus": 26, "damage": [["3d6+13", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"], "effects": ["Dooming Touch"]}, {"name": "Broken Statuary", "bonus": 24, "damage": [["3d8+13", "bludgeoning", null]], "traits": ["brutal"], "range": 120}]
+  actions: [{"name": "Lifesense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Dooming Touch", "type": "passive", "traits": ["divine", "void"], "text": "The tomb giant's claws carry the accursed power of their foul gods. A creature hit by the tomb giant's claw Strike becomes Doomed 1."}, {"name": "Font of Death", "type": "action", "traits": ["concentrate", "unholy", "void"], "cost": 3, "text": "The tomb giant turns the spiritual tide on a creature that has just died, temporarily transforming it into a volatile vessel powered by the Void. The tomb giant touches a creature that died within the past 24 hours, infusing its flesh and bone with void energy. Once during the next hour, the tomb giant can spend a single action (from any distance) to release this void from the corpse in an explosion that deals 10d8 void|options:area-damage damage in a 15-foot burst (DC 32 Fortitude save); if…"}, {"name": "Pallid Curse", "type": "free", "traits": ["curse", "divine"], "text": "Frequency once per day%rTrigger A sanctum guardian deals void damage on a creature within 30 feet%rEffect The void damage scars the target's soul, infecting it with Urgathoa's presence. The target must attempt a DC 32 Fortitude save with the following effects.%rCritical Success The target suffers no additional effect.%rSuccess The target becomes Sickened 1 and gains weakness to void 5 until the end of its next turn.%rEffect: Pallid Curse (Success)%rFailure The target becomes Sickened 2 and…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 32, "attack": 24, "spells": {"5": ["Harm"], "6": ["Blood Vendetta"]}}]
+"Servitor Phantom (Brewer)":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "rare"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 17
+  hp: 22
+  perception: 10
+  saves: {"fortitude": 6, "reflex": 7, "will": 10}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 0, "fly": 25}
+  skills: {"Stealth": 7, "Alcohol Lore": 8}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 2}
+  strikes: [{"name": "Horns", "bonus": 9, "damage": [["1d8+3", "piercing", null]], "traits": ["finesse", "magical"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, these phantoms exist fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "-1 Status to All Saves vs. Death Effects", "type": "passive", "traits": []}, {"name": "Skull-Faced Servant", "type": "passive", "traits": [], "text": "A servitor phantom's head is that of an animal skull, as determined by their original role in the castle before the curse fell. This skull head grants the servitor phantom a horns or jaws Strike (as appropriate). Each type of skull is associated with a different Lore skill.%rBrewers have deer skulls and Alcohol Lore.%rCooks have bird skulls and Cooking Lore.%rHousekeepers have cat skulls and Labor Lore.%rValets have dog skulls and Labor Lore."}, {"name": "Susceptible to Death", "type": "passive", "traits": [], "text": "Though phantoms aren't alive, neither are they undead, and they are uniquely vulnerable to the effects of death.%rA phantom whose Hit Points are reduced to 0 as a result of a death effect (such as from a spell like Execute) is immediately whisked away to the River of Souls, where their soul resumes the usual path to the afterlife."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 15, "attack": 7, "spells": {"0": ["Message", "Prestidigitation", "Telekinetic Hand"], "2": ["Mending"]}}]
+"Servitor Phantom (Cook)":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "rare"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 17
+  hp: 22
+  perception: 10
+  saves: {"fortitude": 6, "reflex": 7, "will": 10}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 0, "fly": 25}
+  skills: {"Stealth": 7, "Cooking Lore": 8}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 2}
+  strikes: [{"name": "Beak", "bonus": 9, "damage": [["1d8+3", "piercing", null]], "traits": ["finesse", "magical"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, these phantoms exist fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "-1 Status to All Saves vs. Death Effects", "type": "passive", "traits": []}, {"name": "Skull-Faced Servant", "type": "passive", "traits": [], "text": "A servitor phantom's head is that of an animal skull, as determined by their original role in the castle before the curse fell. This skull head grants the servitor phantom a horns or jaws Strike (as appropriate). Each type of skull is associated with a different Lore skill.%rBrewers have deer skulls and Alcohol Lore.%rCooks have bird skulls and Cooking Lore.%rHousekeepers have cat skulls and Labor Lore.%rValets have dog skulls and Labor Lore."}, {"name": "Susceptible to Death", "type": "passive", "traits": [], "text": "Though phantoms aren't alive, neither are they undead, and they are uniquely vulnerable to the effects of death.%rA phantom whose Hit Points are reduced to 0 as a result of a death effect (such as from a spell like Execute) is immediately whisked away to the River of Souls, where their soul resumes the usual path to the afterlife."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 15, "attack": 7, "spells": {"0": ["Message", "Prestidigitation", "Telekinetic Hand"], "2": ["Mending"]}}]
+"Servitor Phantom (Housekeeper)":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "rare"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 17
+  hp: 22
+  perception: 10
+  saves: {"fortitude": 6, "reflex": 7, "will": 10}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 0, "fly": 25}
+  skills: {"Stealth": 7, "Labor Lore": 8}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 2}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d8+3", "piercing", null]], "traits": ["finesse", "magical"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, these phantoms exist fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "-1 Status to All Saves vs. Death Effects", "type": "passive", "traits": []}, {"name": "Skull-Faced Servant", "type": "passive", "traits": [], "text": "A servitor phantom's head is that of an animal skull, as determined by their original role in the castle before the curse fell. This skull head grants the servitor phantom a horns or jaws Strike (as appropriate). Each type of skull is associated with a different Lore skill.%rBrewers have deer skulls and Alcohol Lore.%rCooks have bird skulls and Cooking Lore.%rHousekeepers have cat skulls and Labor Lore.%rValets have dog skulls and Labor Lore."}, {"name": "Susceptible to Death", "type": "passive", "traits": [], "text": "Though phantoms aren't alive, neither are they undead, and they are uniquely vulnerable to the effects of death.%rA phantom whose Hit Points are reduced to 0 as a result of a death effect (such as from a spell like Execute) is immediately whisked away to the River of Souls, where their soul resumes the usual path to the afterlife."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 15, "attack": 7, "spells": {"0": ["Message", "Prestidigitation", "Telekinetic Hand"], "2": ["Mending"]}}]
+"Servitor Phantom (Valet)":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "rare"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 17
+  hp: 22
+  perception: 10
+  saves: {"fortitude": 6, "reflex": 7, "will": 10}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 0, "fly": 25}
+  skills: {"Stealth": 7, "Labor Lore": 8}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 2}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d8+3", "piercing", null]], "traits": ["finesse", "magical"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, these phantoms exist fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "-1 Status to All Saves vs. Death Effects", "type": "passive", "traits": []}, {"name": "Skull-Faced Servant", "type": "passive", "traits": [], "text": "A servitor phantom's head is that of an animal skull, as determined by their original role in the castle before the curse fell. This skull head grants the servitor phantom a horns or jaws Strike (as appropriate). Each type of skull is associated with a different Lore skill.%rBrewers have deer skulls and Alcohol Lore.%rCooks have bird skulls and Cooking Lore.%rHousekeepers have cat skulls and Labor Lore.%rValets have dog skulls and Labor Lore."}, {"name": "Susceptible to Death", "type": "passive", "traits": [], "text": "Though phantoms aren't alive, neither are they undead, and they are uniquely vulnerable to the effects of death.%rA phantom whose Hit Points are reduced to 0 as a result of a death effect (such as from a spell like Execute) is immediately whisked away to the River of Souls, where their soul resumes the usual path to the afterlife."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 15, "attack": 7, "spells": {"0": ["Message", "Prestidigitation", "Telekinetic Hand"], "2": ["Mending"]}}]
+"Shirail Animender":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 19
+  hp: 56
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 9, "will": 14}
+  abilities: {"cha": 4, "con": 4, "dex": 2, "int": 2, "str": -5, "wis": 5}
+  speeds: {"land": null}
+  senses: ["darkvision"]
+  skills: {"Athletics": -5, "Diplomacy": 13, "Religion": 14, "Society": 11}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  strikes: [{"name": "Phantom Glaive", "bonus": 12, "damage": [["2d8+4", "piercing", null]], "traits": ["deadly-d8", "finesse", "forceful", "magical", "reach"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, Shirail exists fully in the Ethereal Plane and cannot shift back and forth between this plane and the Universe."}, {"name": "–1 Status Penalty to All Saves vs. Death", "type": "passive", "traits": []}, {"name": "Bound Even in Death", "type": "passive", "traits": [], "text": "As phantom, but if Shirail is reduced to 0 Hit Points by any means, her soul does not return to the River of Souls. Instead, her soul is drawn into the soul vortex in the vault under Bastardhall (area I )."}, {"name": "Physical Manifestation", "type": "passive", "traits": [], "text": "Upon reaching rank 1, Shirail manifests a semi-physical body. She loses the incorporeal trait, her immunities and resistances, and her fly Speed, and gains a land Speed of 25 feet. She has a Strength modifier of +2, an Athletics modifier of +9, an AC of 21, 75 HP, and divine innate spells. Her other statistics do not change."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}, {"name": "Spellcasting", "type": "passive", "traits": [], "text": "Once Shirail is rank 1 and has a physical body, she gains the following divine innate spells. As her rank increases, her occult spell DC and spell attack modifier increase, and she gains additional innate spells.%rDivine Innate Spells DC 22, attack +14; 3rd Cleanse Affliction, Heal; 2nd Cleanse Affliction, Heal, Sound Body; 1st Cleanse Cuisine, Heal, Spirit Link; Cantrips (3rd) Detect Magic, Divine Lance, Light, Read Aura, Vitality Lash%rRank 2 DC 24, attack +16; 4th Cleanse Affliction; 3rd…"}]
+  spellcasting: [{"name": "Divine Innate Spells (Rank 1)", "tradition": "divine", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Detect Magic", "Divine Lance", "Light", "Read Aura", "Vitality Lash"], "1": ["Cleanse Cuisine", "Heal", "Spirit Link"], "2": ["Cleanse Affliction", "Heal", "Sound Body"], "3": ["Cleanse Affliction", "Heal"]}}, {"name": "Divine Innate Spells (Rank 2)", "tradition": "divine", "type": "innate", "dc": 24, "attack": 16, "spells": {"0": ["Detect Magic", "Divine Lance", "Light", "Read Aura", "Vitality Lash"], "1": ["Cleanse Cuisine", "Heal", "Spirit Link"], "2": ["Cleanse Affliction", "Heal", "Sound Body"], "3": ["Cleanse Affliction", "Heal", "Locate"], "4": ["Cleanse Affliction"]}}, {"name": "Divine Innate Spells (Rank 3)", "tradition": "divine", "type": "innate", "dc": 25, "attack": 18, "spells": {"0": ["Detect Magic", "Divine Lance", "Light", "Read Aura", "Vitality Lash"], "1": ["Cleanse Cuisine", "Heal", "Spirit Link"], "2": ["Cleanse Affliction", "Heal", "Sound Body"], "3": ["Cleanse Affliction", "Heal", "Locate"], "4": ["Cleanse Affliction", "Vital Beacon"], "5": ["Sound Body"]}}]
+"Slaughtermay":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["bugbear", "humanoid"]
+  ac: 22
+  hp: 70
+  perception: 13
+  saves: {"fortitude": 9, "reflex": 15, "will": 13}
+  abilities: {"cha": 5, "con": 2, "dex": 4, "int": 2, "str": 5, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 13, "Athletics": 12, "Intimidation": 12, "Religion": 11, "Stealth": 13}
+  strikes: [{"name": "Hook Sword", "bonus": 19, "damage": [["2d6+5", "slashing", null]], "traits": ["disarm", "magical", "parry", "trip", "twin"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Grisly Gash", "type": "action", "traits": [], "cost": 1, "text": "Requirements Slaughtermay's previous action was a hook sword Strike that damaged a foe%rEffect Slaughtermay twists and then yanks her hook sword, ripping at the flesh of the creature she damaged with a hook sword on her previous action. That creature takes (1d6+5) bleed damage (DC 22 Reflex save)."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The creature's Strikes deal an additional 1d6 precision damage to Off-Guard creatures."}]
+"Sludge Troll":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 7
+  size: "large"
+  rarity: "uncommon"
+  traits: ["amphibious", "giant", "humanoid", "troll", "water"]
+  ac: 23
+  hp: 160
+  perception: 15
+  saves: {"fortitude": 19, "reflex": 15, "will": 13}
+  abilities: {"cha": 2, "con": 6, "dex": 4, "int": -2, "str": 6, "wis": 4}
+  speeds: {"land": 30, "swim": 30}
+  hp_details: "regeneration 20 (deactivated by cold or fire)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 17, "Intimidation": 15, "Stealth": 17}
+  immunities: ["disease"]
+  weaknesses: {"cold": 10, "fire": 10}
+  strikes: [{"name": "Jaws", "bonus": 17, "damage": [["2d10+8", "piercing", null], ["1d6", "poison", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Claw", "bonus": 17, "damage": [["2d8+8", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"]}, {"name": "Sludge Cough", "bonus": 15, "damage": [["4d6", "poison", null]], "traits": [], "range": 20, "effects": ["Blinding Sludge"]}]
+  actions: [{"name": "Easily Misled", "type": "passive", "traits": [], "text": "The sludge troll gets a –4 circumstance penalty to their Perception DC against Deception checks."}, {"name": "Regeneration 20 (Deactivated by Cold or Fire)", "type": "passive", "traits": []}, {"name": "Furious Spit", "type": "reaction", "traits": [], "text": "Trigger The sludge troll takes cold or fire damage%rEffect The sludge troll makes a sludge cough Strike against a random creature within their first range increment. If the troll is taking persistent fire damage, they attempt a DC 15 Flat to remove it."}, {"name": "Aquatic Upsurge", "type": "action", "traits": [], "cost": 1, "text": "Requirements The sludge troll is hiding in water, and a creature that hasn't detected it is within 30 feet%rEffect The sludge troll Swims, then Leaps at the end of its Swim action, landing on any solid surface adjacent to the water. Once the triggering creature is in the troll's first range increment, the sludge troll makes a sludge cough Strike against the creature with a +2 circumstance bonus to the attack roll."}, {"name": "Blinding Sludge", "type": "passive", "traits": [], "text": "A creature that is critically hit by a sludge troll's sludge cough becomes Blinded by the toxic sludge until it uses an Interact action to clear its eyes."}, {"name": "Flexible Limbs", "type": "passive", "traits": [], "text": "A sludge troll's limbs and torso are eerily flexible. They can clamber and splash through difficult terrain caused by swamp features with ease (treating such areas as non-difficult terrain) as well as move through areas as if they were one size category smaller with ease (Medium, for the typical sludge troll)."}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Claw"}]
+"Soul Glutton":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 11
+  size: "huge"
+  rarity: "rare"
+  traits: ["fiend", "unholy"]
+  ac: 31
+  hp: 150
+  perception: 22
+  saves: {"fortitude": 18, "reflex": 23, "will": 20}
+  abilities: {"cha": 5, "con": 3, "dex": 6, "int": 3, "str": 7, "wis": 5}
+  speeds: {"land": 20, "fly": 40}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 23, "Athletics": 22, "Intimidation": 22, "Religion": 20, "Stealth": 23}
+  immunities: ["controlled"]
+  weaknesses: {"holy": 10}
+  resistances: {"mental": 10, "physical": 10}
+  strikes: [{"name": "Claw", "bonus": 24, "damage": [["2d6+10", "slashing", null], ["2d6", "spirit", null]], "traits": ["agile", "magical", "unarmed"], "effects": ["Soulscar"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Soul Gorge", "type": "action", "traits": ["concentrate", "death", "divine", "manipulate"], "cost": 2, "text": "The soul glutton casts mind reading on a dying creature (or the corpse of a creature that died no more than 24 hours ago). If a dying creature fails its save, it must immediately attempt a recovery check. If the creature dies as a result of this check (or if the target was a fresh corpse), the soul glutton consumes a significant portion of the creature's soul and restores 30 healing Hit Points, gaining any Hit Points in excess of its maximum as temporary Hit Points that last for 24 hours. A…"}, {"name": "Soulscar", "type": "passive", "traits": ["divine", "emotion", "fear", "mental"], "text": "The soul glutton's claw Strikes affect incorporeal creatures with the effects of a ghost touch property rune and scar the soul. The first time in a round that a creature is damaged by a soul glutton's claw Strike, it must succeed at a DC 30 Will save or become Frightened 2 (plus Doomed 1 on a critical failure)."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 30, "attack": 22, "spells": {"0": ["Divine Lance", "Void Warp"], "3": ["Mind Reading (At Will)"], "4": ["Talking Corpse"], "5": ["Invoke Spirits", "Mind Probe", "Shadow Blast"], "6": ["Harm", "Spirit Blast"]}}]
+"Sovina Vosslund":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration", "tanggal"]
+  ac: 25
+  hp: 112
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 19, "will": 15}
+  abilities: {"cha": 6, "con": 3, "dex": 6, "int": 2, "str": 4, "wis": 4}
+  speeds: {"land": null, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Athletics": 15, "Crafting": 15, "Deception": 17, "Intimidation": 17, "Nature": 15, "Stealth": 17, "Scribing Lore": 15}
+  weaknesses: {"slashing": 5}
+  strikes: [{"name": "Proboscis Tongue", "bonus": 17, "damage": [["2d8+8", "piercing", null]], "traits": ["finesse"], "effects": ["Penanggalan Bile"]}, {"name": "Entrails", "bonus": 15, "damage": [["2d6+8", "bludgeoning", null]], "traits": [], "effects": ["Grab"]}]
+  actions: [{"name": "Spewing Honey", "type": "passive", "traits": [], "text": "When Sovina takes slashing damage, her wound spews rancid honey mixed with bile on adjacent creatures, dealing 2d12 poison damage (DC 22 Reflex save). A creature that fails this saving throw is also Slowed 1 for 1 round by the thick, sticky honey. Sovina loses her spewing honey and penanggalan bile abilities until the end of her next turn."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d6+4) bludgeoning, DC 25 Fortitude"}, {"name": "Elongate Tongue", "type": "action", "traits": [], "cost": 1, "text": "The penanggalan's tongue extends, the membrane stretching and becoming translucent. Until the end of the turn, the penanggalan's proboscis tongue Strikes have a 10-foot reach, and any target is Off-Guard against the Strike unless it has a Perception DC of 25 or higher or the ability to precisely sense Invisible things."}, {"name": "Penanggalan Bile", "type": "passive", "traits": ["disease"], "text": "Rest doesn't decrease the drained value from penanggalan bile%rSaving Throw DC 22 Fortitude%rStage 1 Drained 1 (1 week)%rStage 2 Drained 2 (1 week)%rStage 3 Drained 3 (1 week)%rStage 4 dead"}, {"name": "Ride Corpse", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 3, "text": "The penanggalan inserts their entrails into their humanoid body, allowing them to appear as and move about like a normal human. The body has 10 Hit Points and the same defenses as the penanggalan.%rWhen the body is destroyed, the penanggalan is ejected unharmed. The body becomes a corpse, and if it is neither controlled by the penanggalan nor stored in an alchemical vat, it decays as normal."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Prestidigitation", "Telekinetic Projectile"], "3": ["Hypnotize", "Phantom Pain"], "4": ["Illusory Creature (Phantasmal Bees Only)"]}}]
+"Taxidermy Allosaurus":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 11
+  size: "huge"
+  rarity: "rare"
+  traits: ["construct"]
+  ac: 30
+  hp: 195
+  perception: 20
+  saves: {"fortitude": 20, "reflex": 22, "will": 18}
+  abilities: {"cha": -2, "con": 5, "dex": 5, "int": -4, "str": 7, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 20, "Athletics": 22, "Stealth": 22}
+  weaknesses: {"fire": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Jaws", "bonus": 24, "damage": [["2d12+13", "piercing", null]], "traits": [], "effects": ["Toothsome Fear"]}]
+  actions: [{"name": "Scarecrow's Leer", "type": "passive", "traits": ["aura", "emotion", "fear", "mental", "occult", "visual"], "text": "40 feet.%rThe scarecrow's eyes flicker with an unnerving glow. A creature can't reduce its Frightened condition below 1 as long as it is in the aura's emanation. When a creature enters or starts its turn in the aura, it must attempt a DC 27 Will save. Living creatures made of flesh take a -2 circumstance penalty to this save.%rCritical Success The creature is unaffected and is then temporarily immune for 24 hours.%rSuccess The creature is Frightened 1.%rFailure The creature is Frightened 2 and…"}, {"name": "Baleful Glow", "type": "free", "traits": ["concentrate", "light", "mental", "occult"], "text": "The scarecrow's head bursts into ghostly, heatless flame that sheds bright light in a 20-foot (and dim light to the next 20 feet). If the scarecrow uses this ability on the first round of combat, any creature that has not acted yet is startled and becomes Off-Guard against the scarecrow for 1 round. It can suppress the light by using this action again."}, {"name": "Mundane Appearance", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until it acts, the taxidermy allosaurus resembles an ordinary (if well-crafted) taxidermy creature. It has an automatic result of 43 on Deception checks and DCs to pass as an ordinary taxidermy display."}, {"name": "Thrashing Tail", "type": "action", "traits": ["move"], "cost": 1, "text": "The taxidermy allosaurus smashes furniture and displays in the area with its tail, spreading the resulting rubble around. A 5-foot by 15-foot area of your choice that has at least one square adjacent to the creature becomes difficult terrain. If this area includes the stone tub, the acid splashes out and the difficult terrain becomes hazardous terrain as well that deals 1d6 acid damage."}, {"name": "Toothsome Fear", "type": "passive", "traits": [], "text": "The taxidermy allosaurus's strikes deal an additional 2d6 mental damage to frightened creatures."}]
+"The Mistake":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 30
+  hp: 240
+  perception: 24
+  saves: {"fortitude": 23, "reflex": 20, "will": 24}
+  abilities: {"cha": 5, "con": 5, "dex": 4, "int": -2, "str": 7, "wis": 6}
+  speeds: {"land": 30}
+  hp_details: "meant to live, void healing"
+  senses: ["darkvision", "lifesense"]
+  skills: {"Athletics": 25, "Stealth": 22}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 25, "damage": [["3d10+13", "piercing", null]], "traits": ["deadly-d10", "magical", "unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 25, "damage": [["3d8+13", "slashing", null]], "traits": ["agile", "magical", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Meant to Live", "type": "passive", "traits": ["occult"], "text": "Whenever an unrisen would take damage from vitality energy, it instead heals half that number of Hit Points."}, {"name": "Resurrection Vulnerability", "type": "passive", "traits": [], "text": "A creature with a prepared or spontaneous spell that can restore the dead to life (such as Breath of Life or Raise Dead) can expend an appropriate spell slot as a 2-action activity to destroy an unrisen within 30 feet. The attempt fails if the unrisen succeeds at a Will save against the creature's spell DC."}, {"name": "Rise Again", "type": "passive", "traits": ["occult"], "text": "As unrisen, but the heart-like Vile Remnant lodged within the creature's chest becomes momentarily visible as it's returned by this ability, allowing The Mistake to use Show the Horror.%rIf the unrisen is reduced to 0 Hit Points by means other than fire damage, disintegration, or its resurrection vulnerability, it returns to unlife at the start of its next turn. It has 100 Hit Points and is Prone in the space in which it was destroyed. The unrisen can't be returned by this ability again for 1…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Agonized Howl", "type": "action", "traits": ["auditory", "mental", "occult"], "cost": 2, "text": "The unrisen howls in pain at its cursed existence. Creatures within a 30-foot emanation take 10d8 mental|options:area-damage damage with a DC 32 Will save. The unrisen can't use Agonized Howl again for 1d4 rounds."}, {"name": "Awful Approach", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per 10 minutes%rEffect The unrisen reshapes its grotesque form to move swiftly. It Strides twice. Any living creature that can see the unrisen during this movement must succeed at a DC 29 Fortitude save or be Sickened 1 (or Sickened 2 on a critical failure); this is a mental and visual effect."}, {"name": "Death Grip", "type": "action", "traits": ["curse", "occult"], "cost": 1, "text": "Requirements The unrisen has a living creature Grabbed or Restrained%rEffect The unrisen attempts to destroy its victim's life force so it shares in the unrisen's fate. The creature must succeed at a DC 32 Fortitude save or become Doomed 1. While the curse lasts, the creature regains only half as many HP from effects with both the healing and vitality traits; if it dies, any attempt to raise it from the dead causes it to return as an unrisen. The curse ends automatically if the creature's…"}, {"name": "Show the Horror", "type": "action", "traits": ["curse", "emotion", "fear", "mental", "occult", "visual"], "cost": 2, "text": "Requirements The Mistake has used rise again within the previous hour%rEffect The Mistake grabs onto its chest and tugs it open, cracking ribs and tearing flesh to give a glimpse of the horrible Vile Remnant lodged inside of it. All creatures within 30 feet must attempt a DC 32 Will save with the following results. The Mistake can't Show the Horror again for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature is unsettled by the sight and becomes Frightened…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Vault Bats":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "rare"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 26
+  hp: 120
+  perception: 18
+  saves: {"fortitude": 13, "reflex": 18, "will": 16}
+  abilities: {"cha": 6, "con": 1, "dex": 6, "int": 0, "str": -5, "wis": 4}
+  speeds: {"land": 0, "fly": 35}
+  senses: ["darkvision"]
+  skills: {"Intimidation": 18, "Occultism": 14, "Thievery": 18}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 8}
+  strikes: [{"name": "Phantom Fangs", "bonus": 18, "damage": [["2d8+8", "piercing", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Bound to Bastardhall", "type": "passive", "traits": [], "text": "Unlike the typical phantom, these phantoms exist fully in the Ethereal Plane and can't shift back and forth between this plane and the Universe."}, {"name": "–1 Status Penalty to All Saves vs. Death Effects", "type": "passive", "traits": []}, {"name": "Susceptible to Death", "type": "passive", "traits": [], "text": "Though phantoms aren't alive, neither are they undead, and they are uniquely vulnerable to the effects of death.%rA phantom whose Hit Points are reduced to 0 as a result of a death effect (such as from a spell like Execute) is immediately whisked away to the River of Souls, where their soul resumes the usual path to the afterlife."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, a phantom can choose to deal spirit damage instead of the normal physical damage type."}, {"name": "Unnerving Shriek", "type": "action", "traits": ["auditory", "emotion", "fear", "mental", "move", "occult"], "cost": 2, "text": "The vault bat swoops downward, Flying once and shrieking with a soul-chilling cry as they do so. This movement doesn't trigger reactions. Any adjacent creature the vault bat passes during its Fly must attempt a DC 28 Will save or become Frightened 1 (or Frightened 3 on a critical failure)."}, {"name": "Grab Item", "type": "action", "traits": [], "cost": 1, "text": "The phantom beast attempts to Steal one item of up to 1 Bulk from a creature, even if the creature is in combat, though the object still must not be one that is actively in use. If they succeed, they carry the object along with them telekinetically."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 28, "attack": 20, "spells": {"0": ["Daze", "Telekinetic Projectile"], "4": ["Blood Vendetta", "Phantom Pain", "Spiritual Armament"]}}]
+"Velicarn (Death Coach)":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 15
+  size: "huge"
+  rarity: "unique"
+  traits: ["incorporeal", "spirit", "undead", "unholy"]
+  ac: 35
+  hp: 240
+  perception: 27
+  saves: {"fortitude": 23, "reflex": 29, "will": 25}
+  abilities: {"cha": 5, "con": 4, "dex": 8, "int": 4, "str": -5, "wis": 6}
+  speeds: {"land": 60, "fly": 60}
+  hp_details: "void healing"
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 29, "Intimidation": 28, "Occultism": 25, "Society": 25, "Driving Lore": 27}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Incorporeal Wheel", "bonus": 31, "damage": [["3d12+10", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Lifesense", "type": "passive", "traits": []}, {"name": "Aura of Doom", "type": "passive", "traits": ["aura", "divine", "emotion", "fear", "mental"], "text": "30 feet. A living creature that enters the area must succeed at a DC 33 Will save or gain the Doomed 1 condition. A critical failure increases this condition to Doomed 2. Regardless of the result of the saving throw, the creature is temporarily immune to Velicarn's aura of doom for 1 minute."}, {"name": "Bastard's Shame", "type": "passive", "traits": [], "text": "Velicarn harbors deep feelings of shame and anger about his heritage, and a PC can capitalize on this to insult him or to distract him as follows.%rInsult Velicarn The PC attempts a DC 30 Intimidation check to demoralize dc=30 options=inflicts:slowed Velicarn. On a critical success, he's also Slowed 1 by his anger for 1 round. If he's also already Off-Guard as a result of being distracted, he takes 6d6 mental damage (DC 30 Will save) on a success (12d6 mental damage on a critical…"}, {"name": "Board Soul", "type": "reaction", "traits": ["death", "divine"], "text": "Trigger Velicarn reduces a creature to 0 HP with void damage%rEffect Fragments of the creature's soul, manifesting as a vaguely spectral image of the creature, are pulled into the carriage and thereafter seen within, hammering silently on the windows while screaming to be rescued. A creature that dies while a fragment of its soul is trapped within the carriage can't become undead or be brought back to life until Velicarn is destroyed. A creature that's rescued before death is Stupefied 2 as…"}, {"name": "Coin's Return", "type": "passive", "traits": [], "text": "A PC can toss Velicarn's Cursed Coin, or the Fortune's Coin it becomes after it's uncursed, at the death coach as an Interact action whenever Velicarn is within 30 feet. Doing so causes the coin to vanish in a sudden flash. The coin is destroyed, and Velicarn must attempt a DC 35 Will save (DC 37 Will if the coin is no longer cursed) with the following results.%rCritical Success Velicarn is Off-Guard until the start of his turn.%rSuccess Velicarn takes 5d6 spirit damage and is off-guard until…"}, {"name": "Discorporation", "type": "passive", "traits": [], "text": "If Velicarn is reduced to 0 Hit Points, the Black Coach and the two fiendish horses that drive it vanish immediately, and Velicarn transforms into a dullahan armed with a +2 greater striking astral battle axe. He falls Prone in a space of his choice previously occupied by the death coach and is Slowed 1 for 1 round. As soon as he ends a round without the slowed condition, he transforms back into a death coach and regains 100 healing Hit Points. Only by destroying him in his dullahan form before…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Large or smaller, incorporeal wheel, DC 36 Reflex"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 36, "attack": 18, "spells": {"0": ["Void Warp"], "3": ["Fear"], "6": ["Spirit Blast"], "7": ["Execute"]}}]
+"Velicarn (Dullahan)":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 28
+  hp: 95
+  perception: 14
+  saves: {"fortitude": 13, "reflex": 15, "will": 17}
+  abilities: {"cha": 4, "con": 2, "dex": 2, "int": 2, "str": 6, "wis": 3}
+  speeds: {"land": 20}
+  hp_details: "fast healing 5"
+  senses: ["lifesense"]
+  skills: {"Acrobatics": 15, "Intimidation": 17, "Stealth": 13, "Survival": 15}
+  immunities: ["death-effects", "disease", "fear-effects", "paralyzed", "poison", "unconscious", "bleed"]
+  weaknesses: {"holy": 5}
+  strikes: [{"name": "Keen Longsword", "bonus": 18, "damage": [["1d8+10", "slashing", null]], "traits": ["magical", "versatile-p"], "effects": ["Head Hunter"]}, {"name": "Keen Returning Hatchet", "bonus": 17, "damage": [["1d6+10", "slashing", null]], "traits": ["agile", "sweep"], "effects": ["Head Hunter"]}, {"name": "Fist", "bonus": 18, "damage": [["1d4+10", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Keen Returning Hatchet", "bonus": 14, "damage": [["2d8+10", "slashing", null]], "traits": ["agile", "thrown-10"], "effects": ["Head Hunter"]}, {"name": "Battle Axe", "bonus": 19, "damage": [["1d6", "spirit", null], ["3d8+10", "slashing", null]], "traits": ["magical", "sweep"]}]
+  actions: [{"name": "Lifesense 60 feet", "type": "passive", "traits": []}, {"name": "Fast Healing 5", "type": "passive", "traits": []}, {"name": "Bastard's Shame", "type": "passive", "traits": [], "text": "Velicarn harbors deep feelings of shame and anger about his heritage, and a PC can capitalize on this to insult him or to distract him as follows.%rInsult Velicarn The PC attempts a DC 30 Intimidation check to demoralize Velicarn. On a critical success, he's also Slowed 1 by his anger for 1 round. If he's also already Off-Guard as a result of being distracted, he takes 6d6 mental damage (DC 30 Will save) on a success (12d6 mental damage on a critical success).%rDistract Velicarn The PC attempts…"}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "30 feet. DC 23 Will"}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Head Hunter", "type": "passive", "traits": [], "text": "Any slashing weapon gains the Keen rune while a dullahan wields it, and any hatchet they wield gains the Returning rune as well. If the dullahan kills a creature with a critical hit using a slashing weapon, the target is decapitated as though the dullahan had used Reap on the target."}, {"name": "Reap", "type": "action", "traits": [], "cost": 2, "text": "The dullahan removes the head of a dead creature within reach. Each creature within the area of the dullahan's frightful presence must attempt a new save, even if it is temporarily immune."}, {"name": "Summon Steed", "type": "action", "traits": ["occult"], "cost": 2, "text": "The dullahan summons a war horse with elite adjustments and the fiend and unholy traits. This steed remains until it is slain, the dullahan Dismisses this effect, or the dullahan Summons a Steed again."}]
+"Velicarn's Head":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 28
+  hp: 170
+  perception: 17
+  saves: {"fortitude": 21, "reflex": 17, "will": 15}
+  abilities: {"cha": 0, "con": 4, "dex": 4, "int": 0, "str": 6, "wis": 2}
+  speeds: {"land": 15, "fly": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Athletics": 21, "Survival": 17}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"holy": 10, "vitality": 10}
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["1d4", "void", null], ["2d12+9", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Talon", "bonus": 21, "damage": [["1d4", "void", null], ["2d8+9", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Rupturing Shriek", "type": "action", "traits": ["auditory", "curse", "divine", "emotion", "fear", "mental"], "cost": 2, "text": "Velicarn's head unleashes a horrific howl that causes blood to leak out of those who hear it and into his gaping open mouth. All creatures within 30 feet must succeed at a DC 28 Fortitude save or become Drained 1 (Drained 2 on a critical failure) as some of their blood runs from their bodies into Velicarn's maw. Creatures currently taking persistent bleed damage take a –2 circumstance penalty to this saving throw. Velicarn's head regains 5 healing Hit Points for every creature in the area, to a…"}, {"name": "Snatch", "type": "passive", "traits": [], "text": "Velicarn's head can Fly at half Speed while he has a Medium or smaller creature Grabbed or Restrained in his talons, carrying that creature along with him."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Medium, (2d8+9) bludgeoning, Rupture 24"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Vink Cratched":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["amphibious", "giant", "humanoid", "troll", "water"]
+  ac: 25
+  hp: 210
+  perception: 17
+  saves: {"fortitude": 21, "reflex": 15, "will": 19}
+  abilities: {"cha": 2, "con": 6, "dex": 4, "int": -2, "str": 6, "wis": 4}
+  speeds: {"land": 30, "swim": 30}
+  hp_details: "regeneration 20 (deactivated by cold or fire)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 19, "Intimidation": 19, "Nature": 17, "Stealth": 19}
+  immunities: ["disease"]
+  weaknesses: {"cold": 10, "fire": 10}
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["2d12+9", "piercing", null], ["1d6", "poison", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Claw", "bonus": 21, "damage": [["2d10+9", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"]}, {"name": "Sludge Cough", "bonus": 15, "damage": [["5d6", "poison", null]], "traits": [], "range": 20, "effects": ["Blinding Sludge"]}]
+  actions: [{"name": "Easily Misled", "type": "passive", "traits": [], "text": "The sludge troll gets a –4 circumstance penalty to their Perception DC against Deception checks."}, {"name": "Regeneration 20 (Deactivated by Cold or Fire)", "type": "passive", "traits": []}, {"name": "Furious Spit", "type": "reaction", "traits": [], "text": "Trigger The sludge troll takes cold or fire damage%rEffect The sludge troll makes a sludge cough Strike against a random creature within their first range increment. If the troll is taking persistent fire damage, they attempt a DC 15 Flat to remove it."}, {"name": "Aquatic Upsurge", "type": "action", "traits": [], "cost": 1, "text": "Requirements The sludge troll is hiding in water, and a creature that hasn't detected it is within 30 feet%rEffect The sludge troll Swims, then Leaps at the end of its Swim action, landing on any solid surface adjacent to the water. Once the triggering creature is in the troll's first range increment, the sludge troll makes a sludge cough Strike against the creature with a +2 circumstance bonus to the attack roll."}, {"name": "Blinding Sludge", "type": "passive", "traits": [], "text": "A creature that is critically hit by a sludge troll's sludge cough becomes Blinded by the toxic sludge until it uses an Interact action to clear its eyes."}, {"name": "Goading Roar", "type": "action", "traits": ["auditory", "emotion", "mental"], "cost": 1, "text": "Vink unleashes a gurgling, sputtering roar that sounds as if it issues from a throat partially clogged with mud. The sputtering sound isn't particularly frightening, but it compels other sludge trolls within 30 feet to grow more frenzied. All sludge trolls who hear Vink's Goading Roar become Quickened for 1 round, and may use the extra action to Stride or Swim."}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Claw"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Ignition", "Tangle Vine"], "3": ["Aqueous Orb", "Wall of Thorns"], "4": ["Hydraulic Torrent", "Resist Energy"]}}]
+"Vinlach":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["fiend", "sahkil", "unholy"]
+  ac: 28
+  hp: 110
+  perception: 16
+  saves: {"fortitude": 13, "reflex": 20, "will": 16}
+  abilities: {"cha": 3, "con": 3, "dex": 6, "int": 3, "str": 4, "wis": 4}
+  speeds: {"land": 30, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 16, "Intimidation": 17, "Religion": 18, "Stealth": 18}
+  immunities: ["fear-effects"]
+  weaknesses: {"holy": 5}
+  strikes: [{"name": "Talon", "bonus": 20, "damage": [["2d8+7", "bludgeoning", null], ["1d6", "spirit", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Telepathy 100 Feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Easy to Call", "type": "passive", "traits": [], "text": "A vinlach's level is considered 2 lower for the purpose of being conjured by the Binding Circle ritual (and potentially other rituals, at the GM's discretion), but it is always free to attack or leave instead of negotiate unless the primary caster's check is a critical success."}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Soul-Wrenching Warbling", "type": "passive", "traits": ["auditory", "aura", "emotion", "fear", "mental"], "text": "The vinlach's warbling voices are a mockery of the rhythmic sound of a flight of whippoorwills whistling away, sending chills into the hearts of those who hear them. A living creature that begins its turn within 30 feet of a vinlach must succeed at a DC 23 Will save or gain weakness 5 to spirit damage until the start of its next turn, as its soul aches to flee its body and retreat along the River of Souls to find peace from the unnerving cacophony.%rEffect: Soul-Wrenching Warbling"}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Talon"}, {"name": "Skip Between", "type": "action", "traits": ["divine", "teleportation"], "cost": 1, "text": "The sahkil moves from the Universe to the Ethereal Plane or vice-versa. While in the Ethereal Plane, they're unable to affect anything in the Universe, and they cannot be seen by beings or abilities in the Universe, unless these have an ability that can gaze into the Ethereal Plane. While on the Material Plane the inverse is true for anything on the Ethereal Plane. A summoned sahkil can't use Skip Between."}, {"name": "Soul Shriek", "type": "action", "traits": ["divine", "mental"], "cost": 2, "text": "The vinlach's dozens of mouths suddenly shriek in terrifying unison, yet the sound created is not one that can be heard by ears—rather, it's heard by a living creature's soul, as the supernatural sound attempts to rip free the very animus of life. All creatures in a 40-foot cone take 9d6 spirit|options:area-damage damage and must attempt a DC 26 Will save with the following results. The vinlach can't Soul Shriek again for 1d4 rounds.%rCritical Success The creature takes no damage.%rSuccess The…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Divine Lance", "Message"], "2": ["See the Unseen"], "3": ["Fear", "Grim Tendrils"], "4": ["Crisis of Faith", "Suggestion"]}}]
+"Voldrak":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 15
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["beast"]
+  ac: 35
+  hp: 340
+  perception: 27
+  saves: {"fortitude": 29, "reflex": 23, "will": 27}
+  abilities: {"cha": 0, "con": 6, "dex": 4, "int": -2, "str": 9, "wis": 6}
+  speeds: {"land": 20, "swim": 50}
+  skills: {"Athletics": 30, "Stealth": 27}
+  resistances: {"cold": 15, "fire": 15}
+  strikes: [{"name": "Jaws", "bonus": 30, "damage": [["3d10+15", "piercing", null], ["2d6", "poison", null]], "traits": ["magical", "reach-15", "unarmed"]}, {"name": "Tail", "bonus": 0, "damage": [["3d8+15", "bludgeoning", null]], "traits": ["magical", "reach-20", "unarmed"]}]
+  actions: [{"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "60 feet (360 underwater). Will"}, {"name": "Dread Gaze", "type": "action", "traits": ["emotion", "fear", "incapacitation", "mental", "occult", "visual"], "cost": 1, "text": "Voldrak fixes his gaze upon a creature he can see within 60 feet. His eyes glow with blue light, then begin to pulse, compelling the creature he views to remain motionless with fear. The target must attempt a DC 36 Will save with the following effects. Voldrak can't use Dread Gaze again for 1d4 rounds.%rCritical Success The creature is unaffected and is temporarily immune to Dread Gaze for 24 hours.%rSuccess The creature becomes Frightened 1.%rFailure The creature increases the value of its…"}, {"name": "Maimed But Alive", "type": "passive", "traits": [], "text": "If Voldrak would kill a creature with damage from his bite or tail Strike, he can opt instead to reduce the creature to 1 Hit Point and maim it, causing the creature to become permanently Enfeebled 3 or Clumsy 3 (Voldrak's choice) from the horrific wound."}, {"name": "Toxic Spit", "type": "action", "traits": ["occult", "poison"], "cost": 2, "text": "Voldrak spews a 60-foot line of toxic sludge, dealing 8d6 poison|options:area-damage damage to all creatures in the area (DC 36 Fortitude save)."}]
+"Wrathful Armor":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["construct", "mindless"]
+  ac: 17
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 3, "will": 4}
+  abilities: {"cha": -5, "con": 4, "dex": -3, "int": -5, "str": 3, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9}
+  strikes: [{"name": "Glaive", "bonus": 10, "damage": [["1d8+4", "slashing", null]], "traits": ["deadly-d8", "forceful", "magical", "reach-10"], "effects": ["Tetanus"]}, {"name": "Gauntlet", "bonus": 9, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "free-hand", "magical"], "effects": ["Tetanus"]}]
+  actions: [{"name": "Construct Armor (Hardness 9)", "type": "passive", "traits": [], "text": "Like normal objects, an animated armor has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once an animated armor is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 13."}, {"name": "Soul Bolstering", "type": "passive", "traits": [], "text": "When a suit of wrathful armor is destroyed, it falls to pieces and the soul energy that animated it redistributes to the remaining active suits, trailing prismatic energy and cries of pain as it goes. The first time this occurs, the soul flows into the three remaining suits, granting each suit 4 temporary HP. The second time this occurs, the soul flows into the two remaining suits, granting each 6 temporary HP. The third time this occurs, the soul flows to the one remaining suit, granting it 12…"}, {"name": "Tetanus", "type": "passive", "traits": [], "text": "A creature that takes damage from a wrathful armor's glaive or gauntlet strike must succeed at a DC 14 Fortitude save to resist contracting tetanus%rTetanus%rOnset 10 days%rStage 1 Clumsy 1 (1 week)%rStage 2 Clumsy 2 and can't speak (1 day)%rStage 3 Paralyzed with spasms (1 day)%rStage 4 death"}]
+"Zaurgaulus":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 16
+  size: "huge"
+  rarity: "unique"
+  traits: ["dragon", "occult"]
+  ac: 39
+  hp: 299
+  perception: 26
+  saves: {"fortitude": 26, "reflex": 29, "will": 28}
+  abilities: {"cha": 8, "con": 4, "dex": 5, "int": 5, "str": 9, "wis": 4}
+  speeds: {"land": 50, "fly": 150}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 29, "Athletics": 31, "Deception": 32, "Intimidation": 32, "Occultism": 27, "Society": 27, "Stealth": 29}
+  immunities: ["fear-effects", "paralyzed", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 31, "damage": [["3d12+15", "piercing", null]], "traits": ["magical", "reach-15", "unarmed"]}, {"name": "Claws", "bonus": 31, "damage": [["3d10+15", "slashing", null]], "traits": ["agile", "magical", "reach-10", "unarmed"]}, {"name": "Tail", "bonus": 29, "damage": [["3d8+15", "bludgeoning", null]], "traits": ["magical", "reach-20", "unarmed"]}]
+  actions: [{"name": "Telepathy 90 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Fearsense", "type": "passive", "traits": ["emotion", "mental", "occult"], "text": "The dragon senses all creatures with the frightened condition at the listed range."}, {"name": "+2 Status to All Saves vs. Occult", "type": "passive", "traits": []}, {"name": "Consume Fear", "type": "reaction", "traits": ["occult"], "text": "Trigger A creature within 60 feet loses the Frightened condition%rEffect The dragon feasts upon the fear that leaves the triggering creature's body, gaining 6d8 temporary Hit Points that last for 1 minute."}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "60 feet. DC 37 Will"}, {"name": "Unbidden Thoughts", "type": "reaction", "traits": ["emotion", "fear", "mental", "occult"], "text": "Trigger The dragon is critically hit with a weapon or unarmed attack%rEffect The attacker's mind fills with visions of their worst fears that overwhelm their senses, and they must choose one of the following results: either the triggering attack becomes a normal success, or the critical hit is unaffected but the triggering creature becomes Frightened 2."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The dragon makes two claw Strikes and one tail Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "The dragon recharges their Shrieking Breath whenever they score a critical hit with a Strike."}, {"name": "Shrieking Breath", "type": "action", "traits": ["mental", "occult", "sonic"], "cost": 2, "text": "The dragon lets out a cacophonous sound made of every scream the dragon has drawn from a terrified enemy, dealing 15d6 sonic|options:area-damage damage in a 40-foot cone (DC 37 Will save). Creatures who fail their Will save must spend the first action of their next turn doing nothing but screaming. The dragon can't use Shrieking Breath again for 1d4 rounds."}, {"name": "Tongue Decoy", "type": "passive", "traits": ["manipulate", "occult"], "text": "The despair dragon inflates several bladders at the end of its tongue to create the basic form of a creature. This process takes 1 minute to complete, during which the dragon is Off-Guard. If the dragon stops or is interrupted in this process, the bladders deflate, and the dragon must start over. Once the process is complete, the dragon can maintain the inflated bladders indefinitely, and can Dismiss to deflate the bladders and retract its tongue instantly.%rThe inflated tongue takes the basic…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 37, "attack": 29, "spells": {"5": ["Truespeech (Constant)"], "6": ["Fear (At Will)"]}}]
+"Zizminarial":
+  pack: "bastion-of-blasphemies-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["daemon", "fiend", "unholy"]
+  ac: 23
+  hp: 95
+  perception: 14
+  saves: {"fortitude": 12, "reflex": 15, "will": 16}
+  abilities: {"cha": 3, "con": 2, "dex": 5, "int": 5, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Arcana": 17, "Deception": 13, "Nature": 12, "Occultism": 15, "Religion": 14}
+  immunities: ["death-effects"]
+  weaknesses: {"holy": 5}
+  strikes: [{"name": "Tentacle", "bonus": 15, "damage": [["2d6+7", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "reach-10", "unholy"]}]
+  actions: [{"name": "Smell Prayers", "type": "passive", "traits": [], "text": "Zizminarial is aware of divine magical items and active divine spells as a precise sense but cannot sense other types of magic at all."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Ignite Soul", "type": "action", "traits": ["fear", "fire", "occult"], "cost": 1, "text": "Requirements Zizminarial is in area B12%rFrequency once per round%rEffect Zizminarial causes the flame of a burning candle to suddenly flare up. The soul within shrieks in pain as the fire lances out to burn a creature in area B12 , who takes 4d6 fire damage (DC 24 Reflex save; Frightened 1 on a failure or critical failure). The candle then burns out."}, {"name": "Residual Force", "type": "action", "traits": ["arcane", "force"], "cost": 1, "text": "Requirements The venedaemon's most recent action was to cast a spell%rEffect Fading runes cling to the venedaemon's tentacles. The venedaemon makes a tentacle Strike that has a reach of 20 feet and deals 2d4 additional force damage."}, {"name": "Soul Spell", "type": "passive", "traits": [], "text": "If Zizminarial ingests a soul gem from a cacodaemon, he can recover an expended spell slot instead of gaining fast healing. The spell slot's rank can be no higher than half the level of the creature whose soul was consumed, rounded up.%rZizminarial can ingest a soul from one of the 22 candles burning in this room to regain a spell slot of any level; he cannot use a soul candle to gain fast healing, though."}, {"name": "Twisted Whispers", "type": "action", "traits": ["arcane", "auditory", "concentrate", "linguistic", "mental"], "cost": 1, "text": "The venedaemon whispers to a creature within 15 feet, which must succeed at a DC 24 Will save or be Stupefied 2 for 1 minute (or Stupefied 3 on a critical failure).%rRegardless of the results of the save, the creature is immune to Twisted Whispers for 24 hours."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 24, "attack": 16, "spells": {"0": ["Daze", "Divine Lance", "Prestidigitation", "Shield", "Void Warp"], "1": ["Command", "Enfeeble", "Fear", "Heal"], "2": ["Blood Vendetta", "Dispel Magic", "Heal", "Noise Blast"], "3": ["Crisis of Faith", "Harm", "Heal", "Vampiric Feast"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 24, "attack": 16, "spells": {"4": ["Translocate"]}}]

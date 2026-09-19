@@ -11,7 +11,6 @@ module AresMUSH
     attribute :use, :type => DataType::Hash, :default => {}
     attribute :invested, :type => DataType::Boolean
     attribute :invest_on_refresh, :type => DataType::Boolean
-    attribute :bonus, :type => DataType::Hash, :default => {}
     attribute :consumable, :type => DataType::Boolean
 
     reference :character, "AresMUSH::Character"

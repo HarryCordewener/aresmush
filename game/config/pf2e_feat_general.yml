@@ -10,6 +10,11 @@ pf2e_feats:
     shortdesc: You're fully immersed in another ancestry's culture and traditions, whether born into them, earned through rite of passage, or bonded through a deep friendship or romance. Choose a common ancestry or another ancestry to which you have access. You can select ancestry feats from the ancestry you chose, in addition to your character's own ancestry, as long as the ancestry feats don't require any physiological feature that you lack, as determined by the GM.
     prereq:
       level: 1
+    rules:
+      - key: "ChoiceSet"
+        flag: "ancestry"
+        prompt: "Select a common ancestry."
+        choices: {"filter": [{"not": "item:slug:{actor|system.details.ancestry.trait}"}], "itemType": "ancestry", "slugsAsValues": true}
   Armor Proficiency:
     repeatable: true
     feat_type:
@@ -51,12 +56,29 @@ pf2e_feats:
     shortdesc: "You become trained in light armor. If you already were trained in light armor, you gain training in medium armor. If you were trained in both, you become trained in heavy armor. If you are at least 13th level, you become an expert in this armor type.%r%r**Special** You can select this feat more than once. Each time, you become trained in the next type of armor, as detailed above."
     prereq:
       level: 1
+    rules:
+      - key: "ChoiceSet"
+        choices: [{"label": "Light", "predicate": ["defense:light:rank:0"], "value": "light"}, {"label": "Medium", "predicate": ["defense:medium:rank:0", {"not": "defense:light:rank:0"}], "value": "medium"}, {"label": "Heavy", "predicate": [{"nor": ["defense:light:rank:0", "defense:medium:rank:0"]}], "value": "heavy"}]
   Breath Control:
     feat_type:
       - General
     shortdesc: You can breathe even in hazardous or sparse air. You can hold your breath for 25 times as long as usual before suffocating. You gain a +1 circumstance bonus to saving throws against inhaled threats, such as inhaled poisons, and if you roll a success on such a saving throw, you get a critical success instead.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["item:trait:inhaled"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["item:trait:inhaled"]
+      - key: "ActiveEffectLike"
+        path: "flags.system.remainingAir.rounds"
+        mode: "upgrade"
+        value: "25 * (5 + @actor.abilities.con.mod)"
   Canny Acumen:
     feat_type:
       - General
@@ -104,6 +126,10 @@ pf2e_feats:
     shortdesc: Your avoidance or observation is beyond the ken of most in your profession. Choose Fortitude saves, Reflex saves, Will saves, or Perception. You become an expert in your choice. At 17th level, you become a master in your choice.
     prereq:
       level: 1
+    rules:
+      - key: "ChoiceSet"
+        flag: "cannyAcumen"
+        choices: [{"label": "Fortitude", "value": "system.saves.fortitude.rank"}, {"label": "Reflex", "value": "system.saves.reflex.rank"}, {"label": "Will", "value": "system.saves.will.rank"}, {"label": "Perception", "value": "system.perception.rank"}]
   Diehard:
     feat_type:
       - General
@@ -118,6 +144,17 @@ pf2e_feats:
       level: 1
       ability:
         - Constitution/14
+    rules:
+      - key: "Note"
+        selector: "fortitude"
+        outcome: ["success", "criticalSuccess"]
+        title: "{item|name}"
+        text: "If you roll a success on a Fortitude save against an ongoing poison or disease, reduce its stage by 2, or by 1 if its virulent. If you roll a critical success, reduce its stage by 3, or by 2 if its virulent."
+        predicate: ["ongoing", {"or": ["disease", "poison"]}]
+      - key: "ActiveEffectLike"
+        path: "system.attributes.hp.recoveryMultiplier"
+        mode: "add"
+        value: 1
   Feather Step:
     feat_type:
       - General
@@ -132,18 +169,32 @@ pf2e_feats:
     shortdesc: You move more quickly on foot. Your Speed increases by 5 feet.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "land-speed"
+        value: 5
   Incredible Initiative:
     feat_type:
       - General
     shortdesc: You react more quickly than others can. You gain a +2 circumstance bonus to initiative rolls.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "initiative"
+        type: "circumstance"
+        value: 2
   Pet:
     feat_type:
       - General
     shortdesc: "You have a pet—a Tiny animal of a type you choose, such as a cat, bird, or rodent. It has the minion trait, meaning it gains 2 actions during your turn if you use the Command an Animal action to command it; this replaces the usual effects of Command an Animal, and you don't need to attempt a Nature check. A pet can't take attack actions except to Escape or Force Open.%r%r**Level** Your pet's level is equal to yours.%r%r**Modifiers and AC** Your pet's save modifiers and AC are equal to yours before applying circumstance or status bonuses or penalties. It uses 3 + your level as its modifier for Perception, Acrobatics, and Stealth, and just your level as its modifier for other skill checks. It doesn't have or use its own attribute modifiers and can never benefit from item bonuses.%r%r**Hit Points** Your pet has 5 Hit Points per level.%r%r**Senses** Your pet has low-light vision and can gain additional senses from pet abilities.%r%r**Speed** Your pet has a Speed of 25 feet. You can choose to instead have an aquatic pet, which breathes in water instead of air and has the aquatic trait, no land Speed, and a swim Speed of 25 feet.%r%r**Pet Abilities** When you gain your pet, choose two of the following abilities. If your pet is an animal that naturally has one of these abilities (for instance, an owl has a fly Speed), you must select that ability. Your pet can't be an animal that naturally has more pet abilities than the maximum. In some cases, the GM might add some familiar abilities to the pet abilities you can choose.%r%r**Special** You can gain a new pet by retraining this feat, releasing any previous pet you have. If you later gain a familiar or other companion that uses the Pet feat, you can immediately retrain this feat."
     prereq:
       level: 1
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.attributes.familiarAbilities.value"
+        mode: "upgrade"
+        value: 2
   Ride:
     feat_type:
       - General
@@ -162,6 +213,14 @@ pf2e_feats:
     shortdesc: Your body can withstand more punishment than most before succumbing. Increase your maximum Hit Points by your level. You reduce the DC of recovery checks by 1.
     prereq:
       level: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "@actor.level"
+      - key: "ActiveEffectLike"
+        path: "system.attributes.dying.recoveryDC"
+        mode: "subtract"
+        value: 1
   Weapon Proficiency:
     repeatable: true
     feat_type:
@@ -186,6 +245,12 @@ pf2e_feats:
     prereq:
       level: 1
   # Level 3 General Feats
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.martial.rank"
+        mode: "upgrade"
+        value: 2
+        predicate: [{"gte": ["self:level", 11]}]
   Ancestral Paragon:
     feat_type:
       - General
@@ -197,6 +262,11 @@ pf2e_feats:
     shortdesc: Whether through instinct, study, or magic, you feel a deeper connection to your ancestry. You gain a 1st-level ancestry feat.
     prereq:
       level: 3
+    rules:
+      - key: "ChoiceSet"
+        flag: "ancestralParagon"
+        prompt: "Select a 1st-level ancestry feat."
+        choices: {"filter": ["item:level:1", "item:category:ancestry", {"or": ["item:tag:universal", "item:trait:{actor|system.details.ancestry.trait}", "item:trait:{actor|system.details.ancestry.adopted}", "item:trait:{actor|system.details.ancestry.versatile}", "item:trait:{actor|system.details.heritage.trait}", "item:trait:ancestry"]}, {"not": "item:trait:lineage"}], "itemType": "feat"}
   Improvised Repair:
     feat_type:
       - General
@@ -209,6 +279,13 @@ pf2e_feats:
     shortdesc: "Your keen observation of your allies has made you better at following their lead. When using the Follow the Expert activity in exploration mode, you gain a +3 circumstance bonus if the ally you are following is an expert and a +4 circumstance bonus if your ally is a master.%r%rYou can share your observations with others to help further coordinate the group. If the ally you are following has Quiet Allies or another skill feat that allows the group to roll a single skill check for an exploration activity and use the lowest modifier, they can instead use your modifier, even if it's not the lowest."
     prereq:
       level: 3
+    rules:
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "skill-check"
+        value: "@actor.flags.system.followTheExpertProficiency+1"
+        slug: "follow-the-expert-circumstance"
+        predicate: ["self:effect:follow-the-expert", {"or": ["follow-the-expert:proficiency:rank:2", "follow-the-expert:proficiency:rank:3"]}]
   Pick up the Pace:
     feat_type:
       - General
@@ -229,6 +306,12 @@ pf2e_feats:
     shortdesc: Your physiology responds well to first aid. You gain a circumstance bonus to the number of Hit Points you regain equal to your level from a successful attempt to Treat your Wounds or use Battle Medicine on you. After you or an ally use Battle Medicine on you, you become temporarily immune to that Battle Medicine for only 1 hour, instead of 1 day.
     prereq:
       level: 3
+    rules:
+      - key: "FlatModifier"
+        selector: "healing-received"
+        type: "circumstance"
+        value: "@actor.level"
+        predicate: [{"or": ["action:battle-medicine", "action:treat-wounds"]}]
   Skitter:
     feat_type:
       - General
@@ -246,6 +329,13 @@ pf2e_feats:
     prereq:
       level: 3
       combat_stats: Perception/expert
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        label: "Thorough Search (Seek thoroughly)"
+        predicate: ["action:seek", "thorough-search"]
   Untrained Improvisation:
     feat_type:
       - General
@@ -253,6 +343,11 @@ pf2e_feats:
     prereq:
       level: 3
   # Level 7 General Feats
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "proficiency"
+        value: "@actor.level + clamp(-2,floor((@actor.level - 7) / 2),0)"
   Expeditious Search:
     feat_type:
       - General
@@ -285,6 +380,13 @@ pf2e_feats:
       level: 7
       combat_stats: Perception/master
   # Level 11 General Feats
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        label: "Supertaster (recall knowledge or investigate via taste)"
+        predicate: ["taste", {"or": ["action:recall-knowledge", "action:investigate"]}]
   A Home in Every Port:
     feat_type:
       - General

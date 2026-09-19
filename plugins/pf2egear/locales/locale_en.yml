@@ -60,6 +60,9 @@ en:
     rune_power_gt_potency: "You cannot add a Striking or Resilient rune greater than the item's Potency rune."
     rune_potency_gt_power: "You cannot set a Potency rune lower than the item's Striking or Resilient rune."
     rune_property_set: "%{rune_name} %{operation} on %{char}'s %{item_name}."
+    rune_property_unknown: "There is no %{rune_name} rune. `browse runes` lists the ones there are."
+    rune_property_wrong_kind: "%{rune_name} is a %{kind} rune, and cannot go on that."
+    rune_property_no_slot: "That item has room for %{slots} property runes, and they are all taken. Etch a higher potency rune first."
     
 
     shields_dont_have_magic: "%xh%xmShields do not have magical properties.%xn"

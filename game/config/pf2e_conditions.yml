@@ -2,19 +2,43 @@ pf2e_conditions:
   Blinded:
     short_descr: You're unable to see.
     value: false
-    affected_stat:
-      Perception: -4
     override: "Dazzled"
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "status"
+        value: -4
+        slug: "blinded"
+      - key: "Immunity"
+        type: "visual"
   Clumsy:
     short_descr: Your movements become clumsy and inexact.
     value: true
-    affected_stat:
-      - "Dexterity"
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: "dex-based"
+        type: "status"
+        value: "-@item.badge.value"
+        slug: "clumsy"
   Confused:
     short_descr: You lose your wits and attack wildly.
     value: false
     override: false
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.attributes.flanking.canFlank"
+        mode: "override"
+        value: false
+      - key: "RollOption"
+        option: "target:ally"
+        value: false
+      - key: "RollOption"
+        option: "origin:ally"
+        value: false
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Off-Guard"
+        inMemoryOnly: true
   Controlled:
     short_descr: You are no longer in control of your own actions.
     value: false
@@ -26,9 +50,20 @@ pf2e_conditions:
   Deafened:
     short_descr: You cannot hear.
     value: false
-    affected_stat:
-      Perception: -2
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: ["perception", "skill-check"]
+        type: "status"
+        value: -2
+        slug: "deafened"
+        predicate: [{"or": [{"and": ["check:type:skill", "item:trait:auditory"]}, {"and": ["check:statistic:base:perception", "check:statistic:initiative"]}]}]
+      - key: "Immunity"
+        type: "auditory"
+      - key: "AdjustDegreeOfSuccess"
+        selector: "perception"
+        adjustment: {"all": "to-critical-failure"}
+        predicate: ["item:trait:auditory"]
   Doomed:
     short_descr: A powerful force is pulling you towards death.
     value: true
@@ -38,41 +73,72 @@ pf2e_conditions:
     short_descr: You have lost some of your blood or life force.
     value: true
     override: false
-    affected_stat:
-      - "Constitution"
     daily: -1
+    rules:
+      - key: "FlatModifier"
+        selector: "con-based"
+        type: "status"
+        value: "-1 * @item.badge.value"
+        slug: "drained"
+      - key: "FlatModifier"
+        selector: "hp"
+        type: "status"
+        value: "min(-1 * @actor.level,-1) * @item.badge.value"
+        slug: "drained"
+      - key: "LoseHitPoints"
+        reevaluateOnUpdate: true
+        value: "max(1,@actor.level) * @item.badge.value"
   Dying:
     short_descr: You are close to death.
     value: true
     override: false
+    rules:
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Unconscious"
+        onDeleteActions: {"grantee": "restrict"}
   Encumbered:
     short_descr: You are carrying too much.
     value: false
-    affected_stat:
-      Speed: -10
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: "all-speeds"
+        value: -10
+        slug: "encumbered"
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Clumsy"
+        inMemoryOnly: true
   Enfeebled:
     short_descr: You are physically weakened.
     value: true
-    affected_stat:
-      - "Strength"
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: ["str-based", "str-damage"]
+        type: "status"
+        value: "-@item.badge.value"
+        slug: "enfeebled"
   Fascinated:
     short_descr: You are compelled to focus your attention on something.
     value: false
     override: false
-    affected_stat:
-      Perception: -2
+    rules:
+      - key: "FlatModifier"
+        selector: ["perception", "skill-check"]
+        type: "status"
+        value: -2
+        slug: "fascinated"
   Fatigued:
     short_descr: You are tired and cannot summon much energy.
     value: false
-    affected_stat:
-      Base AC: -1
-      Fortitude: -1
-      Reflex: -1
-      Will: -1
     override: false
     daily: false
+    rules:
+      - key: "FlatModifier"
+        selector: ["ac", "saving-throw"]
+        type: "status"
+        value: -1
+        slug: "fatigued"
   Fleeing:
     short_descr: You can take no action other than running away.
     value: false
@@ -81,10 +147,23 @@ pf2e_conditions:
     short_descr: You are gripped by fear.
     value: true
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: "all"
+        type: "status"
+        value: "-@item.badge.value"
+        slug: "frightened"
   Grabbed:
     short_descr: You are being held by another creature.
     value: false
     override: false
+    rules:
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Off-Guard"
+        inMemoryOnly: true
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Immobilized"
+        inMemoryOnly: true
   Immobilized:
     short_descr: You are unable to move.
     value: false
@@ -97,10 +176,22 @@ pf2e_conditions:
     short_descr: You are caught off-guard or otherwise unable to fully defend yourself.
     value: false
     override: false
-    affected_stat:
-      Base AC: -2
+    rules:
+      - key: "FlatModifier"
+        selector: "ac"
+        type: "circumstance"
+        value: -2
+        slug: "off-guard"
   Paralyzed:
     short_descr: You are frozen in place.
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.attributes.flanking.canFlank"
+        mode: "override"
+        value: false
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Off-Guard"
+        inMemoryOnly: true
   Persistent:
     short_descr: You are taking damage over time from a source.
     value: true
@@ -113,6 +204,15 @@ pf2e_conditions:
     short_descr: You are lying on the ground.
     value: false
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: "attack-roll"
+        type: "circumstance"
+        value: -2
+        slug: "prone"
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Off-Guard"
+        inMemoryOnly: true
   Quickened:
     short_descr: You move faster than normal.
     value: false
@@ -121,10 +221,32 @@ pf2e_conditions:
     short_descr: You are tied up and can barely move.
     value: false
     override: "Grabbed"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.attributes.flanking.canFlank"
+        mode: "override"
+        value: false
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Off-Guard"
+        inMemoryOnly: true
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Immobilized"
+        inMemoryOnly: true
+      - key: "Note"
+        selector: ["attack", "skill-check"]
+        title: "{item|name}"
+        text: "You can't use any attack or manipulate actions except to attempt to Escape or Force Open your bonds."
+        predicate: [{"nor": ["action:escape", "action:force-open"]}]
   Sickened:
     short_descr: You feel ill.
     value: true
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: "all"
+        type: "status"
+        value: "-@item.badge.value"
+        slug: "sickened"
   Slowed:
     short_descr: You move more slowly than normal.
     value: true
@@ -135,17 +257,55 @@ pf2e_conditions:
     override: "Slowed"
   Stupefied:
     short_descr: Your thoughts are cloudy and indistinct.
-    affected_stat:
-      - "Intelligence"
-      - "Wisdom"
-      - "Charisma"
     value: true
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: ["cha-based", "int-based", "wis-based"]
+        type: "status"
+        value: "-@item.badge.value"
+        slug: "stupefied"
   Unconscious:
     short_descr: You are sleeping or knocked out.
     value: false
     override: false
+    rules:
+      - key: "FlatModifier"
+        selector: ["ac", "perception", "reflex"]
+        type: "status"
+        value: -4
+        slug: "unconscious"
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Blinded"
+        onDeleteActions: {"grantee": "restrict"}
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Off-Guard"
+        inMemoryOnly: true
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Prone"
+        allowDuplicate: false
+        onDeleteActions: {"grantee": "restrict", "granter": "detach"}
   Wounded:
     short_descr: You have been seriously injured.
     value: true
+    override: false
+  Concealed:
+    short_descr: "You are difficult for one or more creatures to see due to thick fog or some other obscuring feature."
+    value: false
+    override: false
+  Cursebound:
+    short_descr: "Your oracular curse is constricting around you as you receive divine punishment after drawing too deeply on your mystery's powers."
+    value: true
+    override: false
+  Hidden:
+    short_descr: "While you're hidden from a creature, that creature knows the space you're in but can't tell precisely where you are."
+    value: false
+    override: false
+  Undetected:
+    short_descr: "When you are undetected by a creature, that creature can't see you at all, has no idea what space you occupy, and can't target you, though you still can be affected by abilities that target an area."
+    value: false
+    override: false
+  Unnoticed:
+    short_descr: "If you're unnoticed by a creature, that creature has no idea you're present."
+    value: false
     override: false

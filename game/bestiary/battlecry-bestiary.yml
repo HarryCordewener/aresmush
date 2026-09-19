@@ -1,0 +1,977 @@
+---
+"Angelic Chorus":
+  pack: "battlecry-bestiary"
+  level: 12
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["angel", "celestial", "holy", "troop"]
+  ac: 32
+  hp: 210
+  perception: 22
+  saves: {"fortitude": 19, "reflex": 22, "will": 25}
+  abilities: {"cha": 7, "con": 3, "dex": 5, "int": 3, "str": 2, "wis": 4}
+  speeds: {"land": 30, "fly": 40}
+  hp_details: "(4 segments); Thresholds 210 (4 segments); Thresholds 140 (3 segments), 70 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Diplomacy": 25, "Performance": 27, "Religion": 24}
+  weaknesses: {"area-damage": 10, "splash-damage": 10, "unholy": 10}
+  resistances: {"sonic": 15}
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Harmonizing Aura", "type": "passive", "traits": ["aura", "divine", "sonic"], "text": "20 feet.%rAllies in the aura gain a +2 status bonus to sonic damage rolls and a +1 status bonus to AC and all saves against effects with the auditory or sonic trait. Enemies in the aura take a –2 status penalty to sonic damage rolls and a –1 status penalty to AC and all saves against auditory and sonic effects."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 210 (4 segments); Thresholds 140 (3 segments), 70 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Admonishing Hymn", "type": "action", "traits": ["divine", "holy", "sonic"], "cost": 2, "text": "The angelic choir raises their voices in song, singing a note that vibrates the very fabric of being. This takes the form of a 15-foot burst within 90 feet that deals 6d6 sonic|options:area-damage damage (DC 29 Fortitude save). A creature who critically fails the save is Deafened for 1 minute. When the angelic chorus is reduced to 2 segments, this area decreases to a 10-foot burst."}, {"name": "Harmonized Spellcasting", "type": "passive", "traits": [], "text": "When the angelic chorus Casts a Spell, their constituent members combine their efforts into casting a more powerful version of the spell than any one member could achieve alone. When Casting a Spell that deals sonic damage, that spell gains a status bonus to damage equal to its rank."}, {"name": "Righteous Clamor", "type": "action", "traits": ["holy", "magical"], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect With sonorous shouts, the angelic chorus lashes out with their fists in a coordinated melee attack against each enemy in a 5-foot emanation (DC 29 Reflex save). The damage depends on the number of actions%r1 1d8 bludgeoning damage plus 1d6 sonic damage%r2 2d8+7 bludgeoning damage plus 2d6 sonic damage%r3 3d8+10 bludgeoning damage plus 2d6 sonic damage"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 19, "attack": 24, "spells": {"0": ["Courageous Anthem", "Uplifting Overture"], "3": ["Counter Performance (At Will)"], "4": ["Cleanse Affliction (At Will)", "Clear Mind (At Will)", "Noise Blast (At Will)"], "5": ["Breath of Life", "Heal", "Noise Blast", "Truespeech (Constant)"], "6": ["Clear Mind", "Heal", "Noise Blast", "Zealous Conviction"]}}]
+"Animated Army":
+  pack: "battlecry-bestiary"
+  level: 8
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["construct", "mindless", "troop"]
+  ac: 27
+  hp: 120
+  perception: 13
+  saves: {"fortitude": 16, "reflex": 14, "will": 13}
+  abilities: {"cha": -5, "con": 6, "dex": 0, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 20}
+  hp_details: "(4 segments); Thresholds 120 (4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 18}
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  actions: [{"name": "Construct Armor", "type": "passive", "traits": [], "text": "Like normal objects, the animated statues of the animated army have Hardness. This Hardness reduces any damage the animated army takes by an amount equal to the Hardness. Once an animated army is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 23."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 120 (4 segments); Thresholds 80 (3 segments), 40 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Battering Fists", "type": "action", "traits": ["magical"], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The animated army makes a melee attack against each enemy in a 5-foot emanation (DC 23 Reflex save). The damage dealt depends on the number of actions.%r1 (1d8+2) bludgeoning|options:area-damage damage%r2 (2d8+8) bludgeoning|options:area-damage damage%r3 (3d8+10) bludgeoning|options:area-damage damage"}]
+"Apprentice Magician Clique":
+  pack: "battlecry-bestiary"
+  level: 5
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["human", "humanoid", "troop"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 9, "reflex": 12, "will": 15}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": 5, "str": 0, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); 75 (4 segments); Thresholds 50 (3 segments), 25 (2 segments)"
+  skills: {"Acrobatics": 12, "Arcana": 13, "Deception": 10, "Diplomacy": 10, "Thievery": 12}
+  weaknesses: {"area-damage": 4, "splash-damage": 4}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 75 (4 segments); Thresholds 50 (3 segments), 25 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Barrage of Force", "type": "action", "traits": ["arcane", "force"], "cost": 2, "text": "The apprentice magicians launch shards of pure magic at all creatures in a 10-foot burst within 120 feet. This barrage deals 5d4 force|options:area-damage damage (DC 19 Reflex save). When the clique is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Clique Spellcasting", "type": "passive", "traits": [], "text": "When the apprentice magician clique Casts a Spell, its members pool their arcane power into the spell. A creature who critically fails their save against the spell or whom the clique hits with a critical spell attack is also Stupefied 1 for 1 minute."}, {"name": "Sparking Wands", "type": "action", "traits": ["arcane", "electricity"], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The apprentice magicians wave wands that shoot out minor bolts of electricity at short range. Each enemy in a 5-foot emanation must attempt a DC 19 Reflex save. The damage dealt depends on the number of actions.%r1 1d8 electricity|options:area-damage damage%r2 (2d8+3) electricity|options:area-damage damage%r3 (2d8+7) electricity|options:area-damage damage"}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 22, "attack": 15, "spells": {"0": ["Electric Arc", "Ignition", "Light", "Prestidigitation", "Telekinetic Projectile"], "1": ["Dizzying Colors", "Hydraulic Push", "Sleep"], "2": ["Blazing Bolt", "Entangling Flora", "Laughing Fit"], "3": ["Fireball", "Wall of Wind"]}}]
+"Arboreal Copse":
+  pack: "battlecry-bestiary"
+  level: 9
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["plant", "troop", "wood"]
+  ac: 27
+  hp: 150
+  perception: 18
+  saves: {"fortitude": 20, "reflex": 16, "will": 18}
+  abilities: {"cha": 1, "con": 5, "dex": 1, "int": 2, "str": 5, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); 150 (4 segments); Thresholds 100 (3 segments), 50 (2 segments)"
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 20, "Stealth": 16}
+  weaknesses: {"area-damage": 10, "axe-vulnerability": 8, "fire": 12, "splash-damage": 10}
+  resistances: {"bludgeoning": 8, "piercing": 8}
+  actions: [{"name": "Reactive Attack", "type": "reaction", "traits": [], "text": "Trigger An enemy within 5 feet of the arboreal copse uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using%rEffect The arboreals swing their stone swords. The triggering enemy takes (2d8+9) bludgeoning damage (DC 25 Reflex save). If the creature critically fails their saving throw and the trigger was a manipulate action, the troop disrupts that action."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 150 (4 segments); Thresholds 100 (3 segments), 50 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Raise Shields", "type": "action", "traits": [], "cost": 1, "text": "The arboreal wardens of the copse raise their shields in tandem, gaining a +2 circumstance bonus to AC and Reflex saves."}, {"name": "Shoving Shield Wall", "type": "action", "traits": [], "cost": 2, "text": "The arboreal copse Strides. All enemies whose square the copse begins in or passes through during their movement take 5d6 bludgeoning|options:area-damage damage (DC 25 Fortitude). On a failed saving throw, the arboreal copse carries the creature along on their shields, moving them in the same distance and direction for the rest of their Stride."}, {"name": "Sword Bash", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe arboreal copse uses their blunt stone longswords to pummel its foes. Each enemy in a 10-foot emanation must attempt a DC 25 Reflex save. The damage depends on the number of actions.%r1 (1d8+1) bludgeoning|options:area-damage damage%r2 (2d8+9) bludgeoning|options:area-damage damage%r3 (3d8+10) bludgeoning|options:area-damage damage"}]
+"Archer Regiment":
+  pack: "battlecry-bestiary"
+  level: 12
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["human", "humanoid", "troop"]
+  ac: 32
+  hp: 210
+  perception: 22
+  saves: {"fortitude": 19, "reflex": 25, "will": 22}
+  abilities: {"cha": 1, "con": 3, "dex": 7, "int": 1, "str": 4, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 140 (3 segments), 70 (2 segments)"
+  skills: {"Acrobatics": 25, "Stealth": 22, "Survival": 22}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 210; Thresholds 140 (3 segments), 70 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Dagger Defense", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe archer regiment draws daggers to attack close-range enemies. Each enemy in a 5-foot emanation must attempt a DC 29 Reflex save. The damage depends on the number of actions. The archer regiment gains a +1 circumstance bonus to AC until the beginning of their next turn.%r1 (2d4+2) piercing|options:area-damage damage%r2 (4d4+12) piercing|options:area-damage damage%r3 (4d4+15) piercing|options:area-damage damage"}, {"name": "Drilled in Formations", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The archer regiment uses Change Formation. An archer regiment unit typically knows the loose and marching column formations."}, {"name": "Rain of Arrows", "type": "action", "traits": [], "cost": 2, "text": "The archer regiment fires their longbows in a coordinated volley. This volley is either a 15-foot burst within 200 feet that deals 4d8 piercing|options:area-damage damage or a 10-foot burst within 100 feet that deals 6d8 piercing|options:area-damage damage. Either effect has a DC 29 Reflex save. When the archer regiment is reduced to 2 segments, both areas are reduced by 5 feet."}]
+"Archon Bastion":
+  pack: "battlecry-bestiary"
+  level: 16
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["archon", "celestial", "holy", "troop"]
+  ac: 37
+  hp: 300
+  perception: 30
+  saves: {"fortitude": 30, "reflex": 25, "will": 28}
+  abilities: {"cha": 5, "con": 9, "dex": 2, "int": 3, "str": 6, "wis": 5}
+  speeds: {"land": 30, "fly": 60}
+  hp_details: "(4 segments); Thresholds 200 (3 segments), 100 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 32, "Diplomacy": 28, "Intimidation": 28, "Religion": 28, "Survival": 26}
+  immunities: ["fear-effects"]
+  weaknesses: {"area-damage": 15, "splash-damage": 15, "unholy": 15}
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Archon's Aegis", "type": "reaction", "traits": [], "text": "Trigger An enemy damages an ally of the archon bastion and both are within 15 feet of the archon bastion%rEffect The ally gains resistance 20 to all damage against the triggering damage and the enemy takes (1d8+4) piercing damage (DC 34 Reflex save).%rEffect: Archon's Aegis"}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 300 (4 segments); Thresholds 200 (3 segments), 100 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Fearless Switch", "type": "action", "traits": ["teleportation"], "cost": 2, "text": "The archon bastion Strides so that at least one of its segments occupies the same space of a Large or smaller willing ally. That willing ally is then teleported to any open space it can fit into that is adjacent to any of the archon bastion's segments, using teleportation magic innate to the troop's individual shield archons. The archon bastion can move up to three allies in this fashion."}, {"name": "Living Shields", "type": "action", "traits": [], "cost": 1, "text": "The archon bastion grants each ally within a 5-foot emanation a +2 circumstance bonus to AC until that ally is no longer within the area or until the start of the archon bastion's next turn, whichever comes first. If the archon bastion uses Archon's Aegis against an attack against one of the shielded allies, the archon bastion gains the resistance and takes the damage rather than the ally.%rEffect: Living Shields"}, {"name": "Smiting Lances", "type": "action", "traits": ["divine", "holy"], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The archon bastion engages in a uniform melee attack against each enemy in 10-foot emanation (DC 34 Reflex save). The damage depends on the number of actions. An unholy creature that fails its save against this effect takes an additional 2d6 spirit|options:area-damage damage (or 1d6 spirit|options:area-damage damage for the one-action version).%r1 (1d8+4) piercing|options:area-damage damage%r2 (3d8+14) piercing|options:area-damage damage%r3 (4d8+19)…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 34, "attack": 26, "spells": {"0": ["Divine Lance", "Message"], "2": ["Share Life (At Will)"], "5": ["Truespeech (Constant)"]}}]
+"Boggard Dreadknot":
+  pack: "battlecry-bestiary"
+  level: 10
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["amphibious", "animal", "boggard", "humanoid", "troop"]
+  ac: 29
+  hp: 180
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 19, "will": 16}
+  abilities: {"cha": 1, "con": 5, "dex": 4, "int": 1, "str": 5, "wis": 2}
+  speeds: {"land": 25, "swim": 25}
+  hp_details: "(4 segments); Thresholds 120 (3 segments), 60 (2 segments)"
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 19, "Athletics": 22}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 180 (4 segments); Thresholds 120 (3 segments), 60 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Batrachian Blitz", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The boggard dreadknot pummels each enemy in a 5-foot emanation with their clubs, with a DC 26 Reflex save. The damage dealt depends on the number of actions.%r1 2d6 bludgeoning|options:area-damage damage%r2 (3d6+10) bludgeoning|options:area-damage damage%r3 (4d6+13) bludgeoning|options:area-damage damage"}, {"name": "Chorus of Croaks", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 1, "text": "The boggard dreadknot unleashes a chorus of terrifying croaks. Any non-boggard within 30 feet becomes Frightened 1 unless they succeed at a DC 26 Will save; those who critically succeed are temporarily immune for 1 minute."}, {"name": "Javelin Barrage", "type": "action", "traits": [], "cost": 2, "text": "The dreadknot draws javelins and launches a coordinated barrage. This barrage is a 10-foot burst within 30 feet that deals 4d6 piercing|options:area-damage damage (DC 26 Reflex save). When the dreadknot is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Mounted Troop", "type": "passive", "traits": [], "text": "Effects that target only animals or only humanoids may not work on the boggard dreadknot, subject to the GM's discretion."}, {"name": "Swamp Passage", "type": "passive", "traits": [], "text": "A boggard dreadknot ignores difficult terrain caused by swamp terrain features."}, {"name": "Tongue Lashing", "type": "action", "traits": [], "cost": 2, "text": "The dreadknot's giant frogs lash out at each enemy in a 15-foot emanation with their tongues, requiring them to succeed at a DC 26 Reflex save or become Grabbed. A creature grabbed in this way isn't Immobilized, but it can't move more than 15 feet from the dreadknot. A creature can sever one of the tongues with a Strike against AC 25 that deals at least 15 slashing damage. This doesn't deal damage to the dreadknot."}]
+"Boggard Scouting Party":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["amphibious", "boggard", "humanoid", "troop"]
+  ac: 23
+  hp: 90
+  perception: 19
+  saves: {"fortitude": 17, "reflex": 14, "will": 11}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 0, "str": 5, "wis": 2}
+  speeds: {"land": 25, "swim": 25}
+  hp_details: "(4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 15, "Stealth": 13}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Chorus of Croaks", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 1, "text": "The boggard scouting party unleashes a chorus of terrifying croaks. Any non-boggard within 30 feet becomes Frightened 1 unless they succeed at a DC 21 Will save; those who critically succeed are temporarily immune for 1 minute."}, {"name": "Coordinated Tongue Pull", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Several boggards use their tongues to grapple an enemy within 10 feet to pull them closer. The target must attempt a DC 21 Reflex save. On a failure, they are Grabbed and pulled 5 feet closer to the scouting party. A creature grabbed in this way isn't Immobilized, but it can't move more than 10 feet from the scouting party. A creature can sever one of the tongues with a Strike against AC 21 that deals at least 5 slashing damage. This doesn't damage the scouting…"}, {"name": "Morningstar Massacre", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The boggards execute coordinated melee attacks against each enemy in a 5-foot emanation, with a DC 21 Reflex save. The damage dealt depends on the number of actions.%r1 1d6 untyped|options:area-damage damage%r2 (2d6+7) untyped|options:area-damage damage%r3 (2d6+11) untyped|options:area-damage damage"}, {"name": "Sling Barrage", "type": "action", "traits": [], "cost": 2, "text": "The dreadknot draws and loads slings to launch a coordinated barrage. This barrage is a 10-foot burst within 50 feet that deals 3d6 bludgeoning|options:area-damage damage (DC 21 Reflex save). When the scouting party is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Swamp Passage", "type": "passive", "traits": [], "text": "A boggard scouting party ignores difficult terrain caused by swamp terrain features."}]
+"Charau-ka Shrieker Crew":
+  pack: "battlecry-bestiary"
+  level: 8
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["charau-ka", "humanoid", "troop"]
+  ac: 26
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 19, "will": 15}
+  abilities: {"cha": 1, "con": 3, "dex": 6, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 25, "climb": 25}
+  hp_details: "135 (4 segments); Thresholds 90 (3 segments), 45 (2 segments)"
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 18, "Intimidation": 16, "Stealth": 14}
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 135 (4 segments); Thresholds 90 (3 segments), 45 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Frenzied Hatchets", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The charau-ka engage in a coordinated melee attack against each enemy in a 5-foot emanation (DC 23 Reflex save). The damage depends on the number of actions.%r1 (1d6+2) slashing|options:area-damage damage%r2 (2d6+10) slashing|options:area-damage damage%r3 (3d6+13) slashing|options:area-damage damage"}, {"name": "Shrieking Charge", "type": "action", "traits": ["auditory"], "cost": 2, "text": "With raucous shrieks, the shrieker crew charges forward. The troop Strides twice. If they move at least 10 feet, the crew deals (3d6+13) slashing|options:area-damage damage (DC 23 Reflex save) to each enemy in a 5-foot emanation at the end of the crew's movement. Each target who fails this save is also Deafened for 1 round."}, {"name": "Storm of Daggers", "type": "action", "traits": [], "cost": 2, "text": "The charau-ka hurl daggers as a ranged attack in the form of a barrage. This barrage is a 10-foot burst within 30 feet that deals 5d4 piercing|options:area-damage damage (DC 23 Reflex save). The range increases by 15 feet if the charau-ka are above their targets. When the shrieker crew is reduced to 2 segments, this area decreases to a 5-foot burst."}]
+"Clockwork Infantry":
+  pack: "battlecry-bestiary"
+  level: 11
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless", "troop"]
+  ac: 30
+  hp: 195
+  perception: 21
+  saves: {"fortitude": 24, "reflex": 21, "will": 18}
+  abilities: {"cha": -5, "con": 5, "dex": 3, "int": -5, "str": 7, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 130 (3 segments), 65 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 23}
+  weaknesses: {"area-damage": 10, "electricity": 10, "splash-damage": 10, "orichalcum": 10}
+  resistances: {"physical": 5}
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, disable-device dc=27, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Reactive Sweep", "type": "reaction", "traits": [], "text": "Trigger An enemy within a 10-foot emanation uses a manipulate action or a move action, makes a ranged attack, or leaves a square in the area during a move action it's using%rEffect The clockwork infantry lashes out with their halberds. The triggering enemy takes (2d10+10) untyped|options:area-damage damage (DC 27 Reflex save). If the enemy critically fails this saving throw and the trigger was a manipulate action, the damage disrupts that action."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 195 (4 segments); Thresholds 130 (3 segments), 65 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Halberd Sweep", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The clockwork infantry engages in a coordinated melee attack against each enemy in a 10-foot emanation, with a DC 27 Reflex save. The damage depends on the number of actions.%r1 (1d10+2) untyped|options:area-damage damage%r2 (2d10+10) untyped|options:area-damage damage%r3 (3d10+12) untyped|options:area-damage damage"}, {"name": "Raise Defenses", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The clockwork soldiers of the infantry extend external plates on mechanical actuators to defend the troop or an adjacent creature. The creature gains a +2 circumstance bonus to AC until the start of the infantry's next turn, or until it is no longer adjacent to the infantry, whichever comes first."}]
+"Clockwork Runner Pack":
+  pack: "battlecry-bestiary"
+  level: 5
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless", "troop"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 9, "reflex": 15, "will": 9}
+  abilities: {"cha": -5, "con": 0, "dex": 6, "int": -5, "str": 2, "wis": 5}
+  speeds: {"land": 30, "climb": 20}
+  hp_details: "(4 segments); Thresholds 50 (3 segments), 25 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Stealth": 13}
+  weaknesses: {"area-damage": 5, "electricity": 5, "splash-damage": 5, "orichalcum": 5}
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "48 hours, disable-device dc=19, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 75 (4 segments); Thresholds 50 (3 segments), 25 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Fire Crossbows", "type": "action", "traits": [], "cost": 2, "text": "The clockwork runners reload the crossbows built onto their backs, then launch a ranged attack in the form of a volley. This volley is a 10-foot burst within 120 feet that deals 2d8 piercing|options:area-damage damage (DC 19 Reflex save). When the clockwork runners are reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Scratch and Bite", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The clockwork runners engage in a pack attack against each enemy in a 5-foot emanation, with a DC 19 Reflex save. The damage depends on the number of actions.%r1 1d8 untyped|options:area-damage damage%r2 (2d8+3) untyped|options:area-damage damage%r3 (2d8+7) untyped|options:area-damage damage"}, {"name": "War Pounce", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The clockwork runner pack Strides, ignoring difficult terrain (but not greater difficult terrain). At the end of this movement, each enemy in a 5-foot emanation takes 1d8 untyped|options:area-damage damage (DC 19 Reflex save)."}]
+"Deinonychus Pack":
+  pack: "battlecry-bestiary"
+  level: 7
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "dinosaur", "troop"]
+  ac: 24
+  hp: 120
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 15, "will": 12}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 30}
+  hp_details: "(4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 15, "Athletics": 17, "Stealth": 15}
+  weaknesses: {"area-damage": 6, "splash-damage": 6}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 120 (4 segments); Thresholds 80 (3 segments), 40 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Jaws and Claws", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The pack makes a melee attack against each enemy in a 5-foot emanation (DC 22 Reflex save). The damage depends on the number of actions.%r1 1d6 piercing,1d4 persistent bleed|options:area-damage damage%r2 (2d6+4) piercing,2d4 persistent bleed|options:area-damage damage%r3 (3d6+6) piercing,2d4 persistent bleed|options:area-damage damage"}, {"name": "Predator's Advantage", "type": "passive", "traits": [], "text": "Bleeding creatures take a –2 circumstance penalty to Reflex saves against a deinonychus pack's Jaws and Claws.%rEffect: Predator's Advantage"}, {"name": "Surround Prey", "type": "action", "traits": [], "cost": 2, "text": "Requirements The deinonychus pack has at least 3 segments%rEffect The pack Strides, positioning its segments so that at least two of them are adjacent to the same creature, and lashes out with its talons. That creature must succeed at a DC 22 Reflex save or take 2d4 persistent bleed damage."}]
+"Dezullon Thicket":
+  pack: "battlecry-bestiary"
+  level: 15
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["plant", "troop"]
+  ac: 36
+  hp: 270
+  perception: 25
+  saves: {"fortitude": 24, "reflex": 28, "will": 23}
+  abilities: {"cha": -1, "con": 4, "dex": 8, "int": -4, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 180 (3 segments), 90 (2 segments)"
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 29, "Athletics": 27, "Stealth": 29}
+  weaknesses: {"area-damage": 15, "splash-damage": 15}
+  resistances: {"acid": 20}
+  actions: [{"name": "Regeneration", "type": "passive", "traits": []}, {"name": "Regrowth", "type": "passive", "traits": [], "text": "When the dezullon thicket's regeneration raises its Hit Points above a listed threshold after losing a segment for dropping below it, the thicket immediately regains that lost segment."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 180 (4 segments); Thresholds 180 (3 segments), 90 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Acid Rain", "type": "action", "traits": [], "cost": 2, "text": "The dezullon thicket discharges a cascade of acidic digestive juices as a ranged attack, dealing 6d6 acid|options:area-damage,inflicts:amnesia-venom damage in a 10-foot burst within 30 feet (DC 33 Reflex save) and exposing any creature struck to amnesia venom. When the thicket is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Amnesia Venom", "type": "passive", "traits": ["mental", "poison"], "text": "Saving Throw DC 33 Fortitude%rMaximum Duration 6 rounds%rStage 1 Clumsy 1 (1 round)%rStage 2 Clumsy 2 (1 round)%rStage 3 Confused, Off-Guard, and Clumsy 3 (1 round)%rStage 4 as Stage 3 and permanently forget the last hour (1 round)"}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d10+6) bludgeoning, DC 36 Fortitude"}, {"name": "Root", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the dezullon thicket appears to be a field of normal pitcher plants. It has an automatic result of 49 (53 in forests or swamps) on Deception checks and DCs to pass as a grove of non-creature plants."}, {"name": "Thrashing Vines", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The thicket makes a melee attack against each enemy within a 5-foot emanation (DC 33 Reflex save). The damage depends on the number of actions.%r1 1d8+3 bludgeoning plus 1d6 acid%r2 2d8+11 bludgeoning plus 2d6 acid and Mass Improved Grab%r3 3d8+12 bludgeoning plus 3d6 acid and Mass Improved Grab"}, {"name": "Mass Improved Grab", "type": "free", "traits": [], "text": "Trigger A creature fails or critically fails their Reflex save against the dezullon thicket's Thrashing Vines%rEffect The dezullon thicket attempts an Athletics check to grapple the triggering creature. A dezullon thicket can Grapple as many creatures as it has remaining segments, though it needs to spend an action to extend the duration on subsequent rounds. These attempts neither apply nor count toward the creature's multiple attack penalty."}]
+"Drake Flight":
+  pack: "battlecry-bestiary"
+  level: 13
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["dragon", "troop"]
+  ac: 33
+  hp: 240
+  perception: 23
+  saves: {"fortitude": 26, "reflex": 23, "will": 20}
+  abilities: {"cha": 1, "con": 4, "dex": 5, "int": -2, "str": 8, "wis": 2}
+  speeds: {"land": 25, "fly": 50}
+  hp_details: "(4 segments), Thresholds 160 (3 segments), 80 (2 segments)"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 27, "Athletics": 30, "Intimidation": 24, "Survival": 24}
+  immunities: ["paralyzed", "sleep"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"acid": 5, "cold": 5, "fire": 5, "poison": 5}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 240 (4 segments), Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Draconic Onslaught", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe drakes frenzy, lashing out with fangs and tails. Each enemy in a 10-foot emanation attempts a DC 30 Reflex save. The damage depends on the number of actions.%r1 2d8 untyped|options:area-damage damage%r2 (3d8+10) untyped|options:area-damage damage%r3 (4d8+14) untyped|options:area-damage damage"}, {"name": "Drake Breath", "type": "action", "traits": ["primal"], "cost": 2, "text": "Certain drakes within the flight bring their breath weapon (or similar ability) to bear, exhaling energy that explodes in a 15-foot burst within 120 feet. This explosion deals 5d6 untyped|options:area-damage damage (acid, cold, fire, or poison damage); the ability gains the corresponding trait. The drake flight can't choose the same damage type until it uses this ability with a different damage type. When the drakes are reduced to 2 segments, this area decreases to a 10-foot burst."}, {"name": "Speed Surge", "type": "action", "traits": [], "cost": 1, "text": "Frequency three times per day%rEffect The drake flight Strides or Flies twice."}]
+"Dromaar Company":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["dromaar", "human", "humanoid", "orc", "troop"]
+  ac: 23
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 17, "will": 11}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 0, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 15, "Intimidation": 11, "Survival": 11}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Bola Hurl", "type": "action", "traits": [], "cost": 1, "text": "The dromaars draw bolas and toss them in a 15-foot cone. Each creature in this area takes 3d6 nonlethal bludgeoning damage (DC 21 Reflex save). A creature who fails this saving throw is also knocked Prone."}, {"name": "Charge the Fallen", "type": "action", "traits": [], "cost": 2, "text": "The dromaar company Strides up to twice, sweeping with their axes. They deal (2d8+5) slashing|options:area-damage damage (DC 21 Reflex save) to each enemy in a 5-foot emanation at the end of their movement. This damage increases by 5 if the target is Prone."}, {"name": "Disciplined Strikes", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The dromaars coordinate melee attacks with their axes against all enemies in a 5-foot emanation (DC 21 Reflex save). The damage depends on the number of actions.%r1 1d8 slashing|options:area-damage damage%r2 (2d8+5) slashing|options:area-damage damage%r3 (2d8+10) slashing|options:area-damage damage"}]
+"Druid Circle":
+  pack: "battlecry-bestiary"
+  level: 12
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["human", "humanoid", "troop"]
+  ac: 32
+  hp: 210
+  perception: 22
+  saves: {"fortitude": 19, "reflex": 22, "will": 25}
+  abilities: {"cha": 4, "con": 1, "dex": 4, "int": 2, "str": 1, "wis": 7}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 140 (3 segments), 70 (2 segments)"
+  skills: {"Diplomacy": 20, "Medicine": 25, "Nature": 25, "Survival": 25}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 210 (4 segments); Thresholds 140 (3 segments), 70 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Call Down the Storm", "type": "action", "traits": ["air", "electricity", "primal"], "cost": 2, "text": "The druids summon wind and lightning against all creatures in a 10-foot burst within 80 feet. This storm deals 3d10 electricity|options:area-damage damage (DC 29 Reflex save). A creature who fails the save is also pushed 5 feet away from the druid circle. When the druid circle is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Sickle and Staff", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The druids strike out in a coordinated melee attack against all enemies in a 5-foot emanation with a DC 29 Reflex save. The damage dealt depends on the number of actions.%r1 2d6 untyped|options:area-damage damage%r2 (4d6+9) untyped|options:area-damage damage%r3 (5d6+13) untyped|options:area-damage damage"}, {"name": "Troop Spellcasting", "type": "passive", "traits": [], "text": "When the druid circle Casts a Spell, its constituent members combine their efforts into casting a more powerful version of the spell than any one member could achieve alone. When Casting a Spell that has an area of a burst, cone, or line and doesn't have a duration, increase the area of that spell. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet (a burst with a smaller radius is not affected). Add 5 feet to the length of a cone or line that is normally 15 feet…"}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 32, "attack": 26, "spells": {"0": ["Caustic Blast", "Frostbite", "Know the Way", "Stabilize", "Tangle Vine"], "3": ["Lightning Bolt", "Speak with Plants"], "4": ["Hydraulic Torrent"], "5": ["Control Water", "Howling Blizzard", "Toxic Cloud"], "6": ["Chain Lightning", "Tangling Creepers"]}}]
+"Dwarf Longshot Squad":
+  pack: "battlecry-bestiary"
+  level: 10
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["dwarf", "humanoid", "troop"]
+  ac: 29
+  hp: 180
+  perception: 22
+  saves: {"fortitude": 19, "reflex": 22, "will": 16}
+  abilities: {"cha": 0, "con": 5, "dex": 7, "int": 3, "str": 1, "wis": 1}
+  speeds: {"land": 20}
+  hp_details: "(4 segments); Thresholds 120 (3 segments), 60 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 19, "Crafting": 22}
+  weaknesses: {"area-damage": 12, "splash-damage": 12}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 180 (4 segments); Thresholds 120 (3 segments), 60 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Bolts from the Blue", "type": "action", "traits": [], "cost": 2, "text": "The dwarven longshots reload their crossbows, then launch a ranged attack in the form of a volley. This volley is a 15-foot burst within 120 feet that deals 6d6 piercing|options:area-damage damage with a DC 26 Reflex saving throw. When the dwarven longshot squad is reduced to 2 segments, this area decreases to a 10-foot burst."}, {"name": "Brandish Bayonets!", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect Using blades attached to their crossbows, the dwarven longshots engages in a coordinated melee attack against enemies in a 5-foot emanation, with a DC 26 Reflex save. The damage depends on the number of actions.%r1 (1d8+2) piercing|options:area-damage damage%r2 (2d8+11) piercing|options:area-damage damage%r3 (3d8+13) piercing|options:area-damage damage"}, {"name": "Hampering Fusillade", "type": "action", "traits": [], "cost": 2, "text": "The dwarven longshots fire dozens of bolts in quick succession to slow down advancing enemies. Each creature in a 30-foot burst within 120 feet must attempt a DC 26 Fortitude saving throw. On a failure, a creature takes a –10-foot circumstance penalty to its Speed for 1 minute. Spending an Interact action to remove the bolts ends this penalty.%rEffect: Hampering Fusillade"}]
+"Dwarf Longshot Squad (Guns)":
+  pack: "battlecry-bestiary"
+  level: 10
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["dwarf", "humanoid", "troop"]
+  ac: 29
+  hp: 180
+  perception: 22
+  saves: {"fortitude": 19, "reflex": 22, "will": 16}
+  abilities: {"cha": 0, "con": 5, "dex": 7, "int": 3, "str": 1, "wis": 1}
+  speeds: {"land": 20}
+  hp_details: "(4 segments); Thresholds 120 (3 segments), 60 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 19, "Crafting": 22}
+  weaknesses: {"area-damage": 12, "splash-damage": 12}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 180 (4 segments); Thresholds 120 (3 segments), 60 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Brandish Bayonets!", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect Using blades attached to their rifles, the dwarven longshots engages in a coordinated melee attack against enemies in a 5-foot emanation, with a DC 26 Reflex save. The damage depends on the number of actions.%r1 (1d8+2) piercing|options:area-damage damage%r2 (2d8+11) piercing|options:area-damage damage%r3 (3d8+13) piercing|options:area-damage damage"}, {"name": "Bullet Smog", "type": "action", "traits": [], "cost": 2, "text": "The dwarven longshots fire their rifles in rapid succession to create a cloud of smoke within 120 feet. This cloud is a 20-foot burst and lasts for 1 minute or until it is dispersed by a strong wind, whichever comes first. All creatures within the cloud become Concealed, and all creatures outside the cloud become concealed to creatures within it."}, {"name": "Bullets from the Blue", "type": "action", "traits": [], "cost": 2, "text": "The dwarven longshots reload their rifles, then launch a ranged attack in the form of a volley. This volley is a 15-foot burst within 120 feet that deals 6d6 untyped|options:area-damage damage with a DC 26 Reflex saving throw. When the dwarven longshot squad is reduced to 2 segments, this area decreases to a 10-foot burst."}]
+"First-Class Infantry":
+  pack: "battlecry-bestiary"
+  level: 13
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["human", "humanoid", "troop"]
+  ac: 33
+  hp: 240
+  perception: 23
+  saves: {"fortitude": 26, "reflex": 23, "will": 20}
+  abilities: {"cha": 0, "con": 5, "dex": 4, "int": 0, "str": 8, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 27, "Warfare Lore": 24}
+  weaknesses: {"area-damage": 12, "splash-damage": 12}
+  actions: [{"name": "No Retreat", "type": "passive", "traits": [], "text": "These soldiers have been extensively trained to hold their ground no matter the situation. If any effect would force the first-class infantry to move, reduce the distance by 10 feet. Any time they would be affected by the Fleeing condition, the first-class infantry is instead Slowed 2 for the same duration."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 240 (4 segments); Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Bolt Salvo", "type": "action", "traits": [], "cost": 3, "text": "The first-class infantry draws, loads, and shoots a salvo from their crossbows. The salvo is a 10-foot burst within 120 feet that deals 4d8 piercing|options:area-damage damage (DC 30 Reflex save). When the first-class infantry is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Clash of Steel", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The first-class infantry attacks each enemy in a 5-foot emanation, with a DC 29 Reflex save. The damage depends on the number of actions.%r1 (2d6+1) slashing|options:area-damage damage%r2 (4d6+10) slashing|options:area-damage damage%r3 (4d6+18) slashing|options:area-damage damage"}, {"name": "Drilled in Formations", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The first-class infantry uses Change Formation. An first-class infantry unit typically knows the marching column and wedge formations."}, {"name": "First-class Charge", "type": "action", "traits": [], "cost": 2, "text": "The first-class infantry rushes forward with a hunger for battle. They Stride up to twice their Speed. At the end of their movement, each enemy within a 5-foot emanation takes (2d6+5) slashing|options:area-damage damage, with a DC 30 Reflex save."}]
+"Fleshwarp Amalgam":
+  pack: "battlecry-bestiary"
+  level: 8
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["aberration", "mindless", "troop"]
+  ac: 26
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 14, "will": 13}
+  abilities: {"cha": 0, "con": 5, "dex": 2, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 30}
+  hp_details: "(4 segments); Thresholds 90 (3 segments), 45 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 18, "Intimidation": 16}
+  immunities: ["acid"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Brutal Retaliation", "type": "reaction", "traits": [], "text": "Trigger The fleshwarp amalgam loses a segment due to passing a Hit Point threshold%rEffect The fleshwarp amalgam lashes out in retaliation. Each enemy in a 5-foot emanation takes 2d10+6 untyped|options:area-damage damage (DC 23 Reflex). A creature who fails the save is also pushed 5 feet away from the amalgam."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 135 (4 segments); Thresholds 90 (3 segments), 45 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Acid Spray", "type": "action", "traits": ["acid"], "cost": 2, "text": "The fleshwarp amalgam sprays acid from their various orifices, combining the streams into a powerful spray. This acid spray is a 10-foot burst that deals 3d8 acid|options:area-damage|options:area-effect damage (DC 23 Reflex save) within 60 feet. A creature who critically fails their saving throw takes 1d8 persistent acid|options:area-damage damage. When the troop is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Frenzy of Tentacles and Claws", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The fleshwarps make wild melee attacks against each enemy in a 5-foot emanation (DC 23 Reflex save). The damage depends on the number of actions.%r1 1d10 untyped|options:area-damage damage%r2 (2d10+6) untyped|options:area-damage damage%r3 (2d10+11) untyped|options:area-damage damage"}, {"name": "Many-Limbed Stride", "type": "passive", "traits": [], "text": "While moving on land, the fleshwarp amalgam ignores the effects of non-magical difficult terrain."}]
+"Gargoyle Wing":
+  pack: "battlecry-bestiary"
+  level: 9
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["beast", "earth", "troop"]
+  ac: 28
+  hp: 150
+  perception: 18
+  saves: {"fortitude": 20, "reflex": 17, "will": 17}
+  abilities: {"cha": -2, "con": 4, "dex": 3, "int": -2, "str": 4, "wis": 3}
+  speeds: {"land": 25, "fly": 40}
+  hp_details: "(4 segments); Thresholds 100 (3 segments), 50 (2 segments"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 20, "Athletics": 18}
+  immunities: ["bleed"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"physical": 10}
+  actions: [{"name": "Death From Above", "type": "reaction", "traits": ["attack"], "text": "Trigger The gargoyle wing is Flying, and a creature moves into an adjacent square below it%rEffect The gargoyle wing swoops down with their talons. The triggering creature takes (2d8+9) slashing damage (DC 28 Reflex save)."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 150 (4 segments); Thresholds 100 (3 segments), 50 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Catch and Release", "type": "action", "traits": [], "cost": 2, "text": "The gargoyle wing attempts an Athletics checks to grapple, comparing the result to the Fortitude DC of a number of Large or smaller creatures in a 5-foot emanation equal to the gargoyle wing's remaining number of segments, then Flies up to 40 feet, bringing any successfully Grabbed or Restrained creatures along, and Releases them."}, {"name": "Raking Swoop", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The gargoyle wing rips and tears with their stony talons at each enemy in a 5-foot emanation (DC 28 Reflex save). The damage dealt depends on the number of actions.%r1 (1d8+2) slashing|options:area-damage damage%r2 (2d8+9) slashing|options:area-damage damage%r3 (3d8+11) slashing|options:area-damage damage"}]
+"Giant Ant Army":
+  pack: "battlecry-bestiary"
+  level: 7
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "troop"]
+  ac: 24
+  hp: 120
+  perception: 15
+  saves: {"fortitude": 17, "reflex": 14, "will": 12}
+  abilities: {"cha": -4, "con": 6, "dex": 2, "int": -4, "str": 6, "wis": 2}
+  speeds: {"land": 40, "climb": 20}
+  hp_details: "(4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 17, "Survival": 15}
+  weaknesses: {"area-damage": 7, "splash-damage": 7}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 120 (4 segments); Thresholds 80 (3 segments), 40 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Giant Ant Venom", "type": "passive", "traits": [], "text": "Saving Throw DC 24 Fortitude%rMaximum Duration 6 rounds%rStage 1 2d8 poison damage and Enfeebled 1 (1 round)%rStage 2 3d6 poison damage and Enfeebled 2 (1 round)%rStage 3 2d10 poison damage and Enfeebled 3 (1 round)"}, {"name": "Grasping Mandibles", "type": "action", "traits": [], "cost": 1, "text": "Requirements The giant ant army's last action was a Mandible Frenzy that at least one creature failed their save against or the giant ant army has at least one creature Grabbed or Restrained%rEffect If used after Grasping Mandibles, the giant ant army can attempt an Athletics check to grapple, comparing the result to the Fortitude DC of each creature who failed its saving throw, up to as many creatures as the giant ant army has remaining segments. The giant any army can instead use Grasping…"}, {"name": "Haul Away", "type": "action", "traits": [], "cost": 1, "text": "Requirements The giant ant army has at least one creature Restrained%rEffect The army Strides up to its Speed, carrying any restrained creatures with it. If the creature is Gargantuan, the giant ant army is Encumbered."}, {"name": "Mandible Frenzy", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The army makes a savage bite attack against each enemy in a 5-foot emanation (DC 22 Reflex save). The damage dealt depends on the number of actions.%r1 1d8 slashing|options:area-damage,grasping-mandibles damage plus Grasping Mandibles%r2 (2d8+6) slashing|options:area-damage,grasping-mandibles damage plus Grasping Mandibles%r3 (2d8+11) slashing|options:area-damage damage"}, {"name": "Overwhelm", "type": "action", "traits": [], "cost": 2, "text": "The giant ant army swarms over a Large or larger creature that it has Grabbed, pinning the creature in place and causing it to become Restrained until the start of the giant ant army's next turn or until it Escapes. A creature that begins its turn restrained by the army is repeatedly stung by the clinging ants, automatically taking 2d6 piercing damage and suffering the effects of giant ant venom."}]
+"Gnome Cannon Corps":
+  pack: "battlecry-bestiary"
+  level: 7
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["gnome", "humanoid", "troop"]
+  ac: 24
+  hp: 120
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 15, "will": 18}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": 6, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 13, "Arcana": 17, "Crafting": 15}
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 120 (4 segments); Thresholds 80 (3 segments), 40 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Arcane Explosion", "type": "action", "traits": ["arcane", "force"], "cost": 3, "text": "Aiming the gnome cannons toward the enemy, loading them, and firing them requires the troop's full attention. The cannons fire a 15-foot burst of bright magic within 200 feet that deals (2d12+2) force|options:area-damage damage (DC 22 Reflex save). A creature that fails their save is also Dazzled for 1 round; this is a light and visual effect. The area of the explosion seems to twist and ripple for 1 minute afterward. A creature that attempts to move through the space must succeed at a DC 22…"}, {"name": "Cannon Vent", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The gnome engineers vent the cannons' energy in a blast that hits all creatures in a 5-foot emanation (DC 22 Reflex save). The damage depends on the number of actions.%r1 (1d6+2) fire|options:area-damage damage%r2 (2d6+8) fire|options:area-damage damage%r3 (3d6+10) fire|options:area-damage damage"}, {"name": "Direct Hit", "type": "action", "traits": [], "cost": 2, "text": "The gnomes fire a more mundane round from one of their cannons at a single target within 60 feet, who takes (3d10+6) bludgeoning damage (DC 22 Reflex save). On a failed save, the creature is also pushed 5 feet away from the troop."}]
+"Goblin Rabble":
+  pack: "battlecry-bestiary"
+  level: 4
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["goblin", "humanoid", "troop"]
+  ac: 20
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 14, "will": 8}
+  abilities: {"cha": 1, "con": 2, "dex": 5, "int": 0, "str": 1, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 40 (3 segments), 20 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Athletics": 10, "Stealth": 12, "Thievery": 12}
+  weaknesses: {"area-damage": 4, "splash-damage": 4}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 60 (4 segments); Thresholds 40 (3 segments), 20 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Dogpile", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe goblin rabble engage in as coordinated an attack as they can with their dogslicers, attacking each enemy in a 5-foot emanation (DC 18 Reflex save). The damage depends on the number of actions. A creature who critically fails their save is also knocked Prone.%r1 1d6 slashing|options:area-damage damage%r2 (2d6+4) slashing|options:area-damage damage%r3 (2d6+7) slashing|options:area-damage damage"}, {"name": "Hobble Pursuit", "type": "action", "traits": [], "cost": 2, "text": "The goblin rabble hamstring and hobble as many enemies as possible. Each enemy in a 5-foot emanation must attempt a DC 18 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The creature takes a –5-foot circumstance penalty to their Speeds.%rFailure The creature takes a –10-foot circumstance penalty to their Speeds and is Slowed 1.%rCritical Failure The creature takes a –15-foot circumstance penalty to their Speeds and is slowed 1.%rEffect: Hobble Pursuit"}, {"name": "Rush and Steal", "type": "action", "traits": [], "cost": 2, "text": "Quickly moving in with grasping hands, the goblin rabble take what they can. The goblin rabble Strides up to twice their Speed. During this movement, the goblins Interact to pick up an unattended object no larger than 2 Bulk or attempt to Steal an item from a creature they are adjacent to; the goblins can pick up or Steal as many objects as they have remaining segments in any combination."}]
+"Halfling Lucky Draw":
+  pack: "battlecry-bestiary"
+  level: 8
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["halfling", "humanoid", "troop"]
+  ac: 26
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 13, "reflex": 16, "will": 19}
+  abilities: {"cha": 6, "con": 1, "dex": 4, "int": 3, "str": 0, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 90 (3 segments), 45 (2 segments)"
+  skills: {"Deception": 18, "Diplomacy": 16, "Occultism": 16, "Performance": 18, "Stealth": 16}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 135 (4 segments); Thresholds 90 (3 segments), 45 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Bad Deal", "type": "action", "traits": ["auditory", "emotion", "linguistic", "mental", "misfortune", "occult"], "cost": 2, "text": "The halflings mock and taunt their enemies with quick Harrow readings that predict doom. The troop chooses a number of creatures equal to the number of its remaining segments within 60 feet. Each target must attempt a DC 23 Will save. On a failure, the target must roll their next attack roll, saving throw, or skill check twice and use the worse result.%rEffect: Bad Deal"}, {"name": "False Cuts", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The halflings feint with their cards and then lash out with their daggers in a coordinated melee attack against enemies in a 5-foot emanation, with a DC 23 Reflex save. The damage depends on the number of actions.%r1 1d4 piercing or slashing damage and 1d4 precision damage%r2 2d4+7 piercing or slashing damage and 2d4 precision damage%r3 3d4+10 piercing or slashing damage and 2d4 precision damage"}, {"name": "Troop Harrowing", "type": "passive", "traits": ["mental", "occult"], "text": "When the halfling lucky draw Casts a Spell that targets a single creature, some of the constituent members can perform a focused Harrow reading on the target as part of Casting the Spell. The lucky draw attempts an Occultism skill check against the target's Will DC. On a success, the target takes a –1 status penalty to their saving throw or AC against the spell (–2 on a critical success). If the lucky draw critically fails this check, their reading portends bad news for the halflings and they…"}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 23, "attack": 20, "spells": {"0": ["Daze", "Figment", "Telekinetic Projectile"], "3": ["Force Barrage", "Paralyze", "Slow"], "4": ["Confusion", "Force Barrage"]}}]
+"Hell Hound Pack":
+  pack: "battlecry-bestiary"
+  level: 8
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["beast", "fiend", "fire", "troop", "unholy"]
+  ac: 26
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 17, "will": 14}
+  abilities: {"cha": -2, "con": 3, "dex": 4, "int": -2, "str": 6, "wis": 3}
+  speeds: {"land": 40}
+  hp_details: "(4 segments); Thresholds 90 (3 segments), 45 (2 segments"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 15, "Athletics": 16, "Survival": 16}
+  immunities: ["fire"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8, "cold": 10}
+  actions: [{"name": "Hellish Revenge", "type": "reaction", "traits": [], "text": "Trigger The hell hound pack is critically hit by a Strike or spell attack%rEffect The hell hound pack's Hellfire Breath recharges. They can immediately use it as part of this reaction."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 135 (4 segments); Thresholds 90 (3 segments), 45 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Hellfire Breath", "type": "action", "traits": ["divine", "fire", "unholy"], "cost": 1, "text": "The hell hounds in the pack combine their efforts to bathe the battlefield in hellish flame, dealing 2d10 fire|options:area-damage damage to all creatures in two 15-foot cones (DC 25 Reflex save) that can't overlap. The hell hound pack can't use Hellfire Breath again for 1d4 rounds. If the pack would take fire damage or be targeted by a fire effect, its Hellfire Breath recharges."}, {"name": "Infernal Mauling", "type": "action", "traits": ["magical", "unholy"], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The pack tears into each enemy in a 5-foot emanation with their flaming jaws (DC 23 Reflex save). The damage dealt depends on the number of actions.%r1 1d4 piercing damage plus 1d6 fire damage%r2 1d8+7 piercing damage plus 2d6 fire damage%r3 2d8+7 piercing damage plus 2d6 fire damage"}]
+"Hobgoblin Veteran Regiment":
+  pack: "battlecry-bestiary"
+  level: 9
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["hobgoblin", "humanoid", "troop"]
+  ac: 27
+  hp: 150
+  perception: 18
+  saves: {"fortitude": 19, "reflex": 15, "will": 19}
+  abilities: {"cha": 1, "con": 4, "dex": 3, "int": 0, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 100 (3 segments), 50 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Intimidation": 18}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Hobgoblin Phalanx", "type": "action", "traits": [], "cost": 1, "text": "Many of the hobgoblins raise their shields to protect their allies. The regiment gains a +2 circumstance bonus to AC until the start of their next turn."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 150 (4 segments); Thresholds 100 (3 segments), 50 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Watchful", "type": "passive", "traits": [], "text": "The hobgoblin regiment is trained to guard from all sides with shields at the ready. The hobgoblin regiment can't be made Off-Guard by flanking creatures of the troop's level or lower."}, {"name": "Disciplined Strikes", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The hobgoblins engage in a coordinated melee attack against each enemy in a 5-foot emanation, with a DC 25 Reflex save. The damage depends on the number of actions.%r1 (1d8+2) slashing|options:area-damage damage%r2 (2d8+9) slashing|options:area-damage damage%r3 (3d8+11) slashing|options:area-damage damage"}, {"name": "Overrun", "type": "action", "traits": [], "cost": 3, "text": "The hobgoblin veteran regiment marches inexorably forward, crushing enemies in their path. The regiment Strides up to double its Speed and can move through the spaces of Large or smaller creatures, dealing (2d8+9) slashing damage (DC 25 Reflex save) to each creature whose space it enters. The regiment can attempt to Overrun the same creature only once in a single use of Overrun. When the regiment is reduced to 2 segments, the damage decreases to (1d8+2) slashing damage."}, {"name": "Shortbow Volley", "type": "action", "traits": [], "cost": 2, "text": "The hobgoblins draw their shortbows, then launch a ranged attack in the form of a volley. This volley is a 10-foot burst within 60 feet that deals 4d6 piercing|options:area-damage damage with a DC 25 Reflex save. When the regiment is reduced to 2 segments, this area decreases to a 5-foot burst."}]
+"Kobold Trap Squad":
+  pack: "battlecry-bestiary"
+  level: 4
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["humanoid", "kobold", "troop"]
+  ac: 20
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 8, "reflex": 14, "will": 11}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 0, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 40 (3 segments), 20 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Crafting": 10, "Survival": 10}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 60 (4 segments); Thresholds 40 (3 segments), 20 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Group Scamper", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The kobolds Stride up to their Speed plus 5 feet and gain a +2 circumstance bonus to AC against reactions triggered by this movement. If they end this movement with at least 1 segment adjacent to any enemy, the squad is Off-Guard until the beginning of its next turn."}, {"name": "Hasty Traps", "type": "action", "traits": ["manipulate"], "cost": 2, "text": "The kobolds hastily prepare a handful of rudimentary traps in their vicinity until the beginning of their next turn. The next creature who moves adjacent to the trap squad triggers a trap and must attempt a DC 18 Reflex save. On a failure, the creature takes 1d4 persistent bleed damage (2d4 persistent bleed damage on a critical failure). A creature taking persistent bleed damage from Hasty Traps takes a –5-foot enhancement penalty to its Speed. This occurs to as many creatures as the kobold…"}, {"name": "Sling Barrage", "type": "action", "traits": [], "cost": 2, "text": "The kobolds draw their slings, then launch a ranged barrage of stones. This barrage is a 10-foot burst within 50 feet that deals 3d4 bludgeoning|options:area-damage damage with a DC 18 Reflex save. When the squad is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Spear Jabs", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The kobold trap squad engages in a coordinated melee attack against all enemies in a 5-foot emanation, with a DC 18 Reflex save. The damage depends on the number of actions.%r1 1d6 piercing|options:area-damage damage%r2 (2d6+4) piercing|options:area-damage damage%r3 (2d6+7) piercing|options:area-damage damage"}]
+"Leukodaemon Plague":
+  pack: "battlecry-bestiary"
+  level: 14
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["daemon", "fiend", "troop", "unholy"]
+  ac: 35
+  hp: 255
+  perception: 25
+  saves: {"fortitude": 22, "reflex": 25, "will": 28}
+  abilities: {"cha": 3, "con": 1, "dex": 5, "int": 3, "str": 7, "wis": 5}
+  speeds: {"land": 25, "fly": 40}
+  hp_details: "(4 segments); Thresholds 170 (3 segments), 85 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 25, "Intimidation": 25, "Medicine": 28, "Religion": 28, "Stealth": 25, "Survival": 23}
+  immunities: ["death-effects", "disease"]
+  weaknesses: {"area-damage": 15, "splash-damage": 15, "holy": 15}
+  actions: [{"name": "Plaguesense", "type": "passive", "traits": [], "text": "A leukodaemon plague senses any creature with a disease, and knows the type and current stage of all diseases carried by any creature within range."}, {"name": "Infectious Aura", "type": "passive", "traits": ["aura", "disease"], "text": "30 feet. Leukodaemons radiate infection. All creatures within 30 feet of a leukodaemon plague take a –2 status penalty to saves against disease. If a creature within range contracts or progresses a disease, all adjacent creatures are exposed to the same disease, at the same DC."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 255 (4 segments); Thresholds 170 (3 segments), 85 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Daemonic Pestilence", "type": "passive", "traits": ["disease"], "text": "The leukodaemon plague can telepathically communicate with the afflicted creature at any distance on the same plane%rSaving Throw DC 34 Fortitude%rStage 1 carrier (1 day)%rStage 2 Drained 1 (1 day)%rStage 3 Drained 2 (1 day)%rStage 4 drained 2 (1 day)%rStage 5 Drained 3 (1 week)%rStage 6 dead"}, {"name": "Infected Jaws and Claws", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The leukodaemons unleash an onslaught of blows against each enemy in a 10-foot emanation (DC 31 Reflex save). The damage depends on the number of actions.%r1 (1d10+3) untyped damage plus daemonic pestilence%r2 (3d10+9) untyped damage plus daemonic pestilence%r3 (4d10+12) untyped damage plus daemonic pestilence"}, {"name": "Pestilent Wheeze", "type": "action", "traits": ["divine", "unholy"], "cost": 2, "text": "The leukodaemons exhale a 30-foot cone of disease-ridden black flies that deal 5d8 piercing|options:area-damage damage (DC 31 Reflex save). A creature that fails the save also becomes Sickened 1 (or Sickened 2 on a critical failure). When the leukodaemon plague is reduced to 2 segments, this area decreases to a 20-foot cone."}, {"name": "Quicken Pestilence", "type": "action", "traits": ["divine", "manipulate"], "cost": 1, "text": "The leukodaemons coax a disease into full bloom. They choose a target within their infectious aura that's currently affected by a disease. That creature must attempt a Fortitude save against the disease as if the interval for the disease's current stage had passed."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 34, "attack": 0, "spells": {"5": ["Translocate (At Will)"], "7": ["Dispel Magic"]}}]
+"Lich Legion":
+  pack: "battlecry-bestiary"
+  level: 18
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["troop", "undead", "unholy"]
+  ac: 41
+  hp: 330
+  perception: 30
+  saves: {"fortitude": 27, "reflex": 30, "will": 33}
+  abilities: {"cha": 4, "con": 0, "dex": 5, "int": 9, "str": 1, "wis": 6}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 220 (3 segments), 110 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Arcana": 38, "Deception": 35, "Diplomacy": 35, "Religion": 31, "Stealth": 29}
+  immunities: ["bleed", "death-effects", "disease", "poison", "unconscious"]
+  weaknesses: {"area-damage": 15, "splash-damage": 15}
+  resistances: {"cold": 15}
+  actions: [{"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "60 feet. DC 37 Will"}, {"name": "Mass Rejuvenation", "type": "passive", "traits": [], "text": "This functions similarly to a lich's rejuvenation ability, though with all the liches of a legion returning as a troop thanks to a collective Soul Cage, which is a level 18 item that has Hardness 15 and 54 Hit Points."}, {"name": "Troop Counterspell", "type": "reaction", "traits": [], "text": "Trigger A creature within the legion's sight casts a spell the legion has prepared%rEffect The lich legion expends a prepared spell to counter the triggering creature's casting of that same spell. The lich legion loses the spell slot as if they had cast the triggering spell. The lich legion then attempts to counteract the triggering spell with a +2 status bonus to the counteract check."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 330 (4 segments); Thresholds 220 (3 segments), 110 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Siphoning Grip", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The lich legion touches all enemies within a 5-foot emanation to drain their life (DC 37 Reflex save). The damage depends on the number of actions. For each action the lich legion uses, the legion gains 10 temporary Hit Points that last 1 minute.%r1 2d8 void|options:area-damage damage%r2 (4d8+11) void|options:area-damage damage%r3 (6d8+13) void|options:area-damage damage"}, {"name": "Steady Troop Spellcasting", "type": "passive", "traits": [], "text": "When the lich legion Casts a Spell, their constituent members combine their efforts into casting a more powerful version of the spell than any one member could achieve alone. When Casting a Spell that has an area of a burst, cone, or line and doesn't have a duration, increase the area of that spell. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet (a burst with a smaller radius is not affected). Add 5 feet to the length of a cone or line that is normally 15…"}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 40, "attack": 35, "spells": {"0": ["Detect Magic", "Frostbite", "Message", "Shield", "Telekinetic Hand"], "1": ["Enfeeble", "Fleet Step", "Force Barrage", "Grim Tendrils"], "2": ["Blur", "Dispel Magic", "False Vitality", "Resist Energy", "See the Unseen"], "3": ["Blindness", "Locate", "Vampiric Feast"], "4": ["Fire Shield", "Fly", "Translocate"], "5": ["Howling Blizzard", "Toxic Cloud", "Wall of Ice"], "6": ["Chain Lightning", "Never Mind", "Vampiric Exsanguination"], "7": ["Eclipse Burst", "Warp Mind"], "8": ["Arctic Rift", "Desiccate", "Earthquake"], "9": ["Falling Stars", "Massacre", "Phantasmagoria"]}}]
+"Mitflit Vermin Cavalry":
+  pack: "battlecry-bestiary"
+  level: 4
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "fey", "gremlin", "troop"]
+  ac: 20
+  hp: 60
+  perception: 14
+  saves: {"fortitude": 8, "reflex": 14, "will": 11}
+  abilities: {"cha": -1, "con": 1, "dex": 5, "int": -1, "str": 0, "wis": 2}
+  speeds: {"land": 15, "climb": 15}
+  hp_details: "(4 segments), Thresholds 40 (3 segments), 20 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Diplomacy": 8, "Nature": 10, "Stealth": 12}
+  weaknesses: {"area-damage": 5, "splash-damage": 5, "cold-iron": 4}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 60 (4 segments), Thresholds 40 (3 segments), 20 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Crawling Stabs", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The mitflits thrust with their shortswords, coordinated with bites from their giant vermin mounts. All enemies in a 5-foot emanation must attempt a DC 18 Reflex save. The damage depends on the number of actions.%r1 1d6 piercing|options:area-damage damage%r2 (2d6+4) piercing|options:area-damage damage%r3 (2d6+8) piercing|options:area-damage damage"}, {"name": "Leaping Charge", "type": "action", "traits": [], "cost": 2, "text": "The mitflit vermin cavalry Leaps up to 30 feet. If it moves at least 15 feet, the cavalry deals (2d6+4) piercing|options:area-damage damage (DC 18 Reflex save) to each enemy within a 5-foot emanation at the end of its movement."}, {"name": "Mounted Troop", "type": "passive", "traits": [], "text": "Effects that target only animals or only humanoids may not work on the mitflit vermin cavalry, subject to the GM's discretion."}, {"name": "Vengeful Wrath", "type": "passive", "traits": ["emotion", "mental"], "text": "As long as it's not Frightened, the mitflit vermin cavalry gains a +2 status bonus to the DC of its Crawling Stabs ability against creatures that have previously damaged or tormented it."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 18, "attack": 0, "spells": {"0": ["Prestidigitation"], "1": ["Vanishing Tracks"], "2": ["Speak with Animals (Arthropods only; at Will)"]}}]
+"Monk Cadre":
+  pack: "battlecry-bestiary"
+  level: 14
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["human", "humanoid", "troop"]
+  ac: 35
+  hp: 270
+  perception: 28
+  saves: {"fortitude": 28, "reflex": 26, "will": 25}
+  abilities: {"cha": 1, "con": 2, "dex": 5, "int": 2, "str": 8, "wis": 4}
+  speeds: {"land": 35, "climb": 20}
+  hp_details: "(4 segments); Thresholds 180 (3 segments), 90 (2 segments)"
+  skills: {"Acrobatics": 28, "Athletics": 28, "Stealth": 25}
+  weaknesses: {"area-damage": 15, "splash-damage": 15}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 270 (4 segments); Thresholds 180 (3 segments), 90 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Coordinated Maneuvers", "type": "action", "traits": [], "cost": 2, "text": "The monk cadre is practiced at putting their foes off-balance. The monks choose disarm, grapple, reposition, or reposition and attempt an Athletics check to perform that action, comparing the result to the appropriate DC (Fortitude for Grapple and Reposition, Reflex for Disarm and Trip) of each enemy within a 5-foot emanation. This can result in a different degree of success for each target."}, {"name": "Pummeling Punches", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The monks perform well-timed coordinated melee attacks against all enemies in a 5-foot emanation, with a DC 31 Reflex save. The damage depends on the number of actions.%r1 2d8 bludgeoning|options:area-damage damage%r2 (4d8+8) bludgeoning|options:area-damage damage%r3 (4d8+16) bludgeoning|options:area-damage damage"}, {"name": "Qi Blast", "type": "action", "traits": ["force", "occult"], "cost": 2, "text": "The monks channel their qi into an explosion of energy that affects all creatures in a 10-foot burst within 60 feet. This explosion deals 6d6 force|options:area-damage damage with a DC 31 Reflex save. When the monk cadre is reduced to 2 segments, this area decreases to a 5-foot burst."}]
+"Ofalth Stampede":
+  pack: "battlecry-bestiary"
+  level: 15
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["aberration", "troop"]
+  ac: 36
+  hp: 270
+  perception: 26
+  saves: {"fortitude": 29, "reflex": 24, "will": 25}
+  abilities: {"cha": 0, "con": 6, "dex": 5, "int": 0, "str": 7, "wis": 2}
+  speeds: {"land": 30}
+  hp_details: "(4 segments), filth wallow; Thresholds 180 (3 segments), 90 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 32, "Stealth": 28}
+  immunities: ["disease", "poison"]
+  weaknesses: {"area-damage": 15, "splash-damage": 15}
+  actions: [{"name": "Refuse Pile", "type": "passive", "traits": [], "text": "When an ofalth stampede is not in danger, they can spend 1 minute settling into a 20-foot pile that looks like a heap of garbage. Until the next time they take an action, the troop gains a +2 circumstance bonus to AC. A creature that enters the area of the garbage heap or interacts with it must attempt a save against the ofalth stampede's stench."}, {"name": "Filth Wallow", "type": "passive", "traits": [], "text": "A trash stampede gains fast healing 10 when in an area with a high concentration of debris or excrement, such as a refuse heap or sewer."}, {"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "30 feet. DC 33 Fortitude"}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 270 (4 segments), filth wallow; Thresholds 180 (3 segments), 90 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Offal Rain", "type": "action", "traits": [], "cost": 2, "text": "The ofalth stampede hurls a tremendous amount of rotting trash, which rains down in a 10-foot burst within 60 feet. All creatures in the area take 4d10 bludgeoning|options:area-damage damage (DC 33 Reflex save). Creatures that fail the saving throw are also exposed to wretched weeps. When the troop is reduced to 2 segments, the area decreases to a 5-foot burst."}, {"name": "Putrid Pummeling", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The ofalths pummel all enemies in a 10-foot emanation, with a DC 33 Reflex save. The damage depends on the number of actions. Creatures that fail the saving throw are exposed to wretched weeps.%r1 (1d12+3) bludgeoning|options:area-damage damage%r2 (3d12+7) bludgeoning|options:area-damage damage%r3 (4d12+10) bludgeoning|options:area-damage damage"}, {"name": "Wretched Weeps", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 36 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 2d4 persistent bleed every hour and Enfeebled 1 (1 day)%rStage 3 2d6 persistent bleed every hour and Enfeebled 2 (1 day)"}]
+"Omox Slime Pool":
+  pack: "battlecry-bestiary"
+  level: 17
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["demon", "fiend", "ooze", "troop", "unholy"]
+  ac: 39
+  hp: 315
+  perception: 29
+  saves: {"fortitude": 32, "reflex": 29, "will": 26}
+  abilities: {"cha": 4, "con": 9, "dex": 6, "int": 2, "str": 9, "wis": 4}
+  speeds: {"land": 40, "climb": 20, "swim": 80}
+  hp_details: "4 segments); Thresholds 210 (3 segments), 105 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 30, "Athletics": 33, "Religion": 28, "Stealth": 36}
+  immunities: ["acid", "critical-hits", "disease", "poison", "precision"]
+  weaknesses: {"area-damage": 15, "splash-damage": 15, "cold-iron": 15, "holy": 15}
+  actions: [{"name": "Clean Vulnerability", "type": "passive", "traits": [], "text": "Omoxes embody filth, and they find the concept of cleanliness abhorrent. An omox slime pool subjected to an effect that cleans them takes 4d6 mental damage. They also take this damage the first time each round a creature damaged by an omox slime pool spends actions cleaning off the resultant filth."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Absorb Weapon", "type": "reaction", "traits": ["concentrate"], "text": "Trigger A creature hits the omox slime pool with a melee weapon%rEffect The omoxes attempt to disarm the creature. On a critical success, the weapon becomes subsumed within the body of an omox rather than falling to the ground. Retrieving the weapon requires a successful DC 45 Athletics check to disarm dc=45."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 315 (4 segments); Thresholds 210 (3 segments), 105 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Slime Barrage", "type": "action", "traits": [], "cost": 2, "text": "The omoxes hurl balls of heavy slime in a 10-foot burst within 30 feet. All creatures in the area take 4d6 bludgeoning damage and 2d6 acid damage (DC 35 Reflex save). A creature that fails the save is mired in the slime, taking a –10-foot circumstance penalty to its Speeds for 1 minute or until it Escapes; on a critical failure, the creature is also Clumsy 1 for the same duration. When the slime pool is reduced to 2 segments, the area decreases to a 5-foot burst."}, {"name": "Smothering Grasp", "type": "action", "traits": [], "cost": 1, "text": "Requirements The omox slime pool has a creature Grabbed or Restrained%rEffect Omox slime flows onto the creature, completely covering it. The creature must then succeed at a DC 38 Fortitude save or it becomes Blinded and must hold its breath or begin suffocating. These effects last as long as the omoxes have the creature grabbed or restrained.%rEffect: Remaining Air"}, {"name": "Waves of Sludge", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The omoxes attack all enemies in a 5-foot emanation with slimy tendrils (DC 35 Reflex save). A creature that critically fails this saving throw is also Grabbed by the slime pool. The damage depends on the number of actions.%r1 1d6+3 bludgeoning damage plus 1d6 acid damage%r2 3d6+12 bludgeoning damage plus 2d6 acid damage%r3 4d6+14 bludgeoning damage plus 3d6 acid damage"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 38, "attack": 0, "spells": {"5": ["Control Water", "Create Water (At Will)", "Translocate (At Will)"], "8": ["Toxic Cloud"]}}]
+"Orc Raiding Party":
+  pack: "battlecry-bestiary"
+  level: 5
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["humanoid", "orc", "troop"]
+  ac: 21
+  hp: 75
+  perception: 15
+  saves: {"fortitude": 10, "reflex": 15, "will": 12}
+  abilities: {"cha": 1, "con": 4, "dex": 4, "int": 0, "str": 5, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 50 (3 segments), 25 (2 segments)"
+  skills: {"Athletics": 13, "Intimidation": 12}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Ferocious Fall", "type": "reaction", "traits": [], "text": "The orc raiding party is about to lose a segment due to passing a Hit Point threshold%rEffect The dying orc raiders lash out as they fall. Each enemy in a 5-foot emanation takes (1d6+2) piercing|options:area-damage damage (DC 19 Reflex save); this occurs before the raiding party loses a segment."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 75 (4 segments); Thresholds 50 (3 segments), 25 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Break Through", "type": "action", "traits": [], "cost": 3, "text": "Frequency once per 10 minutes%rEffect The orc raiders exploit a gap in enemy lines. The orc raiding party Strides twice; it can pass through spaces of Medium or smaller creatures but can't end its movement in them. All enemies whose spaces the orc raiding party passed through or were adjacent to at any point during their movement take (1d6+2) piercing damage (DC 19 Reflex save). A creature who critically fails this save is also pushed 5 feet away from the orc raiding party. Break Through…"}, {"name": "Iron Rain", "type": "action", "traits": [], "cost": 2, "text": "The orc raiders launch a multitude of javelins at foes in a deadly volley. This volley is a 10-foot burst within 30 feet that deals 3d6 piercing|options:area-damage damage with a DC 19 Reflex save. When the orc raiding party is reduced to 2 or fewer segments, this area decreases to a 5-foot burst."}, {"name": "Rip Them Up", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The orc raiders batter all enemies in a 5-foot emanation with coordinated knuckle dagger strikes (DC 19 Reflex save). The damage depends on the number of actions.%r1 (1d6+2) piercing|options:area-damage damage%r2 (2d6+5) piercing|options:area-damage damage%r3 (3d6+7) piercing|options:area-damage damage"}]
+"Protean Tumult":
+  pack: "battlecry-bestiary"
+  level: 12
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["monitor", "protean", "troop"]
+  ac: 32
+  hp: 210
+  perception: 21
+  saves: {"fortitude": 22, "reflex": 25, "will": 19}
+  abilities: {"cha": 4, "con": 4, "dex": 6, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 25, "fly": 30, "swim": 25}
+  hp_details: "(4 segments); Thresholds 140 (3 segments), 70 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 25, "Athletics": 22, "Intimidation": 22, "Survival": 20}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"precision": 8, "protean-anatomy": 12}
+  actions: [{"name": "Entropy Sense", "type": "passive", "traits": ["divine", "prediction"], "text": "A protean tumult can anticipate the most likely presence of a creature through a supernatural insight into chaotic probabilities and chance. This grants it the ability to sense creatures within the listed range. Veil of Privacy prevents a creature from being detected via entropy sense automatically (without a counteract check)."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Fast Healing 8", "type": "passive", "traits": []}, {"name": "Protean Anatomy 12", "type": "passive", "traits": ["divine"], "text": "A protean's vital organs shift and change shape and position constantly. Immediately after the protean takes acid, electricity, or sonic damage, it gains the listed amount of resistance to that damage type. This lasts for 1 hour or until the next time the protean takes damage of one of the other types (in which case its resistance changes to match that type), whichever comes first. The protean is immune to polymorph effects unless it is a willing target. If Blinded or Deafened, the protean…"}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 210 (4 segments); Thresholds 140 (3 segments), 70 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Chaos Flux", "type": "passive", "traits": [], "text": "A protean tumult is less organized and more vicious than most troops. It can move into other creatures' spaces, and other creatures can move into its spaces. Its spaces are difficult terrain to non-protean creatures. A creature that willingly moves into a protean tumult's space takes (1d12+1) untyped damage (DC 29 Reflex save); a creature takes this damage only once per round."}, {"name": "Chaos Strike", "type": "free", "traits": ["divine", "morph"], "text": "Frequency once per round%rEffect The protean tumult chooses adamantine, cold iron, or silver; the damage dealt by its Claws, Jaws, and Tails is treated as that material for 1 minute or until it uses Chaos Strike again."}, {"name": "Claws, Jaws, and Tails", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The tumult viciously attacks each enemy within a 5-foot emanation (DC 29 Reflex save). The damage depends on the number of actions.%r1 (1d12+1) untyped|options:area-damage damage%r2 (2d12+10) untyped|options:area-damage damage%r3 (3d12+11) untyped|options:area-damage damage"}, {"name": "Stupefying Swipe", "type": "action", "traits": ["divine", "emotion", "mental"], "cost": 2, "text": "The protean tumult makes their way across the battlefield. It Strides. At the end of this movement, they lash out at the enemy with tentacles and other blunt body parts, dealing (2d12+10) bludgeoning|options:area-damage damage in a 5-foot emanation (DC 29 Reflex save). A creature who fails this save is also Stupefied 2 for 2 rounds (Stupefied 3 on a critical failure)."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 29, "attack": 0, "spells": {"4": ["Unfettered Movement (Constant)"]}}]
+"Qadiran Camel Corps":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "human", "humanoid", "troop"]
+  ac: 23
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 14, "will": 11}
+  abilities: {"cha": 2, "con": 2, "dex": 3, "int": 0, "str": 5, "wis": 1}
+  speeds: {"land": 35}
+  hp_details: "(4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  skills: {"Athletics": 15, "Diplomacy": 11, "Nature": 13, "Survival": 13}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Desert-Adapted Troop", "type": "passive", "traits": [], "text": "A camel corps is well-adapted to heat and deserts. They treat environmental heat as if it was one step less severe, and if the camel mounts have eaten and drank their fill, the corps can Subsist for 1 week without needing to attempt Survival checks."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Dust Storm", "type": "action", "traits": [], "cost": 1, "text": "Requirements The camel corps is in a desert or similar region%rEffect The camel corps Steps, whipping up sand into a short-lived storm that obscures the surrounding region. Until the end of their next turn, the camel corps is Concealed from all creatures more than 15 feet away, and all creatures more than 15 feet away are concealed to the camel corps."}, {"name": "Mounted Troop", "type": "passive", "traits": [], "text": "Effects that target only animals or only humanoids may not work on the valkyrie tempest, subject to the GM's discretion."}, {"name": "Reflective Arrows", "type": "action", "traits": [], "cost": 2, "text": "Adjusting to the angle of the sun, the camel riders draw their shortbows, then launch a ranged attack in the form of an arcing volley. This volley is a 10-foot burst within 60 feet that deals 3d6 piercing|options:area-damage damage (DC 21 Reflex save). In areas of bright light, such as outside during the day, the targets take a –1 circumstance penalty to the save. When the camel corps is reduced to 2 segments, this area decreases to a 5-foot burst.%rEffect: Reflective Arrows (Penalty)"}, {"name": "Scimitar Assault", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The camel corps engages in a coordinated melee attack against each enemy in a 5-foot emanation (DC 21 Reflex save). The damage depends on the number of actions.%r1 (1d6+1) slashing|options:area-damage damage%r2 (2d6+7) slashing|options:area-damage damage%r3 (2d6+11) slashing|options:area-damage damage"}, {"name": "Trailblazing Stride", "type": "passive", "traits": [], "text": "While moving on land, the Qadiran camel corps ignores the effects of non-magical difficult terrain."}]
+"Ratfolk Shank Squad":
+  pack: "battlecry-bestiary"
+  level: 7
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["humanoid", "ratfolk", "troop"]
+  ac: 24
+  hp: 120
+  perception: 15
+  saves: {"fortitude": 15, "reflex": 18, "will": 12}
+  abilities: {"cha": 2, "con": 2, "dex": 6, "int": 4, "str": 0, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 80 (3 segments), 40 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Deception": 15, "Stealth": 17, "Thievery": 17}
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 120 (4 segments); Thresholds 80 (3 segments), 40 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Dirty Tricks", "type": "action", "traits": [], "cost": 2, "text": "The ratfolk feint and trip up their foes in a 5-foot emanation, attempting a single Thievery check and comparing the result to each target's Reflex DC. On a success, the target is Clumsy 1 (Clumsy 2 on a critical success) until they take an Interact action to remove the condition."}, {"name": "Poisoned Bolts", "type": "action", "traits": [], "cost": 2, "text": "The shank squad draws hand crossbows to fire poisoned bolts in a volley. This volley is a 10-foot burst within 60 feet that deals 2d6 piercing damage and 2d6 poison damage with a DC 22 Reflex save. When the shank squad is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Shank 'Em", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The shank squad makes a coordinated attack with shivs and daggers against each enemy in a 5-foot emanation, with a DC 22 Reflex save. The damage depends on the number of actions.%r1 1d6 slashing damage and 1d4 precision damage%r2 2d6+3 slashing damage and 2d4 precision damage%r3 2d6+6 slashing damage and 3d4 precision damage"}]
+"Redcap Brigade":
+  pack: "battlecry-bestiary"
+  level: 10
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["fey", "troop"]
+  ac: 29
+  hp: 165
+  perception: 19
+  saves: {"fortitude": 18, "reflex": 22, "will": 17}
+  abilities: {"cha": 3, "con": 4, "dex": 6, "int": 2, "str": 4, "wis": 2}
+  speeds: {"land": 50}
+  hp_details: "(4 segments); Thresholds 110 (3 segments), 55 (2 segments)"
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 22, "Athletics": 22, "Intimidation": 22, "Nature": 17}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Fast Healing", "type": "passive", "traits": []}, {"name": "Divine Revulsion", "type": "passive", "traits": ["emotion", "fear", "mental"], "text": "If a redcap brigade sees a creature brandish a religious symbol of a deity (which requires an Interact action by that creature) or cast a divine spell while wearing a religious symbol, the troop must attempt a DC 26 Will save. They then become temporarily immune to all brandished religious symbols for 10 minutes.%rCritical Success The troop is unaffected.%rSuccess The troop is Frightened 1.%rFailure The troop is Frightened 2.%rCritical Failure The troop is Frightened 3."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 165 (4 segments); Thresholds 110 (3 segments), 55 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Blood Soak", "type": "free", "traits": [], "text": "Trigger The redcap brigade loses its first segment, causes another troop to lose its first segment, or is otherwise exposed to copious amounts of blood%rEffect The redcap brigade gains a status bonus to damage rolls for 1 minute. The bonus is +2 if they spend one action on Bloody Reaping, +6 if they spend two actions, or +8 if they spend 3 actions. They gain a +4 status bonus to damage rolls with Bowl Over and Stomp."}, {"name": "Bloody Reaping", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The redcaps in the brigade wildly swing their halberds and sickles at each enemy in a 10-foot emanation, with a DC 26 Reflex save. The damage depends on the number of actions.%r1 (1d10+2) slashing|options:area-damage,bloody-reaping-one%r2 (2d10+9) slashing|options:area-damage,bloody-reaping-two%r3 (3d10+10) slashing|options:area-damage,bloody-reaping-three"}, {"name": "Bowl Over and Stomp", "type": "action", "traits": [], "cost": 2, "text": "The redcap brigade Strides; they can pass through spaces of Medium or smaller creatures, but can't end their movement in them. All enemies whose spaces the redcap brigade passed through take 4d8 bludgeoning|options:area-damage,bowl-ower-and-stomp damage and must attempt a DC 26 Fortitude save. Bowl Over and Stomp damages each creature only once.%rCritical Success The creature takes no damage.%rSuccess The creature takes half damage. If it is Prone, it also takes 1d6 persistent bleed…"}, {"name": "Deadly Swipes", "type": "reaction", "traits": [], "text": "Trigger The redcap brigade drops a creature to 0 Hit Points with Bloody Reaping%rEffect The redcap brigade performs an additional one-action Bloody Reaping, ignoring the once per round frequency limitation. This does not deal damage to the triggering creature."}]
+"Scamp Avalanche":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["earth", "elemental", "troop"]
+  ac: 23
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 17, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 20, "burrow": 20, "fly": 25}
+  hp_details: "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 15, "Deception": 13}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  actions: [{"name": "Fast Healing (While Underground)", "type": "passive", "traits": []}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Scree Breath", "type": "action", "traits": ["arcane", "earth"], "cost": 2, "text": "The scamp avalanche breathes rocks in a 15-foot cone that deals 3d6 bludgeoning|options:area-damage damage to each creature within the area (DC 21 Reflex save). The scamp avalanche can't use Scree Breath again for 1d4 rounds."}, {"name": "Stone Slams", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe scamp avalanche attacks with a flurry of tiny slams. Each enemy in a 5-foot emanation must attempt a DC 21 Reflex save. The damage depends on the number of actions.%r1 1d6 bludgeoning damage and 1d4 poison damage%r2 2d6+2 bludgeoning damage and 2d4 poison damage%r3 2d6+4 bludgeoning damage and 3d4 poison damage"}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 21, "attack": 15, "spells": {"0": ["Scatter Scree"], "3": ["One with Stone"]}}]
+"Scamp Flood":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["elemental", "troop", "water"]
+  ac: 23
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 17, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 20, "fly": 25, "swim": 25}
+  hp_details: "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Deception": 13}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8, "fire": 8}
+  resistances: {"acid": 8, "fire": 8}
+  actions: [{"name": "Fast Healing (While Underwater)", "type": "passive", "traits": []}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Acid Breath", "type": "action", "traits": ["acid", "arcane"], "cost": 2, "text": "The scamp flood breathes acid in a 15-foot cone that deals 3d6 acid|options:area-damage damage to each creature within the area (DC 21 Reflex save). The scamp flood can't use Acid Breath again for 1d4 rounds."}, {"name": "Drenching Claws", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe scamp flood attacks with a flurry of tiny claws. Each enemy in a 5-foot emanation must attempt a DC 21 Reflex save. The damage depends on the number of actions.%r1 1d6 slashing damage and 1d4 acid damage%r2 2d6+2 slashing damage and 2d4 acid damage%r3 2d6+4 slashing damage and 3d4 acid damage"}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 21, "attack": 15, "spells": {"2": ["Acid Grip", "Create Water"]}}]
+"Scamp Inferno":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["elemental", "fire", "troop"]
+  ac: 23
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 17, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 20, "fly": 25}
+  hp_details: "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Deception": 13}
+  immunities: ["fire", "bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8, "cold": 8}
+  actions: [{"name": "Smoke Vision", "type": "passive", "traits": [], "text": "The scamp inferno ignores the Concealed condition from smoke."}, {"name": "Fast Healing (While Touching Fire)", "type": "passive", "traits": []}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Burning Bites", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe scamp inferno attacks with a flurry of tiny teeth and flickering flames. Each enemy in a 5-foot emanation must attempt a DC 21 Reflex save. The damage depends on the number of actions.%r1 1d6 piercing damage and 1d4 fire damage%r2 2d6+2 piercing damage and 2d4 fire damage%r3 2d6+4 piercing damage and 3d4 fire damage"}, {"name": "Flame Breath", "type": "action", "traits": ["arcane", "fire"], "cost": 2, "text": "The scamp inferno breathes flames in a 15-foot cone that deals 3d6 fire|options:area-damage damage to each creature within the area (DC 21 Reflex save). Creatures that fail the save also take 1d6 persistent fire|options:area-damage damage. The scamp inferno can't use Flame Breath again for 1d4 rounds."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 21, "attack": 15, "spells": {"0": ["Daze", "Ignition"], "3": ["Fireball"]}}]
+"Scamp Shrapnel":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["elemental", "metal", "troop"]
+  ac: 23
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 17, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 20, "fly": 25}
+  hp_details: "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Deception": 13}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  resistances: {"electricity": 8}
+  actions: [{"name": "Fast Healing (While Touching Metal)", "type": "passive", "traits": []}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Metallic Claws", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe scamp shrapnel attacks with a flurry of tiny claws. Each enemy in a 5-foot emanation must attempt a DC 21 Reflex save. The damage depends on the number of actions.%r1 1d6 slashing damage and 1d4 bleed damage%r2 2d6+2 slashing damage and 2d4 bleed damage%r3 2d6+4 slashing damage and 3d4 bleed damage"}, {"name": "Shrapnel Breath", "type": "action", "traits": ["arcane", "metal"], "cost": 2, "text": "The scamp shrapnel breathes shrapnel in a 15-foot cone that deals 3d6 slashing|options:area-damage damage to each creature within the area (DC 21 Reflex save). Creatures that fail the save also take 1d6 bleed damage.The scamp shrapnel can't use Shrapnel Breath again for 1d4 rounds."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 21, "attack": 15, "spells": {"0": ["Live Wire"], "1": ["Leaden Steps"]}}]
+"Scamp Tangle":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["elemental", "troop", "wood"]
+  ac: 23
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 17, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 20, "fly": 25}
+  hp_details: "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Deception": 13}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8, "fire": 8, "slashing": 8}
+  actions: [{"name": "Fast Healing (While Touching Plants or Trees)", "type": "passive", "traits": []}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Pollen Breath", "type": "action", "traits": ["arcane", "wood"], "cost": 2, "text": "The scamp tangle breathes pollen in a 15-foot cone that deals 3d6 poison|options:area-damage damage to each creature within the area (DC 21 Reflex save). The scamp tangle can't use Pollen Breath again for 1d4 rounds."}, {"name": "Thorny Claws", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe scamp tangle attacks with a flurry of tiny claws. Each enemy in a 5-foot emanation must attempt a DC 21 Reflex save. The damage depends on the number of actions.%r1 1d6 piercing damage and 1d4 persistent bleed damage%r2 2d6+2 piercing damage and 2d4 persistent bleed damage%r3 2d6+4 piercing damage and 3d4 persistent bleed damage"}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 21, "attack": 15, "spells": {"0": ["Tangle Vine"], "2": ["Oaken Resilience (Self Only)"]}}]
+"Scamp Whirlwind":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["air", "elemental", "troop"]
+  ac: 23
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 17, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 20, "burrow": 20, "fly": 40}
+  hp_details: "4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Deception": 13}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 8, "splash-damage": 8}
+  actions: [{"name": "Fog Vision", "type": "passive", "traits": [], "text": "The scamp whirlwind ignores the Concealed condition from fog."}, {"name": "Fast Healing (In Open Air)", "type": "passive", "traits": []}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Sirocco Breath", "type": "action", "traits": ["arcane", "earth"], "cost": 2, "text": "The scamp whirlwind breathes in a 15-foot cone that deals 3d6 slashing|options:area-damage damage to each creature within the area (DC 21 Reflex save). Creatures that fail the save also get pushed back by 10 feet. The scamp whirlwind can't use Sirocco Breath again for 1d4 rounds."}, {"name": "Sonic Slams", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe scamp whirlwind attacks with a flurry of tiny slams. Each enemy in a 5-foot emanation must attempt a DC 21 Reflex save. The damage depends on the number of actions.%r1 1d6 bludgeoning damage and 1d4 sonic damage%r2 2d6+2 bludgeoning damage and 2d4 sonic damage%r3 2d6+4 bludgeoning damage and 3d4 sonic damage"}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 21, "attack": 15, "spells": {"2": ["Blur", "Gust of Wind"]}}]
+"Sinswarm":
+  pack: "battlecry-bestiary"
+  level: 9
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["aberration", "troop"]
+  ac: 27
+  hp: 150
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 18, "will": 15}
+  abilities: {"cha": 1, "con": 4, "dex": 3, "int": 1, "str": 6, "wis": 2}
+  speeds: {"land": 30}
+  hp_details: "(4 segments); Thresholds 100 (3 segments), 50 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 18, "Athletics": 20, "Survival": 17}
+  immunities: ["controlled"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"mental": 10}
+  actions: [{"name": "Sin Scent", "type": "passive", "traits": [], "text": "A sinswarm can smell creatures reflecting any one of the seven primary sins as the scent ability. The GM determines which creatures are appropriately sinful."}, {"name": "Reactive Attack", "type": "reaction", "traits": [], "text": "Trigger A creature within a 5-foot emanation of the sinswarm uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using%rEffect The sinswarm lashes out at the triggering creature, dealing (2d8+9) piercing damage (DC 25 Reflex save). If the creature critically fails the save and the trigger was a manipulate action, that action is disrupted."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 150 (4 segments); Thresholds 100 (3 segments), 50 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Sinful Assault", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The sinswarm makes a coordinated attack against each enemy in a 5-foot emanation, with a DC 25 Reflex save. The damage depends on the number of actions.%r1 (1d8+2) piercing|options:area-damage damage%r2 (2d8+9) piercing|options:area-damage,sinful-bite damage plus sinful bite%r3 (3d8+11) piercing|options:area-damage,sinful-bite damage plus sinful bite"}, {"name": "Sinful Bite", "type": "passive", "traits": ["arcane", "emotion", "mental"], "text": "A creature bitten by a sinspawn must attempt a DC 28 Will save as it is assailed by sinful thoughts. The sinswarm can't inflict the same sin effect on multiple targets in the same round until it has inflicted all seven sins at least once.%rCritical Success The creature is unaffected.%rSuccess The creature is Sickened 1.%rFailure The creature is Sickened 2.%rCritical Failure The creature is sickened 2 and takes one of the following additional effects, chosen by the GM:%rEnfeebled 2 for 1 minute…"}]
+"Skeleton Mob":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["mindless", "skeleton", "troop", "undead", "unholy"]
+  ac: 23
+  hp: 90
+  perception: 11
+  saves: {"fortitude": 17, "reflex": 14, "will": 11}
+  abilities: {"cha": 0, "con": 1, "dex": 2, "int": -5, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 160 (3 segments), 80 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 13}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"area-damage": 7, "splash-damage": 7}
+  resistances: {"cold": 7, "electricity": 7, "fire": 7, "physical": 7, "slashing": 7}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 240 (4 segments); Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Ossuary Storm", "type": "action", "traits": [], "cost": 2, "text": "The skeleton mob hurls skulls and fragments of bone in a 10-foot burst within 30 feet. This attack deals 3d6 piercing|options:area-damage damage (DC 21 Reflex save). When the skeleton mob is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Rattling Bones", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The skeletons engage using their claws and broken bones to attack each enemy in a 5-foot emanation, with a DC 21 Reflex save. The damage depends on the number of actions.%r1 (1d4+1) piercing|options:area-damage damage%r2 (2d4+7) piercing|options:area-damage damage%r3 (3d4+10) piercing|options:area-damage damage"}]
+"Vanth Guardian Flock":
+  pack: "battlecry-bestiary"
+  level: 13
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["monitor", "psychopomp", "troop"]
+  ac: 33
+  hp: 240
+  perception: 23
+  saves: {"fortitude": 23, "reflex": 21, "will": 25}
+  abilities: {"cha": 3, "con": 3, "dex": 5, "int": 3, "str": 8, "wis": 4}
+  speeds: {"land": 25, "fly": 40}
+  hp_details: "(4 segments); Thresholds 160 (3 segments), 80 (2 segments)"
+  senses: ["lifesense"]
+  skills: {"Acrobatics": 27, "Athletics": 27, "Intimidation": 24, "Occultism": 22, "Religion": 22, "Stealth": 27, "Boneyard Lore": 24}
+  immunities: ["death-effects", "disease"]
+  weaknesses: {"area-damage": 12, "splash-damage": 12}
+  resistances: {"poison": 15, "void": 15}
+  actions: [{"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "20 feet. DC 30 Will"}, {"name": "Reactive Relocation", "type": "reaction", "traits": ["teleportation"], "text": "Trigger A creature hits the guardian flock with an attack roll%rEffect After the attack roll is resolved, the troop pools dimensional magic to rapidly change their position. They cast 4th-rank Translocate, except their range is limited to 40 feet."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 240 (4 segments); Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Guardians' Curse", "type": "action", "traits": ["curse", "divine", "misfortune"], "cost": 2, "text": "Frequency three times per day%rEffect The guardian flock bestows a curse upon all enemies in a 5-foot emanation by touching them with their scythes. Each affected creature must attempt a DC 33 Will save.%rCritical Success The target is unaffected and is temporarily immune to Guardians' Curse for 24 hours.%rSuccess The target feels a momentary shudder of doom and is Stupefied 1 for 1 minute by the distracting sensation.%rFailure The target becomes morose and glum as it accepts its own inevitable…"}, {"name": "Harvest the Wicked", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The vanths swing their scythes in a coordinated melee attack. Each enemy in a 5-foot emanation must attempt a DC 30 Reflex save. The damage depends on the number of actions. The slashing damage is treated as adamantine, cold iron, and silver.%r1 1d10+1 slashing damage plus 1d6 shepherd's touch%r2 2d10+3 slashing damage plus 3d6 shepherd's touch%r3 2d10+7 slashing damage plus 4d6 shepherd's touch"}, {"name": "Shepherd's Touch", "type": "passive", "traits": [], "text": "The physical damage dealt by the guardian flock's Harvest the Wicked ability is treated as coming from a weapon with a ghost touch property rune. In addition, the vanths deal the listed damage as void damage to living creatures or vitality damage to undead."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 33, "attack": 26, "spells": {"2": ["Invisibility (at will, self only)"], "4": ["Translocate (At Will)"], "5": ["Locate", "Translocate"], "6": ["Holy Light"]}}]
+"Viking Guard":
+  pack: "battlecry-bestiary"
+  level: 11
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["human", "humanoid", "troop"]
+  ac: 30
+  hp: 195
+  perception: 21
+  saves: {"fortitude": 24, "reflex": 21, "will": 18}
+  abilities: {"cha": 1, "con": 5, "dex": 3, "int": 1, "str": 7, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "Thresholds 130 (3 segments), 65 (2 segments)"
+  skills: {"Athletics": 23, "Intimidation": 21}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "+2 Status to All Saves vs. Fear", "type": "passive", "traits": []}, {"name": "Sacrifice", "type": "reaction", "traits": [], "text": "Requirements The viking guard has a charge, and that creature is adjacent to the viking guard%rTrigger The viking guard's charge takes Hit Point damage%rEffect The viking guard's charge takes half damage, and the viking guard takes the remainder of the damage."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 195 (4 segments); Thresholds 130 (3 segments), 65 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Berserker Strikes", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect Battle axes in hand, the viking guard engages in a coordinated melee attack against enemies in a 5-foot emanation, with a DC 27 Reflex save. The damage depends on the number of actions.%r1 (1d8+3) slashing|options:area-damage damage%r2 (2d8+12) slashing|options:area-damage damage%r3 (3d8+15) slashing|options:area-damage damage"}, {"name": "Guard Charge", "type": "action", "traits": [], "cost": 1, "text": "The viking guard designates an ally it can see to be its charge. The charge gains a +2 circumstance bonus to their AC, Reflex saves, and saves against fear when they are adjacent to the viking guard. Further, this allows the viking guard to use its Sacrifice and Shield Wall actions. A viking guard can have only one charge at a time, and if it designates a new charge, the old one loses all benefits. If the viking guard's charge is reduced to 0 Hit Points, the viking guard must succeed at a DC 30…"}, {"name": "Shield Wall", "type": "passive", "traits": [], "text": "Requirements The viking guard has a charge, and that creature is adjacent to the viking guard%rEffect Raising shields, the viking guard Strides up to twice its Speed as it protects its charge. The viking guard gains a +2 circumstance bonus to its AC against reactions triggered by this movement. The viking guard's charge can Stride the same distance as a reaction, moving with the troop to maintain the bonuses from Guard Charge during this movement."}]
+"Vordine Legion":
+  pack: "battlecry-bestiary"
+  level: 10
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["devil", "fiend", "troop", "unholy"]
+  ac: 29
+  hp: 180
+  perception: 19
+  saves: {"fortitude": 22, "reflex": 19, "will": 16}
+  abilities: {"cha": 2, "con": 7, "dex": 5, "int": 2, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 120 (3 segments), 60 (2 segments)"
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 24, "Intimidation": 22, "Religion": 19, "Warfare Lore": 22}
+  immunities: ["fire"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10, "holy": 10}
+  resistances: {"physical": 10, "poison": 10}
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Reactive Attack", "type": "reaction", "traits": [], "text": "Trigger A creature within the vordine legion's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using%rEffect The creature takes (2d8+11) piercing|options:area-damage|traits:magical,unholy damage (DC 26 Reflex save); this damage has the magical and unholy traits. If the creature critically fails its saving throw and the trigger was a manipulate action, the legion disrupts that action."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 180 (4 segments); Thresholds 120 (3 segments), 60 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Burning March", "type": "action", "traits": ["divine", "fire", "unholy"], "cost": 2, "text": "The vordine legion Strides, leaving an orderly pattern of burning hoofprints in each square they enter. The hoofprints continue to burn for 1 minute. Any creature on the ground that begins its turn in, or enters a square with, burning hoofprints takes 2d8 fire damage."}, {"name": "Impaling Barrage", "type": "action", "traits": ["magical", "unholy"], "cost": 2, "text": "The vordine legion releases a hail of tridents. This hail is a 10-foot burst within 40 feet that deals 4d8 piercing|options:area-damage damage (DC 26 Reflex save). Creatures that fail the saving throw are Clumsy 1 until the start of the vordine legion's next turn (Clumsy 2 on a critical failure). When the vordines are reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Tines of Dis", "type": "action", "traits": ["magical", "unholy"], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The vordines of the legion make coordinated melee attacks with their tridents. Each enemy within a 5-foot emanation must attempt a DC 26 Reflex save. The damage depends on the number of actions.%r1 (1d8+2) piercing|options:area-damage damage%r2 (2d8+11) piercing|options:area-damage damage%r3 (3d8+14) piercing|options:area-damage damage"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 26, "attack": 0, "spells": {"4": ["Translocate (At Will)"]}}]
+"Wight Battalion":
+  pack: "battlecry-bestiary"
+  level: 9
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["troop", "undead", "unholy", "wight"]
+  ac: 27
+  hp: 150
+  perception: 18
+  saves: {"fortitude": 21, "reflex": 15, "will": 18}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": 0, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 100 (3 segments), 50 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Intimidation": 18, "Stealth": 18}
+  immunities: ["bleed"]
+  weaknesses: {"area-damage": 7, "splash-damage": 7}
+  actions: [{"name": "Final Grudge", "type": "reaction", "traits": [], "text": "Trigger The wight battalion is about to lose a segment due to Hit Point damage%rEffect The wights strike out as they fall. Each enemy in a 5-foot emanation takes 2d4 piercing|options:area-damage damage (DC 25 Reflex save). This occurs before the battalion loses a segment."}, {"name": "Fueled by Spite", "type": "passive", "traits": [], "text": "Each time a creature loses Hit Points due to the wight battalion's corrupting spite curse, the battalion gains 6 temporary Hit Points that last for 1 round.%rEffect: Fueled by Spite"}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 150 (4 segments); Thresholds 100 (3 segments), 50 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Corrupting Spite", "type": "passive", "traits": ["curse", "divine", "void"], "text": "The wight battalion's attacks inflict a curse that makes a creature grow weak and spiteful. A living humanoid that dies while under this curse rises as a Wight after 1d4 rounds, controlled by the wight battalion that inflicted the curse. This new wight can't inflict corrupting spite and is Clumsy 2. If the creating wight battalion dies or after roughly a month of existence, the new wight becomes autonomous and becomes a normal wight%rSaving Throw DC 25 Fortitude%rStage 1 Drained 1 (1…"}, {"name": "Hateful Daggers", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe wights coordinate melee attacks with the daggers they were buried with. Each enemy within a 5-foot emanation attempts a DC 25 Reflex save. The damage depends on the number of actions. On a failed save, the creature is also exposed to corrupting spite.%r1 2d4 piercing|options:area-damage damage%r2 (4d4+8) piercing|options:area-damage damage%r3 (4d4+14) piercing|options:area-damage damage"}]
+"Wolf Pack":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "troop"]
+  ac: 23
+  hp: 90
+  perception: 17
+  saves: {"fortitude": 14, "reflex": 17, "will": 11}
+  abilities: {"cha": -2, "con": 3, "dex": 4, "int": -4, "str": 2, "wis": 4}
+  speeds: {"land": 35}
+  hp_details: "(4 segments); Thresholds 60 (3 segments), 30 (2 segments)"
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 15, "Athletics": 15, "Stealth": 13, "Survival": 15}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 90 (4 segments); Thresholds 60 (3 segments), 30 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Harry Prey", "type": "action", "traits": [], "cost": 2, "text": "The wolf pack focuses all their efforts on biting a single adjacent foe, who takes (4d6+8) piercing damage (DC 21 Reflex save). If the creature fails this saving throw, the wolf pack can immediately attempt an Athletics check to trip the creature."}, {"name": "Pack Hunt", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rThe wolves work together to fell their opponents. Each enemy within a 5-foot emanation attempts a DC 21 Reflex save. A creature who is Prone is Clumsy 2 for this attack. The damage depends on the number of actions.%r1 (1d6+1) piercing|options:area-damage damage%r2 (2d6+7) piercing|options:area-damage damage%r3 (2d6+11) piercing|options:area-damage damage"}]
+"Xulgath Army":
+  pack: "battlecry-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["humanoid", "troop", "xulgath"]
+  ac: 23
+  hp: 99
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 14, "will": 11}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": 0, "str": 5, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 66 (3 segments), 33 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 15, "Stealth": 13}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "30 feet. DC 24 Fortitude"}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Club Offensive", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The xulgaths make coordinated melee attacks against each enemy in 5-foot emanation, with a DC 21 Reflex save. The damage dealt depends on the number of actions.%r1 (1d6+1) bludgeoning|options:area-damage damage%r2 (2d6+7) bludgeoning|options:area-damage damage%r3 (2d6+12) bludgeoning|options:area-damage damage"}, {"name": "Javelin Barrage", "type": "action", "traits": [], "cost": 2, "text": "he xulgaths draw javelins and launch a coordinated barrage at range. This barrage is a 10-foot burst within 30 feet that deals 3d6 piercing|options:area-damage damage (DC 21 Reflex save). When the xulgath army is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Rend Flesh", "type": "action", "traits": [], "cost": 2, "text": "The xulgaths concentrate their attacks on a single adjacent enemy, clawing and biting with abandon. That creature takes (3d4+5) slashing damage (DC 21 Reflex save). On a failed save, the creature also takes 1d4 persistent bleed damage."}]
+"Xulgath Dinosaur Cavalry":
+  pack: "battlecry-bestiary"
+  level: 13
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "dinosaur", "humanoid", "troop", "xulgath"]
+  ac: 33
+  hp: 240
+  perception: 23
+  saves: {"fortitude": 29, "reflex": 20, "will": 23}
+  abilities: {"cha": 3, "con": 5, "dex": 2, "int": -1, "str": 8, "wis": 4}
+  speeds: {"land": 30}
+  hp_details: "(4 segments); Thresholds 160 (3 segments), 80 (2 segments)"
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 27, "Intimidation": 24, "Dinosaur Lore": 24}
+  weaknesses: {"area-damage": 15, "splash-damage": 15}
+  actions: [{"name": "Javelin Barrage", "type": "action", "traits": [], "cost": 2, "text": "The xulgaths draw javelins and launch a coordinated barrage at range. This barrage is a 10-foot burst within 30 feet that deals 4d8 piercing|options:area-damage damage (DC 30 Reflex save). When the cavalry is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "30 feet. DC 33 Fortitude"}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 240 (4 segments); Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Mounted Troop", "type": "passive", "traits": [], "text": "Effects that target only animals or only humanoids may not work on the valkyrie tempest, subject to the GM's discretion."}, {"name": "Spears, Teeth, and Horns", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The cavalry makes a coordinated melee attack against each enemy in 10-foot emanation, with a DC 30 Reflex save. The damage dealt depends on the number of actions.%r1 (2d6+2) piercing|options:area-damage damage%r2 (4d6+10) piercing|options:area-damage damage%r3 (5d6+15) piercing|options:area-damage damage"}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Large or smaller, (2d6+2) bludgeoning, DC 30 Reflex"}]
+"Zecui Horde":
+  pack: "battlecry-bestiary"
+  level: 11
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["aberration", "troop"]
+  ac: 30
+  hp: 195
+  perception: 21
+  saves: {"fortitude": 21, "reflex": 24, "will": 18}
+  abilities: {"cha": 1, "con": 3, "dex": 7, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 30, "burrow": 20, "climb": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 23, "Athletics": 21, "Stealth": 23}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "HP 195 (4 segments); Thresholds 130 (3 segments), 65 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Harden Chitin", "type": "action", "traits": [], "cost": 1, "text": "The zecuis fuse their chitin into black metallic shells. The horde gains resistance 10 to all damage (except mental and spirit) until they next take a move action."}, {"name": "Mandible Frenzy", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The horde makes a vicious bite attack against each enemy in a 5-foot emanation (DC 27 Reflex save). The damage dealt depends on the number of actions.%r1 (1d8+2) piercing|options:area-damage damage%r2 (2d8+12) piercing|options:area-damage damage%r3 (3d8+15) piercing|options:area-damage damage"}, {"name": "Mucus Deluge", "type": "action", "traits": [], "cost": 2, "text": "The horde spits a volley of larva-infested mucus as a 10-foot burst within 30 feet. Each creature in the area must succeed at a DC 27 Reflex save or be stuck to the nearest surface, Immobilized until they escape dc=30. Any creature so immobilized is exposed to zecui larvae at the end of each of its turns. When the zecui horde is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Subterranean Ambush", "type": "action", "traits": [], "cost": 1, "text": "Requirements The zecui horde has burrowed into an ambush position just beneath a surface of dirt, sand, or a similar loose material%rEffect The horde bursts from the ground and moves up to its Speed. The horde deals (1d8+2) piercing|options:area-damage damage (DC 29 Reflex save) to each enemy in a 5-foot emanation at the end of this movement."}, {"name": "Zecui Larvae", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 30 Fortitude%rStage 1 visible lumps as the larvae move but no ill effect (1 day)%rStage 2 Drained 1 (1 day)%rStage 3 Drained 2 (1 day)%rStage 4 Drained 3 and controlled by the zecui larva (1 day)%rStage 5 the creature dies and an adult Zecui can emerge from the corpse as an Interact action."}]

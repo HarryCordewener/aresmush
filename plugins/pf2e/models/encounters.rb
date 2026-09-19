@@ -14,8 +14,28 @@ module AresMUSH
     attribute :bonuses, :type => DataType::Hash, :default => {}
     attribute :penalties, :type => DataType::Hash, :default => {}
 
+    # Each combatant's id in the initiative, by the name the order holds: `{ 'Aria' => 1, 'Goblin
+    # Warrior #2' => 2 }`. An id is never reused within an encounter, so `#2` means the same creature
+    # all fight long.
+    attribute :numbers, :type => DataType::Hash, :default => {}
+    attribute :last_number, :type => DataType::Integer, :default => 0
+
+    # Players the GM has trusted with setting cover and concealment, for this encounter only.
+    attribute :trusted, :type => DataType::Array, :default => []
+
+    # A target's cover and concealment, by its id: `{ '3' => 'standard' }`.
+    attribute :cover, :type => DataType::Hash, :default => {}
+    attribute :concealment, :type => DataType::Hash, :default => {}
+
     set :characters, "AresMUSH::Character"
     reference :scene, "AresMUSH::Scene"
+    collection :npcs, "AresMUSH::Pf2eNpc", :encounter
+
+    before_delete :delete_npcs
+
+    def delete_npcs
+      self.npcs.each { |npc| npc.delete }
+    end
 
     ##### CLASS METHODS #####
 

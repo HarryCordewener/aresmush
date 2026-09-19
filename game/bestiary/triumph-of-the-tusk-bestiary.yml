@@ -1,0 +1,1141 @@
+---
+"Aurochs":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 18
+  hp: 42
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 9, "will": 6}
+  abilities: {"cha": -1, "con": 4, "dex": 3, "int": -4, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 11, "Survival": 9}
+  strikes: [{"name": "Hoof", "bonus": 10, "damage": [["1d8+6", "bludgeoning", null]], "traits": []}, {"name": "Horn", "bonus": 10, "damage": [["1d8+6", "piercing", null]], "traits": ["unarmed"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Easily Spooked", "type": "passive", "traits": [], "text": "The aurochs gains a +5-foot-status bonus to Speed while Frightened."}, {"name": "Safety in Numbers", "type": "passive", "traits": [], "text": "Aurochs move together to keep safe from predators. While within 10 feet of another aurochs, the aurochs gains a +1 circumstance bonus to AC."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, hoof, DC 19 Reflex"}, {"name": "Wild Charge", "type": "action", "traits": [], "cost": 2, "text": "The aurochs Strides twice and makes a single horn Strike against any foe along its path."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Aurochs Herd":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "troop"]
+  ac: 24
+  hp: 150
+  perception: 12
+  saves: {"fortitude": 18, "reflex": 12, "will": 12}
+  abilities: {"cha": 2, "con": 6, "dex": 2, "int": -5, "str": 6, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "(16 squares); Thresholds 100 (3 segments), 50 (2 segments)"
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 18, "Survival": 14}
+  weaknesses: {"area-damage": 10, "splash-damage": 5}
+  actions: [{"name": "Form Up", "type": "action", "traits": [], "cost": 1}, {"name": "Stampede", "type": "reaction", "traits": [], "text": "Trigger The aurochs herd's Hit Points drops below a threshold%rEffect The aurochs herd uses Trample but moves in a direction directly opposite of the threat; the DC increases to DC 27 Reflex and the bludgeoning damage increases to (4d6+6) bludgeoning (Prone creatures take (5d6+6) bludgeoning damage instead)."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Circle of Horns", "type": "action", "traits": [], "cost": 1, "text": "The largest males in the herd form a ring of protection around the more vulnerable members. The herd gains a +2 circumstance bonus to AC until the start of its next turn."}, {"name": "Horn", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The aurochs herd makes a melee attack against each enemy in a 5-foot (DC 22 Reflex save). The damage depends on the number of actions.%r1 (2d8+8) piercing|options:area-damage damage%r2 (2d8+10) piercing|options:area-damage damage%r3 (2d10+9) piercing|options:area-damage damage"}, {"name": "Puncturing Charge", "type": "action", "traits": [], "cost": 2, "text": "Requirements The aurochs herd has formed a Circle of Horns%rEffect The aurochs herd Strides to an enemy and makes a Horn Strike, dealing (3d8+8) piercing damage plus Improved Knockdown."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Huge or smaller, hoof ((3d6+6) bludgeoning damage; Prone creatures take (4d6+6) bludgeoning damage), DC 25 Reflex save (any creature that fails its save is knocked prone)."}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the aurochs herd Strides, it first Forms Up as a free action to condense into a 20-by-20-foot area (minus any missing squares,) and then moves up to its Speed. This works just like a Gargantuan creature moving; for instance, if any of the herd's squares enter difficult terrain, the extra movement cost applies to the whole troop."}]
+"Azorena":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["dromaar", "human", "humanoid", "orc"]
+  ac: 22
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 13, "will": 14}
+  abilities: {"cha": 2, "con": 2, "dex": 2, "int": 5, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 16, "Deception": 11, "Diplomacy": 11, "Intimidation": 11, "Religion": 14}
+  strikes: [{"name": "Fist", "bonus": 11, "damage": [["2d4+7", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "+1 Status Bonus Against Divine Spells", "type": "passive", "traits": []}, {"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Whispered Secrets", "type": "passive", "traits": [], "text": "While she possesses the horrid figurine, Azorena treats oathrisen as if they were two levels lower for the purpose of casting Create Undead. The figurine acts as her secondary caster and always provides a +4 circumstance bonus to the primary check."}, {"name": "Drain Bonded Item", "type": "free", "traits": ["arcane"], "text": "Frequency once per day%rRequirements The horrid figurine is on Azorena's person%rEffect During the current turn, Azorena can cast one spell she prepared today and already cast, without spending a spell slot. She must still Cast the Spell and meet the spell's other requirements."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 26, "attack": 16, "spells": {"0": ["Gouging Claw", "Ignition", "Shield", "Telekinetic Hand", "Telekinetic Projectile", "Void Warp"], "1": ["Command", "Grim Tendrils", "Mystic Armor", "Phantasmal Minion", "Summon Undead"], "2": ["Blood Vendetta", "Darkness", "False Vitality", "Telekinetic Maneuver"], "3": ["Lightning Bolt", "Vampiric Feast"], "4": ["Flicker", "Vision of Death"]}}, {"name": "Wizard Focus Spells", "tradition": "arcane", "type": "focus", "dc": 26, "attack": 16, "spells": {"1": ["Fortify Summoning"], "4": ["Spiral of Horrors"]}}]
+"Blisterwell Gaoler":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 21
+  hp: 85
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 10, "will": 15}
+  abilities: {"cha": 3, "con": 3, "dex": 3, "int": 1, "str": 4, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Diplomacy": 10, "Intimidation": 12, "Medicine": 11, "Stealth": 10}
+  resistances: {"mental": 5}
+  strikes: [{"name": "Shortsword", "bonus": 15, "damage": [["1d6+8", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Sap", "bonus": 15, "damage": [["1d8+8", "slashing", null]], "traits": ["magical", "sweep"]}, {"name": "Heavy Crossbow", "bonus": 13, "damage": [["1d10+4", "piercing", null]], "traits": ["reload-2"], "range": 120}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Disarming Rebuke", "type": "action", "traits": [], "cost": 2, "text": "The Blisterwell gaoler attempts to Disarm a creature, with a +2 circumstance bonus to the roll. On a success, the gaoler can also make a sap Strike against the target. Both attacks count toward his multiple attack penalty, but the penalty increases only after both attacks."}, {"name": "Punish Prisoners", "type": "passive", "traits": [], "text": "The Blisterwell gaoler can quickly subdue underequipped foes, dealing an additional 1d6 precision damage with all Strikes against creatures that aren't wielding a weapon or shield. This damage applies to creatures even if they are using exceptional unarmed combat options, such as jaws, claws, or special Strikes granted by a stance."}]
+"Blisterwell Oathrisen":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["undead"]
+  ac: 26
+  hp: 110
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 14, "will": 15}
+  abilities: {"cha": 4, "con": 5, "dex": 1, "int": 0, "str": 6, "wis": 4}
+  speeds: {"land": 20}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 17, "Deception": 15, "Intimidation": 15, "Warfare Lore": 11}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Falchion", "bonus": 18, "damage": [["1d10+9", "slashing", null], ["1d6", "bleed", "persistent"]], "traits": ["forceful", "sweep"]}, {"name": "Fist", "bonus": 17, "damage": [["1d6+9", "bludgeoning", null]], "traits": ["agile", "free-hand", "unarmed"]}, {"name": "Whisper", "bonus": 15, "damage": [["4d6", "sonic", null]], "traits": ["sonic"], "effects": ["Curse Of Whispers"]}]
+  actions: [{"name": "Armored Disguise", "type": "passive", "traits": [], "text": "A Blisterwell oathrisen's undead nature is not obvious. While wearing armor, an oathrisen gains a +4 circumstance bonus to its Deception checks to Impersonate a living orc and does not require a disguise kit to do so. Creatures that don't notice the disguise are not subject to the oathrisen's Frightful Presence. An oathrisen can abandon its disguise as a free action with the manipulate trait when it attempts to Demoralize a creature."}, {"name": "Drop the Mask", "type": "passive", "traits": [], "text": "Once a Blisterwell oathrisen is reduced to less than half its Hit Points, portions of its armor break off. This reduces its AC by 2, increases its Speed by 5 feet, and gives it weakness 5 to vitality damage. This also immediately exposes nearby creatures to the oathrisen's frightful presence."}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "30 feet. DC 25 Will"}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Curse of Whispers", "type": "passive", "traits": ["curse", "divine"], "text": "A creature muffled by this curse cannot speak above a whisper. The creature must succeed at a DC 25 Fortitude save to use actions with the auditory trait%rSaving Throw DC 25 Will%rStage 1 muffled for 1 minute (1 minute)%rStage 2 muffled for 1 minute (1 minute)%rStage 3 muffled for 1 day (1 day)"}, {"name": "Wound Ripper", "type": "passive", "traits": [], "text": "A Blisterwell oathrisen's Strikes against creatures with the Wounded condition or taking persistent bleed damage deal 1d6 additional precision damage."}]
+"Blisterwell Warrior":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 21
+  hp: 65
+  perception: 14
+  saves: {"fortitude": 13, "reflex": 10, "will": 10}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": 1, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 11, "Intimidation": 10, "Nature": 8, "Survival": 10}
+  strikes: [{"name": "Pick", "bonus": 14, "damage": [["1d6+9", "piercing", null]], "traits": ["fatal-d10"]}, {"name": "Hatchet", "bonus": 12, "damage": [["1d6+9", "slashing", null]], "traits": ["thrown-10"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Able Rider", "type": "action", "traits": [], "cost": 1, "text": "The Blisterwell warrior Commands their mount, automatically succeeding at their check to control the animal. They then Raise their Shield or Draw a weapon."}]
+"Bloodwing":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "huge"
+  rarity: "unique"
+  traits: ["dragon"]
+  ac: 27
+  hp: 155
+  perception: 18
+  saves: {"fortitude": 18, "reflex": 20, "will": 17}
+  abilities: {"cha": 0, "con": 4, "dex": 5, "int": -2, "str": 6, "wis": 4}
+  speeds: {"land": 20, "fly": 60}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 19, "Athletics": 21, "Stealth": 18, "Survival": 16}
+  immunities: ["paralyzed", "unconscious"]
+  strikes: [{"name": "Fangs", "bonus": 21, "damage": [["2d12+9", "piercing", null]], "traits": []}, {"name": "Claw", "bonus": 21, "damage": [["2d10+9", "slashing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Stinger", "bonus": 20, "damage": [["2d6+9", "piercing", null]], "traits": ["agile", "reach-10"], "effects": ["Wyvern Poison"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Rider's Bond", "type": "passive", "traits": [], "text": "Bloodwing acts on Molog's initiative while Molog is mounted. Molog automatically succeeds at attempts to Command her and doesn't need to spend actions to do so, but Bloodwing only has two actions per turn as long as Molog is mounted."}, {"name": "Savage", "type": "reaction", "traits": [], "text": "Trigger A creature Grabbed by Bloodwing critically fails a skill check to Escape%rEffect Bloodwing makes a stinger Strike against the triggering creature."}, {"name": "Powerful Dive", "type": "action", "traits": ["move"], "cost": 2, "text": "Bloodwing Flies up to her fly Speed and must both move forward at least 20 feet and descend at least 10 feet. If she ends the movement within melee reach of at least one enemy her size or smaller, she can make a claw Strike against that enemy. If the claw hits, as a free action Bloodwing can either automatically Grab the target or knock it Prone."}, {"name": "Punishing Momentum", "type": "action", "traits": [], "cost": 1, "text": "Requirements Bloodwing Grabbed a creature this turn using Powerful Dive%rEffect Bloodwing can Fly at half Speed while holding the creature in her claws, carrying that creature along with her and dropping it at the end of her movement. Alternatively, Bloodwing can Strike the creature with her stinger with a +2 circumstance bonus."}, {"name": "Wyvern Poison", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds%rStage 1 3d6 poison damage plus Sickened 1 (1 round)%rStage 2 3d8 poison damage plus Sickened 2 (1 round)%rStage 3 3d10 poison damage plus Sickened 3 (1 round)"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Bristle Boar":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 19
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 6, "will": 9}
+  abilities: {"cha": -2, "con": 4, "dex": 3, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 10, "Survival": 8}
+  strikes: [{"name": "Tusk", "bonus": 11, "damage": [["2d6+6", "piercing", null]], "traits": ["unarmed"]}, {"name": "Spine", "bonus": 11, "damage": [["1d8+6", "piercing", null]], "traits": ["agile"]}]
+  actions: [{"name": "Bristle Spines", "type": "passive", "traits": [], "text": "When an adjacent creature hits the bristle boar with a melee attack, that creature takes 1d6 piercing damage unless it succeeds at a DC 17 Reflex save."}, {"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Boar Charge", "type": "action", "traits": [], "cost": 2, "text": "The bristle boar Strides twice and then makes a tusk Strike. As long as it moved at least 20 feet, it gains a +2 circumstance bonus to its attack roll."}, {"name": "Dustup", "type": "action", "traits": ["earth", "manipulate"], "cost": 1, "text": "Requirements The bristle boar is standing in an area with soil, dust, sand, or similar debris%rFrequency once per round%rEffect The bristle boar spins and kicks up dirt, knocking it into foes' faces. Each adjacent creature must attempt a DC 17 Fortitude save.%rSuccess The creature is unaffected and immune to the bristle boar's Dustup for 24 hours.%rSuccess The creature unaffected.%rFailure The creature Dazzled for 1 round.%rCritical Failure The creature is Sickened 1 and dazzled for 1 round."}]
+"Bugark":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "unique"
+  traits: ["cold", "mummy", "undead"]
+  ac: 32
+  hp: 211
+  perception: 22
+  saves: {"fortitude": 21, "reflex": 18, "will": 22}
+  abilities: {"cha": 6, "con": 5, "dex": 3, "int": 3, "str": 7, "wis": 5}
+  speeds: {"land": 20}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Deception": 22, "Intimidation": 23, "Occultism": 21, "Religion": 23, "Stealth": 20}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 10}
+  resistances: {"cold": 10}
+  strikes: [{"name": "Maul", "bonus": 27, "damage": [["2d12+5", "bludgeoning", null], ["2d6", "cold", null]], "traits": ["magical", "shove"]}, {"name": "Fist", "bonus": 27, "damage": [["2d12", "bludgeoning", null], ["2d6", "cold", null]], "traits": ["agile", "magical", "unarmed"]}]
+  actions: [{"name": "Snow Vision", "type": "passive", "traits": [], "text": "Bugark ignores the Concealed condition from falling snow."}, {"name": "Reactive Strike", "type": "reaction", "traits": [], "text": "Bugark can use Reactive Strike when a creature within his reach uses a concentrate action, in addition to its normal trigger. He can disrupt triggering concentrate actions, and it disrupts actions on any hit, not just a critical hit."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Frozen Breath", "type": "action", "traits": ["cold", "concentrate", "divine"], "cost": 2, "text": "Bugark exhales a 60-foot cone of razor-sharp ice that deals 6d6 cold damage and 5d6 slashing damage (DC 30 Reflex save). Bugark can't use Frozen Breath again for 1d4 rounds."}, {"name": "Intimidating Strike", "type": "action", "traits": [], "cost": 2, "text": "Bugark makes a melee Strike. If he hits and deals damage, the target is Frightened 1, or Frightened 2 on a critical hit."}, {"name": "Smite", "type": "action", "traits": [], "cost": 1, "text": "Bugark chooses one enemy he can see. Until the start of his next turn, his Strikes against that foe using his maul deal an extra 6 spirit damage with the unholy trait. If the chosen enemy attacks him before the start of his next turn, the duration extends to the end of that enemy's next turn. If the enemy continues to attack him, the duration continues to extend."}]
+"Bull of Zagresh":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "huge"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 23
+  hp: 140
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 12, "will": 15}
+  abilities: {"cha": 2, "con": 6, "dex": 2, "int": -5, "str": 7, "wis": 4}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 20, "Intimidation": 13, "Survival": 15}
+  strikes: [{"name": "Hoof", "bonus": 18, "damage": [["2d8+8", "bludgeoning", null]], "traits": []}, {"name": "Horn", "bonus": 18, "damage": [["2d10+9", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Running of the Bulls", "type": "passive", "traits": [], "text": "When a bull of Zagresh starts its turn adjacent to another bull of Zagresh, it gains a +10-foot circumstance bonus to its Speed."}, {"name": "Berserk", "type": "passive", "traits": [], "text": "If the bull has 40 or fewer HP at the start of its turn, it must succeed at a DC 5 Flat or go berserk. A berserk bull of Zagresh wildly attacks the nearest living creature, or the nearest object if no creatures are nearby."}, {"name": "Buck", "type": "reaction", "traits": [], "text": "DC 25 Reflex"}, {"name": "Berserk Stampede", "type": "action", "traits": [], "cost": 2, "text": "Requirements The bull of Zagresh is berserk%rEffect The bull of Zagresh Strides up to double its Speed and makes a horn Strike against up to three creatures with a –1 circumstance penalty. If it hits, it deals 1d6 extra damage and knocks the target Prone."}]
+"Champion of Zagresh":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "rare"
+  traits: ["dromaar", "human", "humanoid", "orc"]
+  ac: 27
+  hp: 170
+  perception: 17
+  saves: {"fortitude": 19, "reflex": 16, "will": 17}
+  abilities: {"cha": 5, "con": 2, "dex": 2, "int": 1, "str": 4, "wis": 1}
+  speeds: {"land": 20}
+  skills: {"Athletics": 16, "Intimidation": 18, "Religion": 17}
+  strikes: [{"name": "Greatclub", "bonus": 20, "damage": [["2d10+6", "bludgeoning", null]], "traits": ["backswing", "magical", "shove"]}, {"name": "Crossbow", "bonus": 18, "damage": [["2d8+4", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  actions: [{"name": "Destructive Vengeance", "type": "reaction", "traits": [], "text": "Trigger The champion of Zagresh is injured by an enemy within 15 feet%rEffect The champion of Zagresh increases the amount of damage he takes by 2d6 untyped and deals 2d6 void damage to the triggering enemy. In addition, the champion deals 2 extra void damage with their Strikes against the triggering creature until the end of his next turn."}, {"name": "Fit of Rage", "type": "action", "traits": [], "cost": 3, "text": "Frequency once per day%rEffect The champion swings his greatclub in a wide circle, making a melee Strike against all creatures within reach. On a critical hit, enemies are moved back 5 feet. This is forced movement. Each Strike counts toward the champion's multiple attack penalty, but his penalty doesn't increase until he's made all of his attacks."}, {"name": "Intimidating Strike", "type": "action", "traits": [], "cost": 2, "text": "The champion of Zagresh makes a melee Strike. If they hit and deal damage, the target is Frightened 1, or Frightened 2 on a critical hit."}]
+  spellcasting: [{"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 25, "attack": 17, "spells": {"1": ["Touch of the Void"]}}]
+"Death Tower Necromancer":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "rare"
+  traits: ["humanoid", "orc"]
+  ac: 28
+  hp: 135
+  perception: 19
+  saves: {"fortitude": 16, "reflex": 17, "will": 19}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 7, "str": 1, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 23, "Crafting": 19, "Occultism": 22, "Religion": 19, "Society": 20, "Survival": 19, "Necromancy Lore": 22}
+  resistances: {"cold": 5}
+  strikes: [{"name": "Mace", "bonus": 17, "damage": [["2d6+10", "bludgeoning", null]], "traits": ["magical", "shove"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Deadhand Spell", "type": "passive", "traits": [], "text": "Death Tower necromancers have crawling hand familiars. They can cast a spell with a range of touch and command the hands to deliver the spell; the crawling hand uses its 2 actions for the round to move to a target of the necromancer's choice and touch that target."}, {"name": "Drain Bonded Item", "type": "free", "traits": [], "text": "Frequency once per day%rRequirements The necromancer hasn't acted yet on this turn%rEffect The necromancer expends the power stored in their bonded staff. During the current turn, they cast one spell they prepared today and already cast, without spending a spell slot. They must still Cast the Spell and meet the spell's other requirements."}, {"name": "Give a Hand", "type": "passive", "traits": [], "text": "A Death Tower necromancer's familiar can use its actions to retrieve an item of light or negligible Bulk they're wearing and place it into one of their free hands."}, {"name": "Quickened Casting", "type": "action", "traits": ["concentrate", "spellshape"], "cost": 1, "text": "If the necromancer's next action is to cast a spell or cantrip of 3rd rank or lower, they reduce the number of actions to cast it by 1 (minimum 1 action)."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 29, "attack": 21, "spells": {"0": ["Detect Magic", "Ignition", "Shield", "Telekinetic Hand", "Void Warp"], "1": ["Enfeeble", "Fear", "Force Barrage", "Grim Tendrils", "Mystic Armor", "Summon Undead"], "2": ["Blood Vendetta", "Darkness", "See the Unseen", "Stupefy"], "3": ["Blindness", "Lightning Bolt", "Vampiric Feast"], "4": ["Flicker", "Mutilate", "Vision of Death", "Weapon Storm"], "5": ["Invoke Spirits", "Shadow Blast"]}}, {"name": "Wizard School Spells", "tradition": "arcane", "type": "focus", "dc": 29, "attack": 21, "spells": {"1": ["Fortify Summoning"], "4": ["Spiral of Horrors"]}}]
+"Deathless Zealot of Zagresh":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["undead"]
+  ac: 26
+  hp: 120
+  perception: 21
+  saves: {"fortitude": 16, "reflex": 16, "will": 21}
+  abilities: {"cha": 2, "con": 3, "dex": 3, "int": 1, "str": 7, "wis": 6}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 22, "Intimidation": 17, "Occultism": 14, "Religion": 20}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Greatclub", "bonus": 21, "damage": [["2d10+11", "bludgeoning", null]], "traits": ["backswing", "magical", "shove"]}]
+  actions: [{"name": "Field of Slaughter", "type": "passive", "traits": ["aura", "divine"], "text": "40 feet. Allies within the aura treat their weapons and unarmed attacks as keen , even if the weapons don't meet the requirements. Critical hits within the aura deal 3d6 persistent bleed damage, in addition to any other critical hit effects. If the critical hit would already deal persistent bleed damage, increase the damage to 3d6+3."}, {"name": "Ravage Heretic", "type": "reaction", "traits": ["divine"], "text": "Trigger A creature within 60 feet who the deathless zealot can see and who doesn't worship Zagresh casts a divine spell%rEffect The deathless zealot attempts to counteract the triggering spell using their spell attack modifier and a counteract rank of 5. If the spell is counteracted, the caster is Stunned 3 from the pain of the backlash. If the deathless zealot fails to counteract the spell, the caster is temporarily immune to further uses of this ability for 24 hours."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Spellsmash", "type": "action", "traits": ["divine"], "cost": 2, "text": "The zealot Casts a Spell that requires a spell attack roll or has a range of touch, channeling it into their greatclub, then makes a melee Strike. This attack roll determines the effects of both the Strike and the spell. This counts as two attacks for their multiple attack penalty, but the penalty isn't applied until after the Spellsmash. The zealot can't use Spellsmash again until they recharge it with a single action, which has the concentrate trait."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 28, "attack": 20, "spells": {"0": ["Detect Magic", "Divine Lance", "Void Warp"], "1": ["Bane", "Fear", "Grim Tendrils", "Harm"], "2": ["Blood Vendetta", "Spiritual Armament"], "3": ["Chilling Darkness", "Crisis of Faith", "Vampiric Feast"], "4": ["Divine Wrath", "Implement of Destruction"], "5": ["Divine Immolation"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 28, "attack": 20, "spells": {"1": ["Cry of Destruction"], "4": ["Destructive Aura"]}}]
+"Diskah Night Watcher":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["dromaar", "human", "humanoid", "orc"]
+  ac: 26
+  hp: 130
+  perception: 21
+  saves: {"fortitude": 17, "reflex": 15, "will": 21}
+  abilities: {"cha": 4, "con": 2, "dex": 2, "int": 3, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Athletics": 18, "Intimidation": 19, "Nature": 20}
+  strikes: [{"name": "Battle Axe", "bonus": 19, "damage": [["2d8+11", "slashing", null]], "traits": ["magical", "sweep"]}, {"name": "Hatchet", "bonus": 18, "damage": [["2d8+9", "slashing", null]], "traits": ["agile", "sweep"]}, {"name": "Hatchet", "bonus": 16, "damage": [["2d6+9", "slashing", null]], "traits": ["agile", "sweep", "thrown-10"]}, {"name": "Klar", "bonus": 18, "damage": [["2d8+11", "slashing", null]], "traits": ["magical", "versatile-p"]}]
+  actions: [{"name": "Blessing of the Land", "type": "passive", "traits": [], "text": "As long as she's within the boundaries of the Shadefields, Diskah treats all terrain as one difficulty less, for example difficult terrain has no effect, and she treats greater difficult terrain as difficult terrain."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Ancestral Fury", "type": "action", "traits": [], "cost": 1, "text": "Diskah cries out in grief and rage. All creatures within a 30-foot radius must attempt a DC 28 Will save or have the Fleeing condition for 1 round. Diskah can't use Ancestral Fury again for 1d4 rounds."}, {"name": "Lunar Blaze", "type": "action", "traits": [], "cost": 2, "text": "Frequency once per day%rEffect Diskah calls out to the moon and is wreathed in fiery white moonlight for 1 minute. While this ability is active, Diskah is immune to fire damage and her melee Strikes deal an additional 1d6 persistent fire damage. Any creature that hits her with a melee attack or otherwise touches her takes 1d8 fire damage."}, {"name": "Spirit's Blessing", "type": "action", "traits": [], "cost": 2, "text": "Frequency once per day%rEffect Diskah loosens one of the plaits in her braid and regains one 4th-rank spell slot she can use to cast any of her prepared 4th-rank spells."}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 28, "attack": 21, "spells": {"0": ["Caustic Blast", "Electric Arc", "Frostbite", "Guidance", "Ignition", "Stabilize"], "1": ["Fear", "Grease", "Thunderstrike"], "2": ["Blazing Bolt", "Shatter", "Sound Body"], "3": ["Lightning Bolt", "Slow"], "4": ["Hydraulic Torrent", "Mountain Resilience", "Wall of Fire"], "5": ["Elemental Form", "Howling Blizzard"]}}, {"name": "Druidic Order Spells", "tradition": "primal", "type": "focus", "dc": 28, "attack": 20, "spells": {"1": ["Tempest Surge", "Untamed Shift (Unmtamed Form Only)"]}}]
+"Fattened War Pig":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 6
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 24
+  hp: 120
+  perception: 14
+  saves: {"fortitude": 18, "reflex": 10, "will": 13}
+  abilities: {"cha": 0, "con": 5, "dex": 2, "int": -4, "str": 4, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 14, "Intimidation": 12, "Survival": 13}
+  strikes: [{"name": "Hoof", "bonus": 17, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Tusk", "bonus": 17, "damage": [["2d8+8", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Squealed Outrage", "type": "reaction", "traits": [], "text": "Trigger The war pig is damaged by an adjacent creature%rEffect The war pig makes a hoof Strike at the triggering creature."}, {"name": "Bulldoze", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The war pig Shoves an adjacent creature, after which it can either Stride or Step."}, {"name": "Fattened War Pig", "type": "passive", "traits": [], "text": "The war pig gains a +2 status bonus to Athletics checks to Shove creatures."}, {"name": "Wallow", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The war pig rapidly rolls over. If it has a rider, the war pig Bucks as a free action. The war pig gains 1d8 temporary Hit Points for 1 minute and can then attempt an immediate flat check to recover from a single source of persistent acid, fire, or mental damage. If the war pig Wallows in an area with ample mud, water, loose soil, or similar material, the war pig instead gains 2d8 temporary Hit Points, for 1 minute and reduces the flat check DC to recover from…"}]
+"Flood Ghoul":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 10, "will": 7}
+  abilities: {"cha": 3, "con": 3, "dex": 4, "int": 1, "str": 3, "wis": 1}
+  speeds: {"land": 25, "swim": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 9, "Stealth": 8, "Survival": 6}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious", "bleed"]
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d8+4", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Claw", "bonus": 10, "damage": [["1d6+4", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet. DC 15 Fortitude"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Aquatic Ambush", "type": "action", "traits": [], "cost": 1, "text": "45 feet"}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The flood ghoul is adjacent to the corpse of a creature that died within the last hour%rEffect The flood ghoul devours a chunk of the corpse and regains 2d6 healing Hit Points. It can regain Hit Points from any given corpse only once."}, {"name": "Death Echo", "type": "action", "traits": ["occult"], "cost": 1, "text": "Requirements The flood ghoul has damaged a creature with a melee attack%rEffect The flood ghoul unleashes a wave of memories of its death by drowning. The targeted creature must succeed at a DC 15 Will save or become Paralyzed for 1 round as they relive the flood ghoul's dying moments. A creature who successfully saves becomes temporarily immune for 1 hour."}, {"name": "Forbidden Cravings", "type": "passive", "traits": ["curse"], "text": "A creature can still eat and drink while sickened by this curse%rSaving Throw DC 18 Will%rStage 1 carrier with no ill effects (1 day)%rStage 2 2d6 void damage and the target is Sickened 1 until it consumes raw meat (1 day)%rStage 3 as stage 2%rStage 4 as stage 2 unless the target has consumed raw meat in the past 24 hours; then it takes 4d6 void damage and is Sickened 2 until it consumes raw meat%rStage 5 If the creature has eaten raw meat in the past 24 hours, it dies and rises as a ghoul; if…"}, {"name": "Ghoul Whispers", "type": "action", "traits": ["auditory", "linguistic", "occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, or Unconscious creature is within the ghoul's reach%rEffect The ghoul whispers dark thoughts and vile cravings into the creature's ears. The creature must attempt a save against the forbidden cravings curse."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Floodslain Mage":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "undead"]
+  ac: 21
+  hp: 70
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 13, "will": 12}
+  abilities: {"cha": 9, "con": 0, "dex": 3, "int": 4, "str": 2, "wis": 2}
+  speeds: {"land": 25, "swim": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Arcana": 14, "Stealth": 13}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "sleep"]
+  resistances: {"fire": 5}
+  strikes: [{"name": "Claw", "bonus": 11, "damage": [["2d8+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Drowning Touch"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Drowning Touch", "type": "passive", "traits": ["occult"], "text": "The target's lungs begin to fill with water, and they must attempt a DC 22 Fortitude save. A target affected by Drowning Touch can spend a single action coughing in an attempt to recover, which immediately lets them attempt a new Fortitude save against the effect. A success improves the previous result by 1 step. A critical success improves the previous result by 2, and a critical failure decreases it by 1.%rCritical Success The creature is unaffected.%rSuccess The creature is Slowed 1 for 1…"}, {"name": "Floodslain Spawn", "type": "passive", "traits": ["occult"], "text": "A living animal or humanoid killed by a floodslain creature will rise as a floodslain if their corpse is left in water for 24 hours. The new floodslain isn't under the control of the floodslain creature that killed it."}, {"name": "Sodden Ground", "type": "passive", "traits": ["aura", "occult", "water"], "text": "20 feet. Water flows endlessly from a floodslain creature, making the area around it slippery. The ground in the aura is difficult terrain for all non-floodslain creatures."}, {"name": "Vomit Flotsam", "type": "action", "traits": ["occult"], "cost": 2, "text": "The floodslain vomits flotsam in a 15-foot cone. Any creature in the area takes 5d8 bludgeoning|options:area-damage damage (DC 19 Reflex save)."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Daze", "Void Warp"], "1": ["Grim Tendrils", "Ill Omen", "Phantom Pain", "Thunderstrike"], "2": ["Noise Blast", "Paranoia", "Telekinetic Maneuver"], "3": ["Blindness", "Force Barrage", "Paralyze"]}}]
+"Floodslain Orc":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "undead"]
+  ac: 17
+  hp: 44
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 9, "will": 6}
+  abilities: {"cha": -2, "con": 3, "dex": 2, "int": 1, "str": 4, "wis": 2}
+  speeds: {"land": 25, "swim": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "sleep"]
+  resistances: {"fire": 3}
+  strikes: [{"name": "Orc Knuckle Dagger", "bonus": 11, "damage": [["1d6+6", "piercing", null]], "traits": ["agile", "disarm"]}, {"name": "Fist", "bonus": 11, "damage": [["1d8+6", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"], "effects": ["Drowning Touch"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Drowning Touch", "type": "passive", "traits": ["occult"], "text": "When the floodslain creature damages a creature with a non-weapon melee attack, the target's lungs begin to fill with water. The target must attempt a Type:Fortitude save against the floodslain's Will DC. A target affected by Drowning Touch can spend a single action coughing in an attempt to recover, which immediately lets them attempt a new Fortitude save against the effect. A success improves the previous result by 1 step. A critical success improves the previous result by 2, and a critical…"}, {"name": "Floodslain Spawn", "type": "passive", "traits": ["occult"], "text": "A living animal or humanoid killed by a floodslain creature will rise as a floodslain if their corpse is left in water for 24 hours. The new floodslain isn't under the control of the floodslain creature that killed it."}, {"name": "Sodden Ground", "type": "passive", "traits": ["aura", "occult", "water"], "text": "20 feet. Water flows endlessly from a floodslain creature, making the area around it slippery. The ground in the aura is difficult terrain for all non-floodslain creatures."}, {"name": "Vomit Flotsam", "type": "action", "traits": ["occult"], "cost": 2, "text": "A floodslain creature's body is filled with debris from their horrific death, which they can spew at their enemies. The floodslain vomits flotsam in a 15-foot cone. Any creature in the area takes 3d8 bludgeoning|options:area-damage damage with a Type:Reflex save against the floodslain's Fortitude DC."}]
+"Floodslain Wolf":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "undead"]
+  ac: 17
+  hp: 34
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 11, "will": 7}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 35, "swim": 35}
+  hp_details: "void healing"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 8, "Athletics": 6, "Stealth": 8, "Survival": 8}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "sleep"]
+  resistances: {"fire": 2}
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d8+4", "piercing", null]], "traits": ["unarmed"], "effects": ["Drowning Touch", "Knockdown"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Drowning Touch", "type": "passive", "traits": ["occult"], "text": "The target's lungs begin to fill with water and they must attempt a DC 17 Fortitude save. A target affected by Drowning Touch can spend a single action coughing in an attempt to recover, which immediately lets them attempt a new Fortitude save against the effect. A success improves the previous result by 1 step. A critical success improves the previous result by 2, and a critical failure decreases it by 1.%rCritical Success The creature is unaffected.%rSuccess The creature is Slowed 1 for 1…"}, {"name": "Floodslain Spawn", "type": "passive", "traits": ["occult"], "text": "A living animal or humanoid killed by a floodslain creature will rise as a floodslain if their corpse is left in water for 24 hours. The new floodslain isn't under the control of the floodslain creature that killed it."}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "The floodslain wolf's Strikes deal 1d4 extra damage to creatures within reach of at least two of the floodslain wolf's allies."}, {"name": "Sodden Ground", "type": "passive", "traits": ["aura", "occult", "water"], "text": "20 feet. Water flows endlessly from a floodslain creature, making the area around it slippery. The ground in the aura is difficult terrain for all non-floodslain creatures."}, {"name": "Vomit Flotsam", "type": "action", "traits": ["occult"], "cost": 2, "text": "The floodslain vomits flotsam in a 15-foot cone. Any creature in the area takes 2d8 bludgeoning|options:area-damage damage (DC 18 Reflex save)."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Graveknight (Umbra)":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "common"
+  traits: ["graveknight", "undead", "unholy"]
+  ac: 31
+  hp: 175
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 19, "will": 18}
+  abilities: {"cha": 5, "con": 4, "dex": 4, "int": 2, "str": 7, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 23, "Intimidation": 22, "Religion": 19, "Warfare Lore": 20}
+  immunities: ["cold", "death-effects", "disease", "paralyzed", "poison", "unconscious", "bleed"]
+  strikes: [{"name": "Fist", "bonus": 23, "damage": [["2d6+10", "bludgeoning", null], ["1d6", "cold", null]], "traits": ["agile", "cold", "unarmed"]}, {"name": "Frost Greataxe", "bonus": 24, "damage": [["2d12+10", "slashing", null], ["1d6", "cold", null]], "traits": ["cold", "magical", "sweep"]}, {"name": "Frost Composite Longbow", "bonus": 21, "damage": [["2d8+6", "piercing", null], ["1d6", "cold", null]], "traits": ["cold", "deadly-d10", "magical", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When a graveknight is destroyed, their armor rebuilds their body over the course of 1d10 days—or more quickly if the armor is worn by a living host. If the body is destroyed before then, the process restarts.%rA graveknight can only be permanently destroyed by obliterating their armor (such as with Disintegrate), transporting it to the Forge of Creation, or throwing it into the heart of a volcano."}, {"name": "Sacrilegious Aura", "type": "passive", "traits": ["aura", "divine", "void"], "text": "30 feet.%rWhen a creature in the aura uses a vitality spell or ability, the graveknight automatically attempts to counteract it, with a counteract modifier of +17."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Devastating Blast", "type": "action", "traits": ["arcane", "cold"], "cost": 2, "text": "The graveknight unleashes a 30-foot of energy. Creatures in the area take 11d6 cold|options:area-damage with a DC 29 Reflex.%rThe graveknight can use this ability once every 1d4 #Recharge Devastating Blast rounds."}, {"name": "Graveknight's Curse", "type": "passive", "traits": ["arcane", "curse"], "text": "This curse affects anyone who wears a graveknight's armor for at least 1 hour%rSaving Throw DC 33 Will save%rOnset 1 hour%rStage 1 Doomed 1 and can't remove armor (1 day)%rStage 2 Doomed 2, –10-foot status penalty to Speeds, and can't remove armor (1 day)%rStage 3 dies and transforms into the armor's graveknight."}, {"name": "Phantom Mount", "type": "action", "traits": ["arcane", "summon"], "cost": 3, "text": "HP 58; AC 27, Fort +17, Ref +15, Will +14%rThe graveknight summons a supernatural mount, as Marvelous Mount heightened to a rank equal to half the graveknight's level. Unlike marvelous mount , the steed's AC and saving throw bonuses are all 4 lower than the graveknight's, and the steed has one-third the graveknight's Hit Points (rounded down).%rIf the steed is destroyed, the graveknight must wait 1 hour before using this ability again."}, {"name": "Weapon Master", "type": "passive", "traits": [], "text": "The graveknight has access to the critical specialization effects of any weapons it wields."}]
+"Great Ironbill":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 22
+  hp: 58
+  perception: 10
+  saves: {"fortitude": 9, "reflex": 15, "will": 10}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 20, "fly": 40}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 13, "Intimidation": 13}
+  strikes: [{"name": "Beak", "bonus": 15, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["agile", "unarmed"]}, {"name": "Talon", "bonus": 15, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"]}]
+  actions: [{"name": "Clatter", "type": "action", "traits": [], "cost": 2, "text": "The ironbill snaps its beak together. Creatures within 30 feet take 2d10 sonic damage (DC 22 Will save). On a failure, the creature is also Frightened 1 (Frightened 2 on a critical failure)."}, {"name": "Flyby Attack", "type": "action", "traits": [], "cost": 2, "text": "The ironbill Flies and makes a talon Strike at any point along the way."}, {"name": "Standstill", "type": "action", "traits": [], "cost": 1, "text": "The great ironbill becomes unnervingly still. The next creature the ironbill makes a Strike against is Off-Guard to the ironbill."}]
+"Hold Sergeant":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 23
+  hp: 80
+  perception: 15
+  saves: {"fortitude": 15, "reflex": 9, "will": 13}
+  abilities: {"cha": 2, "con": 2, "dex": 2, "int": 0, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Intimidation": 11, "Survival": 9}
+  strikes: [{"name": "Falchion", "bonus": 15, "damage": [["1d10+10", "slashing", null]], "traits": ["forceful", "sweep"]}, {"name": "Javelin", "bonus": 13, "damage": [["1d6+10", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Opportunistic Strike", "type": "reaction", "traits": [], "text": "Trigger A creature within the hold sergeant's melee reach is hit by a melee attack by one of the hold sergeant's allies%rEffect The hold sergeant makes a Strike against the triggering creature."}, {"name": "Bark Orders", "type": "action", "traits": ["auditory", "concentrate", "emotion", "mental"], "cost": 1, "text": "Bellowing mightily, the hold sergeant gives themself and all orc allies within 60 feet a +1 status bonus to attack and damage rolls until the start of the hold sergeant's next turn.%rEffect: Bark Orders (Hold Sergeant)"}]
+"Hold Warrior":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["humanoid", "orc"]
+  ac: 20
+  hp: 50
+  perception: 12
+  saves: {"fortitude": 10, "reflex": 9, "will": 8}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9, "Intimidation": 7, "Survival": 6}
+  strikes: [{"name": "Orc Necksplitter", "bonus": 11, "damage": [["1d8+6", "slashing", null]], "traits": ["forceful", "sweep"]}, {"name": "Javelin", "bonus": 9, "damage": [["1d6+6", "piercing", null]], "traits": ["thrown-30"]}, {"name": "Fist", "bonus": 11, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": [], "text": "Trigger The hold warrior is reduced to 0 HP%rEffect The hold warrior avoids being knocked out and remains at 1 HP, but their Wounded value increases by 1. When they are Wounded 3, they can no longer use this ability."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}]
+"Hold Warrior (Forge)":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["humanoid", "orc"]
+  ac: 20
+  hp: 50
+  perception: 12
+  saves: {"fortitude": 10, "reflex": 9, "will": 8}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9, "Intimidation": 7, "Survival": 6}
+  strikes: [{"name": "Fist", "bonus": 11, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Warhammer", "bonus": 12, "damage": [["1d6+6", "bludgeoning", null]], "traits": ["shove"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": [], "text": "Trigger The hold warrior is reduced to 0 HP%rEffect The hold warrior avoids being knocked out and remains at 1 HP, but their Wounded value increases by 1. When they are Wounded 3, they can no longer use this ability."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}]
+"K'zaard The Drover":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "orc"]
+  ac: 24
+  hp: 95
+  perception: 17
+  saves: {"fortitude": 11, "reflex": 17, "will": 14}
+  abilities: {"cha": 5, "con": 3, "dex": 6, "int": 5, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 11, "Deception": 16, "Diplomacy": 15, "Stealth": 14, "Thievery": 13}
+  strikes: [{"name": "Orc Skewermaul", "bonus": 16, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["brace", "magical", "two-hand-d10", "versatile-p"]}, {"name": "Dagger", "bonus": 15, "damage": [["1d4+6", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 15, "damage": [["1d4+6", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Back Pedal", "type": "reaction", "traits": [], "text": "Trigger K'zaard is targeted by a Strike%rEffect K'zaard moves unpredictably and suddenly as he tries to dodge. He gains a +1 circumstance bonus against the triggering attack. After the attack is resolved, K'zaard can Step."}, {"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Keep Talking", "type": "action", "traits": ["auditory", "mental"], "cost": 1, "text": "K'zaard continues to speak quickly and convincingly. Creatures Frightened by K'zaard's Weaseling Words can't reduce the frightened condition caused by that effect at the end of their next turn."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "K'zaard deals 2d6 extra precision damage to Off-Guard creatures."}, {"name": "Weaseling Words", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 2, "text": "K'zaard weaves together a short speech that gives the listener pause. Enemies within 30 feet must attempt a DC 24 Will save. While a creature is frightened by this ability, it's Off-Guard to K'zaard.%rCritical Success No effect, and the creature is temporarily immune to Weaseling Words for 1 minute.%rSuccess The creature is unaffected.%rFailure The creature is uncertain and Frightened 1.%rCritical Failure The creature is riddled with self-doubt about its own actions. It is Frightened 2 and…"}]
+"Kar":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: -1
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 14
+  hp: 8
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 8, "will": 2}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": 0, "str": 1, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 3, "Stealth": 5}
+  strikes: [{"name": "Hatchet", "bonus": 6, "damage": [["1d6+1", "slashing", null]], "traits": ["agile", "sweep"]}, {"name": "Hatchet", "bonus": 6, "damage": [["1d6+1", "slashing", null]], "traits": ["agile", "sweep", "thrown-10"]}]
+  actions: [{"name": "Biggest Fan!", "type": "reaction", "traits": ["auditory", "emotion"], "text": "Trigger An ally Kar can see critically succeeds at a skill check or attack roll%rEffect Kar cheers exuberantly, showering the triggering ally with fawning praise. The triggering ally gains 1d6 temporary Hit Points that last 1 minute.%rEffect: Biggest Fan!"}, {"name": "My Turn!", "type": "free", "traits": ["concentrate"], "text": "Requirements Kar used Biggest Fan within the last minute%rEffect Eager to show she's just as strong as her ally, Kar gains a +1 status bonus to attack rolls, saving throws, and skill checks until the beginning of her next turn, but only if she performs some activity similar to the action that triggered her Biggest Fan! ability."}]
+"Magical Forge":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "huge"
+  rarity: "common"
+  traits: ["construct", "mindless"]
+  ac: 30
+  hp: 135
+  perception: 15
+  saves: {"fortitude": 21, "reflex": 11, "will": 13}
+  abilities: {"cha": -5, "con": 6, "dex": -2, "int": -5, "str": 7, "wis": 0}
+  speeds: {"land": 15}
+  senses: ["darkvision"]
+  skills: {"Athletics": 22}
+  strikes: [{"name": "Door", "bonus": 21, "damage": [["2d12+9", "bludgeoning", null], ["1d8", "fire", null]], "traits": ["magical"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Construct Armor (Hardness 8)", "type": "passive", "traits": [], "text": "Like normal objects, an animated furnace has Hardness. This Hardness reduces any damage the furnace takes by an amount equal to the Hardness. Once an animated furnace is reduced to fewer than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 24."}, {"name": "Fan the Flames", "type": "action", "traits": [], "cost": 2, "text": "The animated furnace opens its door and fans its flames in a 30-foot that deals 5d6 fire|options:area-damage damage (DC 28 Reflex save)."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, (2d8+9) fire, Rupture 15"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Marguk Cleftneck":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "large"
+  rarity: "unique"
+  traits: ["giant", "troll"]
+  ac: 25
+  hp: 175
+  perception: 16
+  saves: {"fortitude": 18, "reflex": 17, "will": 12}
+  abilities: {"cha": 3, "con": 6, "dex": 1, "int": 0, "str": 5, "wis": 3}
+  speeds: {"land": 30}
+  hp_details: "regeneration 20 (deactivated by electricity or fire)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 16, "Intimidation": 16}
+  weaknesses: {"fire": 10, "electricity": 10}
+  strikes: [{"name": "Jaws", "bonus": 17, "damage": [["2d10+18", "piercing", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Claw", "bonus": 16, "damage": [["2d8+8", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"]}, {"name": "Warhammer", "bonus": 18, "damage": [["1d8+12", "bludgeoning", null]], "traits": ["magical", "shove"]}]
+  actions: [{"name": "Independent Brains", "type": "passive", "traits": [], "text": "Each of Marguk's heads rolls its own initiative and has its own turn. Neither head can Delay. At the start of a head's turn, that head gets 2 actions and 1 reaction. Each brain controls one of Marguk's arms, but both can move the legs. Any ability that would sever one of the heads (such as the vorpal weapon property) doesn't cause Marguk to die if she still has her other head, but it does cause her to lose the turns, actions, and reactions of the severed head. Mental effects that target a…"}, {"name": "Regeneration 20 (Deactivated by Electricity or Fire)", "type": "passive", "traits": []}, {"name": "Head Regrowth", "type": "passive", "traits": [], "text": "Marguk's regeneration can regrow a severed head. After regaining Hit Points from regeneration, she attempts a DC 10 Flat. On a success, the missing head is fully restored. If Marguk loses her last remaining head, she dies immediately."}, {"name": "Partial Armor", "type": "passive", "traits": [], "text": "Marguk's armor primarily protects her abdomen and legs, leaving her shoulders and head exposed. Strikes made with ranged or reach weapons gain a +1 circumstance bonus to attack rolls against Marguk. At the GM's discretion, other attacks that can easily reach her head level (such as attacks made from high ground) also gain this bonus."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Sweeping Hammer", "type": "action", "traits": [], "cost": 2, "text": "Requirements Marguk is wielding a warhammer%rEffect Marguk makes a warhammer Strike against each creature in a 15-foot cone."}, {"name": "Tenderized Feast", "type": "reaction", "traits": [], "text": "Trigger Marguk successfully Strikes a creature with her warhammer%rEffect One of Marguk's heads takes advantage of the disoriented foe and makes a jaws Strike against that creature with a –2 penalty."}]
+"Molog":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "orc"]
+  ac: 32
+  hp: 225
+  perception: 18
+  saves: {"fortitude": 21, "reflex": 19, "will": 16}
+  abilities: {"cha": 3, "con": 5, "dex": 4, "int": 0, "str": 8, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 20, "Athletics": 26, "Intimidation": 20, "Nature": 17}
+  strikes: [{"name": "Glaive", "bonus": 28, "damage": [["2d12+11", "slashing", null]], "traits": ["deadly-d8", "forceful", "magical", "reach-10"]}, {"name": "Composite Shortbow", "bonus": 22, "damage": [["4d6+5", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Frightful Standard", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "30 feet. DC 27 Will.%rAs long as Molog remains mounted and his standard is intact, he has frightful presence against enemies within the aura."}, {"name": "Battle Cry", "type": "free", "traits": [], "text": "Trigger Molog rolls initiative%rEffect Molog attempts to demoralize an observed foe."}, {"name": "Trampling Charge", "type": "action", "traits": ["flourish"], "cost": 3, "text": "Molog urges Bloodwing forward, trampling enemies in their path. He commands her to Stride or Fly up to her Speed, moving through the spaces of any foes in his path up to Large size. Bloodwing deals damage equal to her claw melee Strike to each creature whose space they move through, subject to a DC 31 Reflex save. On a critical failure, the creature also becomes Off-Guard until the end of Molog's next turn. He can damage a given creature only once during this movement."}, {"name": "Weapon Adept", "type": "action", "traits": [], "cost": 1, "text": "Moloch can Swap between his glaive and composite shortbow, then Strike with the weapon he switched to."}, {"name": "Wyvern's Swoop", "type": "action", "traits": ["flourish"], "cost": 2, "text": "Requirements Molog is mounting his wyvern%rEffect Molog Commands his mount to Stride twice. At any point during this movement, he can Strike one enemy within reach or within the first range increment of his ranged weapon, with a +1 circumstance bonus to his attack roll. If he began this movement at a higher point than his target, he deals an additional die of damage with this Strike."}]
+"Moonstalker":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "rare"
+  traits: ["ghost", "incorporeal", "spirit", "undead"]
+  ac: 25
+  hp: 90
+  perception: 18
+  saves: {"fortitude": 10, "reflex": 18, "will": 16}
+  abilities: {"cha": 2, "con": 0, "dex": 6, "int": 2, "str": -5, "wis": 6}
+  speeds: {"land": null, "fly": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Medicine": 15, "Nature": 15, "Stealth": 17, "Survival": 17, "Shadefields Lore": 130}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 9}
+  strikes: [{"name": "Ghostly Shortsword", "bonus": 18, "damage": [["2d6+6", "void", null]], "traits": ["agile", "finesse", "magical"]}, {"name": "Ghostly Composite Longbow", "bonus": 18, "damage": [["2d8+11", "void", null]], "traits": ["agile", "deadly-d10", "finesse", "magical", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "The moonstalker can stray no more than 120 feet from the hunting grounds where it was slain."}, {"name": "Cover of Night", "type": "passive", "traits": [], "text": "A moonstalker in an area illuminated by moonlight gains a +2 status bonus to AC and Stealth checks. In the light of a full moon, they are Concealed."}, {"name": "Lunar Shift", "type": "reaction", "traits": [], "text": "Trigger The moonstalker is hit by a Strike%rRequirements The moonstalker is in an area illuminated by moonlight%rEffect The moonstalker teleports through a beam of moonlight to another moonlit space within 120 feet. This does not trigger reactions."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "Slaying the moonstalker's prey from their final hunt allows them to move on to the afterlife.%rWhen a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Corrupting Gaze", "type": "action", "traits": [], "cost": 2, "text": "The moonstalker stares at a creature it can see within 30 feet. The target takes 4d6 void damage (DC 25 Will save). A creature that fails its save is also Stupefied 1 for 1 minute."}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The moonstalker designates a single creature they can see and hear, or one they're Tracking, as their prey. The moonstalker gains a +2 circumstance bonus to Perception checks to Seek the prey and to Survival checks to Track the prey. The first time the moonstalker hits the designated prey in a round, they deal an additional 1d8 precision damage. The moonstalker also ignores the penalty for making ranged attacks within their second range increment. These effects last until the moonstalker uses…"}, {"name": "Soul Pierce", "type": "action", "traits": ["divine", "void"], "cost": 2, "text": "The moonstalker infuses soul-rending energy into a spectral arrow, making a ghostly composite longbow Strike with a –2 circumstance penalty against each creature in a 100-foot line."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 25, "attack": 17, "spells": {"1": ["Alarm", "Fear"], "2": ["Mist"]}}]
+"Murshek":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 23
+  hp: 105
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 17, "will": 11}
+  abilities: {"cha": 3, "con": 4, "dex": 5, "int": 2, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 13, "Intimidation": 15, "Nature": 15}
+  strikes: [{"name": "Fist", "bonus": 14, "damage": [["1d4+8", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Spear", "bonus": 15, "damage": [["1d6+10", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 16, "damage": [["1d6+10", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Intimidating Strike", "type": "action", "traits": [], "cost": 2, "text": "Murshek makes a melee Strike. If she hits and deals damage, the target is Frightened 1, or Frightened 2 on a critical hit."}, {"name": "Toxic Teamwork", "type": "passive", "traits": [], "text": "Murshek's attacks exacerbate any venom in her target's system. Against a creature affected by wyvern venom, her Strikes deal additional poison damage equal to twice the current stage of the wyvern venom affecting the target."}, {"name": "Wingrider Trust", "type": "passive", "traits": [], "text": "Murshek and Xithnik operate as a team and verbally coordinate their actions. Xithnik has 3 actions, and Murshek does not need to spend any actions to command him."}]
+"Nakasha":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "orc"]
+  ac: 26
+  hp: 135
+  perception: 11
+  saves: {"fortitude": 17, "reflex": 16, "will": 11}
+  abilities: {"cha": 3, "con": 4, "dex": 4, "int": 1, "str": 6, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 16, "Athletics": 18, "Deception": 15, "Intimidation": 15, "Gorum Lore": 11}
+  strikes: [{"name": "Fist", "bonus": 19, "damage": [["2d10+6", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Flurry of Blows", "type": "action", "traits": ["flourish"], "cost": 1, "text": "Nakasha makes two unarmed Strikes. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses."}, {"name": "Flurry of Maneuvers", "type": "passive", "traits": [], "text": "Nakasha can replace one or both of her attacks during a Flurry of Blows with Grapples, Shoves, or Trips."}, {"name": "Ironblood Stance", "type": "action", "traits": ["stance"], "cost": 1, "text": "Nakasha enters a stance of impenetrable iron. As long as she's in this stance, Nakasha can make iron sweep Strikes with her fists and gains resistance 2 to all damage."}, {"name": "Powerful Fist", "type": "passive", "traits": [], "text": "Nakasha's fist Strikes don't take penalties when making lethal attacks."}, {"name": "Stunning Fist", "type": "passive", "traits": ["incapacitation"], "text": "When Nakasha targets the same creature with two Strikes from her Flurry of Blows, she can try to stun the creature. If either Strike hits and deals damage, the target must succeed at a DC 23 Fortitude save or be Stunned 1 (or Stunned 3 on a critical failure)."}]
+"Old Herok":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 10
+  size: "huge"
+  rarity: "unique"
+  traits: ["aquatic", "beast", "water"]
+  ac: 30
+  hp: 170
+  perception: 21
+  saves: {"fortitude": 21, "reflex": 19, "will": 17}
+  abilities: {"cha": 0, "con": 5, "dex": 5, "int": -3, "str": 8, "wis": 5}
+  speeds: {"land": 20, "swim": 50}
+  senses: ["darkvision"]
+  skills: {"Athletics": 22, "Stealth": 23}
+  resistances: {"cold": 10, "fire": 10}
+  strikes: [{"name": "Jaws", "bonus": 24, "damage": [["2d10+11", "piercing", null]], "traits": ["reach-15", "unarmed"], "effects": ["Grab"]}, {"name": "Tail", "bonus": 24, "damage": [["2d6+11", "bludgeoning", null]], "traits": ["agile", "reach-15"]}]
+  actions: [{"name": "Slow Metabolism", "type": "passive", "traits": [], "text": "A water orm can go for 10 years without feeding. Beyond this limit, the water orm's hunger causes it to become Slowed 1, but doesn't otherwise impact its lifespan. A water orm that's slowed as a result of starvation can remove this condition by using Swallow Whole to gulp down a meal."}, {"name": "Undetectable", "type": "passive", "traits": ["detection", "primal", "revelation", "scrying"], "text": "A water orm automatically tries to counteract any detection, revelation, or scrying divination attempted against it, using its Stealth modifier for the counteract check."}, {"name": "Quicksand Adaptation", "type": "passive", "traits": [], "text": "Old Herok is immune to the effects of quicksand."}, {"name": "Sand Skim", "type": "action", "traits": ["primal"], "cost": 3, "text": "Old Herok can disintegrate into a coiled mass of sand rippling beneath the surface of quicksand. While in this form, he automatically succeeds at Athletics checks to swim and gains a +4 circumstance bonus to Stealth checks in quicksand. If a creature enters his space while in this form, he can revert to his normal form and attempt to Grab the creature as a reaction. Old Herok can remain in this form for 8 hours and can return to his normal form using a single action which has the concentrate…"}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, (2d8+8) bludgeoning damage, Rupture 22"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Old Marrow":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["beast"]
+  ac: 27
+  hp: 175
+  perception: 21
+  saves: {"fortitude": 17, "reflex": 20, "will": 18}
+  abilities: {"cha": 1, "con": 3, "dex": 2, "int": 0, "str": 6, "wis": 4}
+  speeds: {"land": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 18, "Athletics": 20, "Deception": 17, "Stealth": 18, "Survival": 16}
+  strikes: [{"name": "Jaws", "bonus": 19, "damage": [["3d6+11", "piercing", null]], "traits": ["fatal-d10", "unarmed"], "effects": ["Lone Wolf"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Insulting Lesson", "type": "reaction", "traits": ["linguistic", "mental"], "text": "Trigger A creature within 30 feet of Old Marrow critically fails at a skill check or attack roll%rEffect Old Marrow quips with mocking advice. He Feints the triggering creature, even if the creature is not within Old Marrow's melee reach."}, {"name": "Lone Wolf", "type": "passive", "traits": [], "text": "Old Marrow works alone and excels when attacking isolated prey. His Strikes against creatures who are not adjacent to any of their allies deal 1d6 additional precision damage."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Medium, (2d6+9) bludgeoning, Rupture 30"}]
+"One Eye Phantom":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "rare"
+  traits: ["ethereal", "incorporeal", "phantom", "spirit"]
+  ac: 24
+  hp: 70
+  perception: 13
+  saves: {"fortitude": 11, "reflex": 18, "will": 14}
+  abilities: {"cha": 4, "con": 0, "dex": 5, "int": 2, "str": -5, "wis": 3}
+  speeds: {"land": null, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Intimidation": 14}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Phantom Greatclub", "bonus": 17, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["backswing", "finesse", "magical", "shove"]}, {"name": "Phantom Fist", "bonus": 17, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "shove"]}, {"name": "Phantom Javelin", "bonus": 17, "damage": [["2d8+8", "piercing", null]], "traits": ["magical", "thrown-30"]}]
+  actions: [{"name": "Walk the Ethereal Line", "type": "action", "traits": [], "cost": 2, "text": "The One Eye phantom walks the thin line between the Ethereal Plane and the Universe in order to exist on both planes simultaneously. They can shift back to solely on the Ethereal Plane by using this ability again."}, {"name": "Atonement for the Damned", "type": "passive", "traits": [], "text": "PCs might try to calm the phantoms instead of destroying them. At the GM's discretion, the PCs may attempt skill checks to talk down the spirits. On a success, the phantom's AC lowers by 2 as they become more willing to move on from their shame and dishonor, and they might even waver in attacking the PCs. Spells or rituals like Atone that require penitent creatures have no effect on these phantoms."}, {"name": "Ectoplasmic Bleed", "type": "passive", "traits": [], "text": "If a creature hits the phantom with a melee Strike, the creature is splashed with ectoplasm, taking (2d4+7) spirit damage (DC 21 Reflex save). On a failure, the creature is also Slowed 1."}, {"name": "Susceptible to Death", "type": "passive", "traits": [], "text": "Though phantoms aren't alive, neither are they undead, and they are uniquely vulnerable to the effects of death. A phantom whose Hit Points are reduced to 0 as a result of a death effect (such as from a spell like Execute) is immediately whisked away to the River of Souls, where their soul resumes the usual path to afterlife."}, {"name": "Phantom Touch", "type": "passive", "traits": ["spirit"], "text": "Each time they make a Strike, the One Eye phantom can choose to deal spirit damage instead of the normal physical damage type."}, {"name": "Skullcracker", "type": "action", "traits": ["concentrate", "illusion", "mental", "occult", "spirit"], "cost": 2, "text": "The One Eye phantom grabs the head of a creature as a jagged, spectral stone seeped with blood manifests before it. The One Eye phantom smashes the head of the creature against the stone with supernatural force, dealing (2d12+7) spirit damage with a DC 19 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature takes half damage.%rFailure The creature hallucinates that their skull has been fractured. They take full damage and are Stupefied 2.%rCritical Failure As failure,…"}]
+"Oracle of Zagresh":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "rare"
+  traits: ["dromaar", "human", "humanoid", "orc"]
+  ac: 28
+  hp: 172
+  perception: 19
+  saves: {"fortitude": 16, "reflex": 18, "will": 20}
+  abilities: {"cha": 6, "con": 2, "dex": 2, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "curse of the destroyer's bloodlust"
+  skills: {"Athletics": 22, "Intimidation": 20, "Religion": 19, "Stealth": 18}
+  strikes: [{"name": "Orc Necksplitter", "bonus": 23, "damage": [["2d8+6", "slashing", null]], "traits": ["forceful", "magical", "sweep"]}, {"name": "Javelin", "bonus": 21, "damage": [["2d6+6", "piercing", null]], "traits": ["thrown-30"]}, {"name": "Claw", "bonus": 20, "damage": [["2d8+6", "slashing", null]], "traits": ["acid", "agile", "unarmed"], "effects": ["Destructive Touch"]}, {"name": "Jaws", "bonus": 20, "damage": [["2d8+6", "piercing", null]], "traits": ["acid", "unarmed"], "effects": ["Destructive Touch"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Curse of the Destroyer's Bloodlust", "type": "passive", "traits": [], "text": "After a turn where the oracle of Zagresh doesn't make a Strike, she takes a –2 status penalty to her AC and saving throws until she makes another Strike. During this penalty, she gains a +2 status bonus to her Strikes and fast healing 5."}, {"name": "Destructive Touch", "type": "action", "traits": [], "cost": 2, "text": "Requirements Zagresh's Gaze is active%rEffect The oracle's hands and tusks ooze acid, making a soft sizzling noise and dealing an additional 1d6 acid damage to her unarmed attacks."}, {"name": "Zagresh's Gaze", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per day%rEffect The oracle of Zagresh throws aside her weapons and focuses on the pure divine power of destruction. She attempts a DC 27 Will save. On a success, she gains access to her claw and jaws Strikes. This effect lasts 1d4 rounds."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 29, "attack": 21, "spells": {"0": ["Daze", "Divine Lance", "Forbidding Ward", "Guidance", "Shield", "Stabilize"], "1": ["Bane", "Runic Body", "Runic Weapon"], "2": ["Deafness", "Revealing Light", "Spiritual Armament"], "3": ["Bane", "Blindness", "Crisis of Faith"], "4": ["Divine Wrath", "Unfettered Movement"], "5": ["Crisis of Faith", "Spiritual Armament"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 28, "attack": 20, "spells": {"1": ["Call to Arms"], "3": ["Battlefield Persistence"]}}]
+"Orc Child":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: -1
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 14
+  hp: 8
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 8, "will": 2}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": 0, "str": 1, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 3, "Stealth": 5}
+  strikes: [{"name": "Dagger", "bonus": 6, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 6, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+"Orc Doomsayer":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 21
+  hp: 78
+  perception: 14
+  saves: {"fortitude": 12, "reflex": 9, "will": 15}
+  abilities: {"cha": 4, "con": 4, "dex": 2, "int": 1, "str": 3, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 11, "Deception": 12, "Intimidation": 12, "Medicine": 12, "Religion": 13}
+  strikes: [{"name": "Flail", "bonus": 13, "damage": [["1d6+3", "piercing", null]], "traits": ["disarm", "sweep", "trip"]}, {"name": "Fist", "bonus": 13, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "shove", "unarmed"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Dooming Proclamation", "type": "action", "traits": ["auditory", "divine", "emotion", "fear", "mental"], "cost": 3, "text": "The orc doomsayer shouts pronouncements that presage the unstoppable approach of a cataclysmic event. Each enemy within 30 feet attempts a DC 21 Will save.%rCritical Success No effect and temporarily immune for 1 minute.%rSuccess The creature is unaffected.%rFailure The creature is Frightened 1.%rCritical Failure The creature's mind fills with images of the end times. The creature takes 3d6 mental damage and is Frightened 2."}, {"name": "Infused Strikes", "type": "passive", "traits": [], "text": "The orc doomsayer's melee Strikes deal an extra 1d8 void damage."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 21, "attack": 14, "spells": {"0": ["Daze", "Detect Magic", "Guidance", "Shield", "Void Warp"], "1": ["Enfeeble", "Fear", "Harm", "Heal"], "2": ["Augury", "Silence"], "3": ["Chilling Darkness"]}}]
+"Orc Hunter":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 29
+  hp: 155
+  perception: 19
+  saves: {"fortitude": 18, "reflex": 23, "will": 21}
+  abilities: {"cha": 0, "con": 4, "dex": 7, "int": 3, "str": 4, "wis": 6}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18, "Medicine": 18, "Nature": 19, "Stealth": 22, "Survival": 21, "Hunting Lore": 17}
+  strikes: [{"name": "Whip", "bonus": 22, "damage": [["2d6+9", "slashing", null]], "traits": ["disarm", "finesse", "magical", "nonlethal", "reach-10", "trip"]}, {"name": "Shortsword", "bonus": 21, "damage": [["2d10+13", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Composite Longbow", "bonus": 21, "damage": [["2d8+11", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Experienced Tracker", "type": "passive", "traits": [], "text": "An orc hunter can Track while moving at full Speed."}, {"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The orc hunter designates a single creature as their prey. They must be able to see or hear the prey, or must be tracking the prey during exploration. They gain a +2 circumstance bonus to Perception checks to Seek their prey and a +2 circumstance bonus to Survival checks to Track their prey. They also ignore the penalty for making ranged attacks within their second range increment against the prey. They can only have one creature designated as their prey at a time. If they use Hunt Prey against…"}, {"name": "Hunter's Edge", "type": "passive", "traits": [], "text": "The orc hunter deals an additional 1d8 precision damage the first time they hit their hunted prey in a round."}]
+  spellcasting: [{"name": "Ranger Warden Spells", "tradition": "primal", "type": "focus", "dc": 27, "attack": 19, "spells": {"1": ["Gravity Weapon"], "3": ["Ephemeral Tracking"]}}]
+"Orc Raider":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 26
+  hp: 165
+  perception: 14
+  saves: {"fortitude": 18, "reflex": 15, "will": 13}
+  abilities: {"cha": 1, "con": 6, "dex": 5, "int": -1, "str": 7, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 21, "Intimidation": 13, "Stealth": 16, "Warfare Lore": 11}
+  strikes: [{"name": "Greatsword", "bonus": 20, "damage": [["2d10+11", "slashing", null]], "traits": ["magical", "versatile-p"]}, {"name": "Bola", "bonus": 18, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["nonlethal", "ranged-trip", "thrown-20"]}]
+  actions: [{"name": "Deny Advantage", "type": "passive", "traits": [], "text": "An orc raider isn't Off-Guard to flanking, Hidden, or undetected creatures of 8th level or lower, or creatures of 8th level or lower using surprise attack. However, they can still help their allies flank."}, {"name": "Elemental Rage", "type": "passive", "traits": [], "text": "While raging, an orc raider is cloaked in a vortex of fire, granting their weapons the versatile fire trait and granting them Concealment from ranged attacks. They can't use this concealment to Hide or Sneak."}, {"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Destructive Inferno", "type": "action", "traits": [], "cost": 2, "text": "While raging, an orc raider can channel their destructive energy into an explosion of flame. Creatures in a 10-foot radius around the raider take 9d6 fire|options:area-damage damage (DC 23 Reflex save). The raider can't use Destructive Inferno again for 1d4 rounds."}, {"name": "Rage", "type": "action", "traits": [], "cost": 1, "text": "Requirements You aren't Fatigued or raging.%rYou tap into your inner fury and begin raging. You gain a number of temporary Hit Points equal to your level plus your Constitution modifier. While you are raging:%rYou deal 2 additional damage on melee Strikes. This additional damage is halved if your weapon or unarmed attack is agile. You can't use actions with the concentrate trait unless they also have the rage trait. You can Seek while raging.%rRage lasts for 1 minute, until you fall…"}]
+"Orc Rampager":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 19
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 11, "will": 8}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": 1, "str": 5, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 11, "Survival": 10}
+  strikes: [{"name": "Orc Necksplitter", "bonus": 14, "damage": [["1d8+9", "slashing", null]], "traits": ["forceful", "sweep"]}, {"name": "Fist", "bonus": 14, "damage": [["1d4+9", "bludgeoning", null]], "traits": ["agile", "shove", "unarmed"]}, {"name": "Longbow", "bonus": 12, "damage": [["1d8+4", "piercing", null]], "traits": ["deadly-d10", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Rampaging Strikes", "type": "action", "traits": [], "cost": 2, "text": "The orc rampager Strides and makes two melee Strikes at any point during that movement. Each Strike must target a different creature. The attacks count toward the rampager's multiple attack penalty, but the penalty doesn't increase until after Rampaging Strikes is complete."}]
+"Orc Spinecracker":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 23
+  hp: 130
+  perception: 12
+  saves: {"fortitude": 15, "reflex": 12, "will": 10}
+  abilities: {"cha": 3, "con": 4, "dex": 3, "int": 0, "str": 7, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 20, "Deception": 14, "Intimidation": 14}
+  strikes: [{"name": "Spiked Gauntlet", "bonus": 20, "damage": [["2d8+8", "piercing", null]], "traits": ["agile", "free-hand", "magical"]}, {"name": "Shortbow", "bonus": 15, "damage": [["2d6+6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Brawler Critical Specialization", "type": "passive", "traits": [], "text": "When the orc spinecracker gets a critical hit with a brawling weapon, the target must succeed at a DC 22 Fortitude save or be Slowed 1 until the end of the spinecracker's next turn."}, {"name": "Combat Grab", "type": "action", "traits": ["press"], "cost": 1, "text": "Requirements The spinecracker has one hand free, and their target is within reach of that hand%rEffect Using their prior attack to shift their opponent's guard, the spinecracker makes a melee Strike with one hand. If it hits, they grab the target using their other hand. The creature remains Grabbed until the end of the spinecracker's next turn or until it Escapes, whichever comes first."}, {"name": "Crushing Pin", "type": "action", "traits": ["attack"], "cost": 2, "text": "Requirements The spinecracker has a creature Grappled%rEffect The spinecracker crushes the creature in their grip, dealing (2d6+6) bludgeoning damage and giving the target the Restrained condition until the end of the spinecracker's next turn."}]
+"Orc Vagabond":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 18
+  hp: 48
+  perception: 9
+  saves: {"fortitude": 11, "reflex": 10, "will": 6}
+  abilities: {"cha": 1, "con": 3, "dex": 3, "int": 1, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 10, "Intimidation": 7, "Stealth": 9}
+  strikes: [{"name": "Battle Axe", "bonus": 11, "damage": [["1d8+6", "slashing", null]], "traits": ["sweep"]}, {"name": "Fist", "bonus": 11, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Longbow", "bonus": 10, "damage": [["1d8+3", "piercing", null]], "traits": ["deadly-d10", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Surprise Shooter", "type": "passive", "traits": [], "text": "The orc vagabond's ranged attacks deal an extra 1d6 precision damage to targets adjacent to at least one of the vagabond's allies."}]
+"Otehika Cinder Eater":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 27
+  hp: 150
+  perception: 16
+  saves: {"fortitude": 17, "reflex": 18, "will": 15}
+  abilities: {"cha": 3, "con": 3, "dex": 4, "int": 1, "str": 6, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 19, "Athletics": 21, "Intimidation": 20, "Nature": 17}
+  strikes: [{"name": "Battle Axe", "bonus": 21, "damage": [["2d10+11", "slashing", null]], "traits": ["magical", "sweep"]}, {"name": "Hatchet", "bonus": 20, "damage": [["2d8+11", "slashing", null]], "traits": ["agile", "sweep"]}, {"name": "Hatchet", "bonus": 19, "damage": [["2d8+11", "slashing", null]], "traits": ["agile", "sweep", "thrown-10"]}, {"name": "Composite Shortbow", "bonus": 19, "damage": [["2d6+9", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Counting Coup", "type": "reaction", "traits": [], "text": "Trigger An enemy moves within Otehika's reach%rEffect Otehika swings their weapon as close to their enemy as they can without touching them, immediately attempting a Demoralize check. On a success, the enemy is Off-Guard until the beginning of their next turn."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Twin Takedown", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rRequirements Otehika wields two melee weapons, each in a different hand.%rEffect Otehika makes two Strikes against their target, one with each of the required weapons. If both hit the same target, combine the damage from the weapons for the purpose of resistances and weaknesses. They apply their multiple attack penalty to each Strike normally."}]
+"Palpares":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 11
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 31
+  hp: 195
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 24, "will": 18}
+  abilities: {"cha": 2, "con": 5, "dex": 7, "int": -4, "str": 8, "wis": 3}
+  speeds: {"land": 25, "burrow": 35}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 23, "Athletics": 26, "Stealth": 22, "Survival": 19}
+  strikes: [{"name": "Pincers", "bonus": 24, "damage": [["2d8+10", "piercing", null]], "traits": ["agile", "reach-15"], "effects": ["Grab", "Palpares Venom"]}, {"name": "Body", "bonus": 24, "damage": [["2d8+12", "bludgeoning", null]], "traits": ["reach-15"]}]
+  actions: [{"name": "Dig In", "type": "reaction", "traits": [], "text": "Trigger The palpares is aboveground and would take damage%rEffect The palpares Burrows up to its Speed, throwing up a shield of dirt that reduces the damage by 11."}, {"name": "Breaching Ambush", "type": "action", "traits": [], "cost": 2, "text": "Requirements The palpares is underground%rEffect The palpares Burrows up to twice its Speed underneath a creature, then Strikes upward with its pincers, ending aboveground."}, {"name": "Palpares Venom", "type": "passive", "traits": ["incapacitation", "poison"], "text": "Saving Throw DC 30 Fortitude%rMaximum Duration 6 rounds%rStage 1 3d6 poison damage and Stunned 1 (1 round)%rStage 2 3d8 poison damage and Stunned 2 (1 round)%rStage 3 3d10 poison damage and Paralyzed (1 minute)"}, {"name": "Pit Trap", "type": "action", "traits": [], "cost": 3, "text": "The palpares Burrows to create a 30-foot radius sloping pit centered on itself that's 10 feet deep at the center. All creatures in the area must attempt a DC 30 Reflex save.%rCritical Success The creature is moved by tremors to a square outside the edge of the pit.%rSuccess As critical success, but the creature is also Clumsy 1 for 1 round.%rFailure The creature falls 10 feet into the pit and is knocked Prone.%rCritical Failure As failure, and the creature is Stunned 1."}, {"name": "Venomous Bite", "type": "action", "traits": [], "cost": 1, "text": "Requirements The palpares has a creature Grabbed%rEffect The palpares uses its mandibles to inject venom, dealing 3d8 acid damage and exposes the creature to palpares venom."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Paskis Nine-Knives":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "orc"]
+  ac: 31
+  hp: 195
+  perception: 23
+  saves: {"fortitude": 20, "reflex": 25, "will": 19}
+  abilities: {"cha": 2, "con": 5, "dex": 8, "int": 1, "str": 5, "wis": 4}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 23, "Deception": 22, "Intimidation": 20, "Stealth": 25, "Thievery": 23}
+  strikes: [{"name": "Orc Knuckle Dagger", "bonus": 25, "damage": [["2d6+11", "piercing", null]], "traits": ["agile", "disarm", "magical", "orc"]}, {"name": "Dagger", "bonus": 25, "damage": [["2d4+11", "piercing", null]], "traits": ["agile", "magical", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Dance Between the Blades", "type": "reaction", "traits": [], "text": "Trigger A foe within Paskis's reach critically fails a Strike against her%rEffect Paskis can Step; she must end her movement within reach of the triggering foe. Paskis then makes a melee Strike against the triggering creature, treating them as Off-Guard for the attack. This Strike uses the triggering Strike's damage rather than that of Paskis's weapon. If the weapon has the agile or finesse train, Paskis also applies her Sneak Attack to this damage."}, {"name": "Deny Advantage", "type": "passive", "traits": [], "text": "Paskis isn't Off-Guard to creatures of 11th level or lower that are Hidden, undetected, flanking, or using surprise attack. However, she can help allies flank."}, {"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Enfeebling Strike", "type": "free", "traits": [], "text": "Trigger Paskis's Strike hits an Off-Guard creature and deals damage%rEffect The target is Enfeebled 1 until the end of Paskis's next turn."}, {"name": "Knife Training", "type": "passive", "traits": [], "text": "Paskis treats all weapons in the knife group as finesse weapons."}, {"name": "Lightning Blades", "type": "action", "traits": ["manipulate"], "cost": 2, "text": "Requirements Paskis is wielding two knives and targets an Off-Guard creature%rEffect Paskis attempts two knife Strikes against the creature; these attacks increase her multiple attack penalty, but the penalty doesn't increase until after both attacks. This counts as a single melee attack for the purposes of Feinting."}, {"name": "Mark for Death", "type": "action", "traits": [], "cost": 3, "text": "Requirements Paskis can observe the creature she intends to mark%rEffect Paskis designates a single creature as her mark. This lasts until the mark dies or she uses Mark for Death again. She gains a +2 circumstance bonus to Perception checks to Seek the mark and on Deception checks to feint against the mark. In addition, her sneak attacks against her mark deal an additional 2 precision damage."}, {"name": "Poison Weapon", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Paskis draws a poison and applies it to a weapon. If her next attack with that weapon before the end of her next turn hits and deals damage, it applies the effects of the poison."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Paskis deals an extra 3d6 precision damage to Off-Guard creatures."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "On the first round of combat, creatures that haven't acted yet are Off-Guard to Paskis."}]
+"Porphyry Guard":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 22
+  hp: 82
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 10, "will": 12}
+  abilities: {"cha": 0, "con": 5, "dex": 3, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Athletics": 11, "Crafting": 10, "Intimidation": 10, "Survival": 10, "Blisterwell Lore": 12}
+  resistances: {"slashing": 4}
+  strikes: [{"name": "Battle Axe", "bonus": 14, "damage": [["1d8+8", "slashing", null]], "traits": ["sweep"]}, {"name": "Composite Longbow", "bonus": 15, "damage": [["1d8+6", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Double Shot", "type": "action", "traits": [], "cost": 1, "text": "The porphyry guard makes two longbow Strikes targeting two different creatures within the longbow's first range increment. Both Strikes uses the guard's current multiple attack penalty, but each strike takes a –2 penalty."}, {"name": "Weapon Master", "type": "passive", "traits": [], "text": "The porphyry guard has access to the critical specialization effects of any weapons they wield."}]
+"Porphyry Shield Bearer":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 23
+  hp: 85
+  perception: 15
+  saves: {"fortitude": 14, "reflex": 9, "will": 14}
+  abilities: {"cha": 0, "con": 5, "dex": 2, "int": 2, "str": 4, "wis": 3}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Intimidation": 10, "Society": 11}
+  strikes: [{"name": "Hatchet", "bonus": 15, "damage": [["1d6+10", "slashing", null]], "traits": ["agile", "sweep"]}, {"name": "Hatchet", "bonus": 15, "damage": [["1d6+10", "slashing", null]], "traits": ["agile", "sweep", "thrown-10"]}, {"name": "Shield Spikes", "bonus": 15, "damage": [["1d6+10", "slashing", null]], "traits": []}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Shield Warden", "type": "passive", "traits": [], "text": "When the shield bearer has their shield raised, they can Shield Block when an attack is made against an adjacent ally. If they do, the shield prevents that ally from taking damage instead of the shield bearer."}, {"name": "Offensive Block", "type": "action", "traits": [], "cost": 2, "text": "The shield bearer can Step, make a shield spikes Strike, and Raise their Shield in any order."}, {"name": "Retributive Bash", "type": "passive", "traits": [], "text": "The porphyry shield bearer deals an additional 1d8 damage with weapon Strikes against any creature that has damaged the shield bearer or an adjacent ally since the beginning of the shield bearer's last turn."}, {"name": "Tenacious Shield", "type": "free", "traits": [], "text": "Frequency once per day%rTrigger The shield bearer's shield would be destroyed%rEffect The shield is not destroyed and its Hit Points are instead reduced to 5."}]
+"Shadefield Spirit":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 20
+  hp: 70
+  perception: 13
+  saves: {"fortitude": 8, "reflex": 12, "will": 14}
+  abilities: {"cha": 4, "con": 0, "dex": 5, "int": 3, "str": 5, "wis": 4}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Intimidation": 13, "Occultism": 12, "Stealth": 10}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "precision", "unconscious", "bleed"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Fiery Hand", "bonus": 15, "damage": [["1d6", "fire", "persistent"], ["2d6", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "The Shadefield spirit is bound to the Shadefields.%rA typical ghost can stray only a short distance from where it was killed or the place it haunts. A typical limit is 120 feet. Some ghosts are instead bound to a room, building, item, or creature that was special to it rather than a location."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "Putting Diskah Night Watcher's spirit to rest allows the Shadefield spirit to return to its original role as a guardian haunt.%rWhen a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Cindery Assault", "type": "action", "traits": ["divine"], "cost": 2, "text": "The Shadefield spirit cries out in pain and anguish as flaming objects and debris fly about in a 30-foot emanation. Creatures in this area take 3d6 bludgeoning damage plus 1d6 persistent fire damage (DC 20 Reflex save)."}, {"name": "Corrupting Gaze", "type": "action", "traits": [], "cost": 2, "text": "The Shadefield spirit stares at a creature it can see within 30 feet. The target takes 3d6 void damage (DC 20 Will save). A creature that fails its save is also Stupefied 1 for 1 minute."}, {"name": "Sworn to the Storm", "type": "passive", "traits": [], "text": "The Shadefield spirit gains a +1 circumstance bonus to attacks against creatures that have attempted to Disable the Shoanti ancestor storm."}]
+"Skeletal Drummer":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "undead", "unholy"]
+  ac: 18
+  hp: 30
+  perception: 9
+  saves: {"fortitude": 6, "reflex": 12, "will": 9}
+  abilities: {"cha": 4, "con": 1, "dex": 3, "int": 3, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Diplomacy": 9, "Intimidation": 9, "Performance": 13, "Warfare Lore": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5, "sonic": 5}
+  strikes: [{"name": "Stomp", "bonus": 10, "damage": [["2d8+3", "bludgeoning", null]], "traits": ["finesse"]}, {"name": "Drumstick", "bonus": 10, "damage": [["2d6+3", "bludgeoning", null]], "traits": ["agile", "finesse"]}, {"name": "Thunderous Beat", "bonus": 10, "damage": [["2d6+4", "sonic", null]], "traits": ["magical", "sonic"]}]
+  actions: [{"name": "Rhapsodic Flourish", "type": "reaction", "traits": ["occult", "sonic"], "text": "Trigger The skeletal drummer would roll a saving throw against an auditory or sonic effect%rEffect The skeletal drummer performs a refrain that deflects sonic vibrations. They roll a Performance check in place of the triggering saving throw. Sonic feedback rebounds from the effect, dealing 1d6 sonic damage to the source of the triggering effect if the Performance check succeeded or 2d6 sonic damage to the skeletal drummer on a failure."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Destructive Finale", "type": "action", "traits": ["occult", "sonic"], "cost": 2, "text": "Requirements March to War is in effect%rEffect The skeletal drummer performs a boisterous finale. They choose a 30-foot cone or 15-foot emanation, and they deal 4d6 sonic|options:area-damage damage to all creatures in that area (DC 21 Reflex save). March to War immediately ends, and the skeletal drummer can't use March to War or Destructive Finale for 1d4 rounds."}, {"name": "March to War", "type": "action", "traits": ["auditory", "emotion", "mental", "occult"], "cost": 2, "text": "The skeletal drummer plays a regular beat that compels others to march. Each creature in a 30-foot emanation must attempt a DC 19 Will save. Undead are immune. The effect lasts until the end of the skeletal drummer's next turn, but the skeletal drummer can Sustain the effect on all affected creatures that remain within the emanation.%rCritical Success The creature is unaffected and is temporarily immune for 1 hour.%rSuccess The creature can't use actions with the move trait except to march,…"}]
+"Skinslough":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "undead"]
+  ac: 20
+  hp: 72
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 8, "will": 11}
+  abilities: {"cha": -4, "con": 4, "dex": 2, "int": 2, "str": 5, "wis": 2}
+  speeds: {"land": 25, "swim": 20}
+  hp_details: "hard to target, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"cold": 6}
+  resistances: {"bludgeoning": 6, "piercing": 6}
+  strikes: [{"name": "Fist", "bonus": 13, "damage": [["2d8+5", "bludgeoning", null]], "traits": ["agile", "disarm", "unarmed"], "effects": ["Sloughing Sickness"]}, {"name": "Skin Net", "bonus": 13, "damage": [], "traits": []}]
+  actions: [{"name": "Hard to Target", "type": "passive", "traits": [], "text": "With their loose, shifting skin, a skinslough's vital organs are difficult to locate. Each time a skinslough would take precision damage or extra damage from a critical hit, it attempts a DC 5 Flat. On a success, the additional damage is negated."}, {"name": "Slough", "type": "reaction", "traits": [], "text": "Trigger The skinslough gains a persistent damage condition or becomes Grabbed, Immobilized, or Restrained%rEffect The skinslough sheds part of its skin and attempts a DC 5 Flat to end the condition."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Skin Net", "type": "action", "traits": ["attack", "disease"], "cost": 1, "text": "The skinslough interacts to pull off part of its skin and throw it at a creature within 30 feet, making a ranged attack with a +12 modifier. If it hits, the target takes a –10-foot circumstance penalty to its Speeds for 1 round and must make a DC 18 Fortitude save. If the skinslough critically hits, the target gets a result one degree of success worse than the outcome of its Fortitude save.%rEffect: Skin Net%rCritical Success As success, and the creature automatically succeeds at saving throws…"}, {"name": "Sloughing Sickness", "type": "passive", "traits": ["disease", "void"], "text": "This horrifying disease can make a target's skin slough away.%rSaving Throw DC 18 Fortitude%rStage 1 carrier with no ill effect (1 hour)%rStage 2 (2d4+4) void damage and Clumsy 1 (1 day)%rStage 3 (4d4+4) void damage, clumsy 1, and Stupefied 1 (1 day)."}]
+"Sklar-Quah Warrior":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "rare"
+  traits: ["human", "humanoid"]
+  ac: 26
+  hp: 130
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 16, "will": 13}
+  abilities: {"cha": 3, "con": 2, "dex": 3, "int": 1, "str": 5, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 17, "Athletics": 19, "Intimidation": 18, "Nature": 15}
+  strikes: [{"name": "Battle Axe", "bonus": 20, "damage": [["2d10+9", "slashing", null]], "traits": ["magical", "sweep"]}, {"name": "Hatchet", "bonus": 19, "damage": [["2d8+9", "slashing", null]], "traits": ["agile", "sweep"]}, {"name": "Hatchet", "bonus": 18, "damage": [["2d8+9", "slashing", null]], "traits": ["agile", "sweep", "thrown-10"]}, {"name": "Composite Shortbow", "bonus": 18, "damage": [["2d6+8", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Counting Coup", "type": "reaction", "traits": [], "text": "Trigger An enemy moves within the Sklar-Quah warrior's reach%rEffect The Sklar-Quah warrior swings their weapon as close to their enemy as they can without touching them, immediately attempting a Demoralize check. On a success, the enemy is Off-Guard until the beginning of their next turn."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Guerrilla Tactics", "type": "action", "traits": [], "cost": 1, "text": "Requirements The Sklar-Quah warrior is holding their hatchet%rEffect The Sklar-Quah warrior makes a ranged Strike with their hatchet and then draws their battle axe."}]
+"Spite-Screamer":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["undead", "unholy", "wight"]
+  ac: 23
+  hp: 70
+  perception: 13
+  saves: {"fortitude": 14, "reflex": 10, "will": 11}
+  abilities: {"cha": 3, "con": 3, "dex": 2, "int": 0, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "fueled by spite, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 12, "Stealth": 11}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious", "bleed"]
+  resistances: {"electricity": 5, "sonic": 5}
+  strikes: [{"name": "Claw", "bonus": 15, "damage": [["1d8+9", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Corrupting Spite"]}, {"name": "Falchion", "bonus": 15, "damage": [["1d10+9", "slashing", null]], "traits": ["forceful", "sweep"], "effects": ["Corrupting Spite"]}, {"name": "Scream", "bonus": 13, "damage": [["3d8", "sonic", null]], "traits": ["sonic"], "range": 30, "effects": ["Corrupting Spite"]}]
+  actions: [{"name": "Grave Weapon", "type": "passive", "traits": ["divine"], "text": "This wight is bound to the falchion it died with."}, {"name": "Final Spite", "type": "reaction", "traits": [], "text": "Trigger The wight is reduced to 0 Hit Points%rEffect The wight makes a Strike before being destroyed. This Strike can inflict corrupting spite, but fueled by spite doesn't apply."}, {"name": "Fueled by Spite", "type": "passive", "traits": [], "text": "Each time a creature loses Hit Points due to a corrupting spite curse the wight inflicted, the wight gains 5 temporary Hit Points that last for 1 minute."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Cleaving Rush", "type": "action", "traits": [], "cost": 2, "text": "The spite-screamer Strides and makes two melee Strikes at any point during that movement."}, {"name": "Corrupting Spite", "type": "passive", "traits": ["curse", "divine", "void"], "text": "The wight's unarmed attacks and bound weapons inflict a curse that makes a creature grow weak and spiteful. If a wight inflicts corrupting spite on a creature already afflicted by it, the victim attempts a new save, ignoring the result if it's better than a failure.%rA living humanoid that dies while under the curse rises as a wight after 1d4 rounds, controlled by the wight that killed it. The wight spawn can't inflict corrupting spite and is Clumsy 2. If its creator dies or after roughly a…"}]
+"Stormblood Tiger":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "large"
+  rarity: "rare"
+  traits: ["beast", "humanoid", "orc", "werecreature"]
+  ac: 24
+  hp: 114
+  perception: 18
+  saves: {"fortitude": 16, "reflex": 18, "will": 12}
+  abilities: {"cha": 3, "con": 4, "dex": 5, "int": 2, "str": 6, "wis": 3}
+  speeds: {"land": 25, "swim": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 17, "Athletics": 18, "Stealth": 17, "Survival": 15}
+  weaknesses: {"silver": 7}
+  strikes: [{"name": "Battle Axe", "bonus": 17, "damage": [["1d8+12", "slashing", null]], "traits": ["magical", "sweep"]}]
+  actions: [{"name": "Tiger Empathy", "type": "passive", "traits": [], "text": "The stormblood tiger can communicate with felines."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 1, "text": "Orc with fist +16 for 1d4+12 bludgeoning, or tiger with Speed 30 feet and Wrestle."}, {"name": "Curse of the Stormblood Tiger", "type": "passive", "traits": ["curse", "primal"], "text": "This curse only affects humanoids.%rSaving Throw DC 22 Fortitude. Each night of flood season, the cursed creature must succeed at another Fortitude save or transform into a stormblood tiger until dawn. The creature is under the GM's control and goes on a rampage for half the night before falling Unconscious until dawn."}, {"name": "Flood Frenzy", "type": "passive", "traits": ["polymorph", "primal"], "text": "As the night falls in flood season, the stormblood tiger must enter hybrid form, can't Change Shape thereafter, becomes one size larger, increases its reach by 5 feet, and increases the damage of its jaws Strike by 2. When the sun rises or the lands dry again, the stormblood tiger returns to humanoid form and is Fatigued for 24 hours."}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Claw"}, {"name": "Sudden Pounce", "type": "action", "traits": [], "cost": 2, "text": "Imbued with an insatiable predatory instinct, stormblood tiger Leaps up to 15 feet and makes a claw Strike at the end of that movement. If the attack hits, the stormblood tiger can immediately Rend."}, {"name": "Wrestle", "type": "action", "traits": [], "cost": 1, "text": "The tiger makes a claw Strike against a creature it is Grabbing. If the attack hits, that creature is knocked Prone."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"The Carcass Man":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 13
+  size: "large"
+  rarity: "unique"
+  traits: ["construct"]
+  ac: 34
+  hp: 295
+  perception: 19
+  saves: {"fortitude": 27, "reflex": 21, "will": 18}
+  abilities: {"cha": 6, "con": 7, "dex": 4, "int": -1, "str": 9, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 30, "Intimidation": 25, "Religion": 19, "Warfare Lore": 22}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Fist", "bonus": 28, "damage": [["3d8+14", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Grab"]}, {"name": "Tusks", "bonus": 28, "damage": [["1d6", "bleed", "persistent"], ["3d6+11", "piercing", null]], "traits": ["deadly-d10", "sweep"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "+2 Status to All Saves vs. Fear and Magic", "type": "passive", "traits": []}, {"name": "Annihilation Aura", "type": "passive", "traits": ["aura", "emotion", "mental"], "text": "20 feet. The Carcass Man's form exudes the impulse to destroy. Upon entering the aura, creatures must attempt a DC 31 Will save. Regardless of the results, creatures are temporarily immune for 1 minute.%rCritical Success The creature is unaffected.%rSuccess Urges to attack cloud the creature's mind and if they do not deal damage to another creature on their turn, they become Stupefied 1 until the end of their next turn.%rFailure The creature is Confused until the end of their next…"}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Neck Snap", "type": "action", "traits": [], "cost": 1, "text": "Requirements The Carcass Man has a creature Grabbed%rEffect The creature takes 6d6 bludgeoning damage (DC 31 Fortitude save); a creature that critically fails their save is Paralyzed until they heal at least 30 HP. The Carcass Man then releases the creature."}, {"name": "Revel in Destruction", "type": "free", "traits": ["divine", "emotion", "fear", "mental", "visual"], "text": "Requirements The Carcass Man's last action reduced a creature to 0 HP%rEffect The Carcass Man exults in his victory, painting his face in the creature's blood. He is Quickened until the end of his next turn but can use this extra action only to Strike. Non-worshippers of Zagresh who witness the display must succeed at a DC 31 Will save or be Frightened 1 (Frightened 2 on a critical failure)."}, {"name": "Three-Arm Devastation", "type": "action", "traits": [], "cost": 3, "text": "The Carcass Man attempts a melee Strike against a creature within his reach. If the Strike hits and deals damage, he can attempt two additional melee Strikes with his other arms against two other creatures within his reach; each of the three Strikes must target a different creature. These attacks increase his multiple attack penalty, but the penalty doesn't increase until all three attacks have been made."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 31, "attack": 21, "spells": {"3": ["Bind Undead", "Chilling Darkness"], "4": ["Bloodspray Curse", "Divine Wrath"], "5": ["Divine Immolation", "Summon Undead"], "6": ["Necrotize", "Utter Destruction"], "7": ["Divine Decree", "Execute"]}}]
+"Tooth Fairy Leader":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 2
+  size: "tiny"
+  rarity: "common"
+  traits: ["fey"]
+  ac: 18
+  hp: 35
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 11, "will": 5}
+  abilities: {"cha": 2, "con": 1, "dex": 5, "int": 0, "str": 1, "wis": 3}
+  speeds: {"land": 10, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Stealth": 6, "Thievery": 8}
+  strikes: [{"name": "Pliers", "bonus": 11, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["disarm", "finesse", "reach-0"], "effects": ["Tooth Tug"]}, {"name": "Tuskblade", "bonus": 10, "damage": [["1d6+5", "slashing", null]], "traits": ["forceful", "reach-0", "two-hand-d10"]}]
+  actions: [{"name": "Plaque Burst", "type": "passive", "traits": [], "text": "When killed, a tooth fairy bursts into sticky, foul-smelling white dust. Each creature in a 5-foot must succeed at a DC 19 Fortitude save or become Sickened 1 (Sickened 2 on a critical failure)."}, {"name": "Tooth Tug", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The tooth fairy's last action was a successful pliers Strike against a creature with teeth%rEffect The tooth fairy attempts a Thievery check against the creature's Fortitude DC, dealing 2 bleed damage on any result but a critical failure. On a critical success, it also pulls out one of the target's teeth.%rIf the creature loses a tooth, it takes a –1 status penalty to Charisma-based skill checks and must succeed at a DC 5 Flat to Cast a Spell unless that spell has the subtle trait.…"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 18, "attack": 10, "spells": {"0": ["Daze", "Telekinetic Hand"], "1": ["Sleep"]}}]
+"Trighoul":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 8
+  size: "large"
+  rarity: "rare"
+  traits: ["aberration"]
+  ac: 27
+  hp: 100
+  perception: 12
+  saves: {"fortitude": 13, "reflex": 19, "will": 16}
+  abilities: {"cha": 3, "con": 3, "dex": 6, "int": 4, "str": 4, "wis": 3}
+  speeds: {"land": 45}
+  hp_details: "Tentacle HP 20, tentacle regrowth"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 18, "Athletics": 16, "Deception": 17, "Stealth": 18}
+  strikes: [{"name": "Tentacle", "bonus": 20, "damage": [["2d6+6", "bludgeoning", null], ["1d6", "piercing", null]], "traits": ["agile", "finesse", "reach-10", "unarmed"], "effects": ["Improved Grab"]}, {"name": "Jaws", "bonus": 20, "damage": [["2d6+6", "piercing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Spit", "bonus": 20, "damage": [["3", "acid", "splash"], ["2d8+9", "acid", null]], "traits": ["acid", "splash"], "range": 20}]
+  actions: [{"name": "Pain Sensitivity", "type": "passive", "traits": [], "text": "When a trighoul's tentacle is severed, it becomes Stunned 1. Its Speed is reduced by 15 feet until the tentacle is regrown."}, {"name": "Tentacle Regrowth", "type": "passive", "traits": [], "text": "A trighoul ordinarily has three tentacles. A creature can attempt to sever a tentacle by specifically targeting it and dealing damage equal to the tentacle's Hit Points. A tentacle that isn't severed completely returns to full Hit Points at the end of any creature's turn. A severed trighoul tentacles regrows, restored to full Hit Points, after 1d4 rounds."}, {"name": "Puppet Show", "type": "action", "traits": ["concentrate", "manipulate"], "cost": 1, "text": "1 to 3%rRequirements The trighoul is using Puppeteer Corpse%rEffect The trighoul manipulates up to three corpses to silently Impersonate the living. A creature that fails to detect the deception is Off-Guard to the trighoul's corpse Strike. The deception ends immediately after the trighoul attacks."}, {"name": "Puppeteer Corpse", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The trighoul is Hidden, and there's at least one corpse within 10 feet%rEffect The trighoul attaches a tentacle to the corpse of a Large to Small creature. That tentacle replaces its Strike with a melee corpse Strike that deals bludgeoning damage equal to the total damage dealt by its tentacle. A controlled corpse is destroyed when it takes 20 Hit Points of damage. The trighoul can detach from a corpse as a single action with the manipulate trait."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Ungukk Fleshdredge":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "orc"]
+  ac: 29
+  hp: 146
+  perception: 24
+  saves: {"fortitude": 15, "reflex": 19, "will": 21}
+  abilities: {"cha": 7, "con": 0, "dex": 4, "int": 2, "str": 2, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Crafting": 21, "Deception": 20, "Intimidation": 20, "Medicine": 21, "Religion": 21, "Stealth": 18}
+  strikes: [{"name": "Club", "bonus": 19, "damage": [["2d10+12", "bludgeoning", null]], "traits": []}, {"name": "Club", "bonus": 19, "damage": [["2d10+12", "bludgeoning", null]], "traits": ["thrown-10"]}]
+  actions: [{"name": "+1 Vs. Fear", "type": "passive", "traits": []}, {"name": "Cursebound", "type": "passive", "traits": [], "text": "Using a cursebound ability makes Ungukk Enfeebled 1 or increases his enfeebled value by 1, to a maximum of 3. If he reaches Enfeebled 3, he also becomes Drained 1."}, {"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Curse of the Fallen Divine", "type": "free", "traits": ["cursebound", "divine", "spellshape"], "text": "Ungukk increases the damage of a spell he casts by 1 die."}, {"name": "Quickened Casting", "type": "free", "traits": ["concentrate", "spellshape"], "text": "Frequency once per day%rEffect If Ungukk's next action is to cast a cantrip or a spell of 4th rank or lower, reduce the number of actions to cast it by 1 (minimum of 1 action)."}, {"name": "Roar of Zagresh", "type": "action", "traits": ["cursebound", "divine", "void"], "cost": 2, "text": "With a mighty roar, Ungukk unleashes void energy in a 30-foot emanation. Creatures in the area must make a DC 30 Fortitude save or take 6d6 void|options:area-damage damage and become Doomed 1 (Doomed 2 on a critical failure)."}, {"name": "Undying Conviction", "type": "passive", "traits": ["aura"], "text": "30 feet. Ungukk's undead allies within his aura gain a +2 status bonus to saving throws to resist vitality damage and to Will saving throws to resist effects that would make them Controlled."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 30, "attack": 22, "spells": {"0": ["Detect Magic", "Divine Lance", "Forbidding Ward", "Shield", "Void Warp"], "1": ["Bane", "Enfeeble", "Fear", "Grim Tendrils"], "2": ["Blood Vendetta", "Darkness", "False Vitality", "See the Unseen"], "3": ["Bind Undead", "Crisis of Faith", "Ghostly Weapon", "Strength of Mind"], "4": ["Divine Wrath", "Harm", "Talking Corpse"], "5": ["Shadow Blast", "Spiritual Guardian", "Summon Undead"], "6": ["Spirit Blast", "Vampiric Exsanguination"]}}]
+"Verthok the Reaper":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["dromaar", "humanoid", "orc", "unholy"]
+  ac: 30
+  hp: 180
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 15, "will": 20}
+  abilities: {"cha": 6, "con": 5, "dex": 1, "int": 1, "str": 6, "wis": 4}
+  speeds: {"land": 20}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 22, "Intimidation": 21, "Religion": 16, "Survival": 16, "Warfare Lore": 15}
+  strikes: [{"name": "Orc Necksplitter", "bonus": 24, "damage": [["2d8+12", "slashing", null]], "traits": ["forceful", "magical", "sweep"]}, {"name": "Composite Longbow", "bonus": 21, "damage": [["2d8+9", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Blade Ally", "type": "passive", "traits": [], "text": "In her hands, Verthok's orc necksplitter is a fearsome weapon, and she gains the axe critical hit effect."}, {"name": "Destructive Vengeance", "type": "reaction", "traits": [], "text": "Trigger An enemy within 15 feet damages Verthok%rEffect Verthok increases the amount of damage she takes by 1d6 untyped, and she deals 3d6 spirit or 3d6 void damage to the triggering enemy. An enemy damaged by Destructive Vengeance takes 4 persistent spirit damage. Until the end of Verthok's next turn, her Strikes against the triggering creature deal 2 extra damage of the type she chose."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Bloody Assault", "type": "action", "traits": [], "cost": 1, "text": "Verthok makes two melee Strikes, each against a different opponent; her multiple attack penalty applies to these Strikes normally. If both Strikes hit and deal damage, each creature struck takes 2d6 persistent bleed damage."}, {"name": "Greater Cruelty", "type": "action", "traits": ["concentrate", "spellshape"], "cost": 1, "text": "If Verthok's next action is to cast touch of the void on a living creature, the target is also enfeebled, clumsy, or Stupefied 1 for 1 minute if it fails its save (Stupefied 2 on a critical failure)."}, {"name": "Mask's Glare", "type": "action", "traits": ["manipulate"], "cost": 2, "text": "Once per day, Verthok can use her demon mask to cast 3rd-rank Fear with a DC of DC 29 Will."}]
+  spellcasting: [{"name": "Champion Devotion Spells", "tradition": "divine", "type": "focus", "dc": 29, "attack": 21, "spells": {"1": ["Cry of Destruction", "Touch of the Void"]}}]
+"War Auroch":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "huge"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 27
+  hp: 195
+  perception: 16
+  saves: {"fortitude": 21, "reflex": 18, "will": 15}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": -5, "str": 7, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 20, "Intimidation": 18, "Survival": 17}
+  strikes: [{"name": "Hoof", "bonus": 21, "damage": [["2d8+11", "bludgeoning", null]], "traits": []}, {"name": "Horn", "bonus": 21, "damage": [["2d8+11", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Bellow", "type": "action", "traits": ["auditory", "emotion", "mental"], "cost": 1, "text": "The war aurochs bellows aggressively, attempting a single Intimidation check to Demoralize against all enemies within 30 feet."}, {"name": "Stomp", "type": "action", "traits": [], "cost": 1, "text": "The war aurochs strikes the ground with its hooves, causing tremors in a 30-foot emanation. Creatures in the area must attempt a DC 25 Reflex save or be knocked Prone."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Large or smaller, hoof, DC 25 Reflex"}]
+"War Pig":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 6
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 23
+  hp: 110
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 12, "will": 13}
+  abilities: {"cha": 0, "con": 5, "dex": 2, "int": -4, "str": 4, "wis": 3}
+  speeds: {"land": 35}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 14, "Intimidation": 12, "Survival": 13}
+  strikes: [{"name": "Hoof", "bonus": 17, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Tusk", "bonus": 17, "damage": [["2d8+8", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Squealed Outrage", "type": "reaction", "traits": [], "text": "Trigger The war pig is damaged by an adjacent creature%rEffect The war pig makes a hoof Strike at the triggering creature."}, {"name": "Bulldoze", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The war pig Shoves an adjacent creature, after which it can either Stride or Step."}, {"name": "Wallow", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The war pig rapidly rolls over. If it has a rider, the war pig Bucks as a free action. The war pig gains 1d8 temporary Hit Points for 1 minute and can then attempt an immediate flat check to recover from a single source of persistent acid, fire, or mental damage. If the war pig Wallows in an area with ample mud, water, loose soil, or similar material, the war pig instead gains 2d8 temporary Hit Points, for 1 minute and reduces the flat check DC to recover from…"}]
+"Warcat of Rull":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 34
+  hp: 233
+  perception: 26
+  saves: {"fortitude": 24, "reflex": 29, "will": 23}
+  abilities: {"cha": 3, "con": 6, "dex": 9, "int": -4, "str": 5, "wis": 4}
+  speeds: {"land": 40, "climb": 20}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 30, "Athletics": 24, "Stealth": 28}
+  strikes: [{"name": "Claw", "bonus": 29, "damage": [["3d10+16", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Jaws", "bonus": 29, "damage": [["3d8+14", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Piercing Fangs", "type": "action", "traits": [], "cost": 3, "text": "Requirements The warcat has a creature Grabbed%rEffect The warcat clamps on to the creature's neck. The creature takes (3d12+10) piercing,1d4 bleed damage (DC 33 Fortitude save)."}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "The warcat of Rull Strides and makes a Strike at the end of that movement. If the warcat began this action Hidden, it remains hidden until after the attack."}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Claw"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Wight Spell Sniper":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["undead", "unholy", "wight"]
+  ac: 25
+  hp: 115
+  perception: 18
+  saves: {"fortitude": 13, "reflex": 17, "will": 15}
+  abilities: {"cha": 1, "con": 2, "dex": 5, "int": 2, "str": 2, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "fueled by spite, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Intimidation": 12, "Religion": 14, "Stealth": 16, "Survival": 16}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious", "bleed"]
+  strikes: [{"name": "Claw", "bonus": 16, "damage": [["1d8+8", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Drain Life"]}, {"name": "Composite Shortbow", "bonus": 18, "damage": [["2d6+7", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0"], "range": 60, "effects": ["Drain Life"]}]
+  actions: [{"name": "Grave Weapon", "type": "passive", "traits": ["divine"], "text": "The wight is bound to a dagger it was buried with. Other wights can be bound to different weapons."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Drain Life", "type": "passive", "traits": ["divine"], "text": "When the wight sniper damages a living creature using an unarmed attack or ranged weapon, the sniper gains 2d6 temporary Hit Points, and the creature must succeed at a DC 22 Fortitude save or become Drained 1. Further damage dealt by the wight sniper's attacks increase the value of the drained condition by 1 on a failed save, to a maximum of drained 4.%rEffect: Drain Life (Wight Spell Sniper)"}, {"name": "Drain the Prey", "type": "free", "traits": ["divine"], "text": "Trigger The wight spell sniper kills a living creature%rEffect The wight spell sniper breathes in the essence of the slain creature, making it easier to sense and hunt similar prey. The wight chooses one of the creature's traits (excluding rarity or size). Until the wight uses this ability again, it gains a +2 circumstance bonus to Perception checks to Seek creatures with that trait and a +2 circumstance bonus to Survival checks to Track creatures with that trait. The saving throw DCs of the…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 24, "attack": 16, "spells": {"2": ["Harm", "Noise Blast", "Revealing Light"], "4": ["Harm"]}}]
+"Wingripper Wyvern Rider":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "rare"
+  traits: ["humanoid", "orc"]
+  ac: 28
+  hp: 130
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 21, "will": 12}
+  abilities: {"cha": 2, "con": 3, "dex": 6, "int": 0, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 20, "Athletics": 19, "Intimidation": 15, "Nature": 16}
+  strikes: [{"name": "Falchion", "bonus": 20, "damage": [["2d10+6", "slashing", null]], "traits": ["forceful", "sweep"]}, {"name": "Composite Shortbow", "bonus": 22, "damage": [["2d6+9", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Wyvern Bond", "type": "passive", "traits": [], "text": "A wyvern rider automatically succeeds at checks to Command an Animal for a wyvern they're mounted on. While mounted, the wyvern acts on their turn."}, {"name": "Terrifying Strike", "type": "action", "traits": ["emotion", "fear", "mental"], "cost": 2, "text": "The wyvern rider attempts a weapon Strike against a target, shouting threats and curses. If it hits, the target must succeed at a DC 28 Will save or be Frightened 2 (Frightened 4 on a critical failure)."}, {"name": "Weapon Adept", "type": "action", "traits": [], "cost": 1, "text": "The wyvern rider can Swap between their falchion and composite shortbow, then Strike with the weapon they switched to."}, {"name": "Wyvern's Swoop", "type": "action", "traits": ["flourish"], "cost": 2, "text": "Requirements The wyvern rider is mounting their wyvern%rEffect The wyvern rider Commands their mount to Stride twice. At any point during this movement, they can Strike one enemy within reach or within the first range increment of their ranged weapon, with a +1 circumstance bonus to their attack roll. If they begin this movement at a higher point than their target, they deal an additional die of damage with this Strike."}]
+"Yagrekash":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "common"
+  traits: ["aesir", "chaotic", "monitor"]
+  ac: 26
+  hp: 175
+  perception: 17
+  saves: {"fortitude": 16, "reflex": 16, "will": 21}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": 0, "str": 7, "wis": 1}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Athletics": 25, "Intimidation": 21, "Religion": 18}
+  resistances: {"piercing": 10}
+  strikes: [{"name": "Greatclub", "bonus": 24, "damage": [["2d10+13", "bludgeoning", null]], "traits": ["backswing", "shove"]}, {"name": "Dagger", "bonus": 24, "damage": [["2d4+13", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 24, "damage": [["2d4+13", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}, {"name": "Fist", "bonus": 23, "damage": [["2d6+13", "bludgeoning", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Challenge Foe", "type": "action", "traits": [], "cost": 1, "text": "Yagrekash challenges one creature she can see to single combat, attempting to demoralize that target. This target remains her foe until it's defeated, it flees, or the encounter ends. Yagrekash gains a circumstance bonus to damage equal to her number of weapon damage dice against her designated foe but takes an equivalent circumstance penalty to damage against any other creature."}, {"name": "Mask of Pain", "type": "reaction", "traits": ["mental"], "text": "Trigger Yagrekash succeeds at a Demoralize check%rEffect The creature Demoralized takes 4d6 mental damage and is then temporarily immune to additional damage from Mask of Pain for 24 hours."}, {"name": "Warmask of Power", "type": "passive", "traits": ["divine"], "text": "Yagrekash's echo form retains her painted divine warmask dedicated to Zagresh, allowing her to cast Sure Strike as an innate divine spell once per day."}]
+  spellcasting: [{"name": "Champion Devotion Spells", "tradition": "divine", "type": "focus", "dc": 29, "attack": 21, "spells": {"1": ["Weapon Surge"], "4": ["Word of Freedom"]}}]
+"Zdagren Half-Ear":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "orc"]
+  ac: 26
+  hp: 110
+  perception: 16
+  saves: {"fortitude": 13, "reflex": 12, "will": 13}
+  abilities: {"cha": 4, "con": 2, "dex": 1, "int": 2, "str": 6, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 18, "Deception": 16, "Diplomacy": 16, "Intimidation": 14, "Society": 14, "Warfare Lore": 14}
+  strikes: [{"name": "Orc Knuckle Dagger", "bonus": 19, "damage": [["2d6+8", "piercing", null]], "traits": ["agile", "disarm"]}]
+  actions: [{"name": "+2 to Perception for Initiative", "type": "passive", "traits": []}, {"name": "+1 to Will vs. Auditory", "type": "passive", "traits": []}, {"name": "Half-Ear's Luck", "type": "free", "traits": [], "text": "Frequency once per day%rTrigger Zdagren takes a critical hit or critically fails a saving throw%rEffect The critical hit becomes a normal hit, or the critical failure becomes a normal failure."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Double Slice", "type": "action", "traits": [], "cost": 2, "text": "Zdagren makes two Strikes against the same target, one with each of his knuckle daggers. Zdagren combines the damage of any attacks that hit and applies precision damage, resistances, and weaknesses only once. Both attacks count toward his multiple attack penalty, but the penalty increases only after both attacks."}, {"name": "Formation Command", "type": "action", "traits": ["auditory"], "cost": 1, "text": "Each ally within 30 feet of Zdagren can Step, or Stride up to half their Speed. Each ally can benefit from Formation Command only once per round."}]
+"Zombie Brown Bear":
+  pack: "triumph-of-the-tusk-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["mindless", "undead", "zombie"]
+  ac: 18
+  hp: 92
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 9, "will": 6}
+  abilities: {"cha": -1, "con": 4, "dex": 1, "int": -5, "str": 5, "wis": 0}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"vitality": 10, "slashing": 10}
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["2d8+5", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 10, "damage": [["1d10+5", "slashing", null]], "traits": ["unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Slow", "type": "passive", "traits": [], "text": "A zombie brown bear is permanently Slowed 1 and can't use reactions."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Ripping Maul", "type": "action", "traits": [], "cost": 1, "text": "Requirements The zombie brown bear has a creature Grabbed%rEffect The zombie chews and rips at the target, dealing (2d8+5) piercing damage with a DC 17 Type:Reflex save.%rNote: A DC was not provided for this ability by Paizo. The DC present here is a moderate DC for the creature level according to the GM Core creature building Tables."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]

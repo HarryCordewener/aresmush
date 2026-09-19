@@ -205,6 +205,11 @@ module AresMUSH
         # they are migrated to explain_for.
         char.update(:pf2_level_tracker => tracker_view(char, sheet))
 
+        # What the finished sheet implies rather than what was chosen: a feat that makes you trained in a
+        # skill, a counter another rule's predicate asks about. Applied after the fold, because the fold
+        # would otherwise take it straight back off again.
+        Pf2e::Paths.apply_all!(char)
+
         ops.size
       end
 

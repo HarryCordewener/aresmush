@@ -1,0 +1,634 @@
+---
+"Agent of Taraksun":
+  pack: "prey-for-death-bestiary"
+  level: 14
+  size: "large"
+  rarity: "common"
+  traits: ["asura", "fiend", "unholy"]
+  ac: 35
+  hp: 315
+  perception: 25
+  saves: {"fortitude": 22, "reflex": 25, "will": 27}
+  abilities: {"cha": 8, "con": 2, "dex": 3, "int": 1, "str": 8, "wis": 5}
+  speeds: {"land": 50}
+  senses: ["darkvision", "see-invisibility"]
+  skills: {"Athletics": 24, "Deception": 28, "Religion": 25, "Stealth": 25}
+  immunities: ["curse"]
+  weaknesses: {"holy": 10}
+  strikes: [{"name": "Jaws", "bonus": 29, "damage": [["3d10+14", "piercing", null], ["2d6", "spirit", null]], "traits": ["reach-10", "unarmed", "unholy"]}, {"name": "Claw", "bonus": 29, "damage": [["3d6+14", "slashing", null], ["2d6", "spirit", null]], "traits": ["agile", "reach-10", "unarmed", "unholy"]}, {"name": "Tongue", "bonus": 29, "damage": [["3d6+14", "bludgeoning", null], ["2d6", "spirit", null]], "traits": ["reach-20", "unholy"], "effects": ["Improved Knockdown"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Pervert Miracle", "type": "reaction", "traits": ["curse", "divine"], "text": "Trigger A foe within 60 feet casts Bless or a beneficial spell that the nikaramsa could cast to remove an affliction or condition (such as Cleanse Affliction)%rEffect The nikaramsa attempts to counteract the enemy's spell (counteract modifier +24 and counteract rank 7). If the nikaramsa succeeds, the triggering creature is subjected to the effects of a Bane spell or the effect it was trying to remove."}, {"name": "Towering Stance", "type": "passive", "traits": ["divine", "illusion"], "text": "A nikaramsa is in fact a Medium creature, but appears as a Large creature due to the force of their personality. A creature interacting with the nikaramsa can attempt a DC 36 Will save to see the nikaramsa as they truly are. If the creature succeeds, the reach of nikaramsa's attacks against that foe decrease to 5 feet (10 feet for their tongue).%rIf all creatures in the nikaramsa's vicinity successfully disbelieve this illusion, the nikaramsa becomes Medium and Enfeebled 2 for as long as…"}, {"name": "Sap Mind", "type": "action", "traits": ["divine", "mental"], "cost": 1, "text": "The nikaramsa focuses their gaze on one creature within 60 feet. That target must attempt a DC 34 Will save. Regardless of the outcome of the saving throw, the target then becomes temporarily immune for 1 day.%rCritical Success The nikaramsa is caught off guard by the strength of the target's resistance and becomes Stupefied 2 until the end of their next turn.%rSuccess The target resists the nikaramsa's influence.%rFailure The target's focus and willpower drain away; it becomes Stupefied 2 for…"}, {"name": "Improved Knockdown", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 34, "attack": 26, "spells": {"4": ["Translocate (At Will)"], "7": ["Bane", "Bless", "Cleanse Affliction", "Disguise Magic (Constant, Self Only)", "Divine Decree", "Dream Message", "Heal", "Illusory Disguise (At Will)", "Invisibility (At Will, Self Only)", "Mind Reading", "See the Unseen (Constant)", "Sound Body", "Translocate", "Veil of Privacy (Constant, Self Only)"]}}]
+"Alktherisa and Omprisgor":
+  pack: "prey-for-death-bestiary"
+  level: 19
+  size: "huge"
+  rarity: "unique"
+  traits: ["monitor", "protean"]
+  ac: 43
+  hp: 300
+  perception: 30
+  saves: {"fortitude": 35, "reflex": 33, "will": 30}
+  abilities: {"cha": 8, "con": 8, "dex": 6, "int": 6, "str": 10, "wis": 5}
+  speeds: {"land": 40, "fly": 50, "swim": 40}
+  hp_details: "fast healing 15"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 33, "Athletics": 37, "Deception": 35, "Diplomacy": 35, "Intimidation": 37, "Religion": 34, "Stealth": 33}
+  resistances: {"precision": 15, "protean-anatomy": 25}
+  strikes: [{"name": "Jaws", "bonus": 37, "damage": [["4d12+18", "piercing", null]], "traits": ["magical", "reach-10", "unarmed"], "effects": ["Warpwave Strike"]}, {"name": "Claw", "bonus": 37, "damage": [["4d8+18", "slashing", null]], "traits": ["agile", "magical", "reach-10", "unarmed"], "effects": ["Warpwave Strike"]}, {"name": "Tail", "bonus": 37, "damage": [["4d8+18", "bludgeoning", null]], "traits": ["reach-15"], "effects": ["Grab"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Burst of Creation", "type": "passive", "traits": ["healing", "vitality"], "text": "When Alktherisa and Omprisgor die, they explode in a 30-foot, washing all creatures in the area with protean energy. These creatures are healed 20d6 healing Hit Points and must succeed at a DC 38 Fortitude Save or be affected by a warpwave for 1 round."}, {"name": "Entropy Sense (Imprecise) 60 feet", "type": "passive", "traits": ["divine", "prediction"], "text": "A keketar can anticipate the most likely presence of a creature through a supernatural insight into chaotic probabilities and chance. This grants them the ability to sense creatures within the listed range. Veil of Privacy prevents a creature from being detected via entropy sense automatically (without a counteract check)."}, {"name": "Two As One", "type": "passive", "traits": [], "text": "Alktherisa and Omprisgor are a single creature, but each of their heads rolls its own initiative and has its own turn. At the start of a head's turn, it gets 2 actions and 1 reaction. Each head controls one set of arms, but both control the serpentine body. Any ability that would sever a head doesn't cause the conjoined protean to die if it still has its other head, but it does cause it to lose the turns, actions, and reactions of the severed head. Mental effects that target a single creature…"}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Fast Healing 15", "type": "passive", "traits": []}, {"name": "Eat Death", "type": "reaction", "traits": [], "text": "Trigger A creature within Omprisgor's reach is targeted by a spell that deals Hit Point damage%rEffect Omprisgor attempts to counteract the spell with a Religion check; if he succeeds, the spell is countered and Omprisgor becomes Quickened for 1 round; he may use the additional action to Stride or Strike."}, {"name": "Eat Life", "type": "reaction", "traits": [], "text": "Trigger A creature within Alktherisa's reach is targeted by a spell that heals Hit Points or grants temporary Hit Points%rEffect Alktherisa and Omprisgor become additional targets of that spell, even if that spell normally couldn't target an additional creature."}, {"name": "Protean Anatomy 25", "type": "passive", "traits": ["divine"], "text": "A keketar's vital organs shift and change shape and position constantly. Immediately after the keketar takes acid, electricity, or sonic damage, they gain the listed amount of resistance to that damage type. This lasts for 1 hour or until the next time the protean takes damage of one of the other types (in which case their resistance changes to match that type), whichever comes first.%rThe keketar is immune to polymorph effects unless they're a willing target. If Blinded or Deafened, the…"}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Spatial Riptide", "type": "passive", "traits": ["aura", "divine"], "text": "30 feet. A creature using a teleportation ability within the aura or arriving in it via teleportation must succeed at a DC 41 Fortitude save or wink out of existence for 1d4 #rounds rounds before completing the teleport. The creature can't act, sense anything, or be targeted. On a successful save, the creature completes the teleport normally but is Stunned 1. Keketars are immune to this effect."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The keketar can take the appearance of any Huge or smaller creature. This doesn't change their Speed or their attack and damage bonuses with their Strikes but might change the damage type their Strikes deal."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d10+15) bludgeoning, DC 41 Fortitude"}, {"name": "Reshape Reality", "type": "passive", "traits": [], "text": "When the keketar casts Mirage, it infuses the illusion with quasi-real substance. Creatures that do not disbelieve the illusion treat structures and terrain created through the spell as though they were real, ascending illusory stairs, becoming trapped by illusory quicksand, and so on."}, {"name": "Warpwave", "type": "passive", "traits": [], "text": "Many proteans can subject their foes to disorienting alterations perceived in time and space by creating ripples of unstable reality in the environment called warpwaves. When a creature fails its saving throw and is affected by a warpwave, roll 1d8 and consult the table below for the specific effect on that creature. Unless indicated otherwise, a warpwave effect lasts for 1d4 rounds, and a new warpwave effect negates any previous warpwave effect already affecting a creature.%r1d8 Warpwave…"}, {"name": "Warpwave Strike", "type": "passive", "traits": ["divine", "polymorph"], "text": "A creature struck by a keketar's jaws or claw Strike must succeed at a DC 38 Fortitude save or be subject to a Warpwave."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 44, "attack": 35, "spells": {"4": ["Confusion (At Will)", "Translocate (At Will)", "Unfettered Movement (Constant)"], "5": ["Creation (At Will)", "Mirage (See Reshape Reality)", "Translocate", "Truespeech (Constant)"], "6": ["Teleport (At Will, Self Only)"], "7": ["Disintegrate", "Dispel Magic (At Will)", "Shatter (At Will)", "Warp Mind"], "8": ["Confusion", "Cursed Metamorphosis"], "9": ["Divine Wrath", "Unfathomable Song"]}}]
+"Berserker Ordulf":
+  pack: "prey-for-death-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 38
+  hp: 300
+  perception: 28
+  saves: {"fortitude": 30, "reflex": 25, "will": 28}
+  abilities: {"cha": 5, "con": 4, "dex": 1, "int": 0, "str": 5, "wis": 4}
+  speeds: {"land": 25, "fly": 20}
+  skills: {"Acrobatics": 25, "Athletics": 29, "Crafting": 24, "Intimidation": 31, "Religion": 28, "Survival": 28, "Fishing Lore": 24, "Warfare Lore": 26}
+  strikes: [{"name": "Greatsword", "bonus": 31, "damage": [["3d12+11", "slashing", null]], "traits": ["magical", "versatile-p"]}]
+  actions: [{"name": "Battle Arrogance", "type": "passive", "traits": [], "text": "Ordulf hasn't met a significant combat challenge in ages, and even when facing deadly foes like the PCs his arrogance can be used against him. If a PC successfully Disarms, Feints, Frightens, or Trips Ordulf, his arrogance gets the better of him and he grows sloppy in his tactics, reducing his AC to 34 until the start of his next turn. A PC can also attempt to issue a more debilitating insult to Ordulf.%rInsult Ordulf 2 The PC spends several seconds issuing insults and taunts to Ordulf, then…"}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Battle Cry", "type": "reaction", "traits": [], "text": "Frequency once per day%rTrigger Ordulf rolls initiative%rEffect Ordulf attempts to demoralize an observed foe."}, {"name": "Cleaving Blow", "type": "action", "traits": [], "cost": 2, "text": "Ordulf Strikes two adjacent creatures within his reach. Both attacks count against his multiple attack penalty, but do not increase his penalty until he has made both attacks."}, {"name": "Crushing Insult", "type": "action", "traits": ["auditory", "linguistic", "mental"], "cost": 1, "text": "Frequency once per round%rEffect Ordulf issues a devastating and humiliating insult to a creature within 30 feet that he can see. Ordulf attempts an Intimidation check against the target's Will DC. That character is then temporarily immune to Crushing Insult for 24 hours.%rCritical Success The insult is distracting and humiliating; the target is Stupefied 1 and Off-Guard for 1 minute.%rSuccess The insult is distracting, but its effects pass quickly; the target is stupefied 1 and off-guard until…"}, {"name": "Deadly Display", "type": "action", "traits": [], "cost": 2, "text": "Requirements Ordulf is wielding a melee weapon%rEffect Ordulf brandishes his weapon in a threatening display. He Demoralizes all enemies within 30 feet, rolling once and comparing the result to each target's Will DC."}, {"name": "Whirlwind Strike", "type": "action", "traits": [], "cost": 3, "text": "Ordulf Strikes each enemy within his reach. Each attack counts toward his multiple attack penalty, but do not increase his penalty until he has made all his attacks."}]
+"Bloodfog":
+  pack: "prey-for-death-bestiary"
+  level: 17
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["aberration"]
+  ac: 41
+  hp: 250
+  perception: 29
+  saves: {"fortitude": 29, "reflex": 33, "will": 27}
+  abilities: {"cha": 0, "con": 6, "dex": 8, "int": 0, "str": -5, "wis": 6}
+  speeds: {"land": 0, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 33, "Stealth": 33}
+  immunities: ["bleed", "precision"]
+  weaknesses: {"fire": 15}
+  resistances: {"physical": 15}
+  strikes: [{"name": "Misty Tendril", "bonus": 33, "damage": [["3d6", "bleed", "persistent"], ["5d6", "slashing", null]], "traits": ["agile", "finesse", "reach-15"], "effects": ["Blood Siphon"]}]
+  actions: [{"name": "Misty Form", "type": "passive", "traits": [], "text": "A bloodfog's body is composed of a semisolid red fog similar in consistency to thick foam. This enables a bloodfog to move through spaces as narrow as 1 inch in diameter with no reduction to its Speed. However, a bloodfog can't wear or interact with objects. It also can't enter water or other fluids, and it's treated as Tiny for the purpose of how wind affects it."}, {"name": "Sense Blood", "type": "passive", "traits": [], "text": "A bloodfog can sense creatures that have blood within 120 feet. It can sense exposed blood within a mile."}, {"name": "Blood Siphon", "type": "passive", "traits": [], "text": "When a bloodfog damages a creature with a misty tendril Strike, the creature must attempt a DC 38 Fortitude save. If the Strike was a critical hit, the outcome of the creature's save is one degree worse than the result of the saving throw. Any temporary Hit Points the bloodfog gains from blood siphon fade after 1 hour.%rCritical Success The creature is unaffected.%rSuccess The creature is Sickened 1.%rFailure The creature is Drained 1, and the bloodfog gains 20 temporary Hit Points.%rCritical…"}, {"name": "Blood Vengeance", "type": "passive", "traits": [], "text": "A bloodfog can cast blood vendetta even though it can't actually bleed. In addition to the spell's normal trigger, a bloodfog can cast blood vendetta as a reaction even if the target's piercing, slashing, or persistent bleed damage didn't actually result in damage to the bloodfog itself (either as a result of its resistance blocking the damage or its immunity to bleed coming into effect)."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 35, "attack": 27, "spells": {"6": ["Blood Vendetta (At Will)"], "7": ["Vampiric Feast"], "8": ["Vampiric Exsanguination"]}}]
+"Bloody Hands":
+  pack: "prey-for-death-bestiary"
+  level: 16
+  size: "large"
+  rarity: "unique"
+  traits: ["amphibious", "demon", "fiend"]
+  ac: 39
+  hp: 300
+  perception: 28
+  saves: {"fortitude": 30, "reflex": 24, "will": 28}
+  abilities: {"cha": 5, "con": 8, "dex": 4, "int": 5, "str": 9, "wis": 6}
+  speeds: {"land": 30, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 33, "Intimidation": 29, "Religion": 28}
+  weaknesses: {"cold-iron": 15}
+  strikes: [{"name": "Jaws", "bonus": 33, "damage": [["3d12+17", "piercing", null]], "traits": ["magical", "reach-10", "unarmed", "unholy"]}, {"name": "Claw", "bonus": 33, "damage": [["1d6", "bleed", "persistent"], ["3d6+17", "slashing", null]], "traits": ["agile", "magical", "reach-10", "unarmed", "unholy"]}]
+  actions: [{"name": "+1 to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Battle Reek", "type": "passive", "traits": ["aura", "olfactory"], "text": "30 feet. Bloody Hands exudes the carrion stink of a sprawling battlefield—a cloying mixture of death and mud. Any creature entering the aura or starting its turn in the aura must succeed at a DC 34 Fortitude save or become Sickened 1 (plus Slowed 1 for as long as it's sickened on a critical failure). While within the aura, affected creatures take a –2 circumstance penalty to saves against fear and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune…"}, {"name": "Bloody Mess", "type": "action", "traits": ["divine"], "cost": 2, "text": "Frequency once per day%rEffect Bloody Hands slashes his claws out in all directions, causing blood from all living creatures within a 20-foot-radius to leap out and fill the air with a fine red mist. All creatures in the area must attempt a DC 37 Fortitude save—creatures that are already wounded take a –2 penalty to this saving throw. If more than 3 creatures fail this saving throw, the 20-foot-radius becomes so thick with bloody mist that all creatures in the area become Concealed until the…"}, {"name": "Leaping Slam", "type": "action", "traits": ["incapacitation"], "cost": 3, "text": "Bloody Hands Strides, then makes a High Jump or a Long Jump, and can land in a space occupied by creatures. All creatures in the 10-foot space he lands in must attempt a DC 37 Reflex save.%rCritical Success The creature dodges aside and takes no damage, and it can choose any square adjacent to Bloody Hands to immediately move into; this movement does not trigger reactions.%rSuccess The creature takes 4d6 bludgeoning damage and is pushed into an adjacent space of Bloody Hands' choice.%rFailure…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 34, "attack": 26, "spells": {"0": ["Divine Lance", "Telekinetic Projectile"], "4": ["Translocate (At Will)"], "5": ["Translocate"], "6": ["Phantasmal Calamity"], "7": ["Divine Decree"], "8": ["Divine Wrath"]}}]
+"Celasik":
+  pack: "prey-for-death-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid"]
+  ac: 33
+  hp: 270
+  perception: 26
+  saves: {"fortitude": 22, "reflex": 23, "will": 26}
+  abilities: {"cha": 7, "con": 5, "dex": 4, "int": 3, "str": 6, "wis": 5}
+  speeds: {"land": 30, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 25, "Athletics": 23, "Crafting": 22, "Deception": 28, "Diplomacy": 26, "Performance": 24, "Stealth": 23, "Survival": 24}
+  weaknesses: {"cold-iron": 10}
+  resistances: {"poison": 15}
+  strikes: [{"name": "Jaws", "bonus": 27, "damage": [["3d12+14", "piercing", null]], "traits": ["unarmed"], "effects": ["Jorogumo Venom"]}, {"name": "Claw", "bonus": 27, "damage": [["3d8+14", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Web", "bonus": 23, "damage": [], "traits": [], "range": 60, "effects": ["Web Trap"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Darting Legs", "type": "reaction", "traits": [], "text": "Requirements The jorogumo has their spider legs extended or has Changed Shape%rTrigger The jorogumo is targeted with an attack%rEffect The jorogumo raises a leg, gaining a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "The jorogumo takes on the appearance of any Small or Medium spider. This doesn't change their Speed or Strikes."}, {"name": "Jorogumo Venom", "type": "passive", "traits": ["incapacitation", "poison"], "text": "Saving Throw DC 32 Fortitude%rMaximum Duration 4 hours%rStage 1 3d6 poison damage and Stupefied 1 (1 round)%rStage 2 3d6 poison damage and Stupefied 2 (1 round)%rStage 3 4d6 poison damage and Stupefied 2 (1 round)%rStage 4 Paralyzed for 1d4 hours"}, {"name": "Spider Legs", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "Requirements The jorogumo is in humanoid form%rEffect Eight large spider legs sprout from the jorogumo's back, granting them a 40-foot climb Speed and allowing them to use the Darting Legs reaction."}, {"name": "Web Trap", "type": "passive", "traits": [], "text": "A creature hit by the jorogumo's web attack is Immobilized and stuck to the nearest surface, preventing the creature from moving.%rThe DC to escape dc=32 or force-open dc=32 the web trap is 32."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 34, "attack": 26, "spells": {"1": ["Charm (At Will)"], "2": ["Speak with Animals (Constant)"], "3": ["Mind Reading (At Will)"], "4": ["Confusion", "Suggestion"], "5": ["Truespeech (Constant)"], "7": ["Summon Animal (Spiders Only)"]}}]
+"Divine Living Rune":
+  pack: "prey-for-death-bestiary"
+  level: 13
+  size: "small"
+  rarity: "rare"
+  traits: ["construct"]
+  ac: 34
+  hp: 245
+  perception: 25
+  saves: {"fortitude": 20, "reflex": 23, "will": 27}
+  abilities: {"cha": 5, "con": 1, "dex": 6, "int": 8, "str": 1, "wis": 8}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Deception": 24, "Religion": 27, "Stealth": 25}
+  strikes: [{"name": "Electrical Blast", "bonus": 25, "damage": [["4d12", "electricity", null]], "traits": ["electricity"], "range": 60}]
+  actions: [{"name": "Truescript", "type": "passive", "traits": [], "text": "A living rune can't speak, but it can sculpt its form into complicated scripts and pictographs that can be understood by any creature with the ability to read written language. A living rune can also understand any written or spoken language."}, {"name": "Backdrop", "type": "passive", "traits": [], "text": "When a creature attempts to Strike a living rune and critically misses, the attacker hits the surface (a canvas, wall, or so on) behind the living rune. This might damage the surface or the attacker's weapon, at the GM's discretion."}, {"name": "Surface-Bound", "type": "passive", "traits": [], "text": "A living rune can move only along flat surfaces. If the surface it's on is destroyed (such as a portrait hit by a Fireball spell or a wall being smashed), the rune takes 7d6 untyped damage and is shunted to the nearest flat surface. If there is no flat surface within 5 feet, the rune is destroyed."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 35, "attack": 27, "spells": {"5": ["Blood Vendetta", "Divine Wrath"], "6": ["Divine Immolation", "Harm", "Sawtooth Terrain"], "7": ["Execute", "Mantis's Grasp"]}}]
+"Dronuk":
+  pack: "prey-for-death-bestiary"
+  level: 17
+  size: "medium"
+  rarity: "unique"
+  traits: ["dwarf", "humanoid", "nephilim"]
+  ac: 39
+  hp: 330
+  perception: 30
+  saves: {"fortitude": 31, "reflex": 29, "will": 26}
+  abilities: {"cha": 4, "con": 5, "dex": 2, "int": 1, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 31, "Deception": 27, "Intimidation": 29, "Religion": 24, "Stealth": 27}
+  strikes: [{"name": "Sawtooth Saber", "bonus": 33, "damage": [["1d6", "acid", null], ["1d6", "bleed", "persistent"], ["3d6+14", "slashing", null]], "traits": ["agile", "finesse", "magical", "twin"]}]
+  actions: [{"name": "Tail Trip", "type": "reaction", "traits": [], "text": "Trigger A creature within Dronuk's reach uses a move action or leaves a square during a move action it's using%rEffect Dronuk lashes out at the creature with his tail in an attempt to trip the triggering creature up. Dronuk attempts to Trip the triggering creature."}, {"name": "Mantis's Flurry", "type": "passive", "traits": [], "text": "Dronuk's multiple attack penalty for attacks with his sawtooth sabers is –2 for his second attack, and –4 with his third and any subsequent attacks."}, {"name": "Prayer Attack", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Requirements Dronuk wields a sawtooth saber in each hand%rEffect Dronuk conspirator attempts to Feint an enemy within 30 feet. If the Feint is successful, Dronuk's next successful Strike with a sawtooth saber in that same turn deals 2d6 persistent bleed damage to the target. In addition, provided they remain visible to that target and that target remains within 30 feet of Dronuk, additional Prayer Attacks against that target automatically cause them to become Off-Guard against Dronuk's attacks…"}, {"name": "You're Next", "type": "free", "traits": ["emotion", "fear", "mental", "visual"], "text": "Trigger Dronuk reduces an enemy to 0 Hit Points%rEffect Dronuk attempts to demoralize options=youre-next a single creature he can see. He gains a +2 circumstance bonus to this check."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 35, "attack": 27, "spells": {"0": ["Figment", "Sigil"], "1": ["Fear"], "2": ["See the Unseen"], "3": ["Paralyze"], "4": ["Fly", "Mantis's Grasp", "Translocate"], "5": ["Sawtooth Terrain"], "6": ["Crimson Breath"], "9": ["Massacre"]}}]
+"Einherji Host":
+  pack: "prey-for-death-bestiary"
+  level: 15
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["aesir", "monitor", "troop"]
+  ac: 35
+  hp: 270
+  perception: 22
+  saves: {"fortitude": 29, "reflex": 23, "will": 25}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": 0, "str": 7, "wis": 4}
+  speeds: {"land": 40}
+  hp_details: "Thresholds 180 (3 segments), 90 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 28, "Intimidation": 24}
+  weaknesses: {"area-damage": 18, "splash-damage": 9}
+  resistances: {"piercing": 15}
+  actions: [{"name": "Form Up", "type": "action", "traits": [], "cost": 1}, {"name": "+4 to Will Vs. Fear", "type": "passive", "traits": []}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 180 (3 segments), 90 (2 segments)"}, {"name": "Dagger Volley", "type": "action", "traits": [], "cost": 2, "text": "The einherji host launches a ranged attack in the form of a volley of thrown daggers. This volley fills a 30-foot; all creatures in the area take (5d4+15) piercing|options:area-damage damage (DC 36 Reflex save). When the troop is reduced to 2 or fewer segments, this area decreases to a 15-foot."}, {"name": "Jotun Slayer", "type": "passive", "traits": [], "text": "An einherji host has a +4 circumstance bonus to Strike as One damage rolls made against giants and creatures that are Huge or larger."}, {"name": "Pay For Every Inch", "type": "action", "traits": [], "cost": 3, "text": "The einherji host Forms Up, Raises Shields, and prepares to counterattack. Until the start of the troop's next turn, each time an enemy takes an action to move through a space adjacent to the troop, they take (4d8+18) slashing damage (DC 36 Reflex save)."}, {"name": "Raise Shields", "type": "action", "traits": [], "cost": 1, "text": "The troop raises their shields, increasing their Armor Class by 2 until the start of the troop's next turn."}, {"name": "Song of Freedom", "type": "action", "traits": ["concentrate", "mental"], "cost": 1, "text": "The troop sings of freedom, bolstering their conviction and morale. Until the start of the troop's next turn, their Will saves increase to +29 against all mental effects, not just against fear effects."}, {"name": "Strike as One", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The einherji host makes melee attacks against each enemy in a 5-foot (DC 36 Reflex save). The damage depends on the number of actions.%r1 (2d8+7) slashing|options:area-damage damage%r2 (3d8+14) slashing|options:area-damage damage%r3 (4d8+14) slashing|options:area-damage damage"}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the einherji host Strides, they first Form Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares they may have as the result of having taken Hit Point damage), then move up to their Speed. This works just like a Gargantuan creature moving; for instance, if any square of the troop enters difficult terrain, the extra movement cost applies to the whole troop."}]
+"Frost Roc":
+  pack: "prey-for-death-bestiary"
+  level: 14
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["beast", "cold"]
+  ac: 34
+  hp: 300
+  perception: 25
+  saves: {"fortitude": 28, "reflex": 24, "will": 23}
+  abilities: {"cha": 0, "con": 6, "dex": 4, "int": -4, "str": 9, "wis": 5}
+  speeds: {"land": 15, "fly": 60}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 24, "Athletics": 29}
+  immunities: ["cold"]
+  weaknesses: {"fire": 15}
+  resistances: {"electricity": 15}
+  strikes: [{"name": "Wing", "bonus": 29, "damage": [["3d4+15", "bludgeoning", null]], "traits": ["agile", "reach-30"], "effects": ["Improved Push"]}, {"name": "Beak", "bonus": 29, "damage": [["3d12+15", "piercing", null]], "traits": ["reach-15", "unarmed"]}, {"name": "Talon", "bonus": 29, "damage": [["3d8+15", "slashing", null]], "traits": ["agile", "reach-15", "unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Mist Sight", "type": "passive", "traits": [], "text": "A frost roc can see through clouds, fog, mists, and other water vapors."}, {"name": "Flying Strafe", "type": "action", "traits": [], "cost": 2, "text": "The frost roc Flies up to its Speed and makes two talon Strikes at any point during that movement. Each Strike must target a different creature. Each attack takes the normal multiple attack penalty."}, {"name": "Frozen Feathers", "type": "action", "traits": ["cold", "primal"], "cost": 2, "text": "The frost roc spreads its wings and then flaps them furiously, unleashing a blast of ice-rimed feathers in a 60-foot. All creatures in the area must attempt a DC 34 Reflex save. The frost roc can't use Frozen Feathers again for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature takes 3d6 piercing damage and 5d6 cold damage.%rFailure The creature takes 5d6 piercing damage and 10d6 cold damage.%rCritical Failure The creature takes 8d6 piercing and 15d6 cold damage,…"}, {"name": "Snack", "type": "passive", "traits": [], "text": "A frost roc gains a +2 circumstance bonus to hit with its beak Strike if the target is Grabbed or Restrained in its talon."}, {"name": "Snatch", "type": "passive", "traits": [], "text": "A frost roc can Fly at half Speed while it has a creature Grabbed or Restrained in either or both of its talons, carrying that creature along with it."}, {"name": "Wing Rebuff", "type": "reaction", "traits": [], "text": "Trigger A creature moves into the reach of the frost roc's wing%rEffect The frost roc makes a wing Strike against the triggering creature. If the frost roc Pushes the creature, it disrupts the triggering move action."}, {"name": "Improved Grab", "type": "free", "traits": []}, {"name": "Improved Push", "type": "free", "traits": []}]
+"Frostripper":
+  pack: "prey-for-death-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["beast", "evil"]
+  ac: 34
+  hp: 232
+  perception: 26
+  saves: {"fortitude": 26, "reflex": 20, "will": 22}
+  abilities: {"cha": 5, "con": 7, "dex": 5, "int": 1, "str": 7, "wis": 5}
+  speeds: {"land": 40, "swim": 20}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 29, "Deception": 24, "Intimidation": 26, "Religion": 24, "Stealth": 22, "Survival": 26}
+  resistances: {"cold": 15}
+  strikes: [{"name": "Jaws", "bonus": 26, "damage": [["3d10+13", "piercing", null]], "traits": ["reach-20", "unarmed"]}, {"name": "Claw", "bonus": 26, "damage": [["3d8+13", "slashing", null]], "traits": ["reach-15", "unarmed"]}]
+  actions: [{"name": "Voice Imitation", "type": "passive", "traits": [], "text": "Kokogiaks can mimic the sounds of a person in distress by attempting a Deception check to Lie. The kokogiak has a +4 circumstance bonus to this check."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Mauling Rush", "type": "action", "traits": [], "cost": 3, "text": "The kokogiak Strides up to its Speed. It can make up to four claw Strikes at any point during this movement, each against a different target. These attacks count toward the kokogiak's multiple attack penalty, but the multiple attack penalty doesn't increase until after the kokogiak makes all of its attacks."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The kokogiak's Strikes deal an additional 2d6 precision damage to Off-Guard creatures."}, {"name": "Tormented Snarl", "type": "action", "traits": ["auditory", "illusion", "mental", "primal"], "cost": 2, "text": "Using their voice imitation abilities, a kokogiak emits the horrific wails of its former victims. Each creature within 120 feet takes 4d6 mental|options:area-damage damage and must attempt a DC 33 Will save.%rA creature frightened by this ability is Off-Guard to the kokogiak.%rCritical Success The creature is unaffected and is temporarily immune for 1 minute.%rSuccess The creature takes half damage and becomes Frightened 1.%rFailure The creature takes full damage and becomes Frightened…"}, {"name": "Trackless Step", "type": "passive", "traits": [], "text": "The kokogiak always gains the benefits of Cover Tracks in natural surroundings, even while moving at full speed."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 33, "attack": 24, "spells": {"0": ["Frostbite"], "5": ["Earthbind", "Wall of Ice"], "6": ["Howling Blizzard"]}}]
+"Gorumite Infantry":
+  pack: "prey-for-death-bestiary"
+  level: 14
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["human", "humanoid", "troop"]
+  ac: 36
+  hp: 255
+  perception: 22
+  saves: {"fortitude": 27, "reflex": 22, "will": 24}
+  abilities: {"cha": 2, "con": 5, "dex": 4, "int": 0, "str": 8, "wis": 4}
+  speeds: {"land": 20}
+  hp_details: "troop defenses"
+  skills: {"Athletics": 28, "Intimidation": 22, "Gorum Lore": 20}
+  weaknesses: {"area-damage": 20, "splash-damage": 15}
+  actions: [{"name": "Form Up", "type": "action", "traits": [], "cost": 1}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 170 (3 segments), 85 (2 segments)"}, {"name": "Fire Crossbows!", "type": "action", "traits": [], "cost": 2, "text": "The gorumite infantry draw or reload their crossbows, then launch a ranged attack in the form of a volley.%rThis volley is a 10-foot within 120 feet that deals 6d8 piercing|options:area-damage damage (DC 31 Reflex save). When the gorumite infantry is reduced to 8 or fewer squares, this area decreases to a 5-foot."}, {"name": "Raise Swords!", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The Gorumite infantry engages in a frenzied attack against each enemy within 10 feet, with a DC 31 Reflex save. The damage depends on the number of actions.%r1 (1d12+4) slashing damage.%r2 2d12+10 slashing damage and 1d6 persistent bleed damage.%r3 3d12+10 slashing damage and 2d6 persistent bleed damage."}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the gorumite infantry Strides, they first Form Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then move up to their Speed.%rThis works just like a Gargantuan creature moving; for instance, if any square of the guards enters difficult terrain, the extra movement cost applies to all the guards."}]
+"Gorumite Veteran":
+  pack: "prey-for-death-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid"]
+  ac: 33
+  hp: 240
+  perception: 21
+  saves: {"fortitude": 23, "reflex": 21, "will": 19}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": 2, "str": 7, "wis": 4}
+  speeds: {"land": 20}
+  skills: {"Athletics": 23, "Crafting": 16, "Intimidation": 20, "Medicine": 21, "Warfare Lore": 20}
+  strikes: [{"name": "Greatsword", "bonus": 26, "damage": [["1d6", "bleed", "persistent"], ["2d12+11", "slashing", null]], "traits": ["magical", "versatile-p"]}, {"name": "Javelin", "bonus": 26, "damage": [["1d6+11", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "+2 Circumstance to All Saves Vs. Fear", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Consecrated", "type": "passive", "traits": [], "text": "As long as the Consecrate ritual effects persist in Crownhold, a Gorumite veteran gains a +1 status bonus to attack rolls, skill checks, saving throws, and Perception checks; these bonuses are not calculated into the stat block."}, {"name": "Greatsword Critical Specialization", "type": "passive", "traits": [], "text": "On a critical hit with a greatsword, the target of the critical hit is knocked off-balance and becomes Off-Guard until the start of the Gorumite veteran's next turn."}, {"name": "Heavy Swing", "type": "action", "traits": [], "cost": 2, "text": "The Gorumite veteran Strikes with their greatsword, dealing 4d12+22 slashing damage plus 1d6 persistent bleed. This counts as two attacks when calculating their multiple attack penalty."}, {"name": "Pinning Throw", "type": "action", "traits": [], "cost": 2, "text": "The Gorumite veteran attempts a ranged Strike with their javelin, dealing (3d6+22) piercing damage. If the target is adjacent to a solid surface, they become stuck to that surface by the javelin. The target is Immobilized until they escape dc=33. The creature doesn't become stuck if it is incorporeal, is liquid (like a water elemental or some oozes), or could otherwise escape without effort."}]
+"Gorumite Warpriest":
+  pack: "prey-for-death-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid"]
+  ac: 32
+  hp: 212
+  perception: 23
+  saves: {"fortitude": 22, "reflex": 20, "will": 24}
+  abilities: {"cha": 3, "con": 3, "dex": 1, "int": 0, "str": 4, "wis": 5}
+  speeds: {"land": 25}
+  skills: {"Athletics": 22, "Crafting": 18, "Intimidation": 21, "Religion": 23, "Warfare Lore": 18}
+  strikes: [{"name": "Greatsword", "bonus": 23, "damage": [["2d12+7", "slashing", null]], "traits": ["magical", "versatile-p"]}]
+  actions: [{"name": "Consecrated", "type": "passive", "traits": [], "text": "As long as the Consecrate ritual effects persist in Crownhold, a Gorumite warpriest gains a +1 status bonus to attack rolls, skill checks, saving throws, and Perception checks; these bonuses are not calculated into the stat block."}, {"name": "Fervent Casting", "type": "reaction", "traits": ["auditory", "divine", "spellshape"], "text": "Frequency once per day%rEffect The Gorumite warpriest loudly proclaims the glory of Gorum. The next divine spell they cast takes one fewer action (minimum of one), but must only target the warpriest. If the spell affects an area or multiple targets, such as bless, it only affects the warpriest, even if it lasts more than one round."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 32, "attack": 24, "spells": {"0": ["Daze", "Forbidding Ward", "Guidance", "Shield", "Stabilize"], "1": ["Bless", "Enfeeble", "Harm", "Heal", "Mending"], "2": ["Cleanse Affliction", "Clear Mind", "Darkvision", "Dispel Magic", "Noise Blast", "See the Unseen", "Share Life"], "3": ["Blindness", "Heroism"], "4": ["Divine Wrath", "Fly", "Unfettered Movement"], "5": ["Breath of Life"], "6": ["Blessed Boundary"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 32, "attack": 24, "spells": {"1": ["Athletic Rush"], "4": ["Enduring Might"]}}]
+"Mantis Keeper":
+  pack: "prey-for-death-bestiary"
+  level: 17
+  size: "small"
+  rarity: "unique"
+  traits: ["leshy", "plant"]
+  ac: 39
+  hp: 318
+  perception: 31
+  saves: {"fortitude": 26, "reflex": 29, "will": 31}
+  abilities: {"cha": 3, "con": 1, "dex": 4, "int": 2, "str": 4, "wis": 6}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 29, "Athletics": 29, "Nature": 33, "Religion": 31, "Survival": 31}
+  resistances: {"poison": 8}
+  strikes: [{"name": "Verdant Scythe", "bonus": 31, "damage": [["1d6", "sonic", null], ["3d10+12", "slashing", null], ["1d6", "acid", null]], "traits": ["deadly-d10", "magical", "trip"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Poison", "type": "passive", "traits": []}, {"name": "Mantis Commander", "type": "passive", "traits": [], "text": "Mantis Keeper belongs to the animal druidic order, yet they don't have a single animal companion. Instead, they are served by the deadly mantises that dwell upon Mediogalti Isle, and their command over them is bolstered by the Mantis Stones. At any one time, Mantis Keeper is attended by two of these enormous insects, each of which treat Mantis Keeper as a valued ally. Mantis Keeper can communicate with any form of deadly mantis by speaking Wildsong to them, although the mantises cannot reply.…"}, {"name": "Mantis Stone Stride", "type": "action", "traits": ["electricity", "move", "primal", "teleportation"], "cost": 2, "text": "Mantis Keeper Steps, Strides, or Flies into one of the Mantis Stones, then immediately exits a different Mantis Stone into a square adjacent to the stone and continues the rest of their movement. When Mantis Keeper exits a Mantis Stone, they create a pulse of lightning that inflicts 8d6 electricity damage (DC 38 Reflex save) to all creatures within 10 feet of Mantis Keeper when they emerge from the Mantis stone."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If a reaction would disrupt Mantis Keeper's spellcasting action, they attempt a DC 15 Flat. If they succeed, the action isn't disrupted."}, {"name": "Verdant Scythe", "type": "action", "traits": [], "cost": 1, "text": "Mantis Keeper has cultivated a unique seed to serve as a special verdant weapon. When they activate this ability, the seed transforms into a scythe, or the scythe transforms back into a seed. This scythe appears to be made entirely of wood, with a short upper blade that extends into a lengthy mantis-like arm when they attack. Although made of wood, Mantis Keeper's verdant scythe functions as if its blade were made of iron. If they're slain, the weapon quickly rots away, leaving behind…"}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 38, "attack": 30, "spells": {"0": ["Detect Magic", "Electric Arc", "Guidance", "Stabilize", "Tangle Vine"], "1": ["Charm", "Gust of Wind", "Heal"], "2": ["Animal Messenger", "Dispel Magic", "Entangling Flora", "Resist Energy", "Revealing Light"], "3": ["Blindness", "Haste", "Lightning Bolt", "Slow", "Wall of Thorns"], "4": ["Fly", "Unfettered Movement"], "5": ["Wall of Stone"], "6": ["Chain Lightning", "Cursed Metamorphosis", "Petrify", "Truesight"], "7": ["Execute", "Regenerate"], "9": ["Implosion", "Massacre"]}}, {"name": "Druid Order Spells", "tradition": "primal", "type": "focus", "dc": 38, "attack": 30, "spells": {"1": ["Heal Animal"]}}]
+"Niesha":
+  pack: "prey-for-death-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "unique"
+  traits: ["ooze"]
+  ac: 36
+  hp: 300
+  perception: 30
+  saves: {"fortitude": 25, "reflex": 28, "will": 30}
+  abilities: {"cha": 5, "con": 5, "dex": 6, "int": 4, "str": 8, "wis": 5}
+  speeds: {"land": 30}
+  hp_details: "regeneration 15 (deactivated by acid)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 30, "Deception": 28, "Occultism": 29, "Religion": 32, "Stealth": 30, "Library Lore": 31}
+  immunities: ["critical-hits", "precision", "unconscious"]
+  weaknesses: {"acid": 15}
+  strikes: [{"name": "Polymorphic Appendage", "bonus": 32, "damage": [["3d12+16", "bludgeoning", null]], "traits": ["magical", "versatile-p", "versatile-s"]}, {"name": "Ooze Globule", "bonus": 30, "damage": [], "traits": [], "range": 30, "effects": ["Viscous Trap"]}]
+  actions: [{"name": "Polyglot", "type": "passive", "traits": [], "text": "A mezlan can speak and understand any language they hear spoken after listening to the language for 1 minute. These languages fade from their mind after 24 hours."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Regeneration 15 (Deactivated by Acid)", "type": "passive", "traits": []}, {"name": "Absorb Spell", "type": "reaction", "traits": [], "text": "Trigger The mezlan succeeds at a saving throw against a single-target spell%rEffect The mezlan absorbs the spell, nullifying its effect and storing it for later. They can Cast the Spell using the original caster's spell attack modifier and DC. They can store only one spell at a time, but they can absorb a new spell to replace the spell they currently have stored.%rA willing caster can allow the mezlan to Absorb a Spell without requiring a save."}, {"name": "Discorporate", "type": "passive", "traits": [], "text": "When the mezlan is reduced to 0 Hit Points, their body dissolves into colorless slime and begins seeping into nearby cracks or porous surfaces.%rIf this material is not immediately contained or destroyed, the mezlan will eventually re-form, though they may lie dormant for years or even decades before doing so."}, {"name": "Access Pipe Ambush", "type": "reaction", "traits": [], "text": "Trigger Niesha emerges from one of the Sarzari access pipes%rEffect Niesha makes a melee Strike against an adjacent creature as she emerges."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 1, "text": "The mezlan assumes the form of any Medium or Small creature, excluding those with the elemental, incorporeal, or swarm traits but including specific individuals whose appearance they've seen. This doesn't change the mezlan's Speed or their attack and damage bonus with their Strikes, but the damage type dealt by their Strikes might change based on their new form."}, {"name": "Extend Limb", "type": "action", "traits": [], "cost": 1, "text": "The mezlan extends one of their limbs, granting themself a reach of 20 feet with their polymorphic appendages until the end of their next turn."}, {"name": "Navigate Pipes", "type": "passive", "traits": [], "text": "Niesha can move though the Sarzari Access Pipes, even though they're only two feet wide; she treats these pipes as difficult terrain."}, {"name": "Up From Below", "type": "passive", "traits": [], "text": "Niesha can Shove or Trip a creature that's standing atop a Sarzari access pipe grate while she's directly beneath that creature."}, {"name": "Viscous Trap", "type": "passive", "traits": [], "text": "A creature hit by the mezlan's ooze globule takes a –15-foot circumstance penalty to all Speeds for 1 minute. On a critical hit, a target standing on a solid surface also becomes Immobilized, while a target Flying via wings falls to the ground and becomes unable to Fly.%rA target can end all effects by Escaping or spending a total of 3 Interact actions to free itself.%rEffect: Viscous Trap"}]
+"Ordulf Bladecaller":
+  pack: "prey-for-death-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 38
+  hp: 300
+  perception: 28
+  saves: {"fortitude": 30, "reflex": 25, "will": 28}
+  abilities: {"cha": 5, "con": 4, "dex": 1, "int": 0, "str": 5, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 25, "Athletics": 29, "Crafting": 24, "Intimidation": 31, "Religion": 28, "Survival": 28, "Fishing Lore": 24, "Warfare Lore": 26}
+  resistances: {"cold": 10}
+  strikes: [{"name": "Greatsword", "bonus": 32, "damage": [["3d12+11", "slashing", null], ["1d6", "cold", null]], "traits": ["magical", "versatile-p"]}, {"name": "Greataxe", "bonus": 32, "damage": [["3d12+11", "slashing", null], ["1d6", "bleed", "persistent"]], "traits": ["magical", "sweep"]}]
+  actions: [{"name": "Battle Arrogance", "type": "passive", "traits": [], "text": "Ordulf hasn't met a significant combat challenge in ages, and even when facing deadly foes like the PCs his arrogance can be used against him. If a PC successfully Disarms, Feints, Frightens, or Trips Ordulf, his arrogance gets the better of him and he grows sloppy in his tactics, reducing his AC to 34 until the start of his next turn. A PC can also attempt to issue a more debilitating insult to Ordulf.%rInsult Ordulf 2 The PC spends several seconds issuing insults and taunts to Ordulf, then…"}, {"name": "Gorum's Major Boon", "type": "passive", "traits": ["healing"], "text": "When Ordulf is reduced to 0 Hit Points, Gorum feeds him the zeal of his Aesir, allowing Ordulf to draw upon his own life force to fight on and on without falling. He is healed to 150 Hit Points and becomes Doomed 1 (or increases his doomed condition by 1), causing his features to look progressively more gaunt and scarred. Once he reaches Doomed 4, he dies."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Battle Cry", "type": "reaction", "traits": [], "text": "Frequency once per day%rTrigger Ordulf rolls initiative%rEffect Ordulf attempts to demoralize an observed foe."}, {"name": "Cleaving Blow", "type": "action", "traits": [], "cost": 2, "text": "Ordulf Strikes two adjacent creatures within his reach. Both attacks count against his multiple attack penalty, but do not increase his penalty until he has made both attacks."}, {"name": "Crushing Insult", "type": "action", "traits": ["auditory", "linguistic", "mental"], "cost": 1, "text": "Frequency once per round%rEffect Ordulf issues a devastating and humiliating insult to a creature within 30 feet that he can see. Ordulf attempts an Intimidation check against the target's Will DC. That character is then temporarily immune to Crushing Insult for 24 hours.%rCritical Success The insult is distracting and humiliating; the target is Stupefied 1 and Off-Guard for 1 minute.%rSuccess The insult is distracting, but its effects pass quickly; the target is stupefied 1 and off-guard until…"}, {"name": "Deadly Display", "type": "action", "traits": [], "cost": 2, "text": "Requirements Ordulf is wielding a melee weapon%rEffect Ordulf brandishes his weapon in a threatening display. He Demoralizes all enemies within 30 feet, rolling once and comparing the result to each target's Will DC."}, {"name": "Whirlwind Strike", "type": "action", "traits": [], "cost": 3, "text": "Ordulf Strikes each enemy within his reach. Each attack counts toward his multiple attack penalty, but do not increase his penalty until he has made all his attacks."}]
+"Rage Rider":
+  pack: "prey-for-death-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid"]
+  ac: 29
+  hp: 175
+  perception: 19
+  saves: {"fortitude": 20, "reflex": 17, "will": 19}
+  abilities: {"cha": 0, "con": 4, "dex": 3, "int": 0, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Athletics": 21, "Intimidation": 16, "Nature": 19, "Survival": 19}
+  resistances: {"cold": 5}
+  strikes: [{"name": "Spear", "bonus": 22, "damage": [["2d6+11", "piercing", null]], "traits": ["magical"]}, {"name": "Spear", "bonus": 20, "damage": [["2d6+11", "piercing", null]], "traits": ["magical", "thrown-20"]}]
+  actions: [{"name": "Catch and Release", "type": "reaction", "traits": [], "text": "Requirements The rage rider has a hand free%rTrigger An enemy critically misses the rage rider with a thrown weapon attack%rEffect The rage rider catches the thrown weapon and makes a ranged Strike with it."}, {"name": "Exquisite Kokogiak Harness", "type": "passive", "traits": [], "text": "A rage rider is equipped with an exquisitely crafted harness when riding a kokogiak. Two rage riders can ride a willing kokogiak at once using such a harness, and both of their hands remain free while doing so. When a rage rider is attached to a kokogiak, they can't use any action that uses their speed (such as Step or Stride), and all DCs to forcibly move the rage rider or to knock them from their mount are increased by 5. If a kokogiak being ridden by a rage rider using such a harness is…"}, {"name": "Ruinous Rage", "type": "action", "traits": ["concentrate", "emotion", "mental"], "cost": 1, "text": "The rage rider enters a state of pure rage that lasts either for 1 minute, until there are no enemies they can perceive, or until they fall Unconscious, whichever comes first. While raging, the rage rider has AC 27 and their spear Strikes deal 2d6+15 damage plus 2d6 persistent bleed damage. While raging, the rage rider can't use actions that have the concentrate trait, except for Seek. After they've stopped raging, a rage rider can't use Rage again for 1 minute."}]
+"Red Mantis Assassin":
+  pack: "prey-for-death-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid"]
+  ac: 31
+  hp: 193
+  perception: 21
+  saves: {"fortitude": 19, "reflex": 21, "will": 19}
+  abilities: {"cha": 3, "con": 2, "dex": 4, "int": 1, "str": 4, "wis": 2}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 21, "Athletics": 21, "Deception": 20, "Religion": 17, "Society": 18, "Stealth": 21, "Thievery": 19, "Achaekek Lore": 18}
+  strikes: [{"name": "Shuriken", "bonus": 21, "damage": [["1d4+7", "piercing", null]], "traits": ["agile", "monk", "reload-0", "thrown-20"], "effects": ["Blightburn Resin"]}, {"name": "Sawtooth Saber", "bonus": 22, "damage": [["1d6", "bleed", "persistent"], ["2d6+7", "slashing", null]], "traits": ["agile", "finesse", "magical", "twin"]}]
+  actions: [{"name": "Blightburn Resin", "type": "passive", "traits": ["alchemical", "contact", "poison"], "text": "Saving Throw DC 30 Fortitude%rOnset 1 minute%rMaximum Duration 6 rounds%rStage 1 6d6 poison damage (1 round)%rStage 2 7d6 poison damage (1 round)%rStage 3 9d6 poison damage (1 round)"}, {"name": "Prayer Attack", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Requirements The Red Mantis assassin wields a sawtooth saber in each hand%rEffect The Red Mantis assassin attempts to Feint an enemy within 30 feet. If the Feint is successful, the assassin's next successful strike with a sawtooth saber in that same turn deals 2d6 persistent bleed damage to the target. In addition, provided they remain visible to that target and that target remains within 30 feet of the assassin, additional Prayer Attacks against that target automatically cause them to become…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Red Mantis assassin deals an extra 2d6 precision damage to Off-Guard creatures."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "On the first round of combat, creatures that haven't acted yet are Off-Guard to the Red Mantis assassin."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 27, "attack": 19, "spells": {"0": ["Figment", "Sigil"], "1": ["Sure Strike"], "2": ["Mist"], "3": ["Paralyze"], "4": ["Translocate"]}}]
+"Red Mantis Conspirator":
+  pack: "prey-for-death-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "rare"
+  traits: ["human", "humanoid"]
+  ac: 35
+  hp: 255
+  perception: 23
+  saves: {"fortitude": 25, "reflex": 27, "will": 23}
+  abilities: {"cha": 3, "con": 2, "dex": 5, "int": 3, "str": 4, "wis": 1}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 25, "Athletics": 24, "Deception": 25, "Religion": 21, "Society": 23, "Stealth": 27, "Thievery": 27, "Achaekek Lore": 23}
+  strikes: [{"name": "Shuriken", "bonus": 25, "damage": [["1d4+7", "piercing", null]], "traits": ["agile", "monk", "reload-0", "thrown-20"], "effects": ["Blightburn Resin"]}, {"name": "Sawtooth Saber", "bonus": 27, "damage": [["1d6", "bleed", "persistent"], ["2d6+7", "slashing", null]], "traits": ["agile", "finesse", "magical", "twin"]}]
+  actions: [{"name": "Blightburn Resin", "type": "passive", "traits": ["alchemical", "contact", "poison"], "text": "Saving Throw DC 30 Fortitude%rOnset 1 minute%rMaximum Duration 6 rounds%rStage 1 6d6 poison damage (1 round)%rStage 2 7d6 poison damage (1 round)%rStage 3 9d6 poison damage (1 round)"}, {"name": "Prayer Attack", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Requirements The Red Mantis conspirator wields a sawtooth saber in each hand%rEffect The Red Mantis conspirator attempts to Feint an enemy within 30 feet. If the Feint is successful, the conspirator's next successful Strike with a sawtooth saber in that same turn deals 2d6 persistent bleed damage to the target. In addition, provided they remain visible to that target and that target remains within 30 feet of the conspirator, additional Prayer Attacks against that target automatically cause them…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Red Mantis conspirator deals an extra 2d6 precision damage to Off-Guard creatures."}, {"name": "Vernai Training", "type": "passive", "traits": [], "text": "In order to resurrect a creature slain by a Red Mantis conspirator, a creature must counteract the conspirator's influence over the dead's remains as they cast the spell or perform the ritual (DC 34)."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 34, "attack": 26, "spells": {"0": ["Figment", "Sigil"], "1": ["Sure Strike"], "2": ["Mist"], "3": ["Bone Flense"], "4": ["Fly"], "5": ["Sending"]}}]
+"Rhysaphine":
+  pack: "prey-for-death-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "unique"
+  traits: ["celestial", "fire"]
+  ac: 42
+  hp: 338
+  perception: 31
+  saves: {"fortitude": 27, "reflex": 34, "will": 31}
+  abilities: {"cha": 9, "con": 5, "dex": 8, "int": 6, "str": 8, "wis": 5}
+  speeds: {"land": 30, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 34, "Arcana": 30, "Athletics": 32, "Diplomacy": 35, "Performance": 35, "Religion": 29, "Elysium Lore": 32}
+  immunities: ["fire"]
+  weaknesses: {"cold-iron": 15, "unholy": 15}
+  resistances: {"cold": 10}
+  strikes: [{"name": "Scimitar", "bonus": 34, "damage": [["3d6+16", "slashing", null], ["4d6", "fire", null]], "traits": ["forceful", "holy", "magical", "sweep"]}, {"name": "Burning Wings", "bonus": 34, "damage": [["3d10+16", "fire", null]], "traits": ["agile", "finesse", "fire", "holy", "magical", "reach-10"]}, {"name": "Flame Ray", "bonus": 34, "damage": [["9d6", "fire", null]], "traits": ["fire", "holy", "magical"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Smoke Vision", "type": "passive", "traits": [], "text": "Rhysaphine can see through smoke with ease, and he ignores the Concealed condition from smoke."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Shining Blaze", "type": "passive", "traits": ["aura", "divine", "fire"], "text": "5 feet. 8d6 fire|options:area-damage damage (DC 37 Reflex)"}, {"name": "Flame Jump", "type": "action", "traits": ["divine", "teleportation"], "cost": 2, "text": "Frequency once per hour%rEffect Rhysaphine Strides into an open flame of medium size or larger and instantly transports himself to any other flame of sufficient size within 100 miles. Once he enters the first flame, he instantly learns the locations of all other flames within range."}, {"name": "Flamewing Buffet", "type": "action", "traits": [], "cost": 2, "text": "Rhysaphine makes one scimitar Strike and two burning wings Strikes, in any order."}, {"name": "Greater Flameheart Weapon", "type": "passive", "traits": [], "text": "Rhysaphine can call forth a powerful weapon from his heart of flame. In his hands, this is a +3 greater striking greater flaming scimitar that deals 4d6 fire damage instead of 1d6."}, {"name": "Trick Rider", "type": "free", "traits": [], "text": "Frequency once per round%rRequirements Rhysaphine is currently mounted-or adjacent to an allied creature that can function as a mount%rEffect If Rhysaphine is mounted, he dismounts; if Rhysaphine is not mounted, he mounts the adjacent creature."}, {"name": "Wildfire Storm", "type": "action", "traits": ["divine", "fire"], "cost": 1, "text": "Rhysaphine spreads his wings and spins, forming a whirlwind of flame that deals 19d6 fire|options:area-damage damage in a 20-foot (DC 40 Reflex save). He can't use Wildfire Storm again for 1d4 rounds."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 40, "attack": 32, "spells": {"0": ["Ignition"], "6": ["Fire Shield (Constant)"], "9": ["Humanoid Form (At Will)", "Wall of Fire"]}}]
+"Roc Rider":
+  pack: "prey-for-death-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["cold", "humanoid"]
+  ac: 36
+  hp: 256
+  perception: 26
+  saves: {"fortitude": 22, "reflex": 28, "will": 26}
+  abilities: {"cha": 2, "con": 4, "dex": 8, "int": 0, "str": 6, "wis": 6}
+  speeds: {"land": 40}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 28, "Athletics": 26, "Nature": 26, "Stealth": 28, "Survival": 24}
+  immunities: ["cold"]
+  weaknesses: {"fire": 15}
+  strikes: [{"name": "Jaws", "bonus": 26, "damage": [["3d10+14", "slashing", null], ["1d6", "cold", "persistent"]], "traits": ["unarmed"]}, {"name": "Spear", "bonus": 28, "damage": [["2d6+14", "piercing", null], ["1d6", "bleed", "persistent"]], "traits": ["magical"]}, {"name": "Spear", "bonus": 30, "damage": [["2d6+14", "piercing", null], ["1d6", "bleed", "persistent"]], "traits": ["magical", "thrown-20"]}]
+  actions: [{"name": "Aerial Wolfstorm", "type": "passive", "traits": ["aura", "cold", "primal"], "text": "60 feet. A clammy, frigid mist billows forth ahead of the adlet. Creatures within the mist become Concealed, and creatures outside the mist become concealed to creatures within it. An adlet can see through the aura without penalty. When mounted on a frost roc, this aura emanates from the roc, not the adlet, and the roc gains the ability to see through the aura without penalty as well."}, {"name": "Avenging Bite", "type": "reaction", "traits": [], "text": "Trigger A creature within reach of an adlet's jaws Strike attacks one of the adlet's allies.%rEffect The adlet makes a jaws Strike against the triggering creature."}, {"name": "Aerial Wolfrime", "type": "action", "traits": ["cold", "concentrate", "primal"], "cost": 1, "text": "The roc rider's mist turns biting cold and coalesces into a thick rime of frost that deals 7d6 cold damage to creatures inside the roc rider's aerial wolfstorm aura (DC 31 Fortitude), and the aura is deactivated until the start of the roc rider's next turn."}, {"name": "Frozen Weapons", "type": "passive", "traits": [], "text": "Weapons wielded by an adlet gain the effect of the Frost property rune."}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "An adlet's Strikes deal an additional 2d6 damage to creatures that are within the reach of at least two of the adlet's allies."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 31, "attack": 23, "spells": {"0": ["Frostbite"], "7": ["Howling Blizzard"]}}]
+"Saint Fang":
+  pack: "prey-for-death-bestiary"
+  level: 18
+  size: "huge"
+  rarity: "unique"
+  traits: ["divine", "dragon"]
+  ac: 42
+  hp: 365
+  perception: 31
+  saves: {"fortitude": 33, "reflex": 28, "will": 29}
+  abilities: {"cha": 6, "con": 7, "dex": 4, "int": 4, "str": 9, "wis": 5}
+  speeds: {"land": 40, "fly": 130}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 30, "Athletics": 35, "Diplomacy": 32, "Intimidation": 32, "Medicine": 29, "Religion": 29, "Society": 28, "Warfare Lore": 30}
+  immunities: ["paralyzed", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 35, "damage": [["3d12+17", "piercing", null], ["1d6", "fire", null]], "traits": ["magical", "reach-15", "unarmed"]}, {"name": "Claw", "bonus": 35, "damage": [["2d6", "bleed", "persistent"], ["3d6+17", "slashing", null]], "traits": ["agile", "magical", "reach-10", "unarmed"]}, {"name": "Tail", "bonus": 33, "damage": [["3d6+17", "piercing", null]], "traits": ["magical", "reach-20"]}]
+  actions: [{"name": "Forge Vision", "type": "passive", "traits": [], "text": "Saint Fang ignores the Concealed condition from smoke and fire."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Buck", "type": "reaction", "traits": [], "text": "DC 37 Reflex"}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 37 Will"}, {"name": "Spiked Scales", "type": "passive", "traits": [], "text": "A creature that critically fails to Strike Saint Fang in melee takes 6d6 piercing damage (DC 40 Reflex save)."}, {"name": "Wing Deflection", "type": "reaction", "traits": [], "text": "Trigger Saint Fang is targeted with an attack%rEffect Saint Fang raises a wing, gaining a +2 circumstance bonus to AC against the triggering attack. If he is flying, he descends 10 feet after the attack is complete."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "Saint Fang makes two claw Strikes and one tail Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "When Saint Fang scores a critical hit with a Strike, he recharges his Dragon Breath."}, {"name": "Dragon Breath", "type": "action", "traits": ["arcane"], "cost": 2, "text": "Saint Fang breathes in one of two ways. He can't use Dragon Breath again for 1d4 rounds.%rBlade Breath (arcane) He breathes a 100-foot of sharp blades that deals 19d6 slashing|options:area-damage damage (DC 40 Reflex save). The blades created by this breath vanish at the end of the round.%rForge Breath (arcane) He breathes a blast of embers and smoke, as if from an immense forge. Each creature within a 40-foot takes 6d6 fire damage and 12d6 poison damage (DC 40 Reflex save). Smoke lingers in…"}]
+"Saviya":
+  pack: "prey-for-death-bestiary"
+  level: 19
+  size: "medium"
+  rarity: "unique"
+  traits: ["elf", "humanoid"]
+  ac: 43
+  hp: 360
+  perception: 34
+  saves: {"fortitude": 31, "reflex": 35, "will": 38}
+  abilities: {"cha": 5, "con": 1, "dex": 5, "int": 4, "str": 4, "wis": 6}
+  speeds: {"land": 30, "fly": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 34, "Athletics": 36, "Deception": 36, "Diplomacy": 34, "Intimidation": 34, "Nature": 33, "Religion": 35, "Society": 31, "Stealth": 34, "Achaekek Lore": 33}
+  strikes: [{"name": "Sawtooth Saber", "bonus": 35, "damage": [["4d6+12", "slashing", null]], "traits": ["agile", "finesse", "magical", "twin"]}]
+  actions: [{"name": "Perfect Scent", "type": "passive", "traits": [], "text": "Saviya's sense of smell is a precise sense. It's particularly adept at seeing through disguises that attempt to obscure a target's actual ancestry, granting her a +4 circumstance bonus to Perception checks against such Impersonation attempts."}, {"name": "Fading", "type": "reaction", "traits": [], "text": "Frequency once per use of Crimson Shroud%rTrigger Saviya is targeted by a Strike from a creature she can detect%rRequirements Saviya's Crimson Shroud is active%rEffect Saviya fades from reality. The creature making the triggering Strike must attempt a DC 11 Flat; on a failure, the attack passes harmlessly through the immaterial image of Saviya's body, after which she returns to her physical form."}, {"name": "Crimson Shroud", "type": "action", "traits": ["healing", "magical"], "cost": 1, "text": "Frequency seven times a day%rEffect Saviya swathes herself in red mist for 1 minute, during which time she gains fast healing 9. She can Interact with the mist to gain a +1 circumstance bonus to AC until the beginning of her next turn. If she dies while Crimson Shroud is active, her body vanishes, leaving behind only her gear."}, {"name": "Prayer Attack", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Requirements Saviya wields a sawtooth saber in each hand%rEffect Saviya attempts to Feint an enemy within 30 feet. If the Feint is successful, Saviya's next successful Strike with a sawtooth saber in that same turn deals 2d6 persistent bleed damage to the target. In addition, provided Saviya remains visible to that target and that target remains within 30 feet of Saviya, additional Prayer Attacks against that target automatically cause them to become Off-Guard against Saviya's attacks until the…"}, {"name": "Vernai Training", "type": "passive", "traits": [], "text": "In order to resurrect a creature slain by Saviya, a creature must counteract Saviya's influence on that creature's death as they Cast the Spell or perform the ritual (DC 41)."}]
+  spellcasting: [{"name": "Cleric Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 41, "attack": 33, "spells": {"0": ["Daze", "Divine Lance", "Guidance", "Shield", "Void Warp"], "1": ["Command", "Fear", "Harm", "Heal", "Sanctuary"], "2": ["Cleanse Affliction", "Create Food", "Dispel Magic", "Resist Energy", "Silence"], "3": ["Blindness"], "4": ["Mantis's Grasp", "Outcast's Curse", "Talking Corpse", "Unfettered Movement"], "5": ["Sawtooth Terrain", "Truespeech"], "6": ["Crimson Breath", "Dominate", "Teleport", "Truesight"], "7": ["Execute"], "9": ["Massacre", "Wails of the Damned"], "10": ["Manifestation"]}}, {"name": "Red Mantis Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 41, "attack": 33, "spells": {"0": ["Figment", "Sigil"], "1": ["Fear"], "2": ["Mist"], "3": ["Paralyze"], "4": ["Translocate"], "5": ["Sending"], "6": ["Phantasmal Calamity"], "7": ["Project Image"], "8": ["Disappearance"]}}]
+"Shirota":
+  pack: "prey-for-death-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 38
+  hp: 295
+  perception: 25
+  saves: {"fortitude": 29, "reflex": 30, "will": 26}
+  abilities: {"cha": 2, "con": 3, "dex": 4, "int": 5, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 28, "Crafting": 33, "Diplomacy": 26, "Performance": 26, "Society": 29, "Mercantile Lore": 29}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Alchemist's Fire", "bonus": 30, "damage": [["3", "fire", "persistent"], ["3", "fire", "splash"], ["3d8", "fire", null]], "traits": ["bomb", "fire", "splash", "thrown-20"]}, {"name": "Dread Ampoule", "bonus": 30, "damage": [["3", "mental", "splash"], ["3d6", "mental", null]], "traits": ["bomb", "emotion", "fear", "poison", "splash", "thrown-20"]}, {"name": "Glue Bomb", "bonus": 30, "damage": [], "traits": ["bomb", "thrown-20"]}, {"name": "Fist", "bonus": 28, "damage": [["1d4+10", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Claw", "bonus": 28, "damage": [["1d6", "bleed", "persistent"], ["2d6+10", "slashing", null]], "traits": ["agile", "finesse", "grapple", "unarmed"]}]
+  actions: [{"name": "Infused Items", "type": "passive", "traits": [], "text": "Shirota carries the following infused items, which last for 24 hours or until the next time he makes his daily preparations:%r12 Alchemist's Fire (Greater)%r3 Blood Sight Elixir (Greater)%r12 Dread Ampoule (Greater)%r10 Elixir of Life (Major)%r5 Glue Bomb (Greater)"}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "Shirota Interacts to draw a bomb, then Strikes with it."}, {"name": "Reactive Bombing", "type": "reaction", "traits": [], "text": "Trigger A creature is damaged by one of Zaiho's Strikes%rEffect Shirota attacks the triggering creature with a bomb Strike."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Shirota deals 3d6 extra precision damage with his melee Strikes to Off-Guard creatures."}, {"name": "Twinned Combat", "type": "passive", "traits": [], "text": "Any enemy is Off-Guard against Shirota's Strikes as long as that enemy is within Zaiho's reach. Shirota doesn't inflict splash damage to Zaiho with his bombs."}]
+"Silver Saber":
+  pack: "prey-for-death-bestiary"
+  level: 18
+  size: "huge"
+  rarity: "unique"
+  traits: ["construct"]
+  ac: 43
+  hp: 260
+  perception: 32
+  saves: {"fortitude": 30, "reflex": 33, "will": 28}
+  abilities: {"cha": 5, "con": 6, "dex": 7, "int": 3, "str": 8, "wis": 6}
+  speeds: {"land": 40, "climb": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 33, "Athletics": 34, "Deception": 33, "Society": 31, "Achaekek Lore": 31}
+  weaknesses: {"cold": 15}
+  resistances: {"physical": 15}
+  strikes: [{"name": "Leg", "bonus": 33, "damage": [["3d10+16", "slashing", null], ["2d6", "bleed", "persistent"]], "traits": ["magical", "reach-10"]}, {"name": "Spike", "bonus": 33, "damage": [["3d6+16", "piercing", null]], "traits": ["magical"]}]
+  actions: [{"name": "Evasion", "type": "passive", "traits": [], "text": "When Silver Saber rolls a success on a Reflex save, they get a critical success instead."}, {"name": "Faith Bound", "type": "passive", "traits": ["divine"], "text": "Silver Saber can't attack a creature that openly wears or displays Achaekek's religious symbol unless that creature uses a hostile action against Silver Saber first. They can also attack a creature they believe isn't faithful to Achaekek or who wears the religious symbol as a ruse (typically after succeeding at a Perception check to sense-motive)."}, {"name": "Reflect Truths", "type": "passive", "traits": ["aura", "divine", "mental", "visual"], "text": "20 feet. A creature that enters the area must succeed at a DC 37 Will save or they see their own visage in Silver Saber's reflective face looking back at them. For 1 minute, that creature can't speak any deliberate and intentional lies and takes a –2 status penalty to Deception checks. On a critical failure, the status penalty is increased to –4."}, {"name": "Focus Gaze", "type": "action", "traits": ["aura", "divine", "incapacitation", "mental", "visual"], "cost": 1, "text": "Silver Saber focuses their gaze on a creature they can see within 30 feet. The target must immediately attempt a Will save against Reflect Truths. If the creature was already so affected, it becomes Stunned 1. After attempting its save, the creature is then temporarily immune until the start of Silver Saber's next turn."}, {"name": "Liquefy", "type": "action", "traits": [], "cost": 1, "text": "Silver Saber becomes fully liquid and amorphous. They gain immunity to precision damage but take double cold damage. The only actions they can use while liquefied are move actions and spike ranged Strikes. They can resume their normal form by taking this action again."}, {"name": "Mirror", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time they act, Silver Saber appears to be a mirror. They have an automatic result of 53 on Deception checks and DCs to pass as a mirror."}, {"name": "Silver Strikes", "type": "passive", "traits": [], "text": "Silver Saber's leg and spike Strikes count as silver weapons."}, {"name": "Swift Steps", "type": "passive", "traits": [], "text": "Silver Saber is permanently Quickened, but they can use the extra action only to Step or Stride."}]
+"Sister Maeri":
+  pack: "prey-for-death-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "unique"
+  traits: ["elf", "humanoid"]
+  ac: 38
+  hp: 290
+  perception: 28
+  saves: {"fortitude": 26, "reflex": 28, "will": 30}
+  abilities: {"cha": 4, "con": 2, "dex": 4, "int": 2, "str": 2, "wis": 5}
+  speeds: {"land": 40}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 24, "Deception": 30, "Diplomacy": 28, "Medicine": 29, "Religion": 31, "Society": 28, "Stealth": 30, "Thievery": 28}
+  strikes: [{"name": "Sawtooth Saber", "bonus": 30, "damage": [["3d8+10", "slashing", null]], "traits": ["agile", "finesse", "magical", "twin"]}, {"name": "Shuriken", "bonus": 28, "damage": [["1d4+10", "piercing", null]], "traits": ["agile", "monk", "reload-0", "thrown-20"], "effects": ["Blightburn Resin"]}]
+  actions: [{"name": "Blightburn Resin", "type": "passive", "traits": ["alchemical", "contact", "poison"], "text": "Saving Throw DC 30 Fortitude%rOnset 1 minute%rMaximum Duration 6 rounds%rStage 1 6d6 poison damage (1 round)%rStage 2 7d6 poison damage (1 round)%rStage 3 9d6 poison damage (1 round)"}, {"name": "Deadly Saber", "type": "passive", "traits": [], "text": "When Sister Maeri wields a sawtooth saber, she increases the damage die size of the weapon by one step and deals an extra 2d6 precision damage to Off-Guard creatures. When she critically succeeds at an attack roll with a sawtooth saber, she applies the weapon's critical specialization effect."}, {"name": "Divine Weapon", "type": "reaction", "traits": [], "text": "Frequency once per turn%rTrigger Sister Maeri finishes Casting a Spell%rEffect Until the end of her turn, Sister Maeri's sawtooth saber deals an additional 1d4 spirit damage."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 37, "attack": 29, "spells": {"0": ["Daze", "Detect Magic", "Guidance", "Light", "Stabilize"], "1": ["Enfeeble", "Harm", "Heal"], "2": ["Calm", "Cleanse Affliction", "Clear Mind", "Dispel Magic", "Sound Body", "Sure Footing"], "3": ["Blindness", "Dream Message"], "4": ["Divine Wrath", "Fly"], "5": ["Divine Immolation", "Sending"], "6": ["Blessed Boundary", "Truesight", "Vampiric Exsanguination"], "7": ["Divine Decree"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 37, "attack": 29, "spells": {"1": ["Sudden Shift", "Weapon Surge"], "4": ["Trickster's Twin", "Zeal for Battle"]}}]
+"Talaro":
+  pack: "prey-for-death-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "kitsune"]
+  ac: 36
+  hp: 272
+  perception: 25
+  saves: {"fortitude": 25, "reflex": 30, "will": 24}
+  abilities: {"cha": 3, "con": 2, "dex": 5, "int": 2, "str": 4, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 28, "Athletics": 27, "Deception": 26, "Religion": 23, "Society": 23, "Stealth": 26, "Thievery": 26, "Achaekek Lore": 25}
+  strikes: [{"name": "Extending Sawtooth Saber", "bonus": 28, "damage": [["3d6+10", "slashing", null]], "traits": ["agile", "finesse", "magical", "twin"]}, {"name": "Wounding Sawtooth Saber", "bonus": 28, "damage": [["2d6+12", "slashing", null], ["1d6", "bleed", "persistent"]], "traits": ["agile", "finesse", "magical", "twin"]}, {"name": "Shuriken", "bonus": 26, "damage": [["1d4+10", "piercing", null]], "traits": ["agile", "monk", "reload-0", "thrown-20"], "effects": ["Blightburn Resin"]}]
+  actions: [{"name": "Prescient Dodge", "type": "reaction", "traits": [], "text": "Trigger A creature attempts to Strike Talaro and he's not Off-Guard%rEffect Talaro anticipates the Strike and gains a +2 circumstance bonus to AC against the triggering attack. He can use this once the results of the attack are known. If the attack misses, Talaro can do a quick backflip as a free action to Step."}, {"name": "Blightburn Resin", "type": "passive", "traits": ["alchemical", "contact", "poison"], "text": "Saving Throw DC 30 Fortitude%rOnset 1 minute%rMaximum Duration 6 rounds%rStage 1 6d6 poison damage (1 round)%rStage 2 7d6 poison damage (1 round)%rStage 3 9d6 poison damage (1 round)"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "You transform into a specific alternate form determined by your heritage. If your heritage doesn't list a form, your alternate form is a tailless form, which is a common Medium humanoid ancestry prevalent where you grew up (typically human). This form is the same age and body type as your true form and has roughly analogous physical traits, such as hair color. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. You lose any unarmed Strikes you gained from a…"}, {"name": "Crimson Shroud", "type": "action", "traits": ["healing", "magical"], "cost": 1, "text": "Frequency five times per day%rEffect Talaro shrouds himself in a veil of red mist for 1 minute. While the shroud is active, he gains fast healing 7. He can Interact with his shroud, swirling it around himself to gain a +1 circumstance bonus to AC until the beginning of his next turn. If he dies while the shroud is active, his entire body vanishes into red mist, leaving behind only his gear."}, {"name": "Prayer Attack", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Requirements Talaro wields a sawtooth saber in each hand%rEffect Talaro attempts to Feint an enemy within 30 feet. If the Feint is successful, his next successful Strike with a sawtooth saber in that same turn deals 2d6 persistent bleed damage to the target. In addition, provided he remains visible to that target and that target remains within 30 feet of him, additional Prayer Attacks against that target automatically cause them to become Off-Guard against Talaro's attacks until the end of…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Talaro deals an extra 3d6 precision damage to Off-Guard creatures."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "On the first round of combat, creatures that haven't acted yet are Off-Guard to Talaro."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 33, "attack": 25, "spells": {"0": ["Figment", "Sigil"], "1": ["Sure Strike"], "2": ["Mist"], "3": ["Paralyze"], "4": ["Translocate"]}}, {"name": "Red Mantis Focus Spells", "tradition": "divine", "type": "focus", "dc": 33, "attack": 25, "spells": {"4": ["Achaekek's Clutch"]}}]
+"Temperbrand":
+  pack: "prey-for-death-bestiary"
+  level: 18
+  size: "huge"
+  rarity: "unique"
+  traits: ["elemental", "fire", "metal"]
+  ac: 41
+  hp: 335
+  perception: 31
+  saves: {"fortitude": 35, "reflex": 29, "will": 27}
+  abilities: {"cha": 5, "con": 9, "dex": 5, "int": 3, "str": 9, "wis": 5}
+  speeds: {"land": 30, "burrow": 10, "climb": 30}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 35, "Crafting": 29, "Intimidation": 31}
+  immunities: ["fire"]
+  weaknesses: {"cold": 15}
+  resistances: {"physical": 15}
+  strikes: [{"name": "Slagblade", "bonus": 35, "damage": [["3d10+17", "slashing", null], ["2d6", "fire", null]], "traits": ["reach-15", "versatile-p"]}, {"name": "Foot", "bonus": 35, "damage": [["3d10+17", "bludgeoning", null], ["2d6", "fire", null]], "traits": ["magical", "unarmed"]}]
+  actions: [{"name": "Molten Spray", "type": "reaction", "traits": ["fire", "primal"], "text": "Trigger Temperbrand takes physical damage%rEffect Temperbrand's body erupts at the site of the damage to spray molten iron into an adjacent square of her choice. Any creature occupying that square takes 9d6 fire damage (DC 37 Reflex save)."}, {"name": "Vulnerable to Water", "type": "passive", "traits": [], "text": "Whenever Temperbrand is targeted with a water effect, she takes 6d6 cold damage and becomes Slowed 1 for 1d4 rounds as her body hardens into solid metal. As long as she remains slowed, her Armor Class increase to 43."}, {"name": "Hurl Slagblade", "type": "action", "traits": ["divine", "fire", "incapacitation", "primal"], "cost": 2, "text": "Temperbrand whips an arm at a target within 120 feet, causing her slagblade to detach and fly through the air. The target creature must attempt a DC 40 Reflex save. Temperbrand regrows a new slagblade instantly but can't use Hurl Slag again for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature takes 5d10 fire damage.%rFailure The creature takes 10d10 fire damage, and the slag hardens, causing the creature to become Slowed 1 for 3 rounds. A creature can end the…"}, {"name": "Ooze Form", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Temperbrand's body becomes amorphous. Her AC becomes 30, and she becomes immune to critical hits and precision damage. While in this form she is blind (but retains her tremorsense), and her Speeds are reduced by 15 feet (to a minimum of 5 feet). She can move through spaces as if she were a Tiny creature without penalty. As long as she remains in Ooze Form, she can't make slagblade Strikes or Hurl Slagblade, but she gains Trample. She can end Ooze Form by using this action again."}, {"name": "Slagblade Storm", "type": "action", "traits": [], "cost": 3, "text": "Temperbrand Strikes all creatures within her reach with a slagblade Strike. Her multiple attack penalty doesn't increase until the end of this activity."}, {"name": "Trample (Ooze Form Only)", "type": "action", "traits": [], "cost": 3, "text": "Large or smaller, Foot, DC 40 Reflex"}]
+"The First Blade":
+  pack: "prey-for-death-bestiary"
+  level: 15
+  size: "large"
+  rarity: "unique"
+  traits: ["aesir", "herald", "monitor"]
+  ac: 37
+  hp: 300
+  perception: 27
+  saves: {"fortitude": 29, "reflex": 23, "will": 27}
+  abilities: {"cha": 8, "con": 6, "dex": 4, "int": 4, "str": 8, "wis": 6}
+  speeds: {"land": 25, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 27, "Athletics": 31, "Intimidation": 31, "Religion": 27, "Warfare Lore": 27}
+  immunities: ["bleed", "death-effects", "fatigued"]
+  resistances: {"poison": 15}
+  strikes: [{"name": "Greatsword", "bonus": 31, "damage": [["2d12+16", "slashing", null], ["1d6", "bleed", "persistent"], ["1d6", "spirit", null]], "traits": ["magical", "reach-10", "versatile-p"]}, {"name": "Fist", "bonus": 29, "damage": [["3d6+16", "bludgeoning", null]], "traits": ["agile", "reach-10", "unarmed"]}, {"name": "Light Hammer", "bonus": 29, "damage": [["2d6+16", "bludgeoning", null], ["1d6", "spirit", null]], "traits": ["agile", "magical", "thrown-20"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Disarm Vulnerability", "type": "passive", "traits": [], "text": "If the First Blade is disarmed, he takes 8d6 mental damage (DC 36 Will save, plus Stunned 1 on a critical failure). He also can't Conjure Weapon for 1 round."}, {"name": "Fortification", "type": "passive", "traits": [], "text": "Each time the First Blade is critically hit, he attempts a DC 17 Flat. On a success, it becomes a normal hit."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Battle Sense", "type": "passive", "traits": [], "text": "The First Blade can detect metal weapons and metal heavy armor as a precise sense to a range of 60 feet."}, {"name": "Conjure Weapon", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirements The First Blade has a free hand%rFrequency once per round%rEffect The First Blade extends an arm and makes a fist; as he does so, a common +2 greater striking greater astral melee weapon made of cold iron or silver appears in his fist. If he drops a conjured weapon or it is disarmed, the weapon vanishes. If he throws a conjured weapon, it vanishes after it is thrown and potentially damages its target. The First Blade prefers using a greatsword for melee Strikes and a light hammer…"}, {"name": "Halo of Blades", "type": "passive", "traits": ["aura", "divine"], "text": "10 feet. 3d6 slashing|options:area-damage damage (DC 33 Reflex save)"}, {"name": "Lord of Battle", "type": "passive", "traits": [], "text": "The First Blade is highly skilled with all melee and thrown weapons, and gains the advantage of any such weapon's critical specialization effects. He inflicts an additional 1d6 persistent bleed damage with all melee Strikes made with melee weapons."}, {"name": "Whirling Blades", "type": "action", "traits": ["divine", "move"], "cost": 3, "text": "Frequency once per minute%rEffect To the faint sound of fell warhorns, the First Blade transforms into a Large cloud of whirling metal shards, then Strides twice. This movement doesn't trigger reactions, and while he can move through occupied spaces, he must end his movement in an unoccupied space, at which point he resumes his true form. All creatures who the First Blade moves through at least once during his Strides take 10d10 slashing damage (DC 36 Reflex save)."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 36, "attack": 28, "spells": {"5": ["Translocate", "Weapon Storm"], "6": ["Blessed Boundary", "Fly (Constant)"]}}]
+"The Promised One":
+  pack: "prey-for-death-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["incorporeal", "spirit", "undead", "unholy"]
+  ac: 36
+  hp: 255
+  perception: 31
+  saves: {"fortitude": 23, "reflex": 27, "will": 29}
+  abilities: {"cha": 6, "con": 0, "dex": 6, "int": 4, "str": -5, "wis": 8}
+  speeds: {"land": 0, "fly": 40}
+  hp_details: "void healing, rejuvenation"
+  senses: ["darkvision"]
+  skills: {"Deception": 27, "Diplomacy": 27, "Intimidation": 29, "Religion": 31, "Stealth": 29, "Dwelling Lore": 25}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Spirit Tendril", "bonus": 29, "damage": [["3d10+14", "void", null]], "traits": ["agile", "finesse", "magical"], "effects": ["Drain Life"]}, {"name": "Spirit Dart", "bonus": 29, "damage": [["3d8+14", "void", null]], "traits": ["agile", "magical"], "effects": ["Drain Life"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Site Bound", "type": "passive", "traits": [], "text": "The nemhaith is bound to a place or large stationary object and can't venture more than 500 feet from this focus.%rA typical ghost can stray only a short distance from where it was killed or the place it haunts. A typical limit is 120 feet. Some ghosts are instead bound to a room, building, item, or creature that was special to it rather than a location."}, {"name": "Bound Spirits", "type": "passive", "traits": ["aura", "divine", "void"], "text": "10 feet. 4d6 void|options:area-damage damage DC 36 Fortitude save"}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "Destroying the ritual object or place used in the nemhaith's creation destroys the nemhaith, freeing its bound spirits to move on to the afterlife.%rWhen a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Drain Life", "type": "passive", "traits": ["divine"], "text": "When the nemhaith damages a living creature with its spirit tendril Strike, the creature must succeed at a DC 36 Fortitude save or become Drained 2.%rFurther damage dealt by the nemhaith increases the condition value by 1 on a failed save, to a maximum of drained 4."}, {"name": "Rage of Spirits", "type": "action", "traits": [], "cost": 2, "text": "The nemhaith's bound spirits rage and smash everything in a 30-foot. Creatures in this area take 4d6 sonic damage and 4d6 void damage (DC 36 Fortitude save)."}, {"name": "Throw Spirits", "type": "action", "traits": [], "cost": 1, "text": "The nemhaith directs its bound spirits as a group to move up to 1 mile away (they have a fly Speed of 60 feet). The nemhaith can see and hear through the thrown spirits, but it loses its aura and can't use its spirit dart ranged Strike or Rage of Spirits.%rThe nemhaith regains these abilities when the spirits return to the nemhaith's space."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 36, "attack": 28, "spells": {"8": ["Execute", "Harm", "Wall of Force"]}}]
+"Valkyrie Tempest":
+  pack: "prey-for-death-bestiary"
+  level: 17
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["aesir", "monitor", "troop"]
+  ac: 37
+  hp: 312
+  perception: 28
+  saves: {"fortitude": 24, "reflex": 20, "will": 23}
+  abilities: {"cha": 6, "con": 6, "dex": 6, "int": 4, "str": 9, "wis": 5}
+  speeds: {"land": 25, "fly": 60}
+  hp_details: "Thresholds 208 (3 segments), 104 (2 segments);"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 29, "Athletics": 30, "Diplomacy": 29, "Intimidation": 29, "Religion": 28}
+  weaknesses: {"area-damage": 19, "splash-damage": 10}
+  resistances: {"electricity": 15}
+  actions: [{"name": "Form Up", "type": "action", "traits": [], "cost": 1}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 208 (3 segments), 104 (2 segments)"}, {"name": "Bolster the Wounded", "type": "reaction", "traits": ["divine", "healing"], "text": "Trigger The tempest ends its turn and is not at maximum HP%rEffect The tempest restores 5d10 healing HP. This healing can't increase a tempest's Hit Points beyond the maximum of its current Hit Point threshold."}, {"name": "Rain of Spears", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The tempest attacks with their electrified spears, targeting all adjacent enemies (DC 38 Reflex save). The damage depends on the number of actions.%r1 1d6+10 piercing damage plus 1d12 electricity%r2 2d6+10 piercing damage plus 2d12 electricity%r3 3d6+10 piercing damage plus 3d12 electricity"}, {"name": "Tempest of Battle", "type": "action", "traits": ["divine", "electricity"], "cost": 2, "text": "Frequency once per day%rEffect The tempest calls down a massive lightning storm in a 60-foot. Spears of lightning rain down upon enemies in the area, dealing 10d12 electricity|options:area-damage damage (DC 38 Reflex save)."}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the troop Strides or Flies, they first Form Up as a free action into a 20-foot-by-20-foot area (minus any missing squares), then move up to their Speed. This works just like a Gargantuan creature moving; for instance, if any square of the troop enters difficult terrain, the extra movement cost applies to the whole troop."}, {"name": "Troop Spellcasting", "type": "passive", "traits": [], "text": "When the tempest Casts a Spell, its members combine their efforts into casting a more powerful version of the spell. When Casting a Spell that has an area of a burst, cone, or line and doesn't have a duration, increase the area of that spell. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet (a burst with a smaller radius is not affected). Add 5 feet to the length of a cone or line that is normally 15 feet long or smaller, and add 10 feet to the length of a…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 35, "attack": 27, "spells": {"5": ["Truespeech (Constant)"], "6": ["Blessed Boundary", "Divine Wrath", "Weapon Storm"], "7": ["Interplanar Teleport (Troop and Mounts Only)"]}}]
+"Valkyrie of Gorum":
+  pack: "prey-for-death-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "common"
+  traits: ["aesir", "chaotic", "monitor"]
+  ac: 33
+  hp: 215
+  perception: 22
+  saves: {"fortitude": 24, "reflex": 20, "will": 23}
+  abilities: {"cha": 5, "con": 5, "dex": 5, "int": 3, "str": 7, "wis": 4}
+  speeds: {"land": 25, "fly": 60}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 25, "Athletics": 25, "Diplomacy": 23, "Intimidation": 23, "Religion": 22}
+  resistances: {"electricity": 15}
+  strikes: [{"name": "Spear", "bonus": 28, "damage": [["2d6+15", "piercing", null], ["1d12", "electricity", null]], "traits": ["magical"]}, {"name": "Spear", "bonus": 26, "damage": [["2d6+15", "piercing", null], ["1d12", "electricity", null]], "traits": ["magical", "thrown-20"]}]
+  actions: [{"name": "Claimer of the Slain", "type": "passive", "traits": ["divine"], "text": "Valkyries can detect the souls of those recently slain in combat. A valkyrie spends 10 minutes praying over the body of a creature who has been dead for no more than 12 hours; if that creature is worthy of becoming an Einherji and of the appropriate alignment, the valkyrie transforms that creature into an einherji."}, {"name": "Ravenspeaker", "type": "passive", "traits": ["divine"], "text": "Valkyries use ravens as servants and spies. They can speak with ravens, and they can have up to three raven servitors who follow their commands. Valkyries can constantly observe whatever their commanded ravens sense."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Recall the Fallen", "type": "reaction", "traits": ["divine", "healing"], "text": "Frequency once per day%rTrigger An allied creature within 60 feet who isn't a construct or undead is reduced to 0 Hit Points and their Dying value is 2 or less%rEffect The valkyrie restores 5d10 healing Hit Points to the target."}, {"name": "Storm of Battle", "type": "action", "traits": ["divine", "electricity"], "cost": 2, "text": "The valkyrie hurls her spear into the air, creating a massive storm in a 100-foot. Spears of lightning rain down upon enemies in the area, dealing 4d12 electricity|options:area-damage damage (DC 32 Reflex save)."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 29, "attack": 21, "spells": {"3": ["Augury", "Fear", "Status"], "5": ["Command", "Truespeech (Constant)"], "6": ["Heal", "Heroism", "Infuse Vitality", "Weapon Storm"], "7": ["Interplanar Teleport (Self and Mount Only)"]}}]
+"Vatumledor":
+  pack: "prey-for-death-bestiary"
+  level: 16
+  size: "huge"
+  rarity: "unique"
+  traits: ["dragon", "occult"]
+  ac: 40
+  hp: 345
+  perception: 30
+  saves: {"fortitude": 27, "reflex": 28, "will": 32}
+  abilities: {"cha": 8, "con": 6, "dex": 5, "int": 6, "str": 9, "wis": 7}
+  speeds: {"land": 50, "climb": 50, "fly": 200}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 30, "Athletics": 30, "Deception": 35, "Diplomacy": 33, "Intimidation": 33, "Occultism": 31, "Religion": 32, "Society": 31, "Stealth": 30, "Achaekek Lore": 31, "Mediogalti Island Lore": 33}
+  immunities: ["controlled", "paralyzed", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 32, "damage": [["3d8+17", "piercing", null]], "traits": ["magical", "reach-15", "unarmed"]}, {"name": "Claw", "bonus": 32, "damage": [["3d6+17", "slashing", null]], "traits": ["agile", "magical", "reach-10", "unarmed"]}, {"name": "Tail", "bonus": 30, "damage": [["2d10+17", "bludgeoning", null]], "traits": ["magical", "reach-20"]}, {"name": "Mental Blast", "bonus": 31, "damage": [["6d6+6", "mental", null]], "traits": []}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "+2 Status to All Saves vs. Occult", "type": "passive", "traits": []}, {"name": "Retract Body", "type": "reaction", "traits": [], "text": "Trigger Vatumledor is hit or critically hit by an attack made by a creature the dragon can see%rEffect Vatumledor retracts the targeted body part or twists away to avoid the attack, gaining a +2 circumstance bonus to his Armor Class against the triggering attack."}, {"name": "Conjure Disguise", "type": "passive", "traits": ["manipulate", "occult", "polymorph"], "text": "Frequency once per day%rEffect Vatumledor conjures a flesh suit that's a replica of a humanoid he has seen and compresses himself into the suit, along with clothing appropriate for the humanoid. This process takes 1 minute, during which Vatumledor is Off-Guard. If he stops or is interrupted in this process, the suit is destroyed. Once the process is complete, he can remain in his disguise indefinitely.%rThe transformation has the effects of change shape, except that the disguise is not actively…"}, {"name": "Detonate Disguise", "type": "action", "traits": ["occult"], "cost": 2, "text": "Requirements Vatumledor is wearing his conjured disguise%rEffect Vatumledor erupts from the disguise, destroying it. The explosive revelation deals 18d6 bludgeoning|options:area-damage damage to creatures adjacent to the dragon (DC 39 Reflex save). Creatures that fail their save become Dazzled for 1 round as they become covered in scraps from the disguise. Any creatures sharing a space with Vatumledor after he erupts are pushed into the nearest empty space."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "Vatumledor makes two claw Strikes and one tail Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "When Vatumledor scores a critical hit with a Strike, he recharges Smoke Breath."}, {"name": "Rushed Transformation", "type": "action", "traits": ["concentrate", "manipulate", "occult", "polymorph"], "cost": 3, "text": "Frequency once per hour%rEffect Vatumledor quickly reshapes his body into the form of a generic humanoid figure. This has the effects of humanoid form except that it only lasts 1 minute, and he doesn't gain the +4 status bonus to Deception as the transformation makes use of his own scales and plating to crudely mimic a humanoid form. Vatumledor can Dismiss the effect. Whenever the effect ends, Vatumledor leaves behind scraps of magically conjured flesh, which could give away his presence."}, {"name": "Smoke Breath", "type": "action", "traits": ["occult", "poison"], "cost": 2, "text": "Vatumledor unleashes a 60-foot of smoke that deals 16d6 poison|options:area-damage damage (DC 39 Fortitude save). The smoke remains for 1 minute, obscuring sight with the effects of mist in the cone's area. He can't use Smoke Breath again for 1d4 rounds."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Vatumledor's Strikes deal an additional 3d6 precision damage to Off-Guard targets."}]
+  spellcasting: [{"name": "Occult Prepared Spells", "tradition": "occult", "type": "prepared", "dc": 37, "attack": 29, "spells": {"0": ["Daze", "Detect Magic", "Light", "Read Aura", "Telekinetic Projectile"], "1": ["Charm", "Command", "Fear", "Sanctuary", "Sleep", "Soothe", "Sure Strike"], "2": ["Blur", "See the Unseen", "Telekinetic Maneuver", "Translate"], "3": ["Haste", "Paralyze", "Slow"], "4": ["Clairvoyance", "Detect Scrying", "Translocate"], "6": ["Scrying", "Teleport"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 41, "attack": 33, "spells": {"4": ["Charm (At Will)", "Rewrite Memory (At Will)"], "9": ["Dominate", "Mind Probe", "Mind Reading (At Will)", "Rewrite Memory"]}}]
+"Vofnir":
+  pack: "prey-for-death-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid"]
+  ac: 32
+  hp: 212
+  perception: 23
+  saves: {"fortitude": 22, "reflex": 20, "will": 24}
+  abilities: {"cha": 3, "con": 3, "dex": 1, "int": 0, "str": 4, "wis": 5}
+  speeds: {"land": 25}
+  skills: {"Athletics": 22, "Crafting": 18, "Intimidation": 21, "Religion": 23, "Warfare Lore": 18}
+  strikes: [{"name": "Greatsword", "bonus": 23, "damage": [["2d12+7", "slashing", null]], "traits": ["magical", "versatile-p"]}]
+  actions: [{"name": "Commanding Shout", "type": "action", "traits": ["auditory"], "cost": 1, "text": "Vofnir commands the Gorumite infantry to fight for the glory of Gorum as long as the troop is within earshot. Until the start of Vofnir's next turn, the Gorumite infantry's save DCs for their Fire Crossbows! and Raise Swords! actions increase to DC 33 and they gain a +2 status bonus to their saving throws.%rEffect: Commanding Shout"}, {"name": "Consecrated", "type": "passive", "traits": [], "text": "As long as the Consecrate ritual effects persist in Crownhold, a Gorumite warpriest gains a +1 status bonus to attack rolls, skill checks, saving throws, and Perception checks; these bonuses are not calculated into the stat block."}, {"name": "Fervent Casting", "type": "reaction", "traits": ["auditory", "divine", "spellshape"], "text": "Frequency once per day%rEffect The Gorumite warpriest loudly proclaims the glory of Gorum. The next divine spell they cast takes one fewer action (minimum of one), but must only target the warpriest. If the spell affects an area or multiple targets, such as bless, it only affects the warpriest, even if it lasts more than one round."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 32, "attack": 24, "spells": {"0": ["Daze", "Forbidding Ward", "Guidance", "Shield", "Stabilize"], "1": ["Bless", "Enfeeble", "Harm", "Heal", "Mending"], "2": ["Cleanse Affliction", "Clear Mind", "Darkvision", "Dispel Magic", "Noise Blast", "See the Unseen", "Share Life"], "3": ["Blindness", "Heroism"], "4": ["Divine Wrath", "Fly", "Unfettered Movement"], "5": ["Breath of Life"], "6": ["Blessed Boundary"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 32, "attack": 24, "spells": {"1": ["Athletic Rush"], "4": ["Enduring Might"]}}]
+"Zaiho":
+  pack: "prey-for-death-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 39
+  hp: 265
+  perception: 24
+  saves: {"fortitude": 25, "reflex": 31, "will": 28}
+  abilities: {"cha": 3, "con": 1, "dex": 5, "int": 5, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 29, "Athletics": 27, "Crafting": 31, "Deception": 29, "Intimidation": 29, "Society": 29, "Ilizmagorti Lore": 29}
+  strikes: [{"name": "Zaiho's Gun Sword", "bonus": 29, "damage": [["3d10+11", "slashing", null], ["1d6", "bleed", "persistent"], ["1d6", "electricity", null]], "traits": ["critical-fusion", "disarm", "magical", "trip", "versatile-p"]}, {"name": "Zaiho's Gun Sword", "bonus": 31, "damage": [["3d10+8", "piercing", null], ["1d6", "electricity", null]], "traits": ["concussive", "kickback", "magical", "reload-1"]}]
+  actions: [{"name": "Fiery Leap", "type": "action", "traits": ["fire"], "cost": 2, "text": "Frequency once per day%rEffect Zaiho Leaps. As he does so, he throws a handful of explosive devices into a square he was adjacent to just before he Leaped. A creature in this square takes 11d10 fire damage (DC 37 Reflex save); that creature and all creatures adjacent to the target square also take 11 fire splash damage."}, {"name": "Gadget Defense", "type": "reaction", "traits": [], "text": "Trigger Zaiho would roll a saving throw against an effect that would cause Hit Point damage%rEffect Zaiho quickly procures some outlandish gadget or device from his pouches to protect himself from the triggering effect. Rather than roll the normal saving throw against the effect, Zaiho instead attempts a Crafting check in place of that saving throw, treating the result of this check as the result of the saving throw instead. If this results in a critical failure, Zaiho's gadgets are damaged,…"}, {"name": "Twinned Combat", "type": "passive", "traits": [], "text": "Any enemy is Off-Guard against Zaiho's Strikes if that enemy is currently taking persistent damage from or is frightened by any of Shirota's bombs. Zaiho doesn't inflict splash damage to Shirota with Fiery Leap."}]

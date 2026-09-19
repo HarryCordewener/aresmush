@@ -29,11 +29,7 @@ module AresMUSH
       end
 
       def speed
-        base_speed = @char.pf2_movement['base_speed']
-
-        penalty = @armor ? @armor.speed_penalty : 0
-
-        base_speed + penalty
+        AresMUSH::Pf2e::Stat.total(@char, 'speed')
       end
 
       def movement
@@ -134,7 +130,21 @@ module AresMUSH
           list << format_unarmed(@char, atk, info, Pf2eCombat.get_unarmed_prof(@char, atk, info))
         end
 
+        # Attacks a feat or an item granted. Shown alongside the ones the character has by nature,
+        # because to a player they are the same thing: something else to hit with.
+        Pf2eCombat.granted_strikes(@char).each { |strike| list << format_strike(@char, strike) }
+
         list
+      end
+
+      def format_strike(char, strike)
+        damage = Pf2eCombat.damage_breakdown(char, strike['name'], nil, false, [], strike)
+        traits = Array(strike['traits']).map { |t| titleize_trait(t) }.join(", ")
+        bonus = Pf2e::Stat.total(char, 'attack', strike)
+
+        "#{item_color}#{strike['name']}:%xn #{bonus} (#{strike['prof'][0].upcase}) " \
+          "#{damage['formula']}\n#{item_color}From:%xn #{strike['source']}" \
+          "#{traits.empty? ? '' : "\n#{item_color}Traits:%xn #{traits}"}%r"
       end
 
       def weapons
@@ -206,30 +216,51 @@ module AresMUSH
         AnsiFormatter.strip_ansi(formatted).length
       end
 
-      def conditions
-        cond = @char.pf2_conditions
-        if cond.empty?
-          value = "None active."
-        else
-          list = []
-          cond.each do |c,v|
-            list << format_condition(c,v)
-          end
-
-          value = list.sort.join(", ")
+      # What the character is under and how long it has left. Its numbers are already in the figures
+      # above; this is where a player sees why.
+      def effects
+        ActiveEffects.on(@char).sort_by(&:name).map do |effect|
+          "#{item_color}#{effect.name}%xn: #{ActiveEffects.remaining(effect)}"
         end
+      end
 
-        value
+      # Including the ones another brought with it, and saying which: a grabbed character is off-guard,
+      # and the sheet should say why.
+      def conditions
+        labels = Pf2e.condition_labels(@char)
+
+        labels.empty? ? "None active." : labels.join(", ")
       end
 
       def format_weapon(char,w,i)
         name = w.nickname ? "#{w.nickname} (#{w.name})" : w.name
+        strike = Pf2eCombat.attack_descriptor(char, w)
         bonus = Pf2eCombat.get_wpattack_bonus(char, w)
         prof = Pf2eCombat.get_weapon_prof(char, w.name)[0].upcase
-        damage = Pf2eCombat.get_damage(char, w.name, w)
+        breakdown = Pf2eCombat.damage_breakdown(char, w.name, w)
         traits = w.traits.map { |t| titleize_trait(t) }.join(", ")
 
-        "%b%b#{left(i, 3)}%b#{left(name, 40)}%b#{left("#{bonus} (#{prof})",10)}%b#{left(damage, 15)}\n%b%b#{item_color}Traits:%xn #{traits}"
+        "%b%b#{left(i, 3)}%b#{left(name, 40)}%b#{left("#{bonus} (#{prof})",10)}%b#{left(breakdown['formula'], 22)}" \
+          "\n%b%b#{item_color}Critical:%xn #{breakdown['critical']}#{reach(strike)}" \
+          "\n%b%b#{item_color}Traits:%xn #{traits}#{etched(strike)}"
+      end
+
+      # How far the attack throws, which a feat can extend: Far Shot doubles a range increment and
+      # Strong Arm adds ten feet to a thrown weapon's.
+      def reach(strike)
+        return '' unless strike['range'].to_i.positive?
+
+        "  #{item_color}Range:%xn #{strike['range']} ft."
+      end
+
+      # Property runes the attack has the effects of, which is not the same list as the ones etched on
+      # it: Ghost Hunter's magical weapon counts as having *ghost touch* against something incorporeal.
+      def etched(strike)
+        runes = Array(strike['runes'])
+
+        return '' if runes.empty?
+
+        "\n%b%b#{item_color}Runes:%xn #{runes.map { |one| titleize_trait(one) }.join(', ')}"
       end
 
       def format_save(char,name)
@@ -244,12 +275,7 @@ module AresMUSH
 
         traits = atk_info['traits']
 
-        abilmod = Pf2e.has_trait?(traits, 'finesse') ?
-          Pf2eCombat.abilmod_with_finesse(char) :
-          Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Strength"))
-        prof = Pf2e.get_prof_bonus(char, unarmed_prof)
-
-        bonus = abilmod + prof
+        bonus = Pf2eCombat.get_unarmed_bonus(char, atk_name, atk_info, unarmed_prof)
         p_str = unarmed_prof[0].upcase
 
         traits = traits.map { |t| titleize_trait(t) }.join(", ")
@@ -257,13 +283,6 @@ module AresMUSH
         "#{item_color}#{atk_name}:%xn #{bonus} (#{p_str}) #{damage}\n#{item_color}Traits:%xn #{traits}%r"
       end
 
-      def format_condition(condition, value)
-        colors = Global.read_config('pf2e', 'condition_colors')
-        cond_color = colors[condition.to_s]
-        name = "#{cond_color}#{condition}"
-        value = value ? "%b#{value}" : ""
-        "#{name}#{value}%xn"
-      end
 
       def titleize_trait(trait)
         trait.to_s.split("_").map { |word| word.sub(/\A[a-z]/) { |c| c.upcase } }.join(" ")

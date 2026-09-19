@@ -1,0 +1,1701 @@
+---
+pf2e_runes:
+  Acid Resistant:
+    slug: "acidResistant"
+    kind: "armor"
+    level: 8
+    price: 42000
+    rarity: "common"
+    traits:
+      - "magical"
+  Advancing:
+    slug: "advancing"
+    kind: "armor"
+    level: 9
+    price: 62500
+    rarity: "common"
+    traits:
+      - "magical"
+  Aim Aiding:
+    slug: "aimAiding"
+    kind: "armor"
+    level: 6
+    price: 22500
+    rarity: "common"
+    traits:
+      - "magical"
+  Ancestral Echoing:
+    slug: "ancestralEchoing"
+    kind: "weapon"
+    level: 15
+    price: 950000
+    rarity: "rare"
+    traits:
+      - "dwarf"
+      - "magical"
+      - "saggorak"
+  Anchoring:
+    slug: "anchoring"
+    kind: "weapon"
+    level: 10
+    price: 90000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Antimagic:
+    slug: "antimagic"
+    kind: "armor"
+    level: 15
+    price: 650000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Ashen:
+    slug: "ashen"
+    kind: "weapon"
+    level: 9
+    price: 70000
+    rarity: "common"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "ashen"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "fire"
+        category: "persistent"
+  Assisting:
+    slug: "assisting"
+    kind: "armor"
+    level: 5
+    price: 12500
+    rarity: "common"
+    traits:
+      - "magical"
+  Astral:
+    slug: "astral"
+    kind: "weapon"
+    level: 8
+    price: 45000
+    rarity: "common"
+    traits:
+      - "magical"
+      - "spirit"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "astral"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "spirit"
+  Authorized:
+    slug: "authorized"
+    kind: "weapon"
+    level: 3
+    price: 5000
+    rarity: "common"
+    traits:
+      - "magical"
+  Bane:
+    slug: "bane"
+    kind: "weapon"
+    level: 4
+    price: 10000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Bitter:
+    slug: "bitter"
+    kind: "armor"
+    level: 9
+    price: 13500
+    rarity: "uncommon"
+    traits:
+      - "magical"
+      - "poison"
+  Bloodbane:
+    slug: "bloodbane"
+    kind: "weapon"
+    level: 8
+    price: 47500
+    rarity: "uncommon"
+    traits:
+      - "dwarf"
+      - "magical"
+  Bloodthirsty:
+    slug: "bloodthirsty"
+    kind: "weapon"
+    level: 16
+    price: 850000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Bolkas Blessing:
+    slug: "bolkasBlessing"
+    kind: "weapon"
+    level: 5
+    price: 16000
+    rarity: "uncommon"
+    traits:
+      - "divine"
+  Brilliant:
+    slug: "brilliant"
+    kind: "weapon"
+    level: 12
+    price: 200000
+    rarity: "common"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "brilliant"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "fire"
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "brilliant"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "spirit"
+        predicate: ["target:trait:fiend"]
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "brilliant"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "vitality"
+        predicate: ["target:negative-healing"]
+  Called:
+    slug: "called"
+    kind: "weapon"
+    level: 7
+    price: 35000
+    rarity: "common"
+    traits:
+      - "magical"
+  Coating:
+    slug: "coating"
+    kind: "weapon"
+    level: 9
+    price: 70000
+    rarity: "common"
+    traits:
+      - "extradimensional"
+      - "magical"
+  Cold Resistant:
+    slug: "coldResistant"
+    kind: "armor"
+    level: 8
+    price: 42000
+    rarity: "common"
+    traits:
+      - "magical"
+  Conducting:
+    slug: "conducting"
+    kind: "weapon"
+    level: 7
+    price: 30000
+    rarity: "common"
+    traits:
+      - "magical"
+  Convincing:
+    slug: "convincing"
+    kind: "armor"
+    level: 5
+    price: 4500
+    rarity: "common"
+    traits:
+      - "magical"
+  Corrosive:
+    slug: "corrosive"
+    kind: "weapon"
+    level: 8
+    price: 50000
+    rarity: "common"
+    traits:
+      - "acid"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "corrosive"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "acid"
+  Crushing:
+    slug: "crushing"
+    kind: "weapon"
+    level: 3
+    price: 5000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Cunning:
+    slug: "cunning"
+    kind: "weapon"
+    level: 5
+    price: 14000
+    rarity: "common"
+    traits:
+      - "magical"
+  Dancing:
+    slug: "dancing"
+    kind: "weapon"
+    level: 13
+    price: 270000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Deathdrinking:
+    slug: "deathdrinking"
+    kind: "weapon"
+    level: 7
+    price: 36000
+    rarity: "rare"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "deathdrinking"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "void"
+        critical: true
+        predicate: ["target:mode:living", {"not": "target:negative-healing"}]
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "deathdrinking"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "vitality"
+        critical: true
+        predicate: ["target:negative-healing"]
+  Deathless:
+    slug: "deathless"
+    kind: "armor"
+    level: 7
+    price: 33000
+    rarity: "uncommon"
+    traits:
+      - "healing"
+      - "magical"
+  Decaying:
+    slug: "decaying"
+    kind: "weapon"
+    level: 8
+    price: 50000
+    rarity: "common"
+    traits:
+      - "acid"
+      - "magical"
+      - "void"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "decaying"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "void"
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "decaying"
+        diceNumber: 2
+        dieSize: "d4"
+        damageType: "void"
+        category: "persistent"
+        critical: true
+  Deflecting:
+    slug: "deflecting"
+    kind: "weapon"
+    level: 6
+    price: 23000
+    rarity: "common"
+    traits:
+      - "magical"
+  Demolishing:
+    slug: "demolishing"
+    kind: "weapon"
+    level: 6
+    price: 22500
+    rarity: "rare"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "demolishing"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "force"
+        category: "persistent"
+        predicate: ["target:trait:construct"]
+  Disrupting:
+    slug: "disrupting"
+    kind: "weapon"
+    level: 5
+    price: 15000
+    rarity: "common"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "disrupting"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "vitality"
+        category: "persistent"
+        predicate: ["target:negative-healing"]
+  Earthbinding:
+    slug: "earthbinding"
+    kind: "weapon"
+    level: 5
+    price: 12500
+    rarity: "common"
+    traits:
+      - "magical"
+  Electricity Resistant:
+    slug: "electricityResistant"
+    kind: "armor"
+    level: 8
+    price: 42000
+    rarity: "common"
+    traits:
+      - "magical"
+  Energizing:
+    slug: "energizing"
+    kind: "weapon"
+    level: 6
+    price: 25000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Energy Adaptive:
+    slug: "energyAdaptive"
+    kind: "armor"
+    level: 13
+    price: 260000
+    rarity: "common"
+    traits:
+      - "magical"
+  Energy Vulnerability:
+    slug: "energyVulnerability"
+    kind: "weapon"
+    level: 4
+    price: 9000
+    rarity: "common"
+    traits:
+      - "magical"
+  Ethereal:
+    slug: "ethereal"
+    kind: "armor"
+    level: 17
+    price: 1350000
+    rarity: "common"
+    traits:
+      - "magical"
+  Extending:
+    slug: "extending"
+    kind: "weapon"
+    level: 9
+    price: 70000
+    rarity: "common"
+    traits:
+      - "magical"
+  Fanged:
+    slug: "fanged"
+    kind: "weapon"
+    level: 2
+    price: 3000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Fearsome:
+    slug: "fearsome"
+    kind: "weapon"
+    level: 5
+    price: 16000
+    rarity: "common"
+    traits:
+      - "emotion"
+      - "fear"
+      - "magical"
+      - "mental"
+  Fire Resistant:
+    slug: "fireResistant"
+    kind: "armor"
+    level: 8
+    price: 42000
+    rarity: "common"
+    traits:
+      - "magical"
+  Flaming:
+    slug: "flaming"
+    kind: "weapon"
+    level: 8
+    price: 50000
+    rarity: "common"
+    traits:
+      - "fire"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "flaming"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "fire"
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "flaming"
+        diceNumber: 1
+        dieSize: "d10"
+        damageType: "fire"
+        category: "persistent"
+        critical: true
+  Flickering:
+    slug: "flickering"
+    kind: "weapon"
+    level: 6
+    price: 25000
+    rarity: "uncommon"
+    traits:
+      - "illusion"
+      - "magical"
+  Flurrying:
+    slug: "flurrying"
+    kind: "weapon"
+    level: 7
+    price: 36000
+    rarity: "common"
+    traits:
+      - "magical"
+  Fortification:
+    slug: "fortification"
+    kind: "armor"
+    level: 12
+    price: 200000
+    rarity: "common"
+    traits:
+      - "magical"
+  Frost:
+    slug: "frost"
+    kind: "weapon"
+    level: 8
+    price: 50000
+    rarity: "common"
+    traits:
+      - "cold"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "frost"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "cold"
+  Ghost Touch:
+    slug: "ghostTouch"
+    kind: "weapon"
+    level: 4
+    price: 7500
+    rarity: "common"
+    traits:
+      - "magical"
+  Giant Killing:
+    slug: "giantKilling"
+    kind: "weapon"
+    level: 8
+    price: 45000
+    rarity: "rare"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "giantKilling"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "mental"
+        predicate: ["target:trait:giant"]
+  Glamered:
+    slug: "glamered"
+    kind: "armor"
+    level: 5
+    price: 14000
+    rarity: "common"
+    traits:
+      - "illusion"
+      - "magical"
+  Gliding:
+    slug: "gliding"
+    kind: "armor"
+    level: 8
+    price: 45000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Acid Resistant:
+    slug: "greaterAcidResistant"
+    kind: "armor"
+    level: 12
+    price: 165000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Advancing:
+    slug: "greaterAdvancing"
+    kind: "armor"
+    level: 16
+    price: 800000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Anchoring:
+    slug: "greaterAnchoring"
+    kind: "weapon"
+    level: 18
+    price: 2200000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Greater Ashen:
+    slug: "greaterAshen"
+    kind: "weapon"
+    level: 16
+    price: 900000
+    rarity: "common"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterAshen"
+        diceNumber: 1
+        dieSize: "d8"
+        damageType: "fire"
+        category: "persistent"
+  Greater Astral:
+    slug: "greaterAstral"
+    kind: "weapon"
+    level: 15
+    price: 600000
+    rarity: "common"
+    traits:
+      - "magical"
+      - "spirit"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterAstral"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "spirit"
+  Greater Bloodbane:
+    slug: "greaterBloodbane"
+    kind: "weapon"
+    level: 13
+    price: 280000
+    rarity: "uncommon"
+    traits:
+      - "dwarf"
+      - "magical"
+  Greater Bolkas Blessing:
+    slug: "greaterBolkasBlessing"
+    kind: "weapon"
+    level: 11
+    price: 140000
+    rarity: "uncommon"
+    traits:
+      - "divine"
+  Greater Brilliant:
+    slug: "greaterBrilliant"
+    kind: "weapon"
+    level: 18
+    price: 2400000
+    rarity: "common"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterBrilliant"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "fire"
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterBrilliant"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "spirit"
+        predicate: ["target:trait:fiend"]
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterBrilliant"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "vitality"
+        predicate: ["target:negative-healing"]
+  Greater Cold Resistant:
+    slug: "greaterColdResistant"
+    kind: "armor"
+    level: 12
+    price: 165000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Convincing:
+    slug: "greaterConvincing"
+    kind: "armor"
+    level: 8
+    price: 45000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Corrosive:
+    slug: "greaterCorrosive"
+    kind: "weapon"
+    level: 15
+    price: 650000
+    rarity: "common"
+    traits:
+      - "acid"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterCorrosive"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "acid"
+  Greater Crushing:
+    slug: "greaterCrushing"
+    kind: "weapon"
+    level: 9
+    price: 65000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Greater Decaying:
+    slug: "greaterDecaying"
+    kind: "weapon"
+    level: 15
+    price: 650000
+    rarity: "common"
+    traits:
+      - "acid"
+      - "magical"
+      - "void"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterDecaying"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "void"
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterDecaying"
+        diceNumber: 4
+        dieSize: "d4"
+        damageType: "void"
+        category: "persistent"
+        critical: true
+  Greater Disrupting:
+    slug: "greaterDisrupting"
+    kind: "weapon"
+    level: 14
+    price: 430000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterDisrupting"
+        diceNumber: 2
+        dieSize: "d6"
+        damageType: "vitality"
+        category: "persistent"
+        predicate: ["target:negative-healing"]
+  Greater Dread:
+    slug: "greaterDread"
+    kind: "armor"
+    level: 18
+    price: 2100000
+    rarity: "uncommon"
+    traits:
+      - "emotion"
+      - "fear"
+      - "magical"
+      - "mental"
+      - "visual"
+  Greater Electricity Resistant:
+    slug: "greaterElectricityResistant"
+    kind: "armor"
+    level: 12
+    price: 165000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Energy Vulnerability:
+    slug: "greaterEnergyVulnerability"
+    kind: "weapon"
+    level: 16
+    price: 900000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Extending:
+    slug: "greaterExtending"
+    kind: "weapon"
+    level: 13
+    price: 300000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Fanged:
+    slug: "greaterFanged"
+    kind: "weapon"
+    level: 8
+    price: 42500
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Greater Fearsome:
+    slug: "greaterFearsome"
+    kind: "weapon"
+    level: 12
+    price: 200000
+    rarity: "common"
+    traits:
+      - "emotion"
+      - "fear"
+      - "magical"
+      - "mental"
+  Greater Fire Resistant:
+    slug: "greaterFireResistant"
+    kind: "armor"
+    level: 12
+    price: 165000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Flaming:
+    slug: "greaterFlaming"
+    kind: "weapon"
+    level: 15
+    price: 650000
+    rarity: "common"
+    traits:
+      - "fire"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterFlaming"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "fire"
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterFlaming"
+        diceNumber: 2
+        dieSize: "d10"
+        damageType: "fire"
+        category: "persistent"
+        critical: true
+  Greater Fortification:
+    slug: "greaterFortification"
+    kind: "armor"
+    level: 19
+    price: 2400000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Frost:
+    slug: "greaterFrost"
+    kind: "weapon"
+    level: 15
+    price: 650000
+    rarity: "common"
+    traits:
+      - "cold"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterFrost"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "cold"
+  Greater Giant Killing:
+    slug: "greaterGiantKilling"
+    kind: "weapon"
+    level: 15
+    price: 600000
+    rarity: "rare"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterGiantKilling"
+        diceNumber: 2
+        dieSize: "d6"
+        damageType: "mental"
+        predicate: ["target:trait:giant"]
+  Greater Hauling:
+    slug: "greaterHauling"
+    kind: "weapon"
+    level: 11
+    price: 130000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Greater Impactful:
+    slug: "greaterImpactful"
+    kind: "weapon"
+    level: 17
+    price: 1500000
+    rarity: "common"
+    traits:
+      - "force"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterImpactful"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "force"
+  Greater Invisibility:
+    slug: "greaterInvisibility"
+    kind: "armor"
+    level: 10
+    price: 100000
+    rarity: "common"
+    traits:
+      - "illusion"
+      - "magical"
+  Greater Kolss Oath:
+    slug: "greaterKolssOath"
+    kind: "weapon"
+    level: 11
+    price: 140000
+    rarity: "uncommon"
+    traits:
+      - "divine"
+  Greater Moonweave:
+    slug: "greaterMoonweave"
+    kind: "armor"
+    level: 13
+    price: 300000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Quenching:
+    slug: "greaterQuenching"
+    kind: "armor"
+    level: 10
+    price: 100000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Ready:
+    slug: "greaterReady"
+    kind: "armor"
+    level: 11
+    price: 120000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Rooting:
+    slug: "greaterRooting"
+    kind: "weapon"
+    level: 11
+    price: 140000
+    rarity: "common"
+    traits:
+      - "plant"
+      - "magical"
+      - "wood"
+  Greater Shadow:
+    slug: "greaterShadow"
+    kind: "armor"
+    level: 9
+    price: 65000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Shock:
+    slug: "greaterShock"
+    kind: "weapon"
+    level: 15
+    price: 650000
+    rarity: "common"
+    traits:
+      - "electricity"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterShock"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "electricity"
+  Greater Slick:
+    slug: "greaterSlick"
+    kind: "armor"
+    level: 8
+    price: 45000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Stanching:
+    slug: "greaterStanching"
+    kind: "armor"
+    level: 9
+    price: 60000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Greater Sunweave:
+    slug: "greaterSunweave"
+    kind: "armor"
+    level: 11
+    price: 120000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Swallow Spike:
+    slug: "greaterSwallowSpike"
+    kind: "armor"
+    level: 12
+    price: 175000
+    rarity: "common"
+    traits:
+      - "magical"
+  Greater Thundering:
+    slug: "greaterThundering"
+    kind: "weapon"
+    level: 15
+    price: 650000
+    rarity: "common"
+    traits:
+      - "magical"
+      - "sonic"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "greaterThundering"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "sonic"
+  Greater Trudds Strength:
+    slug: "greaterTruddsStrength"
+    kind: "weapon"
+    level: 11
+    price: 140000
+    rarity: "uncommon"
+    traits:
+      - "divine"
+  Greater Winged:
+    slug: "greaterWinged"
+    kind: "armor"
+    level: 19
+    price: 3500000
+    rarity: "common"
+    traits:
+      - "magical"
+  Grievous:
+    slug: "grievous"
+    kind: "weapon"
+    level: 9
+    price: 70000
+    rarity: "common"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "grievous"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "bleed"
+        critical: true
+        predicate: ["critical-specialization", "item:group:dart"]
+  Hauling:
+    slug: "hauling"
+    kind: "weapon"
+    level: 6
+    price: 22500
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Holy:
+    slug: "holy"
+    kind: "weapon"
+    level: 11
+    price: 140000
+    rarity: "common"
+    traits:
+      - "holy"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "holy"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "spirit"
+        predicate: [{"not": "target:trait:unholy"}]
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "holy"
+        diceNumber: 2
+        dieSize: "d4"
+        damageType: "spirit"
+        predicate: ["target:trait:unholy"]
+  Hooked:
+    slug: "hooked"
+    kind: "weapon"
+    level: 5
+    price: 14000
+    rarity: "rare"
+    traits:
+      - "magical"
+  Hopeful:
+    slug: "hopeful"
+    kind: "weapon"
+    level: 11
+    price: 120000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Immovable:
+    slug: "immovable"
+    kind: "armor"
+    level: 12
+    price: 180000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Impactful:
+    slug: "impactful"
+    kind: "weapon"
+    level: 10
+    price: 100000
+    rarity: "common"
+    traits:
+      - "force"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "impactful"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "force"
+  Implacable:
+    slug: "implacable"
+    kind: "armor"
+    level: 11
+    price: 120000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Impossible:
+    slug: "impossible"
+    kind: "weapon"
+    level: 20
+    price: 7000000
+    rarity: "common"
+    traits:
+      - "magical"
+  Invisibility:
+    slug: "invisibility"
+    kind: "armor"
+    level: 8
+    price: 50000
+    rarity: "common"
+    traits:
+      - "illusion"
+      - "magical"
+  Keen:
+    slug: "keen"
+    kind: "weapon"
+    level: 13
+    price: 300000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "{item|id}-attack"
+        slug: "keen"
+        adjustment: {"success": "to-critical-success"}
+        predicate: ["check:total:natural:19", {"or": ["item:damage:type:slashing", "item:damage:type:piercing"]}]
+  Kin Warding:
+    slug: "kinWarding"
+    kind: "weapon"
+    level: 3
+    price: 5200
+    rarity: "uncommon"
+    traits:
+      - "dwarf"
+      - "magical"
+  Kolss Oath:
+    slug: "kolssOath"
+    kind: "weapon"
+    level: 5
+    price: 16000
+    rarity: "uncommon"
+    traits:
+      - "divine"
+  Lesser Dread:
+    slug: "lesserDread"
+    kind: "armor"
+    level: 6
+    price: 22500
+    rarity: "uncommon"
+    traits:
+      - "emotion"
+      - "fear"
+      - "magical"
+      - "mental"
+      - "visual"
+  Magnetizing:
+    slug: "magnetizing"
+    kind: "armor"
+    level: 10
+    price: 90000
+    rarity: "common"
+    traits:
+      - "magical"
+  Major Convincing:
+    slug: "majorConvincing"
+    kind: "armor"
+    level: 16
+    price: 900000
+    rarity: "common"
+    traits:
+      - "magical"
+  Major Fanged:
+    slug: "majorFanged"
+    kind: "weapon"
+    level: 15
+    price: 600000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Major Moonweave:
+    slug: "majorMoonweave"
+    kind: "armor"
+    level: 17
+    price: 1400000
+    rarity: "common"
+    traits:
+      - "magical"
+  Major Quenching:
+    slug: "majorQuenching"
+    kind: "armor"
+    level: 14
+    price: 450000
+    rarity: "common"
+    traits:
+      - "magical"
+  Major Rooting:
+    slug: "majorRooting"
+    kind: "weapon"
+    level: 15
+    price: 650000
+    rarity: "common"
+    traits:
+      - "plant"
+      - "magical"
+      - "wood"
+  Major Shadow:
+    slug: "majorShadow"
+    kind: "armor"
+    level: 17
+    price: 1400000
+    rarity: "common"
+    traits:
+      - "magical"
+  Major Slick:
+    slug: "majorSlick"
+    kind: "armor"
+    level: 16
+    price: 900000
+    rarity: "common"
+    traits:
+      - "magical"
+  Major Stanching:
+    slug: "majorStanching"
+    kind: "armor"
+    level: 13
+    price: 250000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Major Sunweave:
+    slug: "majorSunweave"
+    kind: "armor"
+    level: 18
+    price: 2400000
+    rarity: "common"
+    traits:
+      - "magical"
+  Major Swallow Spike:
+    slug: "majorSwallowSpike"
+    kind: "armor"
+    level: 16
+    price: 1925000
+    rarity: "common"
+    traits:
+      - "magical"
+  Malleable:
+    slug: "malleable"
+    kind: "armor"
+    level: 9
+    price: 65000
+    rarity: "common"
+    traits:
+      - "magical"
+      - "metal"
+  Merciful:
+    slug: "merciful"
+    kind: "weapon"
+    level: 4
+    price: 7000
+    rarity: "common"
+    traits:
+      - "magical"
+      - "mental"
+  Misleading:
+    slug: "misleading"
+    kind: "armor"
+    level: 16
+    price: 800000
+    rarity: "common"
+    traits:
+      - "illusion"
+      - "magical"
+  Mobile:
+    slug: "mobile"
+    kind: "armor"
+    level: 5
+    price: 6000
+    rarity: "common"
+    traits:
+      - "magical"
+  Moderate Dread:
+    slug: "moderateDread"
+    kind: "armor"
+    level: 12
+    price: 180000
+    rarity: "uncommon"
+    traits:
+      - "emotion"
+      - "fear"
+      - "magical"
+      - "mental"
+      - "visual"
+  Moonweave:
+    slug: "moonweave"
+    kind: "armor"
+    level: 5
+    price: 14000
+    rarity: "common"
+    traits:
+      - "magical"
+  Nightmare:
+    slug: "nightmare"
+    kind: "weapon"
+    level: 9
+    price: 25000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "nightmare"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "mental"
+  Pacifying:
+    slug: "pacifying"
+    kind: "weapon"
+    level: 5
+    price: 15000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Portable:
+    slug: "portable"
+    kind: "armor"
+    level: 9
+    price: 66000
+    rarity: "common"
+    traits:
+      - "magical"
+  Quenching:
+    slug: "quenching"
+    kind: "armor"
+    level: 6
+    price: 25000
+    rarity: "common"
+    traits:
+      - "magical"
+  Raiment:
+    slug: "raiment"
+    kind: "armor"
+    level: 5
+    price: 14000
+    rarity: "common"
+    traits:
+      - "illusion"
+      - "magical"
+  Ready:
+    slug: "ready"
+    kind: "armor"
+    level: 6
+    price: 20000
+    rarity: "common"
+    traits:
+      - "magical"
+  Returning:
+    slug: "returning"
+    kind: "weapon"
+    level: 3
+    price: 5500
+    rarity: "common"
+    traits:
+      - "magical"
+  Rock Braced:
+    slug: "rockBraced"
+    kind: "armor"
+    level: 13
+    price: 300000
+    rarity: "rare"
+    traits:
+      - "dwarf"
+      - "magical"
+      - "saggorak"
+  Rooting:
+    slug: "rooting"
+    kind: "weapon"
+    level: 7
+    price: 36000
+    rarity: "common"
+    traits:
+      - "plant"
+      - "magical"
+      - "wood"
+  Safeguarding:
+    slug: "safeguarding"
+    kind: "armor"
+    level: 13
+    price: 260000
+    rarity: "common"
+    traits:
+      - "magical"
+  Self Sealing:
+    slug: "selfSealing"
+    kind: "armor"
+    level: 7
+    price: 32000
+    rarity: "common"
+    traits:
+      - "magical"
+  Serrating:
+    slug: "serrating"
+    kind: "weapon"
+    level: 10
+    price: 100000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "serrating"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "slashing"
+  Shadow:
+    slug: "shadow"
+    kind: "armor"
+    level: 5
+    price: 5500
+    rarity: "common"
+    traits:
+      - "magical"
+  Shifting:
+    slug: "shifting"
+    kind: "weapon"
+    level: 6
+    price: 22500
+    rarity: "common"
+    traits:
+      - "magical"
+  Shock:
+    slug: "shock"
+    kind: "weapon"
+    level: 8
+    price: 50000
+    rarity: "common"
+    traits:
+      - "electricity"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "shock"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "electricity"
+  Shockwave:
+    slug: "shockwave"
+    kind: "weapon"
+    level: 13
+    price: 300000
+    rarity: "common"
+    traits:
+      - "electricity"
+      - "magical"
+    rules:
+      - key: "FlatModifier"
+        selector: "{item|id}-damage"
+        slug: "shockwave"
+        value: "@item.baseDamage.dice"
+        damageType: "bludgeoning"
+        damageCategory: "splash"
+        predicate: ["item:melee", "item:damage:type:bludgeoning"]
+  Sidestepping:
+    slug: "sidestepping"
+    kind: "armor"
+    level: 13
+    price: 300000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Sinister Knight:
+    slug: "sinisterKnight"
+    kind: "armor"
+    level: 8
+    price: 50000
+    rarity: "uncommon"
+    traits:
+      - "illusion"
+      - "magical"
+  Size Changing:
+    slug: "sizeChanging"
+    kind: "armor"
+    level: 7
+    price: 35000
+    rarity: "common"
+    traits:
+      - "magical"
+  Slick:
+    slug: "slick"
+    kind: "armor"
+    level: 5
+    price: 4500
+    rarity: "common"
+    traits:
+      - "magical"
+  Soaring:
+    slug: "soaring"
+    kind: "armor"
+    level: 14
+    price: 375000
+    rarity: "common"
+    traits:
+      - "magical"
+  Speed:
+    slug: "speed"
+    kind: "weapon"
+    level: 16
+    price: 1000000
+    rarity: "rare"
+    traits:
+      - "magical"
+  Spell Storing:
+    slug: "spellStoring"
+    kind: "weapon"
+    level: 13
+    price: 270000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Spellwatch:
+    slug: "spellwatch"
+    kind: "armor"
+    level: 13
+    price: 300000
+    rarity: "common"
+    traits:
+      - "magical"
+  Stanching:
+    slug: "stanching"
+    kind: "armor"
+    level: 5
+    price: 13000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Sunweave:
+    slug: "sunweave"
+    kind: "armor"
+    level: 6
+    price: 35000
+    rarity: "common"
+    traits:
+      - "magical"
+  Swallow Spike:
+    slug: "swallowSpike"
+    kind: "armor"
+    level: 6
+    price: 20000
+    rarity: "common"
+    traits:
+      - "magical"
+  Swarming:
+    slug: "swarming"
+    kind: "weapon"
+    level: 9
+    price: 70000
+    rarity: "common"
+    traits:
+      - "magical"
+  Thundering:
+    slug: "thundering"
+    kind: "weapon"
+    level: 8
+    price: 50000
+    rarity: "common"
+    traits:
+      - "magical"
+      - "sonic"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "thundering"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "sonic"
+  Trudds Strength:
+    slug: "truddsStrength"
+    kind: "weapon"
+    level: 5
+    price: 16000
+    rarity: "uncommon"
+    traits:
+      - "divine"
+  True Quenching:
+    slug: "trueQuenching"
+    kind: "armor"
+    level: 18
+    price: 2400000
+    rarity: "common"
+    traits:
+      - "magical"
+  True Rooting:
+    slug: "trueRooting"
+    kind: "weapon"
+    level: 19
+    price: 4000000
+    rarity: "common"
+    traits:
+      - "plant"
+      - "magical"
+      - "wood"
+  True Stanching:
+    slug: "trueStanching"
+    kind: "armor"
+    level: 17
+    price: 1250000
+    rarity: "uncommon"
+    traits:
+      - "magical"
+  Underwater:
+    slug: "underwater"
+    kind: "weapon"
+    level: 3
+    price: 5000
+    rarity: "common"
+    traits:
+      - "magical"
+      - "water"
+  Unholy:
+    slug: "unholy"
+    kind: "weapon"
+    level: 11
+    price: 140000
+    rarity: "common"
+    traits:
+      - "unholy"
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "unholy"
+        diceNumber: 1
+        dieSize: "d4"
+        damageType: "spirit"
+        predicate: [{"not": "target:trait:holy"}]
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "unholy"
+        diceNumber: 2
+        dieSize: "d4"
+        damageType: "spirit"
+        predicate: ["target:trait:holy"]
+  Unnerving:
+    slug: "unnerving"
+    kind: "armor"
+    level: 7
+    price: 35000
+    rarity: "common"
+    traits:
+      - "magical"
+  Vorpal:
+    slug: "vorpal"
+    kind: "weapon"
+    level: 17
+    price: 1500000
+    rarity: "rare"
+    traits:
+      - "magical"
+  Winged:
+    slug: "winged"
+    kind: "armor"
+    level: 13
+    price: 250000
+    rarity: "common"
+    traits:
+      - "magical"
+  Wounding:
+    slug: "wounding"
+    kind: "weapon"
+    level: 7
+    price: 34000
+    rarity: "common"
+    traits:
+      - "magical"
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-damage"
+        slug: "wounding"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "bleed"

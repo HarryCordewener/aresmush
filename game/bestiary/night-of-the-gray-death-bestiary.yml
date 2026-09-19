@@ -1,0 +1,262 @@
+---
+"Chakanaj":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 14
+  size: "tiny"
+  rarity: "rare"
+  traits: ["evil", "fiend", "sahkil", "unholy"]
+  ac: 36
+  hp: 300
+  perception: 25
+  saves: {"fortitude": 22, "reflex": 28, "will": 25}
+  abilities: {"cha": 7, "con": 4, "dex": 8, "int": 2, "str": 0, "wis": 5}
+  speeds: {"land": 10, "fly": 40}
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 28, "Deception": 27, "Intimidation": 25, "Religion": 25, "Stealth": 30, "Thievery": 26}
+  immunities: ["fear-effects"]
+  weaknesses: {"holy": 15}
+  strikes: [{"name": "Leg", "bonus": 29, "damage": [["3d6+14", "slashing", null], ["2d6", "spirit", null]], "traits": ["agile", "finesse", "magical", "unholy"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+4 to Perception to Sense Motive", "type": "passive", "traits": []}, {"name": "Ear for Secrets", "type": "passive", "traits": [], "text": "A chakanaj knows when a creature within 30 feet lies unless that creature critically succeeds on its Perception check to lie to the chakanaj. This ability doesn't reveal the truth."}, {"name": "Easy to Call", "type": "passive", "traits": [], "text": "A sahkil's level is considered 2 lower for the purpose of being conjured by the Binding Circle ritual (and potentially other rituals, at the GM's discretion), but is always free to attack or leave instead of negotiate unless the primary caster's check is a critical success."}, {"name": "Retaliate", "type": "reaction", "traits": [], "text": "Trigger A creature within the chakanaj's reach attacks its host%rRequirements The chakanaj is Bonded with a Host%rEffect The chakanaj makes a leg Strike against the triggering creature. If the chakanaj was Impersonating clothing when it makes this strike, the Impersonation ends."}, {"name": "Bond with Host", "type": "action", "traits": ["concentrate", "move"], "cost": 1, "text": "Requirements The chakanaj is adjacent to a willing creature%rEffect The chakanaj enters the space of the creature (thereafter called its host) and covers a suitable surface on the host, such as the face or back. The chakanaj occupies the same space as its host and moves with its host. It doesn't impair the host's senses or movement. While worn, the chakanaj establishes a constant Share Life effect with its host. Attacks that target the chakanaj target the host instead, but use the higher AC or…"}, {"name": "Interpose", "type": "action", "traits": [], "cost": 1, "text": "Requirements The chakanaj is Bonded with a Host%rEffect The chakanaj interposes itself between the host and its foes, granting its host a +2 circumstance bonus to AC until the start of the chakanaj's next turn.%rEffect: Interpose"}, {"name": "Peel Away", "type": "action", "traits": ["concentrate", "move"], "cost": 1, "text": "Requirements The chakanaj is Bonded with a Host%rEffect the chakanaj removes itself from its host, peeling off the host's body and enters an adjacent space."}, {"name": "Skip Between", "type": "action", "traits": ["divine", "teleportation"], "cost": 1, "text": "The chakanaj sahkil moves from the Material Plane to the Ethereal Plane or vice versa, with the effects of Ethereal Jaunt except the effect has an unlimited duration and can be Dismissed. A summoned sahkil can't use Skip Between."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 34, "attack": 26, "spells": {"0": ["Dancing Lights", "Daze", "Guidance"], "5": ["Illusory Object"], "7": ["Fear (At Will)", "Mask of Terror (At Will) (Self Only)", "True Seeing (Constant)"]}}]
+"Conqueror Worm":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 21
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["aberration", "evil", "unholy"]
+  ac: 46
+  hp: 460
+  perception: 37
+  saves: {"fortitude": 35, "reflex": 32, "will": 38}
+  abilities: {"cha": 10, "con": 7, "dex": 5, "int": 10, "str": 10, "wis": 6}
+  speeds: {"land": 40, "burrow": 30}
+  senses: ["greater-darkvision", "tremorsense", "truesight"]
+  skills: {"Arcana": 37, "Athletics": 39, "Deception": 41, "Diplomacy": 39, "Intimidation": 41, "Occultism": 39, "Religion": 35, "Society": 41}
+  immunities: ["acid", "disease", "mental"]
+  weaknesses: {"holy": 20, "piercing": 20}
+  resistances: {"acid": 20}
+  strikes: [{"name": "Jaws", "bonus": 39, "damage": [["4d10+18", "piercing", null], ["2d6", "acid", null]], "traits": ["acid", "magical", "reach-20", "unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Tremorsense (Imprecise) 100 feet", "type": "passive", "traits": []}, {"name": "Telepathy 200 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Air Walk", "type": "passive", "traits": [], "text": "The conqueror worm is under the effects of 9th-rank Air Walk at all times."}, {"name": "Convincing Telepathy", "type": "passive", "traits": ["mental", "occult"], "text": "When a conqueror worm communicates telepathically, its overwhelming will bolsters its lies. Its Deception checks and Deception DCs aren't penalized for elaborate or unbelievable telepathic lies."}, {"name": "Mental Invader", "type": "reaction", "traits": ["mental", "occult"], "text": "Trigger A creature communicates telepathically with the conqueror worm (even to respond to the conqueror worm's telepathy or through a mental spell like Sending) or fails a saving throw against a mental spell cast by the conqueror worm%rEffect The conqueror worm infects the mind of the creature, allowing it to mentally contact the creature from afar. The creature must attempt a DC 48 Will saving throw and is temporarily immune for 1 year.%rCritical Success The target is unaffected and can't be…"}, {"name": "Telepathic Escape", "type": "passive", "traits": ["incapacitation", "mental", "occult", "possession"], "text": "When the conqueror worm dies, it telepathically projects its consciousness into a creature infected by its Mental Invader ability and who is on the same plane as the conqueror worm. The creature must succeed at a DC 48 Will save or it is overtaken by the conqueror worm. This has the same effect as the Possession spell with an unlimited duration, except the conqueror worm has wholly foregone its physical body. A host body possessed by a conqueror worm undergoes terrible changes. Every day, the…"}, {"name": "True Seeing", "type": "passive", "traits": [], "text": "The conqueror worm is under the effects of 9th-rank Truesight at all times."}, {"name": "Breath Weapon", "type": "action", "traits": ["acid", "occult"], "cost": 2, "text": "The conqueror worm disgorges acid in a 120-foot that deals 14d10 acid|options:area-damage damage to all creatures in the area (DC 44 Reflex save). It can't use Breath Weapon again for 1d4 rounds."}, {"name": "Fast Swallow", "type": "reaction", "traits": [], "text": "Trigger The conqueror worm Grabs a creature%rEffect The worm uses Swallow Whole."}, {"name": "Muster Minions", "type": "action", "traits": ["teleportation"], "cost": 3, "text": "The conqueror worm selects up to three willing creatures subject to its Mental Invader ability that are on the same plane and teleports them to squares adjacent to the worm of the worm's choosing."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Huge, 4d10+10 bludgeoning plus 2d6 acid, Rupture 44"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 48, "attack": 38, "spells": {"0": ["Daze", "Detect Magic", "Mage Hand", "Shield", "Telekinetic Projectile"], "1": ["Mindlink", "Sanctuary", "True Strike", "Ventriloquism"], "2": ["Death Knell", "Misdirection", "Status", "Telekinetic Maneuver"], "3": ["Enthrall", "Fear", "Hypercognition", "Nondetection"], "4": ["Confusion", "Dream Message", "Modify Memory", "Outcast's Curse"], "5": ["Dimension Door", "Mind Probe", "Sending", "Synesthesia"], "6": ["Dominate", "Feeblemind", "Scrying", "Zealous Conviction"], "7": ["Magic Missile", "Possession", "Project Image", "Warp Mind"], "8": ["Discern Location", "Dispel Magic", "Mind Blank", "Unrelenting Observation"], "9": ["Foresight", "Overwhelming Presence", "Subconscious Suggestion", "Telepathic Demand"], "10": ["Fabricated Truth", "Time Stop"]}}, {"name": "Occult Innate Spells", "tradition": "divine", "type": "innate", "dc": 48, "attack": 38, "spells": {"9": ["Air Walk (Constant)", "Mind Reading (At Will)", "True Seeing (Constant)"], "10": ["Dominate"]}}]
+"Gray Death":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 20
+  size: "huge"
+  rarity: "rare"
+  traits: ["evil", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 44
+  hp: 330
+  perception: 33
+  saves: {"fortitude": 31, "reflex": 35, "will": 33}
+  abilities: {"cha": 10, "con": 4, "dex": 7, "int": 6, "str": -5, "wis": 7}
+  speeds: {"land": 0, "fly": 60}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Intimidation": 40, "Occultism": 34, "Performance": 38, "Society": 34}
+  immunities: ["bleed", "disease", "fear-effects", "paralyzed", "poison", "precision", "unconscious"]
+  weaknesses: {"mental": 15}
+  resistances: {"all-damage": 15}
+  strikes: [{"name": "Hand", "bonus": 38, "damage": [["4d10+16", "void", null]], "traits": ["finesse", "magical", "reach-15"], "effects": ["Life Sap"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Lifesense 1,000 feet", "type": "passive", "traits": []}, {"name": "Soul Bleed", "type": "passive", "traits": ["aura", "occult"], "text": "1000 feet. Creatures that begin their turn in the area take 5d6 void|options:area-damage damage and must succeed at a DC 42 Fortitude save or become Doomed 1. If the creature is 13th level or lower, this doomed condition from soul bleed is cumulative, increasing by 1 with each failed save until the creature dies (typically at doomed 4)."}, {"name": "Flailing Touch", "type": "action", "traits": [], "cost": 2, "text": "The gray death makes up to four hand Strikes, each against a different target it can reach. It increases its reach to 100 feet with these Strikes. These Strikes count as one attack for the gray death's multiple attack penalty, and the penalty doesn't increase until after the attacks."}, {"name": "Life Sap", "type": "passive", "traits": [], "text": "A creature damaged by the gray death's hand Strike must succeed at a DC 42 Fortitude save or become Drained 1, and Paralyzed for 1 round on a critical failure."}, {"name": "Resentful Possession", "type": "action", "traits": ["curse", "mental", "occult", "possession"], "cost": 1, "text": "Frequency once per round%rEffect The gray death chooses a living creature within 30 feet. The target must succeed at a DC 42 Will save or a fragment of embittered soul-stuff lodges within the target's spirit and turns it against its allies. While the target has this fragment, it doesn't count as anyone's ally for the purposes of providing flanking, and a would-be ally casting a spell that normally works only on an ally on the creature must succeed at a DC 42 counteract check (level 20) or the…"}, {"name": "Spectral Lurker", "type": "passive", "traits": [], "text": "The gray death isn't Slowed 1 when it starts its turn inside an object."}]
+"Gray Gardener Assassin":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "human", "humanoid"]
+  ac: 36
+  hp: 255
+  perception: 26
+  saves: {"fortitude": 22, "reflex": 27, "will": 26}
+  abilities: {"cha": 3, "con": 2, "dex": 5, "int": 0, "str": 4, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 25, "Athletics": 26, "Deception": 25, "Intimidation": 25, "Society": 22, "Stealth": 27}
+  strikes: [{"name": "Kukri", "bonus": 29, "damage": [["2d6+8", "slashing", null]], "traits": ["agile", "finesse", "trip"]}, {"name": "Hand Crossbow", "bonus": 29, "damage": [["2d6+4", "piercing", null]], "traits": ["reload-1"], "range": 60}]
+  actions: [{"name": "Anonymity", "type": "passive", "traits": [], "text": "The Gray Gardener assassin has a +2 circumstance bonus to Deception checks and saving throws to conceal their identity and a +2 circumstance bonus to their Deception DC against effects that ferret out information about the Gray Gardener's identity."}, {"name": "Gardener's Resolve", "type": "reaction", "traits": [], "text": "Trigger The Gray Gardener assassin rolls a failure (but not a critical failure) on a Will save against an effect with the mental or fear trait%rRequirements The Gray Gardener assassin's features are obscured by a mask or hood%rEffect The Gray Gardener assassin takes 3d8 mental damage, and the saving throw is a success."}, {"name": "Instant Opening", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The Gray Gardener assassin distracts a creature within 30 feet, using a few choice words or gestures. The creature is Off-Guard against the assassin's attacks until the end of the assassin's next turn. Depending on the distraction, this action gains either the auditory or the visual trait."}, {"name": "Mark for Death", "type": "action", "traits": [], "cost": 3, "text": "The Gray Gardener assassin designates a single creature they can see and hear as their mark. This effect lasts until the mark dies or the assassin uses Mark for Death again. The assassin gains a +2 circumstance bonus to Perception checks to Seek the mark and on Deception checks to Feint against the mark. The assassin's melee and ranged Strikes gain the deadly d8 weapon traits when attacking the mark."}, {"name": "Poison Weapon", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The Gray Gardener assassin is wielding a piercing or slashing weapon and has a free hand%rEffect The assassin applies a poison to the weapon."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The Gray Gardener assassin Interacts to draw a weapon and then Strikes with that weapon."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Gray Gardener assassin deals an additional 6d6 precision damage precision damage to Off-Guard creatures."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "On the first round of combat, creatures that haven't acted yet are Off-Guard to the Gray Gardener assassin."}]
+"Gray Gardener Director General":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 39
+  hp: 300
+  perception: 28
+  saves: {"fortitude": 26, "reflex": 27, "will": 30}
+  abilities: {"cha": 5, "con": 1, "dex": 5, "int": 4, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 27, "Deception": 31, "Diplomacy": 29, "Intimidation": 31, "Occultism": 28, "Society": 28, "Stealth": 27}
+  strikes: [{"name": "Sword Cane", "bonus": 32, "damage": [["3d6+8", "piercing", null]], "traits": ["agile", "concealable", "finesse"]}, {"name": "Dagger", "bonus": 32, "damage": [["2d4+8", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 32, "damage": [["2d4+8", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Anonymity", "type": "passive", "traits": [], "text": "The Gray Gardener Director General has a +2 circumstance bonus to Deception checks and saving throws to conceal their identity and a +2 circumstance bonus to their Deception DC against effects that ferret out information about the Gray Gardener's identity."}, {"name": "Gardener's Resolve", "type": "reaction", "traits": [], "text": "Trigger The Gray Gardener Director General rolls a failure (but not a critical failure) on a Will save against an effect with the mental or fear trait%rRequirements The Gray Gardener Director General's features are obscured by a mask or hood%rEffect The Gray Gardener Director General takes 3d8 mental damage, and the saving throw is a success."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The director general Interacts to draw a weapon, and then Strikes with that weapon."}, {"name": "Skewer the Fearful", "type": "passive", "traits": [], "text": "The director general's Strikes deal an additional 4d6 precision damage to frightened creatures. If the Strike against a frightened creature is a critical hit, the creature doesn't automatically reduce its frightened condition at the end of its next turn."}, {"name": "Stern Glare", "type": "free", "traits": ["concentrate", "visual"], "text": "Trigger The director general's turn begins%rEffect The director general attempts to Demoralize a creature within 60 feet that they can see and that can see the director general."}, {"name": "Whispers of Superiority", "type": "action", "traits": ["auditory", "concentrate", "mental"], "cost": 1, "text": "The director general utters a few words to a non-frightened target within 60 feet that can hear them, bolstering the target's indignation of cowards. The target creature must succeed at a DC 39 Will save, or it doesn't count frightened creatures as allies and can't Aid them or flank with them. This effect lasts for 1 round (1 minute on a critical failure)."}]
+"Gray Gardener Enforcer":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 17
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "human", "humanoid", "mortic"]
+  ac: 39
+  hp: 350
+  perception: 28
+  saves: {"fortitude": 26, "reflex": 27, "will": 30}
+  abilities: {"cha": 4, "con": 5, "dex": 3, "int": 3, "str": 7, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 34, "Intimidation": 31, "Medicine": 30, "Society": 30, "Stealth": 30}
+  weaknesses: {"slashing": 15}
+  strikes: [{"name": "Spiked Chain", "bonus": 35, "damage": [["3d8+13", "slashing", null], ["2d8", "bleed", null]], "traits": ["disarm", "trip"], "effects": ["Grab"]}, {"name": "Fist", "bonus": 33, "damage": [["3d8+13", "bludgeoning", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Anonymity", "type": "passive", "traits": [], "text": "The Gray Gardener enforcer has a +2 circumstance bonus to Deception checks and saving throws to conceal their identity and a +2 circumstance bonus to their Deception DC against effects that ferret out information about the Gray Gardener's identity."}, {"name": "Consecration Vulnerability", "type": "passive", "traits": [], "text": "A Gray Gardener enforcer in a place of worship dedicated to a non-evil deity or on sacred ground, such as an area blessed by Anointed Ground, is Slowed 1."}, {"name": "Gardener's Resolve", "type": "reaction", "traits": [], "text": "Trigger The Gray Gardener enforcer rolls a failure (but not a critical failure) on a Will save against an effect with the mental or fear trait%rRequirements The Gray Gardener enforcer's features are obscured by a mask or hood%rEffect The Gray Gardener enforcer takes 3d8 mental damage, and the saving throw is a success."}, {"name": "Nourishing Feast", "type": "passive", "traits": [], "text": "The Gray Gardener enforcer spends 1 hour consuming 1 Bulk of raw meat to reverse their body's putrescence. For 1 hour, the Gray Gardener enforcer appears to be a pale, bloated human. They have an automatic result of 32 on Deception checks and DCs to pass as a non-mortic human. While under the effects of Nourishing Feast, Rotting Flesh ceases to function."}, {"name": "Rotting Flesh", "type": "passive", "traits": [], "text": "Any creature that hits the Gray Gardener enforcer with an unarmed attack, tries to Grapple them, or otherwise touches the gurgist is covered with rotten flesh and putrid fluids. The creature must succeed at a DC 36 Fortitude save or become Sickened 1 (Sickened 2 on a critical failure)."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Chain Garotte", "type": "passive", "traits": [], "text": "The Gray Gardener enforcer's spiked chain Strike deals 2d8 bleed, and they can use it to Grab up to two foes. The enforcer can still attack with their spiked chain if they Grab one creature, but not when they Grab two."}, {"name": "Death Gasp", "type": "action", "traits": ["divine"], "cost": 1, "text": "The Gray Gardener enforcer draws in a deep breath and holds it, temporarily suspending their biological processes and becoming undead. The Gray Gardener enforcer gains the undead trait and becomes immune to bleed, death effects, disease, Paralyzed, poison, and sleep. Any such effects the Gray Gardener is currently suffering from are suspended but take effect again once they take a breath. Death Gasp lasts as long as the Gray Gardener enforcer holds their breath.%rEffect: Death Gasp"}, {"name": "Greater Constrict", "type": "action", "traits": [], "cost": 1, "text": "(3d8+7) slashing, DC 38 Fortitude"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Guillotine Golem":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "rare"
+  traits: ["construct", "golem", "mindless"]
+  ac: 42
+  hp: 270
+  perception: 28
+  saves: {"fortitude": 33, "reflex": 28, "will": 29}
+  abilities: {"cha": -5, "con": 6, "dex": 0, "int": -5, "str": 9, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 38}
+  immunities: ["fire"]
+  resistances: {"physical": 20}
+  strikes: [{"name": "Blade", "bonus": 36, "damage": [["3d12+15", "slashing", null]], "traits": ["magical", "reach-10"], "effects": ["Decapitation"]}]
+  actions: [{"name": "Golem Antimagic", "type": "passive", "traits": [], "text": "Harmed by acid (9d10 untyped, 3d8 untyped from areas or persistent damage); healed by electricity (area 3d8 healing HP); slowed by fire"}, {"name": "Vulnerable to Neutralize Poison", "type": "passive", "traits": [], "text": "Casting Cleanse Affliction on the golem deactivates its Breath Weapon for 1 minute."}, {"name": "Vulnerable to Rust", "type": "passive", "traits": [], "text": "Magical rusting effects, like a rust monster's antennae, affect the guillotine golem normally."}, {"name": "Breath Weapon", "type": "action", "traits": ["occult", "poison"], "cost": 2, "text": "The guillotine golem emits poisonous gas in a 10-foot centered on the corner of one of the golem's squares. The gas persists for 1 round. Any creature in the area (or that later enters the area) is exposed to the golem's poison. The golem can't use its Breath Weapon again for 1d4 rounds."}, {"name": "Decapitation", "type": "passive", "traits": [], "text": "If the guillotine golem critically hits a creature with its blade Strike, the creature must succeed at a DC 40 Fortitude save or be decapitated, dying instantly unless it can survive without a head."}, {"name": "Guillotine Golem Poison", "type": "passive", "traits": ["poison"], "text": "Any drained value from this poison is reduced by 1 every hour.%rSaving Throw DC 40 Fortitude%rMaximum Duration 4 rounds%rStage 1 3d6 poison and Drained 1 (1 round)%rStage 2 5d6 poison and Drained 2 (1 round)%rStage 3 10d6 poison and Drained 3 (1 round)."}, {"name": "Inexorable March", "type": "action", "traits": [], "cost": 1, "text": "The guillotine golem Strides up to its Speed, pushing back each creature whose space it moves into and damaging them if they try to stop its movement. A creature can attempt to bar the way by succeeding at a DC 44 Fortitude save. On a critical success, the resisting creature takes no damage; otherwise, it is damaged as if hit by the golem's blade Strike."}]
+"Keznin Nevarmo":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "humanoid", "tengu"]
+  ac: 26
+  hp: 150
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 18, "will": 21}
+  abilities: {"cha": 3, "con": 0, "dex": 3, "int": 4, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Diplomacy": 18, "Medicine": 17, "Nature": 21, "Religion": 17, "Society": 19, "Survival": 17}
+  strikes: [{"name": "Beak", "bonus": 19, "damage": [["1d6+4", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Staff", "bonus": 16, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["magical", "two-hand-d8"]}]
+  actions: [{"name": "Invaded", "type": "passive", "traits": [], "text": "Keznin is subject to the conqueror worm's Mental Invader effect, but she doesn't realize it. (Note: This is only effective in Chapter 3)"}, {"name": "Expert Herbalist", "type": "passive", "traits": [], "text": "Keznin can use Nature instead of Medicine to Treat Disease, Treat Poison, and Treat Wounds, and he can use Nature instead of Crafting to craft alchemical items with the healing trait, antidotes, and antiplagues."}, {"name": "Risky Treatment", "type": "reaction", "traits": ["concentrate", "fortune", "manipulate"], "text": "Trigger Keznin rolls a critical failure on a check to Treat Disease, Treat Poison, or Treat Wounds%rEffect Keznin gives an emergency application of dangerous herbs to avert further harm. The creature Keznin is treating takes 2d6 poison damage, and Keznin rerolls the check."}]
+"Mateena Lumlin":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 39
+  hp: 300
+  perception: 28
+  saves: {"fortitude": 26, "reflex": 27, "will": 30}
+  abilities: {"cha": 5, "con": 1, "dex": 5, "int": 4, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 27, "Deception": 31, "Diplomacy": 29, "Intimidation": 31, "Occultism": 28, "Society": 28, "Stealth": 27}
+  strikes: [{"name": "Sword Cane", "bonus": 32, "damage": [["3d6+8", "piercing", null]], "traits": ["agile", "concealable", "finesse"]}, {"name": "Dagger", "bonus": 32, "damage": [["2d4+8", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 32, "damage": [["2d4+8", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Invaded", "type": "passive", "traits": [], "text": "Mateena is subject to the conqueror worm's Mental Invader effect, but she doesn't realize it."}, {"name": "Anonymity", "type": "passive", "traits": [], "text": "The Gray Gardener Director General has a +2 circumstance bonus to Deception checks and saving throws to conceal their identity and a +2 circumstance bonus to their Deception DC against effects that ferret out information about the Gray Gardener's identity."}, {"name": "Gardener's Resolve", "type": "reaction", "traits": [], "text": "Trigger The Gray Gardener Director General rolls a failure (but not a critical failure) on a Will save against an effect with the mental or fear trait%rRequirements The Gray Gardener Director General's features are obscured by a mask or hood%rEffect The Gray Gardener Director General takes 3d8 mental damage, and the saving throw is a success."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The director general Interacts to draw a weapon, and then Strikes with that weapon."}, {"name": "Skewer the Fearful", "type": "passive", "traits": [], "text": "The director general's Strikes deal an additional 4d6 precision damage to frightened creatures. If the Strike against a frightened creature is a critical hit, the creature doesn't automatically reduce its frightened condition at the end of its next turn."}, {"name": "Stern Glare", "type": "free", "traits": ["concentrate", "visual"], "text": "Trigger The director general's turn begins%rEffect The director general attempts to Demoralize a creature within 60 feet that they can see and that can see the director general."}, {"name": "Whispers of Superiority", "type": "action", "traits": ["auditory", "concentrate", "mental"], "cost": 1, "text": "The director general utters a few words to a non-frightened target within 60 feet that can hear them, bolstering the target's indignation of cowards. The target creature must succeed at a DC 39 Will save, or it doesn't count frightened creatures as allies and can't Aid them or flank with them. This effect lasts for 1 round (1 minute on a critical failure)."}]
+"Miss Whisper":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "fiend", "sahkil", "unholy"]
+  ac: 26
+  hp: 140
+  perception: 18
+  saves: {"fortitude": 17, "reflex": 18, "will": 20}
+  abilities: {"cha": 6, "con": 4, "dex": 5, "int": 2, "str": 4, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 18, "Deception": 21, "Diplomacy": 21, "Intimidation": 21, "Stealth": 18}
+  immunities: ["fear-effects", "poison"]
+  weaknesses: {"holy": 5}
+  strikes: [{"name": "Vine", "bonus": 18, "damage": [["2d10+6", "slashing", null], ["1d6", "spirit", null], ["1d6", "bleed", null]], "traits": ["finesse", "reach", "unholy", "versatile-p"], "effects": ["Betrayal Toxin"]}, {"name": "Claw", "bonus": 18, "damage": [["2d10+6", "slashing", null], ["1d6", "spirit", null]], "traits": ["agile", "finesse", "unarmed", "unholy"]}, {"name": "Thorn", "bonus": 18, "damage": [["2d4+6", "piercing", null], ["1d6", "spirit", null], ["1d6", "bleed", null]], "traits": ["agile", "unholy"], "range": 50, "effects": ["Betrayal Toxin"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Bound", "type": "passive", "traits": [], "text": "The dawnsilver manacles affixing the pakalchi to the wall are enchanted. The pakalchi can't remove them, although any other creature can with a single Interact action. While bound, she's Immobilized, can't make melee Strikes, and can't Skip Between, though she can still make thorn attacks with a -4 circumstance penalty."}, {"name": "Easy to Call", "type": "passive", "traits": [], "text": "A sahkil's level is considered 2 lower for the purpose of being conjured by the Binding Circle ritual (and potentially other rituals, at the GM's discretion), but it is always free to attack or leave instead of negotiate unless the primary caster's check is a critical success."}, {"name": "Entangling Train", "type": "reaction", "traits": [], "text": "Trigger A creature moves adjacent to the pakalchi%rEffect Writhing, pitch-black vines wrap around the creature. The creature takes 1d6 slashing damage and takes a –15-foot circumstance penalty to its Speeds until the end of its next turn."}, {"name": "Betrayal Toxin", "type": "passive", "traits": ["divine", "mental", "poison"], "text": "A creature affected by betrayal toxin hears whispers of incessant doubt in their head and can't treat any creature as their ally%rSaving Throw DC 28 Fortitude%rMaximum Duration 6 rounds%rStage 1 Stupefied 1 (1 round)%rStage 2 Stupefied 2 (1 round)"}, {"name": "Skip Between", "type": "action", "traits": ["divine", "teleportation"], "cost": 1, "text": "The sahkil moves from the Material Plane to the Ethereal Plane or vice-versa, with the effects of Ethereal Jaunt except that the effect has an unlimited duration and can be Dismissed.%rA summoned sahkil can't use Skip Between."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 30, "attack": 20, "spells": {"0": ["Detect Magic"], "5": ["Calm Emotions", "Charm", "Suggestion (At Will)"], "6": ["Dominate", "Tongues (Constant)", "True Seeing (Constant)"], "7": ["Mask of Terror (Self Only)"]}}]
+"Pageant Troupe":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 14
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["construct", "troop"]
+  ac: 29
+  hp: 260
+  perception: 24
+  saves: {"fortitude": 27, "reflex": 21, "will": 22}
+  abilities: {"cha": 4, "con": 6, "dex": 2, "int": 2, "str": 7, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "troop defenses"
+  skills: {"Athletics": 28, "Intimidation": 25}
+  weaknesses: {"area-damage": 15, "bludgeoning": 10, "splash-damage": 8}
+  actions: [{"name": "Form Up", "type": "action", "traits": [], "cost": 1}, {"name": "Performers", "type": "passive", "traits": [], "text": "The automatons don't have shields or weapons. Their Strike as One ability uses their fists and deals bludgeoning damage instead of slashing damage."}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": [], "text": "Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Strike as One", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The garrison makes a melee attack against each enemy in a 5-foot (DC 30 Reflex save). The damage depends on the number of actions.%r1 (2d8+2) bludgeoning|options:area-damage damage.%r2 (8d8+12) bludgeoning|options:area-damage damage.%r3 (4d8+15) bludgeoning|options:area-damage damage."}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever a troop Strides, it first Forms Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then moves up to its Speed. This works just like a Gargantuan creature moving; for instance, if any square enters difficult terrain, the extra movement cost applies to the whole troop."}]
+"Riekanoy":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 19
+  size: "medium"
+  rarity: "rare"
+  traits: ["amphibious", "evil", "fey", "water"]
+  ac: 45
+  hp: 410
+  perception: 31
+  saves: {"fortitude": 28, "reflex": 37, "will": 32}
+  abilities: {"cha": 10, "con": 2, "dex": 10, "int": 3, "str": 6, "wis": 6}
+  speeds: {"land": 25, "swim": 50}
+  senses: ["low-light-vision", "truesight"]
+  skills: {"Acrobatics": 35, "Athletics": 31, "Deception": 35, "Nature": 33, "Performance": 37, "Stealth": 35, "Survival": 33}
+  weaknesses: {"cold-iron": 20}
+  resistances: {"fire": 20}
+  strikes: [{"name": "Hair", "bonus": 24, "damage": [["4d10+12", "bludgeoning", null]], "traits": ["agile", "finesse", "reach-15"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Sinuous Initiative", "type": "passive", "traits": [], "text": "A riekanoy's swaying motions propel it into the fray with grace. While a riekanoy can act and isn't Immobilized, it can roll Performance for initiative."}, {"name": "Water Walk", "type": "passive", "traits": [], "text": "Riekanoy is under the effects of 9th-rank Water Walk at all times."}, {"name": "Beckoning Dance", "type": "action", "traits": ["concentrate", "incapacitation", "mental", "primal", "visual"], "cost": 1, "text": "The riekanoy sways in a compelling fashion. Each non-fey creature within a 300-foot that can see the riekanoy must attempt a DC 38 Will save. The effect lasts for 1 round, but if the riekanoy uses Beckoning Dance again on subsequent rounds, the duration extends by 1 round for all affected creatures. Once a creature succeeds at any save against Beckoning Dance, that creature is temporarily immune for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature is Fascinated and must…"}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(3d10+12) bludgeoning, DC 41 Fortitude"}, {"name": "Entangling Hair", "type": "passive", "traits": [], "text": "A riekanoy can have up to eight creatures Grabbed within their hair at a time."}, {"name": "Waving Hair", "type": "action", "traits": [], "cost": 1, "text": "The riekanoy attempts an Acrobatics check against each Grabbed creature's Reflex DC. The riekanoy moves each creature they succeed against up to 10 feet and each creature they critically succeed against up to 20 feet. This movement must all be within reach of its hair."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "divine", "type": "innate", "dc": 41, "attack": 33, "spells": {"2": ["Invisibility (At Will)", "Obscuring Mist (At Will)"], "5": ["Control Water (At Will)"], "6": ["Baleful Polymorph (Aquatic Animals Only)"], "8": ["Charm (At Will)", "Fire Seeds"], "9": ["Hydraulic Torrent", "Nature's Enmity", "True Seeing (Constant)", "Water Walk (Constant)"]}}]
+"Tumblak":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "fiend", "incorporeal", "sahkil", "unholy"]
+  ac: 42
+  hp: 305
+  perception: 33
+  saves: {"fortitude": 33, "reflex": 28, "will": 31}
+  abilities: {"cha": 9, "con": 6, "dex": 5, "int": 2, "str": 9, "wis": 5}
+  speeds: {"land": 0, "fly": 40}
+  senses: ["darkvision", "truesight"]
+  skills: {"Athletics": 35, "Deception": 31, "Intimidation": 35, "Religion": 29, "Stealth": 31, "Grave Lore": 28}
+  immunities: ["disease", "fear-effects", "poison", "precision"]
+  weaknesses: {"holy": 15}
+  resistances: {"physical": 15}
+  strikes: [{"name": "Fist", "bonus": 35, "damage": [["3d12+17", "bludgeoning", null], ["2d6", "spirit", null]], "traits": ["magical", "reach-10", "unarmed", "unholy"], "effects": ["Entombing Echoes"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Easy to Call", "type": "passive", "traits": [], "text": "A sahkil's level is considered 2 lower for the purpose of being conjured by the Binding Circle ritual (and potentially other rituals, at the GM's discretion), but is always free to attack or leave instead of negotiate unless the primary caster's check is a critical success."}, {"name": "Focused Force", "type": "passive", "traits": [], "text": "Unlike most incorporeal creatures, a tumblak can make Strength-based checks against physical creatures and objects if it chooses, though such creatures still can't make Strength-based checks against the tumblak."}, {"name": "Gasping Aura", "type": "passive", "traits": ["air", "aura", "divine"], "text": "100 feet. Creatures within the aura must succeed at a DC 37 Fortitude save. On a failure, they can't breathe and must hold their breath to avoid suffocation until they leave the aura. The tumblak can activate or deactivate the aura with a single free action, which has the concentrate trait."}, {"name": "No Breath", "type": "passive", "traits": [], "text": "Tumblaks don't need to breathe."}, {"name": "Claustrophobic Nightmares", "type": "passive", "traits": ["curse", "divine", "mental"], "text": "A creature Fatigued by the tumblak's Nightmare spell is subject to paralyzing glimpses of being buried alive. Anyone using an effect that would remove the fatigued condition through a means other than a full night's rest must succeed on a DC 44 counteract check or the fatigued condition isn't removed. When the fatigued creature enters a stressful situation, such as rolling initiative in combat or entering a high-stakes negotiation, it is affected by Entombing Echoes."}, {"name": "Entombing Echoes", "type": "passive", "traits": ["divine", "emotion", "incapacitation", "mental"], "text": "A creature struck by the tumblak's fist or impacted by Claustrophobic Nightmares must succeed on a DC 44 Will save or feel itself confined on all sides. The creature is Immobilized and Off-Guard until it Escapes."}, {"name": "Skip Between", "type": "action", "traits": ["divine", "teleportation"], "cost": 1, "text": "Tumblak moves from the Material Plane to the Ethereal Plane or vice versa, with the effects of Ethereal Jaunt except the effect has an unlimited duration and can be Dismissed. A summoned sahkil can't use Skip Between."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 40, "attack": 30, "spells": {"0": ["Detect Magic"], "9": ["Dispel Magic", "Earthbind (At Will)", "Fear (At Will)", "Mask of Terror (At Will) (Self Only)", "Nightmare (At Will)", "True Seeing (Constant)"]}}]
+"Worm Prophet":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 42
+  hp: 335
+  perception: 28
+  saves: {"fortitude": 27, "reflex": 30, "will": 33}
+  abilities: {"cha": 6, "con": 0, "dex": 3, "int": 6, "str": 1, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Arcana": 32, "Crafting": 32, "Deception": 36, "Diplomacy": 32, "Intimidation": 32, "Occultism": 34, "Performance": 32, "Religion": 32, "Society": 34}
+  strikes: [{"name": "Dagger", "bonus": 32, "damage": [["3d4+8", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 32, "damage": [["3d4+8", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Anonymity", "type": "passive", "traits": [], "text": "The worm prophet has a +2 circumstance bonus to Deception checks and saving throws to conceal their identity and a +2 circumstance bonus to their Deception DC against effects that ferret out information about the worm prophet's identity."}, {"name": "Gardener's Resolve", "type": "reaction", "traits": [], "text": "Trigger The worm prophet rolls a failure (but not a critical failure) on a Will save against an effect with the mental or fear trait%rRequirements The worm prophet's features are obscured by a mask or hood%rEffect The worm prophet takes 3d8 mental damage, and the saving throw is a success."}, {"name": "Invaded", "type": "passive", "traits": [], "text": "The worm prophet is subject to the conqueror worm's Mental Invader effect."}, {"name": "Capture Spirit", "type": "reaction", "traits": [], "text": "Trigger A target affected by one of the worm prophet's necromancy spells dies within 60 feet of the worm prophet%rEffect The worm prophet harnesses a bit of the departing victim's soul, and the worm prophet is Quickened 1 for 1 minute. They can use this extra action only to Step, Stride, or Sustain a Spell."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If a reaction would disrupt the worm prophet's spellcasting action, the worm prophet attempts a DC 15 Flat. On a success, the action isn't disrupted."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 40, "attack": 32, "spells": {"0": ["Detect Magic", "Divine Lance", "Forbidding Ward", "Light", "Message"], "1": ["Bane", "Charm", "Harm", "Mending", "Sanctuary"], "2": ["Calm Emotions", "Death Knell", "Dispel Magic", "Enhance Victuals", "Resist Energy", "Restoration"], "3": ["Dream Message", "Locate", "Neutralize Poison", "Zone of Truth"], "4": ["Freedom of Movement"], "5": ["Death Ward", "Drop Dead", "Mind Probe", "Spiritual Guardian"], "6": ["Spellwrack", "Spirit Blast", "True Seeing", "Zealous Conviction"], "7": ["Divine Vessel", "Warp Mind"], "8": ["Discern Location", "Spiritual Epidemic"]}}, {"name": "Focus Divine Spells", "tradition": "divine", "type": "focus", "dc": 40, "attack": 32, "spells": {"1": ["Touch of Obedience"], "4": ["Commanding Lash"]}}]
+"Zintaya Calbieste":
+  pack: "night-of-the-gray-death-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration", "elf", "evil", "humanoid"]
+  ac: 36
+  hp: 255
+  perception: 26
+  saves: {"fortitude": 22, "reflex": 27, "will": 26}
+  abilities: {"cha": 3, "con": 2, "dex": 5, "int": 0, "str": 4, "wis": 4}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 25, "Athletics": 26, "Deception": 25, "Intimidation": 25, "Society": 22, "Stealth": 27}
+  strikes: [{"name": "Kukri", "bonus": 29, "damage": [["2d6+8", "slashing", null]], "traits": ["agile", "finesse", "trip"]}, {"name": "Hand Crossbow", "bonus": 29, "damage": [["2d6+4", "piercing", null]], "traits": ["reload-1"], "range": 60}]
+  actions: [{"name": "Anonymity", "type": "passive", "traits": [], "text": "The Gray Gardener assassin has a +2 circumstance bonus to Deception checks and saving throws to conceal their identity and a +2 circumstance bonus to their Deception DC against effects that ferret out information about the Gray Gardener's identity."}, {"name": "Gardener's Resolve", "type": "reaction", "traits": [], "text": "Trigger The Gray Gardener assassin rolls a failure (but not a critical failure) on a Will save against an effect with the mental or fear trait%rRequirements The Gray Gardener assassin's features are obscured by a mask or hood%rEffect The Gray Gardener assassin takes 3d8 mental damage, and the saving throw is a success."}, {"name": "Instant Opening", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The Gray Gardener assassin distracts a creature within 30 feet, using a few choice words or gestures. The creature is Off-Guard against the assassin's attacks until the end of the assassin's next turn. Depending on the distraction, this action gains either the auditory or the visual trait."}, {"name": "Mark for Death", "type": "action", "traits": [], "cost": 3, "text": "The Gray Gardener assassin designates a single creature they can see and hear as their mark. This effect lasts until the mark dies or the assassin uses Mark for Death again. The assassin gains a +2 circumstance bonus to Perception checks to Seek the mark and on Deception checks to Feint against the mark. The assassin's melee and ranged Strikes gain the deadly d8 weapon traits when attacking the mark."}, {"name": "Poison Weapon", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The Gray Gardener assassin is wielding a piercing or slashing weapon and has a free hand%rEffect The assassin applies a poison to the weapon."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The Gray Gardener assassin Interacts to draw a weapon and then Strikes with that weapon."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Gray Gardener assassin deals an additional 6d6 precision damage precision damage to Off-Guard creatures."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "On the first round of combat, creatures that haven't acted yet are Off-Guard to the Gray Gardener assassin."}]

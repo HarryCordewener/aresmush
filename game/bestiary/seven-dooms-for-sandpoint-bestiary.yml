@@ -1,0 +1,872 @@
+---
+"Abstalar Zantus":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "good", "human", "humanoid"]
+  ac: 22
+  hp: 115
+  perception: 15
+  saves: {"fortitude": 13, "reflex": 11, "will": 15}
+  abilities: {"cha": 3, "con": 2, "dex": 2, "int": 1, "str": 1, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Arcana": 10, "Diplomacy": 14, "Medicine": 15, "Religion": 17, "Sandpoint Lore": 10}
+  strikes: [{"name": "Starknife", "bonus": 12, "damage": [["2d4+1", "piercing", null]], "traits": ["agile", "deadly-d6", "finesse", "magical", "versatile-s"]}, {"name": "Starknife", "bonus": 12, "damage": [["2d4+1", "piercing", null]], "traits": ["agile", "deadly-d6", "magical", "thrown-20", "versatile-s"]}]
+  actions: [{"name": "Communal Healing Hands", "type": "passive", "traits": [], "text": "When Abstalar casts Heal, he rolls d10s instead of d8s. When he casts heal to heal a single creature other than himself, he regains Hit Points equal to the spell rank of the heal spell."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 23, "attack": 13, "spells": {"0": ["Detect Magic", "Divine Lance", "Light", "Shield", "Stabilize"], "1": ["Command", "Heal", "Mending", "Protection", "Sanctuary"], "2": ["Cleanse Affliction", "Restoration", "Sound Body", "Spiritual Weapon", "Sure Footing"], "3": ["Dream Message", "Holy Light"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 21, "attack": 13, "spells": {"1": ["Bit of Luck"]}}]
+"Adimar Scarnetti":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["beast", "evil", "human", "humanoid", "lawful", "werecreature"]
+  ac: 27
+  hp: 130
+  perception: 15
+  saves: {"fortitude": 14, "reflex": 18, "will": 15}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 1, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 18, "Athletics": 14, "Deception": 16, "Intimidation": 16, "Society": 15, "Stealth": 18, "Thievery": 16}
+  weaknesses: {"silver": 10}
+  strikes: [{"name": "Rapier", "bonus": 19, "damage": [["2d6+5", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse", "magical"]}, {"name": "Shortbow", "bonus": 18, "damage": [["1d6+5", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Rat Empathy", "type": "passive", "traits": ["primal"], "text": "The wererat can communicate with rodents."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Human with fist +18 for 1d4+5 bludgeoning, or Small rat with Speed 30 feet, climb Speed 10 feet%rThe werecreature changes into its humanoid, hybrid, or animal shape. Each shape has a specific, persistent appearance. A true werecreature's natural form is its hybrid shape.%rIn humanoid shape, the werecreature uses its original humanoid size, loses its jaws and claws Strikes, and gains a melee fist Strike that deals bludgeoning damage equal to the slashing damage dealt by its claw.%rIn animal…"}, {"name": "Curse of the Wererat", "type": "passive", "traits": ["curse", "primal"], "text": "This curse affects only humanoids.%rSaving Throw DC 26 Fortitude%rOn each full moon, the cursed creature must succeed at another Fortitude save or turn into a wererat until dawn.%rThe creature is under the GM's control and goes on a rampage for half the night before falling unconscious until dawn."}, {"name": "Moon Frenzy", "type": "passive", "traits": ["polymorph", "primal"], "text": "When a full moon appears in the night sky, the werecreature must enter hybrid form, can't Change Shape thereafter, becomes one size larger, increases its reach by 5 feet, and increases the damage of its jaws Strike by 2.%rWhen the moon sets or the sun rises, the werecreature returns to humanoid form and is Fatigued for 2d4 hours.%rEffect: Moon Frenzy"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Adimar's Strikes deal an additional 2d6 precision damage to Off-Guard creatures."}, {"name": "Unexpected Transformation", "type": "action", "traits": [], "cost": 1, "text": "Requirements Adimar is in human or rat form%rEffect Adimar uses Change Shape to transform into his hybrid form and attempts to Demoralize one target within 30 feet, gaining a +2 circumstance bonus to his Intimidation check to do so. All creatures who witness Adimar use Unexpected Transformation can't be Demoralized by future Unexpected Transformations for 24 hours."}]
+"Aliver \"Pillbug\" Podiker":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 21
+  hp: 125
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 13, "will": 16}
+  abilities: {"cha": 1, "con": 3, "dex": 0, "int": 4, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Arcana": 17, "Crafting": 17, "Deception": 15, "Medicine": 16, "Nature": 14, "Occultism": 17, "Society": 15, "Survival": 14, "Thievery": 14}
+  strikes: [{"name": "Dagger", "bonus": 14, "damage": [["1d4+5", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 14, "damage": [["1d4+5", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}, {"name": "Hand Crossbow", "bonus": 14, "damage": [["2d6", "piercing", null]], "traits": ["magical", "reload-1"], "range": 60}, {"name": "Frost Vial (Moderate)", "bonus": 14, "damage": [["2d6", "cold", null], ["2", "cold", "splash"]], "traits": [], "range": 30}]
+  actions: [{"name": "Infused Items", "type": "passive", "traits": [], "text": "Darkvision Elixir (Moderate), Bomber's Eye Elixir (Lesser) (2), Elixir of Life (Lesser) (4), Frost Vial (Moderate) (8), Giant Wasp Venom (7)"}, {"name": "Foul Concoction", "type": "action", "traits": ["manipulate", "poison"], "cost": 2, "text": "Frequency once per day%rEffect Aliver quickly mixes alchemical catalysts and materials together, creating a burst of foul-smelling smoke that fills a 10-foot. The cloud functions as Stinking Cloud (DC 25 Fortitude) except that Aliver is immune to the putrid stench created by the concoction."}, {"name": "Precise Poisoning", "type": "action", "traits": [], "cost": 2, "text": "Aliver applies a dose of poison (typically a dose of Giant Wasp Venom) to a bolt on his crossbow, then takes careful aim with the poisoned bolt and attempts a ranged Strike with his hand crossbow. If he hits, he inflicts an additional 1d6 piercing damage with the bolt as well as the poison effect."}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "Aliver Interacts to draw a bomb, then Strikes with it."}]
+"Angry Townsfolk":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 5
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["human", "humanoid", "lawful", "troop"]
+  ac: 22
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 9, "will": 11}
+  abilities: {"cha": 2, "con": 3, "dex": 0, "int": 0, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "troop defenses"
+  skills: {"Athletics": 14, "Intimidation": 11, "Settlement Lore": 9}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Form Up", "type": "action", "traits": [], "cost": 1}, {"name": "Seek Quarry", "type": "passive", "traits": [], "text": "Angry townsfolk can spend 1 minute to designate a single creature for whom they have a physical description as their quarry. They gain a +2 circumstance bonus to Perception against their quarry."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 50 (3 segments), 25 (2 segments)"}, {"name": "Pitchforks and Torches", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round.%rEffect The angry townsfolk engage in a coordinated melee attack against each enemy within 10 feet, with a DC 19 Reflex save. The damage depends on the number of actions.%r1 1d10 untyped|options:area-damage damage%r2 (1d10+7) untyped|options:area-damage damage%r3 (1d10+10) untyped|options:area-damage damage"}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the city guards Stride, they first Form Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then move up to their Speed.%rThis works just like a Gargantuan creature moving; for instance, if any square of the guards enters difficult terrain, the extra movement cost applies to all the guards."}, {"name": "Urban Chasers", "type": "passive", "traits": [], "text": "Angry townsfolk ignore difficult terrain (but not greater difficult terrain) caused by crowds or from movement through narrow spaces such as alleyways."}]
+"Arika Avertin":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 21
+  hp: 78
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 13, "will": 10}
+  abilities: {"cha": 4, "con": 2, "dex": 3, "int": 2, "str": 1, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 13, "Deception": 14, "Diplomacy": 12, "Occultism": 12, "Performance": 14, "Society": 10, "Stealth": 11}
+  strikes: [{"name": "Shortsword", "bonus": 12, "damage": [["2d6+1", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Composite Shortbow", "bonus": 11, "damage": [["1d6+1", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 22, "attack": 12, "spells": {"0": ["Daze", "Detect Magic", "Know the Way", "Shield", "Telekinetic Projectile"], "1": ["Charm", "Enfeeble", "Sanctuary", "Soothe"], "2": ["Dispel Magic", "Mirror Image", "Noise Blast", "Soothe"], "3": ["Haste", "Levitate", "Noise Blast", "Paralyze", "Soothe"]}}, {"name": "Bard Composition Spells", "tradition": "occult", "type": "focus", "dc": 22, "attack": 12, "spells": {"0": ["Courageous Anthem", "Rallying Anthem", "Uplifting Overture"], "1": ["Counter Performance", "Lingering Composition"]}}]
+"Ascended Disciple":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 20
+  hp: 90
+  perception: 13
+  saves: {"fortitude": 11, "reflex": 10, "will": 13}
+  abilities: {"cha": 2, "con": 2, "dex": 1, "int": 0, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Athletics": 12, "Deception": 11, "Intimidation": 11, "Occultism": 9, "Religion": 13, "Sandpoint Devil Lore": 9}
+  strikes: [{"name": "Machete", "bonus": 13, "damage": [["1d6+2", "slashing", null]], "traits": ["deadly-d8", "magical", "sweep"]}, {"name": "Composite Shortbow", "bonus": 10, "damage": [["1d8+5", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Devil's Breath", "type": "action", "traits": ["divine", "fire"], "cost": 2, "text": "Frequency once per day%rEffect The ascended disciple cuts their tongue with a slashing weapon held in a hand (taking 1 slashing damage), then exhales a 15-foot of burning smoke. Each creature in the area must attempt a DC 22 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 2d8 fire|options:area-damage damage.%rFailure The creature takes 4d8 fire|options:area-damage damage and is Sickened 1 by the agonizing pain of the burns.%rCritical Failure The creature…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The creature's Strikes deal an additional 1d6 precision damage to Off-Guard creatures."}]
+"Asmerelli":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 6
+  size: "small"
+  rarity: "unique"
+  traits: ["evil", "halfling", "humanoid"]
+  ac: 23
+  hp: 92
+  perception: 13
+  saves: {"fortitude": 12, "reflex": 15, "will": 15}
+  abilities: {"cha": 4, "con": 2, "dex": 3, "int": 0, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Deception": 14, "Intimidation": 14, "Religion": 15, "Stealth": 13, "Thievery": 13, "Sandpoint Devil Lore": 12}
+  strikes: [{"name": "Machete", "bonus": 10, "damage": [["1d6+2", "slashing", null]], "traits": ["deadly-d8", "sweep"]}, {"name": "Shortbow", "bonus": 16, "damage": [["1d6+2", "piercing", null]], "traits": ["deadly-d10", "magical", "reload-0"], "range": 60}]
+  actions: [{"name": "Devil's Cursed Breath", "type": "action", "traits": ["curse", "divine", "fire"], "cost": 2, "text": "Frequency once per day%rEffect Asmerelli bites down on her tongue (taking 1 slashing damage), then exhales a 15-foot of burning smoke. Each creature in the area must attempt a DC 24 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 3d8 fire|options:area-damage damage.%rFailure The creature takes 6d8 fire|options:area-damage damage and is Sickened 1 by the agonizing pain of the burns.%rCritical Failure The creature takes 6d8 fire|options:area-damage damage,…"}, {"name": "Reach Spell", "type": "action", "traits": ["manipulate", "spellshape"], "cost": 1, "text": "If the next action Asmerelli takes is to Cast a Spell that has a range, increase that spell's range by 30 feet."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 24, "attack": 16, "spells": {"0": ["Daze", "Divine Lance", "Light", "Produce Flame", "Read Aura", "Shield"], "1": ["Charm", "Command", "Enfeeble", "Heal"], "2": ["Dispel Magic", "Floating Flame", "Harm", "Noise Blast"], "3": ["Blindness", "Enthrall", "Holy Light", "Vampiric Feast"]}}, {"name": "Sorcerer Bloodline Spells", "tradition": "divine", "type": "focus", "dc": 24, "attack": 16, "spells": {"1": ["Diabolic Edict"], "3": ["Embrace the Pit"]}}]
+"Charn Scarnetti":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 18
+  hp: 45
+  perception: 11
+  saves: {"fortitude": 6, "reflex": 10, "will": 11}
+  abilities: {"cha": 4, "con": 1, "dex": 3, "int": 1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Deception": 10, "Diplomacy": 10, "Intimidation": 9, "Gambling Lore": 8}
+  strikes: [{"name": "Rapier", "bonus": 12, "damage": [["1d6+5", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse"]}, {"name": "Fist", "bonus": 12, "damage": [["1d4+5", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Ghostly Hatchet", "bonus": 22, "damage": [["1d6", "bleed", "persistent"], ["2d6+11", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Lip Reader", "type": "passive", "traits": [], "text": "After years of sticking their nose where it doesn't belong, the noble has learned to read lips from afar, with the effects of the Read Lips feat."}, {"name": "Noble's Ruse", "type": "action", "traits": [], "cost": 1, "text": "Frequency Once per round%rEffect The noble Feints. On a success, the noble Strikes the target."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The noble deals 1d6 extra precision damage to Off-Guard creatures."}]
+"Chertus Jheed":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "fungus", "human", "humanoid"]
+  ac: 24
+  hp: 130
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 14, "will": 14}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 14, "Athletics": 17, "Deception": 9, "Intimidation": 11, "Thievery": 14}
+  immunities: ["death-effects", "disease", "paralyzed", "poison"]
+  strikes: [{"name": "Fist", "bonus": 18, "damage": [["2d6+4", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Brutal Brawler", "type": "passive", "traits": [], "text": "Chertus can choose to inflict lethal damage with his fists, and increases the size of his damage die with fist attacks to 1d6. If he does so, on a critical hit, the target struck must succeed at a DC 25 Fortitude save or become Stunned 1 by the staggering blow."}, {"name": "Exacting Strike", "type": "action", "traits": ["press"], "cost": 1, "text": "Chertus makes a Strike. If he rolls a failure on this Strike, the attack doesn't count toward his multiple attack penalty."}, {"name": "Lunge", "type": "action", "traits": [], "cost": 1, "text": "Chertus makes a Strike with his fist and increases his reach by 5 feet for this Strike."}, {"name": "Pummeling Flurry", "type": "action", "traits": [], "cost": 2, "text": "Chertus swings his fist in a pummeling arc, then makes a fist Strike and compares the attack roll result to the AC of up to two adjacent foes. He then rolls damage and applies it to each creature he hits. This counts as two attacks for his multiple attack penalty."}, {"name": "Snatch Weapon", "type": "action", "traits": [], "cost": 2, "text": "Chertus attempts to Disarm a creature. If he knocks a weapon out of the opponent's grasp, Chertus wields the weapon and attempts a Strike against the opponent with the weapon. This counts as two attacks for his multiple attack penalty."}]
+"Clockwork Serpent":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 8
+  size: "large"
+  rarity: "rare"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 27
+  hp: 110
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 17, "will": 16}
+  abilities: {"cha": -5, "con": 3, "dex": 3, "int": -5, "str": 6, "wis": 4}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18}
+  weaknesses: {"electricity": 10, "orichalcum": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Jaws", "bonus": 20, "damage": [["2d10+9", "piercing", null]], "traits": ["magical", "reach-10", "unarmed"], "effects": ["Clockwork Serpent Venom"]}, {"name": "Coils", "bonus": 20, "damage": [["2d12+9", "bludgeoning", null]], "traits": ["magical"], "effects": ["Grab"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 26 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Activate Serpent Mode", "type": "reaction", "traits": [], "text": "Trigger The clockwork serpent begins its turn%rEffect The clockwork serpent transforms into a different mode. Roll 1d3 and consult the options below. If it rolls a mode it can't currently activate, the clockwork serpent becomes Clumsy 1 until the start of its next turn. At the end of its turn, it automatically deactivates its serpent mode.%r1 Cobra Mode The clockwork serpent can use Intimidating Hood.%r2 Constrictor Mode The clockwork serpent can use its coils Strike and can Constrict.%r3…"}, {"name": "Critical Deactivation", "type": "passive", "traits": [], "text": "If a clockwork serpent takes any precision damage or takes a critical hit and it has a serpent mode active, it must attempt a DC 16 Flat. On a failure, it takes the damage from the critical hit as normal, is Stunned 1, and its serpent mode deactivates."}, {"name": "Clockwork Serpent Venom", "type": "passive", "traits": ["arcane", "magical", "poison"], "text": "Saving Throw DC 26 Fortitude%rMaximum Duration 6 rounds%rStage 1 2d6 poison damage and Off-Guard (1 round)%rStage 2 2d6 poison damage, Enfeebled 1, and off-guard (1 round)"}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d10+6) bludgeoning, DC 26 Fortitude%rRequirements The clockwork serpent is in constrictor mode"}, {"name": "Intimidating Hood", "type": "action", "traits": ["arcane", "emotion", "fear", "mental"], "cost": 2, "text": "Requirements The clockwork serpent is in cobra mode%rEffect The clockwork serpent flares out a cobra hood. All creatures within a 15-foot must succeed at a DC 26 Will save or become Frightened 1 (Frightened 2 on a critical failure)."}, {"name": "Shattering Rattle", "type": "action", "traits": ["arcane", "sonic"], "cost": 2, "text": "Requirements The clockwork serpent is in rattlesnake mode%rEffect The clockwork serpent rattles its tail, then snaps it like a whip to create a devastating blast of sonic energy in a 30-foot. Creatures in the area take 9d6 sonic|options:area-damage damage (DC 26 Fortitude save)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Coloxus":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["chaotic", "demon", "evil", "fiend"]
+  ac: 33
+  hp: 270
+  perception: 22
+  saves: {"fortitude": 22, "reflex": 25, "will": 18}
+  abilities: {"cha": 5, "con": 4, "dex": 7, "int": 3, "str": 5, "wis": 4}
+  speeds: {"land": 25, "fly": 30}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 21, "Arcana": 21, "Deception": 23, "Diplomacy": 23, "Religion": 22, "Stealth": 25, "Thievery": 23}
+  immunities: ["disease"]
+  weaknesses: {"cold-iron": 10, "holy": 10}
+  resistances: {"poison": 10}
+  strikes: [{"name": "Jaws", "bonus": 25, "damage": [["3d8+8", "piercing", null], ["1d6", "spirit", null]], "traits": ["finesse", "magical", "unarmed", "unholy"], "effects": ["Siphon"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Filth Vulnerability", "type": "passive", "traits": [], "text": "A coloxus despises contact with filth and dirt. A small amount of filth held in the hand can be used against a coloxus as a Strike that has the thrown 5 feet trait, and that inflicts 2d6 mental damage on a hit. Forcing a coloxus to fall into or become immersed in filth deals 6d6 mental damage per round."}, {"name": "Vanishing Words", "type": "reaction", "traits": [], "text": "Trigger The coloxus rolls initiative with Deception or Diplomacy and can cast Invisibility%rEffect The coloxus casts 4th-rank invisibility on itself."}, {"name": "Droning Wings", "type": "action", "traits": ["divine", "mental", "visual"], "cost": 2, "text": "Frequency once per day%rEffect The coloxus flutters its shimmering, gauzy wings and creates a mesmerizing display of color along with a sound-dampening buzzing drone. If the coloxus is Invisible, that effect ends and it becomes visible. All creatures within a 30-foot must succeed at a DC 29 Will save or become Slowed 1 (Slowed 2 on a critical failure) until the start of the coloxus's next turn. As long as Droning Wings continues, the coloxus gains immunity to sonic damage. The coloxus can…"}, {"name": "Siphon", "type": "passive", "traits": [], "text": "When a coloxus damages a creature with its jaws Strike, it siphons away the target's physical vitality and drinks from their sense of self-worth and confidence. The coloxus gains 10 temporary Hit Points, and the creature must succeed at a DC 32 Will save or become Stupefied 1. Further damage dealt by the coloxus increases the stupefied condition by 1 on a failed save to a maximum of stupefied 4."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The creature's Strikes deal an additional 2d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 32, "attack": 24, "spells": {"0": ["Message", "Prestidigitation", "Telekinetic Projectile"], "4": ["Confusion", "Invisibility", "Suggestion"], "5": ["Abyssal Plague", "Translocate"], "6": ["Shadow Blast", "Summon Animal (Giant Arthropods Only)", "Truespeech (Constant)"]}}]
+"Cruncher":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 6
+  size: "large"
+  rarity: "uncommon"
+  traits: ["beast"]
+  ac: 24
+  hp: 90
+  perception: 10
+  saves: {"fortitude": 17, "reflex": 14, "will": 12}
+  abilities: {"cha": 0, "con": 5, "dex": 4, "int": -2, "str": 5, "wis": 4}
+  speeds: {"land": 25, "burrow": 15}
+  senses: ["scent"]
+  skills: {"Athletics": 15, "Stealth": 14, "Survival": 12}
+  strikes: [{"name": "Jaws", "bonus": 17, "damage": [["2d8+8", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 17, "damage": [["2d6+8", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Spiked Tail", "bonus": 17, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["reach-10", "versatile-p"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Trackless", "type": "passive", "traits": [], "text": "A hodag sweeps the ground behind it with its tail as it moves, obscuring its tracks. The DCs of checks to Track a hodag are increased by 10."}, {"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Rip and Tear", "type": "action", "traits": [], "cost": 2, "text": "The hodag makes two claw Strikes and one jaws Strike in any order."}, {"name": "Sickly", "type": "passive", "traits": [], "text": "Cruncher is Enfeebled 1 due to his mistreatment from the goblins. In addition, his eyes are rheumy and caked with gunk, resulting in a –4 circumstance penalty to sight-based Perception checks and causing him to be Blinded beyond a range of 5 feet. If he escapes into the wild, he heals back up after a few nights' rest and a big meal. Alternatively, a PC can speed his recovery with a DC 20 Medicine check, with the results detailed below; this takes 10 minutes to perform, and as such Cruncher…"}, {"name": "Toss", "type": "action", "traits": [], "cost": 2, "text": "The hodag Strides, then makes a Strike against a target in reach. If it moves at least 20 feet and succeeds at its Strike, the hodag deals damage normally and then attempts an Athletics check against the creature's Fortitude DC to toss the enemy into the air.%rOn a success, the tossed creature is thrown 10 feet in a straight line in the direction of the hodag's choice and then lands Prone. If the creature is knocked into a solid object, it takes 1d6 bludgeoning damage as well before landing…"}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Devil's Disciple":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "human", "humanoid"]
+  ac: 18
+  hp: 30
+  perception: 5
+  saves: {"fortitude": 9, "reflex": 6, "will": 7}
+  abilities: {"cha": 3, "con": 3, "dex": 2, "int": 1, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Intimidation": 6, "Religion": 5, "Society": 4, "Stealth": 6, "Sandpoint Devil Lore": 4}
+  strikes: [{"name": "Machete", "bonus": 10, "damage": [["1d6+4", "slashing", null]], "traits": ["deadly-d8", "sweep"]}, {"name": "Dagger", "bonus": 8, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Devil's Breath", "type": "action", "traits": ["divine", "fire"], "cost": 2, "text": "Frequency once per day%rEffect The Devil's Disciple cuts their tongue with a slashing weapon held in a hand (taking 1 slashing damage), then exhales a 15-foot of burning smoke. Each creature in the area must attempt a DC 18 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 1d8 fire|options:area-damage damage.%rFailure The creature takes 2d8 fire|options:area-damage damage and is Sickened 1 by the agonizing pain of the burns.%rCritical Failure The creature…"}]
+"Divine Warden Of Haagenti":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 20
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 13, "reflex": 7, "will": 9}
+  abilities: {"cha": -5, "con": 2, "dex": -2, "int": -5, "str": 3, "wis": 0}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12}
+  strikes: [{"name": "Battle Axe", "bonus": 12, "damage": [["2d8+5", "slashing", null]], "traits": ["magical", "sweep"]}, {"name": "Horns", "bonus": 12, "damage": [["2d8+5", "piercing", null]], "traits": ["magical"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Divine Destruction", "type": "passive", "traits": ["divine", "void"], "text": "When the divine warden is reduced to 0 HP, it erupts with divine energy in a 30-foot, dealing 4d6 void|options:area-damage damage. Each creature in the area must attempt a DC 17 Will save with the following outcomes.%rCritical Success The creature takes half damage.%rSuccess The creature takes full damage.%rFailure The creature takes full damage and becomes temporarily cursed by the patron deity. The creature becomes Enfeebled 1 and Stupefied 1 for 1 day; this is a curse effect that uses the…"}, {"name": "Faith Bound", "type": "passive", "traits": ["divine"], "text": "A divine warden can't attack a creature that openly wears or displays the religious symbol of the divine warden's patron deity unless that creature uses a hostile action against the divine warden first. If the divine warden is intelligent, it can also attack a creature it believes isn't faithful to its deity or who wears the religious symbol as a ruse (typically after succeeding at a Perception check to sense-motive)."}, {"name": "Faithful Weapon", "type": "passive", "traits": [], "text": "Battle Axe, striking rune%rA divine warden always wields its patron deity's favored weapon. If the weapon is a ranged weapon, the divine warden automatically generates new ammunition with each attack. For a divine warden of 4th level or higher, the deity's favored weapon gains the effects of a Striking rune while the divine warden wields it; at 12th level, these effects are of a Greater Striking rune, and at 19th level, they're instead of a Major Striking rune."}, {"name": "Instrument of Faith", "type": "passive", "traits": [], "text": "The divine warden is a beacon for its deity's faith. A cleric of the divine warden's patron deity can channel a Heal spell through a divine warden they can see within 60 feet. The cleric determines any targets or area for the spell as if they were standing in the divine warden's space."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Divine Lance"]}}, {"name": "Divine Domain Spells", "tradition": "divine", "type": "focus", "dc": 17, "attack": 9, "spells": {"1": ["Athletic Rush", "Creative Splash"]}}]
+"False Devil":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["beast"]
+  ac: 26
+  hp: 145
+  perception: 17
+  saves: {"fortitude": 16, "reflex": 18, "will": 15}
+  abilities: {"cha": 0, "con": 4, "dex": 6, "int": -3, "str": 5, "wis": 5}
+  speeds: {"land": 25, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 18, "Stealth": 18}
+  strikes: [{"name": "Jaws", "bonus": 20, "damage": [["2d10+11", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 20, "damage": [["2d6+11", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Chupar", "type": "action", "traits": [], "cost": 1, "text": "Requirements The chupacabra has a creature Grabbed%rEffect The chupacabra sucks blood from the grabbed creature. The chupacabra gains the Quickened condition for 1 minute and can use the extra action only for Strike and Stride actions. A chupacabra can't use Chupar again while it is quickened in this way.%rA creature that has its blood drained by a chupacabra is Drained 1 until it receives healing (of any kind or amount)."}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "The chupacabra Strides and makes a Strike at the end of that movement. If the chupacabra began this action Hidden, it remains hidden until after this ability's Strike."}, {"name": "Wing Flurry", "type": "action", "traits": ["move"], "cost": 2, "text": "The false devil's spiny wings don't afford it a typical melee option, but it can use them to scrape and slash at foes it flies by. The winged chupacabra attempts to Tumble Through an enemy's space. As it does so, it flaps its wings furiously, gaining a +2 circumstance bonus to its Acrobatics check. If it succeeds, it inflicts 4d6 slashing damage to the creature it Tumbled Through (or 8d6 slashing damage on a critical success)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Fiendish Flock":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 7
+  size: "large"
+  rarity: "rare"
+  traits: ["animal", "chaotic", "evil", "swarm"]
+  ac: 26
+  hp: 88
+  perception: 16
+  saves: {"fortitude": 10, "reflex": 18, "will": 14}
+  abilities: {"cha": 0, "con": 0, "dex": 5, "int": -3, "str": 0, "wis": 5}
+  speeds: {"land": 10, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"bludgeoning": 5, "piercing": 10, "slashing": 10}
+  actions: [{"name": "Swarm Mind", "type": "passive", "traits": []}, {"name": "Beaks and Talons", "type": "action", "traits": [], "cost": 1, "text": "The fiendish flock's angry pecking and clawing deals 2d6 piercing,2d6 slashing damage to each enemy in the swarm's space (DC 25 Reflex save). A creature that critically fails its save is Blinded for 1d4 rounds as the birds focus their attacks on the target's face."}]
+"Fungus Tyrant":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "fiend", "fungus"]
+  ac: 27
+  hp: 180
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 17, "will": 19}
+  abilities: {"cha": 6, "con": 4, "dex": 4, "int": 3, "str": 4, "wis": 4}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 19, "Deception": 21, "Diplomacy": 19, "Intimidation": 19, "Religion": 19, "Society": 18, "Stealth": 19}
+  weaknesses: {"cold-iron": 10, "holy": 10}
+  resistances: {"electricity": 10}
+  strikes: [{"name": "Tentacle", "bonus": 19, "damage": [["2d10+7", "bludgeoning", null]], "traits": ["magical", "reach-10", "unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 19, "damage": [["2d12+7", "slashing", null]], "traits": ["agile", "magical", "unarmed"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Fungaltongue", "type": "passive", "traits": [], "text": "A fungus tyrant can speak with all forms of fungus, be they fungal creatures or otherwise. Most normal fungi don't recognize details about creatures or know anything about the world beyond their immediate vicinity. A fungus tyrant gains a +3 circumstance bonus on all Deception, Diplomacy, or Intimidation checks made against fungus creatures."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Create Spawn", "type": "passive", "traits": ["divine"], "text": "If a creature dies after being reduced to 0 HP by a fungus tyrant's Mind-Draining Kiss, the fungus tyrant can turn this victim into a spore thrall by donating some of their own fungal matter to the victim and leaving them to \"ripen\" within a patch of fungus for 24 hours. After this time, the creature is restored to life but gains the fungus trait and becomes a spore thrall. This prevents the creature's soul from continuing on to the afterlife in a similar manner to how undead are taken out of…"}, {"name": "Grow Sporepod", "type": "action", "traits": ["divine"], "cost": 2, "text": "The fungus tyrant causes a human-sized pod of fungal material to burst out of the ground at any point they can see within 60 feet. Once created, a sporepod lasts for 1 minute, until the fungus tyrant moves more than 120 feet away from it, or until it's destroyed (AC 28, Hardness 10, 20 HP). The fungus tyrant cannot Grow a Sporepod again for 1d4 rounds, but apart from this and a sporepod's 1 minute life, there is no hard limit to the number of sporepods a single fungus tyrant can have active at…"}, {"name": "Mind-Draining Kiss", "type": "action", "traits": ["divine", "emotion", "mental"], "cost": 1, "text": "Frequency once per round%rEffect The fungus tyrant engages a creature they have Grabbed in an act of passion in an attempt to drain its will and personality. The kiss makes the creature Stupefied 1 or increases its stupefied condition by 1, to a maximum of 4. The creature takes 4d6 poison damage and must then succeed at a DC 28 Will save or be affected by a Suggestion to remain immobile rather than trying to Escape."}, {"name": "Sporestride", "type": "action", "traits": ["move", "teleportation"], "cost": 1, "text": "The fungus tyrant Steps into an adjacent sporepod and instantly teleports to any other active sporepod they've created, bursting out of the target sporepod and destroying it in the process."}, {"name": "Sporewarp", "type": "action", "traits": ["attack"], "cost": 1, "text": "The fungus tyrant attempts a tentacle Strike but treats a sporepod of their choice within 120 feet that they can see as the point of origin of that tentacle Strike."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 28, "attack": 20, "spells": {"0": ["Daze", "Detect Magic"], "3": ["Mind Reading", "Slow"], "4": ["Charm", "Mirage", "Suggestion"], "5": ["Hallucination", "Illusory Disguise", "Mind Probe", "Truespeech (Constant)"]}}]
+"Ghast Cultist":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "ghoul", "undead", "unholy"]
+  ac: 25
+  hp: 115
+  perception: 18
+  saves: {"fortitude": 11, "reflex": 15, "will": 18}
+  abilities: {"cha": 4, "con": 2, "dex": 4, "int": 2, "str": 4, "wis": 5}
+  speeds: {"land": 30, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Athletics": 15, "Intimidation": 17, "Religion": 18}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 17, "damage": [["2d8+10", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Ghast Ghast Fever", "Ghast Paralysis"]}, {"name": "Claw", "bonus": 17, "damage": [["2d6+10", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Ghast Paralysis"]}, {"name": "Flail", "bonus": 18, "damage": [["2d6+10", "bludgeoning", null]], "traits": ["disarm", "magical", "sweep", "trip"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet. A creature entering the aura or starting its turn in the aura must succeed at a DC 22 Fortitude save or become Sickened 1 (plus Slowed 1 as long as it's sickened on a critical failure).%rWhile within the aura, the creature takes a -2 circumstance penalty to saves against disease and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune for 1 minute.%rEffect: Stench"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghast is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghast devours a chunk of the corpse and regains 5d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once.%rA ghast cultist can also scoop up a handful of maggots to feed upon if they're adjacent to the large bowl in the middle of area J1 ."}, {"name": "Ghast Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 25 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 3d8 void damage and regains half as many Hit Points from all healing (1 day)%rStage 3 as stage 2 (1 day)%rStage 4 3d8 void damage and gains no benefit from healing (1 day)%rStage 5 as stage 4 (1 day)%rStage 6 dead, and rises as a Ghast the next midnight"}, {"name": "Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any living creature hit by a ghast's attack must succeed at a DC 25 Fortitude save or become Paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghast jumps up to half its Speed. This movement doesn't trigger reactions."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Daze", "Divine Lance", "Message", "Read Aura", "Shield"], "1": ["Command", "Enfeeble", "Fear", "Harm"], "2": ["Silence", "Spiritual Weapon"], "3": ["Blindness", "Crisis of Faith"], "4": ["Divine Wrath"]}}]
+"Giant Longlegs":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 3
+  size: "small"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 18
+  hp: 50
+  perception: 8
+  saves: {"fortitude": 10, "reflex": 10, "will": 6}
+  abilities: {"cha": -4, "con": 3, "dex": 3, "int": -5, "str": 4, "wis": 3}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Athletics": 9, "Stealth": 10}
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d10+6", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Cluster", "type": "passive", "traits": [], "text": "A giant longlegs can share the same space as another giant longlegs, but no more than three giant longlegs can occupy the same space."}, {"name": "Bob", "type": "action", "traits": [], "cost": 1, "text": "The giant longlegs begins to bob up and down, using its legs almost like springs to cause its body to bounce and sway in an unsettling manner. Until the start of the giant longlegs's next turn, it gains a +2 status bonus to its Armor Class."}, {"name": "Noxious Spray", "type": "action", "traits": ["olfactory", "poison"], "cost": 2, "text": "The giant longlegs sprays a noxious chemical onto a single adjacent target, who must attempt a DC 20 Fortitude save. The giant longlegs can't use Noxious Spray for 1 minute.%rCritical Success The creature is unaffected and temporarily immune to Noxious Spray for 1 minute.%rSuccess The creature is unaffected.%rFailure The creature is Sickened 1.%rCritical Failure The creature is Sickened 2 and Enfeebled 1 for as long as they remain sickened."}]
+"Glorkus":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 4
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "ghoul", "undead", "unholy"]
+  ac: 21
+  hp: 59
+  perception: 12
+  saves: {"fortitude": 10, "reflex": 10, "will": 12}
+  abilities: {"cha": 3, "con": 2, "dex": 4, "int": 1, "str": 2, "wis": 4}
+  speeds: {"land": 30, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Occultism": 9, "Religion": 10, "Society": 7, "Stealth": 10, "Survival": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 12, "damage": [["1d6+2", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Ghoul Ghoul Fever", "Ghoul Paralysis"]}, {"name": "Claw", "bonus": 12, "damage": [["1d4+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Ghoul Paralysis"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains 3d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 21 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 2d6 void damage and regains half as many Hit Points from all healing (1 day)%rStage 3 as stage 2 (1 day)%rStage 4 2d6 void damage and gains no benefit from healing (1 day)%rStage 5 as stage 4 (1 day)%rStage 6 dead, and rises as a Ghoul the next midnight."}, {"name": "Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any living, non-elf creature hit by a ghoul's attack must succeed at a DC 21 Fortitude save or become Paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 21, "attack": 13, "spells": {"0": ["Divine Lance", "Guidance", "Prestidigitation", "Shield", "Void Warp"], "1": ["Command", "Enfeeble", "Harm", "Sanctuary"], "2": ["Dispel Magic", "Noise Blast", "Spiritual Weapon"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 21, "attack": 13, "spells": {"1": ["Touch of Undeath"]}}]
+"Goblin Ghoul":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 1
+  size: "small"
+  rarity: "uncommon"
+  traits: ["chaotic", "evil", "ghoul", "undead", "unholy"]
+  ac: 16
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 4, "reflex": 9, "will": 5}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": 1, "str": 1, "wis": 2}
+  speeds: {"land": 30, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 4, "Stealth": 7, "Survival": 5}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d6+1", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Ghoul Ghoul Fever", "Ghoul Paralysis"]}, {"name": "Claw", "bonus": 9, "damage": [["1d4+1", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Ghoul Paralysis"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains 1d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 15 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 2d6 void damage and regains half as many Hit Points from all healing (1 day)%rStage 3 as stage 2 (1 day)%rStage 4 2d6 void damage and gains no benefit from healing (1 day)%rStage 5 as stage 4 (1 day)%rStage 6 dead, and rises as a Ghoul the next midnight."}, {"name": "Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any living, non-elf creature hit by a ghoul's attack must succeed at a DC 15 Fortitude save or become Paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}]
+"Gorlak":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 7
+  size: "large"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "giant", "humanoid"]
+  ac: 23
+  hp: 130
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 11, "will": 14}
+  abilities: {"cha": 0, "con": 4, "dex": 0, "int": 0, "str": 7, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18, "Intimidation": 13}
+  strikes: [{"name": "Ogre Hook", "bonus": 18, "damage": [["2d10+9", "piercing", null]], "traits": ["deadly-d10", "magical", "reach-10", "trip"]}]
+  actions: [{"name": "Embed Hook", "type": "action", "traits": [], "cost": 1, "text": "Requirements Gorlak's previous action was a successful Strike on a creature with his ogre hook%rEffect Gorlak twists his hook to embed it in the creature by attempting an Athletics check against the target's Fortitude DC. On a success, that creature takes (1d10+9) piercing damage (DC 25 Fortitude save) and becomes Immobilized until Gorlak attempts another Strike with his Ogre Hook or attempts to Fling Foe the creature."}, {"name": "Fling Foe", "type": "action", "traits": [], "cost": 1, "text": "Requirements Gorlak's last action was to Embed Hook in a Medium or smaller creature%rEffect Gorlak attempts to fling the creature embedded on his hook through the air by attempting an Athletics check against the embedded creature's Fortitude DC.%rCritical Success The creature takes (2d10+9) piercing damage (DC 25 Fortitude save) as the hook rips free and is hurled 15 feet away, becoming Prone in a space of Gorlak's choosing.%rSuccess The creature takes (1d10+9) piercing damage (DC 25 Fortitude…"}]
+"Gurlunk":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 4
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "goblin", "humanoid"]
+  ac: 21
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 10, "reflex": 12, "will": 11}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 0, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Athletics": 8, "Intimidation": 8, "Nature": 9, "Stealth": 10, "Survival": 9}
+  strikes: [{"name": "Dogslicer", "bonus": 12, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "backstabber", "finesse", "goblin"]}, {"name": "Composite Shortbow", "bonus": 13, "damage": [["1d6+6", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "Trigger A goblin ally ends a move action adjacent to the goblin.%rEffect The goblin Steps."}, {"name": "Disorienting Shot", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Gurlunk makes two Strikes against his hunted prey with his shortbow. If both hit the same creature, the creature succeed at a DC 21 Will save or become Off-Guard until the start of their next turn (or the start of Gurlunk's next turn on a critical failure)."}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Gurlunk designates a single creature he can see or hear, and gains a +2 circumstance bonus to Perception checks to Seek and Track that prey. He can only have one creature so designated at a time, and if he selects a new hunted prey, the previous designation ends."}, {"name": "Hunter's Edge", "type": "passive", "traits": [], "text": "Gurlunk deals an additional 1d8 precision damage the first time he hits his hunted prey in a round."}, {"name": "Whistling Threat", "type": "action", "traits": ["concentrate", "emotion", "fear", "mental", "primal"], "cost": 2, "text": "Frequency once per day%rEffect Gurlunk whistles sharply at a Medium or larger animal or beast he can see within 30 feet, using his voice to dull the creature's wits and cause it to lower its defenses. The target must attempt a DC 21 Will save.%rCritical Success The target is unaffected.%rSuccess The target is Frightened 1.%rFailure The target is Frightened 2.%rCritical Failure The target is Frightened 3 and Slowed 1 for 1 round as it shakes in fear."}]
+"Iazmilor":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["grioth", "humanoid"]
+  ac: 26
+  hp: 145
+  perception: 16
+  saves: {"fortitude": 14, "reflex": 16, "will": 18}
+  abilities: {"cha": 4, "con": 4, "dex": 6, "int": 3, "str": 4, "wis": 4}
+  speeds: {"land": 25, "fly": 30}
+  senses: ["echolocation", "greater-darkvision"]
+  skills: {"Acrobatics": 16, "Occultism": 17, "Religion": 18, "Stealth": 18}
+  immunities: ["cold"]
+  weaknesses: {"fire": 10}
+  strikes: [{"name": "Warhammer", "bonus": 17, "damage": [["2d8+6", "bludgeoning", null]], "traits": ["shove"]}, {"name": "Jaws", "bonus": 16, "damage": [["2d8+6", "piercing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Grioth Venom"]}]
+  actions: [{"name": "Telepathy 30 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Echolocation (Precise) 30 feet", "type": "passive", "traits": [], "text": "A grioth can use its hearing as a precise sense at the listed range."}, {"name": "Light Blindness", "type": "passive", "traits": []}, {"name": "No Breath", "type": "passive", "traits": [], "text": "A grioth doesn't breathe except to speak and is immune to effects that require breathing (such as an inhaled poison)."}, {"name": "Grim Curse of Azathoth", "type": "action", "traits": ["curse", "divine", "emotion", "mental"], "cost": 2, "text": "Frequency once per day%rEffect Iazmilor invokes Azathoth's name in Aklo as he stares at a creature he can see within 30 feet. His eyes glow orange, and the target endures a brief vision of the seething chaos that churns at the center of the Material Plane and, for that instant, beholds their own insignificance in the cosmos. The target must attempt a DC 26 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature becomes Stupefied 1 for 1 hour.%rFailure The creature becomes…"}, {"name": "Grioth Venom", "type": "passive", "traits": ["emotion", "fear", "mental", "poison"], "text": "Saving Throw DC 26 Fortitude%rMaximum Duration 6 rounds%rStage 1 Frightened 1 (1 round)%rStage 2 Frightened 2 (1 round)%rStage 3 Frightened 3 (1 round)"}, {"name": "Shock Mind", "type": "action", "traits": ["mental", "occult"], "cost": 2, "text": "The grioth makes a Strike with a voidglass weapon.%rIf the Strike hits, it deals an additional 4d6 mental damage, and the target must succeed at a DC 26 Will save (this has the incapacitation trait) or become Confused for 1 round."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 26, "attack": 18, "spells": {"0": ["Divine Lance", "Message", "Prestidigitation", "Shield", "Stabilize"], "1": ["Bane", "Enfeeble", "Fear", "Heal"], "2": ["Create Food", "Dispel Magic", "Silence", "Spiritual Weapon"], "3": ["Vampiric Feast"], "4": ["Divine Wrath", "Outcast's Curse"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 23, "attack": 15, "spells": {"0": ["Daze", "Detect Magic", "Telekinetic Hand", "Telekinetic Projectile"], "4": ["Phantom Pain"]}}]
+"Isphinn":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 7
+  size: "large"
+  rarity: "unique"
+  traits: ["earth", "elemental", "genie", "lawful"]
+  ac: 25
+  hp: 110
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 12, "will": 15}
+  abilities: {"cha": 3, "con": 4, "dex": 1, "int": 3, "str": 6, "wis": 2}
+  speeds: {"land": 20, "burrow": 45, "climb": 20}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 19, "Crafting": 14, "Deception": 16, "Nature": 15, "Society": 14}
+  resistances: {"electricity": 10}
+  strikes: [{"name": "Falchion", "bonus": 20, "damage": [["1d6", "acid", null], ["2d10+12", "slashing", null]], "traits": ["forceful", "magical", "reach-10", "sweep"]}, {"name": "Fist", "bonus": 19, "damage": [["1d4+12", "bludgeoning", null]], "traits": ["agile", "magical", "nonlethal", "reach-10", "unarmed"], "effects": ["Push", "Shove Into Stone"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Earth Glide", "type": "passive", "traits": [], "text": "The shaitan can Burrow through dirt and stone at its full burrow Speed, leaving no tunnels or signs of its passing."}, {"name": "Shove into Stone", "type": "passive", "traits": ["arcane", "earth"], "text": "When the shaitan Pushes a creature into a stone barrier, the target must succeed at a DC 22 Reflex save or become merged with the barrier (as One with Stone). The victim can attempt to escape dc=28."}, {"name": "Push 10 feet", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 24, "attack": 16, "spells": {"0": ["Detect Magic (Constant)"], "2": ["Glitterdust"], "4": ["Shape Stone (At Will)"], "5": ["Veil (Self Only)", "Wall of Stone"], "7": ["Plane Shift (to Astral Plane, Elemental Planes, or Material Plane Only)"]}}]
+"Jervis Stoot":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 28
+  hp: 150
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 22, "will": 21}
+  abilities: {"cha": 6, "con": 3, "dex": 5, "int": 2, "str": -5, "wis": 4}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "void healing, rejuvenation"
+  senses: ["darkvision"]
+  skills: {"Crafting": 19, "Deception": 23, "Intimidation": 23, "Religion": 21, "Stealth": 22, "Sandpoint Lore": 19}
+  immunities: ["bleed", "blinded", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious", "visual"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Ghostly Hatchet", "bonus": 22, "damage": [["1d6", "bleed", "persistent"], ["2d6+11", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Trinket Bound", "type": "passive", "traits": [], "text": "Jervis Stoot can normally stray only a short distance from the underground chambers atop Chopper's Isle just north of Sandpoint, but when the head of the clockwork songbird is brought out of that area, Stoot can follow. As long as a creature he possesses carries the head, he can travel as he wishes, but no further than 5 miles from the town of Sandpoint."}, {"name": "Avian Vulnerability", "type": "passive", "traits": [], "text": "Jervis' resistance to all damage is additionally bypassed by Strikes from birds or avian creatures (including creatures who fly with wings, but not creatures who fly through magic alone)"}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "If Jervis is destroyed, he rejuvenates back in the underground chambers below Chopper's Isle and seeks out the carrier of the Clockwork Songbird's head as long as they remain within 5 miles of Sandpoint. If the architect of his whole doom, the Red Bishop, is slain, Stoot can move on to the afterlife.%rWhen a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Ghostly Murder", "type": "action", "traits": ["divine"], "cost": 2, "text": "Jervis Stoot raises a hand high, and a murder of ghostly crows manifests in a vortex above his hand. He then lowers his hand to point in a direction, and the murder of ghostly crows swarms out in a 20-foot. All creatures caught in the area must attempt a DC 30 Reflex save. Jervis can't use Ghostly Murder again for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature takes 6d6 slashing|options:area-damage damage.%rFailure The creature takes 10d6 slashing damage and 2d6…"}, {"name": "Malevolent Possession", "type": "action", "traits": ["incapacitation", "mental", "possession"], "cost": 2, "text": "The ghost attempts to possess an adjacent corporeal creature that carries the head of the Clockwork Songbird somewhere on their person. This has the same effect as the Possession spell, except since the ghost doesn't have a physical body, it is unaffected by that restriction of the spell."}, {"name": "Tears of Blood", "type": "action", "traits": ["divine"], "cost": 2, "text": "Frequency once per day%rEffect Jervis Stoot makes a plucking motion with his fingers. One creature he can sense within 30 feet experiences the agony of their eyes being plucked out and takes 12d6 mental damage from the pain (DC 30 Fortitude save, plus Blinded for 1 minute on a critical failure)."}]
+"Jordus Munt":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 25
+  hp: 130
+  perception: 15
+  saves: {"fortitude": 10, "reflex": 16, "will": 15}
+  abilities: {"cha": 4, "con": 0, "dex": 4, "int": 2, "str": 1, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Deception": 18, "Intimidation": 14, "Occultism": 12, "Performance": 14, "Religion": 15, "Society": 12}
+  strikes: [{"name": "Shortsword", "bonus": 16, "damage": [["2d6+3", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}]
+  actions: [{"name": "Devil's Cursed Breath", "type": "action", "traits": ["curse", "divine", "fire"], "cost": 2, "text": "Frequency once per day%rEffect Jordus bites down on his tongue (taking 1 slashing damage), then exhales a 15-foot of burning smoke. Each creature in the area must attempt a DC 26 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 3d8 fire|options:area-damage damage.%rFailure The creature takes 7d8 fire|options:area-damage damage and is Sickened 1 by the agonizing pain of the burns.%rCritical Failure The creature takes 10d8 fire|options:area-damage damage, is…"}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 26, "attack": 16, "spells": {"0": ["Daze", "Light", "Message", "Read Aura", "Telekinetic Projectile"], "1": ["Charm", "Phantom Pain", "Sanctuary"], "2": ["Lock", "Mirror Image", "Undetectable Alignment"], "3": ["Force Barrage", "Paralyze", "Soothe"], "4": ["Confusion", "Dispel Magic", "Vampiric Feast"]}}, {"name": "Bard Composition Spells", "tradition": "occult", "type": "focus", "dc": 26, "attack": 16, "spells": {"0": ["Courageous Anthem"], "1": ["Lingering Composition"], "4": ["Fortissimo Composition"]}}]
+"Kaleb Valdemar's Body":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "chaotic", "evil", "human", "humanoid"]
+  ac: 20
+  hp: 112
+  perception: 9
+  saves: {"fortitude": 15, "reflex": 12, "will": 23}
+  abilities: {"cha": 6, "con": 2, "dex": 1, "int": 7, "str": 4, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["lifesense"]
+  skills: {"Crafting": 21, "Deception": 22, "Diplomacy": 20, "Occultism": 21, "Society": 21}
+  strikes: [{"name": "Dagger", "bonus": 11, "damage": [["2d4+5", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Lifesense 60 feet", "type": "passive", "traits": []}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 29, "attack": 21, "spells": {"0": ["Daze", "Message", "Shield", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Charm", "Disguise Magic", "Fear", "Phantasmal Minion"], "2": ["Dispel Magic", "Humanoid Form", "Laughing Fit"], "3": ["Haste", "Locate", "Slow"], "4": ["Phantasmal Killer", "Suggestion", "Translocate"], "5": ["Sending", "Wall of Stone"], "6": ["Cursed Metamorphosis", "Petrify"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 29, "attack": 21, "spells": {"0": ["Daze", "Detect Magic", "Read Aura"], "2": ["Invisibility (At Will, Self Only)", "Paranoia (At Will)", "Peaceful Rest"], "3": ["Soothe"], "4": ["Confusion", "Dispelling Globe"]}}]
+"Minargul":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 6
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "goblin", "humanoid"]
+  ac: 22
+  hp: 92
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 10, "will": 13}
+  abilities: {"cha": 2, "con": 1, "dex": 2, "int": 4, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Deception": 10, "Intimidation": 12, "Medicine": 11, "Occultism": 12, "Religion": 13, "Society": 12, "Stealth": 10, "Survival": 11}
+  strikes: [{"name": "Sickle", "bonus": 13, "damage": [["1d4+2", "slashing", null]], "traits": ["agile", "finesse", "magical", "trip"]}]
+  actions: [{"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "Trigger A goblin ally ends a move action adjacent to the goblin.%rEffect The goblin Steps."}, {"name": "Familiar", "type": "passive", "traits": [], "text": "Whistlewing (bat)"}, {"name": "Patron", "type": "passive", "traits": [], "text": "Fervor"}, {"name": "Whistle Up Cursed Flames", "type": "action", "traits": ["curse", "divine", "fire"], "cost": 2, "text": "Minargul whistles a high-pitched shrill note, breathing out a blast of fire and foul-smelling smoke as she does so. All creatures in a 15-foot must attempt a DC 24 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 3d6 fire|options:area-damage damage.%rFailure The creature takes 6d6 fire|options:area-damage damage and is Sickened 1 by the agonizing pain of the burns.%rCritical Failure The creature takes 6d6 fire|options:area-damage damage and is cursed. The…"}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 24, "attack": 14, "spells": {"0": ["Daze", "Divine Lance", "Read Aura", "Shield", "Stabilize"], "1": ["Command", "Enfeeble", "Fear", "Harm", "Heal", "Sanctuary"], "2": ["Augury", "Noise Blast"], "3": ["Blindness"]}}, {"name": "Hexes", "tradition": "divine", "type": "focus", "dc": 24, "attack": 14, "spells": {"0": ["Stoke the Heart"], "1": ["Needle of Vengeance"]}}]
+"Mnoghoth":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["aberration", "chaotic", "evil", "seugathi"]
+  ac: 28
+  hp: 130
+  perception: 18
+  saves: {"fortitude": 17, "reflex": 20, "will": 14}
+  abilities: {"cha": 5, "con": 4, "dex": 6, "int": 4, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 18, "Crafting": 17, "Deception": 20, "Intimidation": 18, "Occultism": 19, "Stealth": 20}
+  immunities: ["mental", "poison"]
+  resistances: {"bludgeoning": 10}
+  strikes: [{"name": "Bite", "bonus": 19, "damage": [["2d8+11", "piercing", null]], "traits": ["agile", "finesse"], "effects": ["Seugathi Venom"]}, {"name": "Longsword", "bonus": 20, "damage": [["1d6", "acid", null], ["2d8+11", "slashing", null]], "traits": ["reach-10", "versatile-p"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Command Confusion", "type": "reaction", "traits": [], "text": "Trigger A creature fails its save against Mnoghoth's mindfog aura%rEffect Mnoghoth determines who the Confused creature attacks for that round, instead of the target being randomly determined by the GM. If the chosen target is the confused creature's ally, the creature can immediately attempt a DC 25 Will save; on a success, its target is determined randomly as normal for confusion, and on a critical success the target is no longer confused."}, {"name": "Mindfog Aura", "type": "passive", "traits": ["mental"], "text": "20 feet. A creature that starts its turn in the aura must succeed at a DC 25 Will save or become Confused for 1 round; on a success, that creature is temporarily immune for 1 minute. Mnoghoth can suppress or activate this aura as a single action with the concentrate trait."}, {"name": "Envenom Weapon", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Mnoghoth applies their seugathi venom to their longsword."}, {"name": "Magic Item Mastery", "type": "passive", "traits": [], "text": "Mnoghoth can Cast a Spell from a magic item even if the spell isn't on their spell list. All such spells are occult spells and use Mnoghoth's innate spell DC and attack modifier."}, {"name": "Seugathi Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 28 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage and Stupefied 1 (1 round)%rStage 2 2d6 poison damage and Deafened and Stupefied 2 (1 round)"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 28, "attack": 20, "spells": {"0": ["Daze", "Detect Magic", "Telekinetic Hand", "Telekinetic Projectile"], "3": ["Hypercognition", "Levitate", "Mind Reading"], "4": ["Dispel Magic", "Grim Tendrils"], "5": ["Black Tentacles", "Synesthesia"]}}]
+"Narlo Nyrell":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "undead", "unholy"]
+  ac: 26
+  hp: 136
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 18, "will": 14}
+  abilities: {"cha": 6, "con": 4, "dex": 4, "int": 3, "str": 4, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 16, "Intimidation": 18, "Nature": 16, "Religion": 16}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 5}
+  resistances: {"electricity": 5}
+  strikes: [{"name": "Staff", "bonus": 16, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["two-hand-d8"]}]
+  actions: [{"name": "Final Blasphemy", "type": "passive", "traits": ["divine", "void"], "text": "When the herexen is destroyed, it explodes in a wave of void energy with the effects of a 3-action, 4th-rank Harm spell (DC 26 Fortitude).%rThe herexen is destroyed, so it doesn't gain any Hit Points from this use of harm , and it doesn't need to have any harm spells remaining to use this ability."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Swarming Curse", "type": "passive", "traits": [], "text": "Hundreds of biting flies crawl over Narlo's bones, filling out his armor almost like his flesh once did. When these flies burn, they harm Narlo as well, imparting weakness to fire 5. Whenever Narlo casts a spell, these flies burst from his body to fill a 10-foot around him in a buzzing, biting cloud until the start of his next turn. During this time, he loses his weakness to fire, and any creature that ends their turn within the emanation takes 4d6 piercing|options:area-damage damage (DC 23…"}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 26, "attack": 18, "spells": {"0": ["Daze", "Divine Lance", "Message", "Shield", "Void Warp"], "1": ["Command", "Enfeeble", "Fear"], "2": ["Darkness", "Resist Energy", "Silence"], "3": ["Chilling Darkness", "Crisis of Faith", "Dispel Magic"], "4": ["Air Walk", "Harm", "Noise Blast"]}}, {"name": "Revelation Spells", "tradition": "divine", "type": "focus", "dc": 26, "attack": 18, "spells": {"1": ["Tempest Touch"], "3": ["Thunderburst"]}}]
+"Nualia":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 27
+  hp: 135
+  perception: 17
+  saves: {"fortitude": 16, "reflex": 19, "will": 22}
+  abilities: {"cha": 6, "con": 0, "dex": 3, "int": 6, "str": -5, "wis": 3}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "void healing, rejuvenation"
+  senses: ["darkvision"]
+  skills: {"Arcana": 22, "Intimidation": 22, "Stealth": 21}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Ghostly Hand", "bonus": 21, "damage": [["2d8+12", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "A typical ghost can stray only a short distance from where it was killed or the place it haunts. A typical limit is 120 feet. Some ghosts are instead bound to a room, building, item, or creature that was special to it rather than a location."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "Completing the ghost mage's project allows it to move on to the afterlife.%rWhen a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Frightful Moan", "type": "action", "traits": ["auditory", "divine", "emotion", "fear", "mental"], "cost": 2, "text": "The ghost laments its fate, forcing each living creature within 30 feet to attempt a DC 29 Will save. On a failure, a creature becomes Frightened 2 (or Frightened 3 on a critical failure). On a success, a creature is temporarily immune to this ghost's frightful moan for 1 minute."}, {"name": "Telekinetic Assault", "type": "action", "traits": ["divine"], "cost": 2, "text": "The ghost cries out in pain and anguish as small objects and debris fly about in a 30-foot. Creatures in this area take 6d6 bludgeoning|options:area-damage damage, subject to a DC 29 Reflex save."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 29, "attack": 23, "spells": {"0": ["Daze", "Stabilize"], "1": ["Bless", "Enfeeble"], "2": ["Clear Mind", "Share Life"], "3": ["Heal", "Heroism"], "4": ["Dispel Magic", "Spiritual Weapon"], "5": ["Heal"]}}]
+"Pthuminin":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "chaotic", "evil"]
+  ac: 31
+  hp: 195
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 23, "will": 22}
+  abilities: {"cha": 7, "con": 3, "dex": 6, "int": 6, "str": 3, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision", "thoughtsense"]
+  skills: {"Crafting": 21, "Deception": 24, "Occultism": 23, "Society": 19, "Stealth": 23}
+  immunities: ["confused"]
+  resistances: {"mental": 10}
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["2d10+7", "piercing", null], ["1d10", "mental", null]], "traits": ["finesse", "unarmed"]}, {"name": "Claw", "bonus": 21, "damage": [["2d8+7", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Thoughtsense 60 feet", "type": "passive", "traits": ["mental", "occult"], "text": "The gosreg senses a creature's mental essence as a precise sense with the listed range; it cannot sense mindless creatures with thoughtsense."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Unsettled Aura", "type": "passive", "traits": ["aura", "mental", "occult"], "text": "30 feet. Gosregs project a field of discordant energy that unsettles the minds of thinking creatures. Any non-mindless creature within 30 feet of a gosreg takes a -1 status penalty to Will saves.%rEffect: Unsettled Aura"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "The gosreg takes on the appearance of any Small or Medium humanoid. This doesn't change its Speed or its attack and damage modifiers with its Strikes, but it might change the damage type its Strikes deal (typically to bludgeoning)."}, {"name": "Mind Bolt", "type": "action", "traits": ["illusion", "mental", "occult"], "cost": 2, "text": "A gosreg concentrates its field of discordant mental energy and projects it into the mind of an enemy within 60 feet. The target takes 6d6 mental damage (DC 30 Will save). On a critical failure, the creature is also Confused for 1d4 rounds."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 30, "attack": 22, "spells": {"0": ["Mage Hand", "Telekinetic Projectile"], "2": ["Undetectable Alignment"], "4": ["Nightmare", "Suggestion"], "5": ["Mind Probe", "Sending", "Subconscious Suggestion", "Synaptic Pulse"], "6": ["Phantasmal Calamity", "Phantom Pain"]}}]
+"Red Bishop":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "chaotic", "evil"]
+  ac: 36
+  hp: 260
+  perception: 26
+  saves: {"fortitude": 23, "reflex": 26, "will": 28}
+  abilities: {"cha": 6, "con": 5, "dex": 8, "int": 4, "str": 5, "wis": 8}
+  speeds: {"land": 25, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 24, "Deception": 28, "Intimidation": 26, "Occultism": 26, "Religion": 28, "Society": 26, "Stealth": 28, "Engineering Lore": 26}
+  strikes: [{"name": "Claw", "bonus": 26, "damage": [["3d8+11", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Longsword", "bonus": 27, "damage": [["3d8+11", "slashing", null]], "traits": ["versatile-p"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Portentous Gaze", "type": "passive", "traits": ["aura", "emotion", "fear", "mental", "occult", "visual"], "text": "30 feet. When a creature ends its turn in the aura, it must attempt a DC 31 Will save. A creature that fails is Frightened 1 (or Frightened 2 on a critical failure)%rThe mothman can deactivate or activate this aura with a single action, which has the concentrate trait."}, {"name": "True Temptation", "type": "reaction", "traits": ["divine", "mental"], "text": "Frequency three times a day%rTrigger A creature within 30 feet of the Red Bishop speaks Pazuzu's name aloud three times with a single breath%rEffect The Red Bishop casts Charm on the creature. A creature with a fly speed takes a –4 circumstance penalty to the saving throw against this charm ."}, {"name": "Agent of Fate", "type": "action", "traits": ["primal"], "cost": 3, "text": "Frequency once per day%rEffect The mothman casts any spell of 5th level or lower that normally takes 2 or fewer actions to cast, whether they have those spells in their innate spells or not.%rThey can use this ability only if doing so steers the flow of fate in its proper course toward a disaster or otherwise significantly memorable event.%rWhat the proper flow of fate entails is determined by the GM, but some examples include casting Illusory Scene to coax someone to a portentous location,…"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "The Red Bishop takes on the appearance of a Tiny red sea gull or red hawk. This doesn't change his speed, but he can't make Strikes in this form."}, {"name": "Command the Hateful Skies", "type": "passive", "traits": [], "text": "The Red Bishop's telepathic words carry an unsettling weight and promise of punishment when spoken to any evil creature capable of flight. Against such creatures, the Red Bishop gains a +3 circumstance bonus to attempts to Make an Impression, Request, Coerce, and Demoralize, and he increases the DC of any mental effect he uses against such creatures by 3 as well. Even without these bonuses, evil flying creatures tend to treat the Red Bishop with a mix of respect, if not outright fear."}, {"name": "Extract Fear", "type": "action", "traits": ["divine", "mental"], "cost": 2, "text": "The Red Bishop reaches out with one hand toward a Frightened 1 creature he can see that's within 30 feet and makes a clutching motion to pull out the creature's fear and feed upon it. The Red Bishop restores (7d8+8) healing Hit Points to himself, and the target creature loses the frightened condition but must also attempt a DC 34 Will save as other emotions are drawn out of their mind as well to fade uselessly away, resulting in mental trauma and a strange numbness in the mind itself.%rCritical…"}, {"name": "Focus Gaze", "type": "action", "traits": ["concentrate", "emotion", "fear", "mental", "occult", "visual"], "cost": 1, "text": "The mothman fixes their glare at a creature they can see within 30 feet. The target must immediately attempt a Will save against the mothman's portentous gaze.%rIf the creature is already Frightened when it attempts this save, on a failure it becomes Stupefied 1 for 24 hours in addition to the frightened effect.%rAfter attempting its save, the creature is then temporarily immune for 1 minute."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 34, "attack": 26, "spells": {"0": ["Daze", "Divine Lance", "Message", "Shield", "Stabilize"], "1": ["Heal", "Sanctuary"], "2": ["Cleanse Affliction", "Dispel Magic", "Restoration", "Silence", "Spiritual Weapon"], "3": ["Dream Message"], "4": ["Divine Wrath"], "5": ["Sending"], "6": ["Spirit Blast"], "7": ["Divine Decree"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 34, "attack": 26, "spells": {"0": ["Daze", "Ghost Sound", "Read Aura"], "4": ["Invisibility", "Nightmare"], "5": ["Disguise Magic", "Illusory Object", "Mind Reading"], "6": ["Illusory Creature", "Rewrite Memory"], "7": ["Phantasmal Killer", "Suggestion"]}}]
+"Ripnugget":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 6
+  size: "small"
+  rarity: "unique"
+  traits: ["evil", "undead", "unholy"]
+  ac: 23
+  hp: 110
+  perception: 12
+  saves: {"fortitude": 15, "reflex": 12, "will": 11}
+  abilities: {"cha": 3, "con": 5, "dex": 2, "int": 2, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "void healing, rejuvenation"
+  senses: ["darkvision"]
+  skills: {"Athletics": 14, "Intimidation": 14, "Medicine": 12, "Nature": 12, "Stealth": 12}
+  immunities: ["bleed", "death-effects", "disease", "fire", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Dogslicer", "bonus": 15, "damage": [["1d6", "bleed", "persistent"], ["2d6+4", "slashing", null], ["1d6", "fire", null]], "traits": ["agile", "backstabber", "finesse", "goblin", "magical"]}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When a graveknight is destroyed, its armor rebuilds its body over the course of 1d10 days-or more quickly if the armor is worn by a living host. If the body is destroyed before then, the process restarts.%rA graveknight can only be permanently destroyed by obliterating its armor (such as with Disintegrate), transporting it to the Forge of Creation, or throwing it into the heart of a volcano."}, {"name": "Sacrilegious Aura", "type": "passive", "traits": ["aura", "divine"], "text": "30 feet. When a creature in the aura uses a vitality spell or ability, the graveknight automatically attempts to counteract it, with a counteract modifier of +13."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Devastating Blast", "type": "action", "traits": ["arcane", "fire"], "cost": 2, "text": "The graveknight unleashes a 30-foot of energy. Creatures in the area take 4d12 fire|options:area-damage damage (DC 24 Reflex save).%rThe graveknight can use this ability once every 1d4 rounds."}, {"name": "Dogslicer Cruelty", "type": "passive", "traits": [], "text": "On a critical hit with a dogslicer, Ripnugget yanks bits of flesh from his victim as he rips the blade free. The target becomes Sickened 1 from the pain, and is Off-Guard as long as they remain sickened."}, {"name": "Graveknight's Curse", "type": "passive", "traits": ["arcane", "curse"], "text": "This curse affects anyone who wears a graveknight's armor for at least 1 hour.%rSaving Throw DC 24 Will save%rOnset 1 hour%rStage 1 Doomed 1 and cannot remove the armor (1 day)%rStage 2 Doomed 2, the creature's Speed is reduced by 10, and cannot remove the armor (1 day)%rStage 3 dies and transforms into the armor's graveknight.%rEffect: Graveknight's Curse"}, {"name": "Phantom Mount", "type": "action", "traits": ["arcane", "summon"], "cost": 3, "text": "Ripnugget's mount is a giant gecko (HP 37; AC 19, Fort +11, Ref +8, Will +7) named Stickfoot.%rThe graveknight summons a supernatural mount as per Marvelous Mount, heightened to a level equal to half the graveknight's level.%rUnlike phantom steed , the steed's AC and saving throw bonuses are all 4 lower than the graveknight's, and the steed has one-third the graveknight's Hit Points (rounded down).%rIf the steed is destroyed, the graveknight must wait 1 hour before using this ability again."}, {"name": "Weapon Master", "type": "passive", "traits": [], "text": "The graveknight has access to the critical specialization effects of any weapons it wields."}]
+"Scarhorn":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 14
+  size: "large"
+  rarity: "unique"
+  traits: ["acid", "amphibious", "chaotic", "dragon", "evil"]
+  ac: 36
+  hp: 275
+  perception: 24
+  saves: {"fortitude": 28, "reflex": 22, "will": 24}
+  abilities: {"cha": 4, "con": 6, "dex": 4, "int": 5, "str": 7, "wis": 4}
+  speeds: {"land": 50, "fly": 120, "swim": 50}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 22, "Arcana": 27, "Athletics": 27, "Deception": 26, "Intimidation": 26, "Stealth": 24, "Thassilon Lore": 27}
+  immunities: ["acid", "paralyzed", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 29, "damage": [["3d10+13", "piercing", null], ["2d6", "acid", null]], "traits": ["acid", "magical", "reach-10", "unarmed"]}, {"name": "Claw", "bonus": 29, "damage": [["3d8+13", "slashing", null]], "traits": ["agile", "magical", "unarmed"]}, {"name": "Tail", "bonus": 27, "damage": [["3d10+11", "bludgeoning", null]], "traits": ["magical", "reach-15"]}, {"name": "Horns", "bonus": 27, "damage": [["2d6+11", "piercing", null]], "traits": ["magical", "reach-10"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 31 Will"}, {"name": "Tail Lash", "type": "reaction", "traits": [], "text": "Trigger A creature within reach of the dragon's tail takes an action to Strike or attempt a skill check%rEffect The dragon Strikes with its tail at the triggering creature at a -2 penalty. If it hits, the creature takes a -2 circumstance penalty to the triggering roll.%rEffect: Tail Lash"}, {"name": "Breath Weapon", "type": "action", "traits": ["acid", "arcane"], "cost": 2, "text": "Scarhorn breathes a spray of acid that deals 15d6 acid|options:area-damage damage in an 80-foot (DC 34 Reflex save). She can't use Breath Weapon again for 1d4 rounds."}, {"name": "Corrupt Water", "type": "action", "traits": ["arcane", "concentrate"], "cost": 1, "text": "Frequency Once per day%rEffect The dragon permanently befouls 10 cubic feet of liquid within 90 feet. The liquid becomes undrinkable and unable to support water-breathing life.%rThis destroys liquid magic or alchemical items if they're of a lower level than the dragon (a creature can attempt a DC 31 Will save to protect liquids in its possession). This doesn't affect liquids in a creature's body."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The dragon makes two claw Strikes and one horns Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "The dragon recharges its Breath Weapon whenever it scores a critical hit with a Strike."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 34, "attack": 26, "spells": {"0": ["Ghost Sound", "Light", "Read Aura", "Shield", "Telekinetic Hand"], "1": ["Alarm", "Charm", "Sure Strike"], "2": ["Dispel Magic", "Humanoid Form", "Telekinetic Maneuver", "Translate"], "3": ["Bind Undead", "Locate", "Shrink Item"], "4": ["Mirage", "Suggestion", "Translocate"], "5": ["Control Water", "Mariner's Curse", "Truespeech"], "6": ["Dominate", "Scrying"]}}, {"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 34, "attack": 26, "spells": {"2": ["Darkness (At Will)"]}}]
+"Serpentfolk Cultist":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "humanoid", "serpentfolk"]
+  ac: 25
+  hp: 100
+  perception: 15
+  saves: {"fortitude": 13, "reflex": 14, "will": 17}
+  abilities: {"cha": 5, "con": 2, "dex": 3, "int": 4, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Arcana": 13, "Athletics": 13, "Crafting": 13, "Deception": 16, "Intimidation": 14, "Occultism": 15, "Religion": 17, "Society": 13}
+  resistances: {"poison": 10}
+  strikes: [{"name": "Fangs", "bonus": 16, "damage": [["2d8+8", "piercing", null]], "traits": ["finesse"], "effects": ["Serpentfolk Venom"]}, {"name": "Dagger", "bonus": 17, "damage": [["2d4+8", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "+4 Status to Will Saves vs. Mental", "type": "passive", "traits": []}, {"name": "Raise Serpent", "type": "action", "traits": ["concentrate", "divine"], "cost": 3, "text": "Frequency once per day%rEffect The bone prophet animates corpses of snakes, serpentfolk, or similar serpentine creatures within a 30-foot. Any flesh on the bodies sloughs off, and they rise as skeletons. The bone prophet can raise one Large creature as a Skeletal Giant or up to three Medium creatures as Skeletal Champions; the equipment and attacks might be different depending on the corpses' possessions.%rThese skeletons have the minion trait and are under the bone prophet's control; the bone…"}, {"name": "Serpentfolk Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d4 poison damage and Enfeebled 1 (1 round)%rStage 2 2d4 poison damage and enfeebled 1 (1 round)"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The creature's Strikes deal an additional 1d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 25, "attack": 17, "spells": {"0": ["Daze", "Divine Lance", "Message", "Shield", "Sigil"], "1": ["Command", "Enfeeble", "Fear"], "2": ["Create Food", "Noise Blast", "Spiritual Weapon"], "3": ["Blindness", "Dispel Magic", "Heal"], "4": ["Divine Wrath", "Harm"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 28, "attack": 20, "spells": {"1": ["Ventriloquism (At Will)"], "2": ["Mirror Image (At Will)"], "3": ["Illusory Disguise (At Will)"], "4": ["Charm", "Suggestion"]}}]
+"Sicklefang Longlegs":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 24
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 15, "reflex": 14, "will": 12}
+  abilities: {"cha": -4, "con": 5, "dex": 4, "int": -5, "str": 5, "wis": 4}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 14, "Athletics": 15, "Stealth": 14}
+  strikes: [{"name": "Jaws", "bonus": 15, "damage": [["2d10+5", "piercing", null], ["1d6", "bleed", "persistent"]], "traits": ["deadly-d10", "unarmed"]}]
+  actions: [{"name": "Bob", "type": "action", "traits": [], "cost": 1, "text": "The sicklefang longlegs begins to bob up and down, using its legs almost like springs to cause its body to bounce and sway in an unsettling manner. Until the start of the sicklefang longlegs's next turn, it gains a +2 status bonus to its Armor Class."}, {"name": "Noxious Spray", "type": "action", "traits": ["olfactory", "poison"], "cost": 2, "text": "The sicklefang longlegs sprays a noxious chemical onto a single adjacent target, who must attempt a DC 24 Fortitude save. The sicklefang longlegs can't use Noxious Spray for 1 minute.%rCritical Success The creature is unaffected and temporarily immune to Noxious Spray for 1 minute.%rSuccess The creature is unaffected.%rFailure The creature is Sickened 1.%rCritical Failure The creature is Sickened 2 and Enfeebled 1 for as long as they remain sickened."}]
+"Statue of Alaznist":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["construct", "earth", "mindless"]
+  ac: 23
+  hp: 54
+  perception: 11
+  saves: {"fortitude": 14, "reflex": 11, "will": 7}
+  abilities: {"cha": -5, "con": 5, "dex": 4, "int": -5, "str": 4, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13}
+  strikes: [{"name": "Ranseur", "bonus": 13, "damage": [["2d10+4", "piercing", null]], "traits": ["disarm", "magical", "reach-10"]}]
+  actions: [{"name": "Construct Armor (Hardness 7)", "type": "passive", "traits": [], "text": "Like normal objects, an animated statue has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness.%rOnce an animated statue is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 19."}]
+"Stickfoot":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 19
+  hp: 37
+  perception: 7
+  saves: {"fortitude": 11, "reflex": 8, "will": 7}
+  abilities: {"cha": -2, "con": 1, "dex": 3, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 8, "Athletics": 5, "Stealth": 6}
+  strikes: [{"name": "Jaws", "bonus": 8, "damage": [["1d8+2", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Uncanny Climber", "type": "passive", "traits": [], "text": "A giant gecko's feet allow it to climb virtually any surface, no matter how slick or sheer. If a giant gecko attempts an Athletics check to Climb and critically fails, it gets a failure instead."}]
+"Tiluatchek":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 12
+  size: "small"
+  rarity: "unique"
+  traits: ["aberration", "chaotic", "evil"]
+  ac: 32
+  hp: 221
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 24, "will": 23}
+  abilities: {"cha": 6, "con": 5, "dex": 6, "int": 7, "str": 3, "wis": 5}
+  speeds: {"land": 35}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Athletics": 17, "Crafting": 21, "Deception": 22, "Diplomacy": 20, "Occultism": 21, "Society": 21, "Stealth": 20}
+  immunities: ["blinded", "controlled", "emotion", "possession"]
+  strikes: [{"name": "Talon", "bonus": 24, "damage": [["3d10+6", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Lifesense 60 feet", "type": "passive", "traits": []}, {"name": "Body Thief", "type": "action", "traits": ["manipulate", "occult", "possession"], "cost": 3, "text": "The intellect devourer reduces in size and burrows into the brain of a creature dead for no longer than 1 day. At the start of the intellect devourer's next turn, the body revives at its maximum Hit Points, controlled by the devourer. The intellect devourer is conscious and can sense everything the possessed body could.%rAny effect that ends the possession kills the host body with the same effects as Exit Body. The intellect devourer can't use any of the host creature's spells with Body Thief…"}, {"name": "Exit Body", "type": "action", "traits": ["move"], "cost": 1, "text": "Requirements The intellect devourer is controlling a body with Body Thief%rEffect The intellect devourer leaves its host body, which dies instantly and is no longer a suitable host for any Body Thief ability. The intellect devourer appears at full size in an adjacent space."}, {"name": "Nightmare Curse", "type": "action", "traits": ["curse", "illusion", "incapacitation", "mental", "occult"], "cost": 2, "text": "Frequency once per day%rEffect Tiluatchek reaches out with his mind to infect the dreams of a single creature within 60 feet that he can see. The target suddenly experiences a brief but overwhelming memory of a harrowing nightmare it had at some point in the past and must attempt a DC 32 Will save. The effects of this curse are permanent until the target is cured (although any frightened condition values imparted by the curse pass and end normally).%rCritical Success The target is unaffected,…"}, {"name": "Ravage", "type": "action", "traits": ["death"], "cost": 3, "text": "The intellect devourer makes two talon Strikes against a Paralyzed, Restrained, or Unconscious creature, using the same attack modifier as its highest attack modifier.%rThese Strikes gain the death trait. If Ravage kills the target, the intellect devourer may use Body Thief against it as a free action."}, {"name": "Stolen Identity", "type": "passive", "traits": [], "text": "While an intellect devourer uses Body Thief, it gains the ability to understand and speak all languages known by the host, as well as knowledge of the host body's abilities, identity, role in society, and personality. However, it does not gain the specific memories or knowledge of the host body."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 29, "attack": 21, "spells": {"0": ["Daze", "Message", "Shield", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Charm", "Disguise Magic", "Fear", "Phantasmal Minion"], "2": ["Dispel Magic", "Humanoid Form", "Laughing Fit"], "3": ["Haste", "Locate", "Slow"], "4": ["Phantasmal Killer", "Suggestion", "Translocate"], "5": ["Sending", "Wall of Stone"], "6": ["Cursed Metamorphosis", "Petrify"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 29, "attack": 21, "spells": {"0": ["Daze", "Detect Magic", "Read Aura"], "2": ["Invisibility (At Will, Self Only)", "Paranoia (At Will)", "Peaceful Rest"], "3": ["Soothe"], "4": ["Confusion", "Dispelling Globe"]}}]
+"Tunch":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 5
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "goblin", "humanoid"]
+  ac: 21
+  hp: 75
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 13, "will": 8}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 3, "str": 0, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Crafting": 12, "Deception": 11, "Nature": 8, "Religion": 8, "Stealth": 11, "Thievery": 11}
+  resistances: {"poison": 2}
+  strikes: [{"name": "Dogslicer", "bonus": 13, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "backstabber", "finesse"]}, {"name": "Alchemist's Fire (Moderate)", "bonus": 14, "damage": [["2d8", "fire", null], ["3", "fire", "splash"], ["2", "fire", "persistent"]], "traits": [], "range": 20}]
+  actions: [{"name": "Infused Items", "type": "passive", "traits": [], "text": "Tunch carries the following infused items, which last for 24 hours or until the next time he makes his daily preparations: Alchemist's Fire (Moderate) (8), Antidote (Lesser) (2), Elixir of Life (Lesser) (4), Glue Bomb (Moderate) (2)"}, {"name": "+1 Status vs. Poison", "type": "passive", "traits": []}, {"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "Trigger A goblin ally ends a move action adjacent to the goblin.%rEffect The goblin Steps."}, {"name": "Calculated Splash", "type": "passive", "traits": [], "text": "When Tunch throws a bomb with the splash trait, it deals splash damage equal to his Intelligence modifier."}, {"name": "Distracting Whistle", "type": "action", "traits": ["arcane", "auditory"], "cost": 1, "text": "Frequency once per round%rEffect Tunch whistles in a way that causes the sound to manifest elsewhere, potentially distracting a foe. One target of Tunch's choice that he can see within 30 feet must attempt a DC 22 Will save or become Off-Guard until the start of Tunch's next turn by the distracting whistling sound that seems to come from behind them. The target is then temporarily immune to Distracting Whistle for 1 hour."}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "Tunch Interacts to draw a bomb, then Strikes with it."}]
+"Vekensvok's Lampad":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "earth", "fey", "nymph"]
+  ac: 22
+  hp: 85
+  perception: 12
+  saves: {"fortitude": 11, "reflex": 14, "will": 12}
+  abilities: {"cha": 5, "con": 4, "dex": 5, "int": 2, "str": 0, "wis": 3}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Athletics": 9, "Deception": 20, "Diplomacy": 14, "Nature": 10, "Occultism": 11, "Performance": 14, "Society": 9, "Stealth": 12}
+  weaknesses: {"cold-iron": 5}
+  strikes: [{"name": "Earthen Fist", "bonus": 14, "damage": [["2d10+2", "bludgeoning", null]], "traits": ["agile", "finesse"]}, {"name": "Light Wisp", "bonus": 14, "damage": [["1d8+2", "mental", null], ["1d6", "fire", null], ["1d6", "vitality", null]], "traits": ["magical"], "range": 30}]
+  actions: [{"name": "Cavern Dependent", "type": "passive", "traits": [], "text": "A lampad is mystically bonded to a single cavern or other self-contained underground area and must remain within 300 feet of it.%rIf they move beyond that range, they become Sickened 1 and are unable to recover. They must attempt a DC 19 Fortitude save every hour or increase the sickened value by 1 (to a maximum of sickened 4).%rAfter 24 hours, they become Drained 1, with this value increasing by 1 every additional 24 hours. A lampad can perform a 24-hour ritual to bond to a new cavern."}, {"name": "Weep", "type": "action", "traits": ["auditory", "emotion", "mental", "primal"], "cost": 1, "text": "Frequency once per round%rEffect The lampad begins a heart-wrenching fit of weeping, inspiring sympathetic sobbing in nearby creatures. Each non-lampad creature within 30 feet who hears the lampad's weeping must succeed at a DC 20 Will save or be unable to use reactions for 1 round and Slowed 1 on its next turn as it sobs uncontrollably."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Dancing Lights"], "2": ["Faerie Fire", "Heal"], "3": ["Meld into Stone (At Will)", "Pummeling Rubble"], "4": ["Shape Stone"]}}]
+"Vizmivool":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "humanoid", "serpentfolk", "unholy"]
+  ac: 29
+  hp: 130
+  perception: 19
+  saves: {"fortitude": 14, "reflex": 21, "will": 19}
+  abilities: {"cha": 5, "con": 3, "dex": 6, "int": 4, "str": 3, "wis": 6}
+  speeds: {"land": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Arcana": 17, "Crafting": 19, "Deception": 18, "Intimidation": 18, "Occultism": 17, "Religion": 21}
+  resistances: {"poison": 10}
+  strikes: [{"name": "Fangs", "bonus": 19, "damage": [["2d8+9", "piercing", null]], "traits": ["finesse"], "effects": ["Serpentfolk Venom"]}, {"name": "Dagger", "bonus": 21, "damage": [["2d4+9", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "+4 Status to Will Saves vs. Mental", "type": "passive", "traits": []}, {"name": "Sacrifice Pawn", "type": "action", "traits": ["divine"], "cost": 2, "text": "Frequency once per day%rEffect Vizmivool attempts a dagger Strike against an ally and shifts the result of this Strike up by one degree of success. If the Strike kills the ally, the sacrificed ally's life force flows like red fire out of the wound and into Vizmivool's body, healing her for 10d6 healing Hit Points and making her Quickened for 1 minute. She can use the additional action to Strike or Stride."}, {"name": "Serpentfolk Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 28 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d4 poison damage and Enfeebled 1 (1 round)%rStage 2 2d4 poison damage and enfeebled 1 (1 round)"}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 28, "attack": 21, "spells": {"0": ["Daze", "Divine Lance", "Message", "Shield", "Stabilize"], "1": ["Command", "Enfeeble", "Fear", "Harm", "Heal"], "2": ["Darkness", "Dispel Magic", "Resist Energy", "Silence", "Spiritual Weapon"], "3": ["Crisis of Faith"], "4": ["Divine Wrath"], "5": ["Flame Strike"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 28, "attack": 21, "spells": {"1": ["Ventriloquism (At Will)"], "2": ["Mirror Image (At Will)"], "3": ["Illusory Disguise (At Will)"], "5": ["Illusory Scene", "Suggestion"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 28, "attack": 21, "spells": {"1": ["Overstuff"], "4": ["Take its Course"]}}]
+"Wolgur Wrabs":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "ghoul", "undead", "unholy"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 13, "reflex": 11, "will": 10}
+  abilities: {"cha": 4, "con": 4, "dex": 4, "int": 2, "str": 5, "wis": 3}
+  speeds: {"land": 30, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 12, "Occultism": 9, "Society": 11, "Stealth": 13, "Survival": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["2d8+6", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Ghast Ghast Fever", "Ghast Paralysis"]}, {"name": "Claw", "bonus": 14, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Ghast Paralysis"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet. A creature entering the aura or starting its turn in the aura must succeed at a DC 19 Fortitude save or become Sickened 1 (plus Slowed 1 as long as it's sickened on a critical failure).%rWhile within the aura, the creature takes a -2 circumstance penalty to saves against disease and to recover from the sickened condition. A creature that succeeds at its save is temporarily immune for 1 minute.%rEffect: Stench"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghast is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghast devours a chunk of the corpse and regains 4d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghast Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 22 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 3d8 void damage and regains half as many Hit Points from all healing (1 day)%rStage 3 as stage 2 (1 day)%rStage 4 3d8 void damage and gains no benefit from healing (1 day)%rStage 5 as stage 4 (1 day)%rStage 6 dead, and rises as a Ghast the next midnight"}, {"name": "Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any living creature hit by a ghast's attack must succeed at a DC 22 Fortitude save or become Paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghast jumps up to half its Speed. This movement doesn't trigger reactions."}]
+"Zalavexus":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "chaotic", "evil", "swarm"]
+  ac: 30
+  hp: 148
+  perception: 19
+  saves: {"fortitude": 17, "reflex": 21, "will": 19}
+  abilities: {"cha": 7, "con": 5, "dex": 7, "int": 3, "str": 3, "wis": 5}
+  speeds: {"land": 30}
+  hp_details: "fast healing 10"
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Arcana": 17, "Deception": 23, "Diplomacy": 21, "Intimidation": 21, "Medicine": 19, "Nature": 21, "Occultism": 17, "Stealth": 21, "Genie Lore": 19}
+  immunities: ["disease", "paralyzed", "poison", "precision", "swarm-mind", "unconscious"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Tendril", "bonus": 21, "damage": [["4d8+6", "piercing", "persistent"]], "traits": ["reach-10"]}]
+  actions: [{"name": "Tremorsense 30 feet", "type": "passive", "traits": []}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Fast Healing 10", "type": "passive", "traits": []}, {"name": "Swarm Mind", "type": "passive", "traits": []}, {"name": "Discorporate", "type": "passive", "traits": ["splash"], "text": "When the worm that walks is reduced to 0 HP, it discorporates and the component worms that make up its body disperse in every direction. If even a single worm escapes, the worm that walks will eventually re-form using a process that typically takes 1d10 days.%rWhile the exact circumstances and surroundings determine how long the worm that walks's foes have to dispatch the fleeing worms before they escape, usually its foes have only a single round. Typically, this requires the application of an…"}, {"name": "Quickened Casting", "type": "free", "traits": ["concentrate"], "text": "Frequency once per day%rEffect If Zalavexus's next action is to cast a 3rd-or lower-rank spell or cantrip, reduce the number of actions to cast it by 1 (minimum 1 action)."}, {"name": "Squirming Embrace", "type": "action", "traits": [], "cost": 1, "text": "The worm that walks Strides, ending its movement sharing a space with a creature, and deals 4d8 piercing damage to the creature. The creature can attempt a DC 27 Reflex save."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If a reaction would disrupt Zalavexus's spellcasting action, he attempts a DC 15 Flat. On a success, the action isn't disrupted."}, {"name": "Swarm Shape", "type": "action", "traits": ["attack", "concentrate"], "cost": 1, "text": "The worm that walks collapses into a shapeless swarm of worms. It drops all held, worn, and carried items. While discorporated, the worm that walks can't use attack actions and can't cast spells, but it can move through areas small enough for its individual worms to fit without having to Squeeze. It can use the same action to coalesce back into its normal form."}]
+  spellcasting: [{"name": "Primal Spontaneous Spells", "tradition": "primal", "type": "spontaneous", "dc": 29, "attack": 21, "spells": {"0": ["Acid Splash", "Detect Magic", "Prestidigitation", "Read Aura", "Tangle Vine"], "1": ["Gentle Landing", "Grease", "Tailwind"], "2": ["Gecko Grip", "Revealing Light", "Web"], "3": ["Earthbind", "One with Stone", "Wall of Thorns"], "4": ["Acid Arrow", "Fly", "Shape Stone"], "5": ["Dispel Magic", "Lightning Bolt", "Wall of Stone"]}}, {"name": "Primal Focus Spells", "tradition": "primal", "type": "focus", "dc": 29, "attack": 21, "spells": {"1": ["Elemental Toss"]}}]
+"Ziondriel":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["aberration", "chaotic"]
+  ac: 28
+  hp: 154
+  perception: 19
+  saves: {"fortitude": 15, "reflex": 20, "will": 18}
+  abilities: {"cha": 5, "con": 4, "dex": 5, "int": 3, "str": 4, "wis": 4}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["darkvision"]
+  skills: {"Arcana": 20, "Athletics": 17, "Deception": 20, "Intimidation": 18, "Occultism": 18, "Religion": 17, "Stealth": 20}
+  immunities: ["sleep"]
+  strikes: [{"name": "Fangs", "bonus": 19, "damage": [["2d6+7", "piercing", null]], "traits": [], "effects": ["Drider Venom"]}, {"name": "Web", "bonus": 20, "damage": [], "traits": [], "range": 30, "effects": ["Web Trap"]}, {"name": "Composite Shortbow", "bonus": 21, "damage": [["2d8+7", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Drider Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 28 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d8 poison damage and Enfeebled 1"}, {"name": "Web Trap", "type": "passive", "traits": [], "text": "A creature hit by a drider's web attack is Immobilized and stuck to the nearest surface (escape dc=28)."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 28, "attack": 20, "spells": {"0": ["Electric Arc", "Ray of Frost", "Telekinetic Hand"], "1": ["Enfeeble", "Fear", "Force Barrage"], "2": ["Mirror Image", "Telekinetic Maneuver"], "3": ["Fireball", "Lightning Bolt", "Paralyze", "Vampiric Feast"]}}, {"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 28, "attack": 20, "spells": {"0": ["Detect Magic", "Light"], "2": ["Darkness (At Will)", "Faerie Fire (At Will)"], "3": ["Clairaudience", "Levitate"], "4": ["Clairvoyance", "Suggestion"], "5": ["Dispel Magic"]}}]
+"Ziradini":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 8
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "dero", "evil", "humanoid"]
+  ac: 27
+  hp: 137
+  perception: 18
+  saves: {"fortitude": 16, "reflex": 13, "will": 20}
+  abilities: {"cha": 4, "con": 4, "dex": 3, "int": 2, "str": 6, "wis": 6}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Arcana": 16, "Athletics": 16, "Crafting": 16, "Intimidation": 16, "Medicine": 18, "Occultism": 16, "Religion": 18}
+  immunities: ["confused"]
+  weaknesses: {"vulnerable-to-sunlight": 16}
+  strikes: [{"name": "Warhammer", "bonus": 18, "damage": [["1d6", "cold", null], ["2d8+9", "bludgeoning", null]], "traits": ["magical", "shove"]}]
+  actions: [{"name": "Vulnerable to Sunlight", "type": "passive", "traits": [], "text": "Ziradini takes 16 untyped damage for every hour they're exposed to sunlight."}, {"name": "Grim Curse of Azathoth", "type": "action", "traits": ["curse", "divine", "emotion", "mental"], "cost": 2, "text": "Frequency once per day%rEffect Ziradini invokes Azathoth's name in Aklo as he stares at a creature he can see within 30 feet. His eyes glow orange, and the target endures a brief vision of the seething chaos that churns at the center of the Material Plane and, for that instant, beholds their own insignificance in the cosmos. The target must attempt a DC 26 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature becomes Stupefied 1 for 1 hour.%rFailure The creature becomes…"}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 26, "attack": 18, "spells": {"0": ["Divine Lance", "Message", "Read Aura", "Shield", "Void Warp"], "1": ["Bane", "Command", "Enfeeble", "Harm", "Heal", "Sanctuary"], "2": ["Silence", "Spiritual Weapon"], "3": ["Chilling Darkness", "Crisis of Faith", "Vampiric Feast"], "4": ["Divine Wrath", "Outcast's Curse"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Daze", "Ghost Sound"], "2": ["Darkness (At Will)"], "3": ["Noise Blast"], "4": ["Rewrite Memory"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 26, "attack": 18, "spells": {"1": ["Cry of Destruction"]}}]
+"Zoog":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "rare"
+  traits: ["beast", "chaotic", "dream"]
+  ac: 16
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 6, "will": 5}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": 0, "str": -1, "wis": 2}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 6, "Occultism": 5}
+  strikes: [{"name": "Jaws", "bonus": 8, "damage": [["1d8+1", "piercing", null], ["1d4", "bleed", "persistent"]], "traits": ["finesse", "unarmed"]}, {"name": "Claw", "bonus": 8, "damage": [["1d6+1", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Spell Sight", "type": "passive", "traits": [], "text": "A zoog's eyes shed bright light in a 15-foot (and dim light in the next 15 feet). Any magic effect in this area glows faintly. A zoog can quell or renew this light as a free action on its turn."}, {"name": "Otherworldly Touch", "type": "passive", "traits": [], "text": "A zoog's claw Strike can damage incorporeal creatures, as if they were enhanced by a Ghost Touch property rune."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Detect Magic"], "2": ["Speak with Animals (At Will)"]}}]
+"Zoog Swarm":
+  pack: "seven-dooms-for-sandpoint-bestiary"
+  level: 8
+  size: "large"
+  rarity: "rare"
+  traits: ["beast", "chaotic", "dream", "swarm"]
+  ac: 24
+  hp: 100
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 18, "will": 14}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 0, "str": 2, "wis": 4}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 18, "Athletics": 16, "Occultism": 12}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"bludgeoning": 10, "slashing": 5, "piercing": 10}
+  actions: [{"name": "Spell Sight", "type": "passive", "traits": [], "text": "A zoog's eyes shed bright light in a 15-foot (and dim light in the next 15 feet). Any magic effect in this area glows faintly. A zoog can quell or renew this light as a free action on its turn."}, {"name": "Gnash and Slash", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 2d6 piercing damage, 2d6 slashing damage, and 1d6 persistent bleed damage (DC 26 Reflex save). A successful save negates the bleed damage. The slashing damage can damage incorporeal creatures, as if it were enhanced by a ghost touch property rune."}, {"name": "Overwhelming Clutches", "type": "action", "traits": ["attack", "move"], "cost": 3, "text": "The zoog swarm attempts to Grapple a Medium or smaller creature in its space. If the swarm Grabs or Restrains the creature, the zoog swarm can then Stride twice, dragging the Grabbed or Restrained creature along with them as they move."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Detect Magic"], "2": ["Speak with Animals (At Will)"]}}]

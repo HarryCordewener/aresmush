@@ -1,0 +1,495 @@
+---
+"Brumesgarth":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 19
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 42
+  hp: 330
+  perception: 32
+  saves: {"fortitude": 27, "reflex": 33, "will": 36}
+  abilities: {"cha": 10, "con": 4, "dex": 6, "int": 7, "str": 5, "wis": 7}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Arcana": 34, "Crafting": 38, "Deception": 35, "Diplomacy": 35, "Intimidation": 37, "Occultism": 36, "Religion": 34, "Stealth": 33}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Flail", "bonus": 34, "damage": [["3d8", "void", null], ["3d6+13", "bludgeoning", null]], "traits": ["disarm", "magical", "sweep", "trip"]}, {"name": "Hand", "bonus": 31, "damage": [["6d8", "void", null]], "traits": ["finesse", "magical"]}]
+  actions: [{"name": "Stored Items", "type": "passive", "traits": [], "text": "Stored Items Brumesgarth can store items inside his body, as detailed below. Brumesgarth can Interact to remove or store an item. If Brumesgarth's body is destroyed, any stored items appear among his bones.%rArm Wands (extradimensional) Brumesgarth can store up to two wands in the radius and ulna of one of his arms. These wands can be used as if wielded, and they can't be disarmed. If an arm wand is overcharged, Brumesgarth takes 20 untyped damage if the wand is broken or 40 untyped damage if…"}, {"name": "+1 Status to All Saves vs. Vitality", "type": "passive", "traits": []}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "60 feet. DC 38 Will"}, {"name": "Rejuvenation", "type": "passive", "traits": ["arcane"], "text": "When Brumesgarth is destroyed, his soul immediately transfers to his Soul Cage . Brumesgarth can be permanently destroyed only if his soul cage is found and destroyed."}, {"name": "Spellstealing Counter", "type": "reaction", "traits": ["occult"], "text": "Trigger A creature Brumesgarth can see Casts a Spell%rRequirements Brumesgarth has fewer than three spells stored in his spell tome%rEffect Brumesgarth expends a spell slot of the same rank as the spell being cast to counter the triggering creature's casting. Brumesgarth loses his spell slot as if he had cast the triggering spell. Brumesgarth then attempts to counteract the triggering spell (counteract modifier +35). If successful, the spell is countered and added to Brumesgarth's spell tome."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consult the Text", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Frequency once per day%rEffect Brumesgarth causes the pages of his spell tome to flip open, revealing an occult spell of 9th rank or lower of his choice. For the remainder of the day, Brumesgarth can cast that spell as if it were one of his spells known for every rank of its base rank up to 9th."}, {"name": "Drain Spell Tome", "type": "free", "traits": [], "text": "Effect Brumesgarth draws upon the magic stored in his spell tome to cast one of the spells he has countered. This spell is the same rank as the one countered, but it uses Brumesgarth's spell DC and spell attack. Casting a spell in this way removes it from the spell tome."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If a reaction would disrupt Brumesgarth's spellcasting action, he attempts a DC 15 Flat. On a success, the action isn't disrupted."}, {"name": "Summon Weapon", "type": "free", "traits": [], "text": "Requirements Brumesgarth has a stored weapon in his arm and has that hand free%rEffect Brumesgarth summons his stored weapon into that arm's hand."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 45, "attack": 37, "spells": {"0": ["Daze", "Detect Magic", "Figment", "Prestidigitation", "Telekinetic Hand"], "1": ["Alarm", "Illusory Disguise", "Phantasmal Minion"], "2": ["False Vitality", "See the Unseen", "Shatter"], "3": ["Hypercognition", "Mind Reading", "Slow"], "4": ["Confusion", "Fly", "Translocate"], "5": ["False Vision", "Scouting Eye", "Slither"], "6": ["Spellwrack", "Spirit Blast", "Teleport"], "7": ["Duplicate Foe", "Energy Aegis", "Mask of Terror"], "8": ["Disappearance", "Hidden Mind", "Quandary"], "9": ["Overwhelming Presence", "Phantasmagoria", "Wails of the Damned"]}}]
+"Chained Norn":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 20
+  size: "large"
+  rarity: "unique"
+  traits: ["undead"]
+  ac: 46
+  hp: 375
+  perception: 41
+  saves: {"fortitude": 34, "reflex": 30, "will": 38}
+  abilities: {"cha": 7, "con": 6, "dex": 6, "int": 6, "str": 7, "wis": 10}
+  speeds: {"land": 35, "fly": 35}
+  hp_details: "void healing"
+  senses: ["greater-darkvision", "lifesense", "truesight"]
+  skills: {"Crafting": 36, "Deception": 35, "Intimidation": 37, "Medicine": 38, "Occultism": 34, "Performance": 31, "Religion": 34, "Lore (all)": 28}
+  immunities: ["bleed", "off-guard", "void", "disease", "paralyzed", "poison", "unconscious", "death-effects"]
+  weaknesses: {"cold-iron": 20}
+  strikes: [{"name": "Hand of Fate", "bonus": 38, "damage": [["4d10+15", "void", null]], "traits": ["agile", "magical", "reach-10"], "effects": ["Sever Fate"]}]
+  actions: [{"name": "Broken Fate", "type": "passive", "traits": ["misfortune"], "text": "The chained norn automatically rolls a 1 when she rolls initiative."}, {"name": "Broken Triumvirate", "type": "passive", "traits": [], "text": "The chained norn's fate has been severed from the rest of the norns. She can't join a triumvirate or willingly take a hostile action against a norn."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Regeneration 20 (Deactivated by Cold Iron)", "type": "passive", "traits": []}, {"name": "Broken Fates Aura", "type": "passive", "traits": ["aura", "mental", "misfortune", "occult"], "text": "60 feet. Creatures other than norns in the aura must attempt a DC 42 Will save. On a successful save, the creature is temporarily immune to the broken fates aura for 24 hours. On a failure, the creature can't benefit from effects with the fortune trait for 24 hours."}, {"name": "Rewind Fate", "type": "reaction", "traits": ["misfortune", "occult"], "text": "Trigger A creature within 120 feet would succeed on an attack or skill check%rEffect The creature must attempt the attack or skill check again, rolling twice and taking the worse result."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Fated", "type": "passive", "traits": [], "text": "When a creature is subject to a misfortune effect from a norn and a fortune effect from any source other than a norn (or vice versa), the norn's effect automatically counteracts the other effect and then takes place normally, rather than the two effects canceling each other out. If both the fortune and misfortune effect are from a norn, then the two cancel each other out as normal. At the GM's discretion, powerful entities related to fate or luck, like Desna, Magdh, or Pharasma, can't have…"}, {"name": "Sever Fate", "type": "passive", "traits": ["occult"], "text": "When a norn deals void damage with a Strike, she regains 10 healing Hit Points. The target must succeed at a DC 39 Fortitude save or become Drained 1 (Drained 2 on a critical failure).%rFurther void damage dealt by the norn increases the drained condition value by 1 on a failed save (or by 2 on a critical failure), to a maximum of drained 4."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 42, "attack": 0, "spells": {"0": ["Detect Magic (Constant)"], "7": ["Dispel Magic (At Will)", "Read Omens (At Will)", "Spellwrack (At Will)"], "8": ["Migration", "Quandary"], "9": ["Execute", "Phantasmagoria", "Retrocognition"], "10": ["Freeze Time", "Hidden Mind (Constant)", "Truesight (Constant)", "Truespeech (Constant)"]}}]
+"Chernasardo Ranger":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["humanoid"]
+  ac: 25
+  hp: 115
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 18, "will": 13}
+  abilities: {"cha": 2, "con": 2, "dex": 6, "int": 3, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 13, "Athletics": 12, "Medicine": 15, "Nature": 16, "Stealth": 17, "Survival": 17, "Forest Lore": 13}
+  strikes: [{"name": "Dagger", "bonus": 18, "damage": [["1d4+9", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Shortsword", "bonus": 19, "damage": [["1d6+10", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Shortbow", "bonus": 18, "damage": [["1d6+9", "piercing", null]], "traits": ["deadly-d8", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Double Shot", "type": "action", "traits": [], "cost": 1, "text": "The ranger makes two shortbow Strikes targeting two different creatures within the shortbow's first range increment. Both Strikes use the ranger's current multiple attack penalty, but each strike takes a –2 penalty."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The ranger draws a weapon, then Strikes with that weapon."}]
+"Commander Arsiella Dei":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["aiuvarin", "elf", "human", "humanoid"]
+  ac: 28
+  hp: 155
+  perception: 21
+  saves: {"fortitude": 15, "reflex": 19, "will": 21}
+  abilities: {"cha": 4, "con": 4, "dex": 5, "int": 4, "str": 3, "wis": 6}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 18, "Athletics": 16, "Diplomacy": 16, "Intimidation": 16, "Nature": 18, "Religion": 16, "Stealth": 18, "Survival": 20, "Iomedae Lore": 18}
+  strikes: [{"name": "Battle Axe", "bonus": 22, "damage": [["2d8+11", "slashing", null]], "traits": ["magical", "sweep"]}, {"name": "Composite Shortbow", "bonus": 21, "damage": [["1d6+10", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Blind-Fight", "type": "passive", "traits": [], "text": "Arsiella doesn't need to succeed at a flat check to target Concealed creatures. She isn't Off-Guard to creatures that are Hidden from her (unless she's off-guard to them for reasons other than the hidden condition) and only needs a successful DC 5 Flat to target a hidden creature."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "For Nirmathas!", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Arsiella makes two battle axe Strikes against the same target. Both Strikes use Arsiella's current multiple attack penalty, but each Strike takes a –2 penalty. A target hit by both attacks on the same turn must also succeed at a DC 26 Fortitude saving throw or be knocked Prone."}, {"name": "Heavenly Strike", "type": "action", "traits": ["divine"], "cost": 2, "text": "Arsiella calls on the spirit of her father and the strength of Iomedae to infuse her weapon, then Strikes with that weapon. If the Strike hits, Arsiella deals an extra weapon die of vitality damage."}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Arsiella designates a single creature she can see and hear, or one she's Tracking, as her prey. She gains a +2 circumstance bonus to Perception checks to Seek her prey and to Survival checks to Track her prey. The first time she hits her designated prey in a round, she deals an additional 1d8 precision damage. She also ignores the penalty for making ranged attacks within the second range increment when attacking her prey. These effects last until she uses Hunt Prey again."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "Arsiella draws a weapon, then Strikes with that weapon."}, {"name": "Skirmish Strike", "type": "action", "traits": [], "cost": 1, "text": "Arsiella either Steps and then Strikes, or Strikes and then Steps."}]
+  spellcasting: [{"name": "Ranger Warden Spells", "tradition": "arcane", "type": "focus", "dc": 28, "attack": 0, "spells": {"1": ["Gravity Weapon"], "2": ["Soothing Mist"]}}]
+"Divine Warden of Arazni":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "divine", "mindless"]
+  ac: 37
+  hp: 290
+  perception: 27
+  saves: {"fortitude": 30, "reflex": 28, "will": 33}
+  abilities: {"cha": -5, "con": 6, "dex": 9, "int": -5, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Intimidation": 32}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Greater Striking Rapier", "bonus": 33, "damage": [["3d6+19", "piercing", null]], "traits": ["deadly-2d8", "disarm", "finesse", "magical"]}]
+  actions: [{"name": "Divine Destruction", "type": "passive", "traits": ["divine", "spirit"], "text": "When the divine warden is reduced to 0 HP, it erupts with divine energy in a 30-foot emanation, dealing 16d6 spirit|options:area-damage damage. Each creature in the area must attempt a DC 37 Will save.%rCritical Success The creature takes half damage.%rSuccess The creature takes full damage.%rFailure The creature takes full damage and becomes temporarily cursed by the patron deity. The cursed creature is Enfeebled 1 and Stupefied 1 for 1 day; this is a curse effect that uses the Will save DC as…"}, {"name": "God-Bound", "type": "passive", "traits": [], "text": "The divine warden is bound to a specific patron deity upon its creation. The warden can't take hostile actions against a creature that openly wears or displays a symbol of its patron deity unless that creature uses a hostile action against the warden first. The warden gains an initial domain spell chosen from its deity's list of domains. The divine warden has 3 Focus Points."}, {"name": "Faithful Weapon", "type": "passive", "traits": [], "text": "While the divine warden wields the favored weapon of its patron deity, that weapon gains the effect of a greater striking rune."}, {"name": "Instrument of Faith", "type": "passive", "traits": [], "text": "The divine warden is a beacon for its deity's faith. A cleric of the divine warden's patron deity can channel a Heal spell through a divine warden they can see within 60 feet. The cleric determines any targets or area for the spell as if they were standing in the divine warden's space."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 37, "attack": 29, "spells": {"0": ["Divine Lance"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 0, "attack": 0, "spells": {"1": ["Savor the Sting"]}}]
+"Divine Warden of Iomedae":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 16
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["construct", "divine", "mindless"]
+  ac: 37
+  hp: 290
+  perception: 27
+  saves: {"fortitude": 30, "reflex": 28, "will": 33}
+  abilities: {"cha": -5, "con": 6, "dex": 9, "int": -5, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Intimidation": 32}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Greater Striking Longsword", "bonus": 33, "damage": [["3d8+19", "slashing", null]], "traits": ["magical", "versatile-p"]}]
+  actions: [{"name": "Divine Destruction", "type": "passive", "traits": ["divine", "spirit"], "text": "When the divine warden is reduced to 0 HP, it erupts with divine energy in a 30-foot emanation, dealing 16d6 spirit|options:area-damage damage. Each creature in the area must attempt a DC 37 Will save.%rCritical Success The creature takes half damage.%rSuccess The creature takes full damage.%rFailure The creature takes full damage and becomes temporarily cursed by the patron deity. The cursed creature is Enfeebled 1 and Stupefied 1 for 1 day; this is a curse effect that uses the Will save DC as…"}, {"name": "God-Bound", "type": "passive", "traits": [], "text": "The divine warden is bound to a specific patron deity upon its creation. The warden can't take hostile actions against a creature that openly wears or displays a symbol of its patron deity unless that creature uses a hostile action against the warden first. The warden gains an initial domain spell chosen from its deity's list of domains. The divine warden has 3 Focus Points."}, {"name": "Faithful Weapon", "type": "passive", "traits": [], "text": "While the divine warden wields the favored weapon of its patron deity, that weapon gains the effect of a greater striking rune ."}, {"name": "Instrument of Faith", "type": "passive", "traits": [], "text": "The divine warden is a beacon for its deity's faith. A cleric of the divine warden's patron deity can channel a Heal spell through a divine warden they can see within 60 feet. The cleric determines any targets or area for the spell as if they were standing in the divine warden's space."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 37, "attack": 29, "spells": {"0": ["Divine Lance"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 37, "attack": 0, "spells": {"1": ["Weapon Surge"]}}]
+"Engerra":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 9
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["agathion", "celestial", "holy"]
+  ac: 27
+  hp: 152
+  perception: 20
+  saves: {"fortitude": 16, "reflex": 18, "will": 20}
+  abilities: {"cha": 5, "con": 3, "dex": 4, "int": 6, "str": 3, "wis": 4}
+  speeds: {"land": 25, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Arcana": 16, "Diplomacy": 16, "Performance": 18, "Religion": 17, "Society": 20}
+  weaknesses: {"unholy": 10}
+  strikes: [{"name": "Swarming Bite", "bonus": 19, "damage": [["3d6+10", "piercing", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Firefly's Remembrance", "type": "passive", "traits": [], "text": "Engerras embody the ethos of honoring the dead. When the engerra Recalls Knowledge about a creature whose final words it has heard spoken aloud, it uses the outcome one degree of success better than the result of its roll."}, {"name": "+1 Status Bonus to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Disperse", "type": "action", "traits": ["move"], "cost": 2, "text": "The engerra Strides or Flies. This movement doesn't trigger reactions. During the movement, the engerra can move through occupied spaces and tiny cracks, and it ignores difficult terrain and greater difficult terrain. It then coalesces back into its normal form."}, {"name": "Dying Breath", "type": "action", "traits": ["divine", "emotion", "fear", "mental"], "cost": 2, "text": "The engerra draws the air from around breathing creatures in a 40-foot emanation, giving them the feeling of drawing their last breath. Enemies in the area must attempt a DC 26 Will save. If at least one creature fails the save, the engerra can gift the stolen breath to a willing creature within 40 feet, granting that creature 2d6 #Temp HP temporary Hit Points that last for 1 minute.%rSuccess The creature is unaffected.%rFailure The creature takes (2d6+7) mental|options:area-damage damage and…"}, {"name": "Final Words of Doom", "type": "action", "traits": ["auditory", "divine", "emotion", "linguistic", "mental"], "cost": 2, "text": "The engerra whispers words of doom to an enemy within 40 feet. The creature must attempt a DC 26 Will save.%rCritical Success As success, and the creature is temporarily immune for 1 minute.%rSuccess The creature is unaffected.%rFailure The creature takes (3d8+13) mental damage and is Doomed 1 for 1 minute.%rCritical Failure The creature takes (4d8+18) mental damage and is Doomed 2 for 1 minute."}, {"name": "Final Words of Wisdom", "type": "passive", "traits": ["auditory", "divine", "emotion", "linguistic", "mental"], "text": "The engerra finds words to bolster a creature's spirits. The engerra spends 10 minutes speaking with a willing creature. If that creature has the Fatigued condition, it's no longer fatigued. The creature can't benefit from any engerra's Final Words of Wisdom again for 1 year."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Light", "Stabilize"], "1": ["Enfeeble", "Infuse Vitality"], "3": ["Crisis of Faith", "Holy Light"], "5": ["Invoke Spirits", "Truespeech (Constant)"]}}]
+"Garrholdion":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 20
+  size: "huge"
+  rarity: "rare"
+  traits: ["construct", "incorporeal", "mindless"]
+  ac: 46
+  hp: 350
+  perception: 33
+  saves: {"fortitude": 36, "reflex": 27, "will": 30}
+  abilities: {"cha": -2, "con": 7, "dex": 6, "int": -5, "str": 10, "wis": 5}
+  speeds: {"land": 25, "fly": 25}
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 36, "Athletics": 38, "Faction Lore": 41}
+  immunities: ["precision"]
+  resistances: {"physical": 15}
+  strikes: [{"name": "Longsword", "bonus": 38, "damage": [["4d8+18", "slashing", null]], "traits": ["magical", "versatile-p"]}, {"name": "Belief Ray", "bonus": 34, "damage": [["8d6", "spirit", null]], "traits": ["magical", "spirit"], "effects": ["Seed Of Doubt"]}]
+  actions: [{"name": "Faction-Bound", "type": "passive", "traits": [], "text": "A garrholdion is bound to a faction at its creation. It can't harm a known member of its faction, a symbol of its faction, or relics associated with its faction. It gains a +4 circumstance bonus to Perception checks to verify the identity of such creatures and objects. A garrholdion is also bound to a location associated with its faction, such as a fortress, an academy, or a secret hideout. It can't move more than 120 feet from its designated location. Finally, a garrholdion bears an obvious…"}, {"name": "Quick Shield Block", "type": "passive", "traits": [], "text": "The garrholdion gains an additional reaction each round that can be used only for Shield Block."}, {"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "Requirements You are wielding a shield.%rYou position your shield to protect yourself. When you have Raised a Shield, you gain its listed circumstance bonus to AC. Your shield remains raised until the start of your next turn."}, {"name": "Reactive Defense", "type": "reaction", "traits": [], "text": "Trigger A creature within reach attacks the garrholdion's ally%rEffect The garrholdion positions its shield in front of the attack, granting its ally a +2 circumstance bonus to AC against the triggering attack. It then makes a melee Strike against the triggering creature."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Belief Fortification", "type": "passive", "traits": ["aura", "emotion", "occult"], "text": "30 feet. Members of the garrholdion's faction gain a +1 status bonus to saving throws against emotion effects while within the aura.%rEffect: Belief Fortification (Mark)"}, {"name": "Seed of Doubt", "type": "passive", "traits": ["mental", "occult"], "text": "A creature hit by the garrholdion's belief ray Strike doubts their actions, forcing them to hesitate. The target must succeed at a DC 39 Will save or be Stunned 1 (or Stunned 3 on a critical failure). On a critical success, the target becomes temporarily immune to seed of doubt for 24 hours."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 39, "attack": 0, "spells": {"10": ["Truesight (Constant)"]}}]
+"Knight Reclaimant":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["humanoid"]
+  ac: 27
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 14, "will": 16}
+  abilities: {"cha": 3, "con": 4, "dex": 3, "int": 2, "str": 6, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Athletics": 12, "Medicine": 12, "Nature": 12, "Religion": 14, "Stealth": 14, "Survival": 14, "Gravelands Lore": 16}
+  strikes: [{"name": "Bastard Sword", "bonus": 20, "damage": [["2d8+10", "slashing", null]], "traits": ["magical", "two-hand-d12"]}]
+  actions: [{"name": "Deep Resilience", "type": "passive", "traits": [], "text": "The knight reclaimant's convictions steel their mind against outside influences and help their allies remain strong. The knight and their allies within 30 feet have a +1 circumstance bonus to saves against mental effects, which increases to +2 against mental effects originating from undead."}, {"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "Requirements You are wielding a shield.%rYou position your shield to protect yourself. When you have Raised a Shield, you gain its listed circumstance bonus to AC. Your shield remains raised until the start of your next turn."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Sudden Charge", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per turn%rEffect The knight Strides twice. If they end their movement within melee reach of at least one enemy, the knight can make a melee Strike against that enemy."}]
+"Lady Siccale":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 19
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy", "vampire"]
+  ac: 43
+  hp: 360
+  perception: 32
+  saves: {"fortitude": 35, "reflex": 38, "will": 35}
+  abilities: {"cha": 6, "con": 5, "dex": 10, "int": 4, "str": 4, "wis": 4}
+  speeds: {"land": 25, "climb": 25}
+  hp_details: "coffin restoration, fast healing 15, void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 37, "Athletics": 31, "Deception": 35, "Intimidation": 32, "Society": 33, "Stealth": 40, "Thievery": 38, "Poison Lore": 35}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Dagger", "bonus": 35, "damage": [["4d4+17", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Dagger", "bonus": 35, "damage": [["4d4+17", "piercing", null]], "traits": ["agile", "magical", "thrown-10", "versatile-s"]}, {"name": "Claws", "bonus": 33, "damage": [["4d8+17", "slashing", null]], "traits": ["agile"], "effects": ["Grab"]}]
+  actions: [{"name": "Children of the Night", "type": "passive", "traits": ["divine", "mental"], "text": "The vampire's presence brings forth creatures of the night to do the master's bidding. These typically include Rat Swarms, Bat Swarms, and Wolves, but can include other creatures.%rThe vampire can give telepathic orders to these creatures as long as they are within 100 feet, but they can't communicate back."}, {"name": "Fast Healing 15", "type": "passive", "traits": []}, {"name": "Coffin Restoration", "type": "passive", "traits": ["divine", "void"], "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, it falls Unconscious. If its body rests in its coffin for 1 hour, the vampire gains 1 HP, after which its fast healing begins to function normally."}, {"name": "Mist Escape", "type": "free", "traits": [], "text": "Trigger The vampire is reduced to 0 HP.%rEffect The vampire uses Turn to Mist. They can take move actions to move toward its coffin even though it's at 0 HP. While at 0 HP in this form, the vampire is unaffected by further damage.%rThey automatically returns to its corporeal form, unconscious, if they reaches their coffin or after 2 hours, whichever comes first."}, {"name": "Vampire Vulnerabilities", "type": "passive", "traits": [], "text": "All vampires possess the following vulnerabilities.%rCompulsions Vampires are creatures with strange and unknowable compulsions. A typical vampire can't voluntarily cross running water unless they're transported while they hide within their coffin, nor can they enter a private dwelling unless invited in by someone with the authority to do so. At your discretion, vampires might have different compulsions—a pirate vampire might not be able to set foot on solid ground without being invited, for…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The vampire transforms into one of its animal forms or back into its normal form. Most vampires can turn into a bat, but some can turn into a different creature, such as a rat or a wolf.%rUse the options in the Aerial Form and Animal Form spells as guidelines.%rGiant Bat Lady Siccale changes into a Giant Bat. They gain echolocation 40 feet, a land Speed of 20 feet and a fly Speed of 30 feet, and a fangs Strike with the same attack bonus as their highest melee attack. These fangs deal the same…"}, {"name": "Create Servitor", "type": "passive", "traits": ["divine", "downtime"], "text": "If a creature dies after being reduced to 0 HP by Drink Blood, the vampire can turn this victim into a vampire servitor by donating some of their own blood to the victim and burying the victim in earth for 3 nights.%rA vampiric servitor is compelled to obey its creator, but if a vampire controls too many vampiric servitors at once (as determined by the GM), or if the servitor is a higher level than the vampire that created it, strong-willed servitors can free themselves by succeeding at a Will…"}, {"name": "Dominate", "type": "action", "traits": ["divine", "incapacitation", "mental", "visual"], "cost": 2, "text": "The vampire can cast Dominate at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait (DC 38 Will). The save DC uses the high spell DC of the vampire's level, and a creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours.%rFully destroying the vampire ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell."}, {"name": "Drink Blood", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirement A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the vampire's reach.%rEffect The vampire sinks its fangs into that creature to drink its blood. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions.%rThe victim is Drained 2 and the vampire regains 36 healing HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't…"}, {"name": "Poison Weapon", "type": "action", "traits": [], "cost": 1, "text": "Lady Siccale applies poison to a dagger. If she has a free hand, she can Interact to draw a poison as part of the action. If her next attack with that weapon hits and deals damage, it applies the effect of the poison. If she critically fails the attack roll, the poison is wasted."}, {"name": "Turn to Mist", "type": "action", "traits": ["air", "concentrate", "divine", "polymorph"], "cost": 1, "text": "The vampire turns into a cloud of vapor, as the Vapor Form spell, or back to its normal form. The vampire loses fast healing while in gaseous form.%rThe vampire can remain in this form indefinitely."}]
+"Mirmicette":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 6
+  size: "small"
+  rarity: "uncommon"
+  traits: ["fey"]
+  ac: 22
+  hp: 95
+  perception: 16
+  saves: {"fortitude": 12, "reflex": 16, "will": 14}
+  abilities: {"cha": 4, "con": 1, "dex": 5, "int": 3, "str": 1, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 12, "Crafting": 15, "Deception": 12, "Diplomacy": 11, "Intimidation": 11, "Stealth": 13, "Thievery": 15}
+  weaknesses: {"cold-iron": 5}
+  strikes: [{"name": "Claw", "bonus": 16, "damage": [["2d4+7", "slashing", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Claw Feint", "type": "action", "traits": [], "cost": 2, "text": "The mirmicette makes a series of quick claw attacks, using the first attack to throw their foe Off-Guard against a second attack from a different angle. They make two claw Strikes, both against the same target. The target is automatically off-guard against the second attack. The mirmicette applies their multiple attack penalty to these Strikes normally."}, {"name": "Copied Clutter", "type": "action", "traits": ["concentrate", "occult"], "cost": 2, "text": "Frequency once per day%rEffect The mirmicette creates dozens of copies of an object of 1 Bulk or less that the mirmicette can see. The counterfeit items rain down in a 10-foot burst within 40 feet. The ground in the area becomes difficult terrain until the items are collected and removed. Creatures in the area must attempt a DC 24 Reflex save.%rSuccess The creature takes 2d6 bludgeoning|options:area-damage damage.%rFailure The creature takes 4d6 bludgeoning|options:area-damage damage and is…"}, {"name": "Create Counterfeit", "type": "action", "traits": ["concentrate", "occult"], "cost": 2, "text": "The mirmicette creates a copy of an object of 1 Bulk or less that they can see. The object appears in the mirmicette's hands or in a space within 40 feet. To all appearances, the copy is an exact duplicate of the original object but is in fact a worthless reproduction. The counterfeit object is real but has no magical properties and is treated as a shoddy item if used as a weapon or tool. The copied object can be identified with a DC 35 check to Recall Knowledge with Crafting (or with a skill…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The mirmicette deals an additional 2d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 24, "attack": 16, "spells": {"0": ["Telekinetic Projectile"], "1": ["Fear", "Force Barrage", "Gust of Wind"], "2": ["Animated Assault"], "4": ["Confusion"]}}]
+"Moldering Steed":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 16
+  size: "large"
+  rarity: "uncommon"
+  traits: ["mindless", "undead", "unholy"]
+  ac: 38
+  hp: 370
+  perception: 28
+  saves: {"fortitude": 30, "reflex": 25, "will": 28}
+  abilities: {"cha": -2, "con": 6, "dex": 7, "int": -5, "str": 9, "wis": 5}
+  speeds: {"land": 40}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 32, "Survival": 30}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"slashing": 15, "vitality": 15}
+  strikes: [{"name": "Hoof", "bonus": 31, "damage": [["3d10+13", "bludgeoning", null]], "traits": []}, {"name": "Jaws", "bonus": 31, "damage": [["3d8+13", "piercing", null]], "traits": [], "effects": ["Siphon Will"]}]
+  actions: [{"name": "Willsense", "type": "passive", "traits": ["divine", "mental"], "text": "The moldering steed senses all living creatures within the listed range that have a Wisdom of +1 or higher."}, {"name": "Buck", "type": "reaction", "traits": [], "text": "DC 38 Reflex"}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "60 feet. DC 38 Will"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Gallop", "type": "action", "traits": [], "cost": 2, "text": "The moldering steed Strides twice. It has a +10-foot circumstance bonus to its Speed during these Strides."}, {"name": "Hunt Will", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The moldering steed designates the living creature with the highest Will modifier within 120 feet as its prey. The steed gains a +2 circumstance bonus to Perception checks to Seek the prey and to Survival checks to Track the prey. The first time the steed hits its designated prey in a round, it deals an additional 1d8 precision damage. These effects last until the steed uses Hunt Will again."}, {"name": "Siphon Will", "type": "passive", "traits": ["divine"], "text": "When the moldering steed damages a living creature with its jaws Strike, the steed gains 20 temporary Hit Points that last for 1 minute, and the creature must succeed at a DC 38 Will save or become Stupefied 1. Further damage dealt by the steed increases the creature's stupefied value on a failed save by 1, to a maximum of Stupefied 4.%rEffect: Siphon Will"}, {"name": "Undead Steed", "type": "passive", "traits": [], "text": "Undead and creatures allied with them can Command a moldering steed without needing to attempt a skill check."}]
+"Oceanius and Glory Arcely":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 18
+  size: "large"
+  rarity: "unique"
+  traits: ["angel", "celestial", "holy"]
+  ac: 42
+  hp: 360
+  perception: 32
+  saves: {"fortitude": 32, "reflex": 29, "will": 32}
+  abilities: {"cha": 7, "con": 6, "dex": 4, "int": 5, "str": 8, "wis": 6}
+  speeds: {"land": 25, "fly": 60}
+  senses: ["darkvision"]
+  skills: {"Athletics": 36, "Intimidation": 34, "Religion": 36}
+  weaknesses: {"unholy": 20}
+  strikes: [{"name": "Holy Greatsword", "bonus": 36, "damage": [["1d4", "spirit", null], ["3d12+19", "slashing", null]], "traits": ["holy", "magical", "versatile-p"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Regeneration 20 (Deactivated by Unholy)", "type": "passive", "traits": []}, {"name": "Aura of Righteousness", "type": "passive", "traits": ["aura", "divine", "holy"], "text": "20 feet. Allies in the angel's aura gain a +2 status bonus to AC against unholy creatures and a +2 status bonus to damage rolls against unholy creatures. The area in the aura is difficult terrain for unholy creatures."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The angel takes on the appearance of any Small or Medium humanoid. This doesn't change their Speed or Strikes."}, {"name": "Holy Armaments", "type": "passive", "traits": ["divine", "holy"], "text": "Any weapon gains the effect of a holy property rune while the angel wields it."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 41, "attack": 33, "spells": {"2": ["Invisibility (At Will; Self Only)", "Sure Footing"], "5": ["Breath of Life", "Cleanse Affliction", "Truespeech (Constant)", "Unfettered Movement"], "6": ["Blessed Boundary", "Dispel Magic (At Will)"], "7": ["Charm", "Clear Mind (At Will)", "Divine Decree", "Interplanar Teleport"], "8": ["Dispel Magic", "Divine Wrath", "Earthquake", "Heal", "Sunburst"]}}]
+"Omelia":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 11, "reflex": 13, "will": 11}
+  abilities: {"cha": 2, "con": 3, "dex": 4, "int": 2, "str": 3, "wis": 4}
+  speeds: {"land": 30, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 11, "Intimidation": 9, "Stealth": 13, "Survival": 13, "Gravelands Lore": 9}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["1d8+4", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Claw", "bonus": 14, "damage": [["1d6+4", "slashing", null]], "traits": ["finesse", "unarmed"], "effects": ["Grab"]}, {"name": "Composite Longbow", "bonus": 15, "damage": [["1d8+4", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet. DC 22 Fortitude"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains (1+(max(0,floor(@actor.level/2))))d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Whispers", "type": "action", "traits": ["auditory", "linguistic", "occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, or Unconscious creature is within the ghoul's reach%rEffect The ghoul whispers dark thoughts and vile cravings into the creature's ears. The creature must save against the forbidden cravings curse.%rForbidden Cravings (curse) A creature can still eat and drink while sickened by this curse%rSaving Throw DC 22 Will, using the high spell DC for the ghoul's level%rStage 1 carrier with no ill effects (1 day)%rStage 2 2d6 void damage and the target is…"}, {"name": "Grave Knowledge", "type": "passive", "traits": ["occult"], "text": "+13 skill modifier%rFrequency once per hour%rEffect The ghoul calls upon knowledge it retains from one creature it has consumed in the past 7 days. The ghoul attempts a skill check using a skill in which the consumed creature was trained (if it's unclear whether the creature was trained, the GM decides). The ghoul is treated as trained and uses a +13 modifier. This takes the same amount of actions or time as usual for the check.%rThe ghoul can instead automatically learn something specific…"}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Omelia designates a single creature she can see and hear, or one she's Tracking, as her prey. She gains a +2 circumstance bonus to Perception checks to Seek the prey and to Survival checks to Track the prey. The first time Omelia hits her designated prey in a round, she deals an additional 1d8 precision damage. These effects last until she uses Hunt Prey again."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Onturat":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 19
+  size: "huge"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 44
+  hp: 335
+  perception: 34
+  saves: {"fortitude": 33, "reflex": 35, "will": 37}
+  abilities: {"cha": 7, "con": 6, "dex": 6, "int": 7, "str": 8, "wis": 8}
+  speeds: {"land": 30, "fly": 30}
+  hp_details: "void healing"
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 36, "Deception": 38, "Intimidation": 35, "Religion": 32, "Stealth": 34, "Skeletal Lore": 32}
+  immunities: ["bleed", "cold", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"piercing": 15, "slashing": 15}
+  strikes: [{"name": "Jaws", "bonus": 37, "damage": [["3d6", "void", null], ["3d10+16", "piercing", null]], "traits": ["deadly-2d12", "magical", "reach-10"], "effects": ["Void Drain"]}, {"name": "Claw", "bonus": 37, "damage": [["3d6+16", "slashing", null], ["3d6", "void", null]], "traits": ["agile", "deadly-2d12", "magical", "reach-15"], "effects": ["Void Drain"]}, {"name": "Bone Javelin", "bonus": 35, "damage": [["3d8+8", "piercing", null], ["3d6", "void", null]], "traits": ["magical", "thrown-100"]}]
+  actions: [{"name": "Skeletal Lore", "type": "passive", "traits": ["divine"], "text": "Onturat taps into the memories of the creatures whose bones make up his body. This gives him the Skeletal Lore skill, which he can use to Recall Knowledge of any kind. In addition, he can speak and understand all the languages known by the creatures whose bones make up his body (typically Common and the regional language of the skulltaker's home region). Onturat can use Skeletal Lore as the primary skill check for the Collective Memories ritual, and he can cast collective memories without…"}, {"name": "+1 Status to All Saves Vs. Vitality", "type": "passive", "traits": []}, {"name": "Shard Storm", "type": "passive", "traits": ["air", "aura", "divine"], "text": "10 feet.%rA cloud of bone shards surrounds the skulltaker. When a creature moves into the emanation or begins its turn there, shard storm deals 4d6 slashing damage and 4d6 void damage to the creature, with a DC 42 Reflex save.%rIf the creature has resistance or immunity to void damage, or an effect that protects it against death effects, or an effect that protects it against the Doomed or Drained condition, the creature must first succeed at a DC 42 Will save or have all such benefits…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Bonetaker", "type": "passive", "traits": ["divine"], "text": "Whenever a creature dies within 60 feet of a skulltaker, the skulltaker draws a portion of the creature's bones into its shard storm. The creature must succeed at a DC 40 Will save or rise as a Skeletal Champion in 1d4 rounds. These skeletal champions are controlled by the skulltaker."}, {"name": "Splintered Ground", "type": "action", "traits": [], "cost": 1, "text": "The skulltaker causes splintered bones to erupt from all solid surfaces in a 100-foot emanation, except for surfaces of worked stone. A creature moving through the bones takes 10 piercing damage and 10 void damage for every 5 feet of movement. The first time each round a creature takes piercing damage from these splintered bones, it must succeed at a DC 42 Reflex save or take a –10-foot circumstance penalty to all Speeds for 10 minutes, or a –15-foot circumstance penalty for 24 hours on a…"}, {"name": "Void Drain", "type": "passive", "traits": ["divine"], "text": "When a skulltaker hits with a melee Strike, the target must succeed at a DC 42 Fortitude save or become Drained 2 and Doomed 1."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 42, "attack": 0, "spells": {"5": ["Translocate"], "6": ["Truesight (Constant)"], "8": ["Desiccate", "Execute", "Punishing Winds"], "9": ["Metamorphosis"]}}]
+"Ossuary Warden":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 19
+  size: "huge"
+  rarity: "unique"
+  traits: ["mindless", "skeleton", "undead", "unholy"]
+  ac: 42
+  hp: 265
+  perception: 32
+  saves: {"fortitude": 34, "reflex": 29, "will": 32}
+  abilities: {"cha": -1, "con": 6, "dex": 6, "int": -5, "str": 10, "wis": 5}
+  speeds: {"land": 20, "swim": 60}
+  hp_details: "void healing"
+  senses: ["darkvision", "wavesense"]
+  skills: {"Acrobatics": 37, "Athletics": 40, "Stealth": 33}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 20, "electricity": 20, "fire": 20, "piercing": 20, "slashing": 20}
+  strikes: [{"name": "Jaws", "bonus": 36, "damage": [["4d12+28", "piercing", null]], "traits": ["deadly-3d12", "reach-15"], "effects": ["Grab"]}, {"name": "Tail", "bonus": 36, "damage": [["4d10+20", "bludgeoning", null]], "traits": ["agile", "reach-20"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Breach", "type": "action", "traits": [], "cost": 2, "text": "The ossuary warden Leaps and makes a Strike at any point along its movement."}, {"name": "River Jump", "type": "passive", "traits": [], "text": "If the ossuary warden is in water, it can Leap vertically 60 feet and horizontally 60 feet, moving any creature it has Grabbed along with it. The warden doesn't take damage from falls into water."}]
+"Priest of Iomedae":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["humanoid"]
+  ac: 24
+  hp: 110
+  perception: 15
+  saves: {"fortitude": 15, "reflex": 13, "will": 18}
+  abilities: {"cha": 3, "con": 3, "dex": 2, "int": 2, "str": 4, "wis": 6}
+  speeds: {"land": 25}
+  skills: {"Diplomacy": 13, "Intimidation": 15, "Medicine": 16, "Religion": 17, "Society": 12, "Survival": 12, "Iomedae Lore": 17}
+  strikes: [{"name": "Longsword", "bonus": 16, "damage": [["1d8+9", "slashing", null]], "traits": ["magical", "versatile-p"]}, {"name": "Dagger", "bonus": 15, "damage": [["1d4+8", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 15, "damage": [["1d4+8", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Healing Hands", "type": "passive", "traits": [], "text": "When the priest casts Heal, they roll d10s instead of d8s."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If another creature's reaction would disrupt the priest's spellcasting action, the priest attempts a DC 15 Flat. If the priest succeeds, their action isn't disrupted."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Detect Magic", "Divine Lance", "Guidance", "Light", "Shield"], "1": ["Alarm", "Heal", "Infuse Vitality", "Sure Strike"], "2": ["Dispel Magic", "Enlarge", "See the Unseen"], "3": ["Crisis of Faith", "Heroism", "Holy Light"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 25, "attack": 0, "spells": {"1": ["Weapon Surge"]}}]
+"Radiant Veranallia":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["mummy", "undead", "unholy"]
+  ac: 45
+  hp: 475
+  perception: 38
+  saves: {"fortitude": 36, "reflex": 34, "will": 38}
+  abilities: {"cha": 8, "con": 8, "dex": 6, "int": 6, "str": 8, "wis": 10}
+  speeds: {"land": 40, "fly": 40}
+  hp_details: "void healing"
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 34, "Deception": 36, "Diplomacy": 38, "Intimidation": 36, "Medicine": 36, "Nature": 34, "Survival": 38}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"cold-iron": 20, "fire": 20}
+  resistances: {"cold": 20}
+  strikes: [{"name": "Sickle", "bonus": 39, "damage": [["1d6", "spirit", null], ["4d6", "cold", null], ["3d4+16", "slashing", null]], "traits": ["agile", "finesse", "magical", "trip"]}, {"name": "Vine", "bonus": 39, "damage": [["4d12+16", "bludgeoning", null], ["1d6", "spirit", null]], "traits": ["reach-20"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Alter Weather", "type": "action", "traits": [], "cost": 3, "text": "Frequency three times per day%rEffect The veranallia dramatically alters weather patterns in the surrounding area, producing any of the results of a successful 9th-rank Control Weather ritual."}, {"name": "Rebirth", "type": "passive", "traits": [], "text": "Frequency once per day%rEffect The veranallia spends a minute to encase a creature that has been dead for no more than a year in a cocoon. After 24 hours, the creature is restored to life, and the cocoon explodes in a shower of dust. If the veranallia chooses, Rebirth can change the creature's ancestry or heritage, typically into a skeleton."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 42, "attack": 32, "spells": {"6": ["Cursed Metamorphosis (At Will)", "Tangling Creepers (At Will)"], "8": ["Arctic Rift (At Will)", "Sunburst (At Will)"], "9": ["Environmental Endurance (Constant)", "Nature's Pathway (At Will)", "Regenerate", "Speak with Animals (Constant)", "Speak with Plants (Constant)", "Truespeech (Constant)", "Wrathful Storm"], "10": ["Cataclysm", "Remake", "Revival"]}}]
+"Raised Cavalry":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 19
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["mindless", "troop", "undead", "unholy"]
+  ac: 42
+  hp: 360
+  perception: 32
+  saves: {"fortitude": 29, "reflex": 28, "will": 31}
+  abilities: {"cha": 6, "con": 6, "dex": 5, "int": 5, "str": 10, "wis": 6}
+  speeds: {"land": 40}
+  hp_details: "Thresholds 360 (4 segments), 240 (3 segments), 140 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 37}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"area-damage": 20, "splash-damage": 20, "vitality": 20}
+  actions: [{"name": "Mounted", "type": "passive", "traits": [], "text": "When not mounted, the raised cavalry is slowed 1."}, {"name": "Shuffle Forces", "type": "passive", "traits": [], "text": "The raised cavalry consists of skeletons, zombies, and other undead hastily bound to a shared cause. The cavalry has resistance 20 to physical damage, as it shuffles its weakest members to the front lines. When the cavalry is reduced to 12 squares or fewer, its resistance to physical drops to 10. Once the cavalry reaches the 2-segment threshold, it loses its resistance to physical damage."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 360 (4 segments), 240 (3 segments), 140 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Claws and Jaws", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect Members of the cavalry leap from their mounts and attack each enemy within 10 feet (DC 41 Reflex save).%rThe damage depends on the number of actions.%r1 2d12+14 piercing and slashing plus 1d12 void%r2 3d12+14 piercing and slashing plus 1d12 void%r3 4d12+14 piercing and slashing plus 1d12 void"}, {"name": "Hail of Arrows", "type": "action", "traits": [], "cost": 2, "text": "Members of the raised cavalry draw or reload their shortbows, then launch a ranged attack in the form of a volley. This volley is a 10-foot burst within 60 feet that deals 7d8 piercing|options:area-damage damage (DC 41 Reflex save). When the cavalry is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Trampling Charge", "type": "action", "traits": [], "cost": 3, "text": "The raised cavalry Strides twice with a +10-foot circumstance bonus to its Speed. During this movement, the cavalry can move through the spaces of Medium or smaller creatures. It deals (3d12+14) bludgeoning damage to each creature whose space it moves through (DC 41 Reflex save). A creature that fails its save is also knocked Prone. The cavalry can affect the same creature only once in a single use of Trampling Charge."}]
+"Seldeg Bhedlis":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["graveknight", "undead", "unholy"]
+  ac: 46
+  hp: 465
+  perception: 32
+  saves: {"fortitude": 36, "reflex": 32, "will": 33}
+  abilities: {"cha": 7, "con": 10, "dex": 6, "int": 7, "str": 10, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 38, "Diplomacy": 34, "Intimidation": 34, "Religion": 32, "Society": 34, "Arazni Lore": 38, "Warfare Lore": 34}
+  immunities: ["bleed", "death-effects", "disease", "fire", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Fist", "bonus": 39, "damage": [["5d8+18", "bludgeoning", null], ["2d10", "fire", null]], "traits": ["agile", "finesse", "fire", "magical", "unarmed"]}, {"name": "Flaming Javelin", "bonus": 34, "damage": [["2d10", "fire", null], ["6d6+18", "piercing", null]], "traits": ["fire", "magical", "thrown-30"]}, {"name": "Flaming Longsword", "bonus": 38, "damage": [["2d10", "fire", null], ["6d8+18", "slashing", null]], "traits": ["fire", "magical", "versatile-p"]}]
+  actions: [{"name": "Iron Command", "type": "reaction", "traits": [], "text": "Trigger An enemy within 15 feet damages Seldeg%rEffect Seldeg puts an impertinent foe who dared harm him in their proper place. He commands the enemy to kneel in obedience. If they refuse, they must pay the price in pain and anguish. The triggering creature must choose one of the following options: the enemy kneels, dropping Prone as a free action, or the enemy refuses and takes 6d6 mental damage. In addition, Seldeg's Strikes against the triggering creature deal an additional 3 damage until…"}, {"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "Requirements You are wielding a shield.%rYou position your shield to protect yourself. When you have Raised a Shield, you gain its listed circumstance bonus to AC. Your shield remains raised until the start of your next turn."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When a graveknight is destroyed, their armor rebuilds their body over the course of 1d10 days—or more quickly if the armor is worn by a living host. If the body is destroyed before then, the process restarts.%rA graveknight can only be permanently destroyed by obliterating their armor (such as with Disintegrate), transporting it to the Forge of Creation, or throwing it into the heart of a volcano."}, {"name": "Sacrilegious Aura", "type": "passive", "traits": ["aura", "divine", "void"], "text": "30 feet.%rWhen a creature in the aura uses a vitality spell or ability, the graveknight automatically attempts to counteract it, with a counteract modifier of +31."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Devastating Blast", "type": "action", "traits": ["arcane", "fire"], "cost": 2, "text": "Seldeg Bheldis unleashes a 30-foot of energy. Creatures in the area take 11d12 fire|options:area-damage damage with a DC 39 Reflex.%rSeldeg can use this ability once every 1d4 #Recharge Devastating Blast rounds."}, {"name": "Graveknight's Curse", "type": "passive", "traits": ["arcane", "curse"], "text": "This curse affects anyone who wears a graveknight's armor for at least 1 hour%rSaving Throw DC 39 Will save%rOnset 1 hour%rStage 1 Doomed 1 and can't remove armor (1 day)%rStage 2 Doomed 2, –10-foot status penalty to Speeds, and can't remove armor (1 day)%rStage 3 dies and transforms into the Seldeg."}, {"name": "Phantom Mount", "type": "action", "traits": ["arcane", "summon"], "cost": 3, "text": "HP 155; AC 42, Fort +32, Ref +28, Will +29%rSeldeg summons a supernatural mount, as Marvelous Mount (rank 10). Unlike marvelous mount , the steed's AC and saving throw bonuses are all 4 lower than the graveknight's, and the steed has one-third the Seldeg's Hit Points (rounded down).%rIf the steed is destroyed, Seldeg must wait 1 hour before using this ability again."}, {"name": "Ruinous Weapons", "type": "passive", "traits": [], "text": "Any weapon or unarmed attack Seldeg uses gains the effects of the +1 greater striking and greater flaming runes ."}, {"name": "Swap Fates", "type": "action", "traits": ["divine", "teleportation"], "cost": 1, "text": "Frequency once per round%rEffect Seldeg switches the fates of two creatures within 500 feet. The two creatures teleport into each other's spaces. Each creature then attempts a DC 39 Will save.%rCritical Success The target becomes temporarily immune to Swap Fates for 24 hours.%rSuccess The target takes 3d6 mental damage.%rFailure The target takes 6d6 mental damage and is Stunned 1.%rCritical Failure The target takes 12d6 mental damage and is Stunned 4."}, {"name": "Unyielding Block", "type": "passive", "traits": [], "text": "At the start of each of Seldeg's turns, he gains two additional reactions he can use only to perform a Shield Block."}, {"name": "Weapon Master", "type": "passive", "traits": [], "text": "Seldeg has access to the critical specialization effects of any weapon he wields."}]
+  spellcasting: [{"name": "Champion Devotion Spells", "tradition": "divine", "type": "focus", "dc": 39, "attack": 0, "spells": {"1": ["Touch of the Void"]}}]
+"Skeletal Rat Swarm":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 2
+  size: "large"
+  rarity: "uncommon"
+  traits: ["mindless", "skeleton", "swarm", "undead", "unholy"]
+  ac: 16
+  hp: 40
+  perception: 8
+  saves: {"fortitude": 5, "reflex": 11, "will": 8}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": -5, "str": 4, "wis": 1}
+  speeds: {"land": 30, "climb": 10}
+  hp_details: "void healing"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 8, "Athletics": 7, "Stealth": 8}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "restrained", "swarm-mind", "unconscious", "precision"]
+  weaknesses: {"area-damage": 4, "splash-damage": 4}
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Ravenous Sickness", "type": "passive", "traits": ["disease", "unholy"], "text": "An infected creature can't heal damage it takes from this disease until the disease is cured%rSaving Throw DC 20 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 1d6 void damage and the target requires twice as much food for a creature of their size to avoid starvation (1 day)%rStage 3 1d6 void damage and the target requires three times as much food for a creature of their size to avoid starvation (1 day)%rStage 4 1d6 void damage and the target takes 1 void damage each hour until…"}, {"name": "Swarming Bites", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 3d4 piercing|options:area-damage damage (DC 18 Fortitude save). A creature that fails this save is exposed to ravenous sickness."}]
+"Splinter Officer":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 19
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["undead", "unholy"]
+  ac: 42
+  hp: 375
+  perception: 35
+  saves: {"fortitude": 32, "reflex": 35, "will": 36}
+  abilities: {"cha": 10, "con": 5, "dex": 6, "int": 5, "str": 4, "wis": 4}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 30, "Deception": 37, "Diplomacy": 37, "Warfare Lore": 39}
+  immunities: ["bleed", "death-effects", "disease", "doomed", "drained", "fatigued", "healing", "nonlethal-attacks", "paralyzed", "poison", "sickened", "unconscious"]
+  weaknesses: {"vitality": 15}
+  resistances: {"cold": 20, "electricity": 20, "fire": 20, "piercing": 20, "slashing": 20}
+  strikes: [{"name": "Rapier", "bonus": 34, "damage": [["4d6+15", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse", "magical"]}, {"name": "Longbow", "bonus": 34, "damage": [["4d8+15", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Splintersense", "type": "passive", "traits": ["divine", "mental"], "text": "The splinter officer knows the direction and distance of all undead that share splinters of the same splinter officer's soul. These undead are always considered to be allies of the splinter officer."}, {"name": "Behind the Lines", "type": "reaction", "traits": [], "text": "Trigger The splinter officer is targeted by an attack%rRequirements At least one of the officer's undead allies is adjacent to the officer%rEffect The ally interposes itself, granting the officer a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Raise Defenses", "type": "action", "traits": ["concentrate", "divine"], "cost": 2, "text": "The splinter officer mentally commands its undead allies to strengthen their defenses. For 1 round, each undead that shares the officer's splintered soul gains a +1 circumstance bonus to AC.%rEffect: Raise Defenses"}, {"name": "Rally the Rabble", "type": "action", "traits": ["concentrate", "divine"], "cost": 3, "text": "The splinter officer mentally energizes the undead under its command. Each undead that shares the officer's splintered soul is Quickened for 1 round. Quickened allies can use the extra action only to Stride or Strike. The officer can't Rally the Rabble again for 1d4 rounds."}, {"name": "Synchronized Step", "type": "action", "traits": ["concentrate", "divine"], "cost": 2, "text": "The splinter officer mentally commands the undead that share its splintered soul to reposition. The officer Steps, and each undead that shares the officer's splintered soul can use a reaction to Step."}]
+"Stelemora":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 7
+  size: "large"
+  rarity: "uncommon"
+  traits: ["fey", "plant"]
+  ac: 24
+  hp: 188
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 14, "will": 17}
+  abilities: {"cha": 3, "con": 3, "dex": 2, "int": 1, "str": 4, "wis": 6}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 17, "Nature": 17, "Stealth": 15, "Survival": 16}
+  weaknesses: {"cold-iron": 10, "fire": 10}
+  strikes: [{"name": "Vine", "bonus": 17, "damage": [["2d8+8", "bludgeoning", null]], "traits": ["reach-10"], "effects": ["Grab"]}, {"name": "Seed Pod", "bonus": 17, "damage": [["2d10+8", "piercing", null]], "traits": []}]
+  actions: [{"name": "Regeneration 20 (Deactivated by Fire)", "type": "passive", "traits": []}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d8+8) bludgeoning, DC 25 Fortitude"}, {"name": "Flurry of Vines", "type": "action", "traits": [], "cost": 2, "text": "The stelemora makes two vine Strikes at a –2 penalty, each against a different target. These attacks count toward the stelemora's multiple attack penalty, but the multiple attack penalty doesn't increase until after they make all their attacks."}, {"name": "Slithering Vine", "type": "action", "traits": [], "cost": 1, "text": "The stelemora increases the reach of their vine Strike by 10 feet until the end of their turn."}, {"name": "Sow and Sprout", "type": "action", "traits": [], "cost": 2, "text": "The stelemora implants a seed inside a creature they're grappling. The target must attempt a DC 25 Fortitude save.%rSuccess The stelemora fails to implant a seed, and the target is unaffected.%rFailure The target is Sickened 1. While sickened, the target also takes 4d6 persistent piercing damage as flowering vines sprout through its flesh. The target can't end the persistent damage until it recovers from the sickened condition.%rCritical Failure As failure, except the target is Sickened 2."}, {"name": "Tangle of Vines", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time they act, the stelemora appears to be a normal tangle of flowering vines. They have an automatic result of 35 (38 in forests) on Deception checks and DCs to pass as a non-creature plant."}]
+"Tallusian":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["azata", "celestial", "holy"]
+  ac: 21
+  hp: 76
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 12, "will": 12}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": 1, "str": 2, "wis": 3}
+  speeds: {"land": 25, "climb": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Athletics": 11, "Crafting": 13, "Nature": 13, "Stealth": 11, "Survival": 13, "Architecture Lore": 14}
+  weaknesses: {"cold-iron": 5, "unholy": 5}
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["2d8+8", "piercing", null]], "traits": []}, {"name": "Claw", "bonus": 14, "damage": [["2d6+6", "slashing", null]], "traits": ["agile"]}, {"name": "Tail", "bonus": 14, "damage": [["2d6+6", "bludgeoning", null]], "traits": [], "effects": ["Knockdown"]}, {"name": "Quill", "bonus": 14, "damage": [["2d6+6", "piercing", null]], "traits": ["agile"], "range": 20}]
+  actions: [{"name": "Crumbling Ground", "type": "action", "traits": ["divine", "earth"], "cost": 2, "text": "The tallusian slaps their tail against the earth, creating a vibration at the precise frequency needed to shake the ground in a 10-foot burst within 30 feet. The area becomes difficult terrain for 24 hours. Any creature in the area must attempt a DC 22 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The creature is Off-Guard until the start of its next turn.%rFailure The creature falls Prone.%rCritical Failure As failure, plus the creature takes 1d6…"}, {"name": "Rubble", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the tallusian appears to be a normal pile of broken rubble. It has an automatic result of 31 (34 in ruins) on Deception checks and DCs to pass as a pile of rubble."}, {"name": "Tail Spin", "type": "action", "traits": [], "cost": 2, "text": "The tallusian spins in place, sweeping their tail to knock down their foes. Each adjacent foe takes (2d6+6) bludgeoning damage (DC 22 Reflex save). Also on a failed save, the target is knocked Prone. Afterward, the tallusian becomes Clumsy 1 for 1 round."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 22, "attack": 12, "spells": {"1": ["Pummeling Rubble"], "2": ["Humanoid Form (At Will)"], "4": ["Shape Stone"], "5": ["Truespeech (Constant)"]}}]
+"Undead Murder":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 3
+  size: "large"
+  rarity: "uncommon"
+  traits: ["skeleton", "swarm", "undead", "unholy"]
+  ac: 18
+  hp: 32
+  perception: 12
+  saves: {"fortitude": 7, "reflex": 13, "will": 8}
+  abilities: {"cha": 0, "con": 0, "dex": 3, "int": -4, "str": 0, "wis": 4}
+  speeds: {"land": 5, "fly": 35}
+  hp_details: "void healing"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 10, "Stealth": 7, "Thievery": 10}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "precision", "swarm-mind", "unconscious", "bleed"]
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  resistances: {"cold": 3, "electricity": 3, "piercing": 3, "slashing": 3, "fire": 3}
+  actions: [{"name": "Mindless Grudge", "type": "reaction", "traits": [], "text": "Trigger A creature deals damage to the murder%rEffect The murder begrudges the triggering creature. The murder's swarming hunger deals 3 extra damage to that creature. The effect ends if the murder begrudges a different creature."}, {"name": "Swarming Hunger", "type": "action", "traits": [], "cost": 1, "text": "The murder's beaks and talons deal 2d6 piercing damage to each enemy in the swarm's space (DC 20 Reflex save). A creature that critically fails its save is Blinded for 1d4 rounds as the murder focuses its attacks on clawing out the creature's eyes."}]
+"Zombie Bear":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 3
+  size: "large"
+  rarity: "uncommon"
+  traits: ["mindless", "undead", "unholy", "zombie"]
+  ac: 17
+  hp: 75
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 5, "will": 6}
+  abilities: {"cha": -3, "con": 3, "dex": 0, "int": -5, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"slashing": 5, "vitality": 5}
+  strikes: [{"name": "Claw", "bonus": 12, "damage": [["1d10+7", "piercing", null]], "traits": [], "effects": ["Grab"]}, {"name": "Jaws", "bonus": 12, "damage": [["1d12+7", "piercing", null]], "traits": []}]
+  actions: [{"name": "Slow", "type": "passive", "traits": [], "text": "A zombie bear is permanently Slowed 1 and can't use reactions."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Murderous Mauler", "type": "passive", "traits": [], "text": "The zombie bear gains a +2 circumstance bonus to damage rolls against creatures it has Grabbed."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Zombie Desecrator":
+  pack: "claws-of-the-tyrant-bestiary"
+  level: 17
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["mindless", "undead", "unholy", "zombie"]
+  ac: 40
+  hp: 395
+  perception: 23
+  saves: {"fortitude": 35, "reflex": 23, "will": 29}
+  abilities: {"cha": -2, "con": 6, "dex": -2, "int": -5, "str": 9, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 35}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"slashing": 15, "vitality": 15}
+  strikes: [{"name": "Greatsword", "bonus": 31, "damage": [["1d4", "spirit", null], ["3d12+16", "slashing", null]], "traits": ["magical", "unholy", "versatile-p"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Trudge", "type": "action", "traits": [], "cost": 2, "text": "The zombie desecrator moves mindlessly forward without fear of pain. It Strides twice, ignoring any difficult terrain during its movement. At the end of its movement, the zombie takes 1d6 bludgeoning damage for each square of difficult terrain it entered while Trudging."}]

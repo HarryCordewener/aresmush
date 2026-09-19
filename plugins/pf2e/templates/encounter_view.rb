@@ -22,7 +22,7 @@ module AresMUSH
       end
 
       def header_line
-        "%b%b#{left("Init", 5)}%b%b#{left("Name", 25)}%b%b#{left("Conditions", 40)}"
+        "%b#{left("Id", 4)}#{left("Init", 5)}%b#{left("Name", 24)}%b#{left("Conditions, cover", 40)}"
       end
 
       def initiative_list
@@ -75,13 +75,22 @@ module AresMUSH
         !(penalties.empty?)
       end
 
+      # A combatant's id, what it is under, and the cover and concealment set on it.
       def format_init_list_item(participant)
         initiative = participant[0].to_i
         name = participant[1]
-        pc = Character.find_one_by_name(name)
-        conditions = pc ? pc.pf2_conditions : []
+        holder = Pf2e::Combatants.holder_named(@encounter, name)
+        number = Pf2e::Combatants.number(@encounter, name)
+        conditions = holder ? Pf2e.condition_labels(holder, false) : []
+        cover = (@encounter.cover || {})[number.to_s]
+        concealment = (@encounter.concealment || {})[number.to_s]
+        said = conditions + [ cover ? "#{cover} cover" : nil, concealment ].compact
 
-        "%b%b#{left(initiative, 5)}%b%b#{left(name, 25)}%b%b#{left(conditions.sort.join(","), 40)}"
+        "%b#{left("##{number}", 4)}#{left(initiative, 5)}%b#{left(name, 24)}%b#{left(said.join(", "), 40)}"
+      end
+
+      def trusted
+        Array(@encounter.trusted)
       end
 
       def format_bonus_penalty_item(name, people_list)

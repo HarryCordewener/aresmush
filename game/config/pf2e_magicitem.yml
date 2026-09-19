@@ -32,6 +32,11 @@ pf2e_magicitem:
     price: 300
     bulk: 0
     shortdesc: "*Shining ammunition* gives off a faint glow. When shot, it sheds bright light in a 20-foot radius (and dim light to the next 20 feet) for 10 minutes. If it hits a target, it sticks, causing the target to shed light in the same radius. A creature can remove the ammunition with an Interact action, but the ammunition itself continues to glow for the rest of the duration or until destroyed."
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        title: "Shining Ammunition"
+        text: "The ammunition sheds bright light in a 20-foot radius (and dim light to the next 20 feet) for 10 minutes. If it hits a target, it sticks, causing the target to shed light in the same radius. Effect: Shining Ammunition"
   Walking Cauldron:
     traits:
       - invested
@@ -41,6 +46,12 @@ pf2e_magicitem:
     bulk: 4
     shortdesc: "This iron cauldron stands upon sturdy iron crow's feet. A *walking cauldron* has a land Speed of 25 feet and can be used as a suitable tool to *Craft* potions, oils, or other liquids.%r%rAs a single action, which has the *auditory* and *concentrate* traits, you can command the cauldron to either follow you or to stand in place. When following you, the cauldron does its best to remain within 30 feet of you, but its ungainly movements are too imprecise to predictably direct in a combat encounter or other situation where seconds and precise locations count. It can carry up to 2 Bulk of ingredients for potions or other liquids inside of itself while following you, but if overloaded or if you put anything else inside it, it stands in place and refuses to move until 10 minutes after you remove the excess."
   # Level 2 Magic Items
+    rules:
+      - key: "RollOption"
+        option: "walking-cauldron-walking"
+        toggleable: true
+        value: true
+        label: "Walking Cauldron \u2014 Animated"
   Antler Arrow:
     traits:
       - consumable
@@ -49,6 +60,35 @@ pf2e_magicitem:
     price: 700
     bulk: 0
     shortdesc: "**Activate** A (manipulate)%r%rCreation of these arrows was inspired by an encounter with a horned archon scout who sought to peacefully restrain their foes. When an activated *antler arrow* hits a target, bone antlers extend to pin it down. The target must succeed at a DC 16 Reflex save or become stuck to the surface, taking the critical specialization effects of a bow.%r%rIf the hit with the *antler arrow* is a critical hit and you have access to the bow critical specialization effect, the DC of the Athletics check increases to 15."
+    rules:
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["success"]
+        title: "Antler Arrow"
+        text: "The target must succeed at a save or become stuck to the surface, taking the critical specialization effects of a bow"
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["success"]
+        title: "Critical Specialization"
+        text: "If the target of the critical hit is adjacent to a surface, it gets stuck to that surface by the missile. The target is Immobilized and must spend an Interact action to attempt a check to pull the missile free; it can't move from its space until it succeeds. The creature doesn't become stuck if it is incorporeal, is liquid, or could otherwise escape without effort (such as by being large enough that the missile would not be an impediment.)"
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["criticalSuccess"]
+        title: "Antler Arrow"
+        text: "The target must succeed at a save or become stuck to the surface, taking the critical specialization effects of a bow"
+        predicate: [{"not": "critical-specialization"}]
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["criticalSuccess"]
+        title: "Critical Specialization"
+        text: "If the target of the critical hit is adjacent to a surface, it gets stuck to that surface by the missile. The target is Immobilized and must spend an Interact action to attempt a check to pull the missile free; it can't move from its space until it succeeds. The creature doesn't become stuck if it is incorporeal, is liquid, or could otherwise escape without effort (such as by being large enough that the missile would not be an impediment.)"
+        predicate: [{"not": "critical-specialization"}]
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["criticalSuccess"]
+        title: "Antler Arrow"
+        text: "The DC of the Athletics check to pull the missile free increases to"
+        predicate: ["critical-specialization"]
   Masquerade Scarf:
     traits:
       - invested
@@ -67,6 +107,12 @@ pf2e_magicitem:
     bulk: 0
     shortdesc: "This compact compass repurposes ancient technology to draw fantastic powers from the mysterious magical items called *aeon stones*. A *wayfinder* functions as a compass.%r%rAn indentation in the middle of the *wayfinder* can hold a single *aeon stone*. Placing an *aeon stone* in this indentation provides you all the benefits of having the *aeon stone* orbiting your head, but it protects the stone from being noticed or stolen as easily. You invest a *wayfinder* and the *aeon stone* within it simultaneously, and they count as only one item toward your investiture limit. An invested *aeon stone* slotted in a *wayfinder* also grants its resonant power.%r%rIf you have more than one *wayfinder* with an invested *aeon stone* on your person at a given time, destructive interference from their resonance prevents you from gaining benefits from any of them. You can still benefit from additional *aeon stones* orbiting your head, just not in *wayfinders*.%r%r**Activate--Light** A (concentrate); **Effect** The *wayfinder* is targeted by a 1st-rank *light* spell."
   # Level 3 Magic Items
+    rules:
+      - key: "AdjustModifier"
+        selector: "survival"
+        suppress: true
+        slug: "no-compass"
+        requiresEquipped: false
   Beacon Shot:
     traits:
       - consumable
@@ -82,9 +128,12 @@ pf2e_magicitem:
     level: 3
     price: 5800
     bulk: 0.1
-    bonus:
-      Acrobatics: 1
     shortdesc: "This jangling, silvery bracelet makes you lighter on your feet, giving you a +1 item bonus to Acrobatics checks.%r%r**Activate--Jangling Dash** A (concentrate); **Frequency** once per day; **Effect** You gain a +10-foot status bonus to Speed for 1 minute."
+    rules:
+      - key: "FlatModifier"
+        selector: "acrobatics"
+        type: "item"
+        value: 1
   Bracers of Missile Deflection:
     traits:
       - invested
@@ -102,6 +151,12 @@ pf2e_magicitem:
     price: 5600
     bulk: 0
     shortdesc: "This nugget of polished tektite is trapped in a cage of braided wire and hangs from a silken cord. When wearing this amulet, you gain resistance 5 against damage from *harm* spells if you're living, or against *heal* spells if you're undead."
+    rules:
+      - key: "Resistance"
+        definition: [{"or": [{"and": ["self:mode:living", "item:type:spell", "item:slug:harm"]}, {"and": ["self:mode:undead", "item:type:spell", "item:slug:heal"]}]}]
+        type: "custom"
+        value: 5
+        label: "Channel Protection"
   Charlatan's Gloves:
     traits:
       - invested
@@ -109,9 +164,12 @@ pf2e_magicitem:
     level: 3
     price: 5000
     bulk: 0.1
-    bonus:
-      Thievery: 1
     shortdesc: "Tiny silver hooks decorate these fine silk gloves. They grant a +1 item bonus to Thievery and allow you to cast *telekinetic hand* as an innate occult spell."
+    rules:
+      - key: "FlatModifier"
+        selector: "thievery"
+        type: "item"
+        value: 1
   Coyote Cloak:
     traits:
       - invested
@@ -119,9 +177,18 @@ pf2e_magicitem:
     level: 3
     price: 6000
     bulk: 0
-    bonus:
-      Survival: 1
     shortdesc: "This dusty coat is made of mangy brown-and-gray coyote fur. You gain a +1 item bonus to Survival checks. If you critically succeed at your Survival check to Subsist, you can feed twice as many additional creatures."
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+      - key: "Note"
+        selector: "survival"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "If you critically succeed at your Survival check to Subsist, you can feed twice as many additional creatures."
+        predicate: ["action:subsist"]
   Crafter's Eyepiece:
     traits:
       - invested
@@ -129,9 +196,12 @@ pf2e_magicitem:
     level: 3
     price: 6000
     bulk: 0
-    bonus:
-      Crafting: 1
     shortdesc: "This rugged metal eyepiece etched with square patterns is designed to be worn over a single eye. Twisting the lens reveals a faint three-dimensional outline of an item you plan to build or repair, with helpful labels on the component parts.%r%rYou gain a +1 item bonus to Crafting checks. When you Repair an item, increase the Hit Points restored to 10 + 10 per proficiency rank on a success or 15 + 15 per proficiency rank on a critical success."
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 1
   Dancing Scarf:
     traits:
       - invested
@@ -140,9 +210,13 @@ pf2e_magicitem:
     level: 3
     price: 6000
     bulk: 0
-    bonus:
-      Performance: 1
     shortdesc: "This long and billowing scarf is typically woven of silk or sheer fabric and adorned with bells or other jangling bits of shiny metal. It grants a +1 item bonus to Performance checks to dance.%r%r**Activate--Swirling Scarf** A (manipulate); **Requirements** On your most recent action, you succeeded at a Performance check to dance; **Effect** You become concealed until the beginning of your next turn."
+    rules:
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 1
+        predicate: ["action:perform:dance"]
   Doubling Rings:
     traits:
       - invested
@@ -158,6 +232,17 @@ pf2e_magicitem:
     price: 6000
     bulk: 1
     shortdesc: "A *maestro's instrument* can be crafted in the form of any variety of handheld musical instruments. A *maestro's instrument* grants you a +1 item bonus to Performance checks while playing music with the instrument.%r%r**Activate--Charming Performance** 2 actions (manipulate); **Frequency** once per day; **Effect** You play the instrument, causing it to cast a DC 17 *charm* spell.%r%r**Craft Requirements** You must supply a casting of *charm* of the appropriate rank."
+    rules:
+      - key: "RollOption"
+        option: "playing"
+        domain: "performance"
+        toggleable: true
+        label: "Playing {item}"
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 1
+        predicate: ["playing"]
   Persona Mask:
     traits:
       - fortune
@@ -167,6 +252,13 @@ pf2e_magicitem:
     price: 5000
     bulk: 0
     shortdesc: "Despite covering the entire face, this alabaster mask does not hinder vision or other senses. Wearing the mask grants a +1 item bonus to Performance checks while acting, orating, performing comedy, or singing.%r%r**Activate--Assume Role** A (concentrate); **Effect** You change the mask's appearance into an artistic rendition of a dramatic character of your choice."
+    rules:
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 1
+        label: "Persona Mask (acting, orating, comedy, singing)"
+        predicate: [{"or": ["acting", "orating", "performing-comedy", "singing"]}]
   Slumber Arrow:
     traits:
       - consumable
@@ -193,6 +285,13 @@ pf2e_magicitem:
     price: 6000
     bulk: 0
     shortdesc: "These lenses of forest-green glass are bound in rough leather stitched with crude twine.%r%rWhile wearing these goggles, you gain a +1 bonus to Survival checks to Sense Direction and Track.%r%rIf you fail a check to Track, you can try again after 30 minutes rather than an hour."
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+        label: "Tracker's Goggles (Sense Direction & Track)"
+        predicate: [{"or": ["action:sense-direction", "action:track"]}]
   Twisting Twine (Lesser):
     traits:
       - magical
@@ -207,9 +306,12 @@ pf2e_magicitem:
     level: 3
     price: 6000
     bulk: 0
-    bonus:
-      Deception: 1
     shortdesc: "This elegant copper ring has miniature images of songbirds engraved around its circumference. You gain a +1 item bonus to Deception checks.%r%r**Activate--Throw Voice** 2 actions (manipulate); **Frequency** once per day; **Effect** Twisting the ring around your finger allows you to magically throw your voice, with the effects of a *ventriloquism* spell (DC 19 Perception)."
+    rules:
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 1
   Vine Arrow:
     traits:
       - consumable
@@ -227,6 +329,22 @@ pf2e_magicitem:
     price: 10000
     bulk: 0
     shortdesc: "These brass goggles are engraved with flame patterns and have thick, heavy lenses.%r%rWhile worn, they give you a +1 item bonus to Crafting checks to Craft alchemical items. When making Strikes with alchemical bombs, you ignore lesser cover.%r%rIf your Strike with an alchemical bomb fails (but doesn't critically fail), you gain a +1 item bonus to the splash damage the target of the Strike takes."
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 1
+        predicate: ["item:trait:alchemical", "action:craft"]
+      - key: "RollOption"
+        option: "alchemist-goggles-failure"
+        toggleable: true
+        label: "Failed Strike with an alchemical bomb"
+      - key: "FlatModifier"
+        selector: "alchemical-bomb-base-damage"
+        type: "item"
+        value: 1
+        damageCategory: "splash"
+        predicate: ["alchemist-goggles-failure"]
   Climbing Bolt:
     traits:
       - consumable
@@ -242,9 +360,12 @@ pf2e_magicitem:
     level: 4
     price: 8500
     bulk: 0.1
-    bonus:
-      Intimidation: 1
     shortdesc: "This terrifying mask is crafted in the visage of a leering demon and grants a +1 item bonus to Intimidation checks.%r%r**Activate--Leering Mask** 2 actions (manipulate); **Frequency** once per day; **Effect** The mask casts a *fear* spell with a DC of 20."
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 1
   Healer's Gloves:
     traits:
       - invested
@@ -252,9 +373,12 @@ pf2e_magicitem:
     level: 4
     price: 8000
     bulk: 0.1
-    bonus:
-      Medicine: 1
     shortdesc: "These clean, white gloves never show signs of blood, even when used to stitch up wounds or treat other ailments. They give you a +1 item bonus to Medicine checks.%r%r**Activate--Healer's Touch** A (manipulate); **Frequency** once per day; **Effect** You can soothe the wounds of a willing, living, adjacent creature, restoring 2d6+7 Hit Points to that creature. This is a healing vitality effect. You can't harm undead with this healing."
+    rules:
+      - key: "FlatModifier"
+        selector: "medicine"
+        type: "item"
+        value: 1
   Lifting Belt:
     traits:
       - invested
@@ -262,9 +386,20 @@ pf2e_magicitem:
     level: 4
     price: 8000
     bulk: 0.1
-    bonus:
-      Athletics: 1
     shortdesc: "This wide leather belt grants you a +1 item bonus to Athletics checks and increases the amount you can easily carry. You can carry Bulk equal to 6 + your Strength modifier before becoming encumbered, and you can hold and carry a total Bulk up to 11 + your Strength modifier.%r%r**Activate--Assisted Lift** 2 actions (manipulate); **Effect** You lift an object of up to 8 Bulk as though it were weightless. This requires two hands, and if the object is locked or otherwise held in place, you can attempt to Force it Open using Athletics as part of this activation. The object still has its full weight and Bulk for all other purposes-you just ignore that weight. The effect lasts until the end of your next turn."
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "inventory.bulk.encumberedAfterAddend"
+        mode: "add"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "inventory.bulk.maxAddend"
+        mode: "add"
+        value: 1
   Viper Arrow:
     traits:
       - consumable
@@ -282,6 +417,10 @@ pf2e_magicitem:
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
   # Level 5 Magic Items
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Aeon Stone (Preserving):
     traits:
       - uncommon
@@ -291,6 +430,10 @@ pf2e_magicitem:
     price: 15000
     bulk: 0
     shortdesc: "Over millennia, these mysterious, intricately cut gemstones have been hoarded by mystics and fanatics hoping to discover their secrets. Despite their myriad forms and functions, these stones are purportedly all fragments of crystal tools used by otherworldly entities to construct the universe in primeval times.%r%rWhen you invest one of these precisely shaped crystals, the stone orbits your head instead of being worn on your body. You can stow an *aeon stone* with an Interact action, and an orbiting stone can be snatched out of the air with a successful Disarm action against you. A stowed or removed stone remains invested, but its effects are suppressed until you return it to orbit your head again.%r%rThere are various types of *aeon stones*, each with a different appearance and magical effect. Each *aeon stone* also gains a resonant power when slotted into a special magical item called a *wayfinder*.%r%rThis red crystalline star covers you in a faint aura when you are subject to lingering wounds. You gain resistance 3 to persistent damage. At the end of any turn where the persistent damage can't overcome this resistance, end that condition.%r%rThe resonant power allows you to cast *stabilize* as a primal innate cantrip."
+    rules:
+      - key: "Resistance"
+        type: "persistent-damage"
+        value: 3
   Diplomat's Badge:
     traits:
       - invested
@@ -298,9 +441,12 @@ pf2e_magicitem:
     level: 5
     price: 12500
     bulk: 0
-    bonus:
-      Diplomacy: 1
     shortdesc: "When displayed prominently, this brass badge makes creatures find you more agreeable. You gain a +1 item bonus to Diplomacy checks.%r%r**Activate--Diplomat's Bearing** A (concentrate); **Frequency** once per day; **Effect** Attempt a DC 20 check to Recall Knowledge about people of a human ethnicity, a non-human ancestry, or some other type of creature. (The GM determines what your options are.) If you succeed, the badge's bonus increases to +2 for Diplomacy checks with creatures of that group for the rest of the day."
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "item"
+        value: 1
   Eternal Eruption:
     traits:
       - fire
@@ -318,6 +464,11 @@ pf2e_magicitem:
     price: 2500
     bulk: 0
     shortdesc: "**Activate** 1 action (manipulate)%r%rThis chilly ammunition is dark blue and cold to the touch. When activated *freezing ammunition* hits a target, the target must succeed at a DC 19 Fortitude save or be slowed 1 for 1 round by the intense cold (slowed 1 for 1 minute on a critical failure)."
+    rules:
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        title: "Freezing Ammunition"
+        text: "The target must succeed at a save or be Slowed 1 for 1 round by the intense cold (slowed 1 for 1 minute on a critical failure)."
   Obsidian Goggles:
     traits:
       - invested
@@ -326,6 +477,12 @@ pf2e_magicitem:
     price: 15000
     bulk: 0
     shortdesc: "The sleek, black lenses of these goggles somehow make everything seem more brightly lit. While wearing the goggles, you gain a +1 item bonus to Perception checks involving sight.%r%r**Activate--Darkvision** 1 action (manipulate); **Frequency** once per day; **Effect** Adjusting your goggles, you gain darkvision for 1 hour."
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "item"
+        value: 1
+        predicate: ["visual"]
   Pocket Stage:
     traits:
       - magical
@@ -341,6 +498,13 @@ pf2e_magicitem:
     price: 12500
     bulk: 0
     shortdesc: "A grinning skull tops the bow of this macabre key. This key can be used in place of thieves' toolkit when attempting to Pick a Lock, and it grants a +1 item bonus to the Thievery check.%r%rIf the *skeleton key* becomes broken due to a critical failure on the check, it works as normal thieves' toolkit and loses its benefits until repaired.%r%r**Activate--Loosen Lock** Free Action (manipulate); **Frequency** once per day; **Trigger** You attempt to Pick a Lock but haven't rolled yet; **Effect** The key casts *knock* on the lock you're trying to pick."
+    rules:
+      - key: "FlatModifier"
+        selector: "thievery"
+        type: "item"
+        value: 1
+        label: "Skeleton Key (Pick a Lock)"
+        predicate: ["action:pick-a-lock"]
   Spellstrike Ammunition (Type II):
     traits:
       - consumable
@@ -382,6 +546,14 @@ pf2e_magicitem:
     price: 24500
     bulk: 0
     shortdesc: "This charm, normally hung from the belt or worn around the neck, grants you resistance 5 against one type of energy damage: acid, cold, electricity, fire, or sonic. Each charm is crafted to protect against a particular type of energy damage, and its design usually embodies the type of energy it protects the wearer from in some way. For instance, a *charm of cold resistance* could be carved in the shape of a yeti, whereas a *charm of fire resistance* would be made from volcanic glass."
+    rules:
+      - key: "ChoiceSet"
+        flag: "damageType"
+        prompt: "Select a damage type."
+        choices: [{"label": "Acid", "value": "acid"}, {"label": "Cold", "value": "cold"}, {"label": "Electricity", "value": "electricity"}, {"label": "Fire", "value": "fire"}, {"label": "Sonic", "value": "sonic"}]
+      - key: "Resistance"
+        type: "{item|flags.system.rulesSelections.damageType}"
+        value: 5
   Choker of Elocution:
     traits:
       - invested
@@ -389,9 +561,12 @@ pf2e_magicitem:
     level: 6
     price: 20000
     bulk: 0.1
-    bonus:
-      Society: 1
     shortdesc: "This platinum choker bears characters from a language's alphabet, and it gives knowledge of that language and the associated culture's customs.%r%rYou gain a +1 item bonus to Society checks and the ability to understand, speak, and write the chosen language.%r%rYour excellent elocution reduces the DC of the flat check to perform an auditory action while deafened from 5 to 3.%r%r**Craft Requirements** You know the language the choker grants."
+    rules:
+      - key: "FlatModifier"
+        selector: "society"
+        type: "item"
+        value: 1
   Clandestine Cloak:
     traits:
       - uncommon
@@ -400,11 +575,27 @@ pf2e_magicitem:
     level: 6
     price: 23000
     bulk: 0.1
-    bonus:
-      Diplomacy: -1
-      Intimidation: -1
-      Stealth: 1
     shortdesc: "When you pull up the hood of this nondescript gray cloak (an Interact action), you become drab and uninteresting, gaining a +1 item bonus to Stealth checks and to Deception checks to Impersonate a forgettable background character, such as a servant, but also taking a -1 item penalty to Diplomacy and Intimidation checks.%r%r**Activate--Cloak Identity** 2 actions (concentrate, manipulate); **Frequency** once per day; **Effect** You pull the cloak's hood up and gain the benefits of *veil of privacy* for 1 hour or until you pull the hood back down, whichever comes first."
+    rules:
+      - key: "RollOption"
+        option: "clandestine-cloak"
+        toggleable: true
+        label: "Clandestine Cloak \u2014 Pull up the Hood"
+      - key: "FlatModifier"
+        selector: "stealth"
+        type: "item"
+        value: 1
+        predicate: ["clandestine-cloak"]
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 1
+        predicate: ["clandestine-cloak", "action:impersonate"]
+      - key: "FlatModifier"
+        selector: ["diplomacy", "intimidation"]
+        type: "item"
+        value: -1
+        predicate: ["clandestine-cloak"]
   Cloud Pouch:
     traits:
       - magical
@@ -420,9 +611,12 @@ pf2e_magicitem:
     level: 6
     price: 23000
     bulk: 0
-    bonus:
-      Nature: 1
     shortdesc: "This sprig of berry-festooned holly and mistletoe doesn't wilt or rot. It can be used as a primal locus, and it grants a +1 item bonus to Nature checks while you wear it.%r%r**Activate--Anoint** 2 actions (manipulate); **Frequency** once per 10 minutes; **Effect** You squeeze juice from one of the berries and smear it onto a weapon made primarily of wood to cast *runic weapon* on it, or onto a creature to cast *runic body* on it.%r%r**Activate--Bind** 2 actions (manipulate); **Frequency** once per day; **Effect** You touch the sprig, then a tree to cast *one with plants* upon yourself, turning into a vine on the touched tree."
+    rules:
+      - key: "FlatModifier"
+        selector: "nature"
+        type: "item"
+        value: 1
   Terrifying Ammunition:
     traits:
       - consumable
@@ -450,6 +644,10 @@ pf2e_magicitem:
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
   # Level 7 Magic Items
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Aeon Stone (Delaying):
     traits:
       - uncommon
@@ -477,6 +675,11 @@ pf2e_magicitem:
     price: 31000
     bulk: 0
     shortdesc: "Over millennia, these mysterious, intricately cut gemstones have been hoarded by mystics and fanatics hoping to discover their secrets. Despite their myriad forms and functions, these stones are purportedly all fragments of crystal tools used by otherworldly entities to construct the universe in primeval times.%r%rWhen you invest one of these precisely shaped crystals, the stone orbits your head instead of being worn on your body. You can stow an *aeon stone* with an Interact action, and an orbiting stone can be snatched out of the air with a successful Disarm action against you. A stowed or removed stone remains invested, but its effects are suppressed until you return it to orbit your head again.%r%rThere are various types of *aeon stones*, each with a different appearance and magical effect. Each *aeon stone* also gains a resonant power when slotted into a special magical item called a *wayfinder*.%r%rThis spherical piece of silvery stone helps you ignore minor issues. You can ignore status penalties to skill checks from clumsy 1, enfeebled 1, frightened 1, sickened 1, and stupefied 1 conditions as long as the value of that condition is 1.%r%rIts resonant power allows you to cast *guidance* as an occult innate cantrip."
+    rules:
+      - key: "AdjustModifier"
+        selector: "skill-check"
+        suppress: true
+        predicate: [{"or": [{"and": ["self:condition:clumsy:1", "penalty:slug:clumsy"]}, {"and": ["self:condition:enfeebled:1", "penalty:slug:enfeebled"]}, {"and": ["self:condition:frightened:1", "penalty:slug:frightened"]}, {"and": ["self:condition:sickened:1", "penalty:slug:sickened"]}, {"and": ["self:condition:stupefied:1", "penalty:slug:stupefied"]}]}]
   Boots of Bounding:
     traits:
       - invested
@@ -485,6 +688,16 @@ pf2e_magicitem:
     price: 34000
     bulk: 0.1
     shortdesc: "The springy soles of these sturdy leather boots cushion your feet and make each step lighter. These boots give you a +5-foot item bonus to your Speed and a +2 item bonus to Athletics checks to High Jump and Long Jump.%r%rIn addition, when you use the Leap action, you can move 5 feet further if jumping horizontally or 3 feet higher if jumping vertically."
+    rules:
+      - key: "FlatModifier"
+        selector: "land-speed"
+        type: "item"
+        value: 5
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 2
+        predicate: [{"or": ["action:high-jump", "action:long-jump"]}]
   Bottled Air:
     traits:
       - air
@@ -568,6 +781,23 @@ pf2e_magicitem:
     price: 50000
     bulk: 0.1
     shortdesc: "Decorated with clear gemstones, these thick metal bands spread an inflexible layer of force over your body. The force grants you a +1 item bonus to AC and saving throws, and a maximum Dexterity modifier of +5 as armor. You can affix talismans to the bands as though they were light armor.%r%r**Activate--Return Force** Reaction (force, manipulate); **Trigger** A creature critically misses you with a melee Strike; **Effect** You Shove the creature using the bands' Athletics modifier of +14."
+    rules:
+      - key: "FlatModifier"
+        selector: ["ac", "saving-throw"]
+        type: "item"
+        value: 1
+        slug: "bands-of-force"
+      - key: "DexterityModifierCap"
+        value: 5
+      - key: "FlatModifier"
+        selector: ["athletics"]
+        value: 14
+        slug: "bands-of-force"
+        predicate: ["bands-of-force"]
+      - key: "AdjustModifier"
+        selector: "athletics"
+        suppress: true
+        predicate: ["bands-of-force", {"or": ["bonus:type:proficiency", "modifier:type:ability"]}]
   Lover's Gloves:
     traits:
       - emotion
@@ -577,9 +807,12 @@ pf2e_magicitem:
     level: 8
     price: 50000
     bulk: 0
-    bonus:
-      Diplomacy: 1
     shortdesc: "These white silk gloves are adorned in red hearts that glow faintly whenever you are adjacent to someone you feel particularly strongly toward. They buoy your spirit, giving you a +1 item bonus to Diplomacy checks.%r%r**Activate--Bond** 1 action (manipulate); **Frequency** once per day; **Effect** You grasp the hands of a willing creature you have strong positive feelings about, regardless of the nature of those feelings. The creature gains a +1 status bonus to saving throws and 10 temporary Hit Points for 10 minutes. If the creature shares your feelings, you gain the same benefits, and for the duration, when you both roll a success on a saving throw against an emotion effect that causes negative emotions, you both get a critical success instead."
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "item"
+        value: 1
   Madcap Top:
     traits:
       - rare
@@ -597,6 +830,10 @@ pf2e_magicitem:
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
   # Level 9 Magic Items
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Armbands of Athleticism:
     traits:
       - invested
@@ -604,9 +841,18 @@ pf2e_magicitem:
     level: 9
     price: 64500
     bulk: 0.1
-    bonus:
-      Athletics: 2
     shortdesc: "Skilled awl work has imprinted images of a muscled weightlifter into these tiered leather bands, which grant you enhanced stamina and skill when performing athletic exercises.%r%rWhile fastened to your upper arms, the armbands give you a +2 item bonus to Athletics checks.%r%rIn addition, whenever you use an action to Climb or Swim and you succeed at the Athletics check, add a +5-foot item bonus to the distance you move."
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 2
+      - key: "Note"
+        selector: "athletics"
+        outcome: ["success", "criticalSuccess"]
+        title: "{item|name}"
+        text: "Whenever you use an action to Climb or Swim and you succeed at the Athletics check, add a +5-foot item bonus to the distance you move."
+        predicate: [{"or": ["action:climb", "action:swim"]}]
   Bracers of Missile Deflection (Greater):
     traits:
       - invested
@@ -622,9 +868,12 @@ pf2e_magicitem:
     level: 9
     price: 60000
     bulk: 0.1
-    bonus:
-      Thievery: 2
     shortdesc: "Tiny silver hooks decorate these fine silk gloves. They grant a +2 item bonus to Thievery and allow you to cast *telekinetic hand* as an innate occult spell.%r%rIf you are also wearing a *charlatan's cape*, whenever you would move an object using *telekinetic hand*, you may instead have it disappear in a puff of smoke and reappear hovering in a space adjacent to yours. This is a teleportation effect. The item hovers until the end of your turn or until retrieved with an Interact action."
+    rules:
+      - key: "FlatModifier"
+        selector: "thievery"
+        type: "item"
+        value: 2
   Coyote Cloak (Greater):
     traits:
       - invested
@@ -632,9 +881,18 @@ pf2e_magicitem:
     level: 9
     price: 65000
     bulk: 0
-    bonus:
-      Survival: 2
     shortdesc: "This dusty coat is made of mangy brown-and-gray coyote fur. You gain a +2 item bonus to Survival checks. If you critically succeed at your Survival check to Subsist, you can feed four times as many additional creatures."
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 2
+      - key: "Note"
+        selector: "survival"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "If you critically succeed at your Survival check to Subsist, you can feed four times as many additional creatures."
+        predicate: ["action:subsist"]
   Dancing Scarf (Greater):
     traits:
       - invested
@@ -643,9 +901,13 @@ pf2e_magicitem:
     level: 9
     price: 65000
     bulk: 0
-    bonus:
-      Performance: 2
     shortdesc: "This long and billowing scarf is typically woven of silk or sheer fabric and adorned with bells or other jangling bits of shiny metal. It grants a +2 item bonus to Performance checks to dance.%r%r**Activate--Swirling Scarf** A (manipulate); **Requirements** On your most recent action, you succeeded at a Performance check to dance; **Effect** You become concealed until the beginning of your next turn. You can also Stride up to half your Speed or Step."
+    rules:
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 2
+        predicate: ["action:perform:dance"]
   Earthsight Box:
     traits:
       - uncommon
@@ -672,6 +934,11 @@ pf2e_magicitem:
     price: 13000
     bulk: 0
     shortdesc: "**Ammunition** any%r%r**Activate** A (manipulate)%r%rThis piece of ammunition is coated in gritty black soot. When activated *explosive ammunition* hits a target, the missile explodes in a 10-ft burst, dealing 6d6 fire damage to each creature in the area (including the target). Each creature must attempt a DC 25 basic Reflex save."
+    rules:
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        title: "Explosive Ammunition"
+        text: "The missile explodes in a , dealing |options:area-damage] damage to each creature in the area (including the target). Each creature must attempt a save."
   Eyes of the Cat:
     traits:
       - invested
@@ -680,6 +947,14 @@ pf2e_magicitem:
     price: 70000
     bulk: 0
     shortdesc: "These lenses of amber crystal fit over your eyes. They grant you low-light vision and a +2 item bonus to Perception checks that involve sight."
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "item"
+        value: 2
+        predicate: ["visual"]
+      - key: "Sense"
+        selector: "low-light-vision"
   Guise of the Smirking Devil:
     traits:
       - auditory
@@ -689,9 +964,12 @@ pf2e_magicitem:
     level: 9
     price: 70000
     bulk: 0
-    bonus:
-      Intimidation: 2
     shortdesc: "This ice-blue half-mask is adorned with a wicked silver grin that covers the wearer's mouth, leaving the rest of the face uncovered. You gain a +2 item bonus to Intimidation checks.%r%r**Activate--Hideous Wail** 2 actions (concentrate, manipulate); **Frequency** once per day; **Effect** The mask emits a soul-chilling scream that deals 6d10 void damage to each living creature in a 20-ft emanation (DC 25 Fortitude save).%r%r**Craft Requirements** Supply a casting of *wails of the damned*."
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 2
   Healer's Gloves (Greater):
     traits:
       - invested
@@ -699,9 +977,12 @@ pf2e_magicitem:
     level: 9
     price: 70000
     bulk: 0.1
-    bonus:
-      Medicine: 2
     shortdesc: "These clean, white gloves never show signs of blood, even when used to stitch up wounds or treat other ailments. They give you a +2 item bonus to Medicine checks.%r%r**Activate--Healer's Touch** A (manipulate); **Frequency** once per day; **Effect** You can soothe the wounds of a willing, living, adjacent creature, restoring 4d6+15 Hit Points to that creature. This is a healing vitality effect. You can't harm undead with this healing."
+    rules:
+      - key: "FlatModifier"
+        selector: "medicine"
+        type: "item"
+        value: 2
   Messenger's Ring:
     traits:
       - invested
@@ -709,9 +990,12 @@ pf2e_magicitem:
     level: 9
     price: 70000
     bulk: 0
-    bonus:
-      Diplomacy: 2
     shortdesc: "This silver signet ring changes to match the insignia of a lord or organization you serve (or your own face, if you serve no one else). It grants you a +2 item bonus to Diplomacy checks and lets you cast *message* as an arcane innate spell at will.%r%r**Activate--Dispatch Messenger** 1 minute (concentrate); **Frequency** once per day; **Effect** The ring casts *animal messenger* to your specification. The animal is a magical creature that springs from the ring, and its appearance suits the iconography or heraldry of the lord or organization represented by the ring."
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "item"
+        value: 2
   Persona Mask (Greater):
     traits:
       - fortune
@@ -721,6 +1005,13 @@ pf2e_magicitem:
     price: 65000
     bulk: 0
     shortdesc: "Despite covering the entire face, this alabaster mask does not hinder vision or other senses. Wearing the mask grants a +2 item bonus to Performance checks while acting, orating, performing comedy, or singing.%r%r**Activate--Assume Role** A (concentrate); **Effect** You change the mask's appearance into an artistic rendition of a dramatic character of your choice.%r%r**Activate--Sacrifice Role** Reaction (concentrate, fortune); **Frequency** once per day; **Trigger** You fail a Performance check that benefits from the mask's bonus; **Effect** You change the mask's character and reroll the Performance check, using the second result."
+    rules:
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 2
+        label: "Persona Mask (acting, orating, comedy, singing)"
+        predicate: [{"or": ["acting", "orating", "performing-comedy", "singing"]}]
   Spellstrike Ammunition (Type IV):
     traits:
       - consumable
@@ -747,6 +1038,13 @@ pf2e_magicitem:
     price: 66000
     bulk: 0
     shortdesc: "These lenses of forest-green glass are bound in rough leather stitched with crude twine.%r%rWhile wearing these goggles, you gain a +2 bonus to Survival checks to Sense Direction and Track.%r%rIf you fail a check to Track, you can try again after 15 minutes rather than an hour."
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 2
+        label: "Tracker's Goggles (Sense Direction & Track)"
+        predicate: [{"or": ["action:sense-direction", "action:track"]}]
   Urn of Ashes:
     traits:
       - magical
@@ -762,9 +1060,12 @@ pf2e_magicitem:
     level: 9
     price: 67000
     bulk: 0
-    bonus:
-      Deception: 2
     shortdesc: "This elegant copper ring has miniature images of songbirds engraved around its circumference. You gain a +2 item bonus to Deception checks.%r%r**Activate--Throw Voice** 2 actions (manipulate); **Frequency** any number of times per day; **Effect** Twisting the ring around your finger allows you to magically throw your voice, with the effects of a 2nd-rank *ventriloquism* spell (DC 27 Perception)."
+    rules:
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 2
   Wand of Continuation (3rd-Rank Spell):
     traits:
       - magical
@@ -782,9 +1083,12 @@ pf2e_magicitem:
     level: 10
     price: 98000
     bulk: 0.1
-    bonus:
-      Deception: 2
     shortdesc: "This bright red-and-gold cape is often interlaced with glittery threads and serves as a distraction. While wearing the cape, you gain a +2 item bonus to Deception checks.%r%r**Activate--Puff of Smoke** 2 actions (manipulate); **Frequency** once per day; **Effect** You cast *translocate*. The space you leave and the one you appear in are filled with puffs of smoke that make anyone within concealed until they leave the smoke or the end of your next turn, at which point the smoke dissipates. Strong winds immediately disperse the smoke."
+    rules:
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 2
   Charm of Resistance (Greater):
     traits:
       - invested
@@ -793,6 +1097,14 @@ pf2e_magicitem:
     price: 97500
     bulk: 0
     shortdesc: "This charm, normally hung from the belt or worn around the neck, grants you resistance 10 against one type of energy damage: acid, cold, electricity, fire, or sonic. Each charm is crafted to protect against a particular type of energy damage, and its design usually embodies the type of energy it protects the wearer from in some way. For instance, a *charm of cold resistance* could be carved in the shape of a yeti, whereas a *charm of fire resistance* would be made from volcanic glass."
+    rules:
+      - key: "ChoiceSet"
+        flag: "damageType"
+        prompt: "Select a damage type."
+        choices: [{"label": "Acid", "value": "acid"}, {"label": "Cold", "value": "cold"}, {"label": "Electricity", "value": "electricity"}, {"label": "Fire", "value": "fire"}, {"label": "Sonic", "value": "sonic"}]
+      - key: "Resistance"
+        type: "{item|flags.system.rulesSelections.damageType}"
+        value: 10
   Choker of Elocution (Greater):
     traits:
       - invested
@@ -800,9 +1112,12 @@ pf2e_magicitem:
     level: 10
     price: 85000
     bulk: 0.1
-    bonus:
-      Society: 2
     shortdesc: "This platinum choker bears characters from three language's alphabet, and it gives knowledge of those languages and the associated culture's customs.%r%rYou gain a +2 item bonus to Society checks and the ability to understand, speak, and write the chosen languages.%r%rYour excellent elocution reduces the DC of the flat check to perform an auditory action while deafened from 5 to 3.%r%r**Craft Requirements** You know the languages the choker grants."
+    rules:
+      - key: "FlatModifier"
+        selector: "society"
+        type: "item"
+        value: 2
   Clandestine Cloak (Greater):
     traits:
       - uncommon
@@ -811,11 +1126,27 @@ pf2e_magicitem:
     level: 10
     price: 90000
     bulk: 0.1
-    bonus:
-      Diplomacy: -1
-      Intimidation: -1
-      Stealth: 2
     shortdesc: "When you pull up the hood of this nondescript gray cloak (an Interact action), you become drab and uninteresting, gaining a +2 item bonus to Stealth checks and to Deception checks to Impersonate a forgettable background character, such as a servant, but also taking a -1 item penalty to Diplomacy and Intimidation checks.%r%r**Activate--Cloak Identity** 2 actions (concentrate, manipulate); **Frequency** once per day; **Effect** You pull the cloak's hood up and gain the benefits of a 5th-rank *veil of privacy* for 8 hours or until you pull the hood back down, whichever comes first."
+    rules:
+      - key: "RollOption"
+        option: "clandestine-cloak"
+        toggleable: true
+        label: "Clandestine Cloak \u2014 Pull up the Hood"
+      - key: "FlatModifier"
+        selector: "stealth"
+        type: "item"
+        value: 2
+        predicate: ["clandestine-cloak"]
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 2
+        predicate: ["clandestine-cloak", "action:impersonate"]
+      - key: "FlatModifier"
+        selector: ["diplomacy", "intimidation"]
+        type: "item"
+        value: -1
+        predicate: ["clandestine-cloak"]
   Crown of Witchcraft:
     traits:
       - focused
@@ -824,9 +1155,12 @@ pf2e_magicitem:
     level: 10
     price: 100000
     bulk: 0
-    bonus:
-      Intimidation: 1
     shortdesc: "An elegant accoutrement for a witch who has come into the higher echelons of power, a *crown of witchcraft* typically looks like a garland of flowering twigs, a jeweled circlet, or a tall hat of fine fabric. You gain a +1 item bonus to Intimidation checks, and if you're a witch, you gain a +2 item bonus to your patron skill.%r%rIf you have a familiar, you can attach a small portion of the crown's material to your familiar, such as a strip of fabric from a hat tied around its tail or a sprig of natural material linked to its collar; the familiar doesn't need to invest the item itself. If you do this, your familiar gains the tough pet ability as long as the crown is invested by you.%r%r**Activate--Defiant Hex** Free Action (concentrate); **Frequency** once per day; **Effect** Gain 1 Focus Point, which you can spend only to cast a witch hex spell. If you don't spend this point by the end of this turn, it is lost.%r%r**Craft Requirements** You are a witch."
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 1
   Daredevil Boots:
     traits:
       - invested
@@ -834,9 +1168,19 @@ pf2e_magicitem:
     level: 10
     price: 90000
     bulk: 0.1
-    bonus:
-      Acrobatics: 2
     shortdesc: "These brightly colored, soft-soled boots motivate you to perform risky stunts and grant you the agility to succeed. The boots grant you a +2 item bonus to Acrobatics checks and a +1 circumstance bonus to checks to Tumble Through an enemy's space.%r%rThe boots can grip solid surfaces and help you avoid a fall, allowing you to use the Grab an Edge reaction even if your hands aren't free. You treat falls as 10 feet shorter or, if you have the Cat Fall feat, treat your proficiency rank in Acrobatics as one degree better to determine the benefits of that feat. If you have Cat Fall and are already legendary in Acrobatics, you can choose the speed of your fall, from 60 feet per round up to normal falling speed."
+    rules:
+      - key: "FlatModifier"
+        selector: "acrobatics"
+        type: "item"
+        value: 2
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 1
+        slug: "daredevil-boots-tumble-through"
+        label: "{item} (Tumble Through)"
+        predicate: ["action:tumble-through"]
   Demon Mask (Greater):
     traits:
       - invested
@@ -844,9 +1188,12 @@ pf2e_magicitem:
     level: 10
     price: 90000
     bulk: 0.1
-    bonus:
-      Intimidation: 2
     shortdesc: "This terrifying mask is crafted in the visage of a leering demon and grants a +2 item bonus to Intimidation checks.%r%r**Activate--Leering Mask** 2 actions (manipulate); **Frequency** once per day; **Effect** The mask casts a 3rd-rank *fear* spell with a DC of 29."
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 2
   Explorer's Yurt:
     traits:
       - magical
@@ -864,9 +1211,12 @@ pf2e_magicitem:
     level: 10
     price: 94000
     bulk: 0
-    bonus:
-      Athletics: 2
     shortdesc: "This black, metal ring is inset with rubies that occasionally give off wisps of smoke. It grants you a +2 item bonus to Athletics checks.%r%r**Activate--Fire Jump** 2 actions (concentrate, manipulate, teleportation); **Frequency** once per day; **Effect** You Stride (or Burrow or Fly, if you have the corresponding Speed) into any fire large enough to contain you, including magical fires. You vanish into the fire and take no damage from it. You can sense all sufficiently large fires within 100 feet of where you vanish, and you reemerge from any of those fires, either within the fire or adjacent to it. If you end your movement in the fire, it affects you as normal."
+    rules:
+      - key: "FlatModifier"
+        selector: ["athletics"]
+        type: "item"
+        value: 2
   Maestro's Instrument (Moderate):
     traits:
       - magical
@@ -874,6 +1224,17 @@ pf2e_magicitem:
     price: 90000
     bulk: 1
     shortdesc: "A *maestro's instrument* can be crafted in the form of any variety of handheld musical instruments. A *maestro's instrument* grants you a +2 item bonus to Performance checks while playing music with the instrument.%r%r**Activate--Charming Performance** 2 actions (manipulate); **Frequency** once per day; **Effect** You play the instrument, causing it to cast a 4th-rank *charm* spell with DC 27.%r%r**Craft Requirements** You must supply a casting of *charm* of the appropriate rank."
+    rules:
+      - key: "RollOption"
+        option: "playing"
+        domain: "performance"
+        toggleable: true
+        label: "Playing {item}"
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 2
+        predicate: ["playing"]
   Ring of Lies:
     traits:
       - uncommon
@@ -882,9 +1243,12 @@ pf2e_magicitem:
     level: 10
     price: 85000
     bulk: 0
-    bonus:
-      Deception: 2
     shortdesc: "This plain silver ring has an almost oily sheen. While wearing the ring, you gain a +2 item bonus to Deception checks.%r%r**Activate--Sweeten Lies** 2 actions (manipulate); **Frequency** once per day; **Effect** Snapping your fingers on the hand that wears the ring causes the ring to cast *honeyed words* on you with no visual manifestations of a spell being cast."
+    rules:
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 2
   Sanguine Pendant:
     traits:
       - invested
@@ -901,10 +1265,12 @@ pf2e_magicitem:
     level: 10
     price: 100000
     bulk: 0
-    bonus:
-      Acrobatics: 2
-      Athletics: 2
     shortdesc: "This humble sash can be worn around the waist or across the chest. A sash of prowess often bears a coloration or a pattern that represents the monastery in which you trained but can also sport religious symbology. You gain a +2 item bonus to Acrobatics and Athletics skill checks.%r%r**Activate--Effortless Mastery** f (concentrate); **Frequency** once per day; **Trigger** You succeed at an Acrobatics or Athletics skill check; **Effect** You critically succeed instead.%r%r**Activate--Reserves of Inner Strength** f (concentrate); **Frequency** once per day; **Effect** You gain 1 Focus Point, which you can spend only to cast a qi spell. If you don't spend this Focus Point by the end of this turn, it's lost.%r%r**Craft Requirements** You're a monk who can cast qi spells."
+    rules:
+      - key: "FlatModifier"
+        selector: ["athletics", "acrobatics"]
+        type: "item"
+        value: 2
   Shadow Signet:
     traits:
       - invested
@@ -913,6 +1279,16 @@ pf2e_magicitem:
     price: 100000
     bulk: 0
     shortdesc: "This obsidian ring allows you to partially warp your spells through the Netherworld, allowing them to strike directly at a target's body.%r%r**Activate** f (concentrate, spellshape)%r%r**Effect** If your next action is to Cast a Spell that requires a spell attack roll against Armor Class, choose Fortitude DC or Reflex DC. You make your spell attack roll against that defense instead of AC. If the spell has multiple targets, the choice of DC applies to all of them."
+    rules:
+      - key: "RollOption"
+        option: "shadow-signet"
+        toggleable: true
+        suboptions: [{"label": "Fortitude DC", "value": "fortitude-dc"}, {"label": "Reflex DC", "value": "reflex-dc"}]
+      - key: "Note"
+        selector: "spell-attack-roll"
+        title: "{item|name}"
+        text: "If your next action is to Cast a Spell that requires a spell attack roll against Armor Class, choose Fortitude DC or Reflex DC. You make your spell attack roll against that defense instead of AC."
+        predicate: ["shadow-signet", "item:trait:attack", {"or": ["item:defense:fortitude-dc", "item:defense:reflex-dc"]}]
   Wand of Widening (4th-Rank Spell):
     traits:
       - magical
@@ -921,6 +1297,10 @@ pf2e_magicitem:
     price: 100000
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Winged Sandals:
     traits:
       - air
@@ -939,6 +1319,22 @@ pf2e_magicitem:
     price: 140000
     bulk: 0
     shortdesc: "These brass goggles are engraved with flame patterns and have thick, heavy lenses.%r%rWhile worn, they give you a +2 item bonus to Crafting checks to Craft alchemical items. When making Strikes with alchemical bombs, you ignore lesser cover.%r%rIf your Strike with an alchemical bomb fails (but doesn't critically fail), you gain a +2 item bonus to the splash damage the target of the Strike takes."
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 2
+        predicate: ["item:trait:alchemical", "action:craft"]
+      - key: "RollOption"
+        option: "alchemist-goggles-failure"
+        toggleable: true
+        label: "Failed Strike with an alchemical bomb"
+      - key: "FlatModifier"
+        selector: "alchemical-bomb-base-damage"
+        type: "item"
+        value: 2
+        damageCategory: "splash"
+        predicate: ["alchemist-goggles-failure"]
   Countering Charm:
     traits:
       - uncommon
@@ -955,9 +1351,12 @@ pf2e_magicitem:
     level: 11
     price: 120000
     bulk: 0
-    bonus:
-      Crafting: 2
     shortdesc: "This rugged metal eyepiece etched with square patterns is designed to be worn over a single eye. Twisting the lens reveals a faint three-dimensional outline of an item you plan to build or repair, with helpful labels on the component parts.%r%rYou gain a +2 item bonus to Crafting checks. When you Repair an item, increase the Hit Points restored to 10 + 10 per proficiency rank on a success or 15 + 15 per proficiency rank on a critical success.%r%r**Activate--Prototype** 1 minute (manipulate); **Frequency** once per day; **Effect** You calibrate the eyepiece to have it cast a 5th-rank *creation* spell over the course of 1 minute to construct a temporary item."
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 2
   Doubling Rings (Greater):
     traits:
       - invested
@@ -981,9 +1380,12 @@ pf2e_magicitem:
     level: 11
     price: 125000
     bulk: 0.1
-    bonus:
-      Intimidation: 2
     shortdesc: "This engraved duskwood gorget seems to vibrate with ferocity, granting you a +2 item bonus to Intimidation checks.%r%r**Activate--Primal Roar** A (auditory, concentrate, emotion, fear, mental); **Frequency** once during the duration of each polymorph effect; **Requirements** You're in a non-humanoid form via a polymorph effect; **Effect** You unleash a bestial roar, attempting a single Intimidation check compared to the Will DCs of all enemies within 30 feet to impose the effects below.%r%r**Critical Success** The creature is frightened 2.%r**Success** The creature is frightened 1.%r**Failure** The creature is unaffected."
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 2
   Horn of Exorcism:
     traits:
       - magical
@@ -999,6 +1401,18 @@ pf2e_magicitem:
     price: 125000
     bulk: 0
     shortdesc: "The sleek, black lenses of these goggles somehow make everything seem more brightly lit. While wearing the goggles, you gain a +2 item bonus to Perception checks involving sight.%r%r**Activate--Darkvision** 1 action (manipulate); **Frequency** any number of times per day; **Effect** Adjusting your goggles, you gain darkvision until you deactivate it as an Interact action or the item is no longer invested by you, whichever comes first."
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "item"
+        value: 2
+        predicate: ["item:trait:visual"]
+      - key: "RollOption"
+        option: "obsidian-goggles-greater"
+        toggleable: true
+      - key: "Sense"
+        selector: "darkvision"
+        predicate: ["obsidian-goggles-greater"]
   Ring of Maniacal Devices:
     traits:
       - invested
@@ -1007,15 +1421,31 @@ pf2e_magicitem:
     price: 117500
     bulk: 0
     shortdesc: "This magic ring seems like simple tarnished brass, but it enhances your curiosity about traps and devices of all kinds.%r%rYou can use an Interact action to pull a *thieves' toolkit* from the ring. This toolkit appears in your hand and any part of it folds back into the ring if they would leave your possession.%r%rThey grant you a +2 item bonus to Thievery checks to Disable a Device and to Pick a Lock, and the ring's insights grant you the same bonus to Crafting checks to Craft and Repair snares and traps.%r%r**Activate--Fireball Trap** 10 minutes (manipulate); **Frequency** once per day; **Effect** You create the effects of a *rune trap* trap ritual containing *fireball*. You can have only one trapped rune from a *ring of maniacal devices* active at a time, even if you have multiple rings, and the rune disappears if you lose your investiture in the ring."
+    rules:
+      - key: "FlatModifier"
+        selector: "thievery"
+        type: "item"
+        value: 2
+        predicate: [{"or": ["action:disable-a-device", "action:pick-a-lock"]}]
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 2
+        predicate: [{"or": ["action:craft", "action:repair"]}, {"or": ["snare", "trap"]}]
   Skeleton Key (Greater):
     traits:
       - magical
     level: 11
     price: 125000
     bulk: 0
-    bonus:
-      Thievery: 2
     shortdesc: "A grinning skull tops the bow of this macabre key. This key can be used in place of thieves' toolkit when attempting to Pick a Lock, and it grants a +2 item bonus to the Thievery check.%r%rIf the *skeleton key* becomes broken due to a critical failure on the check, it works as normal thieves' toolkit and loses its benefits until repaired.%r%r**Activate--Loosen Lock** Free Action (manipulate); **Frequency** once per hour; **Trigger** You attempt to Pick a Lock but haven't rolled yet; **Effect** The key casts *knock* on the lock you're trying to pick."
+    rules:
+      - key: "FlatModifier"
+        selector: "thievery"
+        type: "item"
+        value: 2
+        label: "Skeleton Key, Greater (Pick a Lock)"
+        predicate: ["action:pick-a-lock"]
   Spellstrike Ammunition (Type V):
     traits:
       - consumable
@@ -1046,9 +1476,13 @@ pf2e_magicitem:
     level: 12
     price: 180000
     bulk: 1
-    bonus:
-      Medicine: 2
     shortdesc: "This healer's toolkit contains a seemingly endless supply of bandages, herbs, and healing items of impeccable quality, granting you a +2 item bonus to Medicine checks.%r%rIf you use the *marvelous medicines* when you Treat Poison or Treat Disease, before you roll your check, the medicines attempt to counteract the poison or disease you're treating, with a counteract rank of 5 and a counteract modifier of +21. This is a healing effect.%r%rThe medicines can't be used to treat the same affliction for that patient again"
+    rules:
+      - key: "FlatModifier"
+        selector: "medicine"
+        type: "item"
+        value: 2
+        requiresEquipped: false
   Penetrating Ammunition:
     traits:
       - consumable
@@ -1057,6 +1491,12 @@ pf2e_magicitem:
     price: 40000
     bulk: 0
     shortdesc: "**Ammunition** arrow, bolt%r%r**Activate** A (manipulate)%r%rThis ammunition has a slender shape and a viciously pointed tip. When you activate and shoot *penetrating ammunition*, the Strike takes the shape of a 60-ft line originating from you.%r%rRoll one attack roll and compare the result to the AC of each target in the line. The ammunition ignores up to 10 of a target's resistance, and it can penetrate walls up to 1 foot thick with Hardness 10 or less. Each target that takes damage from this ammunition also takes 1d6 bleed damage.%r%rIf your attack roll result is a natural 20, you improve your degree of success only against the first target in the line, but you can still score a critical hit on other targets if your result exceeds their AC by 10 or more.%r%rIf you have access to your bow's critical specialization effect, *penetrating ammunition* applies that effect only against a target in the last square of the line."
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-ranged-damage"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "bleed"
   Ring of Climbing:
     traits:
       - invested
@@ -1065,6 +1505,10 @@ pf2e_magicitem:
     price: 175000
     bulk: 0
     shortdesc: "Claw-like prongs on his thick golden band bears extend to dig deep into sheer surfaces when you are Climbing. This ring grants you a climb Speed equal to half your land Speed. Penalties to your Speed (including those from your armor) apply before halving."
+    rules:
+      - key: "BaseSpeed"
+        selector: "climb"
+        value: "@actor.system.movement.speeds.land.value*0.5"
   Ring of Swimming:
     traits:
       - invested
@@ -1073,6 +1517,10 @@ pf2e_magicitem:
     price: 175000
     bulk: 0
     shortdesc: "This blue metal ring grants you a swim Speed equal to half your land Speed. Penalties to your Speed (including from your armor) apply before halving."
+    rules:
+      - key: "BaseSpeed"
+        selector: "swim"
+        value: "@actor.system.movement.speeds.land.value*0.5"
   Wand of Widening (5th-Rank Spell):
     traits:
       - magical
@@ -1082,6 +1530,10 @@ pf2e_magicitem:
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
   # Level 13 Magic Items
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Eternal Eruption of the Kueu:
     traits:
       - fire
@@ -1099,6 +1551,11 @@ pf2e_magicitem:
     price: 52000
     bulk: 0
     shortdesc: "**Ammunition** any%r%r**Activate** A (manipulate)%r%rThis piece of ammunition is coated in gritty black soot. When activated *greater explosive ammunition* hits a target, the missile explodes in a 10-ft burst, dealing 10d6 fire damage to each creature in the area (including the target). Each creature must attempt a DC 30 basic Reflex save."
+    rules:
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        title: "Explosive Ammunition (Greater)"
+        text: "The missile explodes in a , dealing |options:area-damage] damage to each creature in the area (including the target). Each creature must attempt a save."
   Eye of Fortune:
     traits:
       - invested
@@ -1115,6 +1572,11 @@ pf2e_magicitem:
     price: 300000
     bulk: 0.1
     shortdesc: "These sleek red boots make your legs feel like they're bursting with energy. You gain a +5-foot item bonus to your land Speed and to any climb or swim Speeds you have.%r%r**Activate--Quickening Stomp** A (manipulate); **Frequency** once per day; **Effect** You stomp three times and gain the quickened condition for 1 minute. You can use the extra action to Stride, Climb, or Swim. (You must still attempt an Athletics check for the Climb and Swim actions unless you have the appropriate movement type.)"
+    rules:
+      - key: "FlatModifier"
+        selector: ["climb-speed", "land-speed", "swim-speed"]
+        type: "item"
+        value: 5
   Slates of Distant Letters:
     traits:
       - magical
@@ -1148,6 +1610,23 @@ pf2e_magicitem:
     price: 450000
     bulk: 0.1
     shortdesc: "Decorated with clear gemstones, these thick metal bands spread an inflexible layer of force over your body. The force grants you a +2 item bonus to AC and saving throws, and a maximum Dexterity modifier of +5 as armor. You can affix talismans to the bands as though they were light armor.%r%r**Activate--Return Force** Reaction (force, manipulate); **Trigger** A creature critically misses you with a melee Strike; **Effect** You Shove the creature using the bands' Athletics modifier of +21."
+    rules:
+      - key: "FlatModifier"
+        selector: ["ac", "saving-throw"]
+        type: "item"
+        value: 2
+        slug: "bands-of-force"
+      - key: "DexterityModifierCap"
+        value: 5
+      - key: "FlatModifier"
+        selector: ["athletics"]
+        value: 21
+        slug: "bands-of-force-greater"
+        predicate: ["bands-of-force-greater"]
+      - key: "AdjustModifier"
+        selector: "athletics"
+        suppress: true
+        predicate: ["bands-of-force-greater", {"or": ["bonus:type:proficiency", "modifier:type:ability"]}]
   Boots of Bounding (Greater):
     traits:
       - invested
@@ -1155,9 +1634,17 @@ pf2e_magicitem:
     level: 14
     price: 425000
     bulk: 0.1
-    bonus:
-      Athletics: 3
     shortdesc: "The springy soles of these sturdy leather boots cushion your feet and make each step lighter. These boots give you a +10-foot item bonus to your Speed and a +3 item bonus to Athletics checks to High Jump and Long Jump.%r%rIn addition, when you use the Leap action, you can move 5 feet further if jumping horizontally or 3 feet higher if jumping vertically."
+    rules:
+      - key: "FlatModifier"
+        selector: "land-speed"
+        type: "item"
+        value: 10
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 3
+        predicate: [{"or": ["action:high-jump", "action:long-jump"]}]
   Charm of Resistance (Major):
     traits:
       - invested
@@ -1166,6 +1653,14 @@ pf2e_magicitem:
     price: 440000
     bulk: 0
     shortdesc: "This charm, normally hung from the belt or worn around the neck, grants you resistance 15 against one type of energy damage: acid, cold, electricity, fire, or sonic. Each charm is crafted to protect against a particular type of energy damage, and its design usually embodies the type of energy it protects the wearer from in some way. For instance, a *charm of cold resistance* could be carved in the shape of a yeti, whereas a *charm of fire resistance* would be made from volcanic glass."
+    rules:
+      - key: "ChoiceSet"
+        flag: "damageType"
+        prompt: "Select a damage type."
+        choices: [{"label": "Acid", "value": "acid"}, {"label": "Cold", "value": "cold"}, {"label": "Electricity", "value": "electricity"}, {"label": "Fire", "value": "fire"}, {"label": "Sonic", "value": "sonic"}]
+      - key: "Resistance"
+        type: "{item|flags.system.rulesSelections.damageType}"
+        value: 15
   Crystal Ball (Clear Quartz):
     traits:
       - uncommon
@@ -1182,6 +1677,12 @@ pf2e_magicitem:
     price: 90000
     bulk: 0
     shortdesc: "**Ammunition** any%r%r*Ghost ammunition* is cool to the touch. This ammunition has the benefits of the **ghost touch** property rune and can fly through any obstacle except those that can block incorporeal creatures or effects. Though the ammunition penetrates barriers and ignores all cover, the target still benefits from the flat check from being concealed or hidden. You still can't target an undetected creature without guessing.%r%rAfter it is launched, the ammunition vanishes into mist. However, in the dead of the night 1d4 days later, it reappears in the last quiver or other container it was taken from."
+    rules:
+      - key: "AdjustStrike"
+        property: "property-runes"
+        mode: "add"
+        definition: ["item:id:{item|_id}"]
+        value: "ghost-touch"
   Primeval Mistletoe (Greater):
     traits:
       - invested
@@ -1189,9 +1690,12 @@ pf2e_magicitem:
     level: 14
     price: 390000
     bulk: 0
-    bonus:
-      Nature: 2
     shortdesc: "This sprig of berry-festooned holly and mistletoe doesn't wilt or rot. It can be used as a primal locus, and it grants a +2 item bonus to Nature checks while you wear it.%r%r**Activate--Anoint** 2 actions (manipulate); **Frequency** once per 10 minutes; **Effect** You squeeze juice from one of the berries and smear it onto a weapon made primarily of wood to cast a 6th-rank *runic weapon* on it, or onto a creature to cast a 6th-rank *runic body* on it.%r%r**Activate--Bind** 2 actions (manipulate); **Frequency** once per day; **Effect** You touch the sprig, then a tree to cast *one with plants* upon yourself, turning into a vine on the touched tree.%r%r**Activate--Cultivate** 2 actions (manipulate); **Frequency** once per day; **Effect** You plant the *greater primeval mistletoe* into an area of natural earth or stone. Once planted, the plant immediately sprouts into an area of holly bushes that don't impede movement and that pulse with vitality energy, replicating the effects of a *field of life* spell. You can Sustain the activation up to 1 minute. When this magic ends, the holly bushes revert back into the original *greater primeval mistletoe*."
+    rules:
+      - key: "FlatModifier"
+        selector: "nature"
+        type: "item"
+        value: 2
   Wand of Widening (6th-Rank Spell):
     traits:
       - magical
@@ -1201,6 +1705,10 @@ pf2e_magicitem:
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
   # Level 15 Magic Items
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Countering Charm (Greater):
     traits:
       - uncommon
@@ -1311,6 +1819,10 @@ pf2e_magicitem:
     price: 1000000
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Weapon Potency (+3):
     traits:
       - magical
@@ -1327,6 +1839,22 @@ pf2e_magicitem:
     price: 1500000
     bulk: 0
     shortdesc: "These brass goggles are engraved with flame patterns and have thick, heavy lenses.%r%rWhile worn, they give you a +3 item bonus to Crafting checks to Craft alchemical items. When making Strikes with alchemical bombs, you ignore lesser cover.%r%rIf your Strike with an alchemical bomb fails (but doesn't critically fail), you gain a +3 item bonus to the splash damage the target of the Strike takes."
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 3
+        predicate: ["item:trait:alchemical", "action:craft"]
+      - key: "RollOption"
+        option: "alchemist-goggles-failure"
+        toggleable: true
+        label: "Failed Strike with an alchemical bomb"
+      - key: "FlatModifier"
+        selector: "alchemical-bomb-base-damage"
+        type: "item"
+        value: 3
+        damageCategory: "splash"
+        predicate: ["alchemist-goggles-failure"]
   Armbands of Athleticism (Greater):
     traits:
       - invested
@@ -1334,9 +1862,18 @@ pf2e_magicitem:
     level: 17
     price: 1300000
     bulk: 0.1
-    bonus:
-      Athletics: 3
     shortdesc: "Skilled awl work has imprinted images of a muscled weightlifter into these tiered leather bands, which grant you enhanced stamina and skill when performing athletic exercises.%r%rWhile fastened to your upper arms, the armbands give you a +3 item bonus to Athletics checks.%r%rIn addition, whenever you use an action to Climb or Swim and you succeed at the Athletics check, add a +10-foot item bonus to the distance you move."
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 3
+      - key: "Note"
+        selector: "athletics"
+        outcome: ["success", "criticalSuccess"]
+        title: "{item|name}"
+        text: "Whenever you use an action to Climb or Swim and you succeed at the Athletics check, add a +10-foot item bonus to the distance you move."
+        predicate: [{"or": ["action:climb", "action:swim"]}]
   Belt of Long Life:
     traits:
       - apex
@@ -1346,6 +1883,9 @@ pf2e_magicitem:
     price: 1500000
     bulk: 0.1
     shortdesc: "This thick leather belt is engraved with imagery of an ancient tree. You gain 15 temporary Hit Points the first time you invest the belt in a day. When you invest the belt, you either increase your Constitution modifier by 1 or increase it to +4, whichever would give you a higher value.%r%r**Activate--Call Upon the Ancient Life** 1 action (manipulate); **Frequency** once per day; **Effect** You draw upon the lifegiving energy of the tree on the belt to gain rapid healing. For 2d4 rounds, at the start of your turn each round, you recover 15 Hit Points."
+    rules:
+      - key: "TempHP"
+        value: 15
   Bracers of Strength:
     traits:
       - apex
@@ -1354,9 +1894,18 @@ pf2e_magicitem:
     level: 17
     price: 1500000
     bulk: 0
-    bonus:
-      Athletics: 3
     shortdesc: "Etchings of powerful bears decorate these brass bracers. You gain a +3 item bonus to Athletics checks and a +2 circumstance bonus to Athletics checks to lift a heavy object, Escape, and Force Open. When you invest the bracers, you either increase your Strength modifier by 1 or increase it to +4, whichever would give you a higher value.%r%r**Activate--Bear Hug** 1 action (manipulate)%r%rAttempt to Grapple a creature. If you succeed, you crush the creature in your grasp, dealing bludgeoning damage to it equal to your Strength modifier. If you critically succeeded, the damage is equal to double your Strength modifier, and the creature suffocates as long as it remains grabbed or restrained by you."
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 3
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "circumstance"
+        value: 2
+        slug: "bracers-of-strength-action"
+        predicate: [{"or": ["action:lift-heavy-object", "action:escape", "action:force-open"]}]
   Cloak of Swiftness:
     traits:
       - apex
@@ -1365,9 +1914,12 @@ pf2e_magicitem:
     level: 17
     price: 1500000
     bulk: 0
-    bonus:
-      Acrobatics: 3
     shortdesc: "This thin cloak is surprisingly light, as if clouds or the very wind were woven together to make the garment. The cloak grants you a +3 item bonus to Acrobatics checks. When you invest the cloak, you either increase your Dexterity modifier by 1 or increase it to +4, whichever would give you a higher value.%r%r**Activate--Ride the Wind** 1 action (manipulate); **Frequency** once per day; **Effect** You tug on the cloak, wrapping yourself in the power of wind. You gain a fly Speed of 30 feet for 1 hour. While wrapped in the cloak, you become translucent, causing you to become concealed for the duration."
+    rules:
+      - key: "FlatModifier"
+        selector: "acrobatics"
+        type: "item"
+        value: 3
   Crown of Intellect:
     traits:
       - apex
@@ -1377,6 +1929,12 @@ pf2e_magicitem:
     price: 1500000
     bulk: 0
     shortdesc: "A trio of brilliant gems have been set into this elegant golden crown. You gain a +3 item bonus to checks to Recall Knowledge, regardless of the skill. When you invest the cloak, you either increase your Intelligence modifier by 1 or increase it to +4, whichever would give you a higher value. This gives you additional trained skills and languages, as normal for increasing your Intelligence modifier. You must select skills and languages the first time you invest the crown, and whenever you invest the same *crown of intellect*, you get the same skills and languages you chose the first time.%r%r**Activate--Search Your Mind** 1 action (concentrate); **Frequency** once per hour; **Effect** You gain the effects of *hypercognition*."
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "item"
+        value: 3
+        predicate: ["action:recall-knowledge"]
   Crystal Ball (Peridot):
     traits:
       - uncommon
@@ -1393,9 +1951,19 @@ pf2e_magicitem:
     level: 17
     price: 1400000
     bulk: 0.1
-    bonus:
-      Acrobatics: 3
     shortdesc: "These brightly colored, soft-soled boots motivate you to perform risky stunts and grant you the agility to succeed. The boots grant you a +3 item bonus to Acrobatics checks and a +2 circumstance bonus to checks to Tumble Through an enemy's space.%r%rThe boots can grip solid surfaces and help you avoid a fall, allowing you to use the Grab an Edge reaction even if your hands aren't free. You treat falls as 10 feet shorter or, if you have the Cat Fall feat, treat your proficiency rank in Acrobatics as one degree better to determine the benefits of that feat. If you have Cat Fall and are already legendary in Acrobatics, you can choose the speed of your fall, from 60 feet per round up to normal falling speed.%r%r**Activate--Daredevil Impulse** 2 actions (concentrate); **Frequency** once per day; **Effect** The boots cast *unfettered movement* on you."
+    rules:
+      - key: "FlatModifier"
+        selector: "acrobatics"
+        type: "item"
+        value: 3
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        slug: "daredevil-boots-tumble-through"
+        label: "{item} (Tumble Through)"
+        predicate: ["action:tumble-through"]
   Dread Blindfold:
     traits:
       - emotion
@@ -1406,9 +1974,14 @@ pf2e_magicitem:
     level: 17
     price: 1500000
     bulk: 0
-    bonus:
-      Intimidation: 3
     shortdesc: "When tied over your eyes, this ragged strip of black linen gives you a +3 item bonus to Intimidation checks and darkvision. You can see through the blindfold, but only using darkvision.%r%rThe first time a particular creature sees you in a day, it must succeed at a DC 37 Will save or be frightened 1. This is an emotion, fear, and mental effect, and your allies become immune to it after about a week.%r%r**Activate--Visions of Terror** Free Action (concentrate); **Frequency** once per minute; **Trigger** You damage a creature with a Strike; **Effect** Your target is gripped by intense fear. This has the effect of a DC 37 *vision of death* spell. The creature is then temporarily immune for 24 hours."
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 3
+      - key: "Sense"
+        selector: "darkvision"
   Eternal Eruption of Dran:
     traits:
       - fire
@@ -1433,9 +2006,12 @@ pf2e_magicitem:
     level: 17
     price: 1350000
     bulk: 0
-    bonus:
-      Diplomacy: 3
     shortdesc: "This silver signet ring changes to match the insignia of a lord or organization you serve (or your own face, if you serve no one else). It grants you a +3 item bonus to Diplomacy checks and lets you cast *message* as an arcane innate spell at will.%r%r**Activate--Dispatch Messenger** 1 minute (concentrate); **Frequency** once per day; **Effect** The ring casts *animal messenger* to your specification. The animal is a magical creature that springs from the ring, and its appearance suits the iconography or heraldry of the lord or organization represented by the ring.%r%r**Activate--Sending** 3 actions command; **Frequency** once per hour; **Effect** The ring casts *sending* to your specifications."
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "item"
+        value: 3
   Necklace of Allure:
     traits:
       - apex
@@ -1444,10 +2020,12 @@ pf2e_magicitem:
     level: 17
     price: 1500000
     bulk: 0.1
-    bonus:
-      Deception: 2
-      Diplomacy: 2
     shortdesc: "Several sapphires are set along the length of this brilliant silver necklace. The necklace features an intricately carved pendant in the shape of a wolf's head. You gain a +2 item bonus to Deception and Diplomacy checks. When you invest the necklace, you either increase your Charisma modifier by 1 or increase it to +4, whichever would give you a higher value.%r%r**Activate--Win Them Over** 2 actions (concentrate); **Frequency** once per hour; **Effect** You cast a 4th-rank *charm* spell with a DC 38 Will save."
+    rules:
+      - key: "FlatModifier"
+        selector: ["diplomacy", "deception"]
+        type: "item"
+        value: 2
   Sanguine Pendant (Greater):
     traits:
       - invested
@@ -1464,10 +2042,12 @@ pf2e_magicitem:
     level: 17
     price: 1300000
     bulk: 0
-    bonus:
-      Acrobatics: 3
-      Athletics: 3
     shortdesc: "This humble sash can be worn around the waist or across the chest. A sash of prowess often bears a coloration or a pattern that represents the monastery in which you trained but can also sport religious symbology. You gain a +3 item bonus to Acrobatics and Athletics skill checks.%r%r**Activate--Effortless Mastery** f (concentrate); **Frequency** once per day; **Trigger** You succeed at an Acrobatics or Athletics skill check; **Effect** You critically succeed instead.%r%r**Activate--Reserves of Inner Strength** f (concentrate); **Frequency** once per day; **Effect** You gain 1 Focus Point, which you can spend only to cast a qi spell. If you don't spend this Focus Point by the end of this turn, it's lost.%r%r**Craft Requirements** You're a monk who can cast qi spells."
+    rules:
+      - key: "FlatModifier"
+        selector: ["athletics", "acrobatics"]
+        type: "item"
+        value: 3
   Spellstrike Ammunition (Type VIII):
     traits:
       - consumable
@@ -1510,9 +2090,12 @@ pf2e_magicitem:
     level: 18
     price: 2100000
     bulk: 0
-    bonus:
-      Intimidation: 2
     shortdesc: "An elegant accoutrement for a witch who has come into the higher echelons of power, a *crown of witchcraft* typically looks like a garland of flowering twigs, a jeweled circlet, or a tall hat of fine fabric. You gain a +2 item bonus to Intimidation checks, and if you're a witch, you gain a +3 item bonus to your patron skill.%r%rIf you have a familiar, you can attach a small portion of the crown's material to your familiar, such as a strip of fabric from a hat tied around its tail or a sprig of natural material linked to its collar; the familiar doesn't need to invest the item itself. If you do this, your familiar gains the tough pet ability as long as the crown is invested by you.%r%r**Activate--Defiant Hex** Free Action (concentrate); **Frequency** once per day; **Effect** Gain 1 Focus Point, which you can spend only to cast a witch hex spell. If you don't spend this point by the end of this turn, it is lost.%r%r**Craft Requirements** You are a witch."
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 2
   Inexplicable Apparatus:
     traits:
       - invested
@@ -1521,6 +2104,13 @@ pf2e_magicitem:
     price: 1900000
     bulk: 2
     shortdesc: "This strange and intricate harness fits snugly to the torso. Once you invest the apparatus, numerous artificial limbs with various tools, clamps, and lenses whirl into action, following your mental commands effortlessly.%r%rWhen using this apparatus, you gain a +3 item bonus to Crafting checks to Craft, Earn Income, and Repair, and you reduce the minimum time required to Craft an item to 1 day.%r%rIf you succeed at your Crafting check and spend more downtime to continue work on the item after the minimum number of days, each day you spend reduces the remaining raw material cost by an amount based on your level + 1 and your proficiency rank in Crafting; on a critical success, each day reduces the remaining raw material cost by an amount based on your level + 2 and your proficiency rank. If you are 20th level, on a critical success your progress is 50 gp, 100 gp, 200 gp, or 350 gp for trained, expert, master, or legendary proficiency, respectively.%r%r**Activate--Inexplicable Patch** 2 actions (concentrate, manipulate); **Frequency** once per day; **Effect** You command the apparatus to magically jury-rig an item you hold or that's within 5 feet of you. The item is repaired, as a 3rd-rank *mending* spell. This lasts for 10 minutes, after which the item returns to its previous state of disrepair unless you've Repaired it before then."
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 3
+        label: "Inexplicable Apparatus (craft, earn income, repair)"
+        predicate: [{"or": ["action:craft", "action:earn-income", "action:repair"]}]
   Maestro's Instrument (Greater):
     traits:
       - magical
@@ -1528,15 +2118,30 @@ pf2e_magicitem:
     price: 1900000
     bulk: 1
     shortdesc: "A *maestro's instrument* can be crafted in the form of any variety of handheld musical instruments. A *maestro's instrument* grants you a +3 item bonus to Performance checks while playing music with the instrument.%r%r**Activate--Charming Performance** 2 actions (manipulate); **Frequency** once per day; **Effect** You play the instrument, causing it to cast a 8th-rank *charm* spell with DC 38.%r%r**Craft Requirements** You must supply a casting of *charm* of the appropriate rank."
+    rules:
+      - key: "RollOption"
+        option: "playing"
+        domain: "performance"
+        toggleable: true
+        label: "Playing {item}"
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 3
+        predicate: ["playing"]
   Marvelous Medicines (Greater):
     traits:
       - magical
     level: 18
     price: 1900000
     bulk: 1
-    bonus:
-      Medicine: 3
     shortdesc: "This healer's toolkit contains a seemingly endless supply of bandages, herbs, and healing items of impeccable quality, granting you a +3 item bonus to Medicine checks.%r%rIf you use the *marvelous medicines* when you Treat Poison or Treat Disease, before you roll your check, the medicines attempt to counteract the poison or disease you're treating, with a counteract rank of 8 and a counteract modifier of +30. This is a healing effect.%r%rThe medicines can't be used to treat the same affliction for that patient again"
+    rules:
+      - key: "FlatModifier"
+        selector: "medicine"
+        type: "item"
+        value: 3
+        requiresEquipped: false
   Obsidian Goggles (Major):
     traits:
       - invested
@@ -1545,6 +2150,18 @@ pf2e_magicitem:
     price: 2000000
     bulk: 0
     shortdesc: "The sleek, black lenses of these goggles somehow make everything seem more brightly lit. While wearing the goggles, you gain a +3 item bonus to Perception checks involving sight.%r%r**Activate--Darkvision** 1 action (manipulate); **Frequency** any number of times per day; **Effect** Adjusting your goggles, you gain *greater darkvision* until you deactivate it as an Interact action or the item is no longer invested by you, whichever comes first."
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "item"
+        value: 3
+        predicate: ["item:trait:visual"]
+      - key: "RollOption"
+        option: "obsidian-goggles-major"
+        toggleable: true
+      - key: "Sense"
+        selector: "greater-darkvision"
+        predicate: ["obsidian-goggles-major"]
   Possibility Tome:
     traits:
       - magical
@@ -1552,6 +2169,13 @@ pf2e_magicitem:
     price: 2200000
     bulk: 2
     shortdesc: "An array of semiprecious stones is set into the ornate silver and beaten copper cover of this thick and weighty tome. If you open the book before it's been activated, its vellum pages are blank and pristine, but once activated, words dance and swim onto the pages before your eyes.%r%r**Activate--Skim** 10 minutes (concentrate, manipulate); **Effect** As you flip through the book, you think about a broad topic you want to know more about.%r%rChoose one skill: Arcana, Crafting, Medicine, Nature, Occultism, Religion, Society, or a single subcategory of Lore. The book's pages fill with information about that skill, though only you can see the information.%r%rWhile the pages are full, you can spend an Interact action perusing the book just before attempting a check to Recall Knowledge with the chosen skill. This grants you a +3 item bonus to the check, and if you roll a critical failure, you get a failure instead.%r%rThe information within the book disappears after 24 hours or when the tome is activated again."
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "item"
+        value: 3
+        label: "Possibility Tome (Recall Knowledge)"
+        predicate: ["action:recall-knowledge"]
   Ring of Maniacal Devices (Greater):
     traits:
       - invested
@@ -1560,6 +2184,17 @@ pf2e_magicitem:
     price: 2100000
     bulk: 0
     shortdesc: "This magic ring seems like simple tarnished brass, but it enhances your curiosity about traps and devices of all kinds.%r%rYou can use an Interact action to pull a *thieves' toolkit* from the ring. This toolkit appears in your hand and any part of it folds back into the ring if they would leave your possession.%r%rThey grant you a +3 item bonus to Thievery checks to Disable a Device and to Pick a Lock, and the ring's insights grant you the same bonus to Crafting checks to Craft and Repair snares and traps.%r%r**Activate--Fireball Trap** 10 minutes (manipulate); **Frequency** once per day; **Effect** You create the effects of a *rune trap* ritual containing your choice of either a 7th-rank *howling blizzard* or 7th-rank *fireball*. You can have only one trapped rune from a *ring of maniacal devices* active at a time, even if you have multiple rings, and the rune disappears if you lose your investiture in the ring."
+    rules:
+      - key: "FlatModifier"
+        selector: "thievery"
+        type: "item"
+        value: 3
+        predicate: [{"or": ["action:disable-a-device", "action:pick-a-lock"]}]
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 3
+        predicate: [{"or": ["action:craft", "action:repair"]}, {"or": ["snare", "trap"]}]
   Wand of Widening (8th-Rank Spell):
     traits:
       - magical
@@ -1569,6 +2204,10 @@ pf2e_magicitem:
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
   # Level 19 Magic Items
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Crystal Ball (Obsidian):
     traits:
       - uncommon
@@ -1595,9 +2234,12 @@ pf2e_magicitem:
     level: 19
     price: 3500000
     bulk: 0
-    bonus:
-      Intimidation: 3
     shortdesc: "This ice-blue half-mask is adorned with a wicked silver grin that covers the wearer's mouth, leaving the rest of the face uncovered. You gain a +3 item bonus to Intimidation checks.%r%r**Activate--Hideous Wail** 2 actions (concentrate, manipulate); **Frequency** once per day; **Effect** The mask casts a 9th-rank *wails of the damned*%r%rEach living creature in a 40-ft emanation takes 8d10 void damage and must attempt a DC 41 Fortitude save.%r%r**Critical Success** The creature is unaffected.%r**Success** The creature takes full damage.%r**Failure** The creature takes full damage and is drained 1d4.%r**Critical Failure** The creature takes double damage and is drained 4."
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 3
   Reinforcing Rune (Supreme):
     traits:
       - magical
@@ -1621,6 +2263,11 @@ pf2e_magicitem:
     price: 4000000
     bulk: 0
     shortdesc: "When invested, this ornate crown and its incandescent gemstone meld into your head and take the form of a tattoo. This grants you otherworldly sight and allows you to read auras. No one but you can manipulate the *third eye* while it's invested by you. Your heightened senses and ability to sense emotional auras grant you a +3 item bonus to Perception checks.%r%rYou continuously see magic auras, as a 9th-rank *detect magic* spell, except you see the location of all auras within 30 feet, not just the strongest. If you use a Seek action to study a creature you can see, you can perceive an aura that conveys knowledge of that creature's health, including all conditions and afflictions it has and an approximate percentage of its remaining Hit Points.%r%r**Activate--Truesight** 2 actions (concentrate); **Frequency** once per day; **Effect** You gain the effects of an 8th-rank *truesight* spell."
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "item"
+        value: 3
   Wand of Continuation (8th-Rank Spell):
     traits:
       - magical
@@ -1639,6 +2286,23 @@ pf2e_magicitem:
     price: 7000000
     bulk: 0.1
     shortdesc: "Decorated with clear gemstones, these thick metal bands spread an inflexible layer of force over your body. The force grants you a +3 item bonus to AC and saving throws, and a maximum Dexterity modifier of +5 as armor. You can affix talismans to the bands as though they were light armor.%r%r**Activate--Return Force** Reaction (force, manipulate); **Trigger** A creature critically misses you with a melee Strike; **Effect** You Shove the creature using the bands' Athletics modifier of +33."
+    rules:
+      - key: "FlatModifier"
+        selector: ["ac", "saving-throw"]
+        type: "item"
+        value: 3
+        slug: "bands-of-force"
+      - key: "DexterityModifierCap"
+        value: 5
+      - key: "FlatModifier"
+        selector: ["athletics"]
+        value: 33
+        slug: "bands-of-force-major"
+        predicate: ["bands-of-force-major"]
+      - key: "AdjustModifier"
+        selector: "athletics"
+        suppress: true
+        predicate: ["bands-of-force-major", {"or": ["bonus:type:proficiency", "modifier:type:ability"]}]
   Cloth of Nullification:
     traits:
       - rare
@@ -1655,6 +2319,10 @@ pf2e_magicitem:
     price: 7000000
     bulk: 0.1
     shortdesc: "The end of this wand is forked with a peridot setting.%r%r**Activate** Cast a Spell; The activation takes 2 actions if the spell normally takes 1 action to cast, or 3 actions if the spell normally take 2 actions%r%r**Effect** You Cast the Spell, and increase its area. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet; add 5 feet to the length of a cone or line that is normally 15 feet long or smaller; or add 10 feet to the length of a larger cone or line.%r%r**Craft Requirements** Supply a casting of a spell of the appropriate rank. The spell must have a casting time of 1 action or 2 actions , can't have a duration, and must have an area of burst (10 feet or more), cone, or line."
+    rules:
+      - key: "RollOption"
+        option: "wand-of-widening"
+        toggleable: true
   Whisper of the First Lie:
     traits:
       - rare
@@ -1663,6 +2331,9 @@ pf2e_magicitem:
     level: 20
     price: 6000000
     bulk: 0
-    bonus:
-      Deception: 3
     shortdesc: "This delicate necklace contains bottled whispers distilled from a divine source rumored to be connected to the first lie ever told.%r%rWhile wearing the necklace, you gain a +3 item bonus to Deception checks, and you can attempt to counteract effects that would force you to tell the truth or determine whether you are lying.%r%rSuccess on this counteract attempt lets you ignore the effect, rather than removing the effect entirely. The counteract rank is 9, with a counteract modifier of +35.%r%r**Activate--Release the Lie** 3 actions (concentrate, manipulate); **Effect** You unstopper the vial and release the lie, creating the effect of a *fabricated truth* (DC 47). The vial is emptied and can never be activated again.%r%r**Craft Requirements** Supply a casting of *fabricated truth*."
+    rules:
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 3

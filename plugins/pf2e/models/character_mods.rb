@@ -22,6 +22,21 @@ module AresMUSH
 
     attribute :pf2_archetypeinfo, :type => DataType::Hash, :default => { 'archetype1'=>"", 'archetype2'=>"", 'archetype3'=>"", 'archetype4'=>"", 'archetype_specialty1'=>"", 'archetype_specialty2'=>"", 'archetype_specialty3'=>"", 'archetype_specialty4'=>"", 'archetype_specialty_choice1'=>"", 'archetype_specialty_choice2'=>"", 'archetype_specialty_choice3'=>"", 'archetype_specialty_choice4'=>"" }
     attribute :pf2_conditions, :type => DataType::Hash, :default => {}
+    # Persistent damage the character is taking, one per kind of damage: its dice and the DC of the flat
+    # check that ends it.
+    attribute :pf2_persistent, :type => DataType::Array, :default => []
+    # What happened since the character's last turn that their next one needs to know: regeneration
+    # switched off by the damage that stops it.
+    attribute :pf2_turn_state, :type => DataType::Hash, :default => {}
+
+    # Circumstances the player has deliberately switched on or off, by option name. An option nobody
+    # has touched is absent, and follows whatever declared it.
+    attribute :pf2_roll_options, :type => DataType::Hash, :default => {}
+
+    # Values an effect wrote that nothing else owns: counters other rules ask about, a lowered recovery
+    # DC, extra carrying capacity. Derived rather than chosen, so it is rewritten whenever the effects
+    # that set it change. Pf2e::Paths is the registry of what may be written here and how.
+    attribute :pf2_derived, :type => DataType::Hash, :default => {}
     attribute :pf2_features, :type => DataType::Hash, :default => { 'charclass_features'=>[], 'archetype_features'=>[] }
     attribute :pf2_traits, :type => DataType::Array, :default => []
     attribute :pf2_feats, :type => DataType::Hash, :default => { "ancestry"=>[], "charclass"=>[], "skill"=>[], "general"=>[], "archetype" => [], "dedication" => [] }
@@ -60,6 +75,9 @@ module AresMUSH
     collection :pf2_ledger_entries, "AresMUSH::Pf2eLedgerEntry"
     collection :sheet_caches, "AresMUSH::Pf2eSheetCache"
 
+    # What the character is under for a while - Heroism, Rage, a potion. Live state, not sheet state.
+    collection :pf2_effects, "AresMUSH::Pf2eEffect"
+
     # The steps of an open draft, which exist only until it commits.
     collection :draft_steps, "AresMUSH::Pf2eDraftStep"
     collection :chargen_checkpoints, "AresMUSH::Pf2eChargenCheckpoint"
@@ -76,7 +94,8 @@ module AresMUSH
       Pf2e::Audit.delete_all!(self)
       self.spellcasting_entries.each { |e| e.delete } if self.respond_to?(:spellcasting_entries)
       self.sheet_caches.each { |c| c.delete }
-      self.encounters.each {|e| e.delete self}
+      self.pf2_effects.each { |e| e.delete }
+      self.encounters.each { |e| e.characters.delete(self) }
     end
 
   end

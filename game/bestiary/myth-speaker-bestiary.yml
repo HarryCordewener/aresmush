@@ -1,0 +1,1165 @@
+---
+"Akki (Level 2)":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "tengu"]
+  ac: 17
+  hp: 38
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 8, "will": 6}
+  abilities: {"cha": 2, "con": 3, "dex": 2, "int": 1, "str": 4, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 6, "Athletics": 8, "Intimidation": 6, "Performance": 8, "Survival": 6, "Sailing Lore": 7}
+  resistances: {"electricity": 2}
+  strikes: [{"name": "Falchion", "bonus": 10, "damage": [["1d10+4", "slashing", null]], "traits": ["forceful", "sweep"], "effects": ["Tempest Rage"]}, {"name": "Javelin", "bonus": 10, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"], "effects": ["Tempest Rage"]}, {"name": "Tournament Greatclub", "bonus": 10, "damage": [["1d10+4", "bludgeoning", null]], "traits": ["backswing", "nonlethal"], "effects": ["Tempest Rage"]}]
+  actions: [{"name": "Blood Storm", "type": "reaction", "traits": ["electricity"], "text": "Frequency once per day%rTrigger Akki takes piercing or slashing damage%rEffect Akki's blood sprays from the wound, forming a crimson cloud laced with tiny lightning bolts. Adjacent creatures take 1 electricity splash damage, and Akki is Concealed until the end of her next turn."}, {"name": "Tempest Rage", "type": "action", "traits": ["concentrate", "electricity", "emotion", "mental"], "cost": 1, "text": "Akki channels the ferocity of a raging storm, causing her feathers and weapons to crackle with electricity. She gains 5 temporary Hit Points, deals an additional 1d4 electricity damage with her weapon Strikes, and cannot use actions (except Seek) with the concentrate trait unless they also have the rage trait. These effects last for 1 minute, until she falls Unconscious, or until the encounter ends, whichever comes first. After Akki uses this ability, she cannot do so again for 1d10 #Recharge…"}, {"name": "Thunderous Echo", "type": "reaction", "traits": ["sonic"], "text": "Trigger Akki fails but does not critically fail a Strike against a target within 15 feet%rRequirements Akki is affected by Tempest Rage%rEffect Even though her attack missed, a thunderclap follows an instant later in the weapon's wake. The Strike's target takes 1d4 sonic damage (DC 16 Fortitude save). The target is Deafened for 1d4 rounds if they critically fail the saving throw."}]
+"Akki (Level 8)":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "mythic", "tengu"]
+  ac: 24
+  hp: 170
+  perception: 15
+  saves: {"fortitude": 21, "reflex": 16, "will": 14}
+  abilities: {"cha": 4, "con": 4, "dex": 3, "int": 1, "str": 6, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 21, "Diplomacy": 16, "Intimidation": 17}
+  resistances: {"mythic": 4}
+  strikes: [{"name": "Spear", "bonus": 20, "damage": [["2d8+11", "piercing", null]], "traits": ["magical", "reach-10"]}, {"name": "Beak", "bonus": 19, "damage": [["1d6+11", "piercing", null]], "traits": ["unarmed"]}, {"name": "Lightning Cry", "bonus": 19, "damage": [["2d10+11", "electricity", null]], "traits": ["air", "electricity"], "range": 20, "effects": ["Shock And Awe"]}]
+  actions: [{"name": "Quick Rage", "type": "free", "traits": [], "text": "When Akki rolls for initiative, provided she can perceive at least one foe, she can Rage as a free action."}, {"name": "Mythic Resilience (Fortitude)", "type": "passive", "traits": [], "text": "The creature treats its saving throws with the associated save as one degree of success better than it rolled. This is not cumulative with other effects that change their degree of success, like the incapacitation trait (except for rolling a natural 1 or 20). Each time the monster gains mythic resilience, choose one save. The ability should apply to the creature's highest saves first."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Mythic Skill (Athletics)", "type": "free", "traits": [], "text": "Cost 1 Mythic Point%rEffect The creature attempts its next skill check with a +4 bonus and is considered to have mythic proficiency for that check."}, {"name": "Rage", "type": "action", "traits": ["concentrate", "emotion", "mental"], "cost": 1, "text": "Requirements Akki isn't Fatigued or raging%rEffect Akki taps into her inner fury and begins raging. She gains 12 temporary Hit Points. The rage lasts for 1 minute or until Akki falls Unconscious, whichever comes first. While raging, her melee Strikes deal an additional 6 electricity damage, and she can't use actions that have the concentrate trait, except for Seek. When Akki stops raging, she loses any remaining temporary Hit Points from Rage, and she can't gain temporary Hit Points from using…"}, {"name": "Shock and Awe", "type": "passive", "traits": [], "text": "A creature critically hit by Akki's lightning cry Strike is Clumsy 1 and Stupefied 1 for 1 round."}]
+"Amnerion":
+  pack: "myth-speaker-bestiary"
+  level: 22
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["gigas", "humanoid", "mythic"]
+  ac: 48
+  hp: 540
+  perception: 43
+  saves: {"fortitude": 39, "reflex": 33, "will": 36}
+  abilities: {"cha": 6, "con": 10, "dex": 8, "int": 6, "str": 11, "wis": 10}
+  speeds: {"land": 35}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Arcana": 37, "Athletics": 43, "Crafting": 44, "Diplomacy": 37, "Intimidation": 40, "Occultism": 42, "Religion": 42, "Society": 40, "Iblydos Lore": 45}
+  immunities: ["death-effects", "disease", "mental", "poison"]
+  resistances: {"mythic": 11}
+  strikes: [{"name": "Trident", "bonus": 42, "damage": [["4d8+24", "piercing", null]], "traits": ["magical", "reach-20"]}, {"name": "Trident", "bonus": 42, "damage": [["4d8+24", "piercing", null]], "traits": ["magical", "thrown-20"]}, {"name": "Fist", "bonus": 39, "damage": [["4d10+24", "bludgeoning", null]], "traits": ["agile", "reach-15", "unarmed"]}, {"name": "Living Architecture", "bonus": 39, "damage": [["4d8+22", "bludgeoning", null]], "traits": ["agile"]}]
+  actions: [{"name": "Remove a Condition", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect The creature ends one condition affecting it."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Imprisoned Immortality", "type": "passive", "traits": [], "text": "If killed or otherwise permanently incapacitated (such as petrified), Amnerion returns to life and appears on their throne, fully healed with all conditions removed and with full uses of their spells and abilities 24 hours later. Only if all the shades in Amneros are gone can Amnerion be permanently killed."}, {"name": "Master of Amneros", "type": "passive", "traits": [], "text": "While in Amneros, Amnerion can command the realm's very environment and architecture to animate, twist, and defend them. This allows them to make living architecture Strikes. In addition, Amnerion can Take Cover as a free action once per round, willing nearby obstacles to stretch and shield them from harm."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Undying Myth", "type": "free", "traits": [], "text": "Cost all the creature's Mythic Points%rTrigger The creature would die and has at least 1 Mythic Point%rEffect The creature remains standing and conscious, and recovers 50% of its maximum Hit Points."}, {"name": "Call Upon the Dead", "type": "action", "traits": [], "cost": 3, "text": "Amnerion calls out for aid from their subjects, whose spirits appear and strike all enemies within a 60-foot burst. Each creature in the area must attempt a DC 47 Fortitude save.%rCritical Success The creature takes 4d8 spirit|options:area-damage damage.%rSuccess As critical success and the creature is Drained 1.%rFailure The creature takes 8d8 spirit|options:area-damage damage and is Drained 2.%rCritical Failure The creature takes 12d8 spirit|options:area-damage damage, is drained 2, and is…"}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Mythic Skill (Crafting or Occultism)", "type": "free", "traits": [], "text": "Cost 1 Mythic Point%rEffect The creature attempts its next skill check with a +4 bonus and is considered to have mythic proficiency for that check."}, {"name": "Punish Soul", "type": "action", "traits": ["teleportation"], "cost": 2, "text": "Amnerion moves up to twice their speed and makes a melee Strike against a target within reach. If the attack hits, it does no damage and the creature must attempt a DC 48 Will save.%rCritical Success The target is Stunned 2.%rSuccess The target is Stunned 4.%rFailure The target is immediately teleported to a prison cell in Bothros, the place of punishment in Amneros.%rCritical Failure As failure and the creature is stunned 2 for 1 hour."}, {"name": "Realm Step", "type": "action", "traits": ["teleportation"], "cost": 3, "text": "Amnerion disappears and reappears instantaneously at any location within Amneros. They can then immediately Seek, Step, Stride, or Recall Knowledge, typically in response to whatever awaits them at their destination."}, {"name": "Recharge", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect The creature gains one additional use of a spell or ability that is normally only available a limited number of times. For example, a spellcaster can regain an expended slot or use an ability with a frequency of once per day again."}, {"name": "Self-Imprisoned", "type": "passive", "traits": [], "text": "Amnerion cannot leave Amneros, nor can they be forced or compelled to depart by any means until either they receive Pharasma's permission or there are no more shades in Amneros."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 47, "attack": 37, "spells": {"5": ["Truespeech (Constant)"], "8": ["Canticle of Everlasting Grief", "Disappearance (At Will, Self Only)", "Spirit Song", "Unrelenting Observation (At will, Within Amneros Only)"], "9": ["Manifestation", "Overwhelming Presence (At Will)", "Unfathomable Song"], "10": ["Freeze Time"]}}]
+"Animated Panoply":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["construct", "mindless", "spirit"]
+  ac: 17
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 3, "will": 4}
+  abilities: {"cha": -5, "con": 4, "dex": -3, "int": -5, "str": 3, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9}
+  strikes: [{"name": "Spear", "bonus": 10, "damage": [["1d8+4", "piercing", null]], "traits": ["magical"]}, {"name": "Spear", "bonus": 10, "damage": [["1d8+4", "piercing", null]], "traits": ["magical", "thrown-20"]}, {"name": "Kick", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "Construct Armor (Hardness 9)", "type": "passive", "traits": [], "text": "Like normal objects, an animated armor has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once an animated armor is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 13."}, {"name": "Shield Block", "type": "reaction", "traits": []}]
+"Bee Borer":
+  pack: "myth-speaker-bestiary"
+  level: 3
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["animal", "mindless"]
+  ac: 18
+  hp: 40
+  perception: 11
+  saves: {"fortitude": 12, "reflex": 9, "will": 6}
+  abilities: {"cha": 1, "con": 4, "dex": 3, "int": -5, "str": 1, "wis": 0}
+  speeds: {"land": 20, "climb": 20}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 9, "Stealth": 12}
+  strikes: [{"name": "Chelicerae", "bonus": 12, "damage": [["1d8+6", "piercing", null]], "traits": [], "effects": ["Attach"]}]
+  actions: [{"name": "Attach", "type": "passive", "traits": [], "text": "When a bee borer hits a target larger than itself, its legs attach it to that creature. While attached, the bee borer moves with the creature. The bee borer and the creature it's attached to are both Off-Guard. The borer remains attached until the creature dies or Escapes."}, {"name": "Drain Fat", "type": "action", "traits": [], "cost": 1, "text": "Requirements The bee borer is attached to a living creature.%rEffect The bee borer uses its chelicerae to suck fat from the creature it's attached to. This deals (1d8+4) untyped damage. A creature that has its fat drained by a blood borer is Drained 1 until it receives healing (of any kind or amount)."}]
+"Bristled Reef Shark":
+  pack: "myth-speaker-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal", "aquatic"]
+  ac: 16
+  hp: 21
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 10, "will": 4}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": -4, "str": 1, "wis": 1}
+  speeds: {"land": null, "swim": 35}
+  senses: ["scent"]
+  skills: {"Acrobatics": 7, "Athletics": 5, "Performance": 6}
+  strikes: [{"name": "Jaws", "bonus": 5, "damage": [["1d8+1", "piercing", null]], "traits": []}]
+  actions: [{"name": "Blood Scent", "type": "passive", "traits": [], "text": "The shark can smell blood in the water from up to 1 mile away."}, {"name": "Bristle", "type": "reaction", "traits": [], "text": "Trigger The bristled reef shark becomes Grabbed, Restrained, or otherwise Immobilized in a creature's grasp%rEffect The shark flares its bristles, dealing 1d6 piercing damage to the triggering creature (DC 17 Reflex). If the creature critically fails, the shark can also try to Escape as part of this reaction."}, {"name": "Compression", "type": "passive", "traits": [], "text": "When a bristled reef shark successfully Squeezes, it moves though the tight space at half speed (or full speed on a critical success)."}, {"name": "Reef Rake", "type": "action", "traits": [], "cost": 1, "text": "Requirements The shark's last action was a successful jaws Strike, and the target is adjacent to a solid surface like a wall or reef%rEffect The shark attempts an Athletics check to Reposition the target into the adjacent surface. If successful, the target is thrown into the surface and takes 2d6 bludgeoning damage. If the surface is jagged (such as a reef), target instead takes 2d6 slashing,1 bleed damage. This neither applies nor counts toward the shark's multiple attack penalty."}]
+"Bureaucrat Mob":
+  pack: "myth-speaker-bestiary"
+  level: 4
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["human", "humanoid", "troop"]
+  ac: 20
+  hp: 45
+  perception: 12
+  saves: {"fortitude": 9, "reflex": 8, "will": 12}
+  abilities: {"cha": 3, "con": 1, "dex": 2, "int": 3, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "(4 segments); Thresholds 30 (3 segments), 15 (2 segments)"
+  skills: {"Intimidation": 9, "Performance": 12, "Society": 11}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Aura of Argumentation", "type": "passive", "traits": ["auditory", "aura", "mental"], "text": "30 feet. The mob argues among itself even while attacking; creatures within the aura must succeed at a DC 18 Will save or be Confused for 1 round."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Knives Drawn", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The mob descends on its opponents with knives, dealing damage to each enemy in its space and in a 5-foot emanation, with a DC 18 Reflex save. The damage depends on the number of actions.%r1 2d4 piercing|options:area-damage damage%r2 (2d4+5) piercing|options:area-damage damage%r3 (2d4+7) piercing|options:area-damage damage"}, {"name": "Orate", "type": "action", "traits": ["auditory"], "cost": 1, "text": "The mob shouts at its opponents, dealing 2d6 sonic damage to any creature within 30 feet that can hear it (DC 18 Fortitude save)."}]
+"Coralclaw":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["animal", "aquatic"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 11, "will": 5}
+  abilities: {"cha": -1, "con": 2, "dex": 3, "int": -4, "str": 4, "wis": 1}
+  speeds: {"land": 20, "swim": 15}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 8, "Stealth": 7}
+  strikes: [{"name": "Crusher Claw", "bonus": 11, "damage": [["1d8+4", "bludgeoning", null]], "traits": [], "effects": ["Grab"]}, {"name": "Piercer Claw", "bonus": 11, "damage": [["1d6+4", "piercing", null], ["1", "bleed", "persistent"]], "traits": ["agile"]}]
+  actions: [{"name": "Coral Camouflage", "type": "passive", "traits": [], "text": "In reefs and rocky marine environments, a coralclaw can Hide and Sneak without cover or being Concealed."}, {"name": "Shuffler", "type": "passive", "traits": [], "text": "A coralclaw struggles to pivot quickly, leaving its hind limbs and tail vulnerable. When the coralclaw is Off-Guard, it gains weakness 2 to physical damage except against effects for which the coralclaw has standard cover or greater cover."}, {"name": "Ambushing Snap", "type": "action", "traits": [], "cost": 1, "text": "Requirements The coralclaw is hiding in corals and a creature that hasn't detected it is within 25 feet%rEffect The coralclaw moves up to its swim Speed + 10 feet toward the triggering creature. When the creature is within reach, the coralclaw makes a melee Strike against it. The creature is Off-Guard to this Strike."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "1d10 bludgeoning, DC 18 Fortitude"}, {"name": "Crushing Drag", "type": "action", "traits": ["attack", "move"], "cost": 2, "text": "Requirements The coralclaw is grabbing or restraining a creature%rEffect The coralclaw Constricts the creature, extends the Grabbed or Restrained condition until the end of the coralclaw's next turn, and attempts an Athletics check to Reposition the creature."}, {"name": "Dislodged Armor", "type": "passive", "traits": [], "text": "Once the coralclaw is reduced to half its Hit Points, its AC decreases by 2, it gains a +5 circumstance bonus to its Speeds, and it loses coral camouflage. A coralclaw can repair its coral armor with 4 hours of work."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Cyclops Seeker":
+  pack: "myth-speaker-bestiary"
+  level: 10
+  size: "large"
+  rarity: "rare"
+  traits: ["giant", "humanoid"]
+  ac: 29
+  hp: 175
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 16, "will": 21}
+  abilities: {"cha": 3, "con": 4, "dex": 0, "int": 7, "str": 6, "wis": 5}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 18, "Diplomacy": 19, "Intimidation": 19, "Occultism": 21, "Society": 21, "Survival": 19, "Academia Lore": 23, "Cyclopean Lore": 23, "Library Lore": 23}
+  strikes: [{"name": "Bo Staff", "bonus": 23, "damage": [["2d8+12", "bludgeoning", null]], "traits": ["magical", "monk", "parry", "reach-15", "trip"]}, {"name": "Crossbow", "bonus": 16, "damage": [["2d8+6", "piercing", null]], "traits": ["magical", "reload-1"], "range": 120}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Flash of Discovery", "type": "free", "traits": ["occult"], "text": "Frequency once per round%rTrigger The cyclops seeker begins their turn%rEffect Until the beginning of their next turn, the next skill check or Will saving throw the cyclops seeker succeeds at (but not critically succeeds at) becomes a critical success instead."}, {"name": "Moment of Truth", "type": "action", "traits": ["concentrate", "occult"], "cost": 1, "text": "Frequency once per round%rEffect The cyclops seeker looks for the perfect moment to attack a creature they can see, then attempts an Occultism check against that creature's Will DC.%rCritical Success Until the end of their next turn, all Strikes the cyclops seeker attempts against the creature gain a +1 status bonus to the attack roll and inflict an additional 2d6 precision damage.%rSuccess As critical success, but only for the next Strike they attempt against that creature in the current…"}]
+"Deathless Pirate":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["skeleton", "undead", "unholy"]
+  ac: 24
+  hp: 130
+  perception: 18
+  saves: {"fortitude": 18, "reflex": 12, "will": 12}
+  abilities: {"cha": 0, "con": 4, "dex": 3, "int": 0, "str": 5, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Athletics": 17, "Intimidation": 15, "Sailing Lore": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 10, "electricity": 10, "fire": 10, "piercing": 10, "slashing": 10}
+  strikes: [{"name": "Spear", "bonus": 13, "damage": [["2d6+6", "piercing", null]], "traits": []}, {"name": "Claw", "bonus": 13, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Collapse", "type": "reaction", "traits": [], "text": "Trigger The deathless pirate is critically hit%rEffect The pirate collapses into a pile of bones and the attack deals only normal damage. The pirate can re-form in a standing position as an action, but until it does, it is Immobilized and Off-Guard."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}]
+"Deck Crew":
+  pack: "myth-speaker-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid"]
+  ac: 23
+  hp: 70
+  perception: 14
+  saves: {"fortitude": 13, "reflex": 16, "will": 11}
+  abilities: {"cha": 2, "con": 3, "dex": 4, "int": 2, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 15, "Athletics": 15, "Nature": 13, "Sailing Lore": 15}
+  strikes: [{"name": "Spear", "bonus": 15, "damage": [["1d6+6", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 15, "damage": [["1d6+6", "piercing", null]], "traits": ["thrown-20"]}, {"name": "Shortbow", "bonus": 15, "damage": [["1d6+6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+"Deianire":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 25
+  hp: 80
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 18, "will": 17}
+  abilities: {"cha": 5, "con": 0, "dex": 4, "int": 2, "str": -5, "wis": 4}
+  speeds: {"land": null, "fly": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Intimidation": 15, "Society": 15, "Mercantile Lore": 17}
+  immunities: ["bleed", "death-effects", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 7}
+  strikes: [{"name": "Ghostly Hand", "bonus": 18, "damage": [["2d8+8", "void", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "A typical ghost can stray only a short distance from where it was killed or the place it haunts. A typical limit is 120 feet. Some ghosts are instead bound to a room, building, item, or creature that was special to it rather than a location."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Deafening Shriek", "type": "action", "traits": ["auditory", "divine", "emotion", "fear", "mental"], "cost": 1, "text": "Deianire lets loose an awful screech, forcing each living creature within 30 feet to attempt a DC 25 Fortitude save. On a failure, a creature is Deafened for 1 round. On a critical failure, a creature is deafened for 1 minute and Off-Guard for 1 round."}, {"name": "Judgmental Gaze", "type": "action", "traits": [], "cost": 1, "text": "Deianire fixes her disapproval on a creature she can see within 30 feet. The target takes 4d6 void damage (DC 25 Will save). On a failure, the creature is also Frightened 1 (or Frightened 2 on a critical failure)."}]
+"Ekleios":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 17
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 5, "reflex": 8, "will": 10}
+  abilities: {"cha": 3, "con": 1, "dex": 2, "int": 0, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Deception": 7, "Religion": 10, "Stealth": 6}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious", "bleed"]
+  strikes: [{"name": "Gladius", "bonus": 10, "damage": [["1d6+4", "piercing", null]], "traits": ["deadly-d10", "versatile-s"], "effects": ["Heretics Smite"]}]
+  actions: [{"name": "Final Blasphemy", "type": "passive", "traits": ["divine", "void"], "text": "When the herexen is destroyed, it explodes in a wave of void energy with the effects of a 3-action Harm spell (DC 18 Fortitude).%rThe herexen is destroyed, so it doesn't gain any Hit Points from this use of harm , and it doesn't need to have any harm spells remaining to use this ability"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Heretic's Smite", "type": "passive", "traits": ["divine"], "text": "While wielding the favored weapon of its former deity (such as a dagger for an ex-Pharasmin herexen), the herexen's Strikes deal an additional 1d6 spirit damage to creatures with the holy trait."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 18, "attack": 10, "spells": {"1": ["Harm"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 18, "attack": 10, "spells": {"1": ["Death's Call"]}}]
+"Encymion":
+  pack: "myth-speaker-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["beast"]
+  ac: 27
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 18, "reflex": 16, "will": 14}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -3, "str": 6, "wis": 2}
+  speeds: {"land": 25, "fly": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 14, "Athletics": 18, "Stealth": 18}
+  strikes: [{"name": "Dragon Jaws of the Pious", "bonus": 21, "damage": [["2d6", "spirit", null], ["2d8+11", "piercing", null]], "traits": []}, {"name": "Goat Horns of the Schemer", "bonus": 21, "damage": [["2d6", "poison", null], ["2d8+11", "piercing", null]], "traits": []}, {"name": "Lion Jaws of the Brave", "bonus": 21, "damage": [["2d6", "electricity", null], ["2d8+11", "piercing", null]], "traits": []}, {"name": "Claw", "bonus": 20, "damage": [["2d6+9", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Multiple Reactions", "type": "passive", "traits": [], "text": "A chimera gains 2 extra reactions each round that it can use only to make Reactive Strikes. It must use a different head for each reaction, and it can't use more than one on the same triggering action. If it loses one of its heads, it also loses one of these extra reactions."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Three Headed", "type": "passive", "traits": [], "text": "Any ability that would sever a chimera's head (such as a critical hit with a Vorpal Weapon ) severs one head at random. Losing a head doesn't kill a chimera (as long as it has one head left), but it does prevent it from making Strikes with the lost head or using the head's Dragon Breath."}, {"name": "Draconic Bite", "type": "passive", "traits": [], "text": "A chimera's dragon head deals an extra 2d6 untyped damage of a type matching the damage dealt by its Dragon Breath."}, {"name": "Dragon Breath", "type": "action", "traits": [], "cost": 2, "text": "The chimera breathes a cone or line that deals 9d6 damage to all creatures in the area (DC 26 basic save of a type indicated below). The chimera's dragon head is linked to one of the traditions of magic, which determines the area of its Dragon Breath, the type of damage it deals, and the type of save to avoid it. This ability gains the related traits.%rThe chimera can't use Dragon Breath again for 1d4 rounds.%rArcane 60-foot of force (DC 26 Reflex) Divine 60-foot of spirit (DC 26 Reflex); this…"}, {"name": "Three-Headed Strike", "type": "action", "traits": [], "cost": 2, "text": "The chimera makes a Strike with its dragon jaws, lion jaws, and goat horns, each at a -2 penalty and targeting a different creature. These Strikes count as only one attack for the chimera's multiple attack penalty, and the penalty doesn't increase until after it has made all three attacks."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Daze", "Detect Magic", "Divine Lance", "Vitality Lash", "Void Warp"], "1": ["Bane", "Fear", "Harm", "Runic Body"], "2": ["Dispel Magic", "Noise Blast", "Sound Body"], "3": ["Blindness", "Chilling Darkness", "Heroism"], "4": ["Unfettered Movement"], "5": ["Divine Immolation", "Shadow Blast"]}}]
+"Enraged Spirit":
+  pack: "myth-speaker-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid", "spirit"]
+  ac: 14
+  hp: 10
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 6, "will": 4}
+  abilities: {"cha": 0, "con": 1, "dex": 2, "int": 0, "str": -5, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 7, "Nature": 4, "Survival": 4, "Fishing Lore": 8, "Sailing Lore": 6}
+  immunities: ["bleed", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"all-damage": 3}
+  strikes: [{"name": "Ghostly Hand", "bonus": 7, "damage": [["1d4+3", "spirit", null]], "traits": ["agile", "finesse", "magical", "spirit"]}]
+"Eumenid":
+  pack: "myth-speaker-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["monitor"]
+  ac: 24
+  hp: 80
+  perception: 18
+  saves: {"fortitude": 12, "reflex": 17, "will": 13}
+  abilities: {"cha": 3, "con": 2, "dex": 6, "int": 2, "str": 4, "wis": 3}
+  speeds: {"land": 30, "fly": 30}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 14, "Athletics": 14, "Intimidation": 13, "Survival": 15}
+  strikes: [{"name": "Spiked Chain", "bonus": 17, "damage": [["2d6", "spirit", null], ["1d8+4", "slashing", null]], "traits": ["disarm", "finesse", "magical", "reach-15", "trip"]}, {"name": "Bola", "bonus": 16, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["nonlethal", "ranged-trip", "thrown-20"]}]
+  actions: [{"name": "Unerring Tracker", "type": "passive", "traits": [], "text": "A eumenid can Track at its full speed and treats all results of Survival checks to Track as one degree of success better."}, {"name": "Trip Quarry", "type": "reaction", "traits": [], "text": "Trigger The eumenid's quarry uses a move action within reach of the eumenid's spiked chain%rEffect The eumenid Trips the creature."}, {"name": "Designate Quarry", "type": "action", "traits": ["concentrate", "mental"], "cost": 1, "text": "The eumenid designates a single creature as their quarry and focuses their attention on that creature. The eumenid must be able to see or hear the creature, or they must be tracking it. As long as the eumenid has the creature as their quarry, the eumenid gains telepathy with that creature with unlimited range, even between planes. Each day, the quarry can attempt a DC 24 Will save; a success breaks the connection and makes the creature immune to that eumenid's Designate Quarry for 24 hours. The…"}, {"name": "Stretching Chain", "type": "passive", "traits": [], "text": "In the hands of a eumenid, any spiked chain has a reach of 15 feet."}, {"name": "Taunt Quarry", "type": "action", "traits": ["detection", "divine", "emotion", "fear", "mental"], "cost": 1, "text": "Frequency once per day%rRequirements The eumenid has Designated a Quarry%rEffect Using their telepathy, the eumenid mentally harangues and threatens their quarry, who must attempt a DC 24 Will save.%rCritical Success The quarry is unaffected.%rSuccess The quarry is Frightened 1. The eumenid learns on what plane the quarry is on.%rFailure The quarry is Frightened 2. The eumenid learns the quarry's rough location, accurate to within 10 miles.%rCritical Failure The quarry is Frightened 3 and…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 24, "attack": 16, "spells": {"7": ["Interplanar Teleport (Self Only; no Planar Key Required for Amneros and the Plane the Quarry is on)"]}}]
+"Exthenios":
+  pack: "myth-speaker-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["mythic", "skeleton", "undead"]
+  ac: 27
+  hp: 115
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 21, "will": 18}
+  abilities: {"cha": 4, "con": 4, "dex": 5, "int": 2, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 23, "Athletics": 18, "Intimidation": 18, "Sailing Lore": 20}
+  immunities: ["bleed", "death-effects", "paralyzed", "poison", "disease", "unconscious"]
+  resistances: {"cold": 10, "electricity": 10, "fire": 10, "piercing": 10, "slashing": 10}
+  strikes: [{"name": "Aerekostes", "bonus": 21, "damage": [["2d8+8", "slashing", null]], "traits": ["fatal-d12", "magical"]}, {"name": "Void Bolt", "bonus": 21, "damage": [["2d8+8", "void", null]], "traits": ["magical"], "range": 20}]
+  actions: [{"name": "Death Grip", "type": "passive", "traits": [], "text": "Exthenios clutches Aerekostes with a literal death grip. Attempts to Disarm him of the weapon are treated as one degree of success lower."}, {"name": "My Fight!", "type": "reaction", "traits": [], "text": "Trigger A creature other than the target of Engaging Duel takes a hostile action against Exthenios or uses a spell or ability that affects the target of Engaging Duel%rRequirements Exthenios has a creature under the effects of Engaging Duel%rEffect Exthenios makes a melee Strike against the triggering creature, or a void bolt Strike if the creature isn't within his reach. If the Strike is a success, the creature must attempt a DC 7 Flat (or a DC 12 Flat if Exthenios's Strike was a critical…"}, {"name": "Mythic Resilience (Reflex and Will)", "type": "passive", "traits": [], "text": "The creature treats its saving throws with the associated save as one degree of success better than it rolled. This is not cumulative with other effects that change their degree of success, like the incapacitation trait (except for rolling a natural 1 or 20). Each time the monster gains mythic resilience, choose one save. The ability should apply to the creature's highest saves first."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Engaging Duel", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Exthenios singles out a creature he can see, calling them to face him directly. Exthenios gains a +1 circumstance bonus to Strikes and DCs against the targeted creature. If the creature takes an action that affects anyone other than themselves or Exthenios, this bonus increases to +2 until the end of Exthenios's next turn. Exthenios takes a –1 circumstance penalty to all checks and DCs against any creature other than the target of the Engaging Duel. These effects last until Exthenios uses…"}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Mythic Skill (Acrobatics)", "type": "free", "traits": [], "text": "Cost 1 Mythic Point%rEffect The creature attempts its next skill check with a +4 bonus and is considered to have mythic proficiency for that check. This applies to one skill when this ability is gained and a second skill if the creature is 12th level or higher."}, {"name": "Precise Duelist", "type": "passive", "traits": [], "text": "Exthenios deals an extra 1d6 precision damage to the target of his Engaging Duel."}, {"name": "Unimpeded", "type": "action", "traits": [], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Exthenios automatically ends one effect that would give him a circumstance penalty to Speed. When he attempts to Escape an effect that has him Immobilized, Grabbed, or Restrained, he automatically succeeds."}]
+"Eylthia":
+  pack: "myth-speaker-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "mythic"]
+  ac: 29
+  hp: 175
+  perception: 22
+  saves: {"fortitude": 19, "reflex": 22, "will": 20}
+  abilities: {"cha": 2, "con": 4, "dex": 7, "int": 3, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 25, "Deception": 16, "Diplomacy": 19, "Nature": 22, "Stealth": 16, "Survival": 22}
+  strikes: [{"name": "Shortsword", "bonus": 21, "damage": [["1d6+12", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"], "effects": ["Serpent Venom"]}, {"name": "Snake Fangs", "bonus": 21, "damage": [["1d4+12", "piercing", null]], "traits": ["agile", "finesse"], "effects": ["Serpent Venom"]}, {"name": "Composite Shortbow", "bonus": 25, "damage": [["2d6+12", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0"], "range": 60, "effects": ["Serpent Venom"]}]
+  actions: [{"name": "Animal Empathy", "type": "passive", "traits": [], "text": "Eylthia can use Diplomacy to make-an-impression on animals and to make very simple Requests of them."}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Biting Snakes", "type": "reaction", "traits": [], "text": "Trigger A creature ends its turn adjacent to the medusa.%rEffect The medusa makes a snake fangs Strike against the creature."}, {"name": "Mythic Resilience (Reflex and Will)", "type": "passive", "traits": [], "text": "The creature treats its saving throws with the associated save as one degree of success better than it rolled. This is not cumulative with other effects that change their degree of success, like the incapacitation trait (except for rolling a natural 1 or 20)."}, {"name": "Petrifying Gaze", "type": "passive", "traits": ["arcane", "aura", "visual"], "text": "30 feet. When a creature ends its turn in the aura, it must attempt a DC 29 Fortitude save. If the creature fails, it becomes Slowed 1 for 1 minute.%rThe medusa can deactivate or activate this aura by using a single action, which has the concentrate trait."}, {"name": "Deadly Striker", "type": "passive", "traits": [], "text": "Eylthia deals an additional 1d6 precision damage on her next Strike whenever she uses an action to Stride 10 feet or more."}, {"name": "Focus Gaze", "type": "action", "traits": ["arcane", "concentrate", "incapacitation", "visual"], "cost": 1, "text": "The medusa fixes their glare at a creature they can see within 30 feet. The target must immediately attempt a DC 29 Fortitude save against the medusa's petrifying gaze.%rIf the creature was already Slowed by petrifying gaze before attempting its save, a failed save causes it to be Petrified permanently. After attempting its save, the creature is then temporarily immune until the start of the medusa's next turn."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Mythic Skill (Acrobatics)", "type": "free", "traits": [], "text": "Cost 1 Mythic Point%rEffect The creature attempts its next skill check with a +4 bonus and is considered to have mythic proficiency for that check."}, {"name": "Serpent Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage and Enfeebled 1 (1 round)%rStage 2 2d6 poison damage and Enfeebled 2 (1 round)"}, {"name": "Unimpeded", "type": "action", "traits": [], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Eylthia automatically ends one effect that would give her a circumstance penalty to Speed. When she attempts to Escape an effect that has her Immobilized, Grabbed, or Restrained, she automatically succeeds."}, {"name": "Vulnerability", "type": "action", "traits": [], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Eylthia renews the vulnerability to her gaze on one target within 30 feet that is temporarily immune to Focus Gaze. The creature loses that temporary immunity."}]
+  spellcasting: [{"name": "Primal Focus Spells", "tradition": "primal", "type": "focus", "dc": 29, "attack": 21, "spells": {"1": ["Gravity Weapon"], "2": ["Soothing Mist"], "3": ["Ranger's Bramble"]}}]
+"Eylthia's Basilisk":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 25
+  hp: 115
+  perception: 16
+  saves: {"fortitude": 17, "reflex": 12, "will": 16}
+  abilities: {"cha": 2, "con": 6, "dex": -1, "int": -3, "str": 5, "wis": 3}
+  speeds: {"land": 20}
+  skills: {"Athletics": 16, "Stealth": 14}
+  immunities: ["petrified"]
+  strikes: [{"name": "Jaws", "bonus": 18, "damage": [["2d8+5", "piercing", null]], "traits": ["unarmed"], "effects": ["Calcifying Venom"]}, {"name": "Tail", "bonus": 18, "damage": [["2d8+5", "bludgeoning", null]], "traits": ["agile", "unarmed"]}, {"name": "Stone Spittle", "bonus": 16, "damage": [["3d8", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Petrifying Glance", "type": "reaction", "traits": ["arcane", "aura", "visual"], "text": "Trigger A creature within 30 feet that the basilisk can see starts its turn%rEffect The target must attempt a DC 23 Fortitude save. If it fails, it's Slowed 1 for 1 minute as its body slowly stiffens."}, {"name": "Calcifying Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 29 Fortitude%rMaximum Duration 6 rounds%rStage 1 2d6 poison and Clumsy 1 (1 round)%rStage 2 2d6 poison and Clumsy 2 (1 round)%rStage 3 4d6 poison and clumsy 2 (1 round)"}, {"name": "Petrifying Gaze", "type": "action", "traits": ["arcane", "concentrate", "incapacitation", "visual"], "cost": 1, "text": "The basilisk stares at a creature it can see within 30 feet. That creature must attempt a DC 25 Fortitude save. If it fails and has not already been slowed by Petrifying Glance or this ability, it becomes Slowed 1. If the creature was already slowed by this ability or Petrifying Glance, a failed save causes the creature to be Petrified permanently.%rA creature petrified in this manner that is coated (not just splashed) with fresh basilisk blood no more than 1 hour old is instantly restored to…"}, {"name": "Stone Spittle", "type": "passive", "traits": ["visual"], "text": "This basilisk's saliva reacts to its Petrifying Gaze, allowing the basilisk to spit toward foes and transform the fluid into a rocky missile mid-flight. If the attack is a critical hit, the target must succeed at a DC 25 Fortitude save or be knocked Prone."}]
+"Firehoof Minotaur":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "large"
+  rarity: "uncommon"
+  traits: ["beast", "fire", "humanoid"]
+  ac: 24
+  hp: 140
+  perception: 16
+  saves: {"fortitude": 17, "reflex": 12, "will": 14}
+  abilities: {"cha": 1, "con": 4, "dex": 1, "int": 0, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 17, "Intimidation": 14, "Stealth": 14, "Survival": 16}
+  weaknesses: {"cold": 10}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Greataxe", "bonus": 18, "damage": [["1d12+6", "slashing", null], ["2d6", "fire", null]], "traits": ["magical", "reach-10", "sweep"]}, {"name": "Horn", "bonus": 17, "damage": [["2d8+10", "piercing", null]], "traits": []}]
+  actions: [{"name": "Perfect Orienteering", "type": "passive", "traits": [], "text": "A minotaur automatically critically succeeds at Survival checks to Sense Direction or Track."}, {"name": "Smoke Vision", "type": "passive", "traits": [], "text": "Smoke doesn't impair a firehoof minotaur's vision; they ignore the Concealed condition from smoke."}, {"name": "Fiery Blood", "type": "reaction", "traits": [], "text": "Trigger A creature scores a critical hit on the firehoof minotaur%rEffect The firehoof minotaur's splashes its fire-infused blood onto the creature and deals 2d6 fire damage (DC 22 Reflex save)."}, {"name": "Belch Smoke", "type": "action", "traits": ["fire"], "cost": 2, "text": "The firehoof minotaur takes a huge breath, then belches a cloud of smoke, filling a 40-foot cone. All creatures within the smoke cloud become Concealed, and all creatures outside the smoke become concealed to creatures within it. The smoke dissipates after 1d4 rounds, and the firehoof minotaur can't Belch Smoke again until the smoke clears."}, {"name": "Fire Stomp", "type": "action", "traits": ["fire"], "cost": 2, "text": "The firehoof minotaur vigorously stomps the ground with a hoof, releasing an explosion of fire in a 10-foot emanation that deals 4d6 fire|options:area-damage damage (DC 22 Reflex save)."}, {"name": "Hazy Fear", "type": "action", "traits": [], "cost": 1, "text": "The firehoof minotaur snorts and stomps fire as they hunt their prey, inspiring terror. The minotaur makes an Intimidation check to Demoralize all living creatures within 60 feet who can hear the minotaur but not clearly see them (whether the minotaur is Concealed, Hidden, or Undetected). Roll once and apply the result to all creatures. If the targets have their vision effected by smoke or a similar effect, the minotaur gains a +4 circumstance bonus to this check. Each target is temporarily…"}]
+"Forgotten Dead":
+  pack: "myth-speaker-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["shade"]
+  ac: 20
+  hp: 65
+  perception: 14
+  saves: {"fortitude": 10, "reflex": 14, "will": 9}
+  abilities: {"cha": 3, "con": 2, "dex": 5, "int": 4, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Deception": 10, "Stealth": 12, "Thievery": 13}
+  strikes: [{"name": "Fist", "bonus": 13, "damage": [["2d6+5", "bludgeoning", null]], "traits": ["agile"], "effects": ["Memory Lapse"]}]
+  actions: [{"name": "Memory Lapse", "type": "passive", "traits": ["mental"], "text": "The touch of a forgotten dead pulls away gossamer strands of their victim's memories. The target must attempt a DC 19 Will save.%rCritical Success The target is unaffected.%rSuccess The target is Stupefied 1 for 1 round.%rFailure The target is Stupefied 2 for 1 round, then stupefied 1 for 1 minute. Once the creature has become stupefied 1, the target can attempt another saving throw at the end of each of its turns to end the stupefied condition, and the DC cumulatively decreases by 1 on each…"}]
+"Gale Frenzy":
+  pack: "myth-speaker-bestiary"
+  level: 9
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["air", "beast", "humanoid", "troop"]
+  ac: 28
+  hp: 150
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 20, "will": 17}
+  abilities: {"cha": 4, "con": 0, "dex": 5, "int": -1, "str": 4, "wis": 4}
+  speeds: {"land": 20, "climb": 60}
+  hp_details: "Thresholds 100 (3 segments), 50 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 20, "Deception": 17, "Intimidation": 19, "Stealth": 20}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "30 feet. DC 25 Fortitude"}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Distracting Whispers", "type": "action", "traits": ["air", "auditory", "mental", "primal"], "cost": 2, "text": "A gale frenzy can focus all of their whispered words in a cacophony of unsettling and distracting threats, lies, and taunts, assaulting the minds of those they target with the plethora of distinct sounds. The gale frenzy selects one creature within 90 feet and fills its mind with these wind-borne distractions. The targeted creature must attempt a DC 28 Will save with the following results. The gale frenzy can't use Distracting Whispers again for 1d4 rounds.%rCritical Success The creature is…"}, {"name": "Putrid Plague", "type": "passive", "traits": ["disease"], "text": "The Sickened and Unconscious conditions from putrid plague can't end or be reduced until the disease is cured.%rSaving Throw DC 25 Fortitude%rStage 1 carrier with no ill effect (1d4 hours)%rStage 2 sickened (1 day)%rStage 3 Sickened 1 and Slowed 1 (1 day)%rStage 4 unconscious (1 day)%rStage 5 dead"}, {"name": "Ravenous Winds", "type": "action", "traits": ["air", "concentrate", "primal"], "cost": 2, "text": "The gale frenzy combines its powers over the wind to draw prey closer. Each segment of the troop selects a different target within 20 feet; a targeted creature must succeed at a DC 28 Fortitude save or be pulled adjacent to that segment of the troop. If a target was pulled off the ground and cannot fly, it then falls as normal."}, {"name": "Talonstorm", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The gale frenzy swoops through an area with their talons arrayed in a harrowing wall of slashing peril as they rip at each enemy in a 5-foot emanation. Targets must attempt a DC 25 Reflex save. The damage depends on the number of actions.%r1 (1d8+2) slashing|options:area-damage damage (plus putrid plague on a failure)%r2 (3d8+4) slashing|options:area-damage damage (plus putrid plague on a failure)%r3 (5d8+6) slashing|options:area-damage damage (plus…"}]
+"Gigantic Bee Drone":
+  pack: "myth-speaker-bestiary"
+  level: 4
+  size: "large"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 20
+  hp: 60
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 12, "will": 7}
+  abilities: {"cha": 3, "con": 3, "dex": 4, "int": -5, "str": 5, "wis": 2}
+  speeds: {"land": 20, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12}
+  strikes: [{"name": "Mandibles", "bonus": 12, "damage": [["2d8+5", "piercing", null]], "traits": [], "effects": ["Grab"]}]
+  actions: [{"name": "Smoke Susceptibility", "type": "passive", "traits": [], "text": "A gigantic bee drone is Slowed 1 for 1 round if it starts its turn in smoke."}, {"name": "Lift and Drop", "type": "action", "traits": [], "cost": 2, "text": "Requirements A Medium or smaller creature is Grabbed or Restrained in the gigantic bee drone's mandibles%rEffect The gigantic bee drone Flies up to its Speed, taking the creature with it, then drops the creature, who takes falling damage as normal."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Gigantic Bee Guard":
+  pack: "myth-speaker-bestiary"
+  level: 4
+  size: "large"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 21
+  hp: 60
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 12, "will": 8}
+  abilities: {"cha": 2, "con": 4, "dex": 3, "int": -5, "str": 4, "wis": 3}
+  speeds: {"land": 20, "fly": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 12}
+  strikes: [{"name": "Mandibles", "bonus": 13, "damage": [["2d4+4", "piercing", null]], "traits": ["agile"]}, {"name": "Stinger", "bonus": 13, "damage": [["2d6+4", "piercing", null]], "traits": [], "effects": ["Gigantic Bee Venom"]}]
+  actions: [{"name": "Smoke Susceptibility", "type": "passive", "traits": [], "text": "A gigantic bee guard is Slowed 1 for 1 round if it starts its turn in smoke."}, {"name": "Bee Line", "type": "action", "traits": [], "cost": 2, "text": "Requirements An ally is adjacent to a foe%rEffect The gigantic guardian bee Flies up to twice its Speed in a straight line and makes a stinger Strike against the foe."}, {"name": "Gigantic Bee Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 18 Fortitude%rMaximum Duration 4 rounds%rStage 1 1d6 poison damage (1 round)%rStage 2 1d6 poison damage and Sickened 1 (1 round)"}]
+"Gigantic Bee Royal Guardian":
+  pack: "myth-speaker-bestiary"
+  level: 6
+  size: "huge"
+  rarity: "rare"
+  traits: ["animal"]
+  ac: 23
+  hp: 115
+  perception: 15
+  saves: {"fortitude": 17, "reflex": 11, "will": 14}
+  abilities: {"cha": 3, "con": 4, "dex": 3, "int": -5, "str": 5, "wis": 3}
+  speeds: {"land": 20, "fly": 30}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 13}
+  strikes: [{"name": "Mandibles", "bonus": 17, "damage": [["2d6+8", "piercing", null]], "traits": ["agile"], "effects": ["Grab"]}, {"name": "Stinger", "bonus": 17, "damage": [["2d8+6", "piercing", null]], "traits": [], "effects": ["Gigantic Bee Royal Guardian Venom"]}, {"name": "Venom Stream", "bonus": 15, "damage": [], "traits": ["poison"], "effects": ["Gigantic Bee Royal Guardian Venom"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Gigantic Bee Royal Guardian Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 22 Fortitude%rMaximum Duration 4 rounds%rStage 1 1d8 poison damage (1 round)%rStage 2 1d8 poison damage and Sickened 1 (1 round)"}, {"name": "Targeted Sting", "type": "action", "traits": [], "cost": 1, "text": "Requirements A Large or smaller creature is Grabbed or Restrained in the gigantic bee royal guardian's mandibles%rEffect The gigantic bee royal guardian makes a stinger Strike at the target. On a hit, it deals an extra 1d6 precision damage on a hit."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Iapholi":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "mythic", "nephilim"]
+  ac: 24
+  hp: 126
+  perception: 15
+  saves: {"fortitude": 15, "reflex": 13, "will": 17}
+  abilities: {"cha": 6, "con": 4, "dex": 2, "int": 3, "str": 2, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 15, "Diplomacy": 20, "Nature": 18, "Occultism": 18, "Survival": 18}
+  resistances: {"fire": 5, "poison": 10}
+  strikes: [{"name": "Flail", "bonus": 16, "damage": [["2d8+6", "bludgeoning", null]], "traits": ["disarm", "magical", "sweep", "trip"]}, {"name": "Tail", "bonus": 16, "damage": [["1d6", "fire", null], ["2d6+6", "bludgeoning", null]], "traits": ["backswing"]}]
+  actions: [{"name": "Beastspeech", "type": "passive", "traits": [], "text": "Iapholi can understand and be understood by all creatures that have the aberration, beast, dragon, or giant trait, as if they shared a language."}, {"name": "Recharge Spell", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Iapholi regains one spell."}, {"name": "Wild Calm", "type": "passive", "traits": ["aura", "divine"], "text": "30 feet. Iapholi exudes a comforting sense of peace, even when chaos abounds. Allies within the aura gain a +1 circumstance bonus on saves against effects with the emotion trait."}, {"name": "Ekriathe's Breath", "type": "action", "traits": [], "cost": 2, "text": "Iapholi breathes a gout of energy powered by one of her past lives. She chooses whether this affects a 60-foot line or a 30-foot cone. She also chooses one of the following damage types that the breath deals, which also affects the type of DC 25 basic saving throw affected creatures attempt to reduce the damage:%r8d6 bludgeoning|options:area-damage (DC 25 Fortitude)%r8d6 electricity|options:area-damage (DC 25 Reflex)%r8d6 fire|options:area-damage (DC 25 Reflex)%r8d6 poison|options:area-damage…"}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Mythic Skill", "type": "free", "traits": [], "text": "Cost 1 Mythic Point%rEffect Iapholi attempts her next Diplomacy check with a +4 bonus and is considered to have mythic proficiency for that check."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 29, "attack": 21, "spells": {"0": ["Bullhorn", "Divine Lance", "Shield", "Void Warp"], "1": ["Bane", "Heal", "Protection"], "2": ["Blood Vendetta", "Calm", "Sudden Blight"], "3": ["Blindness", "Dream Message", "Heroism"], "4": ["Divine Wrath", "Heal", "Vampiric Maiden"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 29, "attack": 21, "spells": {"1": ["Soothing Words"], "4": ["Unity"]}}]
+"Iblydan Hind":
+  pack: "myth-speaker-bestiary"
+  level: 4
+  size: "large"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 21
+  hp: 62
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 14, "will": 8}
+  abilities: {"cha": 0, "con": 3, "dex": 5, "int": -2, "str": 4, "wis": 2}
+  speeds: {"land": 50}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 12, "Stealth": 13, "Survival": 10}
+  strikes: [{"name": "Antlers", "bonus": 13, "damage": [["2d6+6", "piercing", null]], "traits": []}, {"name": "Hoof", "bonus": 13, "damage": [["2d4+6", "bludgeoning", null]], "traits": ["agile"]}]
+  actions: [{"name": "Fleet of Hoof", "type": "passive", "traits": [], "text": "An Iblydan hind ignores non-magical difficult terrain or greater difficult terrain when Striding or Stepping."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Evade Ensnarement", "type": "reaction", "traits": [], "text": "Trigger The hind is targeted with an effect that would give it the Grabbed or Immobilized condition%rEffect The hind Steps, gaining a +2 circumstance bonus to its saving throw or increasing its DC by 2 against the effect."}, {"name": "Bright-Horned Flare", "type": "action", "traits": ["visual"], "cost": 1, "text": "The hind tosses its head, causing its golden horns to reflect the light. All creatures within 30-foot feet of the hind must attempt a DC 18 Fortitude save.%rSuccess The creature is unaffected.%rFailure The creature is Dazzled for 1 round.%rCritical Failure The creature is Blinded for 1 round."}, {"name": "Fire Breath", "type": "action", "traits": ["fire", "primal"], "cost": 2, "text": "The hind snorts a 15-foot cone of fire, dealing 5d6 fire|options:area-damage damage (DC 18 Reflex save). The hind can't use fire breath again for 1d4 rounds."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, hoof, DC 18 Reflex"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 19, "attack": 11, "spells": {"2": ["Vanishing Tracks (Constant)"]}}]
+"Keribos":
+  pack: "myth-speaker-bestiary"
+  level: 6
+  size: "large"
+  rarity: "uncommon"
+  traits: ["beast", "monitor"]
+  ac: 23
+  hp: 100
+  perception: 18
+  saves: {"fortitude": 16, "reflex": 13, "will": 11}
+  abilities: {"cha": 3, "con": 4, "dex": 3, "int": -3, "str": 5, "wis": 3}
+  speeds: {"land": 35}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 15, "Intimidation": 13, "Survival": 13}
+  strikes: [{"name": "Jaws", "bonus": 16, "damage": [["2d8+5", "piercing", null]], "traits": [], "effects": ["Grab"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Chorus of Baying", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 2, "text": "The keribos' heads howl together in a discordant chorus. Every non-keribos within a 30-foot emanation takes 6d6 mental|options:area-damage damage and must attempt a DC 21 Will save. After the save, the creature is temporarily immune to all Choruses of Baying for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature takes full damage and is Frightened 1.%rCritical Failure The creature takes double damage and is Frightened 2."}, {"name": "Vicious Mauling", "type": "action", "traits": [], "cost": 2, "text": "The keribos makes a number of Strikes up to its number of heads, each against a different target. These attacks count toward the keribos' multiple attack penalty, but the multiple attack penalty doesn't increase until after the keribos makes all its attacks."}, {"name": "Worry", "type": "action", "traits": [], "cost": 1, "text": "Requirements A Medium or smaller creature is Grabbed or Restrained in the keribos's jaws%rEffect The keribos vigorously shakes the creature and deals (2d6+5) piercing damage (DC 21 Fortitude save)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Kerinelopas":
+  pack: "myth-speaker-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["aberration", "mythic"]
+  ac: 27
+  hp: 155
+  perception: 19
+  saves: {"fortitude": 16, "reflex": 19, "will": 17}
+  abilities: {"cha": 3, "con": 3, "dex": 4, "int": 6, "str": 5, "wis": 4}
+  speeds: {"land": 25, "climb": 15}
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Crafting": 17, "Medicine": 19, "Stealth": 17, "Art Lore": 21}
+  resistances: {"mythic": 9}
+  strikes: [{"name": "Claw", "bonus": 20, "damage": [["3d8+8", "slashing", null], ["1d8", "bleed", null]], "traits": ["agile", "reach-10", "unarmed"]}]
+  actions: [{"name": "Bloodsense (Imprecise) 60 feet", "type": "passive", "traits": [], "text": "Kerinelopas can detect exposed blood as an imprecise sense at the listed range, including from creatures taking persistent bleed damage."}, {"name": "Remove a Condition", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Kerinelopas ends one condition affecting him."}, {"name": "Easily Fascinated", "type": "passive", "traits": [], "text": "When subject to a visual illusion with the incapacitation trait, Kerinelopas doesn't adjust his degree of success due to the incapacitation trait."}, {"name": "Dab", "type": "action", "traits": ["manipulate", "mental", "occult"], "cost": 1, "text": "Requirements Kerinelopas is within reach of an enemy taking persistent bleed damage%rEffect Kerinelopas touches the creature and applies blood to one of his four claws; the blood remains fresh for 1 minute. The target must succeed at a DC 28 Will save or become Fascinated with Kerinelopas."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Paint", "type": "action", "traits": ["concentrate", "illusion", "manipulate", "occult"], "cost": 1, "text": "Requirements Kerinelopas has fresh blood applied to a claw using Dab%rEffect Kerinelopas expends the blood on one claw to paint an illusion with the effects of one of the following spells: Blur, Illusory Creature, Illusory Disguise, or Illusory Object. The Paint action gains the traits of the spell it's reproducing, and Kerinelopas can Sustain a Spell on these effects. He uses a spell attack modifier of +20 and DC 28 for these effects, which are heightened to 5th rank.%rIf he has fresh blood…"}]
+"Lava Spitter":
+  pack: "myth-speaker-bestiary"
+  level: 4
+  size: "small"
+  rarity: "rare"
+  traits: ["construct", "elemental", "fire"]
+  ac: 20
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 14, "will": 8}
+  abilities: {"cha": 4, "con": 3, "dex": 5, "int": -5, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "fiery healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Stealth": 10}
+  immunities: ["fire", "mental"]
+  weaknesses: {"cold": 5, "water": 5}
+  strikes: [{"name": "Fangs", "bonus": 13, "damage": [["2d6+3", "piercing", null], ["2", "fire", "persistent"]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Lava Spit", "bonus": 13, "damage": [["2d8+1", "fire", null], ["2", "fire", "persistent"]], "traits": []}]
+  actions: [{"name": "Smoke Vision", "type": "passive", "traits": [], "text": "The lava spitter ignores the Concealed condition from smoke."}, {"name": "Fiery Healing", "type": "passive", "traits": [], "text": "If a lava spitter is in contact with lava or an area of equivalent heat, it gains fast healing 5."}, {"name": "Too Hot to Handle", "type": "passive", "traits": [], "text": "A creature that successfully grapples or hits a lava spitter with an unarmed attack takes 3d6 fire damage (DC 20 Reflex save)."}, {"name": "Spew Lava", "type": "action", "traits": ["fire", "primal"], "cost": 1, "text": "The lava spitter expels a 15-foot cone of lava, dealing 5d6 fire|options:area-damage damage to every creature within the cone (DC 20 Reflex save). This area becomes hazardous terrain for 1 minute. A creature takes 2 fire|options:area-damage damage each time it moves into one of these squares. The lava spitter then can't Spew Lava for 1d4 rounds."}]
+"Leviathan Louse":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "large"
+  rarity: "rare"
+  traits: ["beast", "earth", "metal"]
+  ac: 26
+  hp: 135
+  perception: 15
+  saves: {"fortitude": 17, "reflex": 15, "will": 14}
+  abilities: {"cha": 0, "con": 5, "dex": 4, "int": -4, "str": 6, "wis": 3}
+  speeds: {"land": 25, "burrow": 20}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 18, "Stealth": 16}
+  resistances: {"piercing": 10, "slashing": 10}
+  strikes: [{"name": "Mandibles", "bonus": 20, "damage": [["2d10+9", "piercing", null]], "traits": ["disarm"]}, {"name": "Foreleg", "bonus": 20, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["agile"], "effects": ["Grab"]}]
+  actions: [{"name": "Snagging Spines", "type": "reaction", "traits": [], "text": "Trigger A creature the leviathan louse had Grabbed or Restrained successfully Escapes%rEffect The leviathan louse makes a foreleg Strike against the triggering creature."}, {"name": "Cling", "type": "action", "traits": [], "cost": 1, "text": "Requirements The leviathan louse is touching unworked stone or is on its host body%rEffect The leviathan louse anchors itself in place, granting itself a +2 circumstance bonus against effects to move or trip it. It cannot take move actions. This effect lasts until the start of the leviathan louse's next turn."}, {"name": "Consume Stone", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rRequirements The leviathan louse is using Cling to adhere to unworked stone%rEffect The leviathan louse selects one square it occupies to drain of stony sustenance. It regains 15 healing Hit Points, gaining any excess HP as temporary Hit Points that last for 1 hour. The resulting rubble becomes difficult terrain."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Living Statue":
+  pack: "myth-speaker-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["construct", "mindless"]
+  ac: 23
+  hp: 75
+  perception: 13
+  saves: {"fortitude": 16, "reflex": 9, "will": 9}
+  abilities: {"cha": -5, "con": 5, "dex": -2, "int": -5, "str": 5, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 15}
+  strikes: [{"name": "Fist", "bonus": 15, "damage": [["1d8+10", "bludgeoning", null]], "traits": ["magical", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Construct Armor (Hardness 8)", "type": "passive", "traits": [], "text": "Like normal objects, an animated statue has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once an animated statue is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 19."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Mammoth Squid":
+  pack: "myth-speaker-bestiary"
+  level: 14
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["animal", "aquatic"]
+  ac: 36
+  hp: 255
+  perception: 26
+  saves: {"fortitude": 28, "reflex": 22, "will": 26}
+  abilities: {"cha": 3, "con": 8, "dex": 2, "int": -4, "str": 8, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 31, "Stealth": 28}
+  resistances: {"cold": 15}
+  strikes: [{"name": "Arm", "bonus": 28, "damage": [["3d10+14", "bludgeoning", null]], "traits": ["reach-40", "unarmed"], "effects": ["Grab"]}, {"name": "Tentacle", "bonus": 28, "damage": [["3d8+10", "bludgeoning", null]], "traits": ["agile", "reach-60", "unarmed"], "effects": ["Grab"]}, {"name": "Beak", "bonus": 28, "damage": [["3d12+14", "piercing", null]], "traits": ["reach-20", "unarmed"]}]
+  actions: [{"name": "Capsize", "type": "action", "traits": ["attack"], "cost": 1, "text": "The mammoth squid tries to capsize an adjacent aquatic vessel of its size or smaller. It must succeed at a DC 40 Athletics check (reduce the DC by 10 for each size smaller the vessel is than the mammoth squid) or the pilot's Sailing Lore DC, whichever is higher."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d12+14) bludgeoning, DC 34 Fortitude"}, {"name": "Crack Hull", "type": "action", "traits": ["manipulate"], "cost": 3, "text": "Requirements The mammoth squid is within 20 feet of a capsized vessel%rEffect The mammoth squid wraps its arms around the capsized vessel, then squeezes, causing the vessel's hull to splinter and crack. It inflicts 10d10 bludgeoning damage to the vessel (DC 34 Fortitude save). This damage treats the vessel's Hardness as if it had half as much as usual, unless the vessel's Hardness is greater than the mammoth squid's level. If the vessel takes damage, all creatures on board the vessel take 5d10…"}, {"name": "Jet", "type": "action", "traits": ["move"], "cost": 2, "text": "The mammoth squid moves up to 300 feet in a straight line through the water without triggering any reactions."}, {"name": "Thrashing Tentacles", "type": "action", "traits": [], "cost": 2, "text": "The mammoth squid makes up to four Strikes, each with a different arm and against a different target. Each arm Strike counts separately for the squid's multiple attack penalty, but the penalty doesn't increase until the squid has made all of its arm strikes. If the squid attempts to Grab a creature it hits with one of these arm Strikes (after all Strikes are resolved), the squid gains a +4 circumstance bonus to its Athletics check."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Merfolk Wavecaller":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "rare"
+  traits: ["aquatic", "humanoid", "merfolk"]
+  ac: 24
+  hp: 90
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 15, "will": 18}
+  abilities: {"cha": 6, "con": 2, "dex": 4, "int": 0, "str": 1, "wis": 0}
+  speeds: {"land": 5, "swim": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 16, "Athletics": 15, "Deception": 17, "Diplomacy": 17, "Nature": 15, "Performance": 20, "Religion": 15}
+  strikes: [{"name": "Claw", "bonus": 13, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Drowning Melody", "type": "reaction", "traits": ["auditory", "occult"], "text": "Trigger The merfolk or a creature under the effect of their Storm Song within 60 feet is targeted by a spell or auditory effect%rEffect The merfolk sings a warbling tune reminiscent of a drowning creature. They attempt a Performance check to counteract the triggering spell or effect. The merfolk can't use this ability again for 1d4 rounds."}, {"name": "Storm Song", "type": "action", "traits": ["auditory", "concentrate", "emotion", "incapacitation", "mental", "occult"], "cost": 1, "text": "The merfolk sings a discordant tune that buffets the senses like a raging thunderstorm. Non-merfolk creatures in a 120-foot emanation must attempt a DC 25 Will save or become Confused for 1 round. The creature can't target merfolk while confused in this way. If the merfolk uses this ability again on subsequent rounds, they extend the duration by 1 round for all affected creatures. Once a creature succeeds at any save against Storm Song, that creature is temporarily immune to Storm Song for 24…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Daze", "Know the Way", "Light", "Message", "Read Aura"], "1": ["Command", "Fear", "Phantom Pain"], "2": ["Calm", "Stupefy"], "3": ["Enthrall", "Paralyze"], "4": ["Suggestion"], "5": ["Truespeech (Constant)"]}}]
+"Metal Scamp":
+  pack: "myth-speaker-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 15
+  hp: 20
+  perception: 3
+  saves: {"fortitude": 7, "reflex": 5, "will": 5}
+  abilities: {"cha": 0, "con": 2, "dex": 0, "int": -2, "str": 2, "wis": 0}
+  speeds: {"land": 25, "fly": 25}
+  hp_details: "fast healing 2 (while touching metal)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 7, "Stealth": 5}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 3}
+  strikes: [{"name": "Claw", "bonus": 9, "damage": [["1d6+2", "slashing", null]], "traits": []}]
+  actions: [{"name": "Fast Healing 2 (While Touching Metal)", "type": "passive", "traits": []}, {"name": "Breathe Shrapnel", "type": "action", "traits": ["arcane", "metal"], "cost": 1, "text": "The metal scamp breathes a 15-foot of jagged metal flakes that deals (2d4) slashing,(1d4) bleed|options:area-damage damage to each creature within the area (DC 17 Reflex save).%rThe metal scamp can't Breathe Shrapnel again for 1d4 rounds."}, {"name": "Metal Mayhem", "type": "passive", "traits": [], "text": "In place of the spell's typical effect, the metal scamp can cast magnetic attraction to send metal tools, ingots, and other objects flying throughout the workshop interior. This deals 1d4 bludgeoning damage (DC 16 Reflex) to all creatures inside the workshop except those with greater cover or the metal trait. Once per round, the scamp can Sustain the spell to repeat the damage. While this effect is active, the scamps are in contact with metal for the purpose of their fast healing."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 17, "attack": 9, "spells": {"2": ["Magnetic Attraction"]}}]
+"Molted Reefclaw":
+  pack: "myth-speaker-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["aberration", "aquatic"]
+  ac: 17
+  hp: 17
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 9, "will": 4}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": -3, "str": 1, "wis": 1}
+  speeds: {"land": 5, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 4}
+  strikes: [{"name": "Claw", "bonus": 9, "damage": [["1d6+1", "slashing", null]], "traits": ["finesse", "unarmed"], "effects": ["Grab", "Reefclaw Venom"]}]
+  actions: [{"name": "Death Frenzy", "type": "reaction", "traits": [], "text": "Trigger The reefclaw is reduced to 0 Hit Points.%rEffect The reefclaw makes a claw Strike before dying."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d6) bludgeoning, DC 17 Fortitude"}, {"name": "Reefclaw Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 17 Fortitude%rMaximum Duration 4 rounds%rStage 1 1d6 poison damage and Enfeebled 1 (1 round)%rStage 2 1d6 poison damage and Enfeebled 2 (1 round)"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Mutated Centaur":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "large"
+  rarity: "rare"
+  traits: ["beast", "centaur", "humanoid", "mythic"]
+  ac: 24
+  hp: 115
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 15, "will": 12}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": 0, "str": 6, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Athletics": 17, "Diplomacy": 6, "Medicine": 7, "Nature": 13, "Survival": 13}
+  resistances: {"fire": 10, "mythic": 4}
+  strikes: [{"name": "Hoof", "bonus": 16, "damage": [["1d10", "fire", null], ["2d10+9", "bludgeoning", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Hoof Avalanche", "type": "action", "traits": [], "cost": 2, "text": "The centaur unleashes a series of swift, savage kicks. They make two hoof Strikes against the same target. The centaur's multiple attack penalty doesn't increase until after it makes both attacks. If both attacks hit, the target is also knocked Prone."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Mythic Skill (Athletics)", "type": "free", "traits": [], "text": "Cost 1 Mythic Point%rEffect The creature attempts its next skill check with a +4 bonus and is considered to have mythic proficiency for that check. This applies to one skill when this ability is gained and a second skill if the creature is 12th level or higher."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, hoof, DC 24 Reflex"}]
+"Mythic Hippogriff":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "large"
+  rarity: "rare"
+  traits: ["beast", "mythic"]
+  ac: 18
+  hp: 32
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 9, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": -4, "str": 3, "wis": 2}
+  speeds: {"land": 30, "fly": 65}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 11, "Athletics": 7, "Survival": 6}
+  weaknesses: {"piercing": 3}
+  strikes: [{"name": "Beak", "bonus": 9, "damage": [["1d10+3", "piercing", null]], "traits": []}, {"name": "Talon", "bonus": 9, "damage": [["1d6+3", "slashing", null]], "traits": ["agile"]}, {"name": "Wing", "bonus": 9, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["reach-10"]}]
+  actions: [{"name": "Buck", "type": "reaction", "traits": [], "text": "DC 17 Reflex"}, {"name": "Mythic Resilience", "type": "passive", "traits": [], "text": "The hippogriff's reflexes have been heightened by the warshard, and it treats its Reflex saving throws as one degree of success better than it rolled."}, {"name": "Deadly Striker", "type": "passive", "traits": [], "text": "The hippogriff deals an additional 1d6 precision damage on its next Strike whenever it uses an action to Stride or Fly 10 or more feet."}, {"name": "Flying Strafe", "type": "action", "traits": [], "cost": 2, "text": "The hippogriff Flies up to its fly speed and makes two talon Strikes at any point during that movement. Each Strike must target a different creature. The attacks take the normal multiple attack penalty."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Unimpeded", "type": "action", "traits": [], "cost": 1, "text": "Cost 1 Mythic Point%rEffect The mythic striker automatically ends one effect that would give it a circumstance penalty to Speed. When it attempts to Escape an effect that has it Immobilized, Grabbed, or Restrained, it automatically succeeds"}]
+"Mythic Phoenix Flame":
+  pack: "myth-speaker-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["elemental", "fire", "mythic"]
+  ac: 20
+  hp: 48
+  perception: 11
+  saves: {"fortitude": 8, "reflex": 12, "will": 11}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 3, "wis": 3}
+  speeds: {"land": 30, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Athletics": 15}
+  immunities: ["bleed", "fire", "paralyzed", "poison", "sleep"]
+  weaknesses: {"cold": 5}
+  resistances: {"mythic": 4}
+  strikes: [{"name": "Fiery Talon", "bonus": 12, "damage": [["1d10+5", "slashing", null], ["1d10", "fire", null]], "traits": ["fire", "magical"], "effects": ["Grab"]}]
+  actions: [{"name": "Smoke Vision", "type": "passive", "traits": [], "text": "The mythic phoenix flame ignores the Concealed condition from smoke."}, {"name": "Titanic Might", "type": "passive", "traits": [], "text": "The phoenix flame ignores size limitations when performing actions like Grapple or Trip."}, {"name": "Flame Cloak", "type": "passive", "traits": ["aura", "fire", "primal"], "text": "10 feet. 1d6 fire|options:area-damage, DC 18 Reflex save. A creature that critically fails its save takes 1d4 persistent fire damage."}, {"name": "Mythic Ferocity", "type": "reaction", "traits": [], "text": "Cost 1 Mythic Point%rTrigger The phoenix flame is reduced to 0 HP%rEffect The phoenix flame avoids being knocked out and regains 4d10 healing Hit Points, but its wounded value increases by 1. When it is Wounded 3, it can no longer use this ability."}, {"name": "Breath of Smoke", "type": "action", "traits": [], "cost": 1, "text": "Requirements The phoenix flame has a creature Grabbed%rEffect The phoenix breathes into the lungs of the Grabbed creature, which must attempt a DC 18 Fortitude save.%rCritical Success The creature is unaffected and is temporarily immune to Breath of Smoke for 1 minute.%rSuccess The creature is unaffected.%rFailure The creature is Sickened 1.%rCritical Failure The creature is Sickened 2."}, {"name": "Inferno Dance", "type": "action", "traits": [], "cost": 2, "text": "The phoenix Strides up to its Speed, leaving a trail of blazing flame through each space it passes through that lasts until the end of the phoenix's next turn. This trail is difficult terrain and deals 5d6 fire damage to each creature in its path (DC 18 Reflex save)."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Neshkefru":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "large"
+  rarity: "unique"
+  traits: ["beast", "humanoid"]
+  ac: 27
+  hp: 135
+  perception: 18
+  saves: {"fortitude": 16, "reflex": 14, "will": 19}
+  abilities: {"cha": 4, "con": 3, "dex": 1, "int": 5, "str": 6, "wis": 4}
+  speeds: {"land": 35, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Arcana": 17, "Athletics": 18, "Deception": 16, "Diplomacy": 16, "Intimidation": 18, "Occultism": 17, "Bardic Lore": 19}
+  strikes: [{"name": "Claw", "bonus": 20, "damage": [["2d6+9", "slashing", null]], "traits": ["agile"]}]
+  actions: [{"name": "Bardic Lore", "type": "passive", "traits": [], "text": "Sphinxes are naturally curious, and their love of puzzles and mysteries leads them to gather information on a broad range of topics. Neshkefru has Bardic Lore, a special Lore skill that can be used only to Recall Knowledge, but on any topic."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Prescient Pounce", "type": "reaction", "traits": [], "text": "Trigger A creature ends its movement within 30 feet of Neshkefru%rEffect Neshkefru moves up to her speed to a location adjacent to the triggering creature and makes a Strike. This movement does not trigger reactions."}, {"name": "Claw Rake", "type": "action", "traits": [], "cost": 3, "text": "Neshkefru rears back on her hind legs and makes two claw Strikes at the same target, using the same attack bonus as her highest melee attack. If both attacks deal damage, the target takes extra damage equal to one claw Strike."}, {"name": "Riddler's Rune", "type": "passive", "traits": [], "text": "Once per week, Neshkefru can create a magical symbol as the rune trap ritual. She usually shapes it to take the form of a written riddle and sets the password to the answer. A creature that gives the wrong answer or tries to pass without answering must succeed at a DC 26 Will save or be affected by one of the following spells, chosen by the sphinx when creating the symbol: Synaptic Pulse (5th), Charm (4th), Fear (4th), Phantom Pain (4th), Sleep (4th). The sphinx learns the identity of any…"}, {"name": "Unleash Visions", "type": "action", "traits": ["auditory", "mental"], "cost": 1, "text": "Frequency Once per day%rEffect Neshkefru howls a torrent of prophecies that overwhelm listeners. All creatures in a 20-foot emanation must attempt a DC 27 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 1d4 persistent mental|options:area-damage damage.%rFailure The creature takes 2d4 persistent mental|options:area-damage damage and is Dazzled until the persistent damage ends.%rCritical Failure The creature takes 3d4 persistent mental|options:area-damage…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 27, "attack": 19, "spells": {"0": ["Detect Magic"], "2": ["See the Unseen"], "3": ["Dispel Magic", "Locate"], "4": ["Clairaudience (At Will)", "Clairvoyance (At Will)", "Cleanse Affliction", "Read Omens"], "5": ["Truespeech (Constant)"]}}]
+"Omorphos":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "huge"
+  rarity: "unique"
+  traits: ["beast", "monitor"]
+  ac: 27
+  hp: 140
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 16, "will": 13}
+  abilities: {"cha": 3, "con": 4, "dex": 2, "int": -1, "str": 6, "wis": 3}
+  speeds: {"land": 35}
+  senses: ["darkvision", "lifesense", "scent"]
+  skills: {"Athletics": 18, "Intimidation": 15, "Survival": 15}
+  immunities: ["death-effects", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 18, "damage": [["2d8+6", "piercing", null], ["1d6", "mental", null]], "traits": [], "effects": ["Grab"]}]
+  actions: [{"name": "Pack Mentality", "type": "passive", "traits": [], "text": "Mental effects that target fewer than five creatures struggle to affect all of Omorphos's heads, which encourage each other to shake of the effects. Such effects gain the incapacitation trait against Omorphos."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Chorus of Baying", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 2, "text": "Omorphos's heads howl in a discordant chorus; a creature immune to other keribos' Chorus of Baying, though such creatures gain a +2 circumstance bonus to their save. Each non-keribos within a 30-foot emanation takes 6d8 mental|options:area-damage damage and must attempt a DC 23 Will save. After the save, the creature is temporarily immune to all Choruses of Baying for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature takes full damage and is Frightened 1.%rCritical Failure…"}, {"name": "Vicious Mauling", "type": "action", "traits": [], "cost": 2, "text": "Omorphos makes five Strikes, each against a different target. These attacks count toward Omorphos's multiple attack penalty, but the multiple attack penalty doesn't increase until after they make all their attacks."}, {"name": "Worry", "type": "action", "traits": [], "cost": 1, "text": "Requirements A Large or smaller creature is Grabbed or Restrained in Omorphos's jaws%rEffect Omorphos vigorously shakes the creature and deals (2d8+10) piercing damage (DC 23 Fortitude save). As a free action, Omorphos can throw a creature that critically fails this save up to 15 feet."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Painted Griffon":
+  pack: "myth-speaker-bestiary"
+  level: 5
+  size: "large"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 23
+  hp: 60
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 14, "will": 8}
+  abilities: {"cha": 2, "con": 3, "dex": 3, "int": -5, "str": 4, "wis": -1}
+  speeds: {"land": 25, "fly": 60}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 12, "Athletics": 13, "Intimidation": 11, "Stealth": 12, "Survival": 10}
+  strikes: [{"name": "Beak", "bonus": 15, "damage": [["2d8+5", "piercing", null]], "traits": ["deadly-d10", "unarmed"]}, {"name": "Talon", "bonus": 15, "damage": [["2d6+5", "piercing", null]], "traits": ["agile", "unarmed"]}, {"name": "Wing", "bonus": 15, "damage": [["2d6+5", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Construct Armor (Hardness 4)", "type": "passive", "traits": [], "text": "Like normal objects, a painted griffon has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a painted griffon is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 19."}, {"name": "Flying Strafe", "type": "action", "traits": [], "cost": 2, "text": "The painted griffon Flies up to its fly Speed and makes two talon Strikes at any point during that movement. Each Strike must target a different creature. The attacks take the normal multiple attack penalty."}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "The painted griffon Strides and makes a talon Strike at the end of that movement. If the griffon began this action Hidden, it remains hidden until after the attack."}]
+"Painted Landscape":
+  pack: "myth-speaker-bestiary"
+  level: 10
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["construct", "mindless"]
+  ac: 30
+  hp: 155
+  perception: 19
+  saves: {"fortitude": 22, "reflex": 18, "will": 20}
+  abilities: {"cha": -5, "con": 4, "dex": 5, "int": -5, "str": 7, "wis": 5}
+  speeds: {"land": 15}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 21, "Stealth": 22}
+  weaknesses: {"acid": 10}
+  strikes: [{"name": "Branch", "bonus": 24, "damage": [["2d10+11", "bludgeoning", null]], "traits": ["reach-20"], "effects": ["Sticky Paint"]}]
+  actions: [{"name": "Construct Armor (Hardness 15)", "type": "passive", "traits": [], "text": "Like normal objects, a painted landscape has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a painted landscape is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 26."}, {"name": "Engulf", "type": "action", "traits": [], "cost": 2, "text": "DC 29 Reflex, (6d6) bludgeoning damage, escape dc=29, Rupture 20"}, {"name": "Mural", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the animated landscape appears to be a mural on a flat surface that's at least 10 by 20 feet in area. It has an automatic result of 42 on Deception checks and DCs to pass as a mural."}, {"name": "Painted Replica", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirements A creature died while engulfed by the painted landscape%rEffect The painted landscape absorbs the creature, causing the creature's likeness to appear in the mural. Any gear carried by the dead creature remains left behind (but still appears as part of the painting). The painted landscape regains (2d6+20) healing HP when it absorbs a creature."}, {"name": "Sticky Paint", "type": "passive", "traits": [], "text": "A painted landscape's Strikes splatter paint on the target. On a critical hit, this paint swiftly dries, and the target becomes Clumsy 1 for 10 minutes. As an Interact action, the target or an adjacent creature can remove enough paint to end the condition."}]
+"Painted Pontifex":
+  pack: "myth-speaker-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "rare"
+  traits: ["construct", "mindless"]
+  ac: 28
+  hp: 138
+  perception: 18
+  saves: {"fortitude": 20, "reflex": 18, "will": 16}
+  abilities: {"cha": -5, "con": 4, "dex": 3, "int": -5, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 19}
+  weaknesses: {"acid": 10}
+  strikes: [{"name": "Staff", "bonus": 21, "damage": [["2d4+12", "bludgeoning", null]], "traits": ["two-hand-d8"], "effects": ["Sticky Paint"]}, {"name": "Sling", "bonus": 18, "damage": [["2d6+9", "bludgeoning", null]], "traits": ["propulsive", "reload-1"], "range": 50, "effects": ["Sticky Paint"]}]
+  actions: [{"name": "Construct Armor (Hardness 13)", "type": "passive", "traits": [], "text": "Like normal objects, a painted pontifex has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a painted pontifex is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and its Armor Class is reduced to 24."}, {"name": "Paint Bomb", "type": "action", "traits": [], "cost": 2, "text": "The painted pontifex Reloads and Strikes with its sling. The Strike deals 4d6 bludgeoning splash damage."}, {"name": "Sticky Paint", "type": "passive", "traits": [], "text": "A painted pontifex's Strikes splatter paint on the target. On a critical hit, this paint swiftly dries, and the target becomes Clumsy 1 for 10 minutes. As an Interact action, the target or an adjacent creature can remove enough paint to end the condition."}]
+"Painted Ram":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "rare"
+  traits: ["construct", "mindless"]
+  ac: 27
+  hp: 120
+  perception: 17
+  saves: {"fortitude": 18, "reflex": 15, "will": 13}
+  abilities: {"cha": -5, "con": 4, "dex": 3, "int": -5, "str": 6, "wis": 1}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18}
+  weaknesses: {"acid": 10}
+  strikes: [{"name": "Horn", "bonus": 20, "damage": [["2d10+9", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Knockdown", "Sticky Paint"]}, {"name": "Hoof", "bonus": 16, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["agile", "unarmed"], "effects": ["Sticky Paint"]}]
+  actions: [{"name": "Construct Armor (Hardness 11)", "type": "passive", "traits": [], "text": "Like normal objects, a painted ram has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a painted ram is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 23."}, {"name": "Ramming Charge", "type": "action", "traits": ["attack", "move"], "cost": 2, "text": "The painted ram Strides up to two times, then makes a horn Strike with Improved Knockdown."}, {"name": "Sticky Paint", "type": "passive", "traits": [], "text": "A painted ram's Strikes splatter paint on the target. On a critical hit, this paint swiftly dries, and the target becomes Clumsy 1 for 10 minutes. As an Interact action, the target or an adjacent creature can remove enough paint to end the condition."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}, {"name": "Improved Knockdown", "type": "free", "traits": []}]
+"Painted Soldier":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 25
+  hp: 95
+  perception: 13
+  saves: {"fortitude": 17, "reflex": 13, "will": 11}
+  abilities: {"cha": -5, "con": 4, "dex": 2, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 17}
+  weaknesses: {"acid": 10}
+  strikes: [{"name": "Javelin", "bonus": 13, "damage": [["2d6+8", "piercing", null]], "traits": ["propulsive", "thrown-30"], "effects": ["Sticky Paint"]}, {"name": "Spear", "bonus": 17, "damage": [["2d8+8", "piercing", null]], "traits": [], "effects": ["Sticky Paint"]}, {"name": "Spear", "bonus": 17, "damage": [["2d6+8", "piercing", null]], "traits": ["thrown-20"], "effects": ["Sticky Paint"]}]
+  actions: [{"name": "Construct Armor (Hardness 9)", "type": "passive", "traits": [], "text": "Like normal objects, a painted soldier has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a painted soldier is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 21."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Sticky Paint", "type": "passive", "traits": [], "text": "A painted soldier's Strikes splatter paint on the target. On a critical hit, this paint swiftly dries, and the target becomes Clumsy 1 for 10 minutes. As an Interact action, the target or an adjacent creature can remove enough paint to end the condition."}]
+"Painted Soldier (Ominous Graffiti)":
+  pack: "myth-speaker-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 25
+  hp: 95
+  perception: 13
+  saves: {"fortitude": 17, "reflex": 13, "will": 11}
+  abilities: {"cha": -5, "con": 4, "dex": 2, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 17}
+  strikes: [{"name": "Javelin", "bonus": 16, "damage": [["2d8+6", "piercing", null]], "traits": ["thrown-30"], "effects": ["Matting Paint"]}, {"name": "Spear", "bonus": 18, "damage": [["2d6+10", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 18, "damage": [["2d6+10", "piercing", null]], "traits": ["thrown-20"], "effects": ["Matting Paint"]}]
+  actions: [{"name": "Construct Armor (Hardness 8)", "type": "passive", "traits": [], "text": "Like normal objects, a painted soldier has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once a painted soldier is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 21."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Matting Paint", "type": "passive", "traits": [], "text": "When a painted soldier uses a ranged Strike, the ammunition or weapon (if thrown) becomes a smear of paint. It deals damage normally, and a creature struck by it becomes Clumsy 1 and takes a –5-foot circumstance penalty to their Speed for 10 minutes. The paint can be removed with a total of 3 Interact actions by the creature or an adjacent ally.%rEffect: Matting Paint"}]
+"Pendidia":
+  pack: "myth-speaker-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["amphibious", "fey", "mythic", "nymph", "water"]
+  ac: 30
+  hp: 175
+  perception: 20
+  saves: {"fortitude": 16, "reflex": 22, "will": 18}
+  abilities: {"cha": 7, "con": 5, "dex": 7, "int": 3, "str": 3, "wis": 4}
+  speeds: {"land": 25, "swim": 50}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 18, "Athletics": 12, "Diplomacy": 20, "Nature": 22, "Stealth": 22, "Survival": 20}
+  weaknesses: {"cold-iron": 10}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Aqueous Fist", "bonus": 23, "damage": [["4d8", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "water"]}, {"name": "Water Orb", "bonus": 23, "damage": [["4d8", "bludgeoning", null]], "traits": ["magical", "water"]}]
+  actions: [{"name": "Animal Empathy", "type": "passive", "traits": [], "text": "The naiad can ask questions of, receive answers from, and use the Diplomacy skill with animals."}, {"name": "Recharge Spell", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Pendidia regains one spell."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Mythic Resilience (Reflex and Will)", "type": "passive", "traits": [], "text": "The creature treats its saving throws with the associated save as one degree of success better than it rolled. This is not cumulative with other effects that change their degree of success, like the incapacitation trait (except for rolling a natural 1 or 20). Each time the monster gains mythic resilience, choose one save. The ability should apply to the creature's highest saves first."}, {"name": "Water Dependent", "type": "passive", "traits": [], "text": "A naiad is bonded to a spring, pond, or similar-sized water feature. If she is more than 300 feet away from it for 24 hours or more, she gains the weak adjustments until she returns. She can perform a 24-hour ritual to bond herself to a new body of water."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Water Healing", "type": "passive", "traits": ["healing", "primal", "vitality"], "text": "For every 10 minutes a naiad spends soaking in her bonded body of water, she regains 45 healing Hit Points."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 29, "attack": 21, "spells": {"4": ["Charm", "Create Water", "Tidal Surge (At Will)"], "5": ["Control Water", "Hydraulic Push"]}}]
+"Phermeina":
+  pack: "myth-speaker-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "stheno"]
+  ac: 16
+  hp: 19
+  perception: 4
+  saves: {"fortitude": 8, "reflex": 7, "will": 4}
+  abilities: {"cha": 4, "con": 3, "dex": 2, "int": 1, "str": 0, "wis": -1}
+  speeds: {"land": 25}
+  skills: {"Crafting": 4, "Diplomacy": 7, "Performance": 7, "Stealth": 5}
+  strikes: [{"name": "Rapier", "bonus": 7, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse"]}, {"name": "Snake Fangs", "bonus": 7, "damage": [["1d4", "piercing", null]], "traits": ["agile", "finesse"]}, {"name": "Shortbow", "bonus": 7, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Snake Search", "type": "passive", "traits": [], "text": "When the stheno harpist Searches or Seeks, their snakes try to help too, rolling a separate Perception check with a modifier of -1 instead of +4.%rIf the snakes notice something, they try to notify the stheno, though they are no more intelligent than normal snakes and might find different things interesting than the stheno does."}, {"name": "Speak With Snakes", "type": "passive", "traits": [], "text": "The stheno harpist can communicate with snakes, including the ones in their hair, and can use Diplomacy to make-an-impression on snakes and request things from snakes."}, {"name": "Scatter Teeth", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Frequency once per hour%rEffect Phermeina reaches into the bag, extracts a handful of teeth, and tosses them up to 15 feet. The teeth create a Prone Speiroikos troop with 36 Hit Points that acts at the end of the initiative order and fights in Phermeina's defense."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 17, "attack": 9, "spells": {"0": ["Dancing Lights", "Detect Magic", "Ghost Sound", "Inspire Courage", "Prestidigitation", "Shield"], "1": ["Phantom Pain", "Soothe"]}}]
+"Pteios":
+  pack: "myth-speaker-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "mythic", "stheno"]
+  ac: 30
+  hp: 220
+  perception: 23
+  saves: {"fortitude": 18, "reflex": 24, "will": 24}
+  abilities: {"cha": 6, "con": 3, "dex": 5, "int": 2, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 21, "Crafting": 24, "Diplomacy": 23, "Occultism": 22, "Stealth": 21}
+  resistances: {"poison": 8}
+  strikes: [{"name": "Chisel", "bonus": 22, "damage": [["2d6+10", "piercing", null], ["1d4", "bleed", "persistent"]], "traits": []}, {"name": "Warshard Spear", "bonus": 22, "damage": [["1d10", "mental", null], ["2d6+10", "piercing", null]], "traits": ["monk"]}, {"name": "Warshard Spear", "bonus": 22, "damage": [["1d10", "mental", null], ["2d6+10", "piercing", null]], "traits": ["monk", "thrown-20"]}]
+  actions: [{"name": "Recharge Spell", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Pteios regains one spell."}, {"name": "Remove a Condition", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Pteios removes any one condition currently affecting him."}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "+1 Vs. Auditory, Divine, Earth, or Visual Effects", "type": "passive", "traits": []}, {"name": "Mythic Resilience (Reflex and Will)", "type": "passive", "traits": [], "text": "The creature treats its saving throws with the associated save as one degree of success better than it rolled. This is not cumulative with other effects that change their degree of success, like the incapacitation trait (except for rolling a natural 1 or 20). Each time the monster gains mythic resilience, choose one save. The ability should apply to the creature's highest saves first."}, {"name": "Encroaching Doom", "type": "action", "traits": ["concentrate", "spellshape"], "cost": 1, "text": "Pteios revels in attacking those whose fates are sealed. If his next action is to Cast a Spell that affects or targets a creature with the slowed condition, it takes a –2 status penalty to its AC or saving throw against that spell. This does not affect other targets of the spell unless they also have the Slowed condition."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Petrifying Glare", "type": "action", "traits": [], "cost": 2, "text": "Cost 1 Mythic Point%rEffect Pteios channels his medusa parentage, attempting to turn a target to stone. Pteios casts Petrify as an occult spell."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 32, "attack": 22, "spells": {"0": ["Haunting Hymn", "Shield", "Telekinetic Projectile", "Warp Step"], "3": ["Agonizing Despair", "Gravity Well"], "4": ["Confusion", "Containment", "Vision of Death"], "5": ["Shadow Blast", "Shadow Siphon", "Strange Geometry"], "6": ["Cursed Metamorphosis", "Slow"]}}]
+"Pyrefowl":
+  pack: "myth-speaker-bestiary"
+  level: 1
+  size: "small"
+  rarity: "uncommon"
+  traits: ["beast", "fire"]
+  ac: 15
+  hp: 24
+  perception: 7
+  saves: {"fortitude": 10, "reflex": 8, "will": 6}
+  abilities: {"cha": 1, "con": 4, "dex": 3, "int": -3, "str": 1, "wis": 2}
+  speeds: {"land": 20, "fly": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 6, "Performance": 5, "Stealth": 6}
+  resistances: {"fire": 3}
+  strikes: [{"name": "Peck", "bonus": 7, "damage": [["1d6+1", "piercing", null]], "traits": ["agile", "finesse"], "effects": ["Pyrebite"]}]
+  actions: [{"name": "Smoldering Convalescence", "type": "passive", "traits": ["fire", "healing"], "text": "Frequency once per day%rEffect When a pyrefowl dies, its wounds ignite and smolder as its body tries to heal. After 1d4 rounds, the pyrefowl attempts a DC 9 Flat. The check automatically fails if the smoldering pyrefowl is doused with water, sand, or other fire suppressant while recovering.%rCritical Success As success, but the pyrefowl regains 10 Hit Points, Stands, and deals 1d6 fire damage to adjacent creatures and objects (DC 16 Reflex save).%rSuccess The pyrefowl is returned to life with 5…"}, {"name": "Flame Flutter", "type": "action", "traits": ["fire", "move"], "cost": 2, "text": "The pyrefowl Steps before or after using this ability. With a flap of its wings, the pyrefowl blows sparks in a 15-foot cone, dealing 2d4 fire|options:area-damage damage to creatures in the area (DC 16 Reflex)."}, {"name": "Pyrebite", "type": "reaction", "traits": ["fire"], "text": "Trigger The pyrefowl hits a target with its peck Strike on its turn%rEffect The target must attempt a DC 16 Reflex save or take 1d4 persistent fire damage."}]
+"Pyrkaion":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["asura", "spirit"]
+  ac: 27
+  hp: 132
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 13, "will": 18}
+  abilities: {"cha": 4, "con": 3, "dex": 3, "int": 4, "str": 4, "wis": 6}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 16, "Diplomacy": 16, "Intimidation": 16, "Occultism": 16, "Religion": 18, "Academia Lore": 18}
+  immunities: ["curse"]
+  resistances: {"mental": 8}
+  strikes: [{"name": "Claw", "bonus": 18, "damage": [["2d8+8", "slashing", null]], "traits": ["agile"]}, {"name": "Tusk", "bonus": 18, "damage": [["2d10+8", "piercing", null]], "traits": []}, {"name": "Riddle", "bonus": 20, "damage": [["1d6", "mental", "persistent"], ["3d8", "mental", null]], "traits": ["agile"]}]
+  actions: [{"name": "Aura of Sophistry", "type": "passive", "traits": ["aura", "divine", "mental"], "text": "40 feet. The pyrkaion hones others' thoughts, enabling extraordinary reasoning or ruinous revelation. If the pyrkaion has the holy trait (see Glorious Visage below), all allied creatures within the aura gain a +1 status bonus to check to Recall Knowledge and resistance 4 to mental damage. If the pyrkaion has the unholy trait, all unallied creatures in the area take a –1 penalty to checks to Recall Knowledge and gain the effects of the Dubious Knowledge feat when Recalling Knowledge; whenever an…"}, {"name": "Witty Reversal", "type": "reaction", "traits": ["linguistic"], "text": "Trigger A creature within 30 feet uses a linguistic or mental effect%rEffect The pyrkaion attempts to counteract the effect (counteract rank 4, counteract modifier +16). If successful, the pyrkaion can choose to corrupt the effect, dealing 2d6 persistent mental damage to the triggering effect's targets unless those targets succeed at a DC 26 Will save."}, {"name": "Glorious Visage", "type": "action", "traits": [], "cost": 1, "text": "The asura sanctifies themselves as either holy or unholy, gaining the trait corresponding to their choice and losing the opposing trait; their strikes, spells, and abilities also gain the trait corresponding to their choice. The asura also gains weakness 8 to the opposing sanctification and loses any weakness to its chosen sanctification. The choice is permanent until the asura uses this ability to change their sanctification."}, {"name": "Insidious Query", "type": "action", "traits": ["auditory", "linguistic"], "cost": 1, "text": "The pyrkaion questions a creature within 40 feet, who must attempt a DC 26 Will save.%rCritical Success The creature becomes immune for 1 hour.%rSuccess The creature is unaffected.%rFailure If the creature doesn't Recall Knowledge by the end of its next turn, it becomes Confused for 1 round.%rCritical Failure As failure, but until the end of their next turn, the creature also takes 2d6 mental damage when Recalling Knowledge."}]
+"Riptide Octopus Swarm":
+  pack: "myth-speaker-bestiary"
+  level: 0
+  size: "large"
+  rarity: "common"
+  traits: ["animal", "aquatic", "swarm"]
+  ac: 16
+  hp: 14
+  perception: 6
+  saves: {"fortitude": 8, "reflex": 7, "will": 4}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": -4, "str": 2, "wis": 3}
+  speeds: {"land": 15, "swim": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 6, "Athletics": 5, "Stealth": 6, "Thievery": 4}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 3, "splash-damage": 3}
+  resistances: {"physical": 5}
+  actions: [{"name": "Camouflage", "type": "passive", "traits": [], "text": "In wet environments like open water, tide pools, and even wet ship decks, a riptide octopus swarm can hide and sneak without cover or being Concealed."}, {"name": "Compression", "type": "passive", "traits": [], "text": "A riptide octopus swarm can move through a gap at least 6 inches wide without Squeezing and can Squeeze through a gap at least 1 inch wide."}, {"name": "Swarming Bites", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 1d4 piercing|options:area-damage damage and must attempt a DC 16 Reflex save. A creature that fails its save takes 1d4 persistent piercing damage as octopuses cling to and continue biting the creature."}]
+"Sappil":
+  pack: "myth-speaker-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "vishkanya"]
+  ac: 16
+  hp: 19
+  perception: 3
+  saves: {"fortitude": 7, "reflex": 4, "will": 5}
+  abilities: {"cha": 0, "con": 2, "dex": 1, "int": 3, "str": 3, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["low-light-vision"]
+  skills: {"Arcana": 6, "Athletics": 6, "Diplomacy": 3, "Intimidation": 3, "Society": 6, "Warfare Lore": 6}
+  strikes: [{"name": "Greatsword", "bonus": 6, "damage": [["1d12+3", "slashing", null]], "traits": ["versatile-p"]}]
+  actions: [{"name": "Arcane Cascade", "type": "action", "traits": ["stance"], "cost": 1, "text": "Requirements Sappil most recent action this turn was to Cast a Spell or make a Spellstrike%rEffect While in this stance, Sappil's melee Strikes deal 1 extra force damage and gain the arcane trait, making them magical. When he enters Arcane Cascade and at the start of each of his turns while in the stance, if he's wielding a melee weapon in two hands, he gains 1 temporary HP."}, {"name": "Envenom", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per day%rEffect Sappil applies vishkanyan venom (either his saliva or blood) to one weapon that he's holding."}, {"name": "Spellstrike", "type": "action", "traits": [], "cost": 2, "text": "Sappil Casts a Spell that takes 1 or 2 actions to cast and requires a spell attack roll and makes a melee Strike, using the attack roll result to determine the effects of both the Strike and the spell. This counts as two actions for his multiple attack penalty, but he doesn't apply the penalty until after he's completed the Spellstrike. This grants the Strike the arcane and magical traits. After using Spellstrike, Sappil can't do so again for 1d4 rounds."}, {"name": "Vishkanyan Venom", "type": "passive", "traits": ["injury", "poison"], "text": "Saving Throw DC 15 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d4 poison damage (1 round)%rStage 2 1d4 poison damage and Off-Guard (1 round)%rStage 3 1d4 poison damage, off-guard, and a –5-foot penalty to Speed (1 round)"}]
+  spellcasting: [{"name": "Magus Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 16, "attack": 6, "spells": {"0": ["Detect Magic", "Ignition", "Needle Darts", "Shield", "Telekinetic Projectile"], "1": ["Hydraulic Push"]}}, {"name": "Conflux Spells", "tradition": "arcane", "type": "focus", "dc": 16, "attack": 6, "spells": {"1": ["Thunderous Strike"]}}]
+"Sedacthy Scout":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "humanoid", "sedacthy"]
+  ac: 17
+  hp: 30
+  perception: 9
+  saves: {"fortitude": 7, "reflex": 10, "will": 7}
+  abilities: {"cha": 3, "con": 1, "dex": 4, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 20, "swim": 40}
+  senses: ["darkvision", "wavesense"]
+  skills: {"Athletics": 8, "Intimidation": 9, "Stealth": 8, "Survival": 7}
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d4", "bleed", "persistent"], ["1d4+4", "piercing", null]], "traits": []}, {"name": "Claw", "bonus": 10, "damage": [["1d6+4", "slashing", null]], "traits": ["agile"]}, {"name": "Spear", "bonus": 10, "damage": [["1d6+6", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 10, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-20"]}, {"name": "Clingy Octopus", "bonus": 10, "damage": [["1d4+4", "bludgeoning", null], ["1", "bleed", "persistent"]], "traits": ["thrown-15"]}]
+  actions: [{"name": "Sea Speech", "type": "passive", "traits": [], "text": "A sedacthy speaking Thalassic can be understood by any animal that has a swim Speed or the amphibious or aquatic trait. By spending a week regularly interacting with such an animal, the sedacthy can make it permanently helpful."}, {"name": "Wavesense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Shared Feast", "type": "action", "traits": [], "cost": 2, "text": "The sedacthy makes a jaws Strike. If it hits, an ally of their choice can spend a reaction to make a jaws Strike against the same target. Allies with beaks or similar attacks can use those instead of jaws."}, {"name": "Wriggling Rush", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round;%rEffect The scout takes a Stride action and a Swim action, in either order. They ignore difficult terrain from mud, quicksand, and similar terrain during this movement."}]
+"Skeletal Champion":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["skeleton", "undead", "unholy"]
+  ac: 19
+  hp: 25
+  perception: 8
+  saves: {"fortitude": 5, "reflex": 10, "will": 6}
+  abilities: {"cha": 1, "con": 1, "dex": 4, "int": -1, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 8, "Intimidation": 7}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious", "bleed"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Spear", "bonus": 10, "damage": [["1d8+4", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 10, "damage": [["1d8+4", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}]
+"Speiroikos":
+  pack: "myth-speaker-bestiary"
+  level: 3
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["construct", "troop"]
+  ac: 18
+  hp: 50
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 8, "will": 6}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": 1, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "Thresholds 34 (3 segments), 17 (2 segments)"
+  skills: {"Athletics": 11, "Intimidation": 7, "Warfare Lore": 9}
+  weaknesses: {"area-damage": 1, "splash-damage": 1}
+  actions: [{"name": "Diverted Fury", "type": "passive", "traits": [], "text": "The speiroikos' aggression can be redirected against their own numbers. A creature within 30 feet of the speiroikos can take an action to throw a small object such as a rock among the troop, attempting a DC 17 Deception check; this action has the manipulate trait. On a success, the troop deals its two-action Dory Strike damage to itself on its next round, taking no other actions."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Dory Strike", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The speiroikos make a melee attack against each enemy in its space and in a 10-foot emanation (DC 17 Reflex save). The damage depends on the number of actions.%r1 1d6 piercing|options:area-damage damage%r2 (1d6+6) piercing|options:area-damage damage%r3 (2d6+6) piercing|options:area-damage damage"}, {"name": "Dragonhide", "type": "action", "traits": [], "cost": 1, "text": "The speiroikos channel the power of their progenitor dragon to grow thick, scaly hides. Until the end of their next turn, they gain a +1 circumstance bonus to AC, and they reduce their weaknesses to area damage and splash damage by 2."}, {"name": "Kestros Volley", "type": "action", "traits": [], "cost": 2, "text": "The speiroikos let loose a flurry of heavy darts flung from slings. The volley is a 10-foot burst within 60 feet that deals 1d8 piercing|options:area-damage damage (DC 17 Reflex save) plus 1 bleed|options:area-damage damage. When the speiroikos are reduced to 2 or fewer segments, this area decreases to a 5-foot burst."}]
+"Sylirican Phalanx":
+  pack: "myth-speaker-bestiary"
+  level: 11
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["incorporeal", "spirit", "troop"]
+  ac: 31
+  hp: 165
+  perception: 24
+  saves: {"fortitude": 25, "reflex": 21, "will": 24}
+  abilities: {"cha": 3, "con": 5, "dex": 4, "int": 1, "str": 6, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "Thresholds 110 (3 segments); 55 (2 segments)"
+  skills: {"Athletics": 24, "Intimidation": 23, "Warfare Lore": 20}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  weaknesses: {"splash-damage": 10}
+  actions: [{"name": "In the Shade", "type": "reaction", "traits": [], "text": "Trigger The Sylirican phalanx is targeted by a ranged attack that is affected by their resistance or included in an area of effect%rEffect The members of the phalanx interlock their shields in a practiced motion. Their resistance to the triggering attack is doubled (or tripled if a non-magical attack) or their weakness to area damage does not apply to the triggering effect."}, {"name": "Slow to Turn", "type": "passive", "traits": [], "text": "While well defended from the front, the Sylirican phalanx does not adapt well to being surrounded. Their penalty to AC from being Off-Guard is increased to –3."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 110 (3 segments); 55 (2 segments)"}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever a troop moves, you move one of its segments and the other segments follow behind it. At the end of the movement, you can group the other segments adjacent to the one you moved as you see fit, provided none of them moves farther than the moving segment. If you choose not to move the troop any distance, you can instead reshape the position of all the segments as long as one stays in place."}, {"name": "Lower Pikes", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The Sylirican phalanx lower their pikes and stab forward. Each enemy in a 10-foot emanation must attempt a DC 30 Reflex save. The damage depends on the number of actions.%r1 (1d6+3) piercing|options:area-damage damage%r2 (2d6+12) piercing|options:area-damage damage%r3 (3d6+14) piercing|options:area-damage damage"}]
+"Tern Flock":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["animal", "swarm"]
+  ac: 16
+  hp: 20
+  perception: 8
+  saves: {"fortitude": 6, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": -4, "str": 0, "wis": 2}
+  speeds: {"land": 20, "fly": 40}
+  skills: {"Acrobatics": 8, "Thievery": 8}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 3, "splash-damage": 3}
+  resistances: {"piercing": 3, "slashing": 3}
+  actions: [{"name": "Cacophony", "type": "passive", "traits": ["auditory", "aura"], "text": "20 feet. The terns' awful racket of screeches and howls drowns out other sounds. Any creature performing an auditory action in the area must yell over the din, requiring a successful DC 15 Fortitude save or DC 15 Performance check to project loudly enough; on a failure, the action is lost."}, {"name": "Ransack", "type": "action", "traits": [], "cost": 2, "text": "The swarm rummages through the possessions of a single creature within its space, attempting a Thievery check against the creature's Reflex DC.%rOn a success, the terns take one random item of negligible Bulk that the creature is wearing but not closely guarding, such as an object in a loosely carried pouch."}, {"name": "Swarming Bites", "type": "action", "traits": [], "cost": 1, "text": "Each creature in the swarm's space takes 1d8 piercing|options:area-damage damage (DC 18 Reflex save)."}]
+"Torcheater":
+  pack: "myth-speaker-bestiary"
+  level: 2
+  size: "small"
+  rarity: "uncommon"
+  traits: ["incorporeal", "spirit"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 5, "reflex": 10, "will": 9}
+  abilities: {"cha": 3, "con": 1, "dex": 4, "int": -1, "str": 0, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision", "low-light-vision"]
+  skills: {"Acrobatics": 6, "Occultism": 5, "Stealth": 8, "Thievery": 6}
+  resistances: {"fire": 5}
+  strikes: [{"name": "Claw", "bonus": 11, "damage": [["1d8+2", "slashing", null]], "traits": ["agile", "finesse"]}, {"name": "Jaws", "bonus": 11, "damage": [["1d8+2", "piercing", null], ["1d4", "cold", null]], "traits": ["finesse"]}]
+  actions: [{"name": "Shelter Within the Shadow Cast", "type": "passive", "traits": [], "text": "When a torcheater succeeds at a saving throw against a fire or light effect, it gets a critical success instead."}, {"name": "Inhale Light", "type": "action", "traits": ["darkness", "healing"], "cost": 1, "text": "The torcheater sharply inhales to consume a source of light within its reach, such as a torch's flame, a light spell, or another effect no larger than a human. It automatically extinguishes a non-magical flame, and it attempts to counteract a magical fire or light effect at 2nd-rank with a counteract modifier of +8. If the torcheater successfully counteracts an effect, it gains a reach of 10 feet, a +5 foot status bonus to Speed, and fast healing 2 until the end of its next turn, plus an…"}, {"name": "Shadow Stairs", "type": "passive", "traits": [], "text": "A torcheater can create and climb wispy steps made of shadow. While in dim light or darkness, a torcheater gains a fly Speed equal to its Speed. If it's airborne and enters an area of bright light, the torcheater immediately falls without taking falling damage."}]
+"Tsemone":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "mythic"]
+  ac: 27
+  hp: 130
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 18, "will": 16}
+  abilities: {"cha": 3, "con": 3, "dex": 4, "int": 6, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 18, "Crafting": 21, "Warfare Lore": 18}
+  immunities: ["acid"]
+  resistances: {"mythic": 8}
+  strikes: [{"name": "Spear", "bonus": 19, "damage": [["2d8+8", "piercing", null]], "traits": ["injection", "magical", "reach-10"], "effects": ["Curare"]}, {"name": "Blowgun", "bonus": 18, "damage": [["1", "piercing", null]], "traits": ["agile", "nonlethal", "reload-1"], "range": 20, "effects": ["Curare"]}, {"name": "Alchemical Grenade (Acid)", "bonus": 19, "damage": [["2", "acid", "persistent"], ["2d6", "acid", null], ["2", "acid", "splash"]], "traits": ["infused", "splash"], "range": 60}, {"name": "Alchemical Grenade (Cold)", "bonus": 19, "damage": [["2", "cold", "splash"], ["2d6", "cold", null], ["2", "cold", "persistent"]], "traits": ["infused", "splash"], "range": 60}, {"name": "Alchemical Grenade (Fire)", "bonus": 19, "damage": [["2d6", "fire", null], ["2", "fire", "persistent"], ["2", "fire", "splash"]], "traits": ["infused", "splash"], "range": 60}]
+  actions: [{"name": "Alchemical Grenades", "type": "passive", "traits": [], "text": "Tsemone carries 9 alchemical grenades that deal either acid, cold, or fire damage plus 2 persistent damage and 2 splash damage of the same type (three of each). She replenishes these grenades each day."}, {"name": "Remove a Condition", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Tsemone ends one condition affecting her."}, {"name": "Caustic Rebuttal", "type": "reaction", "traits": ["acid", "alchemical"], "text": "Trigger An adjacent creature deals Tsemone piercing or slashing damage with a melee Strike%rEffect Tsemone has ingested low quantities of acid over time, making her immune to acid damage and transforming her body into a trap for those that harm her. Tsemone's acidic blood sprays from the wound. The triggering creature takes 2d12 acid damage with a DC 26 Reflex save."}, {"name": "Curare", "type": "passive", "traits": ["alchemical", "consumable", "incapacitation", "injury", "poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds (but see stage 3)%rStage 1 2d6 poison damage, Clumsy 1, and Enfeebled 1 (1 round)%rStage 2 3d6 poison damage, Clumsy 2, Enfeebled 2, and Slowed 1 (1 minute)%rStage 3 4d6 poison damage, clumsy 2, enfeebled 2, and slowed 1 (1 round). If the victim fails the saving throw while at%rStage 3 , the poison ends and the victim is Paralyzed for 2d6 minutes."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}, {"name": "Quick Grenadier", "type": "action", "traits": [], "cost": 1, "text": "Tsemone Interacts to draw a grenade, then Strikes with it."}]
+"Ulshuk":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "lizardfolk", "mythic"]
+  ac: 26
+  hp: 140
+  perception: 19
+  saves: {"fortitude": 16, "reflex": 16, "will": 21}
+  abilities: {"cha": 1, "con": 2, "dex": 2, "int": 0, "str": 3, "wis": 6}
+  speeds: {"land": 25}
+  skills: {"Athletics": 15, "Medicine": 18, "Religion": 21}
+  strikes: [{"name": "Claw", "bonus": 18, "damage": [["2d4+8", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Remove a Condition", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Cost 1 Mythic Point%rEffect Ulshuk ends one condition affecting him."}, {"name": "Aura of the All-Seeing Eye", "type": "passive", "traits": ["aura", "divine"], "text": "10 feet. Ulshuk and his allies within the aura gain a +1 status bonus to saving throws against spells."}, {"name": "Deep Breath", "type": "passive", "traits": [], "text": "Ulshuk can hold his breath for 15 minutes."}, {"name": "Mythic Power", "type": "passive", "traits": [], "text": "The creature has a pool of 3 Mythic Points, and can spend those Mythic Points for any of the actions it has."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 30, "attack": 22, "spells": {"0": ["Divine Lance", "Forbidding Ward", "Void Warp"], "1": ["Bless", "Enfeeble", "Fear", "Heal"], "2": ["Dispel Magic", "Resist Energy", "See the Unseen"], "3": ["Blindness", "Heroism"], "4": ["Divine Wrath", "Fly"]}}]
+"Ungkore Bounty Hunter":
+  pack: "myth-speaker-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "rare"
+  traits: ["fey", "humanoid"]
+  ac: 26
+  hp: 140
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 19, "will": 16}
+  abilities: {"cha": 3, "con": 4, "dex": 5, "int": 2, "str": 4, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 16, "Athletics": 18, "Crafting": 18, "Stealth": 16, "Survival": 18, "Thievery": 16}
+  weaknesses: {"cold-iron": 10}
+  strikes: [{"name": "Rope Dart", "bonus": 20, "damage": [["2d4+8", "piercing", null]], "traits": ["disarm", "finesse", "magical", "sweep", "tethered", "trip"]}, {"name": "Rope Dart", "bonus": 20, "damage": [["2d4+8", "piercing", null]], "traits": ["magical", "sweep", "tethered", "thrown-20"]}]
+  actions: [{"name": "No You Don't!", "type": "reaction", "traits": [], "text": "Requirements The bounty hunter is wielding a rope dart%rTrigger A creature within 20 feet of the bounty hunter Stands or Interacts to draw or pick up a weapon.%rEffect The bounty hunter makes a rope dart Strike against the triggering creature. If the attack is a critical success, the triggering action is disrupted, and the bounty hunter Interacts to retrieve the rope dart."}, {"name": "Downward Flick", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The bounty hunter's last action was a successful Athletics check to Disarm or Trip a creature using a rope dart%rEffect The bounty hunter makes a rope dart Strike against the tripped creature, using the same multiple attack penalty as the triggering Disarm or Trip attempt. The bounty hunter then Interacts to retrieve the rope dart."}, {"name": "Quick-Release Snare", "type": "action", "traits": [], "cost": 2, "text": "The bounty hunter draws a snare from their bag and tosses it at a creature within 20 feet. The target takes (4d8+18) piercing damage (DC 26 Reflex save) and is Off-Guard until the end of the bounty hunter's next turn. The bounty hunter can't use this ability again for 1 minute."}]
+"Vengeful Shade":
+  pack: "myth-speaker-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 29
+  hp: 140
+  perception: 22
+  saves: {"fortitude": 16, "reflex": 23, "will": 19}
+  abilities: {"cha": 7, "con": 0, "dex": 5, "int": 3, "str": -5, "wis": 4}
+  speeds: {"land": null, "fly": 40}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Intimidation": 19, "Religion": 19, "Dhuraxilis Lore": 22}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Claw", "bonus": 23, "damage": [["2d12+13", "void", null]], "traits": ["agile", "finesse", "magical"], "effects": ["Miserable Remorse"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "The vengeful shade can't pass beyond the city limits of Pol-Dhuraxilis."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "The vengeful shade can't move on to the afterlife until Ekriathe's current incarnation, Iapholi, either dies or makes amends to the shade."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Cries of Vengeance", "type": "passive", "traits": [], "text": "With every triumph, a chorus of hate-filled shouts erupts from the vengeful shade. Whenever the shade critically succeeds on a Strike, and whenever a creature critically fails a saving throw against the shade's Frightful Moan or Miserable Remorse, the shade gains a Disruption Point. The shade loses a Disruption Point whenever a creature critically succeeds at an attack roll against the shade and whenever the shade critically fails a saving throw."}, {"name": "Frightful Moan", "type": "action", "traits": ["auditory", "divine", "emotion", "fear", "mental"], "cost": 1, "text": "The ghost laments its fate, forcing each living creature within 30 feet to attempt a DC 29 Will save. On a failure, a creature becomes Frightened 2 (or Frightened 3 on a critical failure). On a success, a creature is temporarily immune to this ghost's frightful moan for 1 minute."}, {"name": "Miserable Remorse", "type": "passive", "traits": ["divine", "emotion", "fear", "mental"], "text": "A creature damaged by the shade's claw Strike is overcome with feelings of remorse and must attempt a DC 29 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature is Stupefied 1 for 1 round.%rFailure The creature is stupefied 1 for 1 minute.%rCritical Failure As failure, and the creature is Stunned 1 for 1 round."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 29, "attack": 21, "spells": {"4": ["Nightmare"]}}]
+"Vornen":
+  pack: "myth-speaker-bestiary"
+  level: 5
+  size: "large"
+  rarity: "unique"
+  traits: ["beast", "humanoid"]
+  ac: 21
+  hp: 75
+  perception: 16
+  saves: {"fortitude": 12, "reflex": 10, "will": 14}
+  abilities: {"cha": 2, "con": 3, "dex": 1, "int": 4, "str": 4, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Crafting": 15, "Deception": 11, "Survival": 14, "Maze Lore": 13}
+  strikes: [{"name": "Longspear", "bonus": 13, "damage": [["1d8+6", "piercing", null]], "traits": ["reach-10"]}, {"name": "Horn", "bonus": 13, "damage": [["1d8+6", "piercing", null]], "traits": ["unarmed"]}, {"name": "Shortbow", "bonus": 12, "damage": [["1d6+4", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Perfect Orienteering", "type": "passive", "traits": [], "text": "Vornen automatically critically succeeds at Survival checks to Sense Direction or Track."}, {"name": "One with the Maze", "type": "action", "traits": ["occult", "teleportation"], "cost": 2, "text": "Requirements Vornen is adjacent to the wall of a maze he helped build%rEffect Vornen travels through a special extradimensional passageway, appearing at any point within 60 feet that is adjacent to another portion of the same maze. Creatures are Off-Guard against Vornen's melee attacks until the end of their turn."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Vornen deals an additional 2d6 precision damage to Off-Guard creatures."}, {"name": "Surprising Charge", "type": "action", "traits": [], "cost": 2, "text": "Vornen Strides, then makes a horn Strike. If he moved at least 15 feet from their starting position, the target is Off-Guard."}]
+"Withered Flame Drake":
+  pack: "myth-speaker-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["dragon", "elemental", "fire"]
+  ac: 22
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 10, "will": 10}
+  abilities: {"cha": 0, "con": 3, "dex": 1, "int": -1, "str": 5, "wis": 3}
+  speeds: {"land": 20, "fly": 50}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 10, "Athletics": 12, "Stealth": 9, "Survival": 10}
+  immunities: ["fire", "paralyzed", "sleep"]
+  weaknesses: {"cold": 10}
+  resistances: {"poison": 5}
+  strikes: [{"name": "Fangs", "bonus": 14, "damage": [["2d8+5", "piercing", null], ["1d6", "fire", null]], "traits": []}, {"name": "Tail", "bonus": 14, "damage": [["2d6+5", "bludgeoning", null]], "traits": ["reach-10"]}]
+  actions: [{"name": "Smoke Vision", "type": "passive", "traits": [], "text": "Neither smoke nor the miasma impairs the drake's vision; it ignores Concealment caused by these effects."}, {"name": "Miasma-Proof", "type": "passive", "traits": [], "text": "The drake is immune to damage caused by the miasma."}, {"name": "Reactive Strike (Fangs Only)", "type": "reaction", "traits": []}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The flame drake makes two Fangs Strikes and one Tail Strike in any order."}, {"name": "Fireball Breath", "type": "action", "traits": ["fire", "primal"], "cost": 2, "text": "The flame drake expels a ball of flame to a range of 180 feet that explodes in a 20-foot. Creatures in the burst take 6d6 fire|options:area-damage damage (DC 22 Reflex save).%rThe flame drake can't use Fireball Breath again for 1d6 rounds."}, {"name": "Speed Surge", "type": "action", "traits": ["move"], "cost": 1, "text": "Frequency three times per day%rEffect The flame drake Strides or Flies twice."}]
+"Xenia Spirit":
+  pack: "myth-speaker-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["incorporeal", "spirit", "undead"]
+  ac: 20
+  hp: 32
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 5, "will": 8}
+  abilities: {"cha": 0, "con": 3, "dex": 1, "int": 0, "str": -5, "wis": 2}
+  speeds: {"land": null, "fly": 25}
+  hp_details: "rejuvenation, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 5, "Society": 6, "Stealth": 7, "Mining Lore": 8}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Ghostly Hand", "bonus": 12, "damage": [["2d6+2", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "The xenia spirit is bound to Ataiosiphon's house."}, {"name": "Appeased by Hospitality", "type": "passive", "traits": [], "text": "Displaying the hospitality that a xenia spirit was denied in life can avert its wrath. A plate of food, mug of fine drink, or similar fare held in one hand can be Raised as a Shield and used to Shield Block the spirit's attacks as if it were a buckler; a creature can Shield Block in this way even if they lack the feat."}, {"name": "Libation Weakness", "type": "passive", "traits": [], "text": "Pouring fine drink onto a xenia spirit can harm it. This functions like an alchemical weapon with a range increment of 10 feet and the bomb, consumable, spirit, and splash traits. A drink worth at least 1 cp (such as common ale) deals 1d4 spirit damage and 1 spirit splash damage. A drink worth at least 1 sp (such as a bottle of wine) deals 1d8 spirit damage and 1 spirit splash damage. As an Interact action, a creature can anoint a weapon with fine drink; the weapon's next successful Strike…"}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Inhabit Object", "type": "action", "traits": [], "cost": 1, "text": "The ghost possesses an object of size Large or smaller within 20 feet, making it an animated object. This animated object's level can be no higher than the ghost's level -2. If the target object is being held by a creature, the bearer can attempt a Will save to prevent the possession.%rThis possession ends when the object is destroyed or the ghost leaves it. At this point, the ghost reappears in the object's square and can't Inhabit an Object again for 1d4 rounds.%rFor DCs, use the high spell…"}, {"name": "Starving Invocation", "type": "action", "traits": ["auditory", "divine"], "cost": 2, "text": "The xenia spirit laments the hospitality it was denied, awakening painful hunger in others. Each living creature within 30 feet must attempt a DC 21 Fortitude save.%rCritical Success The creature is immune for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature is Sickened 1. A creature sickened in this way can ingest food and drink, and it can only recover from the sickened condition by spending an Interact action to consume food within reach.%rCritical Failure As failure, but…"}]
+"Yasmenei":
+  pack: "myth-speaker-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["elf", "humanoid"]
+  ac: 21
+  hp: 62
+  perception: 12
+  saves: {"fortitude": 9, "reflex": 13, "will": 11}
+  abilities: {"cha": 3, "con": 0, "dex": 4, "int": 1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 13, "Athletics": 11, "Diplomacy": 12, "Intimidation": 12, "Nature": 9, "Society": 10, "Survival": 14, "Sailing Lore": 15}
+  strikes: [{"name": "Kopis", "bonus": 11, "damage": [["2d8+4", "slashing", null]], "traits": ["fatal-d12"]}, {"name": "Harpoon", "bonus": 13, "damage": [["1d8+4", "piercing", null]], "traits": ["tethered", "thrown-30"]}, {"name": "Alchemist's Fire (Moderate)", "bonus": 15, "damage": [["2", "fire", "persistent"], ["2d8+4", "fire", null], ["2", "fire", "splash"]], "traits": ["bomb", "consumable", "splash"]}, {"name": "Longbow", "bonus": 13, "damage": [["2d8+4", "piercing", null]], "traits": ["deadly-d10", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Mental Periplus", "type": "passive", "traits": [], "text": "Yasmenei has sailed the seas for years and is very knowledgeable about navigation and seafaring. If she succeeds at Sailing Lore check or a Nature check to Sense Direction, she critically succeeds instead."}, {"name": "Trade Connections", "type": "passive", "traits": [], "text": "As a practiced negotiator, Yasmenei gains a +2 circumstance bonus to Diplomacy checks to Request during a business deal or when haggling over buying and selling goods."}, {"name": "+1 to Saves Vs. Emotion Effects", "type": "passive", "traits": []}, {"name": "Blazing Shot", "type": "action", "traits": [], "cost": 2, "text": "Yasmenei applies a flask of alchemist's fire to her arrow's tip, crafted to ignite upon impact, then attempts a ranged Strike with her longbow. On a hit, the Strike deals an additional 2d8 fire damage, 2 persistent fire damage, and 2 fire splash damage."}, {"name": "Hold Fast", "type": "reaction", "traits": ["auditory", "fortune", "mental"], "text": "Trigger An ally within 60 feet fails a saving throw against an emotion or mental effect%rEffect The ally rerolls the saving throw, taking the better of the two results."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 21, "attack": 13, "spells": {"0": ["Detect Magic", "Know the Way"], "1": ["Hydraulic Push", "Tailwind"], "2": ["Water Walk"]}}]

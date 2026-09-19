@@ -117,29 +117,14 @@ module AresMUSH
       combat.update(archetype_class_dcs: existing)
     end
 
-    def self.get_save_bonus(char, save)
-      prof_bonus = Pf2e.get_prof_bonus(char, Pf2eCombat.get_save_from_char(char, save))
-
-      mod = Pf2e.get_linked_attr_mod(char, save)
-      mod = 0 if !mod
-
-      item = Pf2egear.get_rune_value(Pf2eCombat.get_equipped_armor(char), 'fundamental', 'power')
-      item_bonus = item ? item : 0
-
-      prof_bonus + mod + item_bonus
+    def self.get_save_bonus(char, save, options = [])
+      Pf2e::Stat.total(char, 'save', save, options)
     end
 
     def self.get_class_dc(char)
-      combat_stats = char.combat
+      return 0 if !char.combat
 
-      return 0 if !combat_stats
-
-      prof_bonus = Pf2e.get_prof_bonus(char, combat_stats.class_dc)
-
-      key_ability = combat_stats.key_abil ? combat_stats.key_abil : "Strength"
-      abil_mod = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, key_ability))
-
-      10 + prof_bonus + abil_mod
+      Pf2e::Stat.total(char, 'class_dc')
     end
 
     def self.get_archetype_class_dcs(char)
@@ -166,11 +151,10 @@ module AresMUSH
         next if prof.to_s.strip.empty?
         next if key_ability.to_s.strip.empty?
 
-        prof_bonus = Pf2e.get_prof_bonus(char, prof)
-        abil_mod = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, key_ability))
-
+        # Through the same reader as the class DC itself, so an archetype's DC takes the modifiers a
+        # class DC takes: Frightened reduces it, because it is a DC.
         dc_hash[archetype] = {
-          'dc' => 10 + prof_bonus + abil_mod,
+          'dc' => Pf2e::Stat.total(char, 'class_dc', { 'prof' => prof, 'key_abil' => key_ability }),
           'prof' => prof,
           'key_abil' => key_ability
         }
@@ -179,20 +163,34 @@ module AresMUSH
       dc_hash
     end
 
+    # Armour Class before anything modifies it: the flat 10, the armour worn, and proficiency with it.
+    # The armour as an alteration leaves it, so Magic Armor or a spell hardening it is counted.
+    def self.base_ac(char)
+      armor = Pf2e::Alterations.armor(char)
+      category = armor ? armor.category : "unarmored"
+
+      10 + (armor ? armor.ac_bonus : 0) + Pf2e.get_prof_bonus(char, char.combat.armor_prof[category])
+    end
+
+    # The attribute and the rune, typed so they stack like anything else. The attribute is offered as
+    # an `ability` modifier rather than added to the base, so an effect that lets a character use some
+    # other attribute for AC needs only to offer that one and the better of the two applies.
+    # The lowest cap on Dexterity holds, whether it is the armour's or an effect's: Mountain Stance caps it
+    # at nothing, and a mutagen at two (`character/document.ts:746`).
+    def self.ac_modifiers(char)
+      armor = Pf2e::Alterations.armor(char)
+      caps = Pf2e::Rules.contributions(Pf2e::Effects.sources(char), 'DexterityModifierCap',
+                                       Pf2e::Effects.options(char), Pf2e::Effects.context(char))
+      cap = ([ armor ? armor.dex_cap : 99 ] + caps.map { |one| one['value'] }).min
+
+      dex = Pf2e::Stat.ability_mod(char, 'Dexterity')
+      dex['value'] = dex['value'].clamp(-99, cap)
+
+      [ dex, Pf2e::Stat.rune(char, 'potency') ]
+    end
+
     def self.calculate_ac(char)
-      armor = get_equipped_armor(char)
-
-      abonus = armor ? armor.ac_bonus : 0
-      a_cat = armor ? armor.category : "unarmored"
-      prof_with_armor = char.combat.armor_prof[a_cat]
-      pbonus = Pf2e.get_prof_bonus(char, prof_with_armor)
-
-      ibonus = Pf2egear.get_rune_value(armor, 'fundamental', 'potency')
-
-      dex_cap = armor ? armor.dex_cap : 99
-      dbonus = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, 'Dexterity')).clamp(-99, dex_cap)
-
-      10 + abonus + pbonus + ibonus + dbonus
+      Pf2e::Stat.total(char, 'ac')
     end
 
     def self.get_equipped_armor(char)
@@ -203,18 +201,8 @@ module AresMUSH
       char.shields&.select { |s| s.equipped }.first
     end
 
-    def self.get_perception(char)
-      abil_mod = Pf2e.get_linked_attr_mod(char, 'perception')
-      combat_stats = char.combat
-
-      return abil_mod if !combat_stats
-
-      prof_bonus = Pf2e.get_prof_bonus(char, combat_stats.perception)
-
-      item = Pf2egear.bonus_from_item(char, 'Perception')
-      item_bonus = item ? item : 0
-
-      abil_mod + prof_bonus + item_bonus
+    def self.get_perception(char, options = [])
+      Pf2e::Stat.total(char, 'perception', nil, options)
     end
 
     # Stat block for anything that can be attacked with, by name.
@@ -241,7 +229,7 @@ module AresMUSH
       wp_cat = wp_info['category']
       wp_group = wp_info['group']
 
-      prof_list = [ 'untrained' ]
+      prof_list = [ 'untrained' ] + granted_weapon_prof(char, name, wp_info)
 
       case wp_cat
       when 'unarmed'
@@ -364,69 +352,214 @@ module AresMUSH
 
     end
 
-    def self.abilmod_with_finesse(char)
-      strength = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Strength"))
-      dexterity = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Dexterity"))
-
-      dexterity > strength ? dexterity : strength
+    # What the attack and damage arithmetic need to know about an attack, from a catalogue weapon or
+    # from an unarmed attack. Config writes `Finesse` and chargen writes `finesse`, which is why traits
+    # are compared with `has_trait?` rather than `include?`.
+    #
+    # `id`, `group` and `base` are here because the domains are built off them: a rune that says
+    # `{item|id}-damage` reaches this weapon and nothing else, and a feat that says
+    # `sword-weapon-group-damage` reaches every sword.
+    # What an attack answers to when a rule asks which attack it is: its id, its name, its base type and
+    # Attacks a feat or an item granted, as descriptors the rest of the attack code already reads.
+    #
+    # A granted attack is proficient as an unarmed attack of its category, which is what the rules say of
+    # the ones that exist - a stance's claws use your unarmed proficiency.
+    def self.granted_strikes(char)
+      Pf2e::Rules.strikes(Pf2e::Effects.sources(char), Pf2e::Effects.options(char)).map do |strike|
+        adjusted_strike(char, {
+          'id' => nil, 'name' => strike['name'], 'source' => strike['source'],
+          'prof' => get_unarmed_prof(char, strike['name']),
+          'group' => strike['group'], 'base' => strike['base'],
+          'traits' => strike['traits'], 'ranged' => !strike['range'].nil?,
+          'unarmed' => strike['category'].to_s != 'martial',
+          'bomb' => false, 'die' => strike['die'], 'dice' => strike['dice'],
+          'range' => strike['range'].to_i, 'materials' => [], 'runes' => [],
+          'damage_type' => strike['damage_type'] || 'B', 'striking' => 0, 'rune' => 0
+        })
+      end
     end
 
-    def self.get_wpattack_bonus(char, weapon)
-      prof = get_weapon_prof(char, weapon.name)
-      prof_bonus = Pf2e.get_prof_bonus(char, prof)
+    # What a weapon answers to when a rule asks which weapons it means: its category, its group, its
+    # base type and its traits, in Foundry's spelling.
+    def self.weapon_options(name, info)
+      info ||= weapon_info(name) || {}
 
-      if (weapon.wp_type == 'ranged')
-        abil_bonus = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Dexterity"))
+      [ "item:slug:#{Pf2e::Domains.slug(name)}",
+        "item:category:#{Pf2e::Domains.slug(info['category'])}",
+        "item:group:#{Pf2e::Domains.slug(info['group'])}",
+        "item:base:#{Pf2e::Domains.slug(info['base'] || name)}" ] +
+        Array(info['traits']).map { |trait| "item:trait:#{Pf2e::Domains.slug(trait)}" }
+    end
+
+    # Proficiencies a feat grants over a kind of weapon: "monk weapons count as your unarmed
+    # proficiency, up to master". The feat says which weapons and which proficiency to copy, so nothing
+    # here names a feat.
+    def self.granted_weapon_prof(char, name, info)
+      combat = char.combat
+
+      return [] unless combat
+
+      held = (combat.weapon_prof || {})
+      options = weapon_options(name, info)
+
+      Pf2e::Rules.martial_proficiencies(Pf2e::Effects.sources(char), Pf2e::Effects.options(char))
+                 .select { |one| Pf2e::Predicate.test(one['definition'], options) }
+                 .map { |one| capped(held[one['same_as']], one['max_rank']) }
+                 .compact
+    end
+
+    # A granted proficiency goes no higher than the feat says.
+    def self.capped(rank, ceiling)
+      return nil unless rank
+      return rank unless ceiling
+
+      [ Pf2e::Paths.rank_number(rank), Pf2e::Paths.rank_number(ceiling) ].min
+                                                                        .then { |n| Pf2e::Paths.rank_name(n) }
+    end
+
+    # Damage a weapon does is recorded by initial here, and a predicate names it in full.
+    DAMAGE_WORDS = { 'b' => 'bludgeoning', 'p' => 'piercing', 's' => 'slashing' }.freeze
+    PHYSICAL = DAMAGE_WORDS.values.freeze
+
+    # What an attack answers to when a rule asks which attacks it means, in Foundry's spelling - the
+    # vocabulary their `definition` and their predicates are written in. Reading it off the descriptor
+    # rather than the weapon is what lets a granted attack answer the same questions.
+    def self.attack_options(descriptor, char = nil)
+      damage = Pf2e::Domains.slug(DAMAGE_WORDS[descriptor['damage_type'].to_s.downcase] ||
+                                  descriptor['damage_type'])
+      thrown = Pf2e.has_trait?(descriptor['traits'], 'thrown')
+
+      [ "item:id:#{descriptor['id']}",
+        "item:slug:#{Pf2e::Domains.slug(descriptor['name'])}",
+        "item:base:#{Pf2e::Domains.slug(descriptor['base'])}",
+        "item:group:#{Pf2e::Domains.slug(descriptor['group'])}",
+        descriptor['ranged'] ? 'item:ranged' : 'item:melee',
+        thrown ? 'item:thrown' : nil,
+        thrown && !descriptor['ranged'] ? 'item:thrown-melee' : nil,
+        magical?(descriptor) ? 'item:magical' : nil,
+        "item:damage:type:#{damage}",
+        PHYSICAL.include?(damage) ? 'item:damage:category:physical' : nil,
+        "item:hands-held:#{[ descriptor['hands'].to_i, 1 ].max}",
+        "item:reload:#{descriptor['reload'].to_i}",
+        "item:proficiency:rank:#{Pf2e::Paths.rank_number(descriptor['prof'])}",
+        favored?(char, descriptor) ? 'item:deity-favored' : nil ].compact +
+        Array(descriptor['traits']).map { |trait| "item:trait:#{Pf2e::Domains.slug(trait)}" } +
+        Array(descriptor['materials']).map { |one| "item:material:#{Pf2e::Domains.slug(one)}" } +
+        Array(descriptor['runes']).map { |one| "item:rune:property:#{Pf2e::Domains.slug(one)}" }
+    end
+
+    # Magical because it says so, or because someone etched it: a potency or striking rune makes a
+    # weapon magical, which is what lets it hurt something only magic can.
+    def self.magical?(descriptor)
+      Pf2e.has_trait?(descriptor['traits'], 'magical') ||
+        descriptor['rune'].to_i.positive? || descriptor['striking'].to_i.positive? ||
+        Array(descriptor['runes']).any?
+    end
+
+    # The weapon a character's deity favours, which several feats and a champion's cause ask about.
+    def self.favored?(char, descriptor)
+      return false unless char.respond_to?(:pf2_faith)
+
+      deity = (char.pf2_faith || {})['deity']
+      favored = deity.blank? ? nil : Global.read_config('pf2e_deities', deity, 'fav_weapon')
+
+      return false if favored.blank?
+
+      [ descriptor['name'], descriptor['base'] ].compact.any? { |one|
+        Pf2e::Domains.slug(one) == Pf2e::Domains.slug(favored)
+      }
+    end
+
+    # What an effect changes about this attack before anything reads it: the traits it counts as
+    # (`finesse` lets Dexterity attack with it, `thrown` adds Strength to its damage), what it is made
+    # of, the property runes it has the effects of, and how far it throws.
+    def self.adjusted_strike(char, descriptor)
+      changes = Pf2e::Rules.strike_adjustments(Pf2e::Effects.sources(char),
+                                               Pf2e::Effects.options(char),
+                                               attack_options(descriptor, char))
+
+      adjusted = changes.each_with_object(descriptor.dup) { |change, out| adjust_strike!(out, change) }
+
+      # And what an effect changes about the weapon itself while it lasts: Magic Weapon's runes.
+      Pf2e::Alterations.attack(char, adjusted)
+    end
+
+    def self.adjust_strike!(descriptor, change)
+      field = Pf2e::Rules::STRIKE_PROPERTIES[change['property']]
+      held = descriptor[field]
+
+      if Pf2e::Rules::STRIKE_LISTS.include?(field)
+        # A word is only ever added to a list: nothing in their data takes a trait or a rune away.
+        return unless change['mode'] == 'add'
+
+        descriptor[field] = (Array(held) + [ Pf2e::Domains.slug(change['value']) ]).uniq
       else
-        traits = weapon.traits
-        # Config writes `Finesse` and chargen writes `finesse`, so the comparison cannot be
-        # `include?`: every catalogue weapon used Strength before this.
-        abil_bonus = Pf2e.has_trait?(traits, 'finesse') ?
-          Pf2eCombat.abilmod_with_finesse(char) :
-          Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Strength"))
+        mode = Pf2e::Paths::MODES[change['mode']]
+
+        descriptor[field] = mode.call(held.to_i, change['value'].to_i) if mode
       end
+    end
 
-      potency_rune = Pf2egear.get_rune_value(weapon, 'fundamental', 'potency')
+    def self.attack_descriptor(char, weapon, twohand = false)
+      info = weapon_info(weapon.name) || {}
+      damage = twohand && weapon.wp_damage_2h ? weapon.wp_damage_2h : weapon.wp_damage
 
-      prof_bonus + abil_bonus + potency_rune
+      adjusted_strike(char, { 'id' => weapon.id.to_s, 'name' => weapon.name,
+        'prof' => get_weapon_prof(char, weapon.name),
+        'group' => info['group'], 'base' => info['base'] || weapon.name,
+        'traits' => weapon.traits, 'ranged' => weapon.wp_type == 'ranged',
+        'unarmed' => Pf2e.has_trait?(weapon.traits, 'unarmed'),
+        'bomb' => bomb?(info),
+        'die' => damage, 'damage_type' => weapon.wp_damage_type,
+        'range' => weapon.range.to_i, 'reload' => weapon.reload.to_i,
+        'hands' => twohand ? 2 : weapon.hands.to_i,
+        'materials' => Array(info['materials']),
+        'runes' => Pf2egear.property_runes(weapon),
+        'striking' => Pf2egear.get_rune_value(weapon, 'fundamental', 'power'),
+        'rune' => Pf2egear.get_rune_value(weapon, 'fundamental', 'potency') })
+    end
+
+    def self.unarmed_descriptor(name, info, prof, char = nil)
+      descriptor = { 'id' => nil, 'name' => name, 'prof' => prof, 'group' => info['group'],
+                     'base' => name, 'traits' => info['traits'], 'ranged' => false, 'unarmed' => true,
+                     'bomb' => false, 'die' => info['damage'], 'range' => 0,
+                     'materials' => [], 'runes' => [],
+                     'damage_type' => info['damage_type'] || 'B', 'striking' => 0, 'rune' => 0 }
+
+      char ? adjusted_strike(char, descriptor) : descriptor
+    end
+
+    def self.get_wpattack_bonus(char, weapon, options = [])
+      Pf2e::Stat.total(char, 'attack', attack_descriptor(char, weapon), options)
+    end
+
+    def self.get_unarmed_bonus(char, name, info, prof)
+      Pf2e::Stat.total(char, 'attack', unarmed_descriptor(name, info, prof))
     end
 
     def self.get_natattack_bonus(char, attack)
 
     end
 
-    def self.get_damage(char, attack, weapon=nil, twohand=false)
-      if weapon
-        # twohanddmg represents a one-handed weapon that does more damage when wielded two-handed
-        # This is called as a switch in roll, so defaults to false.
-        twohanddmg = weapon.wp_damage_2h
-        # If the weapon does not change damage for 2h wield, twohand argument is ignored
-        twohand = false unless twohanddmg
-        base_damage = twohand ? twohanddmg : weapon.wp_damage
-        damage_type = weapon.wp_damage_type
-      else
-        combat = char.combat
-        attack = combat.unarmed_attacks[attack.capitalize]
-        base_damage = attack ? attack['damage'] : 0
-        damage_type = "B"
-      end
+    # `twohand` is for a one-handed weapon that does more damage wielded in two; it is ignored for a
+    # weapon whose damage does not change.
+    def self.damage_descriptor(char, attack, weapon = nil, twohand = false, given = nil)
+      return given if given
+      return attack_descriptor(char, weapon, twohand) if weapon
 
-      # Alchemical Bombs are their own animal, will do all the deets later.
+      info = (char.combat&.unarmed_attacks || {})[attack.to_s.capitalize] || {}
 
-      base_info = char.pf2_base_info
-      use_dex_for_dmg = base_info['specialize'] == 'Thief'
+      name = attack.to_s.capitalize
 
-      abil_mod = use_dex_for_dmg ? abilmod_with_finesse(char) :
-        Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Strength"))
+      unarmed_descriptor(name, info, get_unarmed_prof(char, name, info), char)
+    end
 
-      striking_rune = weapon ? weapon.runes['fundamental']['power'] : false
-      striking_rune = 0 if !striking_rune
+    def self.get_damage(char, attack, weapon=nil, twohand=false, options=[])
+      Pf2e::Damage.formula(char, damage_descriptor(char, attack, weapon, twohand), options)
+    end
 
-      number_of_dice = 1 + striking_rune
-
-      dmg_mod = abil_mod + striking_rune
-
-      "#{number_of_dice}#{base_damage}+#{dmg_mod}"
+    def self.damage_breakdown(char, attack, weapon=nil, twohand=false, options=[], given=nil)
+      Pf2e::Damage.of(char, damage_descriptor(char, attack, weapon, twohand, given), options)
     end
 
     def self.factory_default(char)

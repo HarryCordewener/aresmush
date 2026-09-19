@@ -32,6 +32,15 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.crafting.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.weapon-base-alchemical-bomb.rank"
+        mode: "upgrade"
+        value: 1
   Barbarian Dedication:
     assoc_archetype:
       - Barbarian Archetype
@@ -64,6 +73,23 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.archetypeFeatCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "instinct"
+        prompt: "Select an instinct."
+        choices: {"filter": ["item:tag:barbarian-instinct", {"not": "item:tag:class-archetype"}]}
+      - key: "FlatModifier"
+        selector: "ac"
+        value: -1
+        predicate: ["self:effect:rage"]
+      - key: "ActiveEffectLike"
+        path: "system.skills.athletics.rank"
+        mode: "upgrade"
+        value: 1
   Bard Dedication:
     assoc_archetype:
       - Bard Archetype
@@ -95,6 +121,21 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ChoiceSet"
+        flag: "dedicationMuse"
+        prompt: "Select a muse."
+        choices: {"filter": ["item:tag:bard-muse", {"not": "item:tag:class-archetype"}], "slugsAsValues": true}
+      - key: "RollOption"
+        option: "feature:{item|flags.system.rulesSelections.dedicationMuse}"
+      - key: "ActiveEffectLike"
+        path: "system.skills.performance.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "system.skills.occultism.rank"
+        mode: "upgrade"
+        value: 1
   Champion Dedication:
     assoc_archetype:
       - Champion Archetype
@@ -127,6 +168,41 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ChoiceSet"
+        rollOption: "champion-dedication"
+        choices: [{"label": "Light", "predicate": [{"or": ["defense:light:rank:0", "defense:medium:rank:0"]}], "value": "light-and-medium"}, {"label": "Heavy", "predicate": [{"nor": ["defense:light:rank:0", "defense:medium:rank:0"]}], "value": "heavy"}]
+      - key: "ChoiceSet"
+        flag: "attribute"
+        prompt: "Select the class DC's key attribute."
+        choices: [{"label": "Strength", "value": "str"}, {"label": "Dexterity", "value": "dex"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "flags.system.championDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "cause"
+        prompt: "Select a champion's cause."
+        choices: {"filter": ["item:tag:champion-cause", {"or": [{"and": ["item:tag:holy", "sanctification:holy"]}, {"and": ["item:tag:unholy", "sanctification:unholy"]}, {"nor": ["item:tag:holy", "item:tag:unholy"]}]}, {"not": "item:tag:class-archetype"}]}
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.defenses.light.rank"
+        mode: "upgrade"
+        value: "max(@actor.system.proficiencies.defenses.medium.rank,ternary(gte(@actor.level,13),min(@actor.system.proficiencies.defenses.unarmored.rank,2),1))"
+        predicate: ["champion-dedication:light-and-medium"]
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.defenses.medium.rank"
+        mode: "upgrade"
+        value: "max(@actor.system.proficiencies.defenses.light.rank,ternary(gte(@actor.level,13),min(@actor.system.proficiencies.defenses.unarmored.rank,2),1))"
+        predicate: ["champion-dedication:light-and-medium"]
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.defenses.heavy.rank"
+        mode: "upgrade"
+        value: "max(@actor.system.proficiencies.defenses.light.rank,@actor.system.proficiencies.defenses.medium.rank,ternary(gte(@actor.level,13),min(@actor.system.proficiencies.defenses.unarmored.rank,2),1))"
+        predicate: ["champion-dedication:heavy"]
   Cleric Dedication:
     assoc_archetype:
       - Cleric Archetype
@@ -158,6 +234,11 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
   Druid Dedication:
     assoc_archetype:
       - Druid Archetype
@@ -189,6 +270,15 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.nature.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "druidicOrder"
+        prompt: "Select a druidic order."
+        choices: {"filter": ["item:tag:druid-order", {"not": "item:tag:class-archetype"}]}
   Fighter Dedication:
     assoc_archetype:
       - Fighter Archetype
@@ -221,6 +311,27 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.fighterDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "attribute"
+        prompt: "Select the class DC's key attribute."
+        choices: [{"label": "Strength", "value": "str"}, {"label": "Dexterity", "value": "dex"}]
+      - key: "ChoiceSet"
+        flag: "skill"
+        prompt: "Select a skill."
+        choices: [{"label": "Acrobatics", "value": "acrobatics"}, {"label": "Athletics", "value": "athletics"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.skill}.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.simple.rank"
+        mode: "upgrade"
+        value: 1
   Investigator Dedication:
     assoc_archetype:
       - Investigator Archetype
@@ -252,6 +363,11 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.society.rank"
+        mode: "upgrade"
+        value: 1
   Monk Dedication:
     assoc_archetype:
       - Monk Archetype
@@ -284,6 +400,23 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.monkDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "attribute"
+        prompt: "Select the class DC's key attribute."
+        choices: [{"label": "Strength", "value": "str"}, {"label": "Dexterity", "value": "dex"}]
+      - key: "ChoiceSet"
+        flag: "skill"
+        prompt: "Select a skill."
+        choices: [{"label": "Acrobatics", "value": "acrobatics"}, {"label": "Athletics", "value": "athletics"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.skill}.rank"
+        mode: "upgrade"
+        value: 1
   Oracle Dedication:
     assoc_archetype:
       - Oracle Archetype
@@ -315,6 +448,15 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "mystery"
+        prompt: "Select a mystery."
+        choices: {"filter": ["item:tag:oracle-mystery", {"not": "item:tag:class-archetype"}]}
   Ranger Dedication:
     assoc_archetype:
       - Ranger Archetype
@@ -346,6 +488,19 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.survival.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "flags.system.rangerDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "attribute"
+        prompt: "Select the class DC's key attribute."
+        choices: [{"label": "Strength", "value": "str"}, {"label": "Dexterity", "value": "dex"}]
   Rogue Dedication:
     assoc_archetype:
       - Rogue Archetype
@@ -377,6 +532,15 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ChoiceSet"
+        flag: "rogueDedication"
+        prompt: "Select a skill to become trained in."
+        choices: [{"label": "Stealth", "value": "system.skills.stealth.rank"}, {"label": "Thievery", "value": "system.skills.thievery.rank"}]
+      - key: "ChoiceSet"
+        flag: "skillFeat"
+        prompt: "Select a skill feat."
+        choices: {"filter": ["item:trait:skill", {"lte": ["item:level", "self:level"]}], "itemType": "feat"}
   Sorcerer Dedication:
     assoc_archetype:
       - Sorcerer Archetype
@@ -408,6 +572,11 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ChoiceSet"
+        flag: "bloodline"
+        prompt: "Select a bloodline."
+        choices: {"filter": ["item:tag:sorcerer-bloodline", {"not": "item:tag:class-archetype"}]}
   Swashbuckler Dedication:
     assoc_archetype:
       - Swashbuckler Archetype
@@ -440,6 +609,19 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ChoiceSet"
+        flag: "swashbucklersStyle"
+        prompt: "Select a style."
+        choices: {"filter": ["item:tag:swashbuckler-style", {"not": "item:tag:class-archetype"}]}
+      - key: "ChoiceSet"
+        flag: "skill"
+        prompt: "Select a skill."
+        choices: [{"label": "Acrobatics", "value": "acrobatics"}, {"label": "Intimidation", "predicate": ["feature:braggart"], "value": "intimidation"}, {"label": "Deception", "predicate": ["feature:fencer"], "value": "deception"}, {"label": "Athletics", "predicate": ["feature:gymnast"], "value": "athletics"}, {"label": "Diplomacy", "predicate": ["feature:wit"], "value": "diplomacy"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.skill}.rank"
+        mode: "upgrade"
+        value: 1
   Witch Dedication:
     assoc_archetype:
       - Witch Archetype
@@ -471,6 +653,11 @@ pf2e_feats:
       - archetype
       - dedication
       - multiclass
+    rules:
+      - key: "ChoiceSet"
+        flag: "patron"
+        prompt: "Select a patron."
+        choices: {"filter": ["item:tag:witch-patron", {"not": "item:tag:class-archetype"}]}
   Wizard Dedication:
     assoc_archetype:
       - Wizard Archetype
@@ -503,6 +690,11 @@ pf2e_feats:
       - dedication
       - multiclass
   # Level 4 Archetype Feats
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.arcana.rank"
+        mode: "upgrade"
+        value: 1
   Advanced Alchemy:
     assoc_archetype:
       - Alchemist Archetype
@@ -548,6 +740,14 @@ pf2e_feats:
     shortdesc: You gain 3 additional Hit Points for each barbarian archetype class feat you have. As you continue selecting barbarian archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.archetypeFeatCount"
+        mode: "add"
+        value: 1
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "3 * @actor.flags.system.barbarian.archetypeFeatCount"
   Basic Arcana:
     feat_choice:
       summary: 1st- or 2nd-level wizard feat
@@ -569,6 +769,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level wizard feat of your choice.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicArcana"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:wizard", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Bard Spellcasting:
     assoc_archetype:
       - Bard Archetype
@@ -603,6 +808,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level sorcerer feat.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicBloodPotency"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:sorcerer", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Bloodline Spell:
     feat_choice:
       auto: subclass_spell
@@ -655,6 +865,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level alchemist feat.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicConcoction"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:alchemist", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Deduction:
     feat_choice:
       summary: 1st- or 2nd-level investigator feat
@@ -676,6 +891,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level investigator feat of your choice.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicDeduction"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:investigator", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Devotion:
     feat_choice:
       summary: 1st- or 2nd-level champion feat
@@ -697,6 +917,15 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level champion feat.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.championDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "basicDevotion"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:champion", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Dogma:
     feat_choice:
       summary: 1st- or 2nd-level cleric feat
@@ -718,6 +947,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level cleric feat.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicDogma"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:cleric", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Druid Spellcasting:
     assoc_archetype:
       - Druid Archetype
@@ -752,6 +986,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level swashbuckler feat of your choice.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicFlair"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:swashbuckler", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Fury:
     feat_choice:
       summary: 1st- or 2nd-level barbarian feat
@@ -773,6 +1012,15 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level barbarian feat.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.archetypeFeatCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "basicFury"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:barbarian", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Hunter's Trick:
     feat_choice:
       summary: 1st- or 2nd-level ranger feat
@@ -794,6 +1042,15 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level ranger feat.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.rangerDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "basicHuntersTrick"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:ranger", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Kata:
     feat_choice:
       summary: 1st- or 2nd-level monk feat
@@ -815,6 +1072,15 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level monk feat.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.monkDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "basicKata"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:monk", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Maneuver:
     feat_choice:
       summary: 1st- or 2nd-level fighter feat
@@ -836,6 +1102,15 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level fighter feat.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.fighterDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "basicManeuver"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:fighter", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Muse's Whispers:
     feat_choice:
       summary: 1st- or 2nd-level bard feat
@@ -857,6 +1132,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level bard feat.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicMusesWhispers"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:bard", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Mysteries:
     feat_choice:
       summary: 1st- or 2nd-level oracle feat
@@ -878,6 +1158,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level oracle feat of your choice.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicMysteries"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:oracle", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Oracle Spellcasting:
     assoc_archetype:
       - Oracle Archetype
@@ -925,6 +1210,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level rogue feat.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicTrickery"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:rogue", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Wilding:
     feat_choice:
       summary: 1st- or 2nd-level druid feat
@@ -946,6 +1236,11 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level druid feat.
     traits:
       - archetype
+    rules:
+      - key: "ChoiceSet"
+        flag: "basicWilding"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:druid", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Witch Spellcasting:
     assoc_archetype:
       - Witch Archetype
@@ -980,6 +1275,15 @@ pf2e_feats:
     shortdesc: You gain a 1st- or 2nd-level witch feat of your choice. You can select three familiar abilities for your familiar each day, instead of two.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.attributes.familiarAbilities.value"
+        mode: "upgrade"
+        value: 3
+      - key: "ChoiceSet"
+        flag: "basicWitchcraft"
+        prompt: "Select a 1st or 2nd-level class feat."
+        choices: {"filter": ["item:category:class", "item:trait:witch", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Wizard Spellcasting:
     assoc_archetype:
       - Wizard Archetype
@@ -1007,6 +1311,14 @@ pf2e_feats:
     shortdesc: You gain 3 additional Hit Points for each champion archetype class feat you have. As you continue selecting champion archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.championDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "3 * @actor.flags.system.championDedicationCount"
   Devout Magic:
     feat_choice:
       summary: devotion spell
@@ -1023,6 +1335,11 @@ pf2e_feats:
     shortdesc: You gain a devotion spell of your choice listed in the devotion spells class feature, following the same restrictions listed there.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.championDedicationCount"
+        mode: "add"
+        value: 1
   Fighter Resiliency:
     assoc_archetype:
       - Fighter Archetype
@@ -1037,6 +1354,14 @@ pf2e_feats:
     shortdesc: You gain 3 additional Hit Points for each fighter archetype class feat you have. As you continue selecting fighter archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.fighterDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "3 * @actor.flags.system.fighterDedicationCount"
   Finishing Precision:
     assoc_archetype:
       - Swashbuckler Archetype
@@ -1050,6 +1375,11 @@ pf2e_feats:
     shortdesc: "You've learned how to land daring blows when you have panache.%r%rYou gain the precise strike class feature but you deal 1 addition damage on a hit and 1d6 damage on a finisher. This damage doesn't increase as you gain levels. In addition, you gain the Basic Finisher action."
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.swashbuckler.preciseStrike"
+        mode: "override"
+        value: 1
   First Revelation:
     feat_choice:
       auto: subclass_spell
@@ -1095,6 +1425,14 @@ pf2e_feats:
     shortdesc: You gain 3 additional Hit Points for each monk archetype class feat you have. As you continue selecting monk archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.monkDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "3*@actor.flags.system.monkDedicationCount"
   Order Spell:
     feat_choice:
       auto: subclass_spell
@@ -1127,6 +1465,14 @@ pf2e_feats:
     shortdesc: You gain 3 additional Hit Points for each ranger archetype class feat you have. As you continue selecting ranger archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.rangerDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "FlatModifier"
+        selector: "hp"
+        value: "3 * @actor.flags.system.rangerDedicationCount"
   Reactive Striker:
     assoc_archetype:
       - Fighter Archetype
@@ -1140,6 +1486,11 @@ pf2e_feats:
     shortdesc: You gain the Reactive Strike reaction.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.fighterDedicationCount"
+        mode: "add"
+        value: 1
   Sneak Attacker:
     assoc_archetype:
       - Rogue Archetype
@@ -1154,6 +1505,15 @@ pf2e_feats:
     traits:
       - archetype
   # Level 6 Archetype Feats
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.sneakAttackDamage.number"
+        mode: "override"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "flags.system.sneakAttackDamage.faces"
+        mode: "override"
+        value: "ternary(lt(@actor.level, 6), 4, 6)"
   Advanced Arcana:
     feat_choice:
       summary: wizard feat of up to half your level
@@ -1263,6 +1623,11 @@ pf2e_feats:
     shortdesc: "You gain one champion feat. For the purpose of meeting its prerequisites, your champion level is equal to half your character level.%r%r**Special** You can select this feat more than once. Each time you select it, you gain another champion feat."
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.championDedicationCount"
+        mode: "add"
+        value: 1
   Advanced Dogma:
     feat_choice:
       summary: cleric feat of up to half your level
@@ -1329,6 +1694,11 @@ pf2e_feats:
     shortdesc: "You gain one barbarian feat. For the purpose of meeting its prerequisites, your barbarian level is equal to half your character level.%r%r**Special** You can select this feat more than once. Each time you select it, you gain another barbarian feat."
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.archetypeFeatCount"
+        mode: "add"
+        value: 1
   Advanced Hunter's Trick:
     feat_choice:
       summary: ranger feat of up to half your level
@@ -1351,6 +1721,11 @@ pf2e_feats:
     shortdesc: "You gain one ranger feat. For the purpose of meeting its prerequisites, your ranger level is equal to half your character level.%r%r**Special** You can select this feat more than once. Each time you select it, you gain another ranger feat."
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.rangerDedicationCount"
+        mode: "add"
+        value: 1
   Advanced Kata:
     feat_choice:
       summary: monk feat of up to half your level
@@ -1373,6 +1748,11 @@ pf2e_feats:
     shortdesc: "You gain one monk feat. For the purpose of meeting its prerequisites, your monk level is equal to half your character level.%r%r**Special** You can select this feat more than once. Each time you select it, you gain another monk feat."
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.monkDedicationCount"
+        mode: "add"
+        value: 1
   Advanced Maneuver:
     feat_choice:
       summary: fighter feat of up to half your level
@@ -1395,6 +1775,11 @@ pf2e_feats:
     shortdesc: "You gain a fighter feat. For the purpose of meeting its prerequisites, your fighter level is equal to half your character level.%r%r**Special** You can select this feat more than once. Each time you select it, you gain another fighter feat."
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.fighterDedicationCount"
+        mode: "add"
+        value: 1
   Advanced Muse's Whispers:
     feat_choice:
       summary: bard feat of up to half your level
@@ -1518,6 +1903,11 @@ pf2e_feats:
     shortdesc: You can use the champion's reaction associated with your cause.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.championDedicationCount"
+        mode: "add"
+        value: 1
   Counter Perform:
     magic_stats:
       focus_pool: 1
@@ -1549,6 +1939,15 @@ pf2e_feats:
     shortdesc: You gain the blessing of the devoted class feature, choosing from the listed blessings or any other to which you have access.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.championDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "divineAlly"
+        prompt: "Select a divine ally."
+        choices: [{"value": "Compendium.pf2e.classfeatures.Item.Blessed Armament"}, {"value": "Compendium.pf2e.classfeatures.Item.Blessed Shield"}, {"value": "Compendium.pf2e.classfeatures.Item.Blessed Swiftness"}]
   Instinct Ability:
     assoc_archetype:
       - Barbarian Archetype
@@ -1562,6 +1961,16 @@ pf2e_feats:
     shortdesc: You gain the instinct ability for the instinct you chose for Barbarian Dedication.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.archetypeFeatCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "furyInstinct"
+        prompt: "Select a 1st-level class feat."
+        choices: {"filter": ["item:level:1", "item:category:class", "item:trait:barbarian", {"not": "item:draconic-arrogance"}], "itemType": "feat"}
+        predicate: ["feature:fury-instinct"]
   Keen Recollection:
     assoc_archetype:
       - Investigator Archetype
@@ -1671,6 +2080,15 @@ pf2e_feats:
     shortdesc: You gain a +10-foot status bonus to your Speed when you're not wearing armor.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.monkDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "FlatModifier"
+        selector: "land-speed"
+        type: "status"
+        value: 10
   Mysterious Breadth:
     assoc_archetype:
       - Oracle Archetype
@@ -1771,6 +2189,19 @@ pf2e_feats:
     traits:
       - archetype
   # Level 10 Archetype Feats
+    rules:
+      - key: "FlatModifier"
+        selector: "all-speeds"
+        type: "status"
+        value: 10
+        slug: "swashbucklers-speed-panache"
+        predicate: ["self:effect:panache"]
+      - key: "FlatModifier"
+        selector: "all-speeds"
+        type: "status"
+        value: 5
+        slug: "swashbucklers-speed-no-panache"
+        predicate: [{"not": "self:effect:panache"}]
   Monk's Flurry:
     assoc_archetype:
       - Monk Archetype
@@ -1784,6 +2215,11 @@ pf2e_feats:
     shortdesc: You gain the Flurry of Blows action. Your fists' power, however, exceeds your conditioning; once you use Flurry of Blows, you can't use it again for 1d4 rounds as your muscles recover.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.monkDedicationCount"
+        mode: "add"
+        value: 1
   Uncanny Dodge:
     assoc_archetype:
       - Rogue Archetype
@@ -1826,6 +2262,11 @@ pf2e_feats:
     shortdesc: Your proficiency ranks for simple weapons and martial weapons increase to expert, and your proficiency rank for advanced weapons increases to trained.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.fighterDedicationCount"
+        mode: "add"
+        value: 1
   Evasiveness (Rogue):
     assoc_archetype:
       - Rogue Archetype
@@ -1966,6 +2407,11 @@ pf2e_feats:
     shortdesc: Your proficiency rank in Fortitude saves increases to master.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.archetypeFeatCount"
+        mode: "add"
+        value: 1
   Master Spotter (Investigator):
     assoc_archetype:
       - Investigator Archetype
@@ -1994,6 +2440,11 @@ pf2e_feats:
     shortdesc: Your proficiency rank in Perception increases to master.
     traits:
       - archetype
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.rangerDedicationCount"
+        mode: "add"
+        value: 1
   Perfection's Path:
     assoc_archetype:
       - Monk Archetype
@@ -2008,6 +2459,14 @@ pf2e_feats:
     traits:
       - archetype
   # Level 18 Archetype Feats
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.monkDedicationCount"
+        mode: "add"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "save"
+        choices: {"config": "saves", "predicate": ["save:{choice|value}:rank:2"]}
   Master Bard Spellcasting:
     assoc_archetype:
       - Bard Archetype

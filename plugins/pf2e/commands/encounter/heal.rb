@@ -3,14 +3,20 @@ module AresMUSH
     class PF2HealPlayerCmd
       include CommandHandler
 
-      attr_accessor :target, :damage
+      attr_accessor :target, :damage, :action
 
+      # `heal <who>=<how much>` or `<how much> <what you did>`. What the healer was doing decides
+      # whether a bonus to healing applies - Robust Health recovers more from Treat Wounds than from a
+      # potion - the same way a kind of damage decides what resists it.
       def parse_args
         args = cmd.parse_args(ArgParser.arg1_equals_arg2)
 
         self.target = trimmed_list_arg(args.arg1)
-        self.damage = integer_arg(args.arg2)
 
+        amount, _, named = args.arg2.to_s.strip.partition(' ')
+
+        self.damage = integer_arg(amount)
+        self.action = named.strip.empty? ? nil : named.strip
       end
 
       def required_args
@@ -32,22 +38,13 @@ module AresMUSH
         # This command does not check to see if players are capable of healing.
         # It may be necessary to lock this command if players are in an encounter.
 
-        ok_char_list = []
-        bad_char_list = []
+        targets = ActiveEffects.targets(client, enactor, self.target)
 
-        target.each do |item|
-          char = ClassTargetFinder.find(item, Character, enactor)
+        return if targets.empty?
 
-          if (char.found?)
-            Pf2eHP.modify_damage(char.target, self.damage, true)
-            ok_char_list << char.target.name
-          else
-            bad_char_list << item
-          end
-        end
-
-        if !(bad_char_list.empty?)
-          client.emit_ooc t('pf2e.bad_value_in_list', :items => 'characters', :list => bad_char_list.sort.join(", "))
+        ok_char_list = targets.map do |holder|
+          Pf2e::Harm.heal(holder, self.damage, Pf2e.circumstances([ self.action ].compact))
+          holder.name
         end
 
         client.emit_success t('pf2e.healing_applied_ok', :list => ok_char_list.sort.join(", "), :amount => self.damage)

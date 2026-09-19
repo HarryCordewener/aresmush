@@ -1,0 +1,16 @@
+<%= header %>
+<%= center("#{title_color}#{title}", 78) %>%xn
+<%= divider %>
+<%= base %>
+<% rows.each do |r| %>
+<%= r %>
+<% end %>
+<% if conditional.any? %>
+<%= divider %>
+<%= "#{title_color}Only in some circumstances%xn" %>
+<% conditional.each do |r| %>
+<%= r %>
+<% end %>
+<%= "%rName what you are doing in the roll to count one, as in %xh%xcroll thievery/pick-a-lock%xn." %>
+<% end %>
+<%= footer %>

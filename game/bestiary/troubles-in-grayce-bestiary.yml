@@ -1,0 +1,472 @@
+---
+"Aezar":
+  pack: "troubles-in-grayce-bestiary"
+  level: 4
+  size: "large"
+  rarity: "unique"
+  traits: ["giant", "humanoid"]
+  ac: 18
+  hp: 75
+  perception: 6
+  saves: {"fortitude": 14, "reflex": 7, "will": 6}
+  abilities: {"cha": -2, "con": 4, "dex": -1, "int": -2, "str": 6, "wis": 0}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 8, "Survival": 6}
+  strikes: [{"name": "Greataxe", "bonus": 14, "damage": [["1d12+8", "slashing", null]], "traits": ["reach-10", "sweep"]}, {"name": "Jaws", "bonus": 14, "damage": [["1d8+8", "piercing", null]], "traits": ["unarmed"], "effects": ["Gluttons Feast", "Grab"]}]
+  actions: [{"name": "Gummy Hands", "type": "passive", "traits": [], "text": "Candies' residue gives Aezar an especially strong grip on her greataxe, which grants her a +2 circumstance bonus to her Reflex DC against attempts to Disarm her."}, {"name": "Tooth Decay", "type": "passive", "traits": [], "text": "Frequent candy consumption has worsened Aezar's already poor dental health. If she takes 10 or more bludgeoning damage from a single attack or effect, she must attempt a DC 25 Fortitude save.%rSuccess Aezar yells in pain but is otherwise unaffected.%rFailure Several of Aezar's teeth break. She takes a –2 penalty to damage with her jaws Strike as well as to Athletics checks made as part of her Grab and Swallow Whole abilities. These penalties last until Aezar is restored to her Hit Point…"}, {"name": "Glutton's Feast", "type": "passive", "traits": [], "text": "If Aezar damages a living creature with her jaws Strike, she gains 1d6 temporary Hit Points for 1 minute%rEffect: Glutton's Feast (Aezar)"}, {"name": "Glutton's Rush", "type": "action", "traits": [], "cost": 2, "text": "Aezar Strides twice and makes a jaws Strike. If she damages a living creature with this Strike, the temporary Hit Points she receives from glutton's feast is increased to 2d6."}, {"name": "Sticky Axe", "type": "reaction", "traits": [], "text": "Trigger Aezar succeeds at a greataxe Strike against a creature%rEffect Aezar's axe has a lingering residue from striking various sweets, and the sticky blade clings to her most recent victim, giving Aezar momentary leverage. Aezar can attempt to reposition or trip the target using the greataxe's reach, even though she doesn't have a free hand.%rAlternatively, she can forgo either maneuver to drag the target toward her gaping mouth, granting her jaws unarmed Strike the agile trait for attacks…"}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Small, (2d4+4) bludgeoning, Rupture 18"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Alendreu":
+  pack: "troubles-in-grayce-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 21
+  hp: 62
+  perception: 9
+  saves: {"fortitude": 13, "reflex": 9, "will": 7}
+  abilities: {"cha": 3, "con": 3, "dex": 1, "int": 2, "str": 4, "wis": 1}
+  speeds: {"land": 25, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 11, "Religion": 9, "Survival": 9}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Orc Necksplitter", "bonus": 13, "damage": [["2d8+6", "slashing", null]], "traits": ["forceful", "magical", "orc", "sweep"]}, {"name": "Claw", "bonus": 12, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}, {"name": "Jaws", "bonus": 12, "damage": [["1d10+6", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet, DC 18 Fortitude"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Chopping Frenzy", "type": "action", "traits": [], "cost": 2, "text": "Requirements Alendreu is wielding an orc necksplitter in each hand%rEffect Alendreu lashes out with both axes. He attempts two Strikes, one with each necksplitter, each using his current multiple attack penalty. Both Strikes must have the same target, and the second strike takes a –2 penalty.%rIf both hit, combine their damage and apply resistances and weaknesses only once, and the target becomes Off-Guard from the fury of the blow until the start of their next turn. This counts as two attacks…"}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains (1+(max(0,floor(@actor.level/2))))d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Whispers", "type": "action", "traits": ["auditory", "linguistic", "occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, or Unconscious creature is within the ghoul's reach%rEffect The ghoul whispers dark thoughts and vile cravings into the creature's ears. The creature must save against the forbidden cravings curse.%rForbidden Cravings (curse) A creature can still eat and drink while sickened by this curse%rSaving Throw DC 21 Will, using the high spell DC for the ghoul's level%rStage 1 carrier with no ill effects (1 day)%rStage 2 2d6 void damage and the target is…"}, {"name": "Grave Knowledge", "type": "passive", "traits": ["occult"], "text": "Frequency once per hour%rEffect The ghoul calls upon knowledge it retains from one creature it has consumed in the past 7 days. The ghoul attempts a skill check using a skill in which the consumed creature was trained (if it's unclear whether the creature was trained, the GM decides). The ghoul is treated as trained and uses the high skill modifier for the ghoul's level (1d20+12). This takes the same amount of actions or time as usual for the check.%rThe ghoul can instead automatically learn…"}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Animated Wardrobe":
+  pack: "troubles-in-grayce-bestiary"
+  level: 4
+  size: "large"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 21
+  hp: 45
+  perception: 10
+  saves: {"fortitude": 13, "reflex": 6, "will": 6}
+  abilities: {"cha": -5, "con": 5, "dex": 0, "int": -5, "str": 4, "wis": 0}
+  speeds: {"land": 15}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12}
+  strikes: [{"name": "Door", "bonus": 12, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["magical"]}, {"name": "Clothes Whip", "bonus": 12, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["disarm", "magical", "nonlethal", "reach-10", "trip"], "effects": ["Clothes Grab"]}]
+  actions: [{"name": "Construct Armor (Hardness  7)", "type": "passive", "traits": [], "text": "Like normal objects, an animated wardrobe has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once an animated wardrobe is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 17."}, {"name": "Clothes Grab", "type": "passive", "traits": [], "text": "A creature hit by the animated wardrobe's clothes whip becomes Grabbed by the animated wardrobe. The creature isn't Immobilized, but it can't move beyond the reach of the wardrobe's clothes whip. A creature can sever the clothes whip with a Strike against AC 15 that deals at least 5 slashing damage. This deals no damage to the animated wardrobe."}]
+"Automatic Butler":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "soulbound"]
+  ac: 18
+  hp: 35
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 7, "will": 9}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 10, "Occultism": 9}
+  resistances: {"bludgeoning": 4, "piercing": 5, "slashing": 4, "spirit": 3}
+  strikes: [{"name": "Fist", "bonus": 11, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "Soul Fragment", "type": "passive", "traits": [], "text": "Like other soulbound constructs, an automatic butler is animated by soul energy, though the donor soul's personality is suppressed in favor of a simple demeanor, either politely helpful or stoically pragmatic. It also has none of that creature's memories. This soul fragment removes the immunity to spirit most constructs have, but because the automatic butler's personality overrides that of the original creature, the butler does have some resistance to spirit damage."}, {"name": "Right This Way", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler attempts to usher a creature along while removing their coat. The automatic butler attempts an Athletics check to reposition a Large or smaller creature within reach. On a success, the target is also Clumsy 1 (Clumsy 2 on a critical success) as the automatic butler pulls at some part of their clothing or gear. The target can remove this condition by taking an Interact action."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Light", "Prestidigitation", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Alarm"], "2": ["Mending"]}}]
+"Barrow Claw Leshy":
+  pack: "troubles-in-grayce-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["fungus", "leshy"]
+  ac: 19
+  hp: 30
+  perception: 6
+  saves: {"fortitude": 8, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Nature": 6, "Stealth": 8}
+  resistances: {"cold": 3}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Spore Pod", "bonus": 10, "damage": [["1d6+2", "bludgeoning", null]], "traits": [], "range": 30, "effects": ["Spores"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Verdant Burst", "type": "passive", "traits": ["healing", "primal", "vitality"], "text": "When a fungus leshy dies, a burst of primal energy explodes from its body, restoring 2d8 healing Hit Points to each fungi creature in a 30-foot. This area is filled with fungi, becoming difficult terrain.%rIf the terrain is not a viable environment for this fungi, they wither after 24 hours."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The fungus leshy transforms into a giant mushroom or patch of fungi. This ability otherwise uses the effects of One with Plants."}, {"name": "Spore Cloud", "type": "action", "traits": ["poison"], "cost": 2, "text": "A fungus leshy can unleash a cloud of spores that irritates the eyes and throats of non-fungus creatures in a 15-foot. Each creature must succeed at a DC 16 Fortitude save or take 1 persistent poison|options:area-damage damage.%rA creature has its vision reduced as long as the persistent damage continues and can see only within 20 feet."}, {"name": "Spores", "type": "passive", "traits": [], "text": "A creature that takes damage from a fungus leshy's spore pod Strike must attempt a saving throw with the same DC (DC 16 Fortitude) and effect as its Spore Cloud ability"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 16, "attack": 8, "spells": {"3": ["Speak with Plants (Constant, Fungi Only)"]}}]
+"Bitter Butler":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "soulbound"]
+  ac: 18
+  hp: 35
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 7, "will": 9}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 10, "Occultism": 9}
+  resistances: {"bludgeoning": 4, "piercing": 5, "slashing": 4, "spirit": 3}
+  strikes: [{"name": "Fist", "bonus": 11, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "Bitter Invective", "type": "action", "traits": ["auditory", "concentrate", "emotion", "linguistic", "mental"], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler spews a surprisingly hateful tirade at a creature it can see within 30 feet, who must attempt a DC 20 Will save or become Stupefied 1 (Stupefied 2 on a critical failure). Regardless of the result, the creature is then temporarily immune to this ability for 24 hours."}, {"name": "Soul Fragment", "type": "passive", "traits": [], "text": "Like other soulbound constructs, an automatic butler is animated by soul energy, though the donor soul's personality is suppressed in favor of a simple demeanor, either politely helpful or stoically pragmatic. It also has none of that creature's memories. This soul fragment removes the immunity to spirit most constructs have, but because the automatic butler's personality overrides that of the original creature, the butler does have some resistance to spirit damage."}, {"name": "Right This Way", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler attempts to usher a creature along while removing their coat. The automatic butler attempts an Athletics check to reposition a Large or smaller creature within reach. On a success, the target is also Clumsy 1 (Clumsy 2 on a critical success) as the automatic butler pulls at some part of their clothing or gear. The target can remove this condition by taking an Interact action."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Light", "Prestidigitation", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Alarm"], "2": ["Mending"]}}]
+"Bristles":
+  pack: "troubles-in-grayce-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["construct", "mindless"]
+  ac: 20
+  hp: 36
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 11, "will": 9}
+  abilities: {"cha": -5, "con": 0, "dex": 1, "int": -5, "str": 0, "wis": 1}
+  speeds: {"land": 15}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8}
+  strikes: [{"name": "Bristles", "bonus": 10, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "finesse", "magical"], "effects": ["Dust"]}]
+  actions: [{"name": "Construct Armor (Hardness 4)", "type": "passive", "traits": [], "text": "Like normal objects, an animated broom has Hardness. This Hardness reduces any damage it takes by an amount equal to the Hardness. Once an animated broom is reduced to less than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks and reducing its Armor Class to 13."}, {"name": "Dust", "type": "passive", "traits": [], "text": "A creature hit by an animated broom's bristles must succeed at a DC 19 Fortitude save or spend its next action coughing. Even if hit by multiple bristle attacks, the creature has to spend only 1 action coughing to clear the dust out. A creature who doesn't breathe is immune to this effect."}]
+"Carexilia":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 19
+  hp: 42
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 11, "will": 7}
+  abilities: {"cha": 4, "con": 2, "dex": 4, "int": 3, "str": 1, "wis": 0}
+  speeds: {"land": 30, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Deception": 9, "Occultism": 10, "Society": 8, "Stealth": 9, "Thievery": 9}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Shortsword", "bonus": 12, "damage": [["1d6+3", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Jaws", "bonus": 8, "damage": [["1d10+3", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 8, "damage": [["1d6+3", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet. DC 17 Fortitude"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains (1+(max(0,floor(@actor.level/2))))d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Whispers", "type": "action", "traits": ["auditory", "linguistic", "occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, or Unconscious creature is within the ghoul's reach%rEffect The ghoul whispers dark thoughts and vile cravings into the creature's ears. The creature must save against the forbidden cravings curse.%rForbidden Cravings (curse) A creature can still eat and drink while sickened by this curse%rSaving Throw DC 20 Will, using the high spell DC for the ghoul's level%rStage 1 carrier with no ill effects (1 day)%rStage 2 2d6 void damage and the target is…"}, {"name": "Grave Knowledge", "type": "passive", "traits": ["occult"], "text": "Frequency once per hour%rEffect The ghoul calls upon knowledge it retains from one creature it has consumed in the past 7 days. The ghoul attempts a skill check using a skill in which the consumed creature was trained (if it's unclear whether the creature was trained, the GM decides). The ghoul is treated as trained and uses the high skill modifier for the ghoul's level (1d20+10). This takes the same amount of actions or time as usual for the check.%rThe ghoul can instead automatically learn…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Carexilia deals an additional 1d6 precision damage to Off-Guard creatures."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Void Warp"], "1": ["Grim Tendrils"], "2": ["Darkness"]}}]
+"Cruel Automatic Butler":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "soulbound"]
+  ac: 18
+  hp: 35
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 7, "will": 9}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 10, "Occultism": 9}
+  resistances: {"bludgeoning": 4, "piercing": 5, "slashing": 4, "spirit": 3}
+  strikes: [{"name": "Fist", "bonus": 11, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "Soul Fragment", "type": "passive", "traits": [], "text": "Like other soulbound constructs, an automatic butler is animated by soul energy, though the donor soul's personality is suppressed in favor of a simple demeanor, either politely helpful or stoically pragmatic. It also has none of that creature's memories. This soul fragment removes the immunity to spirit most constructs have, but because the automatic butler's personality overrides that of the original creature, the butler does have some resistance to spirit damage."}, {"name": "Cruel Bash", "type": "action", "traits": ["press"], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler makes a fist Strike. If it hits, it deals an additional 2d6 bludgeoning damage. This counts as two attacks for the automatic butler's multiple attack penalty."}, {"name": "Right This Way", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler attempts to usher a creature along while removing their coat. The automatic butler attempts an Athletics check to reposition a Large or smaller creature within reach. On a success, the target is also Clumsy 1 (Clumsy 2 on a critical success) as the automatic butler pulls at some part of their clothing or gear. The target can remove this condition by taking an Interact action."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Light", "Prestidigitation", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Alarm"], "2": ["Mending"]}}]
+"Crumbrunk":
+  pack: "troubles-in-grayce-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "common"
+  traits: ["fey", "gremlin"]
+  ac: 15
+  hp: 19
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 10, "will": 7}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 2, "str": -2, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Crafting": 5, "Deception": 5, "Nature": 5, "Stealth": 7, "Thievery": 7}
+  weaknesses: {"cold-iron": 2}
+  strikes: [{"name": "Shortsword", "bonus": 9, "damage": [["1d6-2", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Blowgun", "bonus": 9, "damage": [["1", "piercing", null]], "traits": ["agile", "nonlethal", "reload-1"], "range": 20, "effects": ["Giant Viper Venom"]}]
+  actions: [{"name": "Giant Viper Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 17 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage (1 round)%rStage 2 1d6 poison damage and Drained 1 (1 round)"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The jinkin deals 1d6 extra precision damage to Off-Guard creatures."}, {"name": "Tinker", "type": "passive", "traits": ["curse", "primal"], "text": "A group of six jinkins can work together for an hour to imbue an item with a curse at a range of 60 feet. While this process is lengthy, it's also unobtrusive and can be performed while Hiding. Jinkins prefer to use this ability on magic items. The curse makes the item unreliable (DC 5 Flat check or waste any action to Interact with or Activate the item), adds a bizarre requirement to use the item, or imparts some other curse of a similar caliber."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Prestidigitation"]}}]
+"Damarys":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["changeling", "human", "humanoid"]
+  ac: 19
+  hp: 45
+  perception: 11
+  saves: {"fortitude": 7, "reflex": 8, "will": 11}
+  abilities: {"cha": 4, "con": 1, "dex": 3, "int": 4, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Deception": 9, "Intimidation": 11, "Medicine": 9, "Nature": 9, "Occultism": 11, "Stealth": 8, "Survival": 9}
+  resistances: {"cold": 3}
+  strikes: [{"name": "Claws", "bonus": 10, "damage": [["1d4+4", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Staff", "bonus": 9, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["two-hand-d8"]}, {"name": "Dagger", "bonus": 10, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 21, "attack": 12, "spells": {"0": ["Daze", "Detect Magic", "Prestidigitation", "Shield", "Telekinetic Projectile"], "1": ["Bane", "Fear", "Force Barrage", "Ill Omen"], "2": ["Blood Vendetta", "Stupefy", "Telekinetic Maneuver"]}}]
+"Durtik":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "small"
+  rarity: "common"
+  traits: ["fey", "gremlin"]
+  ac: 18
+  hp: 42
+  perception: 9
+  saves: {"fortitude": 6, "reflex": 9, "will": 12}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": 5, "str": 3, "wis": -1}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Crafting": 10, "Deception": 7, "Intimidation": 7, "Thievery": 9, "Engineering Lore": 10}
+  weaknesses: {"cold-iron": 3}
+  strikes: [{"name": "Shortbow", "bonus": 12, "damage": [["1d6+3", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}, {"name": "Shortsword", "bonus": 12, "damage": [["1d6+5", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Fist", "bonus": 12, "damage": [["1d4+5", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Highly Confusing Scheme", "type": "action", "traits": ["auditory", "concentrate", "linguistic", "mental"], "cost": 1, "text": "The durtik provides so much detail about their confusing scheme that it overwhelms their target. The durtik attempts a Deception check to feint against an opponent up to 30 feet away. If they succeed, the Off-Guard penalty applies when the durtik or any construct it controls with Mechanized Animus makes a melee or ranged Strike."}, {"name": "Mechanized Animus", "type": "action", "traits": ["concentrate", "incapacitation", "magical"], "cost": 2, "text": "The durtik channels their antipathy and disdain for others into a construct within 60 feet, seizing control or making it come to life. The durtik attempts a Crafting check against the construct's Will DC or its controller's (if any) Will DC, whichever is higher. The durtik can't use Mechanized Animus again for 1d4 rounds.%rCritical Success The construct immediately takes two basic actions of the durtik's choosing and is then Stunned 2.%rSuccess The construct immediately takes one basic action…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The durtik's Strikes deal an additional 1d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Live Wire"], "1": ["Grease", "Mending"]}}]
+"Ecaterina Tache":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["elf", "humanoid"]
+  ac: 18
+  hp: 40
+  perception: 12
+  saves: {"fortitude": 5, "reflex": 10, "will": 12}
+  abilities: {"cha": 0, "con": 0, "dex": 3, "int": 4, "str": 1, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 9, "Crafting": 12, "Diplomacy": 12, "Intimidation": 13, "Society": 12, "Engineering Lore": 13, "Mining Lore": 11}
+  strikes: [{"name": "Fist", "bonus": 12, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Hazard Finder", "type": "passive", "traits": [], "text": "Ecaterina gains a +1 circumstance bonus to Perception checks to find traps or environmental hazards (but not to finding haunts), to AC against attacks made by traps, and to saves against traps."}, {"name": "Perception +15 to Seek or Search", "type": "passive", "traits": []}, {"name": "Last Second Warning", "type": "reaction", "traits": ["auditory", "concentrate", "linguistic"], "text": "Trigger A creature Ecaterina can see triggers a hazard%rEffect Ecaterina notices the danger a split-second before it activates and calls out a warning to the creature that triggered it. If that creature can hear and understand her warning, it gains a +1 circumstance bonus to its AC against attacks made by the hazard, and to saves against the triggering hazard."}]
+"Gauntling":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "rare"
+  traits: ["beast", "unholy"]
+  ac: 18
+  hp: 50
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 8, "will": 6}
+  abilities: {"cha": -2, "con": 3, "dex": 2, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 10, "Stealth": 8}
+  immunities: ["death-effects", "disease"]
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d8+6", "piercing", null]], "traits": ["unarmed"], "effects": ["Soul Ravage"]}]
+  actions: [{"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "20 feet DC 15 Will"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Jaws"}, {"name": "Soul Ravage", "type": "passive", "traits": ["curse", "divine"], "text": "A gauntling's fangs carry with them a potent curse that eagerly seeps into living flesh. The first time in a round that a creature takes damage from a gauntling's jaws Strike, they must attempt a DC 18 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature becomes Sickened 1.%rFailure The creature becomes Sickened 2 and can't reduce its sickened value below 1 for 1 minute.%rCritical Failure As failure, but for 1 hour. A creature that dies while under this curse's…"}]
+"Genevye":
+  pack: "troubles-in-grayce-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 21
+  hp: 70
+  perception: 12
+  saves: {"fortitude": 11, "reflex": 10, "will": 14}
+  abilities: {"cha": 3, "con": 2, "dex": 2, "int": -5, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 10, "Deception": 11, "Religion": 14, "Stealth": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Longsword", "bonus": 8, "damage": [["1d8+8", "slashing", null]], "traits": ["versatile-p"]}]
+  actions: [{"name": "Final Blasphemy", "type": "passive", "traits": ["divine", "void"], "text": "When the herexen is destroyed, it explodes in a wave of void energy with the effects of a 3-action Harm spell (DC 22 Fortitude).%rThe herexen is destroyed, so it doesn't gain any Hit Points from this use of harm , and it doesn't need to have any harm spells remaining to use this ability"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Heretic's Smite", "type": "passive", "traits": ["divine", "unholy"], "text": "While wielding a longsword, Genevye's Strikes deal an additional 1d6 spirit damage to creatures with the holy trait."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 22, "attack": 14, "spells": {"1": ["Harm"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 22, "attack": 14, "spells": {"1": ["Weapon Surge"]}}]
+"Krethark":
+  pack: "troubles-in-grayce-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 21
+  hp: 60
+  perception: 9
+  saves: {"fortitude": 13, "reflex": 9, "will": 11}
+  abilities: {"cha": 4, "con": 3, "dex": 1, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 9, "Athletics": 12, "Deception": 10, "Intimidation": 12, "Stealth": 9}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Inheritor's Kiss", "bonus": 13, "damage": [["2d8+6", "slashing", null]], "traits": ["magical", "two-hand-d12"]}, {"name": "Jaws", "bonus": 12, "damage": [["2d8+6", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 12, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "10 feet, DC 18 Fortitude"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains (1+(max(0,floor(@actor.level/2))))d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Frightful Snarl", "type": "action", "traits": ["concentrate", "emotion", "fear", "mental", "visual"], "cost": 1, "text": "Krethark snarls and glares at a creature within 30 feet that he can see, and then attempts to demoralize that creature; he doesn't take a penalty if the creature doesn't understand his language. A creature that becomes frightened by Frightful Snarl is Off-Guard until the start of their turn."}, {"name": "Ghoul Whispers", "type": "action", "traits": ["auditory", "linguistic", "occult"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, or Unconscious creature is within the ghoul's reach%rEffect The ghoul whispers dark thoughts and vile cravings into the creature's ears. The creature must save against the forbidden cravings curse.%rForbidden Cravings (curse) A creature can still eat and drink while sickened by this curse%rSaving Throw DC 21 Will, using the high spell DC for the ghoul's level%rStage 1 carrier with no ill effects (1 day)%rStage 2 2d6 void damage and the target is…"}, {"name": "Grave Knowledge", "type": "passive", "traits": ["occult"], "text": "Frequency once per hour%rEffect The ghoul calls upon knowledge it retains from one creature it has consumed in the past 7 days. The ghoul attempts a skill check using a skill in which the consumed creature was trained (if it's unclear whether the creature was trained, the GM decides). The ghoul is treated as trained and uses the high skill modifier for the ghoul's level (1d20+12). This takes the same amount of actions or time as usual for the check.%rThe ghoul can instead automatically learn…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Krethark deals 1d6 extra precision damage to Off-Guard creatures."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Path River Peeler":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["beast", "shadow"]
+  ac: 18
+  hp: 55
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 11, "will": 6}
+  abilities: {"cha": -1, "con": 2, "dex": 4, "int": -3, "str": 3, "wis": 1}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["echolocation", "low-light-vision"]
+  skills: {"Acrobatics": 10, "Athletics": 9, "Stealth": 12}
+  resistances: {"cold": 5}
+  strikes: [{"name": "Claw", "bonus": 10, "damage": [["1d8+5", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Echolocation", "type": "passive", "traits": [], "text": "The Path River Peeler can use its hearing as a precise sense at the listed range."}, {"name": "Flight Response", "type": "reaction", "traits": [], "text": "Trigger The Path River Peeler gains the Frightened condition or its frightened condition increases%rEffect The Peeler Strides or Climbs up to its Speed. The Peeler gains a +2 circumstance bonus to AC against reactions triggered by this movement."}, {"name": "Sensitive Ears", "type": "passive", "traits": [], "text": "The Path River Peeler's oversized ears make it particularly sensitive to loud noises. A creature that attempts to Demoralize the Peeler by shouting, banging on a shield, or similar tactic ignores the usual –4 circumstance penalty for not sharing a language with the Peeler. Whenever the Peeler takes sonic damage, it must succeed at a DC 16 Will saving throw or be Frightened 1 (or Frightened 2 on a critical failure)."}, {"name": "Blood Run Cold", "type": "action", "traits": ["cold", "concentrate", "manipulate", "occult"], "cost": 2, "text": "The Path River Peeler extends a bony finger at a creature it can see within 60 feet, draining heat from the creature's body and sapping the strength from their muscles. The creature takes 4d6 cold damage with a DC 20 Will save. On a failure, the creature is also Enfeebled 1 for 10 minutes (or Enfeebled 2 for an hour on a critical failure). The Peeler can't use Blood Run Cold again for 1d4 rounds."}, {"name": "Otherworldly Cry", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 1, "text": "The Path River Peeler makes an eerie, spine-tingling vocalization that can be heard up to a mile away. Each creature in a 60-foot emanation must attempt a DC 20 Will save. Regardless of the result, a creature is temporarily immune to the Peeler's Otherworldly Cry for 10 minutes.%rCritical Success The creature is unaffected.%rSuccess The creature is Frightened 1.%rFailure The creature is Frightened 2.%rCritical Failure The creature is Frightened 3 and Fleeing for 1 round."}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Claw"}]
+"Sangrist":
+  pack: "troubles-in-grayce-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "undead", "unholy"]
+  ac: 17
+  hp: 30
+  perception: 11
+  saves: {"fortitude": 5, "reflex": 11, "will": 8}
+  abilities: {"cha": 1, "con": 1, "dex": 4, "int": -1, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 6, "Stealth": 8, "Survival": 7}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Claw", "bonus": 9, "damage": [["1d6+2", "slashing", null], ["1d4", "bleed", "persistent"]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Blood Scent", "type": "passive", "traits": [], "text": "A sangrist can detect creatures taking persistent bleed damage as an imprecise sense at the listed range."}, {"name": "Blood Vigor", "type": "passive", "traits": [], "text": "While adjacent to a creature taking persistent bleed damage, the sangrist gains fast healing 3 and is Quickened until the start of its next turn. The sangrist can use its extra action only to Step or Stride."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Bloodletter", "type": "passive", "traits": [], "text": "A sangrist intuitively exacerbates open cuts on living creatures with its attacks. The sangrint's claw Strikes deal an additional 1 precision damage to living creatures taking persistent bleed damage."}]
+"Shiverscale Kobold":
+  pack: "troubles-in-grayce-bestiary"
+  level: 0
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 18
+  hp: 15
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 9, "will": 5}
+  abilities: {"cha": 1, "con": -1, "dex": 3, "int": 0, "str": 1, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Crafting": 4, "Stealth": 7}
+  resistances: {"cold": 3}
+  strikes: [{"name": "Crossbow", "bonus": 7, "damage": [["1d8+2", "piercing", null]], "traits": ["reload-1"], "range": 120}, {"name": "Shortsword", "bonus": 7, "damage": [["1d6+3", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}]
+  actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "Requirements The kobold warrior is adjacent to at least one enemy%rEffect The kobold warrior Strides up to their Speed plus 5 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. They must end this movement in a space that's not adjacent to any enemy."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Shiverscale kobold deals an extra 1d4 precision damage to Off-Guard creatures."}]
+"Sticky Toffee Hound":
+  pack: "troubles-in-grayce-bestiary"
+  level: 2
+  size: "small"
+  rarity: "rare"
+  traits: ["ooze"]
+  ac: 12
+  hp: 60
+  perception: 6
+  saves: {"fortitude": 11, "reflex": 4, "will": 6}
+  abilities: {"cha": -4, "con": 5, "dex": 0, "int": -4, "str": 3, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["low-light-vision", "motion-sense", "scent"]
+  skills: {"Athletics": 8, "Survival": 6}
+  immunities: ["critical-hits", "precision", "sonic", "unconscious"]
+  weaknesses: {"cold-iron": 5, "fire": 5, "slashing": 5}
+  resistances: {"bludgeoning": 5, "cold": 5, "piercing": 5}
+  strikes: [{"name": "Headbutt", "bonus": 9, "damage": [["1d10+3", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Toffee Sauce"]}, {"name": "Jaws", "bonus": 9, "damage": [["1d8+3", "piercing", null]], "traits": ["agile", "unarmed"]}, {"name": "Spit Dates", "bonus": 8, "damage": [["2d6", "bludgeoning", null]], "traits": [], "range": 30}]
+  actions: [{"name": "Motion Sense", "type": "passive", "traits": [], "text": "A sticky toffee hound can sense nearby creatures through vibration and air movement."}, {"name": "Overcooked", "type": "reaction", "traits": [], "text": "Trigger The sticky toffee hound is reduced to 0 hit points by any method other than its water soluble weakness%rEffect The sticky toffee hound explodes, dealing 1d4 bludgeoning,1d4 fire|options:area-damage damage in a 15-foot emanation with a DC 15 Reflex save."}, {"name": "Water Soluble", "type": "passive", "traits": [], "text": "When exposed to at least 1 bulk of water, or a spell or effect with the water trait (even one that normally doesn't do any damage), the sticky toffee hound takes 10 acid damage as the sugar that makes up their body melts away, in addition to any damage that would normally be applied."}, {"name": "Sticky Paws", "type": "passive", "traits": [], "text": "A sweet residue cakes the tracks left by a sticky toffee hound. A creature Tracking the hound can roll a Cooking Lore or Crafting check instead of a Survival check. The creature can apply any modifiers to this check that involve identifying or preparing food, such as those granted by the Seasoned skill feat or the Supertaster general feat."}, {"name": "Toffee Sauce", "type": "passive", "traits": [], "text": "A creature hit by the sticky toffee hound's headbutt Strike is splattered by the sticky toffee sauce that soaks the creature's body, becoming Clumsy 1 until the end of their next turn. On a critical hit, the creature instead becomes Clumsy 2."}]
+"Studious Butler":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "soulbound"]
+  ac: 18
+  hp: 35
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 7, "will": 9}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 10, "Occultism": 9}
+  resistances: {"bludgeoning": 4, "piercing": 5, "slashing": 4, "spirit": 3}
+  strikes: [{"name": "Fist", "bonus": 11, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "Soul Fragment", "type": "passive", "traits": [], "text": "Like other soulbound constructs, an automatic butler is animated by soul energy, though the donor soul's personality is suppressed in favor of a simple demeanor, either politely helpful or stoically pragmatic. It also has none of that creature's memories. This soul fragment removes the immunity to spirit most constructs have, but because the automatic butler's personality overrides that of the original creature, the butler does have some resistance to spirit damage."}, {"name": "Right This Way", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler attempts to usher a creature along while removing their coat. The automatic butler attempts an Athletics check to reposition a Large or smaller creature within reach. On a success, the target is also Clumsy 1 (Clumsy 2 on a critical success) as the automatic butler pulls at some part of their clothing or gear. The target can remove this condition by taking an Interact action."}, {"name": "Studious Strike", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler learns from its mistakes. If the butler's last action was to attempt a fist Strike that missed (but not critically missed) its target, the butler makes a fist Strike against the same target. The target is Off-Guard to the attack, and on a hit, the butler deals an additional 1d6 precision damage."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Light", "Prestidigitation", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Alarm"], "2": ["Mending"]}}]
+"The Count of Petals":
+  pack: "troubles-in-grayce-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy", "vampire"]
+  ac: 24
+  hp: 65
+  perception: 17
+  saves: {"fortitude": 11, "reflex": 14, "will": 17}
+  abilities: {"cha": 4, "con": 2, "dex": 3, "int": 2, "str": 5, "wis": 4}
+  speeds: {"land": 25, "climb": 25}
+  hp_details: "coffin restoration, fast healing 7, void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 13, "Deception": 14, "Diplomacy": 14, "Intimidation": 16, "Society": 14, "Stealth": 13}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Rapier", "bonus": 17, "damage": [["2d6+11", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse", "magical"]}, {"name": "Claw", "bonus": 17, "damage": [["1d8+8", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Children of the Night", "type": "passive", "traits": ["divine", "mental"], "text": "The vampire's presence brings forth creatures of the night to do the master's bidding. These typically include Rat Swarms, Bat Swarms, and Wolves, but can include other creatures.%rThe vampire can give telepathic orders to these creatures as long as they are within 100 feet, but they can't communicate back."}, {"name": "Fast Healing 7", "type": "passive", "traits": []}, {"name": "Coffin Restoration", "type": "passive", "traits": ["divine", "void"], "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, it falls Unconscious. If its body rests in its coffin for 1 hour, the vampire gains 1 HP, after which its fast healing begins to function normally."}, {"name": "Mist Escape", "type": "free", "traits": [], "text": "Trigger The Count of Petals is reduced to 0 HP%rEffect The Count of Petals uses Turn to Mist. He can take move actions to move toward his coffin even though he's at 0 HP. While at 0 HP in this form, the Count is unaffected by further damage. He automatically returns to his corporeal form, Unconscious, if he reaches his coffin or after 2 hours, whichever comes first."}, {"name": "Vampire Vulnerabilities", "type": "passive", "traits": [], "text": "All vampires possess the following vulnerabilities.%rCompulsions Vampires are creatures with strange and unknowable compulsions. A typical vampire can't voluntarily cross running water unless they're transported while they hide within their coffin, nor can they enter a private dwelling unless invited in by someone with the authority to do so. At your discretion, vampires might have different compulsions—a pirate vampire might not be able to set foot on solid ground without being invited, for…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The vampire transforms into one of its animal forms or back into its normal form. Most vampires can turn into a bat, but some can turn into a different creature, such as a rat or a wolf.%rGiant Bat Senses echolocation 40 feet, Speed 20 feet, fly 30 feet, Melee fangs +15 Damage 1d8+9 piercing"}, {"name": "Create Servitor", "type": "passive", "traits": ["divine", "downtime"], "text": "If a creature dies after being reduced to 0 HP by Drink Blood, the Count of Petals can turn this victim into a vampire servitor by donating some of his own blood to the victim and burying them in earth for 3 nights. A vampiric servitor is compelled to obey its creator, but if the Count of Petals controls too many vampiric servitors at once (as determined by the GM), or if the servitor is a higher level than the vampire that created it, strong-willed servitors can free themselves by succeeding…"}, {"name": "Dominate", "type": "action", "traits": ["divine", "incapacitation", "mental", "visual"], "cost": 2, "text": "The Count of Petals can cast Dominate at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait. The save DC for this ability is 22, and a creature that succeeds is temporarily immune to his Dominate for 24 hours. Fully destroying the Count of Petals ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell."}, {"name": "Drink Blood", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirement A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the vampire's reach.%rEffect The vampire sinks its fangs into that creature to drink its blood. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions.%rThe victim is Drained 2 and the vampire regains 10 HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't restore…"}, {"name": "Soporific Stench", "type": "action", "traits": ["aura", "incapacitation", "olfactory"], "cost": 2, "text": "10 feet. For 3 rounds, the Count of Petals reeks of the perfumed sweetness of spoiled flowers, which makes others sluggish and confused. A creature entering the aura or starting its turn in the aura must attempt a DC 22 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature is Stupefied 1.%rFailure The creature is Stupefied 2%rCritical Failure The creature is Stupefied 3 and Slowed 1."}, {"name": "Turn to Mist", "type": "action", "traits": ["air", "concentrate", "divine", "polymorph"], "cost": 1, "text": "The Count of Petals turns into a cloud of vapor, as the Vapor Form spell, or back to his normal form. He loses fast healing while turned to mist. The count can remain in this form indefinitely."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"The Dig Beast":
+  pack: "troubles-in-grayce-bestiary"
+  level: 2
+  size: "large"
+  rarity: "unique"
+  traits: ["construct", "mindless"]
+  ac: 15
+  hp: 50
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 5, "will": 5}
+  abilities: {"cha": -5, "con": 3, "dex": 0, "int": -5, "str": 4, "wis": 0}
+  speeds: {"land": 20}
+  skills: {"Athletics": 11}
+  strikes: [{"name": "Shovel Teeth", "bonus": 11, "damage": [["1d8+4", "slashing", null]], "traits": []}]
+  actions: [{"name": "Wild Curse", "type": "passive", "traits": ["curse", "magical"], "text": "The Dig Beast is loaded with cursed energy but also is hard to control. At the start of its turn, roll 1d6 #Wild Curse. On a 1–2 it is Slowed 1 until end of its turn, on a 3–4 it is neither slowed nor Quickened (unless from another effect), and on a 5–6 it is quickened until the end of its turn."}, {"name": "Crashing Ram", "type": "action", "traits": [], "cost": 2, "text": "The Dig Beast rushes at a target and crashes into it. The Dig Beast strides twice and performs a shovel teeth attack against each adjacent target. These attacks count against its multiple attack penalty, but the multiple attack penalty doesn't increase until after all the attacks."}]
+"Whimsical Butler":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "soulbound"]
+  ac: 18
+  hp: 35
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 7, "will": 9}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 10, "Occultism": 9}
+  resistances: {"bludgeoning": 4, "piercing": 5, "slashing": 4, "spirit": 3}
+  strikes: [{"name": "Fist", "bonus": 11, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "Soul Fragment", "type": "passive", "traits": [], "text": "Like other soulbound constructs, an automatic butler is animated by soul energy, though the donor soul's personality is suppressed in favor of a simple demeanor, either politely helpful or stoically pragmatic. It also has none of that creature's memories. This soul fragment removes the immunity to spirit most constructs have, but because the automatic butler's personality overrides that of the original creature, the butler does have some resistance to spirit damage."}, {"name": "Right This Way", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler attempts to usher a creature along while removing their coat. The automatic butler attempts an Athletics check to reposition a Large or smaller creature within reach. On a success, the target is also Clumsy 1 (Clumsy 2 on a critical success) as the automatic butler pulls at some part of their clothing or gear. The target can remove this condition by taking an Interact action."}, {"name": "Whimsical Twirl", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The automatic butler Strides up to its speed without triggering reactions. Any creature adjacent to the butler at the end of this movement must succeed at a DC 20 Reflex save or be Off-Guard until the beginning of the butler's next turn."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Light", "Prestidigitation", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Alarm"], "2": ["Mending"]}}]
+"Zini":
+  pack: "troubles-in-grayce-bestiary"
+  level: 1
+  size: "small"
+  rarity: "unique"
+  traits: ["goblin", "humanoid"]
+  ac: 17
+  hp: 18
+  perception: 5
+  saves: {"fortitude": 7, "reflex": 8, "will": 5}
+  abilities: {"cha": 2, "con": 2, "dex": 3, "int": -1, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 6, "Athletics": 6, "Deception": 5, "Stealth": 6, "Survival": 5}
+  strikes: [{"name": "Dogslicer", "bonus": 8, "damage": [["1d6+3", "slashing", null]], "traits": ["agile", "backstabber", "finesse"]}, {"name": "Sling", "bonus": 9, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["reload-1"], "range": 50}]
+  actions: [{"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "Trigger A goblin ally ends a move action adjacent to the goblin.%rEffect The goblin commando Steps."}, {"name": "Pent-Up Taunt", "type": "action", "traits": ["auditory", "emotion", "linguistic", "mental"], "cost": 1, "text": "Zini makes fun of either Aezar or Grizzle while she can observe them within 30 feet of her. She attempts a Deception check with a +2 circumstance bonus against the creature's Will DC. Zini cannot use this ability again against that creature until she spends at least 10 minutes thinking about a worthy second insult.%rCritical Success As success, but the target also takes (1d4+2) mental damage.%rSuccess The target is Off-Guard against the next attack an ally attempts against the target before the…"}]
+"Zoti":
+  pack: "troubles-in-grayce-bestiary"
+  level: 1
+  size: "small"
+  rarity: "unique"
+  traits: ["humanoid", "kobold"]
+  ac: 18
+  hp: 25
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 7, "will": 10}
+  abilities: {"cha": 0, "con": -1, "dex": 2, "int": 1, "str": 1, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Crafting": 6, "Nature": 7, "Stealth": 9, "Survival": 9}
+  resistances: {"cold": 3}
+  strikes: [{"name": "Spear", "bonus": 7, "damage": [["1d6+3", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 7, "damage": [["1d6+3", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "Requirements You are wielding a shield.%rYou position your shield to protect yourself. When you have Raised a Shield, you gain its listed circumstance bonus to AC. Your shield remains raised until the start of your next turn."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "Requirements The kobold warrior is adjacent to at least one enemy%rEffect The kobold warrior Strides up to their Speed plus 5 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. They must end this movement in a space that's not adjacent to any enemy."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Zotri deals an extra 1d4 precision damage to Off-Guard creatures."}]
+"Zurkurk":
+  pack: "troubles-in-grayce-bestiary"
+  level: 3
+  size: "small"
+  rarity: "unique"
+  traits: ["humanoid", "kobold"]
+  ac: 18
+  hp: 40
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 8, "will": 9}
+  abilities: {"cha": 4, "con": 0, "dex": 2, "int": 1, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Deception": 10, "Diplomacy": 10, "Intimidation": 10, "Nature": 7, "Occultism": 7, "Stealth": 8}
+  resistances: {"cold": 3}
+  strikes: [{"name": "Staff", "bonus": 8, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["two-hand-d8"]}]
+  actions: [{"name": "Inspiring Display", "type": "action", "traits": ["auditory", "emotion", "linguistic", "mental"], "cost": 1, "text": "Requirements Zurkurk's previous action was to Cast a Spell%rEffect Zurkurk uses his magical display to inspire another kobold within 30 feet. That kobold gains 4 temporary Hit Points that last until the start of Zurkurk's next turn.%rEffect: Inspiring Display"}, {"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "Requirements The kobold cavern mage is adjacent to at least one enemy%rEffect The kobold cavern mage Strides up to their Speed plus 5 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. They must end this movement in a space that's not adjacent to any enemy."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 20, "attack": 12, "spells": {"0": ["Daze", "Figment", "Prestidigitation", "Shield", "Void Warp"], "1": ["Enfeeble", "Fear", "Grim Tendrils", "Protection"], "2": ["Darkness", "Invisibility", "Stupefy"]}}]

@@ -1,0 +1,1435 @@
+---
+"Abysium Horror":
+  pack: "rage-of-elements-bestiary"
+  level: 10
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 29
+  hp: 215
+  perception: 17
+  saves: {"fortitude": 21, "reflex": 19, "will": 17}
+  abilities: {"cha": 3, "con": 5, "dex": 3, "int": 3, "str": 7, "wis": 3}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 23, "Survival": 19}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 10}
+  strikes: [{"name": "Claw", "bonus": 23, "damage": [["2d4", "poison", null], ["2d8+10", "slashing", null]], "traits": ["reach-15", "unarmed"]}, {"name": "Radioactive Shrapnel", "bonus": 23, "damage": [["2d4", "poison", null], ["2d8+7", "piercing", null]], "traits": ["brutal", "propulsive"], "range": 60}]
+  actions: [{"name": "Green Glow", "type": "passive", "traits": ["aura", "poison", "radiation"], "text": "20 feet.%rAn abysium horror constantly emanates a powerful energy toxic to life. This radiation sheds dim light in the area. Any creature beginning its turn in the aura must attempt a DC 27 Fortitude save, becoming Sickened 1 on a failure or Sickened 2 on a critical failure. Once out of the aura, an affected creature's sickened condition automatically decreases by 1 at the beginning of each of its turns."}, {"name": "Heavy", "type": "passive", "traits": [], "text": "As long as it is immobile, the elemental can't be forcibly moved or knocked Prone. If it takes a move action, it loses this immunity until the start of its next turn."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Large or smaller, claw, DC 27 Reflex"}]
+"Anemos":
+  pack: "rage-of-elements-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "rare"
+  traits: ["air", "elemental"]
+  ac: 43
+  hp: 310
+  perception: 33
+  saves: {"fortitude": 29, "reflex": 33, "will": 30}
+  abilities: {"cha": 9, "con": 7, "dex": 9, "int": 6, "str": 4, "wis": 6}
+  speeds: {"land": 25, "fly": 200}
+  hp_details: "regeneration 15 (deactivated by earthbane)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 38, "Arcana": 31, "Nature": 33, "Occultism": 31, "Performance": 38, "Religion": 31, "Stealth": 36, "Survival": 33, "Planar Lore": 33}
+  immunities: ["bleed", "electricity", "paralyzed", "poison", "sleep"]
+  resistances: {"cold": 20}
+  strikes: [{"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+12", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical"]}, {"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+10", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical", "thrown-30"]}, {"name": "Air Blast", "bonus": 35, "damage": [["3d10+12", "bludgeoning", null]], "traits": ["agile", "air", "magical"]}]
+  actions: [{"name": "Truespeech", "type": "passive", "traits": [], "text": "An anemos can speak with and understand any creature that has a language."}, {"name": "Wind Orchestra", "type": "passive", "traits": ["air", "auditory"], "text": "An anemos does not require instruments to perform music, instead using their winds to create and carry the sounds of any instruments they wish to duplicate. They can mimic any number of instruments simultaneously, creating and directing their own personal orchestra."}, {"name": "Regeneration 15 (Deactivated by Earthbane)", "type": "passive", "traits": []}, {"name": "Blessed by the Winds", "type": "passive", "traits": ["air", "aura"], "text": "80 feet. The winds grow turbulent for those who would dare to fly in the same space as an anemos, but they take care to never harm or inconvenience their shepherd. Air within the emanation is difficult terrain for Flying creatures that do not have the air trait. While the aura is active, the anemos cannot be affected by environmental air or weather affects unless they choose to be."}, {"name": "Earthbane", "type": "passive", "traits": [], "text": "An anemos's regeneration is suppressed for 1 round if the anemos is affected by an earth effect, or for as long as they are in contact with the ground and 1 round thereafter. If an anemos is submerged in at least 1 inch of mud, dirt, or stone, the anemos's aura deactivates, and the anemos becomes Stunned 2 and Clumsy 2."}, {"name": "Redirect Weather", "type": "reaction", "traits": ["divine"], "text": "Requirements The anemos's aura is active%rTrigger A creature within the anemos's aura uses an air or electricity spell, or an air or electricity spell otherwise comes into effect within the anemos's aura%rEffect The winds and weather of the spell obey the anemos's call. The anemos makes all the choices to determine the targets, destination, or other effects of the spell, as though they were the caster."}, {"name": "Collect Thunder", "type": "free", "traits": ["electricity", "manipulate"], "text": "Requirements The anemos has a hand free%rEffect The anemos runs a hand through the winds that swirl around them, the sparks from their fingertips coalescing into a thunderbolt. The anemos creates a thunderbolt in their open hand. If the anemos spends an action to Collect Thunder, a bolt instead strikes their open hand, creating a booming peal that deafens all creatures within 20 feet for 1 round unless they succeed at a DC 40 Fortitude save; this adds the auditory trait to Collect Thunder. Any…"}, {"name": "Command the Breeze", "type": "passive", "traits": [], "text": "When an anemos casts a ritual, they perform all aspects of the ritual themself, commanding their winds to complete all the ritual's components. They must fulfill any requirements for the ritual's additional casters and must attempt the checks normally performed by additional casters. In addition, anemoi can cast rituals faster than usual. If a ritual has a casting time measured in days, they can cast it in an equal number of hours."}, {"name": "Storm Strikes Twice", "type": "action", "traits": ["air", "teleportation"], "cost": 2, "text": "The anemos throws a thunderbolt, then becomes a wind that carries them in an instant to the bolt's location to attack again. They make a ranged thunderbolt Strike against a creature within their first range increment, teleport to the creature's location as a gust of wind, then grasp the thrown thunderbolt and make a melee thunderbolt Strike against a creature within reach. Their multiple attack penalty doesn't increase until they've made both attacks."}, {"name": "Swiftness", "type": "passive", "traits": [], "text": "The anemos's movement doesn't trigger reactions."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 40, "attack": 32, "spells": {"1": ["Air Bubble (At Will)"], "4": ["Airlift (At Will)", "Vapor Form (At Will)", "Voice on the Breeze (At Will)"], "7": ["Humanoid Form (At Will)"], "9": ["Cleanse Air"]}}]
+"Ardande Gardener":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["ardande", "human", "humanoid"]
+  ac: 16
+  hp: 17
+  perception: 7
+  saves: {"fortitude": 4, "reflex": 6, "will": 9}
+  abilities: {"cha": 0, "con": 1, "dex": 3, "int": 1, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 3, "Crafting": 6, "Diplomacy": 3, "Nature": 7, "Stealth": 6}
+  strikes: [{"name": "Sickle", "bonus": 6, "damage": [["1d4", "slashing", null]], "traits": ["agile", "finesse", "trip"]}, {"name": "Shortbow", "bonus": 8, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Plant Empathy", "type": "passive", "traits": [], "text": "The ardande gardener can use Diplomacy to make-an-impression and make very simple Requests of plants."}, {"name": "Decompose", "type": "action", "traits": ["primal", "void"], "cost": 2, "text": "Frequency once per day%rEffect Void energy seeps out of the ardande gardener, decaying everything within a 5-foot and causing plants and foliage to age and decompose. Natural difficult terrain is destroyed, and creatures in the area with the plant or wood trait take 1d6 void|options:area-damage damage (DC 16 Fortitude)."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Detect Magic", "Know the Way", "Take Root", "Tangle Vine", "Timber"], "1": ["Heal", "Tailwind", "Wall of Shrubs"]}}]
+"Asp of Grief":
+  pack: "rage-of-elements-bestiary"
+  level: 10
+  size: "small"
+  rarity: "common"
+  traits: ["beast", "elemental", "metal"]
+  ac: 31
+  hp: 150
+  perception: 21
+  saves: {"fortitude": 15, "reflex": 21, "will": 21}
+  abilities: {"cha": 3, "con": 3, "dex": 7, "int": 7, "str": 4, "wis": 5}
+  speeds: {"land": 20, "fly": 50}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 21, "Arcana": 21, "Nature": 19, "Survival": 21, "Psychology Lore": 19}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["2d12+10", "piercing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Magnetic Vision", "type": "passive", "traits": [], "text": "An asp of grief can see magnetic fields, allowing it to detect large sources of magnetic metal (Bulk 1 or greater) as a precise sense."}, {"name": "+1 Status to All Saves vs. Emotion", "type": "passive", "traits": []}, {"name": "Curtain of Calm", "type": "passive", "traits": ["arcane", "aura", "emotion", "mental"], "text": "20 feet. The asp of grief consumes the emotions of the creatures around it. An enemy that begins its turn in the aura must attempt a DC 29 Will save. If it fails, the asp consumes its grief. The creature feels a lack of feelings and motivation, reducing its frightened value by 1 and becoming Stupefied 1 (or Stupefied 2 on a critical failure) for 1d4 rounds. Regardless of the result of the saving throw, the creature is temporarily immune to curtain of calm for 1 minute. The asp becomes charged…"}, {"name": "Iron Grief", "type": "passive", "traits": [], "text": "If the asp casts Magnetic Acceleration while charged with grief, it can either heighten the spell to 5th rank or target up to three creatures instead of one, rolling separately against each. After casting the spell, the asp is no longer charged with grief."}, {"name": "Magnetic Traveler", "type": "passive", "traits": [], "text": "An asp can ride magnetic fields to travel long distances. In a location with strong magnetic fields (including the Plane of Metal and Golarion), its travel Speed is doubled if it's flying."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 29, "attack": 0, "spells": {"0": ["Detect Magic", "Read Aura"], "3": ["Magnetic Acceleration (At Will; See Iron Grief)"], "5": ["Magnetic Attraction", "Magnetic Repulsion"]}}]
+"Austral, The South Wind":
+  pack: "rage-of-elements-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "unique"
+  traits: ["air", "elemental"]
+  ac: 43
+  hp: 310
+  perception: 33
+  saves: {"fortitude": 29, "reflex": 33, "will": 30}
+  abilities: {"cha": 9, "con": 7, "dex": 9, "int": 6, "str": 4, "wis": 6}
+  speeds: {"land": 25, "fly": 200}
+  hp_details: "regeneration 15 (deactivated by earthbane)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 38, "Arcana": 31, "Nature": 33, "Occultism": 31, "Performance": 38, "Religion": 31, "Stealth": 36, "Survival": 33, "Planar Lore": 33}
+  immunities: ["bleed", "electricity", "paralyzed", "poison", "sleep"]
+  resistances: {"cold": 20}
+  strikes: [{"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+12", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical"]}, {"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+10", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical", "thrown-30"]}, {"name": "Air Blast", "bonus": 35, "damage": [["3d10+12", "bludgeoning", null]], "traits": ["agile", "air", "magical"]}]
+  actions: [{"name": "Truespeech", "type": "passive", "traits": [], "text": "An anemos can speak with and understand any creature that has a language."}, {"name": "Wind Orchestra", "type": "passive", "traits": ["air", "auditory"], "text": "An anemos does not require instruments to perform music, instead using their winds to create and carry the sounds of any instruments they wish to duplicate. They can mimic any number of instruments simultaneously, creating and directing their own personal orchestra."}, {"name": "Regeneration 15 (Deactivated by Earthbane)", "type": "passive", "traits": []}, {"name": "Blessed by the Winds", "type": "passive", "traits": ["air", "aura"], "text": "80 feet. The winds grow turbulent for those who would dare to fly in the same space as an anemos, but they take care to never harm or inconvenience their shepherd. Air within the emanation is difficult terrain for Flying creatures that do not have the air trait. While the aura is active, the anemos cannot be affected by environmental air or weather affects unless they choose to be."}, {"name": "Earthbane", "type": "passive", "traits": [], "text": "An anemos's regeneration is suppressed for 1 round if the anemos is affected by an earth effect, or for as long as they are in contact with the ground and 1 round thereafter. If an anemos is submerged in at least 1 inch of mud, dirt, or stone, the anemos's aura deactivates, and the anemos becomes Stunned 2 and Clumsy 2."}, {"name": "Redirect Weather", "type": "reaction", "traits": ["divine"], "text": "Requirements The anemos's aura is active%rTrigger A creature within the anemos's aura uses an air or electricity spell, or an air or electricity spell otherwise comes into effect within the anemos's aura%rEffect The winds and weather of the spell obey the anemos's call. The anemos makes all the choices to determine the targets, destination, or other effects of the spell, as though they were the caster."}, {"name": "Collect Thunder", "type": "free", "traits": ["electricity", "manipulate"], "text": "Requirements The anemos has a hand free%rEffect The anemos runs a hand through the winds that swirl around them, the sparks from their fingertips coalescing into a thunderbolt. The anemos creates a thunderbolt in their open hand. If the anemos spends an action to Collect Thunder, a bolt instead strikes their open hand, creating a booming peal that deafens all creatures within 20 feet for 1 round unless they succeed at a DC 40 Fortitude save; this adds the auditory trait to Collect Thunder. Any…"}, {"name": "Command the Breeze", "type": "passive", "traits": [], "text": "When an anemos casts a ritual, they perform all aspects of the ritual themself, commanding their winds to complete all the ritual's components. They must fulfill any requirements for the ritual's additional casters and must attempt the checks normally performed by additional casters. In addition, anemoi can cast rituals faster than usual. If a ritual has a casting time measured in days, they can cast it in an equal number of hours."}, {"name": "Storm Strikes Twice", "type": "action", "traits": ["air", "teleportation"], "cost": 2, "text": "The anemos throws a thunderbolt, then becomes a wind that carries them in an instant to the bolt's location to attack again. They make a ranged thunderbolt Strike against a creature within their first range increment, teleport to the creature's location as a gust of wind, then grasp the thrown thunderbolt and make a melee thunderbolt Strike against a creature within reach. Their multiple attack penalty doesn't increase until they've made both attacks."}, {"name": "Swiftness", "type": "passive", "traits": [], "text": "The anemos's movement doesn't trigger reactions."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 40, "attack": 32, "spells": {"1": ["Air Bubble (At Will)"], "4": ["Airlift (At Will)", "Vapor Form (At Will)", "Voice on the Breeze (At Will)"], "5": ["Geyser"], "7": ["Humanoid Form (At Will)"], "8": ["Flame Vortex"], "9": ["Cleanse Air"]}}]
+"Avalanche Legion":
+  pack: "rage-of-elements-bestiary"
+  level: 11
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["earth", "elemental", "troop"]
+  ac: 31
+  hp: 240
+  perception: 21
+  saves: {"fortitude": 24, "reflex": 20, "will": 21}
+  abilities: {"cha": 0, "con": 4, "dex": 0, "int": -2, "str": 5, "wis": 1}
+  speeds: {"land": 30, "burrow": 25}
+  hp_details: "16 squares Thresholds 160 (3 segments), 80 (2 segments)"
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 23}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Earthbound", "type": "passive", "traits": [], "text": "When not touching solid ground, the avalanche legion is Slowed 1."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Earth Glide", "type": "passive", "traits": [], "text": "The avalanche legion can Burrow through any earthen matter, including rock. When it does so, the legion moves at its full burrow Speed, leaving no tunnels or signs of its passing."}, {"name": "Pummeling Boulders", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The avalanche legion unleashes an onslaught of blows against each enemy in a 5-foot (DC 28 Reflex save). The damage depends on the number of actions.%r1 2d8 bludgeoning|options:area-damage damage%r2 (3d8+8) bludgeoning|options:area-damage damage%r3 (4d8+11) bludgeoning|options:area-damage damage"}, {"name": "Spinning Stones", "type": "action", "traits": [], "cost": 2, "text": "The avalanche legion spins in place, kicking up a barrage of stones. Each creature in a 10-foot within 30 feet of the troop takes (1d12+8) bludgeoning|options:area-damage damage (DC 28 Reflex save). When the troop is reduced to 2 or fewer segments, this area decreases to a 5-foot."}, {"name": "Trample into the Earth", "type": "action", "traits": [], "cost": 3, "text": "The avalanche legion speeds forward, running over creatures with their stone bodies and knocking them down. As Trample; Gargantuan or smaller, 2d8 bludgeoning damage, DC 28 Reflex. A creature that critically fails its save is knocked Prone."}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the avalanche legion Strides or Burrows, it first Forms Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then moves up to its respective Speed. This works just like a Gargantuan creature moving; for instance, if any square of the legion enters difficult terrain, the extra movement cost applies to all the elementals."}]
+"Blustering Gale":
+  pack: "rage-of-elements-bestiary"
+  level: 11
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["air", "elemental", "troop"]
+  ac: 30
+  hp: 150
+  perception: 20
+  saves: {"fortitude": 22, "reflex": 24, "will": 18}
+  abilities: {"cha": 5, "con": 3, "dex": 5, "int": 0, "str": 7, "wis": 1}
+  speeds: {"land": 25, "fly": 60}
+  hp_details: "(16 squares); Thresholds 100 (3 segments), 50 (2 segments)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 20, "Athletics": 22, "Intimidation": 22, "Stealth": 18}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Bullying Bluster", "type": "passive", "traits": ["auditory", "aura", "emotion", "linguistic", "mental"], "text": "30 feet. The blustering gale constantly unleashes a tirade of insults and aggressive taunts. Each enemy who enters or starts their turn in the aura must succeed at a DC 30 Will save or become Stupefied 1 for as long as they remain within the aura (Stupefied 2 on a critical failure). The troop's members are collectively able to mimic a few curse words or insults in every language, allowing their Bullying Bluster to affect any creature who understands a language. A creature who succeeds at its…"}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Pummeling Winds", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The blustering gale bashes, batters, and pummels each adjacent enemy (DC 27 Reflex save). The damage depends on the number of actions.%r1 (1d8+2) bludgeoning damage%r2 (2d8+12) bludgeoning damage%r3 (3d8+15) bludgeoning damage"}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever a troop Flies or Strides, it first Forms Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then moves up to its Speed. This works just like a Gargantuan creature moving; for instance, if any square of the troop enters difficult terrain, the extra movement cost applies to the whole troop."}, {"name": "Windstorm", "type": "action", "traits": ["air"], "cost": 2, "text": "The blustering gale exhales as a unit, creating a powerful windstorm. This windstorm is a 10-foot within 100 feet that deals (3d8+10) bludgeoning|options:area-damage damage (DC 30 Reflex save). Creatures that fail their saving throw are pushed 10 feet in any direction (plus knocked Prone on a critical failure). When the troop is reduced to 2 or fewer segments, this area decreases to a 5-foot and the distance pushed decreases to 5 feet."}]
+"Boiling Spring":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "large"
+  rarity: "common"
+  traits: ["aquatic", "elemental", "fire", "water"]
+  ac: 34
+  hp: 255
+  perception: 23
+  saves: {"fortitude": 23, "reflex": 26, "will": 20}
+  abilities: {"cha": 2, "con": 7, "dex": 7, "int": 2, "str": 7, "wis": 4}
+  speeds: {"land": 0, "fly": 30, "swim": 80}
+  senses: ["darkvision"]
+  skills: {"Athletics": 26, "Stealth": 26}
+  immunities: ["bleed", "fire", "paralyzed", "poison", "sleep"]
+  weaknesses: {"cold": 15}
+  strikes: [{"name": "Blistering Fist", "bonus": 27, "damage": [["3d8+13", "fire", null]], "traits": ["fire"]}, {"name": "Heat Wave", "bonus": 27, "damage": [["3d12", "fire", null]], "traits": ["fire"], "range": 50}]
+  actions: [{"name": "Steam Vision", "type": "passive", "traits": [], "text": "The boiling spring ignores the Concealed condition from mist and steam."}, {"name": "Evaporate", "type": "reaction", "traits": [], "text": "Trigger An effect would deal fire damage to the boiling spring, even if they would ignore the damage%rEffect The boiling spring evaporates into the air. Until the beginning of the boiling spring's next turn, they can't be attacked or targeted. They still occupy their space, and their auras still function as normal."}, {"name": "Sweltering Heat", "type": "passive", "traits": ["aura", "fire"], "text": "25 feet. The boiling spring radiates heat, raising the air temperature around them. A creature that starts its turn in the emanation must succeed at a DC 33 Fortitude save or become Fatigued while it remains in the area; creatures immune to environmental heat effects or with any fire resistance are immune."}, {"name": "Freeze and Shatter", "type": "passive", "traits": [], "text": "If the boiling spring is destroyed with cold damage, their body freezes over and explodes, sending out a wave of frigid air and ice shards that deal 4d6 piercing damage plus 4d6 cold damage to creatures in a 20-foot (DC 36 Reflex save)."}, {"name": "Scalding Breath", "type": "action", "traits": ["fire", "primal"], "cost": 2, "text": "The boiling spring breathes out a cloud of steam in a 30-foot that deals 14d6 fire|options:area-damage damage to each creature in the area (DC 33 Reflex save). The boiling spring can't use Scalding Breath again for 1d4 rounds."}]
+"Boreal, The North Wind":
+  pack: "rage-of-elements-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "unique"
+  traits: ["air", "elemental"]
+  ac: 43
+  hp: 310
+  perception: 33
+  saves: {"fortitude": 29, "reflex": 33, "will": 30}
+  abilities: {"cha": 9, "con": 7, "dex": 9, "int": 6, "str": 4, "wis": 6}
+  speeds: {"land": 25, "fly": 200}
+  hp_details: "regeneration 15 (deactivated by earthbane)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 38, "Arcana": 31, "Nature": 33, "Occultism": 31, "Performance": 38, "Religion": 31, "Stealth": 36, "Survival": 33, "Planar Lore": 33}
+  immunities: ["bleed", "electricity", "paralyzed", "poison", "sleep"]
+  resistances: {"cold": 20}
+  strikes: [{"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+12", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical"]}, {"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+10", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical", "thrown-30"]}, {"name": "Air Blast", "bonus": 35, "damage": [["3d10+12", "bludgeoning", null]], "traits": ["agile", "air", "magical"]}]
+  actions: [{"name": "Truespeech", "type": "passive", "traits": [], "text": "An anemos can speak with and understand any creature that has a language."}, {"name": "Wind Orchestra", "type": "passive", "traits": ["air", "auditory"], "text": "An anemos does not require instruments to perform music, instead using their winds to create and carry the sounds of any instruments they wish to duplicate. They can mimic any number of instruments simultaneously, creating and directing their own personal orchestra."}, {"name": "Regeneration 15 (Deactivated by Earthbane)", "type": "passive", "traits": []}, {"name": "Blessed by the Winds", "type": "passive", "traits": ["air", "aura"], "text": "80 feet. The winds grow turbulent for those who would dare to fly in the same space as an anemos, but they take care to never harm or inconvenience their shepherd. Air within the emanation is difficult terrain for Flying creatures that do not have the air trait. While the aura is active, the anemos cannot be affected by environmental air or weather affects unless they choose to be."}, {"name": "Earthbane", "type": "passive", "traits": [], "text": "An anemos's regeneration is suppressed for 1 round if the anemos is affected by an earth effect, or for as long as they are in contact with the ground and 1 round thereafter. If an anemos is submerged in at least 1 inch of mud, dirt, or stone, the anemos's aura deactivates, and the anemos becomes Stunned 2 and Clumsy 2."}, {"name": "Redirect Weather", "type": "reaction", "traits": ["divine"], "text": "Requirements The anemos's aura is active%rTrigger A creature within the anemos's aura uses an air or electricity spell, or an air or electricity spell otherwise comes into effect within the anemos's aura%rEffect The winds and weather of the spell obey the anemos's call. The anemos makes all the choices to determine the targets, destination, or other effects of the spell, as though they were the caster."}, {"name": "Collect Thunder", "type": "free", "traits": ["electricity", "manipulate"], "text": "Requirements The anemos has a hand free%rEffect The anemos runs a hand through the winds that swirl around them, the sparks from their fingertips coalescing into a thunderbolt. The anemos creates a thunderbolt in their open hand. If the anemos spends an action to Collect Thunder, a bolt instead strikes their open hand, creating a booming peal that deafens all creatures within 20 feet for 1 round unless they succeed at a DC 40 Fortitude save; this adds the auditory trait to Collect Thunder. Any…"}, {"name": "Command the Breeze", "type": "passive", "traits": [], "text": "When an anemos casts a ritual, they perform all aspects of the ritual themself, commanding their winds to complete all the ritual's components. They must fulfill any requirements for the ritual's additional casters and must attempt the checks normally performed by additional casters. In addition, anemoi can cast rituals faster than usual. If a ritual has a casting time measured in days, they can cast it in an equal number of hours."}, {"name": "Storm Strikes Twice", "type": "action", "traits": ["air", "teleportation"], "cost": 2, "text": "The anemos throws a thunderbolt, then becomes a wind that carries them in an instant to the bolt's location to attack again. They make a ranged thunderbolt Strike against a creature within their first range increment, teleport to the creature's location as a gust of wind, then grasp the thrown thunderbolt and make a melee thunderbolt Strike against a creature within reach. Their multiple attack penalty doesn't increase until they've made both attacks."}, {"name": "Swiftness", "type": "passive", "traits": [], "text": "The anemos's movement doesn't trigger reactions."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 40, "attack": 32, "spells": {"1": ["Air Bubble (At Will)"], "4": ["Airlift (At Will)", "Vapor Form (At Will)", "Voice on the Breeze (At Will)"], "5": ["Howling Blizzard"], "7": ["Humanoid Form (At Will)"], "8": ["Frigid Flurry"], "9": ["Cleanse Air"]}}]
+"Brass Bastion":
+  pack: "rage-of-elements-bestiary"
+  level: 14
+  size: "huge"
+  rarity: "rare"
+  traits: ["construct", "fire", "mindless"]
+  ac: 36
+  hp: 205
+  perception: 22
+  saves: {"fortitude": 27, "reflex": 22, "will": 20}
+  abilities: {"cha": -5, "con": 7, "dex": 0, "int": -5, "str": 8, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 30}
+  immunities: ["bleed", "paralyzed", "fire", "sleep", "poison", "vitality", "void"]
+  resistances: {"physical": 15, "spells": 15}
+  strikes: [{"name": "Falchion", "bonus": 28, "damage": [["2d10+12", "slashing", null]], "traits": ["forceful", "magical", "reach-15", "sweep"]}, {"name": "Fist", "bonus": 26, "damage": [["2d6+12", "bludgeoning", null]], "traits": ["agile", "magical", "reach-15", "unarmed"]}]
+  actions: [{"name": "Molten Demise", "type": "passive", "traits": ["arcane", "fire"], "text": "When a brass bastion is destroyed, its body explodes in a flurry of elemental flame and superheated brass, dealing 4d6 piercing damage and 4d6 fire damage to creatures in a 20-foot (DC 34 Reflex save)."}, {"name": "Breathe Smoke", "type": "action", "traits": ["arcane", "fire"], "cost": 2, "text": "The brass bastion exhales superheated smoke and cinders in a 10-foot centered on a corner of its space. The smoke persists for 1 round. Any creature in the area (or that later enters the area) takes 15d6 fire|options:area-damage damage (DC 34 Reflex save); on a critical failure, the creature catches fire, taking 2d6 persistent fire damage as well. All creatures in the smoke become Concealed, and all creatures outside the smoke become concealed to creatures within it. The brass bastion can't…"}, {"name": "Heat Weapon", "type": "passive", "traits": [], "text": "Metal weapons wielded by a brass bastion superheat, dealing 1d10 additional fire damage (included in its statistics)."}]
+"Brochmaw":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "fire"]
+  ac: 32
+  hp: 259
+  perception: 24
+  saves: {"fortitude": 28, "reflex": 20, "will": 23}
+  abilities: {"cha": 4, "con": 8, "dex": 4, "int": 3, "str": 8, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 28, "Intimidation": 21, "Survival": 24, "Cooking Lore": 24}
+  immunities: ["bleed", "paralyzed", "fire", "sleep", "poison"]
+  weaknesses: {"cold": 15}
+  strikes: [{"name": "Skewer", "bonus": 27, "damage": [["3d10+8", "piercing", null]], "traits": ["reach-15"], "effects": ["Improved Grab"]}, {"name": "Hot Oil", "bonus": 25, "damage": [["3d6+7", "fire", null], ["3", "fire", "splash"], ["1d8", "fire", "persistent"]], "traits": [], "effects": ["Marinade"]}]
+  actions: [{"name": "Marinade", "type": "passive", "traits": [], "text": "A creature taking persistent fire damage from the brochmaw's hot oil Strike is more readily cooked, taking a –2 circumstance penalty to Fortitude saves against Roast for as long as it is taking persistent fire damage."}, {"name": "Roast", "type": "action", "traits": [], "cost": 1, "text": "The brochmaw turns a skewer over their oven, cooking anything impaled on it. Creatures Grabbed by the brochmaw's skewer take 3d6 fire damage (DC 32 Fortitude save). Creatures who have been Roasted take a –2 circumstance penalty to Fortitude saves against Serve for 1 minute.%rEffect: Roast"}, {"name": "Serve", "type": "action", "traits": [], "cost": 2, "text": "Requirements The brochmaw has a creature Grabbed%rEffect The brochmaw eats their hard-earned meal off one of their skewers. The brochmaw bites down on one creature it has grabbed, dealing 12d6 piercing damage (DC 32 Fortitude save); the brochmaw regains Hit Points equal to half the damage dealt. The creature is then freed from the skewer."}, {"name": "Skewer Master", "type": "passive", "traits": [], "text": "The skewers of a brochmaw are more than long enough to hold multiple creatures. A brochmaw can have up to three creatures Grabbed on its skewer, and it can still make Strikes with its skewer even if it has creatures grabbed, though it can't target creatures it has grabbed."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Capritellix":
+  pack: "rage-of-elements-bestiary"
+  level: 17
+  size: "huge"
+  rarity: "rare"
+  traits: ["elemental", "metal"]
+  ac: 39
+  hp: 290
+  perception: 30
+  saves: {"fortitude": 31, "reflex": 29, "will": 30}
+  abilities: {"cha": 9, "con": 8, "dex": 8, "int": 7, "str": 6, "wis": 5}
+  speeds: {"land": 0, "fly": 60}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 31, "Athletics": 29, "Deception": 32, "Diplomacy": 32, "Intimidation": 32, "Performance": 32, "Society": 30, "Plane of Metal Lore": 30}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 10, "physical": 10}
+  strikes: [{"name": "Metal Hand", "bonus": 33, "damage": [["3d8+14", "bludgeoning", null], ["1d12", "electricity", null]], "traits": ["agile", "finesse", "magical", "reach-15"], "effects": ["Plentiful Metals", "Push"]}, {"name": "Eye Beam", "bonus": 33, "damage": [["4d12", "electricity", null]], "traits": ["electricity", "magical"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Shift Mood", "type": "action", "traits": [], "cost": 1, "text": "The capritellix rotates the segments of their face, changing their personality and demeanor. Until they Shift their Mood again, the capritellix gains a +4 status bonus to a certain skill and to their Will DC against that skill, as well as a specific occult innate spell they can cast at will (9th rank, DC 38).%rAngry Intimidation, Dominate%rGregarious Performance, Uncontrollable Dance%rSerene Diplomacy, Suggestion%rSly Deception, Warp Mind"}, {"name": "Dual Beams", "type": "action", "traits": [], "cost": 2, "text": "The capritellix makes two eye beam Strikes against different creatures. Their multiple attack penalty doesn't increase until after both Strikes."}, {"name": "Plentiful Metals", "type": "passive", "traits": [], "text": "Each of the capritellix's levitating hands is made of a different precious metal. Each time a capritellix makes a metal hand Strike, they choose whether the hand they use is adamantine, cold iron, dawnsilver, orichalcum, silver, or any other solid precious metal."}, {"name": "Whirling Hands", "type": "free", "traits": [], "text": "Trigger A creature starts its turn in the capritellix's melee reach%rEffect The capritellix makes a metal hand Strike against the creature."}, {"name": "Push 20 feet", "type": "action", "traits": [], "cost": 1}]
+"Carved Beast":
+  pack: "rage-of-elements-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 22
+  hp: 92
+  perception: 16
+  saves: {"fortitude": 13, "reflex": 9, "will": 17}
+  abilities: {"cha": 2, "con": 3, "dex": 4, "int": 0, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 15, "Nature": 15, "Stealth": 16}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"axe-vulnerability": 5, "fire": 10}
+  strikes: [{"name": "Statue", "bonus": 15, "damage": [["2d8+5", "bludgeoning", null]], "traits": ["shove"], "effects": ["Knockdown"]}, {"name": "Roots", "bonus": 17, "damage": [["2d8+5", "bludgeoning", null]], "traits": ["finesse", "trip"]}]
+  actions: [{"name": "Top-Heavy", "type": "passive", "traits": [], "text": "While the carved beast is not Dug In, its unwieldy design leaves it vulnerable to falling over. The DC of any attempt to knock the carved beast Prone is reduced by 5, and the beast takes a –5 status penalty to any check or save it attempts to resist being knocked prone. Additionally, whenever the beast fails to Trip opponents with its roots Strike, it critically fails instead. If successfully Shoved by an opponent, the beast must succeed at a DC 20 Reflex save or fall prone."}, {"name": "Dig In", "type": "action", "traits": [], "cost": 1, "text": "The carved beast digs its roots into the ground for better protection and purchase. While Dug In, the carved beast can't Stride nor use its roots Strike; however, this also negates the effects of top-heavy, grants the beast a +2 status bonus to its AC and Fortitude saves, and increases the damage of its statue Strike by 1d8. The carved beast can spend an action on its turn to end the effect; alternatively, the effect ends when the carved beast is moved by force, such as via a successful Shove…"}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Coldmire Pond":
+  pack: "rage-of-elements-bestiary"
+  level: 8
+  size: "huge"
+  rarity: "common"
+  traits: ["aquatic", "elemental", "water"]
+  ac: 27
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 19, "will": 13}
+  abilities: {"cha": 0, "con": 5, "dex": 3, "int": 2, "str": 5, "wis": 2}
+  speeds: {"land": 20, "swim": 50}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18, "Stealth": 18}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"fire": 10}
+  strikes: [{"name": "Clammy Pseudopod", "bonus": 20, "damage": [["2d8+9", "bludgeoning", null]], "traits": [], "effects": ["Grab"]}]
+  actions: [{"name": "Shallow Waters", "type": "passive", "traits": [], "text": "The coldmire pond can occupy the same space as other creatures. Creatures who move through the coldmire pond treat it as difficult terrain. Two creatures both occupying the coldmire pond's space are flanking it, regardless of their actual positions within the coldmire pond."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "1d6 bludgeoning plus 1d6 cold, DC 25 Fortitude"}, {"name": "Drag Below", "type": "action", "traits": [], "cost": 2, "text": "Requirements The coldmire pond occupies the same space as a target it has Grabbed%rEffect The coldmire pond pulls the target below the surface. The target must succeed at a DC 26 Reflex save or fall Prone and begin drowning."}, {"name": "Flash Flood", "type": "action", "traits": ["primal", "water"], "cost": 2, "text": "Water surges out of the coldmire pond in a 20-foot and crashes into nearby creatures, knocking them off their feet. Creatures in the area, as well as any creatures currently sharing the coldmire pond's space, take 4d8 bludgeoning|options:area-damage damage and are knocked Prone (DC 26 Reflex save). Creatures standing inside the coldmire pond treat their result as one step worse."}]
+"Comozant Wyrd":
+  pack: "rage-of-elements-bestiary"
+  level: 5
+  size: "small"
+  rarity: "common"
+  traits: ["air", "elemental", "incorporeal"]
+  ac: 21
+  hp: 60
+  perception: 12
+  saves: {"fortitude": 7, "reflex": 15, "will": 12}
+  abilities: {"cha": 4, "con": 0, "dex": 4, "int": -1, "str": -5, "wis": 3}
+  speeds: {"land": 15, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Diplomacy": 11, "Nature": 12}
+  immunities: ["disease", "electricity", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Lightning Lash", "bonus": 15, "damage": [["2d12", "electricity", null]], "traits": ["electricity"]}]
+  actions: [{"name": "Plasmatic Form", "type": "passive", "traits": [], "text": "Unlike other incorporeal creatures, a comozant wyrd can't move into or through solid objects. If a comozant wyrd isn't adjacent to a solid object or surface of its size or larger at the end of its turn, it loses 10 untyped HP. This HP loss cannot be mitigated or avoided in any way."}, {"name": "Illuminating Flames", "type": "passive", "traits": ["aura", "electricity", "light", "primal"], "text": "30 feet. The comozant wyrd sheds bright light in the emanation and dim light for another 30 feet. Heatless flames similar to the wyrd's own surround any creature in the emanation. A visible creature can't become Concealed while in the emanation, and an Invisible creature becomes concealed rather than undetected. The wyrd can communicate empathically with any non-mindless creature affected by illuminating flames, even if they don't share a language."}, {"name": "Leap the Gap", "type": "action", "traits": [], "cost": 2, "text": "Requirements The comozant wyrd is adjacent to a solid object or surface of its size or larger%rEffect The wyrd Flies up to its Speed in a straight line, ending its movement adjacent to a different solid object or surface of its size or larger; this movement doesn't trigger reactions. The wyrd can move through other creatures during this movement, and all creatures it moves through take 2d12 electricity damage with a DC 22 Reflex save."}, {"name": "Wyrd Wisdom", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per day%rRequirements The comozant wyrd is communicating empathically with another creature through illuminating flames%rEffect The comozant wyrd's odd means of communication brings strange insight. One creature the wyrd is empathically conversing with gains the benefits of an augury spell, though only about this conversation topic, rather than any topic of the creature's choice."}]
+"Crystal Strider":
+  pack: "rage-of-elements-bestiary"
+  level: 10
+  size: "huge"
+  rarity: "common"
+  traits: ["earth", "elemental"]
+  ac: 29
+  hp: 230
+  perception: 20
+  saves: {"fortitude": 21, "reflex": 19, "will": 20}
+  abilities: {"cha": 1, "con": 5, "dex": 3, "int": 0, "str": 7, "wis": 4}
+  speeds: {"land": 45, "climb": 45}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 19, "Athletics": 23, "Nature": 20}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"sonic": 10}
+  strikes: [{"name": "Leg", "bonus": 21, "damage": [["2d10+13", "bludgeoning", null]], "traits": ["reach-15", "versatile-p"]}, {"name": "Crystal Dart", "bonus": 21, "damage": [["2d10+13", "piercing", null]], "traits": [], "range": 30}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Crystal Refraction", "type": "free", "traits": [], "text": "Trigger The crystal strider is targeted by a light effect%rEffect The strider redirects the triggering effect to a different creature of its choice within 30 feet or absorbs the effect harmlessly, reducing the number of rounds left to recharge Release Light by 1."}, {"name": "Precise Steps", "type": "passive", "traits": [], "text": "The crystal strider's many narrow legs allow it to ignore difficult terrain."}, {"name": "Release Light", "type": "action", "traits": ["attack", "light", "primal"], "cost": 1, "text": "The strider emits the light that continually refracts within them to cast Chromatic Ray as an innate primal spell heightened to 5th rank, with a +21 spell attack roll. The crystal strider can't Release Light again for 1d4 rounds."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Large or smaller, leg, DC 29 Reflex"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 29, "attack": 21, "spells": {"5": ["Chromatic Ray (Release Light)"]}}]
+"Cullitox":
+  pack: "rage-of-elements-bestiary"
+  level: 3
+  size: "small"
+  rarity: "common"
+  traits: ["earth", "elemental"]
+  ac: 18
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 9, "will": 9}
+  abilities: {"cha": 1, "con": 1, "dex": 2, "int": -2, "str": 2, "wis": 2}
+  speeds: {"land": 25, "burrow": 25}
+  senses: ["scent", "darkvision"]
+  skills: {"Athletics": 9, "Stealth": 9}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Crystal Stinger", "bonus": 10, "damage": [["1d6+5", "piercing", null]], "traits": ["agile"]}, {"name": "Tail Spike", "bonus": 10, "damage": [["1d6+5", "piercing", null]], "traits": [], "range": 60, "effects": ["Sink Into Stone"]}]
+  actions: [{"name": "Crystal Scent", "type": "passive", "traits": [], "text": "A cullitox can sense crystals or gems within 60 feet as if using the scent ability."}, {"name": "Rock Stride", "type": "action", "traits": ["teleportation"], "cost": 1, "text": "The cullitox phases into adjacent rock that is large enough to accommodate it. Then, the cullitox senses similar or larger rocks within 60 feet and emerges from one. The cullitox can't use this ability again for 1 minute."}, {"name": "Sink into Stone", "type": "passive", "traits": [], "text": "The spikes fired from a cullitox's tail phase into stone, pinning enemies in place. Enemies standing on or adjacent to a stone surface who are struck by a critical hit on a tail spike Strike are Immobilized. The DC to escape dc=17 is 17."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Detect Magic", "Figment (Chiming, Clinking, or Rattling Sounds Only)", "Light", "Telekinetic Hand"]}}]
+"Despairing Pall":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["air", "elemental"]
+  ac: 17
+  hp: 15
+  perception: 5
+  saves: {"fortitude": 4, "reflex": 10, "will": 7}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 0, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Intimidation": 6, "Stealth": 8}
+  immunities: ["bleed", "electricity", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Hot Air", "bonus": 7, "damage": [], "traits": ["air"]}, {"name": "Lightning Bolt", "bonus": 7, "damage": [["1d6", "electricity", null]], "traits": ["electricity"], "range": 50}]
+  actions: [{"name": "Duskflow", "type": "reaction", "traits": ["darkness"], "text": "Trigger The despairing pall is damaged by a melee Strike%rEffect Darkness billows out from the despairing pall, covering its attacker in inky shadow. The despairing pall immediately Steps up to 15 feet in any direction. If the despairing pall took the triggering damage due to a reaction it provoked by moving, it can then finish the movement. For one round, the triggering attacker is cloaked in darkness and perceives light as one step lower (bright light becomes dim light, for example),…"}, {"name": "Downcast", "type": "action", "traits": ["air", "emotion", "mental"], "cost": 2, "text": "The despairing pall Flies up to its Speed, then rains gloom and despair in a 15-foot straight down. Creatures in the area must succeed at a DC 16 Will save or take a –1 status penalty to attack rolls until the end of the despairing pall's next turn.%rEffect: Downcast"}]
+"Dewdrop Jelly":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["aquatic", "elemental", "water"]
+  ac: 16
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 10, "will": 4}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": -4, "str": 2, "wis": 1}
+  speeds: {"land": 0, "fly": 20, "swim": 50}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Stealth": 7}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"fire": 5}
+  strikes: [{"name": "Tentacle", "bonus": 8, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Dissolve", "type": "reaction", "traits": [], "text": "Trigger The dewdrop jelly takes damage from a hostile action%rEffect The dewdrop jelly dissolves into a fine mist. Until the start of the jelly's next turn, it can't be attacked or targeted and doesn't take up space. At the end of the round, the jelly re-forms in any open space within 25 feet of where it Dissolved."}, {"name": "Overflow", "type": "action", "traits": ["move"], "cost": 3, "text": "The dewdrop jelly flattens its bell and shoots forward, Flying or Swimming twice in a straight line toward its target and attempting a tentacle Strike. On a success, the dewdrop attaches to the target's face, covering its mouth in the suspended water of its gelatinous body. If the target cannot breathe water, it begins to drown. The DC to escape dc=16 is 16."}]
+"Elder Outcrop":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "common"
+  traits: ["earth", "elemental"]
+  ac: 33
+  hp: 295
+  perception: 26
+  saves: {"fortitude": 29, "reflex": 19, "will": 26}
+  abilities: {"cha": 4, "con": 8, "dex": -2, "int": 1, "str": 8, "wis": 5}
+  speeds: {"land": 30, "burrow": 30}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 29, "Diplomacy": 25, "Nature": 26, "Survival": 26}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Column", "bonus": 27, "damage": [["3d10+14", "bludgeoning", null]], "traits": ["reach-15"], "effects": ["Knockdown"]}, {"name": "Rock", "bonus": 27, "damage": [["3d6+14", "bludgeoning", null]], "traits": ["brutal"], "range": 120, "effects": ["Call Of Earth"]}]
+  actions: [{"name": "Tremorsense 120 feet", "type": "passive", "traits": []}, {"name": "Dust Eternal", "type": "passive", "traits": ["aura", "earth"], "text": "30 feet. Dust swirls about the outcrop, rendering everything within its aura (including the outcrop) Concealed. In addition, the dust at the outcrop's base creates difficult terrain on the ground within the aura. The outcrop can activate or deactivate this aura using a single action, which has the concentrate trait."}, {"name": "Unstoppable", "type": "passive", "traits": [], "text": "The elder outcrop's slowed condition can't exceed Slowed 1, and it ignores penalties to its Speeds and the Immobilized condition."}, {"name": "Call of Earth", "type": "passive", "traits": ["primal"], "text": "A flying creature hit by the elder outcrop's rock ranged strike is affected by a 7th-rank Earthbind spell (DC 33 Fortitude)."}, {"name": "Earth Glide", "type": "passive", "traits": [], "text": "The elder outcrop can Burrow through any earthen matter, including rock. When it does so, the elder outcrop moves at its full burrow Speed, leaving no tunnels or signs of its passing."}, {"name": "Natural Formation", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the elder outcrop appears to be a natural terrain feature. It has an automatic result of 47 on Deception checks and DCs to pass as a natural outcropping of rock. The outcrop's dust eternal aura is deactivated while Natural Formation is being used."}, {"name": "Stone Grip", "type": "action", "traits": ["earth", "incapacitation", "primal"], "cost": 2, "text": "Great fingers of stone arise to grasp up to two Medium or smaller creatures on the ground in the outcrop's aura. Each target must succeed at a DC 33 Reflex save or be Grabbed by the stone hand (or Restrained on a critical failure; escape dc=33). A creature grabbed or restrained by a stone hand at the end of its turn becomes Slowed 1 or increases its existing slowed condition by 1. When a creature is unable to act due to the slowed condition from this effect, the creature is permanently…"}, {"name": "Throw Rock", "type": "action", "traits": [], "cost": 1}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Elemental Thicket":
+  pack: "rage-of-elements-bestiary"
+  level: 11
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 28
+  hp: 240
+  perception: 24
+  saves: {"fortitude": 20, "reflex": 13, "will": 25}
+  abilities: {"cha": 1, "con": 6, "dex": 4, "int": 1, "str": 7, "wis": 2}
+  speeds: {"land": 25, "burrow": 25, "climb": 25}
+  hp_details: "regeneration 15 (deactivated by fire)"
+  skills: {"Athletics": 23}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"axe-vulnerability": 10, "fire": 15}
+  strikes: [{"name": "Gnarled Branch", "bonus": 24, "damage": [["2d12+7", "bludgeoning", null]], "traits": ["reach-20"], "effects": ["Grab"]}]
+  actions: [{"name": "Regeneration 15 (Deactivated by Fire)", "type": "passive", "traits": []}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d12+7) bludgeoning, DC 30 Fortitude"}, {"name": "Engulf", "type": "action", "traits": [], "cost": 2, "text": "DC 30 Reflex, (8d10) bludgeoning damage, escape dc=27, Rupture 20"}, {"name": "Entangling Growth", "type": "passive", "traits": ["aura", "plant", "primal"], "text": "30 feet.%rPlant life erupts out of any and all soil surrounding the elemental thicket, making the area greater difficult terrain out to 5 feet and difficult terrain out to 30 feet. This ability requires soil and has no effect on terrain without it, such as worked stone, solid rock, open water, etc."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Eural, The East Wind":
+  pack: "rage-of-elements-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "unique"
+  traits: ["air", "elemental"]
+  ac: 43
+  hp: 310
+  perception: 33
+  saves: {"fortitude": 29, "reflex": 33, "will": 30}
+  abilities: {"cha": 9, "con": 7, "dex": 9, "int": 6, "str": 4, "wis": 6}
+  speeds: {"land": 25, "fly": 200}
+  hp_details: "regeneration 15 (deactivated by earthbane)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 38, "Arcana": 31, "Nature": 33, "Occultism": 31, "Performance": 38, "Religion": 31, "Stealth": 36, "Survival": 33, "Planar Lore": 33}
+  immunities: ["bleed", "electricity", "paralyzed", "poison", "sleep"]
+  resistances: {"cold": 20}
+  strikes: [{"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+12", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical"]}, {"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+10", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical", "thrown-30"]}, {"name": "Air Blast", "bonus": 35, "damage": [["3d10+12", "bludgeoning", null]], "traits": ["agile", "air", "magical"]}]
+  actions: [{"name": "Truespeech", "type": "passive", "traits": [], "text": "An anemos can speak with and understand any creature that has a language."}, {"name": "Wind Orchestra", "type": "passive", "traits": ["air", "auditory"], "text": "An anemos does not require instruments to perform music, instead using their winds to create and carry the sounds of any instruments they wish to duplicate. They can mimic any number of instruments simultaneously, creating and directing their own personal orchestra."}, {"name": "Regeneration 15 (Deactivated by Earthbane)", "type": "passive", "traits": []}, {"name": "Blessed by the Winds", "type": "passive", "traits": ["air", "aura"], "text": "80 feet. The winds grow turbulent for those who would dare to fly in the same space as an anemos, but they take care to never harm or inconvenience their shepherd. Air within the emanation is difficult terrain for Flying creatures that do not have the air trait. While the aura is active, the anemos cannot be affected by environmental air or weather affects unless they choose to be."}, {"name": "Earthbane", "type": "passive", "traits": [], "text": "An anemos's regeneration is suppressed for 1 round if the anemos is affected by an earth effect, or for as long as they are in contact with the ground and 1 round thereafter. If an anemos is submerged in at least 1 inch of mud, dirt, or stone, the anemos's aura deactivates, and the anemos becomes Stunned 2 and Clumsy 2."}, {"name": "Redirect Weather", "type": "reaction", "traits": ["divine"], "text": "Requirements The anemos's aura is active%rTrigger A creature within the anemos's aura uses an air or electricity spell, or an air or electricity spell otherwise comes into effect within the anemos's aura%rEffect The winds and weather of the spell obey the anemos's call. The anemos makes all the choices to determine the targets, destination, or other effects of the spell, as though they were the caster."}, {"name": "Collect Thunder", "type": "free", "traits": ["electricity", "manipulate"], "text": "Requirements The anemos has a hand free%rEffect The anemos runs a hand through the winds that swirl around them, the sparks from their fingertips coalescing into a thunderbolt. The anemos creates a thunderbolt in their open hand. If the anemos spends an action to Collect Thunder, a bolt instead strikes their open hand, creating a booming peal that deafens all creatures within 20 feet for 1 round unless they succeed at a DC 40 Fortitude save; this adds the auditory trait to Collect Thunder. Any…"}, {"name": "Command the Breeze", "type": "passive", "traits": [], "text": "When an anemos casts a ritual, they perform all aspects of the ritual themself, commanding their winds to complete all the ritual's components. They must fulfill any requirements for the ritual's additional casters and must attempt the checks normally performed by additional casters. In addition, anemoi can cast rituals faster than usual. If a ritual has a casting time measured in days, they can cast it in an equal number of hours."}, {"name": "Storm Strikes Twice", "type": "action", "traits": ["air", "teleportation"], "cost": 2, "text": "The anemos throws a thunderbolt, then becomes a wind that carries them in an instant to the bolt's location to attack again. They make a ranged thunderbolt Strike against a creature within their first range increment, teleport to the creature's location as a gust of wind, then grasp the thrown thunderbolt and make a melee thunderbolt Strike against a creature within reach. Their multiple attack penalty doesn't increase until they've made both attacks."}, {"name": "Swiftness", "type": "passive", "traits": [], "text": "The anemos's movement doesn't trigger reactions."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 40, "attack": 32, "spells": {"1": ["Air Bubble (At Will)"], "4": ["Airlift (At Will)", "Vapor Form (At Will)", "Voice on the Breeze (At Will)"], "5": ["Pressure Zone"], "7": ["Humanoid Form (At Will)"], "8": ["Chain Lightning"], "9": ["Cleanse Air"]}}]
+"Faydhaan Shuyookh":
+  pack: "rage-of-elements-bestiary"
+  level: 14
+  size: "large"
+  rarity: "rare"
+  traits: ["elemental", "genie", "water"]
+  ac: 36
+  hp: 240
+  perception: 23
+  saves: {"fortitude": 23, "reflex": 27, "will": 25}
+  abilities: {"cha": 8, "con": 5, "dex": 7, "int": 4, "str": 7, "wis": 5}
+  speeds: {"land": 25, "swim": 60}
+  senses: ["darkvision", "wavesense"]
+  skills: {"Athletics": 27, "Crafting": 24, "Deception": 26, "Diplomacy": 28, "Nature": 25, "Performance": 28, "Society": 26, "Stealth": 27}
+  resistances: {"fire": 15}
+  strikes: [{"name": "Jambiya", "bonus": 28, "damage": [["2d4+13", "piercing", null]], "traits": ["agile", "finesse", "magical", "reach-10", "versatile-s"]}, {"name": "Fist", "bonus": 27, "damage": [["3d8+13", "bludgeoning", null]], "traits": ["agile", "magical", "nonlethal", "reach-10", "unarmed"]}, {"name": "Jambiya", "bonus": 29, "damage": [["2d4+13", "piercing", null]], "traits": ["agile", "magical", "thrown-20", "versatile-s"]}]
+  actions: [{"name": "+2 Bonus on Perception to Sense motive", "type": "passive", "traits": []}, {"name": "Detect Magic", "type": "passive", "traits": ["concentrate", "exploration"], "text": "You cast detect magic at regular intervals. You move at half your travel speed or slower. You have no chance of accidentally overlooking a magic aura at a travel speed up to 300 feet per minute, but must be traveling no more than 150 feet per minute to detect magic auras before the party moves into them."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Aura of Hospitality", "type": "passive", "traits": ["aura", "emotion", "mental"], "text": "60 feet. The faydhaan shuyookh dissuades those around them from hostility. Willing creatures in the emanation gain a +2 status bonus to Society and Diplomacy checks. The shuyookh can suppress or resume the aura as a free action. If the shuyookh acts hostile, the aura deactivates and can't be reactivated for 1 hour. When any other creature in the aura acts hostile, it must attempt a DC 35 Will save. On a success, it's unaffected and doesn't need to save again for 1 hour; on a failure, its…"}, {"name": "Turbulent Seas", "type": "passive", "traits": ["aura", "water"], "text": "60 feet. Water in the aura that is also in the same body of water as the faydhaan is difficult terrain for Swimming creatures. Creatures with the water trait are immune."}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The faydhaan transforms into a Small or Medium water elemental, aquatic animal, or humanoid. This doesn't affect the faydhaan's statistics, but it could change the damage type of their Strikes."}, {"name": "Diplomatic Wish", "type": "passive", "traits": ["downtime"], "text": "Frequency three times per year%rEffect The shuyookh conducts a wish ritual for the benefit of a mortal, requiring no cost or secondary casters. The shuyookh's result is a success if they succeed at a DC 5 Flat or a failure if not. The shuyookh interprets the wish to please the most people possible."}, {"name": "To the Hilt", "type": "action", "traits": [], "cost": 1, "text": "The faydhaan shuyookh makes a melee jambiya Strike and buries the blade deep, dealing an extra 3d6 persistent bleed damage on a hit (6d6 on a critical hit)."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 34, "attack": 26, "spells": {"0": ["Detect Magic"], "2": ["Befitting Attire (At Will)", "Create Water (At Will)", "Invisibility (At Will)", "See the Unseen", "Water Breathing"], "4": ["Hydraulic Push (At Will)", "Invisibility", "Vapor Form"], "5": ["Control Water (At Will)", "Howling Blizzard (At Will)", "Mirage", "Truespeech (At Will)"], "7": ["Hydraulic Torrent", "Interplanar Teleport (At Will; To Astral Plane, Elemental Planes, or the Universe only)", "Planar Palace", "Summon Elemental", "Truespeech (Constant)"]}}]
+"Ferrous Butterfly":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 15
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 9, "will": 5}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": -4, "str": 2, "wis": 0}
+  speeds: {"land": 5, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 3}
+  strikes: [{"name": "Wing", "bonus": 9, "damage": [["1", "bleed", "persistent"], ["1d4+2", "slashing", null]], "traits": ["finesse"], "effects": ["A Thousand Cuts"]}]
+  actions: [{"name": "A Thousand Cuts", "type": "passive", "traits": [], "text": "A ferrous butterfly's knifelike wings cause terrible lacerations that continue to bleed. Any creature with persistent bleed damage from a ferrous butterfly's wing attack has weakness 2 to slashing damage until the bleeding is stopped.%rEffect: A Thousand Cuts"}, {"name": "Swoop", "type": "action", "traits": [], "cost": 2, "text": "The ferrous butterfly Flies up to its Speed and makes a wing Strike at any point during that movement."}]
+"Gennayn":
+  pack: "rage-of-elements-bestiary"
+  level: 2
+  size: "tiny"
+  rarity: "common"
+  traits: ["elemental", "genie"]
+  ac: 17
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 4, "reflex": 10, "will": 8}
+  abilities: {"cha": 4, "con": 0, "dex": 4, "int": 2, "str": -2, "wis": 2}
+  speeds: {"land": 15, "fly": 15}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Arcana": 6, "Diplomacy": 8, "Nature": 6, "Performance": 8, "Society": 6, "Stealth": 10}
+  strikes: [{"name": "Elemental Fist", "bonus": 10, "damage": [["2d6", "bludgeoning", null]], "traits": ["finesse", "magical"]}]
+  actions: [{"name": "Inspiring Influence", "type": "passive", "traits": [], "text": "A gennayn automatically succeeds with the Aid action supporting any Performance or Diplomacy skill check. Their Aid action automatically counts as a critical success while aiding in the creation of new art or a new performance."}, {"name": "Attuned Element", "type": "passive", "traits": [], "text": "Upon waking each day, a gennayn attunes to one planar element. They gain the corresponding trait, a movement Speed, a cantrip, resistance, and an elemental damage type for their energy fist attack based on their attuned element:%rair: fly 30 feet, resist electricity 5, electric arc, electricity damage; earth: burrow 15 feet, resist bludgeoning 5, scatter scree, bludgeoning damage; fire: fly 30 feet, resist fire 5, ignition, fire damage; metal: burrow 15 feet, resist slashing 5, needle darts,…"}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The gennayn transforms into a Tiny elemental or animal. This doesn't affect the gennayn's statistics, but it could change the damage type of their Strikes."}, {"name": "Little Wish", "type": "reaction", "traits": ["fortune"], "text": "Trigger A creature the gennayn can see that's within 60 feet attempts a saving throw or skill check%rFrequency once per day%rEffect The gennayn reshapes reality in a small way to twist fate, allowing the creature to reroll the saving throw or skill check and take the better result."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 18, "attack": 10, "spells": {"0": ["Electric Arc (Attuned Element)", "Frostbite (Attuned Element)", "Guidance", "Ignition (Attuned Element)", "Needle Darts (Attuned Element)", "Prestidigitation", "Scatter Scree (Attuned Element)", "Summon Instrument", "Tangle Vine (Attuned Element)"], "1": ["Cleanse Cuisine", "Heal"], "2": ["Invisibility (At Will; Self Only)", "Translate (At Will)"]}}]
+"Gluttonous Geode":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "common"
+  traits: ["earth", "elemental"]
+  ac: 15
+  hp: 25
+  perception: 6
+  saves: {"fortitude": 8, "reflex": 4, "will": 6}
+  abilities: {"cha": -3, "con": 3, "dex": -1, "int": -4, "str": 3, "wis": 1}
+  speeds: {"land": 20}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Stealth": 4, "Survival": 6}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Crystal Teeth", "bonus": 9, "damage": [["1d4+4", "piercing", null]], "traits": [], "effects": ["Attach"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Attach", "type": "action", "traits": [], "cost": 2, "text": "The geode Leaps up to 15 feet and makes a crystal teeth Strike. If it hits a creature larger than itself, it can attach to that creature. Doing so is like Grabbing the creature (escape dc=17), but the geode moves with that creature rather than holding it in place. The geode is Off-Guard while attached. If the geode is killed or pushed away while attached to a creature, that creature takes 1 persistent bleed damage. Escaping the attached geode or removing the geode in other ways doesn't cause…"}, {"name": "Gnaw", "type": "action", "traits": [], "cost": 1, "text": "Requirements The geode is attached to a creature%rEffect The geode deals (1d4+2) bludgeoning damage to the creature it's attached to (DC 17 Fortitude save)."}]
+"Harvest Regiment":
+  pack: "rage-of-elements-bestiary"
+  level: 8
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["elemental", "plant", "troop", "wood"]
+  ac: 26
+  hp: 135
+  perception: 17
+  saves: {"fortitude": 16, "reflex": 14, "will": 16}
+  abilities: {"cha": -2, "con": 3, "dex": 1, "int": -1, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "Thresholds: 90, 45"
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 18, "Survival": 17}
+  weaknesses: {"area-damage": 8, "fire": 8, "splash-damage": 8}
+  actions: [{"name": "Juice Shower", "type": "passive", "traits": [], "text": "When a harvest regiment is critically hit or critically fails a save against a damaging effect, sticky fruit juices splash out. This affects all creatures in a 5-foot. A splashed creature takes a –10-foot status penalty to its Speeds and everything is Concealed to it. A creature can Interact to clear off the juice."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Raise Shells", "type": "action", "traits": [], "cost": 1, "text": "The troop raises fragments of their shells shaped like shields to gain a +2 circumstance bonus to AC until the start of their next turn."}, {"name": "Seed Volley", "type": "action", "traits": [], "cost": 2, "text": "The harvest regiment spits an orderly volley of hard seeds drawn from within their bodies. This volley is a 10-foot within 120 feet that deals 2d10 bludgeoning|options:area-damage damage (DC 23 Reflex save). When the harvest regiment is reduced to 8 or fewer squares, this area decreases to a 5-foot."}, {"name": "Shell Smash", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The harvest regiment engages in a coordinated melee attack against each enemy in a 5-foot, with a DC 23 Reflex save. The damage depends on the number of actions.%r1 (1d8+3) bludgeoning|options:area-damage damage%r2 (2d8+9) bludgeoning|options:area-damage damage%r3 (2d8+12) bludgeoning|options:area-damage damage"}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the harvest regiment Strides, they first Form Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then move up to their Speed. This works just like a Gargantuan creature moving."}]
+"Ifrit Shuyookh":
+  pack: "rage-of-elements-bestiary"
+  level: 14
+  size: "large"
+  rarity: "rare"
+  traits: ["elemental", "fire", "genie"]
+  ac: 36
+  hp: 300
+  perception: 25
+  saves: {"fortitude": 26, "reflex": 23, "will": 27}
+  abilities: {"cha": 5, "con": 5, "dex": 4, "int": 3, "str": 8, "wis": 3}
+  speeds: {"land": 25, "fly": 35}
+  senses: ["darkvision"]
+  skills: {"Arcana": 25, "Athletics": 28, "Crafting": 23, "Deception": 25, "Diplomacy": 24, "Intimidation": 26, "Society": 23}
+  immunities: ["fire"]
+  weaknesses: {"cold": 15, "water": 15}
+  strikes: [{"name": "Scimitar", "bonus": 31, "damage": [["2d6+16", "slashing", null], ["4d6", "fire", null]], "traits": ["fire", "forceful", "magical", "reach-10", "sweep"]}, {"name": "Fist", "bonus": 29, "damage": [["1d4+16", "bludgeoning", null], ["4d6", "fire", null]], "traits": ["agile", "magical", "reach-10", "unarmed"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Exploit Regret", "type": "reaction", "traits": ["arcane", "auditory", "fortune", "linguistic"], "text": "Trigger A creature fails an attack against the shuyookh%rEffect The shuyookh asks the triggering creature if it wishes it had hit. If the creature indicates yes, the shuyookh takes damage as if the attack had hit and the expression of regret makes the shuyookh Quickened for 1d4 rounds; they can use their extra action to Fly, Stride, or Strike."}, {"name": "Heat of Blazing Wings", "type": "passive", "traits": ["arcane", "aura", "fire"], "text": "5 feet. 4d6 fire|options:area-damage damage (DC 31 Reflex)"}, {"name": "Burning Grasp", "type": "passive", "traits": ["fire"], "text": "When the ifrit Grabs or restrains a creature, that creature takes 4d6 fire damage, and takes 4d6 fire damage at the end of each of its turns until freed."}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The shuyookh transforms into a Small or Medium fire elemental or reptile, such as a snake. This doesn't affect the shuyookh's statistics, but it could change the damage type of their Strikes."}, {"name": "Combat Grab", "type": "action", "traits": [], "cost": 1, "text": "Requirements The ifrit shuyookh has a hand free%rEffect The shuyookh makes a melee Strike. If the Strike hits, the target is Grabbed in the shuyookh's free hand."}, {"name": "Pedantic Wish", "type": "passive", "traits": ["downtime"], "text": "Frequency three times per year%rEffect The shuyookh conducts a wish ritual for the benefit of a mortal, requiring no cost or secondary casters. The shuyookh's result is a success if they succeed at a DC 5 Flat or a failure if not. The shuyookh subverts the wish-maker's true intentions, twisting the phrasing to maximize suffering."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 35, "attack": 27, "spells": {"0": ["Detect Magic", "Ignition", "Illuminate"], "2": ["Invisibility"], "5": ["Fire's Pathway", "Fireball (At Will)", "Truespeech (Constant)"], "7": ["Interplanar Teleport (At Will; To Astral Plane, Elemental Planes, or the Universe Only)", "Volcanic Eruption"]}}]
+"Jaathoom Shuyookh":
+  pack: "rage-of-elements-bestiary"
+  level: 10
+  size: "large"
+  rarity: "rare"
+  traits: ["air", "elemental", "genie"]
+  ac: 29
+  hp: 150
+  perception: 22
+  saves: {"fortitude": 17, "reflex": 21, "will": 19}
+  abilities: {"cha": 6, "con": 3, "dex": 7, "int": 5, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 21, "Arcana": 20, "Athletics": 19, "Crafting": 17, "Deception": 22, "Diplomacy": 22, "Society": 20, "Stealth": 17}
+  strikes: [{"name": "Jambiya", "bonus": 24, "damage": [["2d4+11", "piercing", null], ["1d12", "electricity", null]], "traits": ["agile", "finesse", "magical", "reach-10", "versatile-s"]}, {"name": "Fist", "bonus": 23, "damage": [["1d6+11", "slashing", null], ["1d12", "electricity", null]], "traits": ["agile", "finesse", "nonlethal", "reach-10", "unarmed"]}, {"name": "Jambiya", "bonus": 24, "damage": [["2d4+11", "piercing", null], ["1d12", "electricity", null]], "traits": ["agile", "magical", "thrown-20", "versatile-s"]}, {"name": "Crashing Wind", "bonus": 23, "damage": [["3d8+8", "bludgeoning", null]], "traits": ["air", "arcane"], "range": 50}]
+  actions: [{"name": "Cloud of Visions", "type": "passive", "traits": ["arcane", "aura", "mental"], "text": "120 feet. A jaathoom has telepathy 60 feet but can only show images rather than speaking."}, {"name": "Naturally Invisible", "type": "passive", "traits": [], "text": "The jaathoom is Invisible at all times. They can become visible or return to invisibility as a single action, which has the concentrate trait."}, {"name": "Turbulent Skies", "type": "passive", "traits": ["air", "arcane", "aura"], "text": "20 feet. Swirling winds make all squares in the emanation difficult terrain for Striding and Flying creatures. Creatures with the air trait are immune. The jaathoom can activate or deactivate this aura as a single action, which has the concentrate trait."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 1}, {"name": "Hurricane Blast", "type": "action", "traits": ["air", "arcane"], "cost": 1, "text": "Frequency once per round%rEffect The jaathoom moves all creatures without the air trait in their turbulent skies aura 20 feet directly away, clockwise, or counterclockwise. A creature avoids being moved if it succeeds at a DC 29 Fortitude save."}, {"name": "Impressive Wish", "type": "passive", "traits": ["downtime"], "text": "Frequency three times per year%rEffect The shuyookh conducts a wish ritual for the benefit of a mortal, requiring no cost or secondary casters. The shuyookh's result is a success if they succeed at a DC 5 Flat or a failure if not. The shuyookh's visions of the subject's future inform how it interprets the wish."}, {"name": "Ominous Dreams", "type": "action", "traits": ["mental", "prediction"], "cost": 2, "text": "The jaathoom sends a prophetic dream into the mind of a sleeping creature within 60 feet. An unwilling creature can avoid the vision if it succeeds at a DC 32 Will save. The jaathoom chooses the dream's subject but not its exact events. The target sees a brief vision of its future related to that subject, with the effect of augury. If the result is bad or mixed, the creature is Frightened 2 and doesn't start to recover from being frightened until it wakes."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 30, "attack": 22, "spells": {"0": ["Detect Magic"], "4": ["Ill Omen", "Vapor Form"], "5": ["Illusory Creature", "Illusory Object", "Nightmare", "Pressure Zone", "Sleep"], "7": ["Interplanar Teleport (At Will; To Astral Plane, Elemental Planes, or Universe Only)"]}}]
+"Jabali Shuyookh":
+  pack: "rage-of-elements-bestiary"
+  level: 12
+  size: "large"
+  rarity: "rare"
+  traits: ["earth", "elemental", "genie"]
+  ac: 33
+  hp: 210
+  perception: 21
+  saves: {"fortitude": 24, "reflex": 20, "will": 22}
+  abilities: {"cha": 4, "con": 5, "dex": 1, "int": 5, "str": 7, "wis": 3}
+  speeds: {"land": 20, "burrow": 45, "climb": 20}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 25, "Crafting": 21, "Deception": 22, "Nature": 19, "Society": 21}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Falchion", "bonus": 28, "damage": [["2d10+14", "slashing", null]], "traits": ["forceful", "magical", "reach-10", "sweep"]}, {"name": "Fist", "bonus": 27, "damage": [["2d6+13", "bludgeoning", null]], "traits": ["agile", "magical", "nonlethal", "reach-10", "unarmed"], "effects": ["Push", "Stone Clutch"]}, {"name": "Rock", "bonus": 27, "damage": [["2d8+13", "bludgeoning", null]], "traits": ["brutal"], "range": 120}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The jabali transforms into a Small or Medium earth elemental or land animal, typically a camel or dog. This doesn't affect the shuyookh's statistics, but it could change the damage type of their Strikes."}, {"name": "Earth Glide", "type": "passive", "traits": [], "text": "The jabali can Burrow through dirt and stone at their full burrow Speed, leaving no tunnels or signs of their passing."}, {"name": "Earthen Control", "type": "passive", "traits": [], "text": "When the shuyookh casts Wall of Stone, the edges can pass through creatures, which are shunted to the side of the wall opposite that edge."}, {"name": "Economical Wish", "type": "passive", "traits": ["downtime"], "text": "Frequency three times per year%rEffect The shuyookh conducts a wish ritual for the benefit of a mortal, requiring no cost or secondary casters. The shuyookh's result is a success if they succeed at a DC 5 Flat or a failure if not. The shuyookh fulfills the wish in the most straightforward, simple way possible."}, {"name": "Stone Clutch", "type": "passive", "traits": ["arcane", "earth"], "text": "When the jabali Pushes a creature into a stone barrier, the surface grips it with fingers of stone. The target must succeed at a DC 30 Reflex save or become Grabbed by the surface (escape dc=36)."}, {"name": "Stone Crush", "type": "action", "traits": ["arcane", "earth"], "cost": 1, "text": "The jabali deals (2d6+13) bludgeoning damage to all creatures within 100 feet that are Grabbed by stone clutch, with a DC 32 Fortitude save."}, {"name": "Push 15 feet", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 32, "attack": 24, "spells": {"0": ["Detect Magic"], "4": ["Shape Stone (At Will)"], "5": ["Illusory Disguise", "Truespeech (Constant)", "Wall of Stone"], "6": ["Mountain Resilience (At Will; Self Only)", "Petrify"], "7": ["Interplanar Teleport (To Astral Plane, Elemental Planes, or the Universe Only)"], "8": ["Earthquake"]}}]
+"Jann Shuyookh":
+  pack: "rage-of-elements-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["air", "earth", "elemental", "fire", "genie", "metal", "water", "wood"]
+  ac: 27
+  hp: 155
+  perception: 18
+  saves: {"fortitude": 19, "reflex": 17, "will": 18}
+  abilities: {"cha": 4, "con": 4, "dex": 4, "int": 3, "str": 6, "wis": 5}
+  speeds: {"land": 25, "fly": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Arcana": 18, "Athletics": 19, "Crafting": 16, "Deception": 17, "Diplomacy": 19, "Survival": 18}
+  resistances: {"air": 10, "earth": 10, "fire": 10, "metal": 10, "water": 10, "wood": 10}
+  strikes: [{"name": "Scimitar", "bonus": 20, "damage": [["2d6+12", "slashing", null]], "traits": ["forceful", "magical", "sweep"], "effects": ["All Made One"]}, {"name": "Fist", "bonus": 19, "damage": [["1d8+9", "bludgeoning", null]], "traits": ["agile", "magical", "nonlethal", "unarmed"], "effects": ["All Made One"]}, {"name": "Composite Longbow", "bonus": 18, "damage": [["2d8+9", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-30"], "range": 100, "effects": ["All Made One"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Commanding Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "20 feet. A creature that enters the aura must succeed at a DC 26 Will save or be Frightened 2 (Frightened 3 on a critical failure), and is then temporarily immune for 1 minute. A genie (with the exception of another jann) takes a –4 circumstance penalty to their save."}, {"name": "Elemental Resistance", "type": "passive", "traits": [], "text": "The jann shuyookh's elemental resistance applies to cold, electricity, and fire damage, as well as all damage from elemental sources (including environmental damage from the elemental planes and damage from anything with the air, earth, fire, metal, water, or wood trait)."}, {"name": "All Made One", "type": "action", "traits": [], "cost": 1, "text": "The jann shuyookh calls upon all the elements that make up their being and chooses one. They gain an additional arcane spell they can cast at will and empower their Strikes with the element, dealing an extra 1d6 damage of the listed type. These benefits last until the shuyookh uses this ability again.%rAir: Lightning Bolt, 1d6 electricity; Earth: One with Stone, 1d6 bludgeoning; Fire: Fireball, 1d6 fire; Metal: Noxious Metals, 1d6 electricity; Water: Wall of Water, 1d6 bludgeoning; Wood: Wall…"}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The jann transforms into a Small or Medium elemental or animal. This doesn't affect the gennayn's statistics, but it could change the damage type of their Strikes."}, {"name": "Wanderer's Wish", "type": "action", "traits": [], "cost": 3, "text": "Frequency three times per year%rEffect The jann instantly grants the benefits of a critical success with the wish ritual to a mortal creature. This has no cost. That creature specifies what they wish for, but the interpretation is up to the jann. A jann typically attempts to grant wishes in a way that encourages growth and exploration. A summoned jann can't use this ability."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 28, "attack": 20, "spells": {"0": ["Detect Magic", "Know the Way"], "4": ["Invisibility", "Read Omens"], "5": ["Truespeech (Constant)"], "7": ["Interplanar Teleport (At Will; To Astral Plane, Elemental Planes, or the Universe only)"]}}, {"name": "All Made One Spells", "tradition": "arcane", "type": "innate", "dc": 28, "attack": 20, "spells": {"3": ["Fireball", "Lightning Bolt", "Noxious Metals", "One with Stone", "Wall of Thorns", "Wall of Water"]}}]
+"Kinzaruk":
+  pack: "rage-of-elements-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 19
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 11, "will": 7}
+  abilities: {"cha": 0, "con": 1, "dex": 4, "int": -4, "str": 3, "wis": 0}
+  speeds: {"land": null, "fly": 10}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Stealth": 9, "Survival": 7}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 5}
+  strikes: [{"name": "Razor's Edge", "bonus": 11, "damage": [["1d10+3", "slashing", null]], "traits": ["finesse"]}]
+  actions: [{"name": "Fold Form", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The kinzaruk swiftly unfolds and refolds its body into a new shape chosen from the options of Animal Form. This grants it the movement Speeds and Strikes of the chosen form, but none of the other benefits. Its attack bonus is unchanged, and its damage bonus is +3. The kinzaruk can return to its natural form by taking this action again, and automatically returns if it falls Unconscious.%rEffect: Fold Form"}]
+"Kizidhar":
+  pack: "rage-of-elements-bestiary"
+  level: 6
+  size: "large"
+  rarity: "uncommon"
+  traits: ["elemental", "genie", "plant", "wood"]
+  ac: 22
+  hp: 110
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 13, "will": 12}
+  abilities: {"cha": 3, "con": 5, "dex": 3, "int": 3, "str": 4, "wis": 4}
+  speeds: {"land": 25, "climb": 15}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Arcana": 11, "Athletics": 15, "Crafting": 15, "Deception": 13, "Intimidation": 15, "Nature": 16, "Stealth": 13}
+  weaknesses: {"axe-vulnerability": 5, "fire": 5}
+  strikes: [{"name": "Staff", "bonus": 16, "damage": [["2d4+10", "bludgeoning", null]], "traits": ["reach-10", "two-hand-d8"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The kizidhar transforms into a Small or Medium wood elemental or plant creature. This doesn't affect the kizidhar's statistics, but it could change the damage type of their Strikes."}, {"name": "Parting the Trees", "type": "passive", "traits": [], "text": "The genie ignores difficult terrain from plants, and can share their space with larger plants, such as trees."}, {"name": "Sculpt Wood", "type": "action", "traits": [], "cost": 1, "text": "The kizidhar creates a wooden item out of their body that appears in their hand and remains attached. The item can be a one-handed simple weapon, shield, or object of light Bulk. A kizidhar can instead use this ability to transform an item it's already holding or to remove an object to free its hand. Any item created with Sculpt Wood crumbles to splinters if removed from the kizidhar's possession."}, {"name": "Take Root", "type": "action", "traits": ["arcane", "plant", "wood"], "cost": 1, "text": "The genie thrusts their weapon into the ground. Plants sprout and grow out of the ground in a 20-foot centered on one corner of the kizidhar's square. All squares on the ground in that area are difficult terrain until the kizidhar uses this ability again."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Detect Magic"], "2": ["Entangling Flora", "Invisibility", "One With Plants"], "5": ["Nature's Pathway (At Will)"], "6": ["Speak with Plants (Constant)", "Truespeech (Constant)"], "7": ["Interplanar Teleport (At Will; To Astral Plane, Elemental Planes, or the Universe Only)"]}}]
+"Kizidhar Shuyookh":
+  pack: "rage-of-elements-bestiary"
+  level: 11
+  size: "large"
+  rarity: "rare"
+  traits: ["elemental", "genie", "plant", "wood"]
+  ac: 30
+  hp: 220
+  perception: 22
+  saves: {"fortitude": 24, "reflex": 20, "will": 20}
+  abilities: {"cha": 4, "con": 7, "dex": 5, "int": 4, "str": 5, "wis": 4}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 20, "Arcana": 19, "Athletics": 22, "Crafting": 23, "Deception": 21, "Intimidation": 21, "Nature": 24, "Stealth": 22}
+  weaknesses: {"axe-vulnerability": 10, "fire": 10}
+  strikes: [{"name": "Spear", "bonus": 23, "damage": [["3d6+11", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 23, "damage": [["3d6+11", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Sprout Shield", "type": "reaction", "traits": [], "text": "Trigger An enemy hits the kizidhar shuyookh with a melee Strike%rRequirements The kizidhar shuyookh doesn't have a shield raised%rEffect The shuyookh can use Sculpt Wood to create a duskwood shield if they don't already have one. The shuyookh then Raises their Shield. The circumstance bonus from the shield applies to their AC against the triggering attack."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 1, "text": "The kizidhar transforms into a Small or Medium wood elemental or plant creature. This doesn't affect the kizidhar's statistics, but it could change the damage type of their Strikes."}, {"name": "Manipulative Wish", "type": "passive", "traits": ["downtime"], "text": "Frequency three times per year%rEffect The shuyookh conducts a wish ritual for the benefit of a mortal, requiring no cost or secondary casters. The shuyookh's result is a success if they succeed at a DC 5 Flat or a failure if not. The shuyookh attempts to advance their own interests along with those of any beneficiaries from the wish."}, {"name": "Parting the Trees", "type": "passive", "traits": [], "text": "The genie ignores difficult terrain from plants, and can share their space with larger plants, such as trees."}, {"name": "Sculpt Wood", "type": "action", "traits": [], "cost": 1, "text": "The kizidhar creates a wooden item out of their body that appears in their hand and remains attached. The item can be a one-handed simple weapon, shield, or object of light Bulk. A kizidhar can instead use this ability to transform an item it's already holding or to remove an object to free its hand. Any item created with Sculpt Wood crumbles to splinters if removed from the kizidhar's possession."}, {"name": "Seed of Ambition", "type": "action", "traits": ["auditory", "emotion", "mental"], "cost": 1, "text": "Frequency once per round;%rEffect The kizidhar plants a desire for greatness in the mind of a creature within 50 feet. The target must attempt a DC 30 Will save. On a failure, until the end of its next turn, the target can't Delay, Ready, or use reactions. Instead, it must use all its actions to Strike or cast the highest rank of spell available to it using spell slots or Focus Points, or take actions to facilitate doing so, such as drawing a weapon or moving toward an enemy. The target must…"}, {"name": "Take Root", "type": "action", "traits": ["arcane", "plant", "wood"], "cost": 1, "text": "The genie thrusts their weapon into the ground. Plants sprout and grow out of the ground in a 20-foot centered on one corner of the kizidhar's square. All squares on the ground in that area are difficult terrain until the kizidhar uses this ability again."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 30, "attack": 22, "spells": {"0": ["Detect Magic"], "2": ["Entangling Flora (At Will)", "One With Plants"], "3": ["Wooden Double"], "6": ["Invisibility", "Lignify", "Nature's Pathway (At Will)", "Speak with Plants (Constant)", "Truespeech (Constant)"], "7": ["Interplanar Teleport (At Will; To Astral Plane, Elemental Planes, or the Universe Only)"]}}]
+"Lava Otter":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["elemental", "fire"]
+  ac: 15
+  hp: 22
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 9, "will": 5}
+  abilities: {"cha": 1, "con": 1, "dex": 4, "int": -4, "str": 1, "wis": 3}
+  speeds: {"land": 25, "swim": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Stealth": 7}
+  immunities: ["bleed", "paralyzed", "fire", "sleep", "poison"]
+  weaknesses: {"cold": 3}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d4+1", "piercing", null], ["1d4", "fire", null]], "traits": ["finesse", "unarmed"]}, {"name": "Claw", "bonus": 9, "damage": [["1d4+1", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Below the Crust", "type": "passive", "traits": [], "text": "A lava otter can Sneak at its full Speed in lava."}, {"name": "Molten Form", "type": "passive", "traits": ["fire"], "text": "Any creature that hits the lava otter with an unarmed Strike or otherwise touches it takes 1 fire damage. If a gallon or more of water touches the lava otter, or if it's affected by a water effect, its outer layer of lava hardens to a rocky shell, deactivating its molten form and imposing weakness 5 to bludgeoning damage. Molten form reactivates if the otter swims in lava for 1 minute."}, {"name": "Scattering Magma", "type": "action", "traits": ["fire"], "cost": 1, "text": "Requirements The otter is in molten form, and its previous action was a successful jaws Strike%rEffect The otter grips with its jaws and rapidly twists, flinging lava. The otter deals 1d4 fire damage to all creatures adjacent to it."}, {"name": "Tight-Knit Family", "type": "passive", "traits": [], "text": "A lava otter can share the same space as another lava otter, but no more than two lava otters can occupy the same space."}]
+"Lithic Locus":
+  pack: "rage-of-elements-bestiary"
+  level: 14
+  size: "large"
+  rarity: "rare"
+  traits: ["construct", "earth", "elemental", "spirit"]
+  ac: 35
+  hp: 260
+  perception: 25
+  saves: {"fortitude": 27, "reflex": 21, "will": 27}
+  abilities: {"cha": 2, "con": 6, "dex": 0, "int": 7, "str": 6, "wis": 6}
+  speeds: {"land": 30}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 26, "Society": 25, "One Ancient Civilization Lore": 29}
+  immunities: ["bleed", "paralyzed", "poison", "vitality", "void"]
+  strikes: [{"name": "Ancient Stone", "bonus": 28, "damage": [["3d8+16", "bludgeoning", null]], "traits": ["earth", "magical"], "effects": ["Bury"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Antiques", "type": "passive", "traits": [], "text": "A lithic locus contains at least one magic item. Any such antiques are durable, permanent items that were part of the locus's site and typify their culture. The locus receives the benefits of such an item as if wearing or holding it and can activate it. A lithic locus typically has an item of their level."}, {"name": "Bury", "type": "passive", "traits": [], "text": "Any creature hit by the locus's ancient stone Strike is partially buried in a tide of earth and rock, becoming Immobilized (escape dc=34)."}, {"name": "Echo the Past", "type": "action", "traits": [], "cost": 2, "text": "The locus calls forth a remnant of the past civilization to impart a lesson or control the present. Using this ability again ends any previous manifestation. The locus casts one of the following occult innate spells (DC 34) for the listed purpose.%rDominate The dominated creature takes on the role of a historical figure or someone in the social hierarchy (such as high priest) from the locus's civilization.%rIllusory Scene The scene reenacts a historical event from the locus's…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 34, "attack": 26, "spells": {"0": ["Daze"], "3": ["One with Stone"], "5": ["Illusory Scene (Echo the Past)", "Invoke Spirits (Echo the Past)", "Wall of Stone (Echo the Past)"], "6": ["Dominate (Echo the Past)"]}}]
+"Living Grove":
+  pack: "rage-of-elements-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 21
+  hp: 90
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 7, "will": 15}
+  abilities: {"cha": 1, "con": 5, "dex": 0, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 20}
+  senses: ["tremorsense"]
+  skills: {"Nature": 13, "Stealth": 13, "Survival": 12}
+  immunities: ["bleed", "paralyzed", "sleep", "poison"]
+  weaknesses: {"axe-vulnerability": 5, "fire": 7}
+  strikes: [{"name": "Branch", "bonus": 15, "damage": [["2d8+4", "bludgeoning", null]], "traits": []}, {"name": "Nuts", "bonus": 11, "damage": [["2d6+4", "bludgeoning", null]], "traits": [], "range": 20}]
+  actions: [{"name": "Tremorsense 30 feet", "type": "passive", "traits": []}, {"name": "Defensive Camouflage", "type": "passive", "traits": [], "text": "The living grove can Hide in natural environments even if it doesn't have cover. While Hiding, its root system is safely covered in dirt, granting the grove a +3 status bonus to AC. A critical hit cracks this protective layer of earth to disperse in the wind, ending the effect."}, {"name": "Engulf", "type": "action", "traits": [], "cost": 2, "text": "DC 22 Reflex, 5d8 bludgeoning damage, escape dc=20, Rupture 10%rA creature Engulfed by the living grove must also attempt a DC 22 Fortitude save as it's battered between the thin, tightly packed trunks.%rCritical Success The creature is unaffected.%rSuccess The creature is Stunned 1.%rFailure The creature is Stunned 2.%rCritical Failure The creature is Stunned 4."}]
+"Living Lodestone":
+  pack: "rage-of-elements-bestiary"
+  level: 6
+  size: "small"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 23
+  hp: 95
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 13, "will": 16}
+  abilities: {"cha": 4, "con": 4, "dex": 3, "int": 0, "str": 5, "wis": 4}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 15}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 5}
+  strikes: [{"name": "Jolt", "bonus": 15, "damage": [["2d6+8", "electricity", null]], "traits": []}, {"name": "Hurled Metal Object", "bonus": 13, "damage": [["2d10+7", "bludgeoning", null]], "traits": ["magical", "primal"], "range": 60}]
+  actions: [{"name": "Electromagnetic Disruption", "type": "passive", "traits": [], "text": "When living lodestone takes electricity damage, they automatically reverses polarity."}, {"name": "Magnetic Field", "type": "passive", "traits": ["aura", "metal", "primal"], "text": "60 feet.%rA living lodestone constantly emits a powerful magnetic field that is either positively or negatively aligned. Each creature within the aura that is wielding a metallic weapon, wearing metallic armor, or made partially or entirely out of metal is subject to an effect determined by the lodestone's current polarity.%rNegative An affected creature is pushed 5 feet away from the lodestone at the start of each of its turns, and it treats each square in the aura as difficult terrain when…"}, {"name": "Hover", "type": "passive", "traits": [], "text": "A living lodestone floats above the ground high enough to ignore all difficult terrain and greater difficult terrain on the ground."}, {"name": "Magnetic Disarm", "type": "action", "traits": ["primal"], "cost": 1, "text": "The living lodestone attempts to Disarm a metal weapon from a creature within its magnetic field. On a critical success, the weapon is either pushed to just outside the aura if the polarity is negative or is pulled to the lodestone and sticks to it if the polarity is positive. An item stuck to the lodestone can be wrenched free with an Interact action."}, {"name": "Reverse Polarity", "type": "action", "traits": [], "cost": 2, "text": "The living lodestone switches the polarity of its magnetic field from positive to negative, or vice versa. Each creature affected by the lodestone's aura falls Prone unless it succeeds at a DC 21 Reflex save.%rThe lodestone can't Reverse Polarity again for 1d4 rounds."}]
+"Living Magma":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "fire"]
+  ac: 35
+  hp: 250
+  perception: 22
+  saves: {"fortitude": 26, "reflex": 20, "will": 22}
+  abilities: {"cha": 4, "con": 5, "dex": 5, "int": 4, "str": 8, "wis": 5}
+  speeds: {"land": 40, "swim": 60}
+  senses: ["darkvision"]
+  skills: {"Athletics": 27, "Intimidation": 23, "Stealth": 22}
+  immunities: ["bleed", "paralyzed", "fire", "sleep", "poison"]
+  weaknesses: {"cold": 15}
+  strikes: [{"name": "Magma Fist", "bonus": 27, "damage": [["2d4", "fire", "persistent"], ["3d6", "fire", null], ["3d8+11", "bludgeoning", null]], "traits": ["reach-20"]}]
+  actions: [{"name": "Molten Form", "type": "passive", "traits": ["fire"], "text": "Any creature that hits the living magma with an unarmed Strike or otherwise touches it takes 10 fire damage. If a gallon or more of water touches the living magma, or if it's affected by a water effect, its outer layer of lava hardens to a rocky shell, deactivating its molten form and imposing weakness 15 to bludgeoning damage. Molten form reactivates if the living magma swims in lava for 1 minute."}, {"name": "Trap Weapon", "type": "reaction", "traits": ["fire"], "text": "Frequency once per round%rTrigger A creature hits the living magma with a melee weapon%rEffect The living magma attempts an Athletics check against the triggering creature's Athletics DC. On a success, the living magma traps the weapon in its body and pulls it from the attacker's grasp. A creature can Interact to retrieve the weapon, but the attempt fails unless the creature succeeds at an Athletics check against the living magma's Fortitude DC (typically 36). If the living magma uses Engulf,…"}, {"name": "Engulf", "type": "action", "traits": [], "cost": 2, "text": "DC 33 Reflex, 2d10 bludgeoning,4d6 fire damage, escape dc=33, Rupture 25"}, {"name": "Launch Lava", "type": "action", "traits": ["fire"], "cost": 2, "text": "The living magma hurls an exploding glob of lava up to 120 feet. Each creature in a 10-foot takes 7d6 fire|options:area-damage damage (DC 33 Reflex save)."}, {"name": "Reignite", "type": "action", "traits": ["fire"], "cost": 2, "text": "Requirements The living magma is not in molten form%rEffect The living magma returns to molten form."}, {"name": "Volcanic Heat", "type": "passive", "traits": ["aura", "fire"], "text": "40 feet. Any creature that enters or starts its turn in the aura takes 15 fire damage (DC 33 Fortitude save). A creature that fails its save is also Enfeebled 1 until it's no longer in the aura."}]
+"Lomori Sprout":
+  pack: "rage-of-elements-bestiary"
+  level: 3
+  size: "tiny"
+  rarity: "rare"
+  traits: ["aeon", "plant", "wood"]
+  ac: 17
+  hp: 50
+  perception: 9
+  saves: {"fortitude": 6, "reflex": 11, "will": 8}
+  abilities: {"cha": 1, "con": 3, "dex": 4, "int": 0, "str": 0, "wis": 3}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Athletics": 7, "Crafting": 10, "Nature": 10, "Stealth": 11, "Gardening Lore": 11}
+  weaknesses: {"fire": 3, "void": 3}
+  strikes: [{"name": "Grass Lash", "bonus": 9, "damage": [["2d6", "slashing", null]], "traits": ["disarm", "finesse"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Scurry", "type": "reaction", "traits": [], "text": "Trigger A creature the lomori sprout can observe attacks the sprout;%rEffect After the attack resolves, the lomori sprout can Stride up to their speed. This movement doesn't trigger reactions from the triggering creature."}, {"name": "Greater Forest Passage", "type": "passive", "traits": [], "text": "The lomori sprout ignores difficult terrain and greater difficult terrain from plants and fungi."}, {"name": "Take Root", "type": "action", "traits": [], "cost": 2, "text": "Requirements The lomori sprout is on the ground%rEffect The lomori sprout plants themself in the ground. Grasping roots erupt from the ground in a 5-foot within 60 feet of the lomori sprout, dealing 4d4 bludgeoning|options:area-damage damage (DC 20 Reflex save) to creatures in the area; on a failed save, a creature gains the Immobilized condition until it Escapes. The roots also make the area difficult terrain for 1 minute, after which they decompose into fertile mulch; the area is no longer…"}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Melomach":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 33
+  hp: 292
+  perception: 19
+  saves: {"fortitude": 26, "reflex": 23, "will": 23}
+  abilities: {"cha": 7, "con": 9, "dex": 4, "int": 0, "str": 9, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 30, "Crafting": 21, "Intimidation": 28, "Performance": 26}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 15}
+  strikes: [{"name": "Fist", "bonus": 26, "damage": [["3d12+18", "bludgeoning", null]], "traits": ["agile", "reach-15", "unarmed", "versatile-p", "versatile-s"]}, {"name": "Lightning", "bonus": 21, "damage": [["3d10+16", "electricity", null]], "traits": ["electricity", "magical"]}]
+  actions: [{"name": "Heavy", "type": "passive", "traits": [], "text": "As long as it is immobile, the elemental can't be forcibly moved or knocked Prone. If it takes a move action, it loses this immunity until the start of its next turn."}, {"name": "Lightning Punch", "type": "action", "traits": [], "cost": 2, "text": "The melomach makes a fist Strike, then makes a lightning Strike against a different creature within 120 feet of the fist Strike's target. Both Strikes count toward the melomach's multiple attack penalty, but it doesn't increase until after both attacks are made."}, {"name": "Rhythmic Stomp", "type": "action", "traits": ["emotion", "mental", "primal"], "cost": 1, "text": "Frequency once per round%rEffect The melomach's footsteps raise a clanging sound through their body to create a brief musical phrase. The melomach Strides, then generates the effect of one of the following bard composition cantrips at 7th rank: Allegro, Dirge of Doom (adds the fear trait), or Triple Time."}, {"name": "Scream", "type": "action", "traits": ["primal", "sonic"], "cost": 2, "text": "The melomach unleashes a guttural, ear-piercing wail. All creatures in a 120-foot take 7d12 sonic|options:area-damage damage with a DC 32 Fortitude save.%rThe melomach can't Scream again for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature takes half damage.%rFailure The creature takes full damage, is Stunned 1, and is Deafened for 1 minute.%rCritical Failure The creature takes double damage, is Stunned 3, and is deafened permanently."}]
+"Mercurial":
+  pack: "rage-of-elements-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 17
+  hp: 30
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 11, "will": 8}
+  abilities: {"cha": 4, "con": 3, "dex": 4, "int": 2, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Deception": 10, "Diplomacy": 8, "Plane of Metal Lore": 8}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 5}
+  strikes: [{"name": "Fist", "bonus": 9, "damage": [["1d10+3", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Shuriken", "bonus": 10, "damage": [["1d6+3", "piercing", null]], "traits": ["agile", "thrown-20"]}]
+  actions: [{"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The mercurial takes on the appearance of any Small or Medium humanoid. This transformation allows for significant detail and can reproduce the features of a specific individual, but the mercurial retains a shiny, liquid-metal appearance that renders the transformation unsuitable as a disguise unless they're impersonating another mercurial. It doesn't change the mercurial's Speed or the attack and damage bonuses of their Strikes, but it does allow them to transform their limbs into metal tools…"}, {"name": "Metallurgic Adaptation", "type": "action", "traits": ["polymorph", "primal"], "cost": 1, "text": "The mercurial transmutes their liquid metal body into cold iron, copper, gold, iron, silver, or steel. Their unarmed melee Strikes are made of that material until they use Metallurgic Adaptation again."}]
+"Metal Wisp":
+  pack: "rage-of-elements-bestiary"
+  level: 0
+  size: "tiny"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 16
+  hp: 15
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 3, "will": 6}
+  abilities: {"cha": 0, "con": 3, "dex": 1, "int": 0, "str": 2, "wis": 2}
+  speeds: {"land": 0, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Mining Lore": 4, "Plane of Metal Lore": 4}
+  immunities: ["bleed", "electricity", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 2}
+  strikes: [{"name": "Tendril", "bonus": 6, "damage": [["1", "bleed", "persistent"], ["1d4", "piercing", null]], "traits": ["reach-10"]}]
+  actions: [{"name": "Rust Vision", "type": "passive", "traits": [], "text": "A metal wisp ignores the concealed condition from rust clouds."}, {"name": "Accord Essence", "type": "reaction", "traits": ["plant"], "text": "Trigger An ally within 30 feet that benefited from the wisp's resonance in the last hour is targeted by an attack%rEffect The wisp detonates itself in a small elemental explosion. Allies within 30 feet that have benefited from the wisp's resonance in the last hour gain temporary Hit Points equal to half the wisp's current Hit Points. These temporary Hit Points last 1 hour.%rA wisp that uses this reaction is permanently destroyed, and it can be restored only by a Wish ritual or similarly…"}, {"name": "Resonance", "type": "passive", "traits": ["aura", "metal"], "text": "30 feet. All wisps vibrate at a frequency attuned to their element, resonating with and empowering all creatures and effects sharing that trait. Creatures in the area gain a +1 status bonus to attack and damage rolls made with metal weapons or effects with the metal trait; a creature with the elemental and metal traits gains this bonus to all attack and damage rolls."}, {"name": "Rust Cloud", "type": "passive", "traits": [], "text": "A metal wisp is constantly surrounded by a cloud of rust flakes that cause it to be Concealed from creatures more than 5 feet away from it."}, {"name": "In Concert", "type": "passive", "traits": [], "text": "When a metal wisp rolls a critical failure on a check to Aid, they get a failure instead, and when they roll a success, they get a critical success instead."}]
+"Moss Sloth":
+  pack: "rage-of-elements-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 18
+  hp: 40
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 3, "will": 11}
+  abilities: {"cha": 1, "con": 4, "dex": 0, "int": -4, "str": 3, "wis": 2}
+  speeds: {"land": 10, "climb": 15}
+  hp_details: "regeneration 5 (deactivated by fire)"
+  skills: {"Nature": 7, "Survival": 8}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"fire": 4, "slashing": 3}
+  resistances: {"bludgeoning": 5}
+  strikes: [{"name": "Wooden Claw", "bonus": 9, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}, {"name": "Fruit", "bonus": 6, "damage": [["1d6+2", "bludgeoning", null]], "traits": [], "range": 15}]
+  actions: [{"name": "Regeneration 5 (Deactivated by Fire)", "type": "passive", "traits": []}, {"name": "Insect Swarm", "type": "passive", "traits": [], "text": "The first time each day that the moss sloth takes damage from a bludgeoning melee attack, a patch of moss collapses inward, releasing insects that swarm the attacking creature and deal 2d4 piercing damage (DC 15 Reflex save)."}, {"name": "Hold Fast", "type": "passive", "traits": [], "text": "A moss sloth can climb on ceilings and other inverted surfaces, though it treats such surfaces as difficult terrain."}]
+"Munsahir Gatecrasher":
+  pack: "rage-of-elements-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "fire", "humanoid"]
+  ac: 22
+  hp: 65
+  perception: 11
+  saves: {"fortitude": 14, "reflex": 6, "will": 11}
+  abilities: {"cha": -1, "con": 4, "dex": 0, "int": 4, "str": 2, "wis": 3}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 10, "Crafting": 12, "Plane of Fire Lore": 10}
+  immunities: ["fire"]
+  weaknesses: {"cold": 5}
+  strikes: [{"name": "Hammer Gauntlet", "bonus": 12, "damage": [["1d12+6", "bludgeoning", null]], "traits": ["free-hand", "shove"]}, {"name": "Flame Jet", "bonus": 12, "damage": [["1d6", "fire", "persistent"], ["1d6", "fire", null]], "traits": ["brutal", "fire"], "range": 20}]
+  actions: [{"name": "Heat of the Forge", "type": "passive", "traits": ["aura", "fire"], "text": "10 feet. An munsahir's skin radiates heat like a forge's fire. A creature that starts its turn in the area must succeed at a DC 19 Fortitude save or become Fatigued while it remains in the area. Creatures immune to environmental heat effects or with any fire resistance are immune."}, {"name": "Self-Destruct", "type": "passive", "traits": [], "text": "When the munsahir is reduced to 0 HP, their armor explodes at the start of their next turn, dealing 5d6 fire|options:area-damage damage in a 10-foot (DC 19 Reflex)."}, {"name": "Blazing Rush", "type": "action", "traits": [], "cost": 2, "text": "The gatecrasher Strides up to double their Speed in a straight line. They can pass through enemy spaces and make a hammer gauntlet Strike against each creature they move through. Blazing Rush can't be used again for 1d4 rounds."}, {"name": "Burning Touch", "type": "passive", "traits": ["fire", "primal"], "text": "The munsahir gatecrasher's Strikes deal an extra 1d6 fire damage (included above). When the gatecrasher successfully performs a Grapple or Shove action, they also deal 1d6 fire damage to their target."}]
+"Munsahir Trooper":
+  pack: "rage-of-elements-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "fire", "humanoid"]
+  ac: 22
+  hp: 65
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 6, "will": 11}
+  abilities: {"cha": 1, "con": 5, "dex": 1, "int": 2, "str": 3, "wis": 3}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Crafting": 11, "Stealth": 12, "Plane of Fire Lore": 11}
+  immunities: ["fire"]
+  weaknesses: {"cold": 5}
+  strikes: [{"name": "Warhammer", "bonus": 14, "damage": [["1d8+9", "bludgeoning", null]], "traits": ["shove"]}, {"name": "Dueling Pistol", "bonus": 12, "damage": [["1d6+6", "piercing", null]], "traits": ["concealable", "concussive", "fatal-d10", "reload-1"], "range": 60}]
+  actions: [{"name": "Heat of the Forge", "type": "passive", "traits": ["aura", "fire"], "text": "10 feet. An munsahir's skin radiates heat like a forge's fire. A creature that starts its turn in the area must succeed at a DC 20 Fortitude save or become Fatigued while it remains in the area. Creatures immune to environmental heat effects or with any fire resistance are immune."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Self-Destruct", "type": "passive", "traits": [], "text": "When the munsahir is reduced to 0 HP, their armor explodes at the start of their next turn, dealing 5d6 fire|options:area-damage damage in a 10-foot (DC 19 Reflex)."}, {"name": "Burning Touch", "type": "passive", "traits": ["fire", "primal"], "text": "The munsahir gatecrasher's Strikes deal an extra 1d6 fire damage (included above). When the gatecrasher successfully performs a Grapple or Shove action, they also deal 1d6 fire damage to their target."}, {"name": "Volcanic Hammer", "type": "action", "traits": [], "cost": 2, "text": "The trooper makes a warhammer Strike that deals one extra weapon die of damage and 2d6 persistent fire damage."}]
+"Murajau":
+  pack: "rage-of-elements-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["amphibious", "humanoid"]
+  ac: 25
+  hp: 60
+  perception: 13
+  saves: {"fortitude": 15, "reflex": 9, "will": 11}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": 2, "str": 5, "wis": 2}
+  speeds: {"land": 25, "swim": 30}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 14, "Diplomacy": 11, "Survival": 13, "Talisman Lore": 13}
+  strikes: [{"name": "Leg", "bonus": 14, "damage": [["1d6+9", "bludgeoning", null]], "traits": ["versatile-p"], "effects": ["Grab"]}, {"name": "Spear", "bonus": 14, "damage": [["1d6+9", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 14, "damage": [["1d6+9", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Hefty Defense", "type": "passive", "traits": [], "text": "A murajau's weight and legs make them incredibly difficult to trip or be moved unwillingly. They can be tripped only by creatures of their size or larger and have a +2 circumstance bonus to all defenses against being shoved or tripped. However, a murajau can Stand only as a 2-action activity."}, {"name": "Retract", "type": "action", "traits": [], "cost": 2, "text": "The murajau fully retreats into their shell, gaining greater cover; the bonus to Stealth applies only if the murajau is undetected. While in their shell, the murajau can't see outside and takes a –2 circumstance penalty to auditory Perception checks. The only move actions the murajau can take are to Stand or Step. The murajau can come back out as a single action."}, {"name": "Talisman Faithful", "type": "passive", "traits": [], "text": "A murajau can affix talismans to their shell as though it were heavy armor, and they can affix up to three talismans to it at a time instead of one."}, {"name": "Swinging Spear", "type": "action", "traits": [], "cost": 2, "text": "The murajau makes a spear Strike. On a hit, the murajau twists their spear to move the target to any space adjacent to the murajau and deals an additional 2d6 bludgeoning damage as the target smashes into the murajau's thick shell."}]
+"Nanoshard Swarm":
+  pack: "rage-of-elements-bestiary"
+  level: 9
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "metal", "swarm"]
+  ac: 28
+  hp: 120
+  perception: 18
+  saves: {"fortitude": 17, "reflex": 21, "will": 16}
+  abilities: {"cha": 3, "con": 4, "dex": 6, "int": 3, "str": 6, "wis": 3}
+  speeds: {"land": 0}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 21, "Athletics": 19, "Stealth": 21}
+  immunities: ["bleed", "paralyzed", "poison", "sleep", "swarm-mind", "precision"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"bludgeoning": 5, "electricity": 10, "piercing": 10, "slashing": 10}
+  strikes: [{"name": "Tendril", "bonus": 19, "damage": [["2d8+9", "piercing", null]], "traits": ["reach-60", "versatile-b"]}]
+  actions: [{"name": "Swarm Mind", "type": "passive", "traits": []}, {"name": "Electromagnetic Dispersal", "type": "passive", "traits": [], "text": "When a nanoshard swarm takes electricity damage, they automatically shift into swarm form."}, {"name": "Barrier Form", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 3, "text": "Requirements The nanoshard swarm is in swarm form%rEffect The nanoshard swarm forms a continuous 6-inch-thick solid wall, up to 60 feet long and 10 feet high, originating from any one square in its current space. The wall can follow any path, with each 5 feet being placed on the border between squares. It doesn't need to stand vertically, so it can form a bridge or set of stairs, for example. The wall must be formed in an unbroken open space where its edges don't pass through any creatures or…"}, {"name": "Battle Form", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 2, "text": "Requirements The nanoshard swarm is in swarm form%rEffect The nanoshard swarm coalesces into a Huge shape that looks like a humanoid or beast and can hold items. In battle form, its Speed is 15 feet, it's Clumsy 1, and it has the following Strike.%rMelee 1 limb (reach 20 feet), Damage 4d8+9 bludgeoning"}, {"name": "Engulf (Swarm Form)", "type": "action", "traits": [], "cost": 2, "text": "DC 27 Reflex, (2d8+6) bludgeoning damage, escape dc=27, Rupture 18"}, {"name": "Swarm Form", "type": "free", "traits": ["concentrate"], "text": "The nanoshard swarm collapses into its natural form: a Huge sea of tiny metal spheres. It drops anything it's holding. While in swarm form, the nanoshard swarm's Speed is 25 feet, it can move through any area large enough for a single sphere to fit through without having to Squeeze, and it gains Engulf."}]
+"Nightwood Guardian":
+  pack: "rage-of-elements-bestiary"
+  level: 9
+  size: "large"
+  rarity: "uncommon"
+  traits: ["giant", "troll", "wood"]
+  ac: 26
+  hp: 200
+  perception: 17
+  saves: {"fortitude": 21, "reflex": 16, "will": 17}
+  abilities: {"cha": 2, "con": 6, "dex": 3, "int": 0, "str": 6, "wis": 2}
+  speeds: {"land": 30}
+  hp_details: "flesh of wood"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 23, "Intimidation": 21, "Nightwood Lore": 15}
+  weaknesses: {"axe-vulnerability": 10, "fire": 10}
+  strikes: [{"name": "Club", "bonus": 21, "damage": [["3d8+6", "bludgeoning", null]], "traits": ["reach-10"]}, {"name": "Jaws", "bonus": 21, "damage": [["2d12+6", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Fire-fueled Rage", "type": "passive", "traits": [], "text": "When a nightwood guardian takes fire damage, they become enraged. The guardian gains 15 temporary Hit Points, deals 2 additional damage with melee Strikes, and has a –1 penalty to AC. They can't Raise their Shield or use actions with the concentrate trait except for Seek. This effect ends when the nightwood guardian no longer observes any fire for 1 round or when they fall Unconscious, whichever comes first.%rEffect: Rage"}, {"name": "Flesh of Wood", "type": "passive", "traits": ["primal", "wood"], "text": "Wounds inflicted on a nightwood guardian turn their flesh to wood. When the guardian is reduced to 40 HP or fewer, their body becomes solid wood. They are stunned, have resistance 10 to all damage, and have regeneration 40 (deactivated by fire). This ends once the guardian has 100 HP or more, though they can choose to stay in this form indefinitely."}, {"name": "Light Blindness", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Shield Eyes", "type": "passive", "traits": [], "text": "When a nightwood guardian has their shield raised, they protect their eyes, losing the Blinded and Dazzled conditions from light blindness and other light effects."}, {"name": "Nightwood Roar", "type": "action", "traits": ["concentrate", "darkness", "primal"], "cost": 2, "text": "Frequency once per hour;%rEffect The guardian roars, snuffing out lights in a 30-foot. Ordinary flames and lights are extinguished, and the guardian attempts to counteract any magical light with a +21 counteract modifier and a counteract rank of 5."}]
+"Nursery Crawler":
+  pack: "rage-of-elements-bestiary"
+  level: 3
+  size: "small"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 18
+  hp: 48
+  perception: 9
+  saves: {"fortitude": 6, "reflex": 4, "will": 12}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": -2, "str": 4, "wis": 1}
+  speeds: {"land": 20, "climb": 20}
+  skills: {"Deception": 5, "Survival": 9}
+  immunities: ["bleed", "paralyzed", "sleep", "poison"]
+  weaknesses: {"axe-vulnerability": 5, "fire": 5}
+  strikes: [{"name": "Root", "bonus": 9, "damage": [["1d8+4", "bludgeoning", null]], "traits": []}, {"name": "Seed", "bonus": 8, "damage": [["1d6+3", "piercing", null]], "traits": [], "range": 20, "effects": ["Germinate"]}]
+  actions: [{"name": "Germinate", "type": "passive", "traits": ["plant"], "text": "A creature hit by the nursery crawler's seed Strike must, on its turn, spend an Interact action to remove the seed; any seeds still implanted at the end of the creature's turn begin to sprout, dealing 1d6 persistent bleed damage and rendering the seeded creature Clumsy 1 and Off-Guard. Removing a seed after it's sprouted deals 1d4 piercing damage; removing it before it begins to sprout does no damage. Removed seeds that land in viable soil sprout immediately and grow into new saplings after 1…"}]
+"Olobigonde":
+  pack: "rage-of-elements-bestiary"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["animal", "aquatic", "elemental", "water"]
+  ac: 17
+  hp: 38
+  perception: 7
+  saves: {"fortitude": 10, "reflex": 7, "will": 5}
+  abilities: {"cha": -5, "con": 4, "dex": 1, "int": -4, "str": 3, "wis": 1}
+  speeds: {"land": 5, "swim": 30}
+  senses: ["scent"]
+  skills: {"Athletics": 10, "Stealth": 9, "Survival": 7}
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d8+3", "piercing", null]], "traits": ["unarmed"], "effects": ["Decomposing Toxin"]}]
+  actions: [{"name": "Camouflage", "type": "passive", "traits": [], "text": "An olobigonde can hide in aquatic environments even if it doesn't have cover. However, there must be plants, debris, a seabed, or other objects for it to camouflage itself, not just open water."}, {"name": "Ambush", "type": "reaction", "traits": [], "text": "Trigger A target creature passes within 20 feet of the olobigonde's hiding place and has not detected the olobigonde%rEffect The olobigonde lunges out of its hiding place, Swims directly toward the triggering creature, and makes a jaws Strike against it. The target creature is Off-Guard to this attack."}, {"name": "Decomposing Toxin", "type": "passive", "traits": ["poison"], "text": "A living creature struck by an olobigonde's jaws Strike must succeed at a DC 15 Fortitude save or become Enfeebled 1 and take 1d6 poison persistent damage (or Enfeebled 2 with 2d6 poison persistent damage on a critical failure). The enfeebled condition ends when the persistent damage does. A creature currently affected by decomposing toxin doesn't need to save again."}, {"name": "Reactive Grab", "type": "reaction", "traits": [], "text": "Trigger A creature within the olobigonde's reach leaves a square during a move action it's using%rRequirements The olobigonde doesn't have a creature Grabbed%rEffect The olobigonde attempts to Grapple the triggering creature with its jaws. On a success, the target also takes 3 piercing damage (doubled on a critical success)."}]
+"Ore Louse":
+  pack: "rage-of-elements-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "beast", "water"]
+  ac: 22
+  hp: 60
+  perception: 14
+  saves: {"fortitude": 13, "reflex": 15, "will": 10}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -2, "str": 1, "wis": 3}
+  speeds: {"land": 35, "swim": 60}
+  senses: ["darkvision", "wavesense"]
+  skills: {"Athletics": 12}
+  strikes: [{"name": "Mandibles", "bonus": 14, "damage": [["2d8+4", "piercing", null]], "traits": ["finesse"], "effects": ["Metal Snack", "Rust"]}, {"name": "Leg", "bonus": 14, "damage": [["2d8+4", "bludgeoning", null]], "traits": ["finesse", "reach-10"], "effects": ["Knockdown"]}, {"name": "Oxidizing Spit", "bonus": 14, "damage": [["2d8", "acid", null]], "traits": [], "range": 20, "effects": ["Rust"]}]
+  actions: [{"name": "Metal Scent", "type": "passive", "traits": [], "text": "An ore louse can smell metal as a precise sense."}, {"name": "Consume Living Metal", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ore louse is adjacent to a creature that died within the last hour and had the metal trait or was another ore louse%rEffect An ore louse can replenish its health by eating the remains of its kin or a once-living metal creature. The ore louse feasts upon the corpse, regaining 3d6 healing Hit Points. The ore louse can regain Hit Points from a given corpse only once."}, {"name": "Metal Snack", "type": "passive", "traits": [], "text": "An ore louse gains 5 temporary Hit Points each time its mandibles Strike either damages or breaks a metal item using its rust ability, or if it hits a creature that has the metal trait or is made of metal."}, {"name": "Rust", "type": "passive", "traits": [], "text": "An ore louse's Strikes causes metal to rapidly rust and corrode. If it succeeds at a mandibles or oxidizing spit Strike, the ore louse deals 3d6 untyped damage (or double damage on a critical hit) to a metal item the target is wearing or holding, ignoring its Hardness. If the ore louse hits an unattended metal item, the item takes this damage automatically. If a creature uses the Shield Block reaction with a metal shield against the attacks, the shield is automatically broken, but no other item…"}, {"name": "Water Stride", "type": "passive", "traits": [], "text": "The ore louse can stand and move on the surface of water or other liquids without falling through. The ore louse can go underwater if it wishes, but it must Swim to do so."}]
+"Oregorger":
+  pack: "rage-of-elements-bestiary"
+  level: 11
+  size: "large"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 30
+  hp: 245
+  perception: 18
+  saves: {"fortitude": 24, "reflex": 17, "will": 20}
+  abilities: {"cha": 3, "con": 7, "dex": 2, "int": -1, "str": 8, "wis": 3}
+  speeds: {"land": 30, "burrow": 20, "fly": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Athletics": 25}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"acid": 10, "electricity": 10}
+  strikes: [{"name": "Adamantine Bite", "bonus": 23, "damage": [["2d12+12", "piercing", null]], "traits": ["adamantine", "reach-10"], "effects": ["Devour Metal"]}, {"name": "Claw", "bonus": 23, "damage": [["2d6+12", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Rust Vision", "type": "passive", "traits": [], "text": "An oregorger ignores the concealed condition from rust clouds."}, {"name": "Caustic Rust", "type": "passive", "traits": ["acid", "aura"], "text": "5 feet.%rThe oregorger continually leaks tiny fragments of partially digested rust into the air around it. Any creature that ends its turn in the aura takes 2d6 acid damage with a DC 27 Reflex save. A creature that critically fails is also Sickened 1."}, {"name": "Devour Metal", "type": "passive", "traits": [], "text": "Any time the oregorger scores a critical hit with an adamantine bite attack, it deals the same amount of damage to any metal armor worn by the target, automatically bypassing any Hardness lower than 10. If a creature uses the Shield Block reaction with a metal shield against an oregorger's adamantine bite, the shield is automatically broken, but no other item takes damage from that attack. Unattended metal items automatically take full damage from an oregorger's adamantine bite attack, ignoring…"}, {"name": "Searing Spew", "type": "action", "traits": ["acid"], "cost": 2, "text": "The oregorger belches forth a cloud of caustic, rusted debris from its maw, filling a cube adjacent to itself that's 10 feet on each side. Any creature in this area takes 6d6 acid,6d6 slashing|options:area-damage damage (DC 30 Reflex). The ground under the cloud is difficult terrain for 1 hour, after which the shrapnel crumbles to dust.%rThe oregorger can't use Searing Spew again for 1d4 rounds, but the ability recharges if the oregorger damages an item with devour metal."}]
+"Painted Stag":
+  pack: "rage-of-elements-bestiary"
+  level: 9
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 27
+  hp: 175
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 12, "will": 21}
+  abilities: {"cha": 4, "con": 5, "dex": 3, "int": 2, "str": 7, "wis": 1}
+  speeds: {"land": 45, "climb": 60}
+  hp_details: "regeneration 10 (deactivated by fire)"
+  skills: {"Athletics": 18, "Intimidation": 23, "Nature": 18}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"axe-vulnerability": 10, "fire": 10}
+  strikes: [{"name": "Antler", "bonus": 20, "damage": [["2d12+7", "piercing", null]], "traits": [], "effects": ["Grab"]}, {"name": "Hooves", "bonus": 20, "damage": [["2d10+7", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Regeneration 10 (Deactivated by Fire)", "type": "passive", "traits": []}, {"name": "Mauler", "type": "passive", "traits": [], "text": "A painted stag gains a +5 circumstance bonus to damage rolls against creatures it has grabbed."}, {"name": "Painted Dance", "type": "action", "traits": ["auditory", "mental", "plant", "primal", "visual"], "cost": 2, "text": "The stag shakes the wooden plating along its body in a cacophonous clatter that sets its painted patterns dancing. All creatures within 60 feet of the painted stag who can see or hear it must attempt a DC 28 Will save; a creature Grabbed by the stag takes a –4 circumstance penalty to its save. Regardless of the result of its save, each creature is temporarily immune for 1 hour.%rCritical Success The creature is unaffected.%rSuccess The creature is Fascinated by the painted stag for 1…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Pelegox Cube":
+  pack: "rage-of-elements-bestiary"
+  level: 11
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["elemental", "metal", "troop"]
+  ac: 31
+  hp: 210
+  perception: 22
+  saves: {"fortitude": 21, "reflex": 24, "will": 18}
+  abilities: {"cha": 4, "con": 6, "dex": 7, "int": 5, "str": 4, "wis": 3}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "140 (3 segments), 70 (2 segments)"
+  skills: {"Acrobatics": 22, "Athletics": 21, "Crafting": 20, "Diplomacy": 21}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  resistances: {"electricity": 10}
+  actions: [{"name": "Telepathy 30 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Metalsense", "type": "passive", "traits": [], "text": "A pelegox cube can sense metal creatures and objects as an imprecise sense."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Entrancing Shapes", "type": "action", "traits": ["mental", "occult", "visual"], "cost": 2, "text": "The pelegox cube rapidly shifts, creating a display of seemingly impossible geometric patterns. Creatures in a 60-foot take 9d6 mental|options:area-damage damage (DC 29 Will save). A creature that fails is also Fascinated with the pelegox cube and Stupefied 1 for 1 minute."}, {"name": "Scrambled Strike", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The pelegox cube rearranges to create jutting spikes, attacking each enemy within 10 feet (DC 27 Reflex save). The damage depends on the number of actions.%r1 2d6 piercing damage%r2 (3d6+10) piercing damage%r3 (5d6+10) piercing damage"}, {"name": "Shard Volley", "type": "action", "traits": [], "cost": 2, "text": "The pelegox cube magnetizes fragments of metal at range. This is a 10-foot within 30 feet that deals (2d6+10) piercing|options:area-damage damage (DC 27 Reflex save). When the troop is reduced to 2 or fewer segments, this area decreases to a 5-foot."}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the troop Flies, it first Forms Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then moves up to its Speed. This works just like a Gargantuan creature moving; for instance, if any square of the troop enters difficult terrain, the extra movement cost applies to the entire troop."}]
+"Picture-in-Clouds":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "common"
+  traits: ["air", "elemental"]
+  ac: 35
+  hp: 175
+  perception: 20
+  saves: {"fortitude": 21, "reflex": 26, "will": 19}
+  abilities: {"cha": 4, "con": 5, "dex": 8, "int": 4, "str": 4, "wis": 4}
+  speeds: {"land": 0, "fly": 100}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 26, "Stealth": 24}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Gust", "bonus": 26, "damage": [["3d10+10", "bludgeoning", null]], "traits": ["finesse", "reach-20"], "effects": ["Push"]}, {"name": "Lightning Lash", "bonus": 26, "damage": [["3d12", "electricity", null]], "traits": [], "range": 100}]
+  actions: [{"name": "Disperse", "type": "reaction", "traits": [], "text": "Trigger The picture-in-clouds takes damage from a hostile action%rEffect The picture-in-clouds disperses. Until the end of the current turn, they can't be attacked or targeted, they don't take up space, and any auras or emanations they have are suppressed. At the end of the turn, the picture-in-clouds re-forms in any sufficient space within 150 feet of where they dispersed; any auras or emanations they have are restored as long as the duration didn't run out while the elemental was dispersed."}, {"name": "High Winds", "type": "passive", "traits": ["air", "aura"], "text": "60 feet. Air within the emanation is difficult terrain for Flying creatures that don't have the air trait."}, {"name": "Cloudgaze", "type": "action", "traits": [], "cost": 1, "text": "The picture-in-clouds shifts into their choice of an eagle shape, elephant shape, or sword shape."}, {"name": "Elephant Blast", "type": "action", "traits": [], "cost": 2, "text": "Requirements The picture-in-clouds is in elephant shape%rEffect The picture-in-clouds breathes out a 30-foot of air from their cloudy trunk. Creatures in the area must attempt a DC 30 Fortitude save to stand their ground. A creature pushed into a solid object stops moving and takes 4d10 bludgeoning damage.%rCritical Success The creature is unaffected.%rSuccess The creature is pushed 20 feet.%rFailure The creature is pushed 40 feet.%rCritical Failure The creature is pushed 40 feet and knocked…"}, {"name": "Feather Storm", "type": "action", "traits": ["move"], "cost": 2, "text": "Requirements The picture-in-clouds is in eagle shape%rEffect The picture-in-clouds Flies 125 feet, flapping their wings and creating a barrier along their path. This barrier has the effects of Wall of Wind (DC 30 Fortitude) and lasts until the end of the picture-in-clouds's next turn."}, {"name": "Slicing Wind", "type": "action", "traits": [], "cost": 1, "text": "Requirements The picture-in-clouds is in sword shape%rEffect The picture-in-clouds spins, forming a whirlwind that deals 5d8 slashing|options:area-damage damage in a 15-foot (DC 30 Reflex save)."}, {"name": "Swiftness", "type": "passive", "traits": [], "text": "The picture-in-clouds's movement doesn't trigger reactions."}, {"name": "Push 15 feet", "type": "action", "traits": [], "cost": 1}]
+"Pine Pangolin":
+  pack: "rage-of-elements-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 25
+  hp: 140
+  perception: 15
+  saves: {"fortitude": 15, "reflex": 10, "will": 18}
+  abilities: {"cha": 1, "con": 5, "dex": 0, "int": 1, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 17, "Nature": 15, "Survival": 18}
+  immunities: ["poison", "paralyzed", "sleep", "bleed"]
+  weaknesses: {"axe-vulnerability": 5, "fire": 10}
+  strikes: [{"name": "Claw", "bonus": 17, "damage": [["2d12+3", "piercing", null]], "traits": ["agile", "unarmed"]}, {"name": "Tongue", "bonus": 17, "damage": [["2d8+3", "bludgeoning", null]], "traits": [], "effects": ["Grab"]}]
+  actions: [{"name": "Roll Up", "type": "action", "traits": ["move"], "cost": 1, "text": "The pine pangolin falls Prone, closes up its scales, and rolls into a ball. While Rolled Up, the pangolin gains resistance 10 to physical damage and total immunity to falling damage from heights of 50 feet or less. The only action the pine pangolin can take is to Stand, and the effects of Roll Up end once the pangolin Stands."}, {"name": "Secrete Tar", "type": "action", "traits": ["plant"], "cost": 1, "text": "The pine pangolin secretes a brown, sticky tar within a 5-foot, making those squares difficult terrain for 1 minute. Each creature that enters or starts its turn in a tarred square must succeed at a DC 25 Fortitude save or become Immobilized until it Escapes. On a critical failure, the creature falls Prone; prone creatures take a –2 circumstance penalty to their checks to Escape the tar. The pine pangolin is immune to the effects of its own tar."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Quickiron Plasm":
+  pack: "rage-of-elements-bestiary"
+  level: 4
+  size: "large"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 20
+  hp: 65
+  perception: 8
+  saves: {"fortitude": 13, "reflex": 8, "will": 10}
+  abilities: {"cha": -2, "con": 5, "dex": 2, "int": -4, "str": 6, "wis": 0}
+  speeds: {"land": 15}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Stealth": 10}
+  immunities: ["bleed", "paralyzed", "poison", "sleep", "critical-hits", "precision"]
+  resistances: {"electricity": 5}
+  strikes: [{"name": "Pseudopod", "bonus": 12, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["reach-10", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Magic Scent", "type": "passive", "traits": [], "text": "The quickiron plasm can sense magical auras from up to 1 mile away as an imprecise sense."}, {"name": "Djezet Extraction", "type": "passive", "traits": [], "text": "When a quickiron plasm dies, most of the djezet making up its body becomes inert and useless. However, a skilled alchemist can sometimes extract trace amounts of the valuable skymetal from its remains. This is a 10-minute process that requires the Alchemical Crafting feat, a proficiency rank of expert or better in Crafting, and a successful DC 20 Crafting check. A successful attempt produces a single djezet dose that remains potent for 1 hour before breaking down into a foul-smelling goo. The…"}, {"name": "Biomagical Feedback", "type": "passive", "traits": [], "text": "The quickiron plasm's conductive properties are dangerous to those in physical contact with it. When a creature Grabbed by a quickiron plasm Casts a Spell, that creature takes 5 force damage per rank of the spell."}, {"name": "Consume Magic", "type": "reaction", "traits": [], "text": "Trigger The quickiron plasm succeeds at a saving throw against a spell%rEffect The quickiron plasm consumes energy from the spell, regaining 5 Hit Points per rank of the spell."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "2d6 bludgeoning, DC 22 Fortitude"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Rakkatak":
+  pack: "rage-of-elements-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "fire"]
+  ac: 21
+  hp: 90
+  perception: 9
+  saves: {"fortitude": 14, "reflex": 11, "will": 9}
+  abilities: {"cha": -2, "con": 5, "dex": 2, "int": -3, "str": 4, "wis": 2}
+  speeds: {"land": 5, "fly": 45}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Athletics": 15}
+  immunities: ["bleed", "paralyzed", "fire", "sleep", "poison"]
+  weaknesses: {"cold": 5}
+  strikes: [{"name": "Mouth", "bonus": 15, "damage": [["2d8+7", "piercing", null]], "traits": [], "effects": ["Grab"]}, {"name": "Leg", "bonus": 15, "damage": [["1d10+7", "slashing", null]], "traits": ["agile"]}]
+  actions: [{"name": "Exploding Guts", "type": "passive", "traits": [], "text": "When the rakkatak is critically hit or critically fails a Fortitude save, one of its organs bursts. Roll 1d4 to determine what effect this has.%r1 Trapped noxious gas rushes out. The rakkatak is pushed 10 feet away from the source of the triggering attack or effect.%r2 Pus showers those nearby. Each creature in a 5-foot is Sickened 1.%r3 The damage is severe. The rakkatak takes 1d6 persistent bleed damage.%r4 Gelatinous rakkatak eggs explode forth and instantly hatch. Each creature in a 5-foot…"}, {"name": "Predator's Stare", "type": "action", "traits": ["concentrate", "emotion", "mental", "visual"], "cost": 1, "text": "The rakkatak turns its grotesque yet mesmerizing eyes upon one creature it can see within 30 feet. That creature must succeed at a DC 22 Will save or become Fascinated with the rakkatak. While fascinated, the creature must spend at least 1 action each round moving closer to the rakkatak as expediently as possible, and can't intentionally move away from it. The fascination ends after 1 minute or when the rakkatak uses Predator's Stare again, whichever comes first."}, {"name": "Suck Innards", "type": "action", "traits": [], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the rakkatak's reach%rEffect The rakkatak deals 3d6 untyped damage to the target (DC 22 Fortitude save). If the creature takes at least 12 damage, the rakkatak regains 10 healing HP."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Rust Scarab":
+  pack: "rage-of-elements-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 21
+  hp: 65
+  perception: 9
+  saves: {"fortitude": 14, "reflex": 9, "will": 11}
+  abilities: {"cha": 2, "con": 5, "dex": 2, "int": 2, "str": 6, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Plane of Metal Lore": 11}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 5}
+  strikes: [{"name": "Claw", "bonus": 15, "damage": [["2d8+6", "slashing", null]], "traits": ["unarmed"], "effects": ["Tetanus"]}]
+  actions: [{"name": "Heavy", "type": "passive", "traits": [], "text": "As long as it is immobile, the elemental can't be forcibly moved or knocked Prone. If it takes a move action, it loses this immunity until the start of its next turn."}, {"name": "Rust Vision", "type": "passive", "traits": [], "text": "A rust scarab ignores the Concealed condition from rust clouds."}, {"name": "Crumbling Carapace", "type": "passive", "traits": [], "text": "When a rust scarab is reduced to fewer than half its maximum Hit Points or is damaged by a critical hit, its outer shell breaks into a veil of rusty metal flakes. This causes it to lose its resistance to physical damage and its heavy ability, but it gains a rust cloud aura and a 35-foot land Speed."}, {"name": "Rust Cloud", "type": "passive", "traits": [], "text": "A rust scarab whose carapace is broken is constantly surrounded by a cloud of rust flakes that cause it to be Concealed from creatures more than 5 feet away from it."}, {"name": "Tetanus", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 19 Fortitude%rOnset 1 week%rStage 1 Clumsy 1 (1 week)%rStage 2 Clumsy 2 and can't speak (1 day)%rStage 3 Paralyzed with spasms (1 day)%rStage 4 death"}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, claw, DC 23 Reflex"}]
+"Saltborn Stalkers":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["aquatic", "elemental", "troop", "water"]
+  ac: 34
+  hp: 240
+  perception: 24
+  saves: {"fortitude": 22, "reflex": 26, "will": 20}
+  abilities: {"cha": 3, "con": 5, "dex": 7, "int": 3, "str": 6, "wis": 5}
+  speeds: {"land": 10, "swim": 60}
+  hp_details: "troop defenses"
+  senses: ["darkvision"]
+  skills: {"Athletics": 27, "Intimidation": 22, "Nature": 22, "Stealth": 26, "Plane of Water Lore": 22, "Warfare Lore": 22}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Lightlure", "type": "action", "traits": ["concentrate", "incapacitation", "mental", "primal", "visual"], "cost": 1, "text": "Effect The saltborn stalkers move their luminescent lures in an entrancing light show, drawing nearby creatures into their grasp. Each creature in a 100-foot must attempt a DC 33 Will save; regardless of the result of its save, the creature is then temporarily immune to Lightlure for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature is Fascinated with the lures and must spend all its actions on its next turn to move closer to them as expediently as possible, avoiding obvious…"}, {"name": "Saline Crust", "type": "passive", "traits": ["aura", "water"], "text": "20 feet%rRequirements The saltborn stalkers are in a body of water%rEffect Layers of the saltborn's salty skin flake off to foul the water around them. A creature that ends its turn in the aura takes 2d6 acid damage with a DC 30 Reflex save; creatures with the amphibious or aquatic trait are immune."}, {"name": "Salty Clutch", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The stalkers reach out to Grab their foes and drag them underwater. Each enemy in a 5-foot must succeed at a DC 33 Reflex save or be Grabbed by the stalkers (or Restrained on a critical success). For the rest of the current turn, the saltborn stalkers can move toward water or in water without ending the grab, carrying any grabbed or restrained creatures along with them."}, {"name": "Scour the Bones", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The saltborn stalkers use their teeth and claws to vivisect each enemy within 5 feet (DC 30 Reflex save). The damage depends on the number of actions.%r1 2d10 slashing damage%r2 (3d10+8) slashing damage%r3 (3d10+16) slashing damage"}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the saltborn stalkers Stride or Swim, they first Form Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then move. This works just like a Gargantuan creature moving; for instance, if any of the stalkers' squares enter difficult terrain, the extra movement cost applies to the whole troop."}]
+"Skymetal Striker":
+  pack: "rage-of-elements-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 26
+  hp: 100
+  perception: 15
+  saves: {"fortitude": 15, "reflex": 17, "will": 13}
+  abilities: {"cha": 2, "con": 4, "dex": 6, "int": 2, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Stealth": 17}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"electricity": 5}
+  strikes: [{"name": "Inubrix Fangs", "bonus": 17, "damage": [["2d10+6", "slashing", null]], "traits": ["finesse", "reach-10"], "effects": ["Phase Blade"]}, {"name": "Orichalcum Fangs", "bonus": 17, "damage": [["2d12+6", "slashing", null]], "traits": ["finesse", "reach-10"], "effects": ["Temporal Stutter"]}]
+  actions: [{"name": "Phase Blade", "type": "passive", "traits": [], "text": "A skymetal striker's inubrix fangs Strike ignores damage resistance from metal armor's armor specialization effects and the circumstance bonus to AC from metal shields, and it doesn't trigger the Shield Block reaction from a metal shield."}, {"name": "Temporal Stutter", "type": "passive", "traits": [], "text": "A creature not already affected by temporal stutter that takes damage from a skymetal striker's orichalcum fangs Strike must attempt a DC 25 Fortitude save.%rSuccess The target is Quickened until the end of its next turn.%rFailure The target is Slowed 1 until the end of its next turn.%rCritical Failure The target is Slowed 2 until the end of its next turn."}, {"name": "Two-Headed Assault", "type": "action", "traits": [], "cost": 2, "text": "The skymetal striker makes one inubrix fangs Strike and one orichalcum fangs Strike, each against a different creature. Its multiple attack penalty increases only after all the attacks are made."}]
+"Snapdrake":
+  pack: "rage-of-elements-bestiary"
+  level: 8
+  size: "large"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 26
+  hp: 144
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 11, "will": 19}
+  abilities: {"cha": 4, "con": 3, "dex": 6, "int": -2, "str": 4, "wis": 3}
+  speeds: {"land": 20, "fly": 50}
+  skills: {"Acrobatics": 15, "Athletics": 14, "Performance": 16}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"axe-vulnerability": 10, "fire": 10}
+  strikes: [{"name": "Fangs", "bonus": 14, "damage": [["2d12+4", "piercing", null]], "traits": [], "effects": ["Grab", "Snapdrake Pollen"]}, {"name": "Tail Scythe", "bonus": 16, "damage": [["2d10+6", "slashing", null]], "traits": ["deadly-d10", "finesse", "reach-10"]}]
+  actions: [{"name": "Alluring Scent", "type": "passive", "traits": ["aura", "olfactory", "plant", "primal"], "text": "30 feet.%rA creature that enters the emanation must attempt a DC 25 Will save. On a failure, the target is Fascinated by the snapdrake and must use at least 1 action on its next turn to Stride closer to the snapdrake. On a success, the target is immune to the snapdrake's alluring scent for 1 hour."}, {"name": "Attack of Opportunity", "type": "reaction", "traits": [], "text": "Tail scythe only"}, {"name": "Greater Forest Passage", "type": "passive", "traits": [], "text": "The snapdrake ignores difficult terrain and greater difficult terrain from plants and fungi."}, {"name": "Snapdrake Pollen", "type": "passive", "traits": ["plant", "poison"], "text": "Saving Throw DC 25 Fortitude;%rMaximum Duration 8 rounds%rStage 1 1d6 poison damage plus Dazzled 1 (1 round)%rStage 2 1d6 poison damage plus dazzled 1 and Sickened 1 (2 rounds)%rStage 3 2d6 poison damage plus Confused and sickened 1 (2 rounds)"}, {"name": "Speed Surge", "type": "action", "traits": ["move"], "cost": 1, "text": "Frequency 3 times per day%rEffect The snapdrake moves up to twice its Speed."}, {"name": "Spray Pollen", "type": "action", "traits": ["arcane", "plant", "poison"], "cost": 2, "text": "The snapdrake breathes a blast of pollen in a 40-foot. Creatures caught in the blast must succeed at a DC 25 Reflex save or be exposed to snapdrake pollen.%rThe snapdrake can't use Spray Pollen again for 1d6 rounds."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Solar Crow":
+  pack: "rage-of-elements-bestiary"
+  level: 10
+  size: "large"
+  rarity: "common"
+  traits: ["elemental", "fire"]
+  ac: 30
+  hp: 170
+  perception: 19
+  saves: {"fortitude": 18, "reflex": 22, "will": 17}
+  abilities: {"cha": 5, "con": 2, "dex": 6, "int": 0, "str": 2, "wis": 3}
+  speeds: {"land": 20, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 22, "Deception": 21, "Nature": 19, "Sun Lore": 18}
+  immunities: ["bleed", "paralyzed", "fire", "sleep", "poison"]
+  strikes: [{"name": "Beak", "bonus": 22, "damage": [["2d10+8", "piercing", null], ["2d6", "fire", null]], "traits": ["finesse", "unarmed"]}, {"name": "Talon", "bonus": 22, "damage": [["2d6", "fire", null], ["1d10+8", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Smoke Vision", "type": "passive", "traits": [], "text": "Smoke doesn't impair a solar crow's vision; they ignore the Concealed condition from smoke."}, {"name": "Glinting Wing", "type": "reaction", "traits": ["light", "visual"], "text": "Trigger A creature within 120 feet attempts to target the solar crow%rEffect The solar crow defensively repositions a wing to shine light into the attacker's eyes. The target is Dazzled for the duration of the triggering effect, granting the solar crow concealment against it."}, {"name": "Glow", "type": "passive", "traits": ["aura", "fire", "light"], "text": "25 feet. The solar crow casts bright light in a 25-foot (and dim light for the next 25 feet)."}, {"name": "Blinding Heat", "type": "action", "traits": ["fire", "incapacitation", "light", "visual"], "cost": 2, "text": "The solar crow expands its wings and unleashes blazing hot, blinding light in a 120-foot. Each creature in the area takes 9d6 fire|options:area-damage damage with a DC 29 Reflex save. The crow can't use Blinding Heat again for 1d4 rounds, and its glow aura is deactivated during this time.%rCritical Success The creature is unaffected.%rSuccess The creature takes half damage and is Dazzled for 1 round.%rFailure The creature takes full damage and is Blinded for 1 round.%rCritical Failure The…"}, {"name": "Burning Talons", "type": "passive", "traits": [], "text": "A creature Grabbed by the solar crow takes 1d4 persistent fire damage. It can't recover from this damage while grabbed by the crow."}, {"name": "Snatch", "type": "passive", "traits": [], "text": "A solar crow can Fly at half Speed while it has a creature Grabbed or Restrained in its talons, carrying that creature along with it."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Sootsoldiers":
+  pack: "rage-of-elements-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "fire", "troop"]
+  ac: 30
+  hp: 165
+  perception: 20
+  saves: {"fortitude": 20, "reflex": 21, "will": 18}
+  abilities: {"cha": 0, "con": 6, "dex": 5, "int": 2, "str": 7, "wis": 4}
+  speeds: {"land": 40}
+  hp_details: "(16 squares); Thresholds 110 (3 segments), 55 (2 segments);"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 21, "Athletics": 21, "Nature": 18, "Plane of Fire Lore": 18, "Warfare Lore": 18}
+  immunities: ["bleed", "paralyzed", "fire", "sleep", "poison"]
+  weaknesses: {"area-damage": 10, "cold": 10, "splash-damage": 10}
+  actions: [{"name": "Ashen Smoke", "type": "passive", "traits": [], "text": "When the sootsoldiers are reduced by an HP Threshold or are reduced to 0 HP, the destroyed soldiers crumble to a cloud of ash-laden smoke in 20-foot centered on the sootsoldiers. All creatures within the cloud are Concealed, and all creatures outside it are concealed to those inside. The smoke lasts for 1 minute or until dispersed by a strong wind."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Incinerating Grasp", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The sootsoldiers reach to constrain each enemy within 5 feet in their fiery clutches (DC 26 Reflex save). The damage and additional effects depend on the number of actions.%r1 2d8 fire damage%r2 (3d8+7) fire damage plus Grabbed%r3 (4d8+7) fire damage plus grabbed"}, {"name": "Seething Flash", "type": "action", "traits": ["fire", "primal"], "cost": 1, "text": "The sootsoldiers reignite and rush across the battlefield, Forming Up and Striding twice. At the end of this movement, a wave of flame and heat pours off the sootsoldiers, dealing 4d8 fire|options:area-damage damage to other creatures in a 10-foot, with a DC 29 Reflex save. A creature that critically fails its save is also knocked Prone."}, {"name": "Smoke Vision", "type": "passive", "traits": [], "text": "Sootsoldiers ignore the Concealed condition from smoke."}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the sootsoldiers Stride, they first Form Up as a free action to condense into a 20-foot-by-20- foot area (minus any missing squares), then move up to their Speed. This works just like a Gargantuan creature moving; for instance, if any of the sootsoldiers' squares enters difficult terrain, the extra movement cost applies to the whole troop."}]
+"Sootsoldiers (The Radiant Host)":
+  pack: "rage-of-elements-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "fire", "troop"]
+  ac: 30
+  hp: 165
+  perception: 20
+  saves: {"fortitude": 20, "reflex": 21, "will": 18}
+  abilities: {"cha": 0, "con": 6, "dex": 5, "int": 2, "str": 7, "wis": 4}
+  speeds: {"land": 40}
+  hp_details: "(16 squares); Thresholds 110 (3 segments), 55 (2 segments);"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 21, "Athletics": 21, "Nature": 18, "Plane of Fire Lore": 18, "Warfare Lore": 18}
+  immunities: ["bleed", "paralyzed", "fire", "sleep", "poison"]
+  weaknesses: {"area-damage": 10, "cold": 10, "splash-damage": 10}
+  actions: [{"name": "Ashen Smoke", "type": "passive", "traits": [], "text": "Sootsoldiers who serve the other Lord of Fire, the Lambent King Atreia, are covered in glowing embers instead of black char.%rWhen the sootsoldiers are reduced by an HP Threshold or are reduced to 0 HP, the destroyed soldiers crumble to a cloud of ash-laden smoke in 20-foot centered on the sootsoldiers. Any creature in the area must attempt a DC 29 Reflex save. On a failure, for 1 minute that creature is Dazzled and its invisibility is negated."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Incinerating Grasp", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The sootsoldiers reach to constrain each enemy within 5 feet in their fiery clutches (DC 26 Reflex save). The damage and additional effects depend on the number of actions.%r1 2d8 fire damage%r2 (3d8+7) fire damage plus Grabbed%r3 (4d8+7) fire damage plus grabbed"}, {"name": "Seething Flash", "type": "action", "traits": ["fire", "primal"], "cost": 1, "text": "The sootsoldiers reignite and rush across the battlefield, Forming Up and Striding twice. At the end of this movement, a wave of flame and heat pours off the sootsoldiers, dealing 4d8 fire|options:area-damage damage to other creatures in a 10-foot, with a DC 29 Reflex save. A creature that critically fails its save is also knocked Prone."}, {"name": "Smoke Vision", "type": "passive", "traits": [], "text": "Sootsoldiers ignore the Concealed condition from smoke."}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever the sootsoldiers Stride, they first Form Up as a free action to condense into a 20-foot-by-20- foot area (minus any missing squares), then move up to their Speed. This works just like a Gargantuan creature moving; for instance, if any of the sootsoldiers' squares enters difficult terrain, the extra movement cost applies to the whole troop."}]
+"Talos Gadgeteer":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid", "talos"]
+  ac: 17
+  hp: 17
+  perception: 3
+  saves: {"fortitude": 6, "reflex": 6, "will": 5}
+  abilities: {"cha": 1, "con": 1, "dex": 3, "int": 3, "str": 1, "wis": 0}
+  speeds: {"land": 25}
+  hp_details: "ablative armor plating"
+  skills: {"Acrobatics": 6, "Crafting": 6, "Society": 6, "Thievery": 6}
+  resistances: {"electricity": 1}
+  strikes: [{"name": "Fist", "bonus": 8, "damage": [["1d6+1", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed", "versatile-s"]}, {"name": "Light Hammer", "bonus": 6, "damage": [["1d6+1", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Light Hammer", "bonus": 8, "damage": [["1d6+1", "bludgeoning", null]], "traits": ["agile", "thrown-20"]}]
+  actions: [{"name": "Reflective Defense", "type": "reaction", "traits": [], "text": "Frequency once per round%rTrigger A creature within 30 feet targets the talos gadgeteer, and they can see the attacker%rRequirements The talos is in dim or bright light%rEffect The talos gadgeteer reflects light off their metallic skin and into the enemy's eyes; it must succeed at a DC 14 Reflex save or be Dazzled until the end of the talos's next turn."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 14, "attack": 6, "spells": {"0": ["Detect Metal"]}}]
+"Tantriog":
+  pack: "rage-of-elements-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "elemental", "water"]
+  ac: 24
+  hp: 118
+  perception: 16
+  saves: {"fortitude": 18, "reflex": 15, "will": 12}
+  abilities: {"cha": 5, "con": 3, "dex": 3, "int": 4, "str": 3, "wis": 1}
+  speeds: {"land": 20, "swim": 40}
+  skills: {"Deception": 16, "Diplomacy": 14, "Performance": 14, "Art Lore": 15, "Cooking Lore": 17}
+  resistances: {"fire": 8}
+  strikes: [{"name": "Claw", "bonus": 15, "damage": [["5d6+5", "piercing", null]], "traits": ["unarmed"]}, {"name": "Beak", "bonus": 15, "damage": [["5d4+5", "piercing", null]], "traits": ["unarmed"], "effects": ["Listless Saliva"]}, {"name": "Spitball", "bonus": 13, "damage": [["4d6+5", "bludgeoning", null]], "traits": [], "effects": ["Listless Saliva"]}]
+  actions: [{"name": "Shell Defense", "type": "action", "traits": [], "cost": 1, "text": "The tantriog retracts their limbs and head into their shell and ends their turn. This increases their AC to 26, but they can't act except to reemerge, which they can do as a single action."}, {"name": "Listless Saliva", "type": "passive", "traits": ["emotion", "mental"], "text": "The tantriog's essence is imbued with their endless ennui. Any creature hit by the tantriog's beak or spitball Strikes must succeed at a DC 24 Will save or become Stunned 1 (Stunned 2 on a critical failure)."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Spout"], "3": ["Wall of Water"]}}]
+"Twins of Rowan":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 34
+  hp: 273
+  perception: 26
+  saves: {"fortitude": 24, "reflex": 17, "will": 27}
+  abilities: {"cha": 4, "con": 8, "dex": 4, "int": 2, "str": 5, "wis": 3}
+  speeds: {"land": 35, "climb": 25}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 24, "Intimidation": 26, "Nature": 21}
+  immunities: ["bleed", "blinded", "dazzled", "paralyzed", "poison", "sleep"]
+  weaknesses: {"axe-vulnerability": 15, "fire": 15}
+  strikes: [{"name": "Rapier", "bonus": 26, "damage": [["4d8+5", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse", "reach-15"]}, {"name": "Fist", "bonus": 25, "damage": [["3d10+5", "bludgeoning", null]], "traits": ["agile", "reach-15", "unarmed"]}, {"name": "Stump", "bonus": 26, "damage": [["2d10+15", "bludgeoning", null]], "traits": ["brutal"], "range": 120}]
+  actions: [{"name": "Shielded Eyes", "type": "passive", "traits": [], "text": "A twins of rowan's protective mask shields them from blinding and dazzling effects."}, {"name": "Beacon of the Rowan Guard", "type": "passive", "traits": ["aura", "plant", "primal", "wood"], "text": "40 feet.%rThe lantern carried by the twins of rowan contains pure elemental life energy that resonates with and empowers all wood elementals. While within the emanation, a creature with the elemental trait and either the plant trait or wood trait gains fast healing 10 and a +2 circumstance bonus to all attack and damage rolls. The aura can be counteracted with a DC 30 check to Dispel Magic; doing so deactivates the aura for 1d6 #Rounds Deactivated rounds"}, {"name": "Follow-Up Combo", "type": "action", "traits": [], "cost": 2, "text": "The twins of rowan makes a rapier Strike, followed by two fist Strikes, all against the same target. These attacks all count toward the twins' multiple attack penalty, but the penalty doesn't increase until after the twins make their attacks."}, {"name": "Lifespring Burst", "type": "action", "traits": ["plant", "primal", "vitality"], "cost": 3, "text": "Once per day, the twins of rowan can strike the ground with their sword, releasing a 30-foot of life energy centered on the twins that deals 14d6 vitality|options:area-damage damage (DC 30 Fortitude save); the twins of rowan is immune. The area affected by this burst then becomes greater difficult terrain as vibrant new plant life ruptures through it."}, {"name": "Throw Stump", "type": "action", "traits": [], "cost": 1, "text": "Can also be used to throw stumps and logs."}]
+"Vault Builder":
+  pack: "rage-of-elements-bestiary"
+  level: 23
+  size: "medium"
+  rarity: "rare"
+  traits: ["earth", "elemental"]
+  ac: 47
+  hp: 465
+  perception: 37
+  saves: {"fortitude": 36, "reflex": 41, "will": 35}
+  abilities: {"cha": 8, "con": 7, "dex": 10, "int": 11, "str": 8, "wis": 6}
+  speeds: {"land": 35, "burrow": 35, "climb": 35}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 39, "Arcana": 42, "Athletics": 39, "Crafting": 44, "Nature": 37, "Stealth": 41, "Thievery": 39, "Architecture Lore": 42, "Engineering Lore": 42, "Planar Lore": 42}
+  immunities: ["bleed", "paralyzed", "poison", "sleep", "radiation"]
+  resistances: {"physical": 20}
+  strikes: [{"name": "Claw", "bonus": 37, "damage": [["5d10+12", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed"], "effects": ["Constraining Crystal"]}, {"name": "Crystal Wand", "bonus": 37, "damage": [["4d4+12", "piercing", null], ["4d6", "poison", null]], "traits": ["finesse", "magical", "radiation"]}, {"name": "Crystal Staff", "bonus": 39, "damage": [["4d6", "poison", null], ["4d4+12", "bludgeoning", null]], "traits": ["magical", "radiation", "two-hand-d8"]}, {"name": "Crystal Shard", "bonus": 37, "damage": [["7d6+4", "piercing", null]], "traits": ["earth", "magical"], "range": 100}]
+  actions: [{"name": "Tremorsense (Imprecise) 120 feet", "type": "passive", "traits": []}, {"name": "Telepathy 300 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+2 Status to Recall Knowledge About Earth", "type": "passive", "traits": []}, {"name": "Craft Crystal Wand", "type": "passive", "traits": ["exploration"], "text": "Frequency twice per day%rEffect The vault builder spends 10 minutes creating a magic wand out of radioactive green crystal, containing any 8th-rank or lower earth spell of their choice. The wand can be used by other creatures, but it crumbles to sand at the end of the day and has no monetary value. The vault builder can expend both daily uses to instead make a +3 greater striking Major Staff of Earth ."}, {"name": "Item Caster", "type": "passive", "traits": [], "text": "The vault keeper can Cast a Spell from any item (such as a staff or wand) as though it were on their spell list."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "+4 Status to All Saves vs. Earth", "type": "passive", "traits": []}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Constraining Crystal", "type": "passive", "traits": ["earth", "magical"], "text": "When the vault builder deals damage with a claw Strike, glowing green crystals cluster at the site of the attack. The target must succeed at a DC 31 Fortitude save or become Clumsy 1 for 1 hour (or Clumsy 2 on a critical failure). If the creature is already clumsy due to constraining crystal, additional failures increase that clumsy value instead, to a maximum of clumsy 4. A target that fails its save while clumsy 4 is Petrified with an unlimited duration."}, {"name": "Crystal Burst", "type": "action", "traits": ["arcane", "earth"], "cost": 2, "text": "An explosion of razor-sharp splinters deals 24d6 piercing|options:area-damage|traits:item:frequency:limited damage in a 30-foot within 120 feet, with a DC 46 Reflex save. The vault keeper can't use Crystal Burst again for 1d4 rounds."}, {"name": "Earth Glide", "type": "passive", "traits": [], "text": "The vault builder can Burrow through any earthen matter, including rock. When they do so, the vault builder moves at their full burrow Speed, leaving no tunnels or signs of their passing."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 50, "attack": 42, "spells": {"0": ["Detect Magic", "Read Aura", "Scatter Scree", "Sigil", "Telekinetic Hand"], "1": ["Ant Haul", "Mending", "Quick Sort"], "2": ["Knock", "Magnetic Attraction", "Magnetic Repulsion", "Pave Ground", "See the Unseen"], "3": ["Haste", "One with Stone"], "4": ["Clairvoyance", "Creation", "Fly", "Grasping Earth", "Mountain Resilience"], "5": ["Blazing Fissure", "Engrave Memory"], "6": ["Disintegrate", "Petrify", "Wall of Force"], "7": ["Heaving Earth"], "8": ["Earthquake"]}}, {"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 50, "attack": 42, "spells": {"4": ["Earthbind (At Will)", "Shape Stone (At Will)", "Translocate (At Will)"], "8": ["Petrify", "Scrying", "Shatter (At Will)", "Speak With Stones (At Will)", "Teleport", "Translocate"], "10": ["Summon Elemental (Earth Only)", "Wall of Stone"]}}]
+"Vault Keeper":
+  pack: "rage-of-elements-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "rare"
+  traits: ["earth", "elemental"]
+  ac: 36
+  hp: 200
+  perception: 26
+  saves: {"fortitude": 24, "reflex": 28, "will": 22}
+  abilities: {"cha": 6, "con": 6, "dex": 8, "int": 8, "str": 4, "wis": 4}
+  speeds: {"land": 35, "climb": 35}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 26, "Arcana": 26, "Athletics": 26, "Crafting": 26, "Nature": 24, "Thievery": 24, "Planar Lore": 28}
+  immunities: ["bleed", "paralyzed", "poison", "sleep", "radiation"]
+  resistances: {"physical": 15}
+  strikes: [{"name": "Claw", "bonus": 28, "damage": [["3d10+10", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed"], "effects": ["Constraining Crystal"]}, {"name": "Crystal Wand", "bonus": 28, "damage": [["3d4+10", "piercing", null], ["4d6", "poison", null]], "traits": ["finesse", "magical", "radiation"]}, {"name": "Crystal Shard", "bonus": 28, "damage": [["5d6+6", "piercing", null]], "traits": ["earth", "magical"], "range": 100}]
+  actions: [{"name": "Tremorsense (Imprecise) 120 feet", "type": "passive", "traits": []}, {"name": "Telepathy 300 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+2 Status to Recall Knowledge About Earth", "type": "passive", "traits": []}, {"name": "Craft Crystal Wand", "type": "passive", "traits": ["exploration"], "text": "Frequency twice per day%rEffect The vault keeper spends 10 minutes creating a magic wand out of radioactive green crystal, containing any 5th-rank or lower earth spell of their choice. The wand can be used by other creatures, but it crumbles to sand at the end of the day and has no monetary value."}, {"name": "Item Caster", "type": "passive", "traits": [], "text": "The vault keeper can Cast a Spell from any item (such as a staff or wand) as though it were on their spell list."}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Constraining Crystal", "type": "passive", "traits": ["earth", "magical"], "text": "When the vault keeper deals damage with a claw Strike, glowing green crystals cluster at the site of the attack. The target must succeed at a DC 31 Fortitude save or become Clumsy 1 for 1 hour (or Clumsy 2 on a critical failure). If the creature is already clumsy due to constraining crystal, additional failures increase that clumsy value instead, to a maximum of clumsy 4."}, {"name": "Crystal Burst", "type": "action", "traits": ["arcane", "earth"], "cost": 2, "text": "An explosion of razor-sharp splinters deals 15d6 piercing|options:area-damage|traits:item:frequency:limited damage in a 30-foot within 120 feet, with a DC 35 Reflex save. The vault keeper can't use Crystal Burst again for 1d4 rounds."}, {"name": "Slashing Surge", "type": "action", "traits": [], "cost": 2, "text": "The vault keeper Strides or Climbs and makes two claw Strikes at any point during that movement. Each Strike must target a different creature. The multiple attack penalty doesn't increase until after both attacks."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 34, "attack": 26, "spells": {"4": ["Earthbind (At Will)", "Shape Stone (At Will)", "Translocate (At Will)"], "5": ["Shatter (At Will)", "Translocate"], "6": ["Scrying", "Speak With Stones (At Will)"], "7": ["Petrify", "Summon Elemental (Earth Only)", "Wall of Stone"]}}]
+"Vegetable Lamb":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 14
+  hp: 28
+  perception: 4
+  saves: {"fortitude": 6, "reflex": 3, "will": 8}
+  abilities: {"cha": 3, "con": 2, "dex": 1, "int": -4, "str": 3, "wis": 0}
+  speeds: {"land": 20}
+  skills: {"Athletics": 5, "Nature": 6}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"fire": 3, "slashing": 2}
+  strikes: [{"name": "Headbutt", "bonus": 8, "damage": [["1d6+2", "bludgeoning", null]], "traits": []}, {"name": "Hoof", "bonus": 6, "damage": [["1d6", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Nature's Bounty", "type": "passive", "traits": ["healing", "plant", "primal", "vitality"], "text": "Each day, a vegetable lamb grows 1d4 #Edible Flowers edible flowers (such as artichoke, broccoli, or dandelion) among the green cotton covering its body. These vegetables can be picked without hurting the lamb. A living creature can eat the vegetable with an Interact action to regain (1d6+4) healing Hit Points."}, {"name": "Cottonseed Burst", "type": "action", "traits": [], "cost": 2, "text": "The vegetable lamb releases a cloud of cottony green pollen in a 10-foot centered on itself. All creatures caught in the burst that need to breathe, apart from the lamb, must succeed at a DC 15 Fortitude save or be Slowed 1 by coughing (Slowed 2 on a critical failure)."}]
+"Veiled Current":
+  pack: "rage-of-elements-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "common"
+  traits: ["air", "elemental"]
+  ac: 28
+  hp: 100
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 19, "will": 13}
+  abilities: {"cha": 3, "con": 4, "dex": 6, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 0, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 18, "Athletics": 18, "Deception": 15, "Stealth": 18}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Static Fold", "bonus": 19, "damage": [["2d10+8", "bludgeoning", null]], "traits": ["agile", "finesse", "reach-10"]}, {"name": "Static Scream", "bonus": 19, "damage": [["2d8+4", "sonic", null]], "traits": [], "range": 50}]
+  actions: [{"name": "Naturally Invisible", "type": "passive", "traits": [], "text": "The veiled current is Invisible at all times. When they take a hostile action of any kind, the veiled current is Hidden instead of undetected as the vague outline of their humanoid form becomes faintly visible until the start of their next turn."}, {"name": "Envelop", "type": "action", "traits": [], "cost": 2, "text": "Requirements The veiled current begins their turn with a target of their size or smaller Grabbed%rEffect The veiled current maintains the Grab and coalesces around the creature, stretching themself into a semisolid veil that smothers the creature within. This thereafter has the same effect as if the veiled current had Engulfed the creature (DC 26, 1d8+8 bludgeoning, escape dc=26, Rupture 17). As engulfing a creature is a hostile action, the veiled current is Hidden instead of undetected every…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Veldenar":
+  pack: "rage-of-elements-bestiary"
+  level: 11
+  size: "huge"
+  rarity: "common"
+  traits: ["air", "elemental"]
+  ac: 32
+  hp: 190
+  perception: 24
+  saves: {"fortitude": 24, "reflex": 21, "will": 18}
+  abilities: {"cha": 0, "con": 5, "dex": 5, "int": -2, "str": 7, "wis": 2}
+  speeds: {"land": 25, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Intimidation": 20, "Stealth": 23}
+  immunities: ["cold"]
+  weaknesses: {"fire": 10}
+  resistances: {"electricity": 10}
+  strikes: [{"name": "Tongue", "bonus": 25, "damage": [["2d10+10", "bludgeoning", null], ["1d10", "cold", null]], "traits": ["reach-15"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Natural Invisibility", "type": "passive", "traits": [], "text": "A veldenar is naturally Invisible and only becomes visible when using a hostile action. Creatures it has engulfed remain visible within it, albeit slightly blurred by the veldenar's translucent skin."}, {"name": "Viscous Breath", "type": "passive", "traits": ["air", "aura"], "text": "15 feet. The veldenar raises the viscosity of the surrounding air just by breathing it. Creatures who enter or start their turn within the emanation treat the area as difficult terrain and take a –2 status penalty to any non-magical physical attacks they attempt. This aura is suppressed whenever the veldenar has a creature engulfed."}, {"name": "Vacuum", "type": "action", "traits": ["air"], "cost": 2, "text": "Requirements The veldenar doesn't have a creature engulfed%rEffect The veldenar forcefully unlocks then expands its jaws to inhale the air in a 15-foot before it, pulling Large or smaller creatures into its cavernous maw. The veldenar Engulfs the creatures in the area (DC 27 Reflex, (1d10+10) cold|options:area-damage, escape dc=27, Rupture 25)."}]
+"Whipping Willow":
+  pack: "rage-of-elements-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 20
+  hp: 75
+  perception: 11
+  saves: {"fortitude": 10, "reflex": 8, "will": 14}
+  abilities: {"cha": 2, "con": 2, "dex": 5, "int": 0, "str": 2, "wis": 1}
+  speeds: {"land": 30, "climb": 40}
+  skills: {"Athletics": 12}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"fire": 5, "axe-vulnerability": 5}
+  strikes: [{"name": "Whip", "bonus": 11, "damage": [["2d8+5", "bludgeoning", null]], "traits": ["finesse", "reach-15", "trip"], "effects": ["Strangling Vines"]}]
+  actions: [{"name": "Grounded", "type": "passive", "traits": [], "text": "When saving against an effect attempting to knock them Prone, a whipping willow achieves one degree of success better than what they rolled. Additionally, the willow doesn't fall prone on a critical failure to Trip an opponent."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d4+5) bludgeoning, DC 21 Fortitude"}, {"name": "Strangling Vines", "type": "passive", "traits": [], "text": "When a whipping willow hits a creature with their whip Strike, they can choose to Grab and begin strangling the creature. The target is suffocating and can't speak as long as it's strangled."}, {"name": "Unseating Sweep", "type": "action", "traits": [], "cost": 2, "text": "The whipping willow attempts to Trip all creatures within a 15-foot, making a single Athletics check against all targets' Reflex DCs."}]
+"Wood Scamp":
+  pack: "rage-of-elements-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 14
+  hp: 24
+  perception: 3
+  saves: {"fortitude": 6, "reflex": 4, "will": 10}
+  abilities: {"cha": 1, "con": 0, "dex": 1, "int": -2, "str": 3, "wis": 0}
+  speeds: {"land": 20, "climb": 15, "fly": 25}
+  hp_details: "regeneration 5 (deactivated by fire)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 5, "Stealth": 7}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"fire": 3, "slashing": 3}
+  strikes: [{"name": "Claw", "bonus": 8, "damage": [["1d6", "piercing", null]], "traits": ["unarmed"], "effects": ["Thorn Puncture"]}]
+  actions: [{"name": "Breathe Pollen", "type": "action", "traits": ["arcane", "plant"], "cost": 2, "text": "The wood scamp breathes choking pollen in a 15-foot that deals 2d6 poison|options:area-damage damage to each creature within the area (DC 17 Reflex save; creatures who don't need to breathe are immune). The wood scamp can't Breathe Pollen again for 1d4 rounds."}, {"name": "Thorn Puncture", "type": "passive", "traits": [], "text": "The wood scamp breaks off one of its thorn-like claws in the target's skin, dealing 1 persistent bleed damage until the thorn is removed, which requires an Interact action. This damage is cumulative with each thorn caught in a creature's skin."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 15, "attack": 7, "spells": {"0": ["Tangle Vine"], "1": ["Verdant Sprout"], "2": ["Oaken Resilience (Self Only)"]}}]
+"Wood Wisp":
+  pack: "rage-of-elements-bestiary"
+  level: 0
+  size: "tiny"
+  rarity: "common"
+  traits: ["elemental", "plant", "wood"]
+  ac: 16
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 5, "reflex": 2, "will": 8}
+  abilities: {"cha": 0, "con": 2, "dex": 1, "int": 0, "str": 3, "wis": 3}
+  speeds: {"land": 0, "climb": 40, "fly": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7, "Stealth": 6, "Plane of Wood Lore": 4}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  weaknesses: {"axe-vulnerability": 2, "fire": 2}
+  strikes: [{"name": "Thorny Vine", "bonus": 5, "damage": [["1", "piercing", null], ["1d4", "bludgeoning", null]], "traits": ["reach-10"]}]
+  actions: [{"name": "Accord Essence", "type": "reaction", "traits": ["plant"], "text": "Trigger An ally within 30 feet that benefited from the wisp's resonance in the last hour is targeted by an attack%rEffect The wisp detonates itself in a small elemental explosion of leaves and pollen. This gives temporary Hit Points equal to half the wisp's current HP to all allies within 30 feet that have benefited from the wisp's resonance aura in the past hour. These temporary Hit Points last 1 hour.%rA wisp that uses this reaction is permanently destroyed and can be restored only by a Wish…"}, {"name": "Resonance", "type": "passive", "traits": ["aura", "plant", "wood"], "text": "30 feet. All wisps vibrate at a frequency attuned to their element, resonating with and empowering all creatures and effects sharing that trait. A creature in the area gains a +1 status bonus to attack and damage rolls for effects with the plant or wood trait; a creature with the elemental trait and either plant trait or wood trait gains this bonus to all attack and damage rolls. For wood wisps, this bonus also applies to nonmagical wooden weapons, such as staves and clubs."}, {"name": "In Concert", "type": "passive", "traits": [], "text": "When a wood wisp rolls a critical failure on a check to Aid, they get a failure instead, and when they roll a success, they get a critical success instead."}]
+"Zephyr, The West Wind":
+  pack: "rage-of-elements-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "unique"
+  traits: ["air", "elemental"]
+  ac: 43
+  hp: 310
+  perception: 33
+  saves: {"fortitude": 29, "reflex": 33, "will": 30}
+  abilities: {"cha": 9, "con": 7, "dex": 9, "int": 6, "str": 4, "wis": 6}
+  speeds: {"land": 25, "fly": 200}
+  hp_details: "regeneration 15 (deactivated by earthbane)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 38, "Arcana": 31, "Nature": 33, "Occultism": 31, "Performance": 38, "Religion": 31, "Stealth": 36, "Survival": 33, "Planar Lore": 33}
+  immunities: ["bleed", "electricity", "paralyzed", "poison", "sleep"]
+  resistances: {"cold": 20}
+  strikes: [{"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+12", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical"]}, {"name": "Thunderbolt", "bonus": 35, "damage": [["3d8+10", "electricity", null], ["3d6", "sonic", null]], "traits": ["electricity", "magical", "thrown-30"]}, {"name": "Air Blast", "bonus": 35, "damage": [["3d10+12", "bludgeoning", null]], "traits": ["agile", "air", "magical"]}]
+  actions: [{"name": "Truespeech", "type": "passive", "traits": [], "text": "An anemos can speak with and understand any creature that has a language."}, {"name": "Wind Orchestra", "type": "passive", "traits": ["air", "auditory"], "text": "An anemos does not require instruments to perform music, instead using their winds to create and carry the sounds of any instruments they wish to duplicate. They can mimic any number of instruments simultaneously, creating and directing their own personal orchestra."}, {"name": "Regeneration 15 (Deactivated by Earthbane)", "type": "passive", "traits": []}, {"name": "Blessed by the Winds", "type": "passive", "traits": ["air", "aura"], "text": "80 feet. The winds grow turbulent for those who would dare to fly in the same space as an anemos, but they take care to never harm or inconvenience their shepherd. Air within the emanation is difficult terrain for Flying creatures that do not have the air trait. While the aura is active, the anemos cannot be affected by environmental air or weather affects unless they choose to be."}, {"name": "Earthbane", "type": "passive", "traits": [], "text": "An anemos's regeneration is suppressed for 1 round if the anemos is affected by an earth effect, or for as long as they are in contact with the ground and 1 round thereafter. If an anemos is submerged in at least 1 inch of mud, dirt, or stone, the anemos's aura deactivates, and the anemos becomes Stunned 2 and Clumsy 2."}, {"name": "Redirect Weather", "type": "reaction", "traits": ["divine"], "text": "Requirements The anemos's aura is active%rTrigger A creature within the anemos's aura uses an air or electricity spell, or an air or electricity spell otherwise comes into effect within the anemos's aura%rEffect The winds and weather of the spell obey the anemos's call. The anemos makes all the choices to determine the targets, destination, or other effects of the spell, as though they were the caster."}, {"name": "Collect Thunder", "type": "free", "traits": ["electricity", "manipulate"], "text": "Requirements The anemos has a hand free%rEffect The anemos runs a hand through the winds that swirl around them, the sparks from their fingertips coalescing into a thunderbolt. The anemos creates a thunderbolt in their open hand. If the anemos spends an action to Collect Thunder, a bolt instead strikes their open hand, creating a booming peal that deafens all creatures within 20 feet for 1 round unless they succeed at a DC 40 Fortitude save; this adds the auditory trait to Collect Thunder. Any…"}, {"name": "Command the Breeze", "type": "passive", "traits": [], "text": "When an anemos casts a ritual, they perform all aspects of the ritual themself, commanding their winds to complete all the ritual's components. They must fulfill any requirements for the ritual's additional casters and must attempt the checks normally performed by additional casters. In addition, anemoi can cast rituals faster than usual. If a ritual has a casting time measured in days, they can cast it in an equal number of hours."}, {"name": "Storm Strikes Twice", "type": "action", "traits": ["air", "teleportation"], "cost": 2, "text": "The anemos throws a thunderbolt, then becomes a wind that carries them in an instant to the bolt's location to attack again. They make a ranged thunderbolt Strike against a creature within their first range increment, teleport to the creature's location as a gust of wind, then grasp the thrown thunderbolt and make a melee thunderbolt Strike against a creature within reach. Their multiple attack penalty doesn't increase until they've made both attacks."}, {"name": "Swiftness", "type": "passive", "traits": [], "text": "The anemos's movement doesn't trigger reactions."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 40, "attack": 32, "spells": {"1": ["Air Bubble (At Will)"], "4": ["Airlift (At Will)", "Petal Storm", "Speak with Plants", "Vapor Form (At Will)", "Voice on the Breeze (At Will)"], "7": ["Humanoid Form (At Will)"], "8": ["Field of Life"], "9": ["Cleanse Air"]}}]
+"Zuhra":
+  pack: "rage-of-elements-bestiary"
+  level: 8
+  size: "large"
+  rarity: "uncommon"
+  traits: ["elemental", "genie", "metal"]
+  ac: 26
+  hp: 125
+  perception: 15
+  saves: {"fortitude": 16, "reflex": 17, "will": 17}
+  abilities: {"cha": 5, "con": 6, "dex": 5, "int": 4, "str": 3, "wis": 3}
+  speeds: {"land": 25, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 19, "Athletics": 15, "Crafting": 17, "Intimidation": 17, "Performance": 19, "Society": 16}
+  resistances: {"electricity": 10}
+  strikes: [{"name": "Spiked Chain", "bonus": 19, "damage": [["2d8+9", "slashing", null]], "traits": ["disarm", "finesse", "magical", "reach-10", "trip"]}, {"name": "Hand Blade", "bonus": 19, "damage": [["1d4", "bleed", "persistent"], ["2d4+9", "slashing", null]], "traits": ["agile", "finesse", "magical", "reach-10"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Conductive Redirection", "type": "reaction", "traits": ["arcane", "concentrate", "electricity"], "text": "Trigger The zuhra is hit by an attack, spell, or effect that deals electricity damage%rEffect The zuhra conducts the electricity through their body, taking damage as normal, and redirecting a bolt at one target within 30 feet that they can see. The zuhra makes a ranged attack roll with a +20 modifier against the target's AC. On a hit or critical hit, the target takes electricity damage equal to the full damage of the triggering effect."}, {"name": "Blinding Reflection", "type": "action", "traits": ["arcane", "light"], "cost": 1, "text": "Frequency once per round%rRequirements The zuhra is in dim or bright light%rEffect The zuhra briefly reshapes part of their metallic body into a concave surface to reflect the surrounding light into the eyes of a creature within 30 feet. The target must attempt a DC 26 Reflex save. It's then temporarily immune for 1 hour.%rCritical Success The target is unaffected.%rSuccess The target is Dazzled until the start of the zuhra's next turn.%rFailure The target is Blinded until the start of the…"}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The zuhra transforms into a Small or Medium metal elemental or animal. This doesn't affect the zuhra's statistics, but it could change the damage type of their Strikes."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Detect Magic"], "2": ["Invisibility", "Magnetic Attraction (At Will)", "Magnetic Repulsion (At Will)"], "4": ["Mercurial Stride", "Weapon Storm"], "5": ["Clad In Metal (Can Choose Uncommon Metals)", "Truespeech (Constant)"], "7": ["Interplanar Teleport (At Will) (To Astral Plane, Elemental Planes, or Universe only)"]}}]
+"Zuhra Shuyookh":
+  pack: "rage-of-elements-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "common"
+  traits: ["elemental", "genie"]
+  ac: 34
+  hp: 212
+  perception: 23
+  saves: {"fortitude": 29, "reflex": 23, "will": 21}
+  abilities: {"cha": 7, "con": 8, "dex": 6, "int": 5, "str": 5, "wis": 4}
+  speeds: {"land": 30, "fly": 35}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 27, "Athletics": 24, "Crafting": 26, "Deception": 26, "Intimidation": 24, "Performance": 28, "Society": 22}
+  resistances: {"electricity": 10}
+  strikes: [{"name": "Spiked Chain", "bonus": 27, "damage": [["1d12", "electricity", null], ["2d8+11", "slashing", null]], "traits": ["disarm", "finesse", "magical", "reach-15", "trip"]}, {"name": "Hand Blade", "bonus": 25, "damage": [["2d4+11", "slashing", null], ["4d4", "bleed", "persistent"]], "traits": ["agile", "finesse", "magical", "reach-15"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Conductive Redirection", "type": "reaction", "traits": ["arcane", "concentrate", "electricity"], "text": "Trigger The zuhra is hit by an attack, spell, or effect that deals electricity damage%rEffect The zuhra conducts the electricity through their body, taking damage as normal, and redirecting a bolt at one target within 30 feet that they can see. The zuhra makes a ranged attack roll with a +27 modifier against the target's AC. On a hit or critical hit, the target takes electricity damage equal to the full damage of the triggering effect."}, {"name": "Magnetic Field", "type": "passive", "traits": ["arcane", "aura", "metal"], "text": "10 feet.%rAll squares in the aura are difficult terrain for creatures wearing metal armor or made of metal. Strikes with metallic weapons made by or against creatures in this aura take a –2 status penalty to the attack roll. Zuhras ignore these effects."}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The zuhra transforms into a Small or Medium metal elemental or animal. This doesn't affect the zuhra's statistics, but it could change the damage type of their Strikes."}, {"name": "Magnetic Reposition", "type": "action", "traits": ["arcane"], "cost": 1, "text": "Frequency once per round%rEffect The shuyookh targets any number of creatures affected by their magnetic field, and moves each target 10 feet in a direction the zuhra chooses. Each target can resist being moved if it succeeds at a DC 32 Fortitude save."}, {"name": "Magnetic Storm", "type": "action", "traits": ["arcane"], "cost": 3, "text": "Requirements The shuyookh's magnetic field is active%rEffect The shuyookh electromagnetically flings razor-sharp metal scraps. Each creature in a 30-foot takes 8d6 slashing,3d12 electricity|options:area-damage damage, with a DC 32 Fortitude save.%rThe shuyookh's magnetic field is deactivated for 1d4 rounds."}, {"name": "Mercurial Wish", "type": "passive", "traits": ["downtime"], "text": "Frequency three times per year%rEffect The shuyookh conducts a Wish ritual for the benefit of a mortal, requiring no cost or secondary casters. The shuyookh's result is a success if they succeed at a DC 5 Flat or a failure if not. The shuyookh attempts to fulfill the wish in a way that creates an unstable or impermanent benefit."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 32, "attack": 24, "spells": {"0": ["Detect Magic"], "5": ["Invisibility", "Magnetic Acceleration (At Will)", "Magnetic Attraction (At Will)", "Truespeech (Constant)"], "6": ["Mercurial Stride", "Wall of Metal"], "7": ["Clad In Metal (Can Choose Uncommon and Rare Metals)", "Enthrall", "Interplanar Teleport (At Will) (To Astral Plane, Elemental Planes, or Universe only)", "Weapon Storm"]}}]

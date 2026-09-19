@@ -1,0 +1,16 @@
+<%= header %>
+<%= center("#{title_color}#{title}", 78) %>%xn
+<% if any? %>
+<% groups.each do |label, names| %>
+<%= divider %>
+<%= "%b%b#{item_color}#{label}%xn" %>
+<% rows(names).each do |row| %>
+<%= row %>
+<% end %>
+<% end %>
+<%= divider %>
+<%= "%b%b* takes on an effect: %xh%xcaction/use <name>%xn.  %xh%xcaction <name>%xn says what one does." %>
+<% else %>
+<%= "%b%bNone." %>
+<% end %>
+<%= footer %>

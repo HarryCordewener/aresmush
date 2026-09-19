@@ -105,7 +105,22 @@ module AresMUSH
 
     # --- individual rules ---------------------------------------------------------------
 
+    # Whether a feat or an item says outright that this attack has the critical specialisation effect.
+    #
+    # Alongside the branches below rather than instead of them: those cover this setting's own ancestries,
+    # whose names are not the ones Foundry's data knows, so a rule about goblin weapons reaches nothing
+    # here while the branch about ancestry familiarity reaches Sildanyari ones.
+    def self.granted_crit_spec?(char, name, info)
+      options = Pf2eCombat.weapon_options(name, info) +
+                Pf2e::Effects.facts(char)
+
+      Pf2e::Rules.critical_specialization?(Pf2e::Effects.sources(char),
+                                           Pf2e::Effects.options(char), options)
+    end
+
     def self.crit_spec_weapon?(char, name, info)
+      return true if granted_crit_spec?(char, name, info)
+
       # Fighter Weapon Mastery: "all weapons and unarmed attacks for which you have master
       # proficiency". No group of its own, so it widens on its own as proficiency grows.
       if has_feature?(char, 'Fighter Weapon Mastery')
@@ -131,6 +146,8 @@ module AresMUSH
     end
 
     def self.crit_spec_unarmed?(char, name, info)
+      return true if granted_crit_spec?(char, name, info)
+
       # Fighter Weapon Mastery names unarmed attacks explicitly.
       if has_feature?(char, 'Fighter Weapon Mastery')
         return true if prof_at_least?(Pf2eCombat.get_unarmed_prof(char, name, info), 'master')

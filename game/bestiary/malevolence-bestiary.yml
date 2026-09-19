@@ -1,0 +1,225 @@
+---
+"Algea":
+  pack: "malevolence-bestiary"
+  level: 11
+  size: "large"
+  rarity: "common"
+  traits: ["monitor", "psychopomp", "swarm"]
+  ac: 30
+  hp: 144
+  perception: 22
+  saves: {"fortitude": 18, "reflex": 24, "will": 22}
+  abilities: {"cha": 3, "con": 5, "dex": 7, "int": 2, "str": -1, "wis": 5}
+  speeds: {"land": 15, "fly": 40}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 22, "Occultism": 21, "Religion": 20, "Stealth": 22, "Boneyard Lore": 21}
+  immunities: ["precision", "death-effects", "disease", "swarm-mind"]
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  resistances: {"bludgeoning": 10, "void": 10, "piercing": 10, "poison": 10, "slashing": 5}
+  actions: [{"name": "Lifesense 60 feet", "type": "passive", "traits": []}, {"name": "See Magic", "type": "passive", "traits": [], "text": "An algea can see magic auras on creatures or objects that it can observe; it can't see magic auras on creatures or objects that are hidden from its view. It learns the schools of magic for all spells affecting creatures."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Grieving Aura", "type": "passive", "traits": ["aura", "divine", "emotion", "mental"], "text": "30 feet. A creature that begins its turn in the aura must attempt a DC 27 Will save. Undead take a -2 circumstance penalty to this saving throw. The creature is then temporarily immune to the grieving aura for 1 hour.%rSuccess The creature is unaffected.%rFailure For 1 round, the creature can't use reactions and is Slowed 1 for that turn as it sobs uncontrollably.%rCritical Failure As failure, but the effects lasts while the creature remains in the aura plus 1 minute."}, {"name": "Drain Magic", "type": "passive", "traits": ["divine"], "text": "Whenever a creature fails its save against Frenzied Beaks, the algea attempts to counter a spell effect active on that creature (6th level, counteract check +22). The algea can choose which effect to attempt to counteract for each creature."}, {"name": "Frenzied Beaks", "type": "action", "traits": [], "cost": 1, "text": "Each foe in the swarm's space takes 5d6 piercing|traits:item:rune:property:ghost-touch damage (DC 30 Reflex) and is exposed to drain magic. This damage affects incorporeal creatures as if it had the effects of a ghost touch property rune."}, {"name": "Soul Cage", "type": "passive", "traits": ["divine", "incapacitation"], "text": "An incorporeal undead damaged by Frenzied Beaks must attempt a DC 30 Will save.%rCritical Success The undead is unaffected and is temporarily immune for 24 hours.%rSuccess The undead takes a –10-foot status penalty to Speeds for 1 round.%rFailure As success, but the undead is also Immobilized for 1 round, although it can attempt to Escape (DC 30).%rCritical Failure The undead is restrained for 1 round. The algea can attempt to plane shift with the Restrained creature even if that creature isn't…"}]
+  spellcasting: [{"name": "Innate Divine Spells", "tradition": "divine", "type": "innate", "dc": 30, "attack": 22, "spells": {"2": ["Invisibility"], "4": ["Confusion", "Talking Corpse"], "7": ["Plane Shift (Self and soul caged creatures only, to the Boneyard only)"]}}]
+"Anitoli Nostraema":
+  pack: "malevolence-bestiary"
+  level: 6
+  size: "small"
+  rarity: "unique"
+  traits: ["evil", "undead", "unholy"]
+  ac: 23
+  hp: 95
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 17, "will": 15}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 3, "str": 0, "wis": 5}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Deception": 14, "Occultism": 13, "Stealth": 15}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 17, "damage": [["3d8", "piercing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Steal Breath"]}, {"name": "Bony Hand", "bonus": 17, "damage": [["2d12", "void", null]], "traits": ["agile"], "effects": ["Steal Voice"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Whispered Despair", "type": "reaction", "traits": ["emotion"], "text": "Trigger A creature with an active emotion effect enters an attic whisperer's aura of sobs%rEffect The attic whisperer attempts to counteract the emotion effect, with a counteract modifier of +13."}, {"name": "Aura of Sobs", "type": "passive", "traits": ["auditory", "aura", "emotion", "mental", "occult"], "text": "10 feet. Anitoli Nostreaema enshrouds itself in a tapestry of stolen voices. Each living creature that enters or starts their turn in the aura must succeed at a DC 21 Will save or the unnerving, bitter sobs render them distraught and they become Stupefied 1 for as long as they remain within the aura. A creature that succeeds is temporarily immune for 1 hour.%rAnitoli Nostreaema can activate or deactivate the aura with a single free action, which has the concentrate trait."}, {"name": "Steal Breath", "type": "passive", "traits": ["curse", "incapacitation", "occult"], "text": "Anitoli Nostreaema siphons the breath from living creatures, sapping their strength. A living creature hit by a jaws Strike must attempt a DC 24 Fortitude save.%rCritical Success The target is unaffected.%rSuccess The target is Enfeebled 1 for 1 round.%rFailure The target is Enfeebled 1 for 24 hours and Fatigued.%rCritical Failure The target is enfeebled 1 for 24 hours, is fatigued, and falls Unconscious."}, {"name": "Steal Voice", "type": "passive", "traits": ["auditory", "curse", "occult"], "text": "When Anatoli Nostraema hits a living creature with a bony hand Strike, it tries to pull the victim's voice into its aura. The victim must attempt a DC 24 Will save.%rCritical Success The target is unaffected.%rSuccess The target's voice is weak for 1 minute. Anytime it attempts an action with the auditory trait, it must succeed at a DC 5 Flat check or the action is lost.%rFailure The target loses the ability to speak for 1 hour, until the curse is removed, or until the attic whisperer is…"}]
+"Corrupted Nosoi":
+  pack: "malevolence-bestiary"
+  level: 2
+  size: "tiny"
+  rarity: "rare"
+  traits: ["evil", "monitor", "psychopomp"]
+  ac: 18
+  hp: 28
+  perception: 8
+  saves: {"fortitude": 6, "reflex": 10, "will": 8}
+  abilities: {"cha": 3, "con": 1, "dex": 3, "int": 1, "str": -1, "wis": 2}
+  speeds: {"land": 15, "fly": 40}
+  hp_details: "void healing"
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 8, "Stealth": 8}
+  immunities: ["death-effects", "disease"]
+  weaknesses: {"slashing": 3}
+  resistances: {"void": 3}
+  strikes: [{"name": "Beak", "bonus": 8, "damage": [["1d4+1", "piercing", null]], "traits": ["finesse", "magical", "unarmed"], "effects": ["Corrupted Touch"]}]
+  actions: [{"name": "Lifesense 60 feet", "type": "passive", "traits": ["divine"]}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Corrupted Touch", "type": "passive", "traits": [], "text": "A corrupted nosoi's Strikes deal 1d6 void damage to living creatures. A creature critically hit by a corrupted nosoi's Strike must attempt a DC 18 Fortitude save or become Drained 1 (Drained 2 on a critical failure) as rot spreads through their flesh."}, {"name": "Haunting Melody", "type": "action", "traits": ["auditory", "concentrate", "divine", "incapacitation", "mental"], "cost": 1, "text": "The nosoi croons \" the Lord slumbers below, you're nothing but his dreams, and when the lord awakes, you'll know the end of things! \". Each living or undead creature within a 60-foot must attempt a DC 18 Will save. The effect lasts for 1 round, but a nosoi can use this ability again on subsequent rounds to extend the duration by 1 round for all affected creatures. A creature that succeeds at any save is temporarily immune for 24 hours. Despite being a mental effect, this ability affects…"}]
+"Esobok Ghoul":
+  pack: "malevolence-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "ghoul", "undead", "unholy"]
+  ac: 21
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 15, "reflex": 13, "will": 10}
+  abilities: {"cha": 2, "con": 4, "dex": 4, "int": -3, "str": 3, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["darkvision", "lifesense", "scent"]
+  skills: {"Acrobatics": 13, "Athletics": 12, "Intimidation": 11, "Religion": 6, "Stealth": 13, "Survival": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["1d10+7", "piercing", null]], "traits": ["magical", "unarmed"], "effects": ["Corrupted Touch", "Ghoul Fever", "Paralysis"]}, {"name": "Claw", "bonus": 14, "damage": [["1d6+7", "slashing", null]], "traits": ["agile", "magical", "unarmed"], "effects": ["Corrupted Touch", "Paralysis"]}]
+  actions: [{"name": "Lifesense 60 feet", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The esobok ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains 3d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Corrupted Touch", "type": "passive", "traits": [], "text": "An esobok ghoul's Strikes deal 1d6 void damage to living creatures. A creature critically hit by an esobok ghoul's Strike must attempt a DC 18 Fortitude save or become Drained 1 (Drained 2 on a critical failure) as rot spreads throughout their flesh."}, {"name": "Ghoul Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 22 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 2d6 void damage and regains half as many Hit Points from all healing (1 day)%rStage 3 as stage 2 (1 day)%rStage 4 2d6 void damage and gains no benefit from healing (1 day)%rStage 5 as stage 4 (1 day)%rStage 6 dead, and rises as a ghoul the next midnight."}, {"name": "Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any living, non-elf creature hit by a ghoul's attack must succeed at a DC 22 Fortitude save or become Paralyzed.%rIt can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "The esobok ghoul Strides and then makes a claw Strike. If it began this action hidden, it remains hidden until after the Strike."}]
+  spellcasting: [{"name": "Innate Divine Spells", "tradition": "divine", "type": "innate", "dc": 22, "attack": 12, "spells": {"2": ["Invisibility (Self Only)"]}}]
+"Haunted Nosoi":
+  pack: "malevolence-bestiary"
+  level: 2
+  size: "tiny"
+  rarity: "unique"
+  traits: ["monitor", "psychopomp", "undead"]
+  ac: 18
+  hp: 28
+  perception: 8
+  saves: {"fortitude": 6, "reflex": 10, "will": 8}
+  abilities: {"cha": 3, "con": 1, "dex": 3, "int": -3, "str": -1, "wis": 2}
+  speeds: {"land": 15, "fly": 40}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 8}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"slashing": 3}
+  resistances: {"void": 3}
+  strikes: [{"name": "Beak", "bonus": 8, "damage": [["1d4+1", "piercing", null]], "traits": ["finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Lifesense 60 feet", "type": "passive", "traits": ["divine"]}, {"name": "Truespeech", "type": "passive", "traits": [], "text": "The haunted nosoi speaks in Requian, the language of psychopomps, but all creatures hear its words in their native languages."}, {"name": "Vengeful Burst", "type": "reaction", "traits": ["divine"], "text": "Trigger The haunted nosoi is destroyed or it enters a square adjacent to a corrupted psychopomp in area D5%rEffect The haunted nosoi dies as it explodes into a burst of vitality energy. This heals all living creatures within 10 feet for 3d6 vitality damage.If triggered in area D5, the Vengeful Burst deals 2d12 void damage to any corrupted psychopomps in that area (DC 18 Will save)"}]
+"Ioseff Xarwin":
+  pack: "malevolence-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 29
+  hp: 112
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 18, "will": 18}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 6, "str": -5, "wis": 3}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "void healing, rejuvination"
+  senses: ["darkvision"]
+  skills: {"Arcana": 17, "Deception": 19, "Intimidation": 19, "Occultism": 21, "Society": 19, "Stealth": 18, "Astronomy Lore": 21, "Cheliax Lore": 17}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Bloody Ectoplasmic Lash", "bonus": 19, "damage": [["2d8+7", "void", null]], "traits": ["agile", "finesse", "magical", "reach-10"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "Ioseff Xarwin is site bound to his laboratory."}, {"name": "Recoil", "type": "passive", "traits": [], "text": "If a character forcefully presents Fulvia's ring to Ioseff as an action with the manipulate trait, he must attempt a DC 26 Will save; he's thereafter immune to Recoil for 24 hours.%rCritical Success Ioseff is unaffected.%rSuccess Ioseff takes 4d6 mental damage and is Frightened 1.%rFailure Ioseff takes 8d6 mental damage and is Frightened 2.%rCritical Failure Ioseff takes 8d6 mental damage, is frightened 2, and is Stunned 3."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When a ghost is destroyed, it re-forms after 2d4 days within the location it's bound to, fully healed. A ghost can be permanently destroyed only if someone determines the reason for its existence and sets right whatever prevents the spirit from resting.%rIn order to put Ioseff to rest, the following three conditions must be met after defeating Ioseff but before he rejuvenates:%rThe undead brain collector in area D6 has been destroyed. The brains of his wife and children have been freed from the…"}, {"name": "Shame", "type": "passive", "traits": [], "text": "Ioseff takes a -1 item penalty to attack rolls and saving throws against a character who carries Fulvia's ring. This penalty doubles to -2 against a character who wears Fulvia's ring. At the start of ttheir turn, a character who possesses Fulvia's ring can attempt a secret DC 20 Perception check; on a success, they sense a faint compulsion fueled by outrage to present Fulvia's ring to the ghost."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Incite Insurrection", "type": "reaction", "traits": [], "text": "Trigger A creature within 30 feet of Ioseff fails a saving throw against one of his spells%rEffect Ioseff infuses the magic of his spell with the agonies of his own death. In addition to any effects caused by the triggering spell, the target must also attempt a DC 28 Fortitude save. or contract internal insurrection at stage 1 (stage 2 on a critical failure)%rInternal Insurrection (disease); Level 7 .%rThe target can't recover from the clumsy condition from internal insurrection until the…"}, {"name": "Malevolent Possession", "type": "action", "traits": [], "cost": 2, "text": "Ioseff Xarwin attempts to possess an adjacent corporeal creature. This has the same effect as the Possession spell, except since Ioseff Xarwin doesn't have a physical body, it is unaffected by that restriction of the spell.%rThe target must attempt a DC 28 Will save.%rCritical Success The target is unaffected.%rSuccess You possess the target but can't control it. You ride along in the body while the spell lasts.%rFailure You possess the target and take partial control of it. You no longer have…"}, {"name": "Phantasmal Amputation", "type": "action", "traits": ["occult"], "cost": 1, "text": "Frequency once per day%rEffect Ioseff holds up the stump of his left arm, and the streaming blood begins to form a ghostly hand that he then uses to point out a humanoid creature within 30 feet. That creature must attempt a DC 28 Fortitude save.%rCritical Success The creature is Sickened 1 by a sudden, agonizing pain in their left hand.%rSuccess As critical success, but the creature also takes 2d6 slashing damage and is Clumsy 1 for 1 round as they feel as if their left hand just got lopped off…"}]
+  spellcasting: [{"name": "Innate Occult Spells", "tradition": "occult", "type": "innate", "dc": 28, "attack": 20, "spells": {"0": ["Daze", "Ghost Sound", "Light", "Mage Hand", "Telekinetic Projectile"], "1": ["Command", "Fear", "Ray of Enfeeblement"], "2": ["Gentle Repose", "Mirror Image", "Telekinetic Maneuver"], "3": ["Dream Message", "Paralyze", "Slow"], "4": ["Grim Tendrils", "Nightmare", "Phantasmal Killer"], "5": ["Banishment", "Summon Entity"]}}]
+"Ixirizmid":
+  pack: "malevolence-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "fungus"]
+  ac: 26
+  hp: 170
+  perception: 17
+  saves: {"fortitude": 14, "reflex": 18, "will": 17}
+  abilities: {"cha": 3, "con": 4, "dex": 6, "int": 6, "str": 3, "wis": 5}
+  speeds: {"land": 25, "fly": 40}
+  senses: ["low-light-vision", "tremorsense"]
+  skills: {"Acrobatics": 16, "Arcana": 18, "Athletics": 15, "Deception": 17, "Medicine": 21, "Occultism": 18, "Religion": 17, "Stealth": 16, "Thievery": 16}
+  immunities: ["cold"]
+  weaknesses: {"slashing": 5}
+  strikes: [{"name": "Claw", "bonus": 18, "damage": [["2d8+5", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Tremorsense (Precise) 30 feet", "type": "passive", "traits": []}, {"name": "Clever Disguises", "type": "passive", "traits": [], "text": "Ixirizmid can use Deception to impersonate any Medium humanoid creature, although creating such a disguise takes 1 hour. They can't impersonate a specific individual with this ability."}, {"name": "No Breath", "type": "passive", "traits": [], "text": "Ixirizmid doesn't breathe and is immune to effects that require breathing (such as an inhaled poison)."}, {"name": "Eviscerate", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Ixirizmid performs a swift and painful surgery on a creature it has grabbed or restrained, or who's otherwise immobilized. They roll a Medicine check against the target's Fortitude DC. Regardless of the result, the target then becomes temporarily immune to Eviscerate for 24 hours.%rCritical Success The target takes 8d6 slashing damage, is Slowed 1 for 1 round, and becomes Clumsy 1, Enfeebled 1, or Stupefied 1 (the mi-go chooses) for 24 hours.%rSuccess The target takes 5d6 slashing damage and is…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Ixirizmid deals an additional 1d6 precision damage to Off-Guard creatures."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Nils Kelveken":
+  pack: "malevolence-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "skeleton", "undead", "unholy"]
+  ac: 23
+  hp: 55
+  perception: 13
+  saves: {"fortitude": 9, "reflex": 15, "will": 13}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 0, "str": 5, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Athletics": 12, "Crafting": 11, "Intimidation": 11, "Stealth": 13}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Hand Drill", "bonus": 14, "damage": [["1d6+7", "piercing", null], ["2d6", "void", null]], "traits": []}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Drill Deeper", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements Nils Kelveken hit a creature with a hand drill Strike with his previous action%rEffect Nils grabs the drill and twists, drilling deeper into the victim. He automatically deals 1d8 piercing damage, and the creature being drilled into must succeed at a DC 22 Fortitude save to avoid taking an additional 1d6 bleed (2d6 bleed on a critical failure)."}, {"name": "I See What Ye Did!", "type": "action", "traits": ["auditory", "emotion", "fear", "linguistic", "mental", "occult"], "cost": 1, "text": "Nils Strides up to his speed toward a target within 30 feet, shrieking \"I seen what ye did!\" at them as he approaches. The target must attempt a DC 22 Will save.%rCritical Success The target is unaffected.%rSuccess The target becomes disturbed at what Nils might have seen and becomes Frightened 1.%rFailure As success, but the target is Frightened 2.%rCritical Failure The target falls into a phantasmagoric nightmare state where time seems to slow down as they can think of nothing but running…"}]
+"Tanglebones":
+  pack: "malevolence-bestiary"
+  level: 7
+  size: "large"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "undead", "unholy"]
+  ac: 24
+  hp: 145
+  perception: 17
+  saves: {"fortitude": 15, "reflex": 12, "will": 17}
+  abilities: {"cha": 2, "con": 4, "dex": 3, "int": -2, "str": 6, "wis": 6}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 17, "Stealth": 15}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"bludgeoning": 7}
+  strikes: [{"name": "Claw", "bonus": 17, "damage": [["2d8+8", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"], "effects": ["Grab"]}, {"name": "Hurled Bone", "bonus": 17, "damage": [["2d4+8", "bludgeoning", null]], "traits": ["brutal"]}]
+  actions: [{"name": "Ectoplasmic Filament", "type": "reaction", "traits": [], "text": "Trigger A creature within the tanglebone's reach uses an action with the manipulate trait or a move action, or leaves a square during a move action it's using%rEffect A filament of black, oily ectoplasm lashes out at the triggering creature, dealing (2d8+8) slashing damage (DC 25 Reflex save). If the filament deals damage, the tanglebones gains 2d8 temporary Hit Points."}, {"name": "Eerie Flexibility", "type": "passive", "traits": [], "text": "A tanglebones can shift and adjust its mass to fit into smaller areas, allowing it to fit through tight spaces as if it were a Medium creature. While Squeezing, it can move at its full Speed."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Gnaw", "type": "action", "traits": [], "cost": 1, "text": "Requirements The tanglebones has Grabbed a foe%rEffect The tanglebones gnaws and chews on the grabbed target with its many skulls, dealing (2d6+8) piercing damage (DC 23 Fortitude save). On a critical failure, the creature is also Sickened 1 from the pain."}, {"name": "Skeletal Storm", "type": "action", "traits": [], "cost": 2, "text": "The tanglebones makes a single claw Strike against every creature in reach. These attacks count toward the tanglebones' multiple attack penalty, but the multiple attack penalty doesn't increase until after the tanglebones makes all its attacks."}, {"name": "Sprawled Bones", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the tanglebones appears as a sprawling mass of bones. It has an automatic result of 35 on Deception checks and DCs to pass as a grisly but seemingly harmless mess."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Undead Brain Collector":
+  pack: "malevolence-bestiary"
+  level: 7
+  size: "large"
+  rarity: "unique"
+  traits: ["aberration", "chaotic", "evil", "undead", "unholy"]
+  ac: 24
+  hp: 130
+  perception: 17
+  saves: {"fortitude": 18, "reflex": 12, "will": 15}
+  abilities: {"cha": 0, "con": 5, "dex": 3, "int": -1, "str": 6, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 16, "Athletics": 17, "Occultism": 12, "Stealth": 16}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 18, "damage": [["2d10+8", "piercing", null]], "traits": ["unarmed"], "effects": ["Mind Rotting Toxin"]}, {"name": "Claws", "bonus": 18, "damage": [["2d8+8", "slashing", null]], "traits": ["agile"]}]
+  actions: [{"name": "Absorb Phantom Brain", "type": "reaction", "traits": [], "text": "Trigger The undead brain collector possesses at least 1 phantom brain after using Brainlash%rEffect The undead brain collector absorbs 1d4 of its phantom brains, gaining 1d8 temporary Hit Points for each brain it absorbed."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Brainlash", "type": "action", "traits": ["mental", "occult"], "cost": 2, "text": "The undead brain collector extrudes a writhing tangle of ectoplasm from its bursted brain blisters. These ectoplasmic strands lash out at all living targets within 30 feet. Targets in this area must attempt a DC 25 Will save.%rAfter the undead brain collector uses this ability, seven phantom brains glow and shimmer where its brain blisters once were. It can't use Brainlash again until all seven phantom brains are Absorbed.%rCritical Success The creature is unaffected.%rSuccess The creature…"}, {"name": "Mind-Rotting Toxin", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 void and Stupefied 1 (1 round)%rStage 2 1d6 void, stupefied 1, and Slowed 1 (1 round)%rStage 3 2d6 void, Stupefied 2, and slowed 1 (1 round)"}]
+"Xarwin's Manifestation":
+  pack: "malevolence-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "incorporeal", "undead", "unholy", "wraith"]
+  ac: 24
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 14, "will": 16}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 6, "str": -5, "wis": 3}
+  speeds: {"land": 0, "fly": 40}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 14, "Intimidation": 17, "Stealth": 16}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Spectral Hand", "bonus": 17, "damage": [["2d8+7", "void", null]], "traits": ["finesse"], "effects": ["Drain Memory"]}]
+  actions: [{"name": "Drain Memory", "type": "passive", "traits": ["occult"], "text": "When the manifestation damages a living creature with its spectral hand Strike, the manifestation gains 5 temporary Hit Points, and the target must succeed at a DC 23 Fortitude save or become Stupefied 1. Each time it deals damage to a creature, that creature's stupefied condition increases by 1 on a failed save, to a maximum of stupefied 4."}, {"name": "Lifesense 60 feet", "type": "passive", "traits": []}, {"name": "Manor Bound", "type": "passive", "traits": [], "text": "The manifestation can't leave Xarwin Manor or the dungeons below."}, {"name": "+1 Status Bonus on Saves vs. Vitality", "type": "passive", "traits": []}, {"name": "Recoil", "type": "passive", "traits": [], "text": "If a character forcefully presents Fulvia's ring to Xarwin's manifestation as an action with the manipulate trait, he must attempt a DC 26 Will save.%rCritical Success Xarwin's manifestation is unaffected.%rSuccess Xarwin's manifestation takes 4d6 mental damage and is Frightened 1.%rFailure Xarwin' manifestation takes 8d6 mental damage, is Frightened 2, and Flees as long as he remains frightened.%rCritical Failure Xarwin's manifestation is destroyed."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Haunting Touch", "type": "passive", "traits": [], "text": "When the manifestation critically hits a creature with its spectral hand Strike, the creature's malevolence condition value increases by 1."}]
+"Yianyin":
+  pack: "malevolence-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "monitor", "psychopomp"]
+  ac: 25
+  hp: 115
+  perception: 16
+  saves: {"fortitude": 14, "reflex": 17, "will": 16}
+  abilities: {"cha": 6, "con": 5, "dex": 6, "int": 3, "str": 0, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 17, "Diplomacy": 17, "Intimidation": 17, "Medicine": 16, "Occultism": 14, "Religion": 16, "Boneyard Lore": 16}
+  immunities: ["death-effects", "disease"]
+  resistances: {"void": 7, "poison": 7}
+  strikes: [{"name": "Fist", "bonus": 18, "damage": [["2d8+2", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Corrupted Touch"]}]
+  actions: [{"name": "Telepathy 120 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Lifesense 60 feet", "type": "passive", "traits": []}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Unnerving Presence", "type": "passive", "traits": ["aura", "divine", "emotion", "fear", "incapacitation"], "text": "30 feet. A creature that begins its turn within the aura must attempt a DC 22 Will save.%rCritical Success The creature is unaffected and becomes temporarily immune to unnerving presence for 24 hours.%rSuccess The creature's attack rolls take a -1 status penalty for 1 round.%rFailure The creature feels Yianyin's eyeless gaze upon them but knows that something far more dangerous and monstrous watches them through those empty sockets. The overwhelming presence of this alien intelligence causes…"}, {"name": "Compel Condemned", "type": "action", "traits": ["divine", "incapacitation", "mental"], "cost": 1, "text": "Yianyin telepathically compels a creature within 30 feet to approach and allow Yianyin to kiss them, in preparation for using Kiss of Death. The target must attempt a DC 25 Will save.%rSuccess The creature is unaffected and is temporarily immune to Compel Condemned for 24 hours.%rFailure The creature must spend each of its actions to move closer to Yianyin as quickly as possible, while avoiding obvious dangers. If the compelled creature is adjacent to Yianyin, it stays still and doesn't act. If…"}, {"name": "Corrupted Touch", "type": "passive", "traits": [], "text": "Yianyin's Strikes deal 2d6 void damage to living creatures. A creature critically hit by Yianyin's Strike must attempt a DC 18 Fortitude save or become Drained 1 (Drained 2 on a critical failure) as rot spreads throughout their flesh."}, {"name": "Kiss of Death", "type": "action", "traits": ["death", "divine", "manipulate"], "cost": 2, "text": "Yianyin gives a long, passionate kiss to an Unconscious or willing creature, dealing 4d6 void damage.%rAny creature damaged by Yianyin's Kiss of Death for 3 consecutive rounds becomes unconscious and is Dying 1."}]
+  spellcasting: [{"name": "Innate Occult Spells", "tradition": "occult", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Dancing Lights"], "2": ["Invisibility (At Will) (Self Only)"], "3": ["Illusory Disguise"], "4": ["Confusion", "Phantasmal Killer"], "5": ["Tongues (Constant)"]}}]

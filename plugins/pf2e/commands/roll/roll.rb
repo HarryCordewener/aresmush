@@ -4,15 +4,22 @@ module AresMUSH
     class PF2RollCommand
       include CommandHandler
 
-      attr_accessor :mods, :dc, :string
+      attr_accessor :mods, :dc, :string, :doing
 
+      # `roll <dice + modifiers>[/<dc>][/<what you are doing>]`, in any order after the first slash: a
+      # number is the DC and anything else is a circumstance, so a player need not remember which
+      # comes first.
       def parse_args
-        args = cmd.parse_args(ArgParser.arg1_slash_optional_arg2)
+        parts = cmd.args.to_s.split('/').map(&:strip)
 
-        # Make command return sanely even if you forget args.
-        self.string = trim_arg(args.arg1)
-        self.mods = trimmed_list_arg(args.arg1&.gsub("-", "+-")&.gsub("--","-"),"+")
-        self.dc = args.arg2 ? args.arg2.to_i : nil
+        self.string = trim_arg(parts.first)
+        self.mods = Pf2e.roll_terms(parts.first)
+
+        rest = parts.drop(1).reject(&:empty?)
+        numbers, words = rest.partition { |part| part.match?(/\A\d+\z/) }
+
+        self.dc = numbers.first&.to_i
+        self.doing = words
       end
 
       def required_args
@@ -30,19 +37,20 @@ module AresMUSH
 
       def handle
 
-        roll = Pf2e.parse_roll_string(enactor,self.mods)
+        roll = Pf2e.parse_roll_string(enactor, self.mods, Pf2e.circumstances(self.doing))
         list = roll['list']
         result = roll['result']
         total = roll['total']
 
         # Determine degree of success if DC is given
-        degree = self.dc ? Pf2e.get_degree(list, result, total, self.dc) : ""
+        degree = self.dc ? Pf2e.get_degree(list, result, total, self.dc, roll['checks']) : ""
 
         dc_string = self.dc ? "against DC #{self.dc} " : ""
+        doing_string = self.doing.any? ? " (#{self.doing.join(', ')})" : ""
 
         roll_msg = t('pf2e.die_roll',
                   :roller => "%xh#{enactor.name}%xn",
-                  :string => self.string,
+                  :string => "#{self.string}#{doing_string}",
                   :dc => dc_string,
                   :parsed => result.join(" + "),
                   :result => total,

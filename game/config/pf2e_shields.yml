@@ -229,6 +229,12 @@ pf2e_shields:
     traits:
       - uncommon
       - magical
+    rules:
+      - key: "Aura"
+        radius: 5
+        effects: [{"affects": "allies", "uuid": "Compendium.pf2e.equipment-effects.Item.Effect: Forge Warden"}]
+        slug: "forge-warden"
+        predicate: ["self:shield:raised"]
   Glamorous Buckler:
     ac_bonus: 1
     bulk: 0.1
@@ -239,6 +245,12 @@ pf2e_shields:
     speed_penalty: 0
     traits:
       - magical
+    rules:
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 1
+        predicate: ["action:feint", "self:shield:raised"]
   Indestructible Shield:
     ac_bonus: 2
     bulk: 1
@@ -260,6 +272,26 @@ pf2e_shields:
     speed_penalty: 0
     traits:
       - magical
+    rules:
+      - key: "Strike"
+        range: null
+        category: "martial"
+        group: "shield"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d6"}}
+        slug: "lions-head"
+        label: "Lion's Head"
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "runes-potency"
+        mode: "upgrade"
+        value: 1
+        predicate: ["item:slug:lions-head"]
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "runes-striking"
+        mode: "upgrade"
+        value: 1
+        predicate: ["item:slug:lions-head"]
   Lodestone Shield:
     ac_bonus: 2
     bulk: 1
@@ -313,6 +345,16 @@ pf2e_shields:
     traits:
       - uncommon
       - magical
+    rules:
+      - key: "RollOption"
+        option: "reflecting-shield"
+        toggleable: true
+        label: "Block spell that targets you"
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 2
+        predicate: ["self:shield:raised", "reflecting-shield", "item:type:spell"]
   Spellguard Shield:
     ac_bonus: 2
     bulk: 1
@@ -323,6 +365,16 @@ pf2e_shields:
     speed_penalty: 0
     traits:
       - magical
+    rules:
+      - key: "RollOption"
+        option: "spellguard-shield"
+        toggleable: true
+        label: "Block spell that targets you"
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 2
+        predicate: ["self:shield:raised", "spellguard-shield", "item:type:spell"]
   Spined Shield:
     ac_bonus: 2
     bulk: 1

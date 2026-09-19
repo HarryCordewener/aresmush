@@ -61,11 +61,12 @@ module AresMUSH
         end
 
         # Calculate initiative and add the enactor to the encounter participants list.
-        roll = [ "1d20", init_stat ]
+        roll = [ "1d20", Pf2e.initiative_bonus(enactor, init_stat).to_s ]
 
         initiative = Pf2e.parse_roll_string(enactor, roll)['total']
 
         PF2Encounter.add_to_initiative(encounter, enactor.name, initiative)
+        Pf2e::Combatants.number(encounter, enactor.name)
 
         # Set management for later use.
 

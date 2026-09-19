@@ -4,19 +4,25 @@ module AresMUSH
     class PF2RollForCommand
       include CommandHandler
 
-      attr_accessor :mods, :dc, :string, :target
+      attr_accessor :mods, :dc, :string, :target, :doing
 
+      # The same shape as `roll`: after the first slash, a number is the DC and anything else is a
+      # circumstance.
       def parse_args
-        args = cmd.parse_args(ArgParser.arg1_equals_arg2_slash_optional_arg3)
+        args = cmd.parse_args(ArgParser.arg1_equals_arg2)
 
         self.target = trim_arg(args.arg1)
 
-        self.string = trim_arg(args.arg2)
+        parts = args.arg2.to_s.split('/').map(&:strip)
 
-        mod_list = args.arg2.gsub("-", "+-").gsub("--","-").split("+")
-        self.mods = mod_list.map { |v| v.strip }
+        self.string = trim_arg(parts.first)
+        self.mods = Pf2e.roll_terms(parts.first)
 
-        self.dc = args.arg3 ? args.arg3.to_i : nil
+        rest = parts.drop(1).reject(&:empty?)
+        numbers, words = rest.partition { |part| part.match?(/\A\d+\z/) }
+
+        self.dc = numbers.first&.to_i
+        self.doing = words
       end
 
       def check_valid_dc
@@ -40,13 +46,13 @@ module AresMUSH
           return
         end
 
-        roll = Pf2e.parse_roll_string(subject,self.mods)
+        roll = Pf2e.parse_roll_string(subject, self.mods, Pf2e.circumstances(self.doing))
         list = roll['list']
         result = roll['result']
         total = roll['total']
 
         # Determine degree of success if DC is given
-        degree = self.dc ? Pf2e.get_degree(list, result, total, self.dc) : ""
+        degree = self.dc ? Pf2e.get_degree(list, result, total, self.dc, roll['checks']) : ""
 
         dc_string = self.dc ? "against DC #{self.dc} " : ""
 

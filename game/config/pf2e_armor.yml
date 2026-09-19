@@ -360,6 +360,19 @@ pf2e_armor:
         power: 1
       property:
         - Slick (Greater)
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 2
+        label: "Electric Eelskin (Swim)"
+        predicate: ["action:swim"]
+      - key: "FlatModifier"
+        selector: "stealth"
+        type: "item"
+        value: 2
+        label: "Electric Eelskin (Water)"
+        predicate: ["terrain:water"]
   Explorer's Clothing:
     category: unarmored
     traits:
@@ -404,6 +417,18 @@ pf2e_armor:
     runes:
       fundamental:
         potency: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "item"
+        value: 1
+        predicate: ["item:trait:curse"]
+      - key: "AdjustModifier"
+        mode: "add"
+        selector: "saving-throw"
+        value: 1
+        slug: "resilient"
+        predicate: ["item:trait:curse"]
   Half Plate:
     category: heavy
     traits: []
@@ -448,6 +473,22 @@ pf2e_armor:
       fundamental:
         potency: 2
         power: 1
+    rules:
+      - key: "FlatModifier"
+        selector: ["ac", "saving-throw"]
+        type: "circumstance"
+        value: 1
+        predicate: ["origin:trait:fiend"]
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "item"
+        value: 2
+        predicate: [{"not": "target:trait:fiend"}]
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Drained"
+        inMemoryOnly: true
+        alterations: [{"mode": "override", "property": "badge-value", "value": 2}]
+        predicate: ["self:trait:unholy"]
   Impenetrable Scale:
     category: medium
     traits:
@@ -500,6 +541,12 @@ pf2e_armor:
         power: 1
       property:
         - Fortification
+    rules:
+      - key: "RollOption"
+        option: "lit-life-saver-mail"
+        toggleable: true
+        value: true
+        label: "{item} is lit"
   Life-Saver Mail (Greater):
     category: heavy
     traits:
@@ -519,6 +566,12 @@ pf2e_armor:
         power: 2
       property:
         - Fortification (Greater)
+    rules:
+      - key: "RollOption"
+        option: "lit-life-saver-mail"
+        toggleable: true
+        value: true
+        label: "{item} is lit"
   Lion's Armor:
     category: heavy
     traits:
@@ -533,12 +586,15 @@ pf2e_armor:
     min_str: 16
     bulk: 0
     group: Plate
-    bonus:
-      Intimidation: 2
     runes:
       fundamental:
         potency: 2
         power: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 2
   Lion's Armor (Greater):
     category: heavy
     traits:
@@ -553,12 +609,15 @@ pf2e_armor:
     min_str: 16
     bulk: 0
     group: Plate
-    bonus:
-      Intimidation: 3
     runes:
       fundamental:
         potency: 3
         power: 2
+    rules:
+      - key: "FlatModifier"
+        selector: "intimidation"
+        type: "item"
+        value: 3
   Mariner's Splint:
     category: heavy
     traits:
@@ -577,6 +636,12 @@ pf2e_armor:
     runes:
       fundamental:
         potency: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 1
+        predicate: [{"or": ["action:swim", "action:climb"]}]
   Moonlit Chain:
     category: light
     traits:
@@ -596,6 +661,14 @@ pf2e_armor:
     runes:
       fundamental:
         potency: 1
+    rules:
+      - key: "RollOption"
+        option: "terrain:moonlight"
+        toggleable: true
+        label: "In Moonlight"
+      - key: "Sense"
+        selector: "low-light-vision"
+        predicate: ["terrain:moonlight"]
   Onslaught Hide:
     category: medium
     traits:
@@ -614,6 +687,18 @@ pf2e_armor:
       fundamental:
         potency: 1
         power: 1
+    rules:
+      - key: "RollOption"
+        option: "action:sudden-charge"
+        domain: "damage"
+        toggleable: true
+        label: "Sudden Charge"
+        predicate: ["sudden-charge"]
+      - key: "DamageDice"
+        selector: "strike-damage"
+        diceNumber: 1
+        dieSize: "d8"
+        predicate: ["action:sudden-charge"]
   Padded:
     category: light
     traits:
@@ -679,6 +764,13 @@ pf2e_armor:
       fundamental:
         potency: 1
         power: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 2
+        label: "Tideplate (Swim)"
+        predicate: ["action:swim"]
   Unholy Plate:
     category: heavy
     traits:
@@ -699,6 +791,28 @@ pf2e_armor:
       fundamental:
         potency: 2
         power: 1
+    rules:
+      - key: "Strike"
+        category: "martial"
+        damage: {"base": {"damageType": "piercing", "dice": 2, "die": "d8"}}
+        traits: ["deadly-d12", "unholy"]
+        slug: "horns"
+        label: "Horns"
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "runes-potency"
+        mode: "upgrade"
+        value: 2
+      - key: "Note"
+        selector: "{item|id}-attack"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "On a critical hit with the horns, the target must succeed at a or become Drained 1 (or Drained 2 on a critical failure)."
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Drained"
+        inMemoryOnly: true
+        alterations: [{"mode": "override", "property": "badge-value", "value": 2}]
+        predicate: ["self:trait:holy"]
   Warleader's Bulwark:
     category: medium
     traits:
@@ -717,6 +831,16 @@ pf2e_armor:
       fundamental:
         potency: 1
         power: 1
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "item"
+        value: 2
+      - key: "FlatModifier"
+        selector: ["deception", "stealth"]
+        type: "item"
+        value: -2
+        predicate: [{"or": ["action:hide", "action:sneak", "action:impersonate"]}]
   Warleader's Bulwark (Greater):
     category: medium
     traits:
@@ -735,3 +859,13 @@ pf2e_armor:
       fundamental:
         potency: 2
         power: 2
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "item"
+        value: 3
+      - key: "FlatModifier"
+        selector: ["deception", "stealth"]
+        type: "item"
+        value: -3
+        predicate: [{"or": ["action:hide", "action:sneak", "action:impersonate"]}]

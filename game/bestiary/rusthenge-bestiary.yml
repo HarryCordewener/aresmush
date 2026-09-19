@@ -1,0 +1,290 @@
+---
+"Clockwork Belimarius":
+  pack: "rusthenge-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 20
+  hp: 45
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 12, "will": 8}
+  abilities: {"cha": -5, "con": 3, "dex": 4, "int": -5, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12}
+  weaknesses: {"electricity": 5, "orichalcum": 5}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Halberd", "bonus": 16, "damage": [["2d10+4", "piercing", null]], "traits": ["magical", "reach-10", "versatile-s"], "effects": ["Dispelling Critical"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 21 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Clockwork Wand", "type": "passive", "traits": [], "text": "The clockwork mage uses a mechanical wand as a focus to channel magical energy. This wand is built into the clockwork mage's chest, with only the crystal at the end exposed. The mage can Interact to the remove the wand, or someone else can remove it with a DC 25 Thievery check to Disable a Device. The clockwork mage becomes unable to cast any spells except cantrips while the wand is removed.%rWhen removed, the clockwork wand is a Magic Wand containing the last 1st-rank innate spell the…"}, {"name": "Dispelling Critical", "type": "passive", "traits": [], "text": "On a critical hit with a halberd Strike, shards of noqual built into the clockwork Belimarius glow green for a moment. Instead of inflicting additional damage with the critical hit, the clockwork Belimarius instead attempts a counteract check with a +18 bonus against one magical effect active on the target."}, {"name": "Energize Clockwork Wand", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Frequency once per 10 minutes.%rEffect The clockwork mage regains a spell it has already cast that day. It must spend 1 hour of its operational time, or 2 hours if the spell is 3rd rank or higher."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 21, "attack": 13, "spells": {"0": ["Daze", "Shield", "Tangle Vine"], "1": ["Color Spray", "Fear", "Mystic Armor"], "2": ["Magnetic Repulsion", "Resist Energy"]}}]
+"Clockwork Serpent Spy":
+  pack: "rusthenge-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "rare"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 19
+  hp: 15
+  perception: 10
+  saves: {"fortitude": 3, "reflex": 9, "will": 6}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": -5, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 7}
+  weaknesses: {"electricity": 3, "orichalcum": 3}
+  strikes: [{"name": "Sharpened Gear", "bonus": 7, "damage": [["1d6-1", "slashing", null]], "traits": ["finesse"], "effects": ["Bleeding Gash"]}]
+  actions: [{"name": "Record Audio", "type": "action", "traits": [], "cost": 1, "text": "The clockwork spy records all sounds within 25 feet onto a small gemstone worth 1 gp embedded in its body. The clockwork spy can record up to 1 hour of sound on a single gemstone. Once it begins recording, it can't cease recording early, nor can it record onto a gemstone that already contains a recording.%rSome clockwork spies contain multiple gemstones to allow for a series of recordings. Since clockwork spies are not intelligent, they must be given simple commands regarding when to start…"}, {"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 17 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Self-Destruct", "type": "reaction", "traits": [], "text": "A clockwork spy must use this reaction unless specifically programmed otherwise by its creator.%rTrigger The clockwork spy is reduced to 0 Hit Points.%rEffect The spy thrashes around and emits a tinny scream followed by a steady ticking sound. At the beginning of what would have been its next turn, the clockwork spy explodes, dealing 1d12 piercing|options:area-damage damage in a 5-foot radius (DC 17 Reflex save). Its gemstone is destroyed, along with any information contained inside it.%rAn…"}, {"name": "Bleeding Gash", "type": "passive", "traits": [], "text": "On a critical hit with a sharpened gear Strike, the clockwork serpent spy also inflicts 1d4 persistent bleed damage (DC 17 Fortitude save negates the additional bleed damage)."}]
+"Dretch":
+  pack: "rusthenge-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["chaotic", "demon", "evil", "fiend", "unholy"]
+  ac: 17
+  hp: 45
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 4, "will": 8}
+  abilities: {"cha": 0, "con": 4, "dex": 0, "int": -3, "str": 3, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 6, "Athletics": 7, "Deception": 6, "Stealth": 6}
+  weaknesses: {"cold-iron": 3, "holy": 3}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d8+3", "piercing", null], ["1d4", "spirit", null]], "traits": ["magical", "unarmed", "unholy"]}, {"name": "Claw", "bonus": 9, "damage": [["1d6+3", "slashing", null], ["1d4", "spirit", null]], "traits": ["agile", "magical", "unarmed", "unholy"]}, {"name": "Heated Light Mace", "bonus": 9, "damage": [["1d4", "fire", null], ["1d4+5", "bludgeoning", null]], "traits": ["agile", "finesse", "shove", "unholy"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Sloth", "type": "passive", "traits": [], "text": "At the start of each of the dretch's turns, roll 1d4. The result is the number of actions the dretch regains that turn (maximum 3).%rEffects like the Slowed condition can further reduce their number of actions."}, {"name": "Cower", "type": "action", "traits": [], "cost": 1, "text": "The dretch makes itself as small as possible, protecting its vital organs with its limbs. It gains a +4 circumstance bonus to AC but takes a -2 penalty to attack rolls. This lasts until the dretch moves from its current space, falls Unconscious, or ends the effect as a free action."}, {"name": "Frenzied Slashes", "type": "action", "traits": [], "cost": 3, "text": "The dretch makes three claw Strikes, each at a -2 penalty, all targeting the same creature. The dretch's multiple attack penalty doesn't increase until after it has made all three attacks.%rThe dretch gains the Clumsy 2 condition until the beginning of its next turn."}, {"name": "Vicious Criticals", "type": "passive", "traits": [], "text": "A dretch makes the most of any weakness it finds. Whenever a dretch scores a critical hit with its claw Strike, the target takes an additional 1d6 bleed."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 16, "attack": 8, "spells": {"1": ["Fear"], "3": ["Slow"]}}]
+"Fallen Acolyte":
+  pack: "rusthenge-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 15
+  hp: 15
+  perception: 5
+  saves: {"fortitude": 6, "reflex": 2, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 0, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 20}
+  skills: {"Acrobatics": 2, "Athletics": 6, "Crafting": 2, "Intimidation": 2, "Religion": 4, "Warfare Lore": 4}
+  strikes: [{"name": "Sickle", "bonus": 6, "damage": [["1d4+4", "slashing", null]], "traits": ["agile", "finesse", "trip"]}]
+"Glutu":
+  pack: "rusthenge-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["amphibious", "boggard", "chaotic", "evil", "humanoid"]
+  ac: 19
+  hp: 44
+  perception: 11
+  saves: {"fortitude": 9, "reflex": 7, "will": 11}
+  abilities: {"cha": 3, "con": 2, "dex": 0, "int": 0, "str": 3, "wis": 4}
+  speeds: {"land": 20, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8, "Intimidation": 8, "Nature": 11, "Religion": 9, "Survival": 9}
+  strikes: [{"name": "Whip", "bonus": 11, "damage": [["1d4+6", "slashing", null]], "traits": ["disarm", "finesse", "nonlethal", "reach-10", "trip"]}, {"name": "Tongue", "bonus": 10, "damage": [], "traits": ["reach-10"], "effects": ["Tongue Grab"]}]
+  actions: [{"name": "Drowning Drone", "type": "reaction", "traits": ["auditory", "mental"], "text": "Trigger The boggard swampseer or one of its allies within 60 feet attempts a saving throw against an auditory or sonic effect.%rEffect The swampseer releases a croak that drowns out other sound. It rolls a Performance check. It and boggard allies in the area can use the higher result of the swampseer's Performance check or their saves to resolve the effects against the auditory or sonic effect."}, {"name": "Swamp Stride", "type": "passive", "traits": [], "text": "A boggard swampseer ignores difficult terrain caused by swamp terrain features."}, {"name": "Terrifying Croak", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 1, "text": "The boggard swampseer unleashes a terrifying croak. Any non-boggard within 30-foot becomes Frightened 1 unless they succeed at a DC 19 Will save.%rThose who critically succeed are temporarily immune for 1 minute."}, {"name": "Tongue Grab", "type": "passive", "traits": [], "text": "If the boggard swampseer hits a creature with its tongue, that creature becomes Grabbed by the boggard. Unlike with a normal grab, the creature isn't Immobilized, but it can't move beyond the reach of the boggard's tongue.%rA creature can sever the tongue by hitting AC 15 and dealing at least 4 slashing damage. Though this doesn't deal any damage to the boggard, it prevents it from using its tongue Strike until it regrows its tongue, which takes a week."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 21, "attack": 11, "spells": {"0": ["Chill Touch", "Divine Lance", "Read Aura", "Shield"], "1": ["Bane", "Fear", "Harm", "Heal"], "2": ["Sound Burst"]}}]
+"Knurr Ragnulf":
+  pack: "rusthenge-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "dwarf", "evil", "humanoid"]
+  ac: 17
+  hp: 35
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 4, "will": 8}
+  abilities: {"cha": 3, "con": 2, "dex": 0, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7, "Crafting": 4, "Deception": 7, "Intimidation": 9, "Religion": 6}
+  strikes: [{"name": "Warhammer", "bonus": 10, "damage": [["1d8+5", "bludgeoning", null]], "traits": ["magical", "shove"]}]
+  actions: [{"name": "Intimidating Strike", "type": "action", "traits": ["emotion", "fear", "mental"], "cost": 2, "text": "Knurr makes a melee Strike while roaring Xar-Azmak's name. If he hits and deals damage, the target is Frightened 1, or Frightened 2 on a critical hit."}]
+"Meitremar":
+  pack: "rusthenge-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 18
+  hp: 42
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 6, "will": 12}
+  abilities: {"cha": 4, "con": 0, "dex": 1, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 20}
+  skills: {"Arcana": 7, "Crafting": 7, "Deception": 9, "Diplomacy": 9, "Intimidation": 9, "Occultism": 7, "Religion": 8}
+  strikes: [{"name": "Pick", "bonus": 8, "damage": [["2d6+2", "piercing", null]], "traits": ["fatal-d10", "magical"]}]
+  actions: [{"name": "Reach Spell", "type": "action", "traits": ["spellshape"], "cost": 1, "text": "If Meitremar's next action this turn is to Cast a Spell that has a range, he increases that spell's range by 30 feet (or increases the range of a touch spell to 30 feet)."}, {"name": "Signature Spell", "type": "passive", "traits": [], "text": "Meitremar can heighten Heal spells freely."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 20, "attack": 12, "spells": {"0": ["Acid Splash", "Divine Lance", "Guidance", "Light", "Shield", "Sigil"], "1": ["Bane", "Command", "Fear", "Heal"], "2": ["Enlarge", "Ghoulish Cravings", "Harm", "Sudden Blight"]}}, {"name": "Demonic Bloodline Spells", "tradition": "divine", "type": "focus", "dc": 20, "attack": 12, "spells": {"1": ["Glutton's Jaw"]}}]
+"Ordwi":
+  pack: "rusthenge-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "good", "human", "humanoid"]
+  ac: 12
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 6, "reflex": 4, "will": 10}
+  abilities: {"cha": 3, "con": 2, "dex": 0, "int": 1, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Athletics": 4, "Crafting": 5, "Diplomacy": 7, "Religion": 8, "Society": 5}
+  strikes: [{"name": "Rapier", "bonus": 4, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse"]}]
+  actions: [{"name": "Divine Font", "type": "passive", "traits": [], "text": "Heal"}, {"name": "Healing Hands", "type": "passive", "traits": [], "text": "When Ordwi casts Heal, she rolls 1d10s instead of d8s."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 18, "attack": 10, "spells": {"0": ["Daze", "Forbidding Ward", "Light", "Shield", "Stabilize"], "1": ["Bless", "Heal", "Spirit Link"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 18, "attack": 10, "spells": {"1": ["Unimpeded Stride"]}}]
+"Primordial Envy":
+  pack: "rusthenge-bestiary"
+  level: 3
+  size: "large"
+  rarity: "rare"
+  traits: ["ooze"]
+  ac: 12
+  hp: 60
+  perception: 6
+  saves: {"fortitude": 13, "reflex": 4, "will": 8}
+  abilities: {"cha": -5, "con": 5, "dex": -4, "int": -5, "str": 2, "wis": 0}
+  speeds: {"land": 15}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9}
+  immunities: ["critical-hits", "mental", "precision", "unconscious", "visual"]
+  resistances: {"piercing": 5, "slashing": 5}
+  strikes: [{"name": "Pseudopod", "bonus": 9, "damage": [["1d10+4", "bludgeoning", null], ["1d6", "mental", null]], "traits": ["magical", "reach-10", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Magic Sense", "type": "passive", "traits": [], "text": "A primordial envy can detect magical auras, items, and spellcasters within 30 feet."}, {"name": "-2 Status Vs. Evocation and Necromancy", "type": "passive", "traits": []}, {"name": "Confiscate Spell", "type": "reaction", "traits": ["arcane"], "text": "Trigger A creature within 30 feet that the primordial envy can sense Casts a Spell%rEffect The primordial envy's surface shimmers with a kaleidoscope of color that shines out to illuminate the triggering creature. The primordial envy attempts to counter the spell, with a counteract modifier of +12. On a success, the spell is countered and the primordial envy gains 2d6 #Temp HP temporary Hit Points."}, {"name": "Spell Drain", "type": "action", "traits": ["arcane"], "cost": 1, "text": "The primordial envy attempts to drain magic from a spellcasting creature that it has Grabbed or Restrained. The spellcasting creature must attempt a DC 20 Will save.%rCritical Success The creature is unaffected and is temporarily immune to Spell Drain for 24 hours.%rSuccess The creature takes 1d6 mental damage.%rFailure The creature takes 2d6 mental damage and becomes Stupefied 1 for 1 hour.%rCritical Failure As failure, but one of the creature's uncast spells or unused spell slots is lost, as…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Rust Zombie":
+  pack: "rusthenge-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["evil", "mindless", "undead", "unholy", "zombie"]
+  ac: 13
+  hp: 50
+  perception: 3
+  saves: {"fortitude": 6, "reflex": 3, "will": 4}
+  abilities: {"cha": -2, "con": 3, "dex": -2, "int": -5, "str": 4, "wis": 0}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 7}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"vitality": 10, "slashing": 10}
+  strikes: [{"name": "Fist", "bonus": 9, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Grab", "Rust Creep"]}, {"name": "Jaws", "bonus": 9, "damage": [["1d12+4", "piercing", null]], "traits": ["unarmed"], "effects": ["Rust Creep"]}]
+  actions: [{"name": "Slow", "type": "passive", "traits": [], "text": "A zombie is permanently Slowed 1 and can't use reactions."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Rust Creep", "type": "passive", "traits": ["disease", "divine"], "text": "Those afflicted by rust creep develop uncomfortable rust-colored bruises on their flesh and endure full-body aches like those one might experience after a long workout. As the affliction progresses, their bodies—as well as the clothing and items they wear or carry—increasingly break down until a painful death occurs. If a character successfully resists contracting rust creep, or recovers from a case of rust creep, they are temporarily immune to future rust creep infections for 24 hours.%rSaving…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Rustsworn Initiate":
+  pack: "rusthenge-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 14
+  hp: 8
+  perception: 2
+  saves: {"fortitude": 4, "reflex": 7, "will": 2}
+  abilities: {"cha": 1, "con": 2, "dex": 3, "int": 1, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 5, "Deception": 3, "Intimidation": 3, "Religion": 2, "Stealth": 5, "Thievery": 5}
+  strikes: [{"name": "Dagger", "bonus": 6, "damage": [["1d4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 6, "damage": [["1d4", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Gang Up", "type": "passive", "traits": [], "text": "An enemy is Off-Guard against the Rustsworn initiate's melee attacks due to flanking as long as that enemy is within both their reach and their ally's reach."}]
+"Starving Werebat":
+  pack: "rusthenge-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["beast", "evil", "gnome", "humanoid", "werecreature"]
+  ac: 18
+  hp: 35
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 10, "will": 7}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 1, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 8, "Athletics": 6, "Deception": 4, "Society": 5, "Stealth": 8}
+  weaknesses: {"silver": 5}
+  strikes: [{"name": "Dagger", "bonus": 10, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 10, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Bat Empathy", "type": "passive", "traits": ["primal"], "text": "A werebat can communicate with bats."}, {"name": "Wing Thrash", "type": "reaction", "traits": [], "text": "Trigger An adjacent enemy damages the werebat%rEffect The werebat makes one or two wing Strikes, each against a different adjacent creature."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Human%rMelee fist +8 Damage 1d4 no fly Speed Giant Bat%rSpeed 15 feet, fly 30 feet%rThe werecreature changes into its humanoid, hybrid, or animal shape. Each shape has a specific, persistent appearance. A true werecreature's natural form is its hybrid shape.%rIn humanoid shape, the werecreature uses its original humanoid size, loses its jaws and claws Strikes, and gains a melee fist Strike that deals bludgeoning damage equal to the slashing damage dealt by its claw.%rIn animal shape, its Speed…"}, {"name": "Curse of the Werebat", "type": "passive", "traits": ["curse", "primal"], "text": "This curse affects only humanoids.%rSaving Throw DC 15 Fortitude%rOn each full moon, the cursed creature must succeed at another Fortitude save or turn into a werecreature until dawn. The creature is under the GM's control and goes on a rampage for half the night before falling unconscious until dawn."}, {"name": "Moon Frenzy", "type": "passive", "traits": ["polymorph", "primal"], "text": "When a full moon appears in the night sky, the werecreature must enter hybrid form, can't Change Shape thereafter, becomes one size larger, increases its reach by 5 feet, and increases the damage of its jaws Strike (or a similar Strike) by 2.%rWhen the moon sets or the sun rises, the werecreature returns to humanoid form and is Fatigued for 2d4 hours.%rEffect: Moon Frenzy"}]
+"Theiltemar":
+  pack: "rusthenge-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "skeleton", "undead", "unholy"]
+  ac: 20
+  hp: 50
+  perception: 13
+  saves: {"fortitude": 8, "reflex": 10, "will": 13}
+  abilities: {"cha": 3, "con": 0, "dex": 4, "int": 3, "str": 2, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 10, "Crafting": 9, "Intimidation": 11, "Occultism": 11, "Religion": 13, "Stealth": 10}
+  immunities: ["bleed", "death-effects", "disease", "mental", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Claw", "bonus": 12, "damage": [["2d6+4", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Rusting Death", "type": "passive", "traits": [], "text": "When Theiltemar is destroyed, his bones explode as the necromantic energy holding him together is released. This shreds his rusted chain mail as well, flinging rusty shards of jagged metal in all directions. Adjacent creatures take 2d6 piercing damage (DC 21 Reflex save) and are exposed to rust creep. As his remains settled to the floor, the wall of force blocking area F14 flickers and fades."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Rust Creep", "type": "passive", "traits": ["disease", "divine"], "text": "Those afflicted by rust creep develop uncomfortable rust-colored bruises on their flesh and endure full-body aches like those one might experience after a long workout. As the affliction progresses, their bodies—as well as the clothing and items they wear or carry—increasingly break down until a painful death occurs. If a character successfully resists contracting rust creep, or recovers from a case of rust creep, they are temporarily immune to future rust creep infections for 24 hours.%rSaving…"}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 21, "attack": 13, "spells": {"0": ["Daze", "Divine Lance", "Prestidigitation", "Read Aura", "Shield"], "1": ["Bane", "Command", "Fear", "Harm"], "2": ["Blood Vendetta", "Darkness", "Harm", "Sudden Blight"]}}]
+"Trygve":
+  pack: "rusthenge-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "human", "humanoid"]
+  ac: 18
+  hp: 30
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 4, "will": 6}
+  abilities: {"cha": 0, "con": 1, "dex": 0, "int": 3, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 8, "Crafting": 9, "Society": 7, "Smithing Lore": 9}
+  strikes: [{"name": "Light Hammer", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile"], "effects": ["Smiths Fury"]}, {"name": "Light Hammer", "bonus": 6, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["agile", "thrown-20"], "effects": ["Smiths Fury"]}]
+  actions: [{"name": "Smith's Fury", "type": "passive", "traits": [], "text": "Trygve deals an additional 1d6 bludgeoning damage on a critical hit when he Strikes with his light hammer."}]
+"Vanda":
+  pack: "rusthenge-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "human", "humanoid"]
+  ac: 16
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 4, "will": 10}
+  abilities: {"cha": 1, "con": 2, "dex": 0, "int": 0, "str": 3, "wis": 4}
+  speeds: {"land": 20}
+  skills: {"Athletics": 4, "Crafting": 4, "Intimidation": 7, "Religion": 8, "Warfare Lore": 4}
+  strikes: [{"name": "Greatsword", "bonus": 10, "damage": [["1d12+3", "slashing", null]], "traits": ["magical", "versatile-p"]}]
+"Vlorian Cythnigot":
+  pack: "rusthenge-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "fiend", "qlippoth", "unholy"]
+  ac: 19
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 11, "reflex": 7, "will": 9}
+  abilities: {"cha": 1, "con": 4, "dex": 3, "int": 2, "str": 2, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 9, "Occultism": 9, "Stealth": 9}
+  immunities: ["controlled", "fear-effects"]
+  resistances: {"mental": 3, "physical": 3}
+  strikes: [{"name": "Bite", "bonus": 11, "damage": [["1d8+4", "piercing", null], ["1d4", "spirit", null]], "traits": ["agile", "chaotic", "finesse", "magical", "unholy"], "effects": ["Rust Creep"]}]
+  actions: [{"name": "Telepathy (Touch only)", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Rust Creep", "type": "passive", "traits": ["disease"], "text": "A creature bitten by the Vlorian cythnigot becomes afflicted by rust creep, but with a DC 20 Fortitude save.%rThose afflicted by rust creep develop uncomfortable rust-colored bruises on their flesh and endure full-body aches like those one might experience after a long workout. As the affliction progresses, their bodies—as well as the clothing and items they wear or carry—increasingly break down until a painful death occurs. If a character successfully resists contracting rust creep, or…"}, {"name": "Sickening Display", "type": "action", "traits": ["concentrate", "emotion", "fear", "mental", "occult", "visual"], "cost": 1, "text": "The cythnigot presents its awful appearance fully, and creatures in a 10-foot must attempt a DC 20 Will save. Once a creature attempts this save, it's temporarily immune to further Sickening Displays for 1 minute.%rCritical Success The creature is unaffected.%rSuccess The creature is Off-Guard until its next turn.%rFailure The creature is Sickened 1, and is off-guard for as long as it's sickened.%rCritical Failure The creature is Sickened 2 and is off-guard for as long as it's sickened."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Daze", "Detect Magic"], "1": ["Phantom Pain"], "2": ["Detect Alignment (At will, Lawful only)", "Paranoia"], "4": ["Read Omens"]}}]
+"Zaiox":
+  pack: "rusthenge-bestiary"
+  level: 4
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "dero", "evil", "humanoid"]
+  ac: 21
+  hp: 50
+  perception: 7
+  saves: {"fortitude": 8, "reflex": 11, "will": 7}
+  abilities: {"cha": 4, "con": 2, "dex": 3, "int": 3, "str": 1, "wis": -1}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Crafting": 9, "Intimidation": 12, "Occultism": 11, "Stealth": 11}
+  immunities: ["confused"]
+  weaknesses: {"vulnerable-to-sunlight": 0}
+  strikes: [{"name": "Aklys", "bonus": 9, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["trip"]}, {"name": "Aklys", "bonus": 11, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["ranged-trip", "tethered", "thrown-20"]}]
+  actions: [{"name": "Vulnerable to Sunlight", "type": "passive", "traits": [], "text": "A dero magister takes 10 untyped damage for every hour they're exposed to sunlight."}, {"name": "Cytillesh Stare", "type": "action", "traits": ["concentrate", "incapacitation", "mental", "visual"], "cost": 1, "text": "Frequency once per round%rEffect Zaiox glares at a creature he can see within 30 feet. The target is Dazzled for 1 round and must succeed at a DC 21 Will save or be Stupefied 1 for 1 round."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 21, "attack": 13, "spells": {"0": ["Chill Touch", "Dancing Lights", "Detect Magic", "Forbidding Ward", "Message"], "1": ["Fear", "Grim Tendrils", "Phantom Pain", "Soothe"], "2": ["Blur", "Hideous Laughter", "Sound Burst", "Telekinetic Maneuver"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 21, "attack": 13, "spells": {"0": ["Daze", "Ghost Sound"], "2": ["Darkness (At Will)", "Sound Burst"]}}]

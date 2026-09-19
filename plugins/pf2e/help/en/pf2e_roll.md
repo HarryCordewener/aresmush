@@ -18,6 +18,17 @@ The roll commands on this game have been constructed to be reasonably familiar t
 
 Public rolls appear in the log and are sent to everyone in the room.
 
+## Saying what you are doing
+
+Some bonuses apply only to a particular action - a Skeleton Key helps you pick a lock, not with Thievery generally. Name the action after a slash to claim one.
+%t **Example**:
+%t `roll thievery/pick-a-lock` rolls Thievery and counts any bonus that applies to picking a lock.
+%t `roll thievery/pick-a-lock/25` does the same against DC 25. The DC and the action can come in either order, since one is a number and the other is not.
+
+You do not need to do this for a bonus that only depends on your gear. An item you are wearing, and have invested if it needs investing, applies what it gives you on its own.
+
+`sheet/why <figure>` lists the conditional bonuses you have and the circumstance each one needs, so you can see which are worth naming.
+
 ## Other dice commands
 
 `roll/for <character> = <dice + modifiers>[/dc]`: Rolls `<dice + modifiers>` for another PC. Anyone can do this, but the display is not private and shows the name of the roller, as well as the name of the character rolled for. This command is intended to be used to help someone who is AFK or having network issues. (Alias: `rollfor`)

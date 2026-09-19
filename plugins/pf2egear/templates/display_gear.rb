@@ -110,12 +110,10 @@ module AresMUSH
       end
 
       def encumbrance
-        char_strmod = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(@char, "Strength"))
-
         current_bulk = @weapon_bulk + @armor_bulk + @shields_bulk + @consumables_bulk + @gear_bulk + @bag_bulk
 
-        max_capacity = 10 + char_strmod
-        encumbered = 5 + char_strmod
+        max_capacity = Pf2egear.max_bulk(@char)
+        encumbered = Pf2egear.encumbered_at(@char)
 
         enc_state = current_bulk >= encumbered ? "%xh%xyEncumbered%xn" : "%xgUnencumbered%xn"
 

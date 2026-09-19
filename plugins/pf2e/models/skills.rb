@@ -20,11 +20,19 @@ module AresMUSH
 
     ##### CLASS METHODS #####
 
+    # A lore is not in the skill catalogue - its name is the player's invention - and every lore is
+    # Intelligence-based, so a name we do not recognise is one.
     def self.get_linked_attr(name)
       skill = Global.read_config('pf2e_skills', name)
-      linked_attr = skill['key_abil']
 
-      linked_attr
+      skill ? skill['key_abil'] : 'Intelligence'
+    end
+
+    # A lore is a skill whose subject is named in the skill itself, which is what "Lore" on the end
+    # says. Most are in the catalogue and some are the player's own invention; both are lores, and a
+    # skill feat that reaches every lore has to reach both.
+    def self.lore?(name)
+      name.to_s.strip.downcase.end_with?('lore')
     end
 
     def self.find_skill(name, char)
@@ -33,15 +41,12 @@ module AresMUSH
       Pf2e::SheetReads.rows(char, :skills).find { |s| s.name_upcase == wanted }
     end
 
-    def self.get_skill_bonus(char, name)
-      skill = find_skill(name, char)
-      linked_attr = get_linked_attr(name)
-      abonus = Pf2eAbilities.abilmod(
-        Pf2eAbilities.get_score(char, linked_attr)
-      )
-      pbonus = skill ? Pf2e.get_prof_bonus(char, skill.prof_level) : 0
+    def self.get_skill_bonus(char, name, options = [])
+      Pf2e::Stat.total(char, lore?(name) ? 'lore' : 'skill', name, options)
+    end
 
-      abonus + pbonus
+    def self.skill_breakdown(char, name, options = [])
+      Pf2e::Stat.of(char, lore?(name) ? 'lore' : 'skill', name, options)
     end
 
     def self.get_skill_prof(char, name)

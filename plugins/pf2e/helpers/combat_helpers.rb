@@ -17,6 +17,27 @@ module AresMUSH
       return true
     end
 
+    # What a character adds to an initiative roll.
+    #
+    # Initiative is a check with some other statistic underneath it - Perception unless the scene runner
+    # names a skill - so it takes that statistic's bonuses and anything written against `initiative` as
+    # well. Foundry composes it the same way, which is what makes Incredible Initiative one row of
+    # config rather than a special case here.
+    def self.initiative_bonus(char, stat, options = [])
+      named = stat.to_s.strip
+
+      return Check.of(char, 'perception', nil, options, [ 'initiative' ]).total if
+        named.casecmp?('Perception')
+
+      if Pf2e::ABILITY_BY_WORD.key?(named.downcase)
+        return Pf2e.ability_mod(char, Pf2e::ABILITY_BY_WORD[named.downcase])
+      end
+
+      kind = Pf2eSkills.lore?(named) ? 'lore' : 'skill'
+
+      Check.of(char, kind, named, options, [ 'initiative' ]).total
+    end
+
     def self.can_join_encounter(char, encounter)
 
       encounter_is_active = encounter.is_active

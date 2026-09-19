@@ -30,7 +30,13 @@ module AresMUSH
 
       end
 
+      # One read block per character, because the figures below all ask the same questions about the
+      # same one.
       def format_player(char)
+        AresMUSH::Pf2e::SheetReads.holding(char) { player_row(char) }
+      end
+
+      def player_row(char)
         name = char.name
         charclass = char.pf2_base_info['charclass']
         hp = Pf2eHP.display_character_hp(char)

@@ -428,19 +428,13 @@ module AresMUSH
       to_assign
     end
 
+    # is_focus should be the focus spell type if given.
     def self.get_spell_dc(char, charclass, is_focus=false)
-
-      # is_focus should be the focus spell type if given.
       caster_stats = Pf2emagic.get_caster_stats(char, charclass, is_focus)
 
       return 0 if caster_stats.is_a? String
 
-      prof = caster_stats['prof_level']
-      prof_bonus = Pf2e.get_prof_bonus(char, prof)
-
-      abil_mod = caster_stats['modifier']
-
-      10 + abil_mod + prof_bonus
+      Pf2e::Stat.total(char, 'spell_dc', caster_stats)
     end
 
     def self.get_spell_abil(char, charclass, is_focus=false)
@@ -457,18 +451,11 @@ module AresMUSH
     end
 
     def self.get_spell_attack_bonus(char, charclass, is_focus=false)
-
-      # is_focus should be the focus spell type if given.
       caster_stats = Pf2emagic.get_caster_stats(char, charclass, is_focus)
 
       return 0 if caster_stats.is_a? String
 
-      prof = caster_stats['prof_level']
-      prof_bonus = Pf2e.get_prof_bonus(char, prof)
-
-      abil_mod = caster_stats['modifier']
-
-      abil_mod + prof_bonus
+      Pf2e::Stat.total(char, 'spell_attack', caster_stats)
     end
 
     def self.factory_default(char)

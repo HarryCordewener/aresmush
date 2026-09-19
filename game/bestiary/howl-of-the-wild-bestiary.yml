@@ -1,0 +1,1279 @@
+---
+"Alicorn":
+  pack: "howl-of-the-wild-bestiary"
+  level: 15
+  size: "huge"
+  rarity: "rare"
+  traits: ["beast", "fey", "holy"]
+  ac: 36
+  hp: 320
+  perception: 27
+  saves: {"fortitude": 26, "reflex": 26, "will": 29}
+  abilities: {"cha": 6, "con": 4, "dex": 7, "int": 6, "str": 8, "wis": 4}
+  speeds: {"land": 40, "fly": 80}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 27, "Arcana": 27, "Athletics": 27, "Diplomacy": 30, "Stealth": 25}
+  immunities: ["poison"]
+  strikes: [{"name": "Horn", "bonus": 29, "damage": [["2d6", "spirit", null], ["4d10+10", "piercing", null]], "traits": ["holy", "magical", "unarmed"]}, {"name": "Hoof", "bonus": 29, "damage": [["4d6+10", "piercing", null], ["2d6", "spirit", null]], "traits": ["holy", "magical", "reach-10"]}, {"name": "Wing", "bonus": 29, "damage": [["4d8+10", "bludgeoning", null]], "traits": ["agile", "magical", "reach-10"]}]
+  actions: [{"name": "Wild Empathy", "type": "passive", "traits": [], "text": "The alicorn has an empathic connection to the creatures of the natural world that. The alicorn can use Diplomacy to make-an-impression on animals and to make very simple Requests of them."}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "Draw in Magic", "type": "reaction", "traits": ["arcane", "concentrate"], "text": "Trigger A creature within 30 feet of the alicorn Casts a Spell%rEffect The alicorn attempts to counteract the triggering spell (counteract modifier +28, counteract rank 8th). If successful, the alicorn can choose to gain the effects of the triggering spell as its sole target."}, {"name": "Aerial Attack", "type": "action", "traits": [], "cost": 2, "text": "The alicorn Flies and Strikes twice with their wings at any points during their movement. Each attack counts toward the alicorn's multiple attack penalty, but the penalty doesn't increase until after they make all the attacks."}, {"name": "Beam of Light", "type": "action", "traits": ["arcane", "concentrate", "fire", "holy", "light"], "cost": 2, "text": "The alicorn harnesses a powerful burning ray of light from their horn. Creatures in a 120-foot take 16d6 fire|options:area-damage damage (DC 36 Fortitude save). An unholy creature in the area takes an additional 8d6 spirit|options:area-damage damage. If the light passes through an area of magical darkness or targets a creature affected by magical darkness, the beam attempts to counteract the darkness (counteract modifier +28, counteract rank 8th). The alicorn can't use its Beam of Light again…"}, {"name": "Ghost Touch", "type": "passive", "traits": [], "text": "An alicorn's Strikes have the effects of a ghost touch property rune."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 36, "attack": 0, "spells": {"0": ["Light"], "1": ["Gentle Landing (At-Will)"], "5": ["Banishment"], "6": ["Telepathy"], "8": ["Wall of Force"]}}]
+"Apothecary Bee":
+  pack: "howl-of-the-wild-bestiary"
+  level: 7
+  size: "tiny"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 25
+  hp: 115
+  perception: 15
+  saves: {"fortitude": 14, "reflex": 19, "will": 13}
+  abilities: {"cha": 2, "con": 3, "dex": 6, "int": -4, "str": 1, "wis": 2}
+  speeds: {"land": 10, "climb": 10, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Stealth": 17, "Thievery": 15}
+  strikes: [{"name": "Stinger", "bonus": 19, "damage": [["1d4+4", "piercing", null], ["3d6", "poison", null]], "traits": ["magical", "poison"]}]
+  actions: [{"name": "Drain Potion", "type": "action", "traits": ["manipulate"], "cost": 2, "text": "Requirements The apothecary bee has no stored potions%rEffect The apothecary bee slurps up a potion within its reach, storing it internally. A creature can attempt a DC 25 Reflex save to protect a potion in its possession."}, {"name": "Ingest Potion", "type": "action", "traits": [], "cost": 1, "text": "The apothecary bee consumes the potion it has stored in its body. If the potion has the healing trait, the apothecary bee heals for the maximum amount."}, {"name": "Inject Potion", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "The apothecary bee injects its stored potion into a willing creature within its reach. This deals 1 piercing damage and grants the recipient the normal effects of drinking the potion."}, {"name": "Internal Cauldron", "type": "passive", "traits": [], "text": "With an appropriate diet, an apothecary bee will create a potion of 6th level or lower every two weeks. Most often, this is a Healing Potion (Moderate). Each apothecary bee can store only one completed potion at a time. Unused potions can generally be harvested from an apothecary bee with a successful DC 23 Nature or DC 23 Survival check."}, {"name": "Potionsight", "type": "passive", "traits": [], "text": "Apothecary bees' complex eyes let them see the auras of magical potions and instinctively identify potions of their level or lower. These auras are visible through mundane containers, though their eyes have no special ability to perceive or identify non-magical solutions, such as alchemical elixirs."}, {"name": "Smoke Susceptibility", "type": "passive", "traits": [], "text": "An apothecary bee is Slowed 1 if it starts its turn in heavy smoke."}]
+"Ascendant Griffon":
+  pack: "howl-of-the-wild-bestiary"
+  level: 11
+  size: "huge"
+  rarity: "rare"
+  traits: ["animal"]
+  ac: 30
+  hp: 210
+  perception: 25
+  saves: {"fortitude": 21, "reflex": 24, "will": 18}
+  abilities: {"cha": 7, "con": 5, "dex": 6, "int": -4, "str": 7, "wis": 3}
+  speeds: {"land": 25, "fly": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 23, "Athletics": 23, "Intimidation": 25, "Stealth": 21, "Survival": 22}
+  strikes: [{"name": "Beak", "bonus": 24, "damage": [["4d8+10", "piercing", null]], "traits": ["unarmed"]}, {"name": "Wing", "bonus": 24, "damage": [["4d6+10", "slashing", null]], "traits": ["agile"]}, {"name": "Talon", "bonus": 24, "damage": [["4d6+10", "piercing", null]], "traits": ["unarmed"], "effects": ["Improved Grab"]}, {"name": "Feather", "bonus": 25, "damage": [["2d8+10", "piercing", null]], "traits": []}]
+  actions: [{"name": "Dread Gaze", "type": "reaction", "traits": [], "text": "Trigger A creature ends a move action within 30 feet of the ascendant griffon%rEffect The ascendant griffon turns its head to stare down the triggering creature, and attempts to Demoralize it. This use of Demoralize has the visual trait rather than the auditory trait, and the griffon does not take a penalty on its check for not sharing a language."}, {"name": "Carry Off", "type": "passive", "traits": [], "text": "An ascendant griffon can Fly at full speed with a creature Grabbed in its talons, moving that creature along with it."}, {"name": "Disembowel", "type": "action", "traits": [], "cost": 1, "text": "Requirements The ascendant griffon has a creature Grabbed in its talons%rEffect The griffon makes a beak Strike to rip at the flesh of its prey. If the Strike hits, that creature becomes Drained 1 (or increases its drained value by 1, to a maximum of 4)."}, {"name": "Razor-Edged Flight", "type": "action", "traits": [], "cost": 2, "text": "The ascendant griffon glides violently forward, Flying twice. It makes a wing Strike at any point during the movement against up to two different targets; if either of these attacks is a critical hit, the target also takes 2d6 persistent bleed damage."}, {"name": "Terrifying Screech", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 1, "text": "The ascendant griffon unleashes a fearsome cry that strikes terror into its prey. Each creature within 100 feet must attempt a DC 30 Will save. Regardless of the result, creatures are temporarily immune for 1 minute.%rCritical Success The creature is unaffected.%rSuccess The creature is Frightened 1.%rFailure The creature is Frightened 2.%rCritical Failure The creature is frightened 2 and Fleeing for 1 round."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Barded Manticore":
+  pack: "howl-of-the-wild-bestiary"
+  level: 18
+  size: "large"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 42
+  hp: 440
+  perception: 33
+  saves: {"fortitude": 32, "reflex": 30, "will": 29}
+  abilities: {"cha": 6, "con": 6, "dex": 5, "int": 1, "str": 9, "wis": 5}
+  speeds: {"land": 40, "fly": 45}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 31, "Athletics": 35, "Crafting": 29, "Deception": 32, "Intimidation": 32, "Nature": 31}
+  weaknesses: {"electricity": 15}
+  strikes: [{"name": "Tail", "bonus": 33, "damage": [["3d10+15", "piercing", null], ["1d12", "electricity", null]], "traits": ["magical", "reach-10"]}, {"name": "Claw", "bonus": 33, "damage": [["3d8+15", "slashing", null], ["1d12", "electricity", null]], "traits": ["agile", "magical", "unarmed"]}, {"name": "Spike", "bonus": 31, "damage": [["3d8+15", "piercing", null]], "traits": ["magical"], "range": 40}]
+  actions: [{"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "Spell Reflection", "type": "reaction", "traits": [], "text": "Trigger An opponent casts a spell that targets the manticore and requires a saving throw%rEffect The manticore gains a +4 circumstance bonus to the saving throw. If they critically succeed at the save, they can choose a creature within 30 feet that was not originally targeted by the spell. That creature becomes a new target of the spell, who must attempt its own save against the same DC."}, {"name": "Arrange Scales", "type": "action", "traits": [], "cost": 1, "text": "The barded manticore flexes the muscles under their scales to temporarily gain better protection. The manticore gains a +2 circumstance bonus to AC and resistance 15 to their choice of bludgeoning, piercing, or slashing damage. These benefits last until the beginning of the manticore's next turn or they use Arrange Scales again."}, {"name": "Metallic Coating", "type": "passive", "traits": [], "text": "A barded manticore's unarmed attacks (including spikes) count as adamantine, cold iron, dawnsilver, and silver."}, {"name": "Paired Spikes", "type": "action", "traits": [], "cost": 1, "text": "The barded manticore flings two spikes from their tail, targeting up to two creatures within 20 feet of each other. They make a separate ranged Strike against each creature, which counts as a single Strike for the barded manticore's multiple attack penalty, and the penalty doesn't increase until they've made both Strikes. If the manticore targeted only one creature and hits, that creature takes normal damage for a single spike, but also gains weakness 15 to electricity damage until the spikes…"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 40, "attack": 35, "spells": {"0": ["Detect Metal", "Needle Darts", "Tangle Vine"], "3": ["One with Stone (At Will)"], "5": ["Impaling Spike (At-Will)", "Lightning Bolt (At-Will)"], "6": ["Field of Razors", "Tangling Creepers"], "8": ["Chain Lightning"], "9": ["Wrathful Storm"]}}]
+"Blooming Guardian":
+  pack: "howl-of-the-wild-bestiary"
+  level: 15
+  size: "large"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 36
+  hp: 360
+  perception: 29
+  saves: {"fortitude": 32, "reflex": 23, "will": 25}
+  abilities: {"cha": 1, "con": 5, "dex": 3, "int": 1, "str": 5, "wis": 3}
+  speeds: {"land": 50}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 30, "Intimidation": 21, "Nature": 29, "Survival": 27}
+  weaknesses: {"fire": 15}
+  resistances: {"void": 15}
+  strikes: [{"name": "Antlers", "bonus": 28, "damage": [["4d12+5", "piercing", null]], "traits": []}, {"name": "Hooves", "bonus": 26, "damage": [["4d10+5", "bludgeoning", null]], "traits": [], "effects": ["Improved Knockdown"]}]
+  actions: [{"name": "Petal Form", "type": "passive", "traits": [], "text": "The blooming guardian can dissipate momentarily into a swirling cloud of petals and pollen to pass over brambles and slip through cracks. When Striding in woodland terrain, the blooming guardian ignores difficult terrain and can pass through obstacles so long as there is a small passageway."}, {"name": "Buck", "type": "reaction", "traits": [], "text": "DC 36 Reflex"}, {"name": "Budding Siphon", "type": "action", "traits": ["aura", "primal", "stance", "void"], "cost": 1, "text": "20 feet. A blooming guardian is in a constant state of decomposition; to keep this entropy at bay, the flowers that cover their antlers continually siphon life from the surrounding area. All living creatures that enter or start their turn in the emanation take 6d4 void|options:area-damage damage (DC 36 Fortitude save). At the start of their turn in any round that the blooming guardian deals damage with siphoning buds, they gain 10 temporary Hit Points, plus 2 temporary Hit Points for each…"}, {"name": "Full Bloom", "type": "action", "traits": ["poison", "primal", "stance"], "cost": 1, "text": "The flowers on the blooming guardian's antlers bloom, unveiling their brilliance as they eat away at their host. While in this stance, the blooming guardian's Strikes deal an additional 2d4 poison damage plus 5 persistent poison damage; on a hit, a target must succeed at a DC 36 Fortitude save or become Enfeebled 2. The blooming guardian takes 5 persistent poison damage as long as it's in Full Bloom."}, {"name": "Goring Charge", "type": "action", "traits": [], "cost": 2, "text": "The blooming guardian Strides twice and makes an antlers Strike after either Stride. If the Strike hits, the blooming guardian deals an extra 2d12 bludgeoning damage, and the target takes a –2 circumstance penalty to its next Fortitude save against blossom siphon."}, {"name": "Wail of the Forest", "type": "action", "traits": ["primal", "void"], "cost": 2, "text": "Requirements The blooming guardian is in Full Bloom%rEffect The blooming guardian confronts their mortality, causing their flowers to burst and spray their pollen. All creatures in a 40-foot take 10d10 void|options:area-damage damage with a DC 36 Fortitude save. The blooming guardian then exits Full Bloom and can't enter it again for 1d4 rounds.%rCritical Success No effect.%rSuccess The creature takes half damage.%rFailure The creature takes full damage and becomes Drained 1. Creatures that are…"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 33, "attack": 0, "spells": {"3": ["Animal Vision"], "4": ["Speak with Animals (Constant)", "Speak with Plants (Constant)"]}}]
+"Carnotaurus":
+  pack: "howl-of-the-wild-bestiary"
+  level: 7
+  size: "huge"
+  rarity: "common"
+  traits: ["animal", "dinosaur"]
+  ac: 24
+  hp: 145
+  perception: 15
+  saves: {"fortitude": 17, "reflex": 15, "will": 13}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -4, "str": 7, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 18, "Survival": 14}
+  strikes: [{"name": "Jaws", "bonus": 18, "damage": [["2d10+9", "piercing", null]], "traits": ["reach-15", "unarmed"], "effects": ["Vicious Mauling"]}, {"name": "Horn", "bonus": 18, "damage": [["1d12+9", "piercing", null]], "traits": ["reach-15", "unarmed"]}]
+  actions: [{"name": "Headbutt", "type": "reaction", "traits": [], "text": "Trigger A creature ends a move action within reach of the carnotaurus's horn Strike%rEffect The carnotaurus makes a horn Strike against the triggering creature."}, {"name": "Powerful Charge", "type": "action", "traits": [], "cost": 2, "text": "The carnotaurus lowers its horns and surges toward a foe. It Strides twice, then makes a horn Strike. If it moved at least 20 feet from its starting position, the Strike's damage is increased to 2d12+9 and knocks the target Prone if successful."}, {"name": "Vicious Mauling", "type": "passive", "traits": [], "text": "The carnotaurus's jaws Strike deals an additional 1d8 persistent bleed damage to Prone targets."}]
+"Chaos Falcon":
+  pack: "howl-of-the-wild-bestiary"
+  level: 10
+  size: "huge"
+  rarity: "rare"
+  traits: ["air", "beast", "electricity", "fire", "water"]
+  ac: 29
+  hp: 180
+  perception: 18
+  saves: {"fortitude": 19, "reflex": 22, "will": 16}
+  abilities: {"cha": 3, "con": 3, "dex": 7, "int": 4, "str": 5, "wis": 4}
+  speeds: {"land": 25, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 19, "Nature": 19, "Stealth": 19}
+  resistances: {"fire": 10, "electricity": 10, "cold": 10}
+  strikes: [{"name": "Beak", "bonus": 21, "damage": [["3d10+10", "piercing", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Talon", "bonus": 21, "damage": [["3d6+10", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Bolt", "bonus": 23, "damage": [["6d6", "untyped", null]], "traits": [], "effects": ["Storm Bolt"]}]
+  actions: [{"name": "Storm Bolt", "type": "passive", "traits": [], "text": "The chaos falcon's bolt Strike always deals the damage type of their storm nexus aura."}, {"name": "Stormsight", "type": "passive", "traits": [], "text": "Wind, precipitation, and clouds don't impair a chaos falcon's vision; they ignore the Concealed condition from storms, mist, precipitation, and the like."}, {"name": "Dive-bomb", "type": "action", "traits": ["earth", "fire", "primal"], "cost": 2, "text": "Requirements The chaos falcon is Flying%rEffect The chaos falcon Flies twice straight down. If they reach the ground or a similarly solid object at the end of this movement, their landing shatters that surface into sharp shards and droplets of molten stone deal 4d6 fire and 3d8 piercing damage (DC 26 Reflex save) to all other creatures within 20 feet."}, {"name": "Flash Storm", "type": "action", "traits": ["air", "primal", "water"], "cost": 1, "text": "Water condenses around the ash particles in the chaos falcon's 15-foot aura, pelting everything beneath it with driving rain. Creatures in that area must succeed at a DC 26 Reflex save or be pushed 20 feet down, falling Prone if they start or end this movement on the ground."}, {"name": "Storm Nexus", "type": "passive", "traits": ["aura", "primal"], "text": "15 feet. 3d6 untyped|options:area-damage, DC 26 Reflex save. The chaos falcon is surrounded by a cloud of volcanic ash, lightning arcing within the cloud as it glows hot in some areas and collects ice in others. A chaos falcon can change the damage type of this aura to cold, electricity, or fire as an action, which has the concentrate trait."}]
+"Concert Frog":
+  pack: "howl-of-the-wild-bestiary"
+  level: 8
+  size: "huge"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 27
+  hp: 150
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 13, "will": 16}
+  abilities: {"cha": 4, "con": 6, "dex": 3, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 25, "swim": 25}
+  hp_details: "25 (froglets, immune to area damage))"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 16, "Athletics": 16, "Performance": 19, "Stealth": 12}
+  strikes: [{"name": "Jaws", "bonus": 18, "damage": [["2d10+11", "piercing", null]], "traits": ["unarmed"]}, {"name": "Croak", "bonus": 17, "damage": [["2d8+9", "sonic", null]], "traits": ["sonic"]}]
+  actions: [{"name": "Conduct", "type": "action", "traits": ["auditory", "mental", "primal"], "cost": 1, "text": "One of the froglets begins to sing, granting one of three effects to the concert frog and all allies within 60 feet until the beginning of the concert frog's next turn.%rEffect: Conduct%rRed Grants a +10-foot status bonus to their Speeds. Blue Grants a +1 status bonus to AC and Fortitude saving throws. Yellow Allies gain a +1 status bonus to attack rolls and deal an additional 1d4 sonic damage on successful melee Strikes as their attacks resonate."}, {"name": "Three-Frog Orchestra", "type": "passive", "traits": [], "text": "The concert frog has three froglets perched behind its lips, each of a different color. A creature can specifically target a froglet. If any froglets have died, the concert frog attempts a DC 11 Flat at the end of its turn; on a success, new froglets hatch in its stomach and emerge at the concert frog's lips."}]
+"Crying Cicada":
+  pack: "howl-of-the-wild-bestiary"
+  level: 3
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 19
+  hp: 48
+  perception: 11
+  saves: {"fortitude": 10, "reflex": 12, "will": 7}
+  abilities: {"cha": 3, "con": 5, "dex": 4, "int": -5, "str": 2, "wis": 1}
+  speeds: {"land": 15, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Deception": 12, "Stealth": 10, "Survival": 8}
+  immunities: ["poison"]
+  strikes: [{"name": "Proboscis", "bonus": 9, "damage": [["1d8+5", "piercing", null], ["1d4", "poison", null]], "traits": []}, {"name": "Slam", "bonus": 9, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Crying Cicada Poison"]}]
+  actions: [{"name": "Steal Voice", "type": "action", "traits": ["auditory"], "cost": 2, "text": "Requirements An enemy creature has spoken since the crying cicada's last turn%rEffect The crying cicada learns and mimics the sound of its opponent's voice. It can't make new sentences, but it can choose to repeat select parts of the phrases it has heard. All non-cicada creatures within 30 feet, other than the owner of the stolen voice, must succeed at a DC 19 Will save to disbelieve the mimicry."}, {"name": "Wings Flat", "type": "passive", "traits": [], "text": "When the crying cicada is still and perched on a tree, it blends seamlessly into the environment. It has an automatic result of 30 on Deception checks and DCs to pass as part of the tree."}, {"name": "Crying Cicada Poison", "type": "passive", "traits": ["inhaled", "poison"], "text": "Saving Throw DC 19 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage plus Slowed 1 (1 round)%rStage 2 1d6 poison damage plus Slowed 2 (1 round)%rStage 3 2d6 poison damage plus slowed 2 and Stupefied 1 (1 round)."}, {"name": "Sob", "type": "action", "traits": ["auditory", "emotion", "mental"], "cost": 1, "text": "The crying cicada mimics the noise of a wounded animal or crying child. Non-cicada creatures within a 150-foot must attempt a DC 19 Will save or be distressed by the pleas for help. The effect lasts for 1 round, but if the cicada uses this ability again on subsequent rounds, it extends the duration by 1 round for all affected creatures. Once a creature succeeds at any save against Sob, that creature is temporarily immune to Sob for 24 hours.%rSuccess The creature is unaffected.%rFailure The…"}, {"name": "Wing Flurry", "type": "action", "traits": [], "cost": 1, "text": "The crying cicada beats its wings together, exposing all creatures within a 10-foot to crying cicada poison."}]
+"Decapod Dinghy":
+  pack: "howl-of-the-wild-bestiary"
+  level: 8
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["amphibious", "beast"]
+  ac: 28
+  hp: 145
+  perception: 16
+  saves: {"fortitude": 18, "reflex": 15, "will": 15}
+  abilities: {"cha": 0, "con": 4, "dex": 3, "int": -2, "str": 7, "wis": 3}
+  speeds: {"land": 30, "climb": 25, "swim": 25}
+  senses: ["tremorsense", "wavesense"]
+  skills: {"Acrobatics": 15, "Athletics": 18, "Nature": 17, "Stealth": 15}
+  immunities: ["poison"]
+  weaknesses: {"bludgeoning": 5}
+  strikes: [{"name": "Claw", "bonus": 19, "damage": [["2d8+7", "slashing", null], ["2d6", "poison", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Tentacle", "bonus": 19, "damage": [["5d6", "poison", null]], "traits": ["poison", "reach-20", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "All Aboard", "type": "passive", "traits": [], "text": "A decapod dinghy can carry up to 30 Bulk of creatures or unattended items on their back, such as five Medium creatures. The anemones' gentle hold on the passengers is sufficient in most situations, but while in combat, those passengers are Slowed 1 if they want to take other actions while remaining on the decapod dinghy's back."}, {"name": "Anemone Transport", "type": "action", "traits": ["primal", "teleportation"], "cost": 3, "text": "The decapod dinghy and all their willing passengers teleport to a patch of anemones within 10 miles large enough for the decapod dinghy to stand among them. Although the decapod dinghy doesn't need to see the location, they must have been there before. All creatures transported are temporarily immune to this ability for 24 hours."}, {"name": "Inflate Anemones", "type": "action", "traits": [], "cost": 1, "text": "The anemones on the decapod dinghy's back inflate, enveloping all passengers and giving each passenger a +2 circumstance bonus to AC until the beginning of the decapod dinghy's next turn."}, {"name": "Protect Passenger", "type": "reaction", "traits": [], "text": "Trigger An enemy within 20 feet damages one of the decapod dinghy's passengers%rEffect The decapod dinghy's anemones lash out for a tentacle Strike against the triggering creature."}, {"name": "Stinging Anemones", "type": "action", "traits": ["poison"], "cost": 1, "text": "The decapod dinghy's anemones sting any number of creatures they choose among passengers and those the decapod dinghy has Grabbed or Restrained. The stings deal 5d6 poison damage (DC 26 Fortitude). On a failed save, that creature is also Enfeebled 2 for 1 hour."}]
+"Desert Manticore":
+  pack: "howl-of-the-wild-bestiary"
+  level: 12
+  size: "large"
+  rarity: "uncommon"
+  traits: ["beast"]
+  ac: 33
+  hp: 270
+  perception: 22
+  saves: {"fortitude": 25, "reflex": 22, "will": 22}
+  abilities: {"cha": 4, "con": 5, "dex": 2, "int": -2, "str": 7, "wis": 2}
+  speeds: {"land": 30, "fly": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 22, "Athletics": 25, "Deception": 22, "Intimidation": 26, "Stealth": 22}
+  immunities: ["poison"]
+  strikes: [{"name": "Jaws", "bonus": 25, "damage": [["4d8+10", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 25, "damage": [["4d6+10", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Stinger", "bonus": 25, "damage": [["3d6+10", "piercing", null]], "traits": ["reach-10"], "effects": ["Manticore Venom"]}]
+  actions: [{"name": "Indomitable Beast", "type": "reaction", "traits": [], "text": "Frequency once per day%rTrigger The desert manticore is reduced to 0 HP%rEffect The desert manticore avoids being knocked out and remains at 1 HP, then can make a stinger Strike against a creature in its reach."}, {"name": "Manticore Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 32 Fortitude%rMaximum Duration 6 rounds%rStage 1 3d8 poison damage and Drained 1 (1 round)%rStage 2 4d8 poison damage and Drained 2 (1 round)%rStage 3 5d8 poison damage and Drained 3 (1 round)"}, {"name": "Scorpion Sting", "type": "action", "traits": [], "cost": 2, "text": "The desert manticore Strikes an Off-Guard creature with its stinger. The attack injects venom deeply, dealing an additional 4d8 poison damage and giving the target a –2 circumstance penalty to their initial save against the poison."}, {"name": "Venomous Flight", "type": "action", "traits": [], "cost": 2, "text": "The desert manticore Flies twice, dripping venom from its stinger. It chooses a creature it flew directly above during the flight, which is exposed to manticore venom. The desert manticore cannot fly further than 60 feet above the target or the venom becomes too dispersed in fall to take effect."}]
+"Drthak":
+  pack: "howl-of-the-wild-bestiary"
+  level: 6
+  size: "large"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 23
+  hp: 110
+  perception: 15
+  saves: {"fortitude": 14, "reflex": 17, "will": 11}
+  abilities: {"cha": -1, "con": 4, "dex": 5, "int": -3, "str": 4, "wis": 3}
+  speeds: {"land": 20, "swim": 40}
+  senses: ["echolocation"]
+  skills: {"Athletics": 16, "Stealth": 17, "Survival": 13}
+  immunities: ["visual"]
+  resistances: {"sonic": 5}
+  strikes: [{"name": "Jaws", "bonus": 16, "damage": [["2d8+4", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Screech", "bonus": 17, "damage": [["4d6", "sonic", null]], "traits": ["sonic"], "effects": ["Resonant Jaws"]}]
+  actions: [{"name": "Auditory Hunter", "type": "reaction", "traits": [], "text": "Trigger A creature within 15 feet uses an auditory action%rEffect The drthak Strides or Swims towards the creature."}, {"name": "Deep Breath", "type": "passive", "traits": [], "text": "The drthak can hold its breath for about 2 hours."}, {"name": "Pull Under", "type": "passive", "traits": [], "text": "The drthak can Swim at half Speed while it has a creature Grabbed or Restrained in its jaws, carrying the creature along with it."}, {"name": "Sensitive Echolocation", "type": "passive", "traits": [], "text": "The drthak can use its hearing as a precise sense with the listed range. If the drthak takes sonic damage beyond its resistance, its senses are overloaded and all creatures are Concealed from it for 1 round."}, {"name": "Bubble Burst", "type": "action", "traits": ["sonic", "water"], "cost": 2, "text": "Requirements The drthak is underwater%rEffect The drthak uses sonic power to push aside water in a 30-foot, which then collapses in a crushing torrent. All creatures in the area, other than the drthak, take 3d10 bludgeoning|options:area-damage damage (DC 24 Fortitude save)."}, {"name": "Resonant Jaws", "type": "passive", "traits": [], "text": "When the drthak misses a screech Strike against a creature Grabbed or Restrained in its jaws, it deals that creature 2d6 sonic damage."}]
+"Fangtooth School":
+  pack: "howl-of-the-wild-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["animal", "aquatic", "swarm"]
+  ac: 18
+  hp: 40
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 10, "will": 9}
+  abilities: {"cha": -3, "con": 2, "dex": 3, "int": -5, "str": -2, "wis": 2}
+  speeds: {"land": 0, "swim": 30}
+  senses: ["low-light-vision", "scent", "wavesense"]
+  skills: {"Acrobatics": 9, "Athletics": 5}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  resistances: {"bludgeoning": 5, "piercing": 2, "slashing": 5}
+  actions: [{"name": "Sunless Sight", "type": "passive", "traits": [], "text": "While in bright light, the fangtooth fish school is Blinded and Slowed 1."}, {"name": "Bite and Gnaw", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the school's space takes 2d8 piercing damage (DC 19 Reflex save)"}]
+"Flynkett":
+  pack: "howl-of-the-wild-bestiary"
+  level: 3
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 19
+  hp: 60
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 11, "will": 7}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 25, "climb": 15}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 11, "Athletics": 9, "Stealth": 11}
+  resistances: {"acid": 6}
+  strikes: [{"name": "Acid Spit", "bonus": 11, "damage": [["1d8", "acid", "persistent"]], "traits": ["acid"]}]
+  actions: [{"name": "Glide", "type": "action", "traits": ["move"], "cost": 1, "text": "The flynkett stretches its flaps to glide through the air. It moves 5 feet down and up to 25 feet forward through the air. The flynkett can remain in the air long as it spends at least 1 action Gliding each round and does not Kettle Up."}, {"name": "Kettle Up", "type": "action", "traits": [], "cost": 2, "text": "The flynkett uses its skin flaps to form a crude kettle. While Kettled Up, the flynkett can't use its claw Strike or take move actions. If the flynkett has been Kettled Up for 1 minute or longer, and its kettle is full of water (usually due to the flynkett being in the rain), the flynkett's kettle begins to boil, emitting a piercing whistle that causes all creatures within 30 feet to take a –2 penalty to Perception checks to hear sources other than the flynkett; this is an auditory effect. The…"}, {"name": "Spill", "type": "reaction", "traits": ["acid"], "text": "Requirements The flynkett is Kettled Up%rTrigger The flynkett takes physical damage or is knocked Prone%rEffect The flynkett spills the contents of its full skin flaps, releasing its digestive juices in a cloud of acidic vapor that deals 2d8 acid|options:area-damage damage to all non-flynkett creatures within 20 feet (DC 18 Fortitude save). If the flynkett was boiling, the damage is increased to 4d8."}]
+"Ghost Ape":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "large"
+  rarity: "uncommon"
+  traits: ["beast", "ethereal"]
+  ac: 20
+  hp: 65
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 10, "will": 12}
+  abilities: {"cha": 2, "con": 3, "dex": 2, "int": -1, "str": 5, "wis": 4}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 10, "Athletics": 14, "Intimidation": 10, "Stealth": 12, "Survival": 12}
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["2d8+5", "piercing", null]], "traits": ["unarmed"]}, {"name": "Fist", "bonus": 14, "damage": [["1d10+5", "bludgeoning", null]], "traits": ["agile", "reach-10", "unarmed"]}]
+  actions: [{"name": "Phantom Step", "type": "action", "traits": ["concentrate", "teleportation"], "cost": 1, "text": "Frequency once per round%rEffect The ghost ape moves quickly, passing through the Ethereal Plane. They teleport up to a distance equal to twice their Speed within their line of sight."}, {"name": "Ghost Stance", "type": "action", "traits": ["concentrate", "illusion", "occult", "stance", "visual"], "cost": 1, "text": "The ghost ape phases partially out of existence, its form blurring and becoming difficult to pinpoint. While in this stance, they are Concealed to any creature that isn't adjacent to them. They can't use this concealment to Hide or Sneak. They also gain resistance 5 to physical damage. If the ghost ape takes force damage, this stance ends and they can't reenter it for 1d3 rounds."}, {"name": "Terrifying Display", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 2, "text": "The ghost ape beats their chest in a terrifying display. Creatures within 30 feet must succeed a DC 20 Will save or become Frightened 1 (or Frightened 2 on a critical failure). While a creature is frightened by this ability, it's Off-Guard to the ape. On a success, the creature is temporarily immune for 1 minute."}]
+"Giant Coppermouth":
+  pack: "howl-of-the-wild-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 25
+  hp: 115
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 18, "will": 12}
+  abilities: {"cha": -2, "con": 4, "dex": 6, "int": -4, "str": 3, "wis": 4}
+  speeds: {"land": 30, "climb": 20, "swim": 20}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 17, "Athletics": 14, "Stealth": 17, "Survival": 15}
+  immunities: ["electricity"]
+  strikes: [{"name": "Fangs", "bonus": 18, "damage": [["2d8+6", "piercing", null], ["1d4", "electricity", null]], "traits": ["electricity", "finesse"], "effects": ["Coppermouth Venom"]}]
+  actions: [{"name": "Deep Breath", "type": "passive", "traits": [], "text": "The giant coppermouth can hold its breath for 1 hour."}, {"name": "Greater Electrolocation", "type": "passive", "traits": [], "text": "A giant coppermouth can sense minute electrical charges in living creatures, which it can use as a precise sense at a range of 20 feet. This distance increases to 100 feet against any creature that has used an electricity effect within the last minute."}, {"name": "Coppermouth Venom", "type": "passive", "traits": ["electricity", "poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison and 1d6 electricity (1 round)%rStage 2 2d6 poison and 1d6 electricity and Clumsy 1 (1 round)%rStage 3 2d6 poison and 2d6 electricity and Clumsy 2"}, {"name": "Quickening Jolt", "type": "action", "traits": ["electricity"], "cost": 2, "text": "The coppermouth manipulates its own nervous system by increasing its reaction time, Striding and making two Strikes against different targets during the movement. Both attacks count toward its multiple attack penalty, but the penalty doesn't increase until after it has made both attacks."}, {"name": "Venomous Spit", "type": "action", "traits": ["electricity", "poison"], "cost": 2, "text": "The coppermouth unleashes a stream of electrified venom in a 30-foot. The venom deals 8d6 electricity|options:area-damage damage (DC 22 Reflex) and creatures that take damage from the venom are immediately exposed to coppermouth venom. The copper mouth can't use Venomous Spit again for 1d4 rounds."}]
+"Giant Fangtooth":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["animal", "aquatic"]
+  ac: 20
+  hp: 75
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 11, "will": 8}
+  abilities: {"cha": -1, "con": 3, "dex": 2, "int": -5, "str": 5, "wis": 2}
+  speeds: {"land": 0, "swim": 35}
+  senses: ["low-light-vision", "scent", "wavesense"]
+  skills: {"Acrobatics": 11, "Athletics": 14}
+  strikes: [{"name": "Bite", "bonus": 15, "damage": [["2d8+5", "piercing", null]], "traits": [], "effects": ["Deep Puncture", "Grab"]}]
+  actions: [{"name": "Sunless Sight", "type": "passive", "traits": [], "text": "In an area of bright light, the giant fangtooth is Blinded and Slowed 1."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d8) piercing, DC 21 Fortitude"}, {"name": "Deep Puncture", "type": "passive", "traits": [], "text": "Creatures critically hit by the fangtooth's bite take an additional 1d8 persistent bleed damage."}]
+"Giant Tardigrade":
+  pack: "howl-of-the-wild-bestiary"
+  level: 9
+  size: "huge"
+  rarity: "common"
+  traits: ["amphibious", "animal"]
+  ac: 23
+  hp: 120
+  perception: 16
+  saves: {"fortitude": 23, "reflex": 16, "will": 16}
+  abilities: {"cha": 1, "con": 6, "dex": 3, "int": -5, "str": 4, "wis": 3}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 19, "Stealth": 14, "Survival": 18}
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Stylet", "bonus": 19, "damage": [["3d8+6", "piercing", null], ["1d8", "bleed", "persistent"]], "traits": []}, {"name": "Claws", "bonus": 19, "damage": [["3d6+6", "slashing", null]], "traits": ["agile", "reach-10"], "effects": ["Grab"]}]
+  actions: [{"name": "Eyespots", "type": "passive", "traits": [], "text": "A giant tardigrade can't see anything beyond 30 feet."}, {"name": "Tun State", "type": "free", "traits": [], "text": "Trigger The tardigrade would be reduced to 0 Hit Points or would die due to starvation, suffocation, or similar environmental causes%rFrequency once per week%rRequirements The tardigrade isn't already in tun state%rEffect The giant tardigrade doesn't die but instead remains at 1 Hit Point and curls into a dry ball, called a tun. While in this tun state, the giant tardigrade is Unconscious, doesn't need to eat, drink, or breathe, and doubles its resistance to 20. It remains in tun state…"}, {"name": "Vacuum Mouth", "type": "action", "traits": [], "cost": 2, "text": "Requirements The giant tardigrade doesn't have a target Grabbed%rEffect The giant tardigrade draws in air with its mouth. All creatures in a 20-foot must succeed at a DC 25 Reflex save or be pulled adjacent to the giant tardigrade. The tardigrade chooses one creature that failed its save, Grabbing the target in its claws and making a stylet Strike."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Goblin Shark":
+  pack: "howl-of-the-wild-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["animal", "aquatic"]
+  ac: 21
+  hp: 85
+  perception: 15
+  saves: {"fortitude": 16, "reflex": 11, "will": 10}
+  abilities: {"cha": -3, "con": 5, "dex": 4, "int": -4, "str": 6, "wis": 3}
+  speeds: {"land": 0, "swim": 20}
+  senses: ["scent"]
+  skills: {"Athletics": 13, "Stealth": 15, "Survival": 10}
+  strikes: [{"name": "Jaws", "bonus": 13, "damage": [["2d8+6", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Blood Scent", "type": "passive", "traits": [], "text": "The shark can smell blood in the water from up to 1 mile away."}, {"name": "Camouflage", "type": "passive", "traits": [], "text": "The goblin shark's coloration blends in with the water. It doesn't need cover to attempt to hide with a Stealth check while underwater."}, {"name": "Electrolocation", "type": "passive", "traits": [], "text": "A goblin shark can sense minute electrical charges in living creatures, which it can use as a precise sense at a range of 20 feet."}, {"name": "Grasping Jaws", "type": "passive", "traits": [], "text": "Creatures that successfully Escape from the goblin shark's jaws take 1d6 bleed as the shark's hold tears flesh away."}, {"name": "Lunging Bite", "type": "action", "traits": [], "cost": 2, "text": "The goblin shark dashes forward and extends its jaws bite a creature. It swims up to 10 feet in a straight line and makes a jaws Strike with a reach of 10 feet."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Greater Chimera":
+  pack: "howl-of-the-wild-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 33
+  hp: 235
+  perception: 23
+  saves: {"fortitude": 26, "reflex": 23, "will": 20}
+  abilities: {"cha": 1, "con": 5, "dex": 4, "int": -2, "str": 8, "wis": 3}
+  speeds: {"land": 25, "fly": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 22, "Athletics": 27, "Stealth": 27}
+  strikes: [{"name": "Claw", "bonus": 25, "damage": [["3d8+8", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Three-Headed", "type": "passive", "traits": [], "text": "Any ability that would sever a greater chimera's head (such as a critical hit with a Vorpal weapon) severs one head at random. Losing a head doesn't kill a chimera (as long as it has at least one head left), but it does prevent it from making Strikes with the lost head or using any abilities granted by the head."}, {"name": "Multiple Reactions", "type": "passive", "traits": [], "text": "A greater chimera gains 2 extra reactions each round that it can use only to make Reactive Strikes. It must use a different head for each reaction, and it can't use more than one on the same triggering action. If it loses one of its heads, it also loses one of these extra reactions."}, {"name": "Three-Headed Strike", "type": "action", "traits": [], "cost": 2, "text": "The greater chimera makes a Strike with each of its heads, each at a –2 penalty and targeting a different creature. These Strikes count as only one attack for the greater chimera's multiple attack penalty, and the penalty doesn't increase until after it has made all three attacks."}]
+"Harbor Seal":
+  pack: "howl-of-the-wild-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 17
+  hp: 30
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 11, "will": 5}
+  abilities: {"cha": 3, "con": 3, "dex": 3, "int": -4, "str": 4, "wis": 1}
+  speeds: {"land": 15, "swim": 30}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 6, "Athletics": 10, "Stealth": 8}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d8+4", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Deep Breath", "type": "passive", "traits": [], "text": "A harbor seal can hold its breath for 30 minutes."}, {"name": "Whisker Sense", "type": "passive", "traits": [], "text": "A harbor seal can use its whiskers to sense vibrations as a precise sense at the listed range, but only underwater."}, {"name": "Aquatic Ambush", "type": "action", "traits": [], "cost": 1, "text": "40 feet."}, {"name": "Aquatic Feast", "type": "action", "traits": [], "cost": 1, "text": "Requirements The harbor seal has a Medium or smaller creature Grabbed in its jaws%rEffect The harbor seal Swims up to 10 feet, carrying its grabbed creature along with it dealing 1d8 slashing damage (DC 18 Fortitude save)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Hardhead Mole":
+  pack: "howl-of-the-wild-bestiary"
+  level: 0
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 5, "reflex": 8, "will": 4}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 20, "burrow": 20}
+  senses: ["low-light-vision", "tremorsense"]
+  skills: {"Athletics": 5, "Stealth": 5, "Survival": 6}
+  resistances: {"bludgeoning": 3}
+  strikes: [{"name": "Jaws", "bonus": 4, "damage": [["1d6+2", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Burrowing Retreat", "type": "reaction", "traits": [], "text": "Trigger The hardhead mole is hit by a Strike%rEffect The hardhead mole immediately Burrows to a burrow hole if there is one within 20 feet. This movement doesn't trigger reactions."}, {"name": "Shovel Earth", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "The hardhead mole leaves a burrow hole in its square or an adjacent square. The square becomes difficult terrain but can be flattened back into normal terrain with an Interact action."}, {"name": "Unbalancing Burrow", "type": "action", "traits": ["move"], "cost": 2, "text": "The hardhead mole Burrows up to 20 feet in a straight line, displacing the earth on the surface. Any creature it passes through takes 1d6 bludgeoning damage (DC 14 Reflex save). On a failed save, a creature is knocked Prone. This creates a burrow hole at the beginning and end of the line."}]
+"Helicoprion":
+  pack: "howl-of-the-wild-bestiary"
+  level: 10
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["animal", "aquatic"]
+  ac: 28
+  hp: 230
+  perception: 21
+  saves: {"fortitude": 22, "reflex": 19, "will": 16}
+  abilities: {"cha": -1, "con": 6, "dex": 3, "int": -4, "str": 8, "wis": 3}
+  speeds: {"land": 0, "swim": 60}
+  senses: ["scent"]
+  skills: {"Athletics": 24, "Stealth": 17, "Survival": 15}
+  strikes: [{"name": "Jaws", "bonus": 22, "damage": [["2d10+12", "slashing", null], ["1d8", "bleed", "persistent"]], "traits": ["reach-10", "unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Blood Scent", "type": "passive", "traits": [], "text": "The helicoprion can smell blood in the water from up to 1 mile away."}, {"name": "Deshell", "type": "action", "traits": ["attack"], "cost": 1, "text": "Requirements A creature is Grabbed or Restrained in the helicoprion's jaws%rEffect The shark rips into the creature dealing 3d10 slashing damage (DC 26 Reflex save)."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Huge, (2d10+10) bludgeoning, Rupture 22"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Hexmoth":
+  pack: "howl-of-the-wild-bestiary"
+  level: 8
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 27
+  hp: 105
+  perception: 19
+  saves: {"fortitude": 19, "reflex": 16, "will": 11}
+  abilities: {"cha": 2, "con": 3, "dex": 6, "int": -4, "str": 3, "wis": 1}
+  speeds: {"land": 20, "fly": 40}
+  skills: {"Acrobatics": 16, "Arcana": 18, "Stealth": 14}
+  resistances: {"spells": 10}
+  strikes: [{"name": "Proboscis", "bonus": 13, "damage": [["2d10+9", "piercing", null]], "traits": [], "effects": ["Arcane Consumption"]}, {"name": "Hexbolt", "bonus": 13, "damage": [["2d8+6", "untyped", null]], "traits": []}]
+  actions: [{"name": "Arcanosense", "type": "passive", "traits": [], "text": "A hexmoth can sense sources of magic at the listed range as though it has a 4th-rank Detect Magic constant innate spell."}, {"name": "Advanced Arcanovore", "type": "passive", "traits": [], "text": "A hexmoth has resistance 10 against all damage caused by spells. It's immune to one type of energy it consumed most as a hexworm, typically acid, cold, electricity, fire, or sonic."}, {"name": "Arcane Consumption", "type": "action", "traits": [], "cost": 1, "text": "The hexmoth attempts to consume the magic of an adjacent magical effect or unattended magic item. It attempts a counteract check against the target with a +16 modifier. On a success, the magical effect ends. A magic item instead becomes a mundane item for 1 round. The hexmoth gains 2d8 healing Hit Points."}, {"name": "Arcanotaxis", "type": "free", "traits": [], "text": "Requirements The hexmoth has detected a source of magic with its arcanosense%rTrigger The hexmoth's turn begins%rEffect The hexmoth Flies or Strides up to its Speed toward the nearest source of magic it can detect."}, {"name": "Hexdust Wind", "type": "action", "traits": [], "cost": 2, "text": "With a few fierce wingbeats, the hexmoth expels magical scale dust in a 30-foot. This deals 10d6 untyped|options:area-damage damage of the type to which the hexmoth is immune (DC 23 Fortitude save). It can't use Hexdust Wind again for 1d4 rounds."}]
+"Hexworm":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "tiny"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 20
+  hp: 45
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 14, "will": 6}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": -5, "str": 2, "wis": 1}
+  speeds: {"land": 20}
+  skills: {"Acrobatics": 10, "Arcana": 12, "Stealth": 9}
+  resistances: {"spells": 5}
+  strikes: [{"name": "Mandibles", "bonus": 8, "damage": [["2d6+2", "piercing", null]], "traits": [], "effects": ["Arcane Consumption"]}]
+  actions: [{"name": "Arcanosense", "type": "passive", "traits": [], "text": "A hexworm can sense sources of magic at the listed range as though it has a 4th-rank Detect Magic constant innate spell."}, {"name": "Arcanovore", "type": "passive", "traits": [], "text": "A hexworm has resistance 5 against all damage caused by spells."}, {"name": "Arcane Consumption", "type": "action", "traits": [], "cost": 1, "text": "The hexworm attempts to consume the magic of an adjacent magical effect or unattended magic item. It attempts a counteract check against the target with a +11 modifier. On a success, the magical effect ends. A magic item instead becomes a mundane item for 1 round. The hexworm gains 2d8 healing Hit Points."}, {"name": "Arcanotaxis", "type": "free", "traits": [], "text": "Requirements The hexworm has detected a source of magic with its arcanosense%rTrigger The hexworm's turn begins%rEffect The hexworm Strides up to its Speed toward the nearest source of magic it can detect."}]
+"Holdfast":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 20
+  hp: 55
+  perception: 14
+  saves: {"fortitude": 13, "reflex": 12, "will": 8}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 30, "burrow": 20}
+  senses: ["low-light-vision", "scent", "tremorsense"]
+  skills: {"Acrobatics": 10, "Athletics": 11, "Stealth": 12}
+  strikes: [{"name": "Jaws", "bonus": 13, "damage": [["2d6+5", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Talon", "bonus": 13, "damage": [["2d4+5", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Hold Tight", "type": "reaction", "traits": [], "text": "Trigger A creature Grabbed by the holdfast's jaws takes damage from another creature's Strike%rEffect The holdfast Constricts the creature in its jaws."}, {"name": "Lithe", "type": "passive", "traits": [], "text": "A holdfast treats any tight space it can barely fit its head in or wider as difficult terrain and doesn't need to Squeeze to move through it."}, {"name": "Burst from Below", "type": "action", "traits": [], "cost": 1, "text": "The holdfast Burrows and then Strikes. If the holdfast began this movement Hidden, it remains hidden until after this ability's Strike."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d6+2) piercing plus crush throat, DC 21 Fortitude"}, {"name": "Crush Throat", "type": "passive", "traits": [], "text": "When a creature fails a save against the holdfast's Constrict, the creature's throat is held tight, stopping them from speaking as long as they're Grabbed. This prevents the creature from casting spells with vocal incantations, as well as from using many sonic or auditory abilities."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Hooplamander":
+  pack: "howl-of-the-wild-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 21
+  hp: 78
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 15, "will": 9}
+  abilities: {"cha": 2, "con": 3, "dex": 5, "int": -2, "str": 5, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["scent"]
+  skills: {"Acrobatics": 13, "Athletics": 12, "Stealth": 10}
+  strikes: [{"name": "Hookclaw", "bonus": 13, "damage": [["3d6", "bleed", "persistent"], ["1d4+5", "slashing", null]], "traits": ["agile", "versatile-p"]}, {"name": "Ridged Tail", "bonus": 13, "damage": [["2d6+5", "bludgeoning", null]], "traits": ["sweep"]}]
+  actions: [{"name": "Flexible Dodge", "type": "reaction", "traits": [], "text": "Requirements The hooplamander is Unfurled%rTrigger The hooplamander is targeted by a Strike%rEffect The hooplamander gains a +2 circumstance bonus to AC against the triggering attack and enters its Wheels Up stance."}, {"name": "Rollout Trample", "type": "action", "traits": [], "cost": 3, "text": "Requirements The hooplamander is Wheels Up%rEffect As Trample (Large or smaller, ridged tail, DC 22 Reflex), except targets that critically fail their Reflex save are Stunned 1, and the hooplamander Unfurls at the end of its movement."}, {"name": "Unfurl", "type": "action", "traits": [], "cost": 1, "text": "Requirements The hooplamander is Wheels Up%rEffect The hooplamander releases its tail, Leaping up to 20 feet as it exits its wheeled shape and unfurls to land on its four legs."}, {"name": "Wheels Up", "type": "action", "traits": ["stance"], "cost": 1, "text": "Requirements The hooplamander is Unfurled%rEffect The hooplamander Leaps and then rolls into its wheeled form. Any creature within 5 feet must succeed at a DC 22 Reflex save or be Off-Guard for one round. While it's Wheels Up, the hooplamander can't make Strikes and its Speed increases to 40 feet."}]
+"Karkadann":
+  pack: "howl-of-the-wild-bestiary"
+  level: 7
+  size: "large"
+  rarity: "common"
+  traits: ["beast", "fey", "holy"]
+  ac: 25
+  hp: 120
+  perception: 16
+  saves: {"fortitude": 17, "reflex": 14, "will": 14}
+  abilities: {"cha": 4, "con": 6, "dex": 3, "int": 0, "str": 6, "wis": 3}
+  speeds: {"land": 45}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 17, "Diplomacy": 13, "Intimidation": 15, "Medicine": 14, "Survival": 14}
+  immunities: ["poison"]
+  strikes: [{"name": "Horn", "bonus": 17, "damage": [["2d10+8", "piercing", null]], "traits": ["holy", "magical", "unarmed"]}, {"name": "Hoof", "bonus": 17, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["holy", "magical"]}]
+  actions: [{"name": "Fearless Rush", "type": "reaction", "traits": [], "text": "Trigger The karkadann becomes Frightened%rEffect The karkadann reduces their frightened value by 1 (to a minimum of 0). The karkadann then Strides toward an enemy."}, {"name": "Ghost Touch", "type": "passive", "traits": [], "text": "A karkadann's Strikes have the effects of a ghost touch property rune."}, {"name": "Impaling Charge", "type": "action", "traits": [], "cost": 2, "text": "The karkadann Strides twice, then Strikes with their horn. If the Strike hits, it also deals 1d10 persistent bleed damage."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, hoof, DC 25 Reflex"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 25, "attack": 0, "spells": {"0": ["Light"], "1": ["Cleanse Cuisine"], "3": ["Cleanse Affliction"]}}]
+"Leopard Seal":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 20
+  hp: 65
+  perception: 13
+  saves: {"fortitude": 12, "reflex": 14, "will": 8}
+  abilities: {"cha": 2, "con": 3, "dex": 4, "int": -4, "str": 6, "wis": 1}
+  speeds: {"land": 15, "swim": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 8, "Athletics": 14, "Stealth": 10}
+  strikes: [{"name": "Jaws", "bonus": 12, "damage": [["2d8+6", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Tail", "bonus": 12, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["agile"]}]
+  actions: [{"name": "Deep Breath", "type": "passive", "traits": [], "text": "A leopard seal can hold its breath for 30 minutes."}, {"name": "Protective Blubber", "type": "passive", "traits": [], "text": "A leopard seal treats environmental cold effects as if they were one step less extreme (incredible cold becomes extreme, extreme cold becomes severe, and so on)."}, {"name": "Whisker Sense", "type": "passive", "traits": [], "text": "A leopard seal can use its whiskers to sense vibrations as a precise sense at the listed range, but only underwater."}, {"name": "Aquatic Ambush", "type": "action", "traits": [], "cost": 1, "text": "50 feet."}, {"name": "Predatory Slam", "type": "action", "traits": [], "cost": 2, "text": "Requirements The leopard seal is in water%rEffect The leopard seal travels up to 40 feet, ending its movement on land. Enemies adjacent to the leopard seal when it ends its movement take 2d10 bludgeoning damage (DC 21 Reflex save) and are knocked Prone on a failure."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Lightning Turtle":
+  pack: "howl-of-the-wild-bestiary"
+  level: 12
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 34
+  hp: 190
+  perception: 22
+  saves: {"fortitude": 25, "reflex": 19, "will": 22}
+  abilities: {"cha": 1, "con": 7, "dex": 1, "int": -4, "str": 5, "wis": 4}
+  speeds: {"land": 15, "swim": 30}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 25}
+  immunities: ["electricity"]
+  strikes: [{"name": "Jaws", "bonus": 24, "damage": [["2d12+5", "piercing", null], ["2d6", "electricity", null]], "traits": ["electricity", "unarmed"]}, {"name": "Electrical Burst", "bonus": 22, "damage": [["4d10", "electricity", null]], "traits": ["electricity"]}]
+  actions: [{"name": "Deep Breath", "type": "passive", "traits": [], "text": "The lightning turtle can hold its breath for 30 minutes."}, {"name": "Greater Electrolocation", "type": "passive", "traits": [], "text": "A lightning turtle can sense minute electrical charges in living creatures, which it can use as a precise sense at a range of 20 feet. This distance increases to 100 feet against any creature that has used an electricity effect within the last minute."}, {"name": "Shell Shock", "type": "reaction", "traits": ["electricity", "nonlethal"], "text": "Trigger A lightning turtle is hit by a melee or an unarmed attack%rEffect The lightning turtle releases some of its stored electrical power, inflicting 7d6 electricity damage to the creature attacking it."}, {"name": "Healing Pulse", "type": "action", "traits": ["electricity", "healing", "primal"], "cost": 3, "text": "The lightning turtle releases a pulse of low-intensity electricity from its body to promote healing. This restores 5d8 healing Hit Points to the turtle and each living ally within 10 feet, including creatures normally immune to electricity. The turtle can't use Healing Pulse again for 1 minute and is temporarily immune to the Healing Pulse of any lightning turtle for 1 minute."}, {"name": "Sparking Shell", "type": "action", "traits": [], "cost": 1, "text": "The lightning turtle withdraws into its shell. This increases its AC to 36, but it can't act except to use Shell Shock or reemerge as a single action. While in its shell, the turtle's Shell Shock deals another 4d6 damage and loses the nonlethal trait."}]
+"Magnegor":
+  pack: "howl-of-the-wild-bestiary"
+  level: 6
+  size: "huge"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 21
+  hp: 100
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 11, "will": 14}
+  abilities: {"cha": -2, "con": 4, "dex": 2, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 15, "Intimidation": 13, "Survival": 15}
+  strikes: [{"name": "Horn", "bonus": 17, "damage": [["2d8+5", "piercing", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Metal Allergy", "type": "passive", "traits": [], "text": "When a magnegor takes damage from a metal weapon or an effect with the metal trait, it takes 5 untyped additional damage and must succeed at a DC 5 Flat or become Sickened 1. The value of the sickened condition increases each time the magnegor fails such a check, to a maximum of 3."}, {"name": "Excavating Spines", "type": "passive", "traits": ["earth"], "text": "The magnegor inadvertently digs a 10-foot-deep continuous trench in any square it Wallows through, as long as the ground in that space isn't made of stone, rock, or some other surface too hard to excavate. The trench is greater difficult terrain. At the GM's discretion, any excavated square can reveal a deposit of sedimentary rock filled with metal ore that has Hardness 7 and 28 Hit Points."}, {"name": "Magnetized Coat", "type": "passive", "traits": [], "text": "When a magnegor comes within 30 feet of a metal object or a deposit of metal ore, its thousands of wiry hairs stand on end, pointing towards the metal and creating a magnetic field. Metal items of light or negligible Bulk that touch the magnegor's coat adhere to it magnetically, requiring an Interact action to be pried free. Creatures wearing or primarily composed of metal treat all squares in a 10-foot radius around the magnegor as difficult terrain, unless they are moving directly towards it."}, {"name": "Wallow", "type": "action", "traits": ["move"], "cost": 3, "text": "Requirements The magnegor is Prone%rEffect The magnegor rolls on its spine-covered back, up to its Speed, furrowing the earth and crushing any Large or smaller creatures in its path. This deals 4d10 piercing damage with a DC 24 Reflex save; on a failed save, a creature wearing metal armor or made of metal is Restrained by the magnegor's magnetized coat (escape dc=24). For each metal object or piece of equipment a restrained creature chooses to leave stuck to the magnegor, it gains a +1…"}]
+"Magnetic Gecko":
+  pack: "howl-of-the-wild-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 20
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 7, "will": 4}
+  abilities: {"cha": -1, "con": 4, "dex": 3, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 6, "Athletics": 6, "Stealth": 6}
+  immunities: ["electricity"]
+  strikes: [{"name": "Jaws", "bonus": 7, "damage": [["1d6+2", "piercing", null]], "traits": ["unarmed"]}, {"name": "Tongue", "bonus": 7, "damage": [["2d4", "electricity", null]], "traits": ["electricity", "finesse", "reach-10"], "effects": ["Static Cling"]}]
+  actions: [{"name": "Greater Electrolocation", "type": "passive", "traits": [], "text": "A magnetic gecko can sense minute electrical charges in living creatures, which it can use as a precise sense at a range of 20 feet. This distance increases to 100 feet against any creature that has used an electricity effect within the last minute."}, {"name": "Uncanny Climber", "type": "passive", "traits": [], "text": "A magnetic gecko's feet allow it to climb virtually any surface, no matter how slick or sheer. If a gecko attempts an Athletics check to Climb and critically fails, it gets a failure instead."}, {"name": "Launch Metal", "type": "action", "traits": [], "cost": 2, "text": "The gecko repulses the metal attached to its body in all directions, dealing 2d6 bludgeoning|options:area-damage damage (DC 17 Reflex save) to all creatures in a 10-foot. The gecko can't use Launch Metal again for 1d4 rounds."}, {"name": "Repel", "type": "action", "traits": [], "cost": 1, "text": "The gecko manipulates its magnetic field to repel metal, humming audibly and gaining resistance 2 to damage from metal weapons and metal effects until the beginning of its next turn."}, {"name": "Static Cling", "type": "passive", "traits": [], "text": "If the gecko hits Small or smaller creature with its tongue, and the target is made of metal or is wearing metallic armor, the gecko's tongue latches on to the creature. The creature must attempt a DC 17 Reflex save or become Grabbed. While the gecko is Grabbing a creature in this way, it can attempt an Athletics check against the target's Fortitude DC to pull the creature to a space adjacent to the gecko. A creature grabbed in this way can Escape normally."}]
+"Majungasaurus":
+  pack: "howl-of-the-wild-bestiary"
+  level: 6
+  size: "huge"
+  rarity: "common"
+  traits: ["animal", "dinosaur"]
+  ac: 23
+  hp: 120
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 17, "will": 12}
+  abilities: {"cha": 4, "con": 4, "dex": 5, "int": -4, "str": 6, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 15, "Athletics": 16, "Intimidation": 14, "Stealth": 16}
+  strikes: [{"name": "Jaws", "bonus": 16, "damage": [["2d8+6", "piercing", null]], "traits": ["reach-15", "unarmed"], "effects": ["Grab"]}, {"name": "Foot", "bonus": 16, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Frightened Prey", "type": "passive", "traits": [], "text": "Frightened creatures are Off-Guard to a majungasaurus."}, {"name": "Startling Roar", "type": "passive", "traits": [], "text": "When the majungasaurus rolls initiative using Stealth, it can attempt to demoralize each creature within 30 feet as a free action. Regardless of the effect, each creature is then temporarily immune for 1 hour."}, {"name": "Crack Bones", "type": "action", "traits": [], "cost": 1, "text": "Requirements The majungasaurus has a creature Grabbed in its jaws%rEffect The majungasaurus deals that creature 3d8 bludgeoning damage (DC 24 Fortitude save). A creature that fails this save is Clumsy 1 until it recovers to full Hit Points."}]
+"Mammoth Land Star":
+  pack: "howl-of-the-wild-bestiary"
+  level: 8
+  size: "huge"
+  rarity: "common"
+  traits: ["animal", "mindless"]
+  ac: 26
+  hp: 100
+  perception: 19
+  saves: {"fortitude": 19, "reflex": 13, "will": 15}
+  abilities: {"cha": -2, "con": 6, "dex": 3, "int": -5, "str": 6, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "regeneration 20 (reduced by 4 for each missing limb); limb regrowth"
+  senses: ["scent", "tremorsense"]
+  skills: {"Athletics": 16, "Stealth": 15, "Survival": 18}
+  strikes: [{"name": "Feet", "bonus": 20, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "reach-10"], "effects": ["Grab"]}, {"name": "Limb Spines", "bonus": 20, "damage": [["2d8+6", "piercing", null]], "traits": ["reach-10"], "effects": ["Spiny Venom"]}]
+  actions: [{"name": "Regeneration 20 (reduced by 4 for each missing limb)", "type": "passive", "traits": []}, {"name": "Limb Regrowth", "type": "passive", "traits": [], "text": "A healthy mammoth land star typically has five limbs. A creature can sever a limb by targeting it and dealing damage equal to the limb's Hit Points. The mammoth land star can regrow a missing limb over the course of 24 hours.%rEffect: Mammoth Land Star Limbs"}, {"name": "Limbs", "type": "passive", "traits": [], "text": "HP (limb) 25, regrowth; Immunities mental"}, {"name": "Regrowth", "type": "passive", "traits": [], "text": "Whenever a limb is severed, it must attempt a DC 5 Flat. On a success, the limb will slowly begin to grow into a new mammoth land star over the course of a week, unless it is doused in acid or fire."}, {"name": "Detach", "type": "action", "traits": ["move"], "cost": 2, "text": "Requirements The mammoth land star falls below half its total Hit Points%rEffect The mammoth land star severs one of its own limbs as a distraction, then Strides three times. This movement doesn't trigger reactions."}, {"name": "Digest", "type": "action", "traits": [], "cost": 1, "text": "Requirements The mammoth land star has a target Grabbed%rEffect The mammoth land star extrudes its stomach onto its prey and digests it alive. The target takes (2d12+6) acid damage and is Drained 1."}, {"name": "Glide", "type": "action", "traits": ["move"], "cost": 2, "text": "The land star blows air through its feet to hover 1 foot in the air and Strides twice with a +5-foot circumstance bonus to Speed, ignoring uneven ground and difficult terrain below it."}, {"name": "Pry", "type": "action", "traits": [], "cost": 1, "text": "Requirements The mammoth land star has a target Grabbed that is wearing armor%rEffect The mammoth land star makes a feet Strike against a creature it has grabbed. If that Strike hits and the creature is wearing armor with Hardness 12 or lower, the armor is broken. This Strike doesn't further damage armor that's already broken."}, {"name": "Spiny Venom", "type": "passive", "traits": ["incapacitation", "poison"], "text": "Saving Throw DC 26 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison and Slowed 1%rStage 2 2d6 poison and Slowed 2%rStage 3 2d8 poison and Paralyzed"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Marp":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "small"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 20
+  hp: 48
+  perception: 12
+  saves: {"fortitude": 10, "reflex": 14, "will": 10}
+  abilities: {"cha": 5, "con": 2, "dex": 4, "int": -2, "str": 4, "wis": 2}
+  speeds: {"land": 25, "climb": 15}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Athletics": 10, "Deception": 13, "Thievery": 12}
+  strikes: [{"name": "Jaws", "bonus": 12, "damage": [["2d6+6", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Goldsense", "type": "passive", "traits": [], "text": "Marps can sense any accumulation of gold within range. They also can precisely measure the purity of gold by touch."}, {"name": "Panicked Withdrawal", "type": "reaction", "traits": [], "text": "Trigger The marp takes damage from a melee Strike%rEffect The marp drops any items held in their hands, then Climbs or Strides up to 15 feet."}, {"name": "Gold?", "type": "action", "traits": ["auditory", "emotion", "linguistic", "mental"], "cost": 1, "text": "The marp asks for gold from all creatures in a 30-foot. Each target must attempt a DC 22 Will save or retrieve and drop gold valuables as a free action.%rCritical Success The target can refuse the request, though they can also choose to willingly hand over any amount of gold. If they do so, they gain a +1 status bonus to the next saving throw they attempt within 1 minute, and they're temporarily immune to Scampering Theft for 1 minute.%rSuccess The target can refuse the request.%rFailure The…"}, {"name": "Scampering Theft", "type": "action", "traits": ["manipulate", "move"], "cost": 2, "text": "The marp runs and attempts to snatch a purse, pendant, or other such object. The marp Strides up to their Speed, and they can move through enemy spaces during this movement. They then attempt to steal valuables from the target, who must attempt a DC 22 Reflex save.%rSuccess The marp fails to steal anything from the target.%rFailure The marp steals one object from the target's possession that is made of or contains gold. They can't steal objects held by or permanently attached to the creature.…"}]
+"Mirror Wolf":
+  pack: "howl-of-the-wild-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 24
+  hp: 117
+  perception: 18
+  saves: {"fortitude": 14, "reflex": 19, "will": 15}
+  abilities: {"cha": -2, "con": 2, "dex": 6, "int": 1, "str": 3, "wis": 3}
+  speeds: {"land": 35}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 15, "Athletics": 12, "Intimidation": 11, "Stealth": 19, "Survival": 17}
+  immunities: ["disease", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 7}
+  strikes: [{"name": "Jaws", "bonus": 17, "damage": [["2d8+8", "force", null]], "traits": ["magical", "unarmed"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Visage Strike", "type": "reaction", "traits": [], "text": "Trigger A creature adjacent to the mirror wolf's visages damages mirror wolf's ally%rEffect The mirror wolf teleports to the visage's spot, destroying the visage, and makes a jaws Strike."}, {"name": "Bond with Mortal", "type": "passive", "traits": ["mental", "primal"], "text": "Frequency once per day%rEffect The spirit guide spends 10 minutes to form a bond with a mortal creature. While the bond exists, the spirit guide increases their current and maximum Hit Points by 14, gains a +2 status bonus to their attack and damage rolls, and can communicate telepathically with the bonded mortal as long as the two beings are on the same plane. The spirit guide can only be bonded with one mortal at a time, and they can take this action again to end the bond or to form a new…"}, {"name": "Bonded Strike", "type": "action", "traits": [], "cost": 2, "text": "Requirements The mirror wolf is currently Bonded with a Mortal%rEffect The mirror wolf makes a jaws Strike. If this attack hits, the bonded mortal can spend their reaction to Strike the same target."}, {"name": "Lingering Assailant", "type": "passive", "traits": ["illusion", "visual"], "text": "The mirror wolf attacks with such speed it leaves a visage of itself behind. When the mirror wolf Strikes, they leave behind a visage in an adjacent square. The visage is treated as an ally for effects such as flanking and pack attack. A visage has AC 10 and 1 HP and lasts for 1 round."}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "The mirror wolf's Strikes deal 1d8 extra damage to creatures within reach of at least two of the mirror wolf's allies."}, {"name": "Strafing Strike", "type": "action", "traits": [], "cost": 2, "text": "The mirror wolf makes a jaws Strike against a creature within range. The mirror wolf can then Stride and make a second jaws Strike against the same creature."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 22, "attack": 0, "spells": {"3": ["Revealing Light"], "5": ["Truespeech (Constant)"]}}]
+"Mist Bear":
+  pack: "howl-of-the-wild-bestiary"
+  level: 7
+  size: "large"
+  rarity: "uncommon"
+  traits: ["beast", "ethereal"]
+  ac: 24
+  hp: 140
+  perception: 18
+  saves: {"fortitude": 16, "reflex": 13, "will": 15}
+  abilities: {"cha": 2, "con": 5, "dex": 2, "int": -3, "str": 6, "wis": 4}
+  speeds: {"land": 35}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 17, "Survival": 15}
+  strikes: [{"name": "Jaws", "bonus": 17, "damage": [["2d10+8", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 17, "damage": [["2d8+8", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Mist Form", "type": "passive", "traits": ["concentrate", "exploration", "occult", "polymorph"], "text": "Over the course of a minute, a mist bear can transmute its form into a cloud of ethereal vapor. In this state it has resistance 10 to physical damage, is immune to precision damage, and can't use any actions with the attack or manipulate trait. It has a fly Speed of 10 feet and can slip through tiny cracks. The mist bear can return to solid form as a single action."}, {"name": "Clouded Charge", "type": "action", "traits": ["concentrate", "occult", "visual"], "cost": 2, "text": "The mist bear Strides twice. During this movement, wisps of ethereal smoke trail from its body, making it Concealed. The mist bear then Strikes. The target is Off-Guard to this attack if the bear moved at least 20 feet."}, {"name": "Misty Mauling", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "Requirements The mist bear has a creature Grabbed%rEffect The mist bear digs its claws into the grabbed creature as it dissipates into mist. The grabbed creature takes 3d8 slashing damage (DC 25 Fortitude save). The mist bear gains the benefits of its Mist Form, Flies up to 10 feet, and then returns to its solid form."}]
+"Mjolgat":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "small"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 21
+  hp: 60
+  perception: 15
+  saves: {"fortitude": 14, "reflex": 8, "will": 8}
+  abilities: {"cha": -2, "con": 4, "dex": 2, "int": -3, "str": 5, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 10, "Intimidation": 12, "Survival": 10}
+  strikes: [{"name": "Bone Crest", "bonus": 10, "damage": [["2d10+7", "bludgeoning", null]], "traits": []}, {"name": "Hoof", "bonus": 12, "damage": [["2d6+4", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Orescent", "type": "passive", "traits": [], "text": "A mjolgat can detect the ores of unrefined precious metals with its powerful nose. Common earth and stone do not impede the mjolgat from smelling ores deep within the ground."}, {"name": "Head On", "type": "reaction", "traits": [], "text": "Trigger A creature the mjolgat can see targets the mjolgat with an attack%rEffect The mjolgat swings its crest in the direction of the danger, gaining a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Hammerhead", "type": "action", "traits": ["attack"], "cost": 2, "text": "The mjolgat rears upon its hind leg to crush an enemy with its jagged crest of bone. The mjolgat makes a bone crest Strike; on a hit, the mjolgat deals an extra die of damage. This counts as two attacks when calculating the mjolgat's multiple attack penalty"}, {"name": "Punch-Drunk", "type": "passive", "traits": [], "text": "If the mjolgat critically fails a bone crest Strike, it becomes Stunned 1 and Stupefied 1 for 1 round."}, {"name": "Rockbreaker", "type": "passive", "traits": [], "text": "When the mjolgat deals damage to an object (such as a shield or an ore deposit), it deals double damage."}, {"name": "Shrieking Slam", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 2, "text": "The mjolgat lets out a terrifying screech before bashing its head into the ground. Creatures within 30 feet of the mjolgat must attempt a DC 21 Will save. Regardless of the result of the save, they are then immune to Shrieking Slam.%rCritical Success The target is unaffected.%rSuccess The target is Frightened 1.%rFailure The target is Frightened 2.%rCritical Failure The target is Frightened 3 and Fleeing for 1 round."}]
+"Mocking Chorus":
+  pack: "howl-of-the-wild-bestiary"
+  level: 18
+  size: "huge"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 41
+  hp: 340
+  perception: 30
+  saves: {"fortitude": 33, "reflex": 30, "will": 30}
+  abilities: {"cha": 4, "con": 6, "dex": 4, "int": -2, "str": 9, "wis": 2}
+  speeds: {"land": 35, "swim": 35}
+  hp_details: "hydra regeneration"
+  senses: ["scent"]
+  skills: {"Athletics": 35, "Deception": 36, "Performance": 35}
+  immunities: ["auditory", "sonic"]
+  strikes: [{"name": "Jaws", "bonus": 37, "damage": [["4d12+14", "piercing", null]], "traits": ["reach-15", "unarmed"]}, {"name": "Harsh Language", "bonus": 35, "damage": [["4d10+14", "sonic", null]], "traits": ["auditory"], "range": 90}]
+  actions: [{"name": "Uncanny Mimicry", "type": "passive", "traits": [], "text": "While unable to communicate for prolonged periods, a mocking chorus can precisely imitate a humanoid voice. If a creature speaks within audible range of the mocking chorus, the mocking chorus can speak using the creature's voice, even if it says different words than what were spoken. Creatures that hear the mocking chorus speak this way can attempt a DC 40 Will save to recognize the source. On a success, creatures gain a +1 circumstance bonus to all saving throws against the mocking chorus'…"}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Hydra Regeneration", "type": "passive", "traits": [], "text": "The hydra has regeneration equal to 3 × the number of heads it has. If a hydra's body is missing any heads and the remaining stumps have not been cauterized, the hydra attempts a DC 43 Fortitude save after it regains Hit Points from regeneration. On a success, one uncauterized stump regrows two heads; on a critical success, two uncauterized stumps regrow into two heads each. The hydra can never grow more than double the number of heads it ordinarily has. The hydra's regeneration only fully…"}, {"name": "Head Regrowth", "type": "passive", "traits": [], "text": "A mocking chorus ordinarily has ten heads. A creature can attempt to sever one of the hydra's heads by specifically targeting it and dealing damage equal to the head's Hit Points. A head that is not completely severed returns to full Hit Points at the end of any creature's turn. A hydra can regrow a severed head using hydra regeneration. A creature can prevent this regrowth by dealing acid or fire damage to the stump, cauterizing it. Single-target acid or fire effects need to be targeted at a…"}, {"name": "Mocking Chorus Head", "type": "passive", "traits": [], "text": "HP (head) 35, head regrowth%rImmunities area damage%rWeakness slashing 10"}, {"name": "Reactive Heads", "type": "passive", "traits": [], "text": "A hydra gains an extra reaction per round for each of its heads beyond the first, which it can use only to make Reactive Strikes. It can't use more than 1 reaction on the same triggering action, even if a creature leaves several squares within its reach, and the hydra must use a different head for each Reactive Strike it makes. Whenever one of the hydra's heads is severed, the hydra loses 1 of its extra reactions per round."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Petty Whispers", "type": "action", "traits": ["auditory", "mental"], "cost": 1, "text": "The mocking chorus adopts the voices of its enemies, spreading lies and jeers among would-be allies and tearing apart trusted friends. Creatures in a 60-foot of the mocking chorus must attempt a DC 37 Will save. The mocking chorus can't use petty whispers again for 1 minute.%rCritical Success The creature is unaffected and is temporarily immune for 1 day.%rSuccess As failure, but the creature takes half damage and is not Confused.%rFailure The creature takes 12d10 mental|options:area-damage…"}]
+"Morthak":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 20
+  hp: 70
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 10, "will": 10}
+  abilities: {"cha": 1, "con": 4, "dex": 2, "int": -3, "str": 5, "wis": 2}
+  speeds: {"land": 20, "burrow": 30}
+  senses: ["echolocation"]
+  skills: {"Acrobatics": 10, "Athletics": 13, "Stealth": 12}
+  immunities: ["visual"]
+  resistances: {"sonic": 5}
+  strikes: [{"name": "Jaws", "bonus": 13, "damage": [["2d8+5", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 13, "damage": [["1d6+5", "slashing", null], ["1d6", "sonic", null]], "traits": ["agile", "unarmed"]}, {"name": "Screech", "bonus": 10, "damage": [["4d6", "sonic", null]], "traits": ["sonic"]}]
+  actions: [{"name": "Sensitive Echolocation", "type": "passive", "traits": [], "text": "The morthak can use its hearing as a precise sense with the listed range. If the morthak takes sonic damage beyond its resistance, its senses are overloaded and all creatures are Concealed from it for 1 round."}, {"name": "Auditory Swipe", "type": "reaction", "traits": [], "text": "Trigger A creature within the morthak's reach uses an auditory action%rEffect The morthak makes a claw Strike against the triggering creature."}, {"name": "Shattering Scrape", "type": "action", "traits": ["sonic"], "cost": 2, "text": "The morthak makes a claw Strike against a creature wearing stone or metal armor. If the Strike hits and the armor's Hardness is 12 or lower, that armor is broken."}]
+"Pale Horse":
+  pack: "howl-of-the-wild-bestiary"
+  level: 11
+  size: "large"
+  rarity: "uncommon"
+  traits: ["incorporeal", "undead", "unholy"]
+  ac: 30
+  hp: 180
+  perception: 21
+  saves: {"fortitude": 20, "reflex": 24, "will": 21}
+  abilities: {"cha": 3, "con": 3, "dex": 8, "int": -2, "str": -5, "wis": 4}
+  speeds: {"land": 0, "fly": 45}
+  hp_details: "void healing"
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 26, "Intimidation": 20, "Stealth": 23}
+  immunities: ["bleed", "death-effects", "disease", "mental", "paralyzed", "poison", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Spectral Horn", "bonus": 24, "damage": [["3d10+10", "void", null]], "traits": ["finesse", "magical"]}, {"name": "Hoof", "bonus": 24, "damage": [["3d8+10", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Spectral Mount", "type": "passive", "traits": [], "text": "A pale horse can accept a corporeal rider, but such a rider is left behind if the pale horse passes through a creature or object."}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "Aura of Despair", "type": "passive", "traits": ["aura", "emotion", "mental"], "text": "30 feet. A living creature that begins its turn in the aura must succeed at a DC 27 Will save or become Slowed 1. A creature is temporarily immune to the aura for 1 hour if it critically succeeds."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Spectral Charge", "type": "action", "traits": [], "cost": 2, "text": "The pale horse Flies twice and then makes a horn Strike. The pale horse can move through creatures."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 27, "attack": 0, "spells": {"2": ["Darkness (At-Will)"], "4": ["Harm"], "5": ["Toxic Cloud", "Translocate"]}}]
+"Plated Python":
+  pack: "howl-of-the-wild-bestiary"
+  level: 12
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["beast"]
+  ac: 33
+  hp: 215
+  perception: 24
+  saves: {"fortitude": 24, "reflex": 20, "will": 22}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": -3, "str": 7, "wis": 6}
+  speeds: {"land": 40, "burrow": 30, "climb": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 25}
+  immunities: ["petrified"]
+  strikes: [{"name": "Jaws", "bonus": 24, "damage": [["3d10+10", "piercing", null]], "traits": ["reach-15", "unarmed"], "effects": ["Grab"]}, {"name": "Tail", "bonus": 24, "damage": [["3d8+10", "bludgeoning", null]], "traits": ["reach-15"]}]
+  actions: [{"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d10+10) bludgeoning, DC 32 Fortitude"}, {"name": "Crumbling Earth", "type": "action", "traits": ["earth", "primal"], "cost": 2, "text": "The plated python lets its breath sink into the ground, transforming it to brittle stone within a 30-foot. The stone is difficult terrain to all other creatures. Other creatures on the ground in this area when it transforms must succeed at a DC 29 Reflex save or be Immobilized as the stone beneath them crumbles to rubble. A creature immobilized in this way can Escape normally or use three total Interact actions to dig themself free."}, {"name": "Petrify Prey", "type": "free", "traits": ["earth", "incapacitation", "primal"], "text": "Requirements The plated python has a creature Grabbed%rTrigger The plated python begins its turn%rEffect The python's breath seeps into the grabbed creature. That creature must attempt a DC 32 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature's body hardens and stiffens, causing it to become Slowed 1 for 1 round.%rFailure The creature is Petrified for 1 round and Swallowed Whole.%rCritical Failure The creature is petrified permanently and Swallowed Whole."}, {"name": "Stone Tunnel", "type": "passive", "traits": [], "text": "When a plated python burrows through ground, it petrifies and destroys the material in front of it, leaving a 5-foot diameter tunnel in its wake. A plated python doesn't need to Squeeze to pass through any space at least that wide."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, (3d10+5) acid, Rupture 20%rThis damage ignores the hardness of petrified creatures."}, {"name": "Towering Bite", "type": "action", "traits": [], "cost": 2, "text": "The plated python lunges to its full length, making a jaws Strike with a reach of 60 feet. If the Strike hits, its target is Grabbed and pulled to an empty space adjacent to the plated python. The python can attack through any material it can burrow through, leaving a stone tunnel as normal."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Prismhydra":
+  pack: "howl-of-the-wild-bestiary"
+  level: 16
+  size: "huge"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 30
+  hp: 290
+  perception: 28
+  saves: {"fortitude": 28, "reflex": 26, "will": 24}
+  abilities: {"cha": -1, "con": 8, "dex": 6, "int": -3, "str": 9, "wis": 2}
+  speeds: {"land": 35, "swim": 35}
+  hp_details: "hydra regeneration"
+  senses: ["scent"]
+  skills: {"Athletics": 33, "Stealth": 27, "Survival": 29}
+  strikes: [{"name": "Fangs", "bonus": 31, "damage": [["3d12+14", "piercing", null]], "traits": ["reach-15"], "effects": ["Chromatic Explosion"]}, {"name": "Spittle", "bonus": 28, "damage": [["1d12", "acid", null]], "traits": ["acid"], "range": 60, "effects": ["Chromatic Explosion"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Hydra Regeneration", "type": "passive", "traits": [], "text": "The hydra has regeneration equal to 3 × the number of heads it has. If a hydra's body is missing any heads and the remaining stumps have not been cauterized, the hydra attempts a DC 39 Fortitude save after it regains Hit Points from regeneration. On a success, one uncauterized stump regrows two heads; on a critical success, two uncauterized stumps regrow into two heads each. The hydra can never grow more than double the number of heads it ordinarily has. The hydra's regeneration only fully…"}, {"name": "Prismatic Backlash", "type": "reaction", "traits": [], "text": "Trigger A creature successfully cauterizes one of the prismhydra's stumps%rEffect The unstable prismatic energies in the prismhydra's body surge forth. Each creature adjacent to the prismhydra is exposed to its chromatic explosion."}, {"name": "Prismatic Head Regrowth", "type": "passive", "traits": [], "text": "A prismhydra ordinarily has eight heads. A creature can attempt to sever one of the hydra's heads by specifically targeting it and dealing damage equal to the head's Hit Points. A head that is not completely severed returns to full Hit Points at the end of any creature's turn. A hydra can regrow a severed head using hydra regeneration.%rEach head requires a different type of damage to cauterize; typically, two heads each are vulnerable to acid, cold, electricity, and fire damage, but other…"}, {"name": "Prismhydra Heads", "type": "passive", "traits": [], "text": "HP (head) 36, prismatic head regrowth%rImmunities area damage%rWeaknesses slashing 15"}, {"name": "Reactive Heads", "type": "passive", "traits": [], "text": "A hydra gains an extra reaction per round for each of its heads beyond the first, which it can use only to make Reactive Strikes. It can't use more than 1 reaction on the same triggering action, even if a creature leaves several squares within its reach, and the hydra must use a different head for each Reactive Strike it makes. Whenever one of the hydra's heads is severed, the hydra loses 1 of its extra reactions per round."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Chromatic Explosion", "type": "passive", "traits": [], "text": "A prismhydra's heads are replete with arcane energy. Whenever the prismhydra successfully Strikes an opponent with its spittle, or when an opponent cauterizes one of the prismhydra's heads, the opponent takes 6d6 damage of the type matching the head's vulnerability (typically acid, cold, fire, or electricity), with a DC 37 Reflex save."}]
+"Protoceratops":
+  pack: "howl-of-the-wild-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["animal", "dinosaur"]
+  ac: 17
+  hp: 30
+  perception: 9
+  saves: {"fortitude": 11, "reflex": 8, "will": 6}
+  abilities: {"cha": 1, "con": 3, "dex": 2, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 8}
+  strikes: [{"name": "Head", "bonus": 10, "damage": [["1d8+4", "bludgeoning", null]], "traits": []}, {"name": "Tail", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Defensive Posture", "type": "action", "traits": [], "cost": 1, "text": "The protoceratops tucks in its head and presents its sturdy frill, granting a +1 circumstance bonus to AC adjacent allies. The protoceratops remains in its Defensive Posture until the start of its next turn, but only grants the bonus while allies remain adjacent"}, {"name": "Frill Block", "type": "reaction", "traits": [], "text": "Requirements The protoceratops is in its Defensive Posture%rTrigger An adjacent ally would take damage from a physical attack%rEffect The protoceratops partially blocks the blow with its frill, reducing the damage by 5."}]
+"Rift Chameleon":
+  pack: "howl-of-the-wild-bestiary"
+  level: 3
+  size: "small"
+  rarity: "uncommon"
+  traits: ["beast", "ethereal"]
+  ac: 19
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 9, "will": 8}
+  abilities: {"cha": 3, "con": 3, "dex": 2, "int": -2, "str": 4, "wis": 1}
+  speeds: {"land": 25, "climb": 20}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 9, "Stealth": 10, "Survival": 8}
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d10+4", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Tail", "bonus": 11, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Tongue", "bonus": 11, "damage": [], "traits": ["reach-10"], "effects": ["Tongue Pull"]}]
+  actions: [{"name": "Extradimensional Gullet", "type": "passive", "traits": ["extradimensional"], "text": "The rift chameleon's innards exist partially on the Ethereal Plane, allowing it to swallow any number of creatures, even ones larger than itself. Creatures that Escape or cut themselves free from the chameleon's stomach reappear in the Universe adjacent to the rift chameleon's position. Creatures cannot escape from the rift chameleon's gullet using teleportation effects unless those effects can also cross planar boundaries."}, {"name": "Flickering Dash", "type": "action", "traits": ["occult", "teleportation"], "cost": 1, "text": "Frequency once per round%rEffect The rift chameleon Strides twice. During this movement, it flits quickly between the Universe and the Ethereal Plane, gaining resistance 5 to physical damage."}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Ethereal Camouflage", "type": "passive", "traits": [], "text": "A rift chameleon can Hide, even if it doesn't have cover, but it cannot be Concealed from creatures on the Ethereal Plane."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, (1d12+2) bludgeoning, Rupture 10"}, {"name": "Tongue Pull", "type": "passive", "traits": [], "text": "Any creature hit by the rift chameleon's tongue is pulled adjacent to the chameleon. The creature is Off-Guard to the next Strike the rift chameleon makes against it this round."}]
+"Royal Basilisk":
+  pack: "howl-of-the-wild-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 33
+  hp: 290
+  perception: 27
+  saves: {"fortitude": 26, "reflex": 22, "will": 23}
+  abilities: {"cha": 2, "con": 7, "dex": 5, "int": -3, "str": 8, "wis": 6}
+  speeds: {"land": 30, "climb": 30, "swim": 30}
+  senses: ["darkvision", "scent", "tremorsense"]
+  skills: {"Acrobatics": 24, "Athletics": 27, "Stealth": 24, "Survival": 25}
+  immunities: ["poison"]
+  resistances: {"acid": 15}
+  strikes: [{"name": "Jaws", "bonus": 27, "damage": [["4d10+11", "piercing", null]], "traits": ["reach-10", "unarmed"], "effects": ["Improved Grab", "Royal Basilisk Venom"]}, {"name": "Tail", "bonus": 27, "damage": [["4d8+11", "bludgeoning", null]], "traits": ["agile", "reach-15"]}, {"name": "Spit", "bonus": 24, "damage": [["5d10", "poison", null]], "traits": ["poison"], "effects": ["Royal Basilisk Venom"]}]
+  actions: [{"name": "Crowned Royalty", "type": "passive", "traits": [], "text": "The royal basilisk's crown is firmly attached to its head but can be Disarmed as though it were a held item. Without a crown, the royal basilisk's mastery over poison is weakened enough that it loses its miasmatic shroud. The royal basilisk can equip a crown within its tail's reach as an Interact action. A royal basilisk's crown is normally made of iron and enables the basilisk to use miasmatic shroud, but crowns made of other, more exotic materials might confer different abilities."}, {"name": "Miasmatic Shroud", "type": "passive", "traits": ["aura", "poison"], "text": "15 feet. The poison in the breath of the royal basilisk makes the air around it a haze, concealing it from all creatures outside the aura, but it cannot use this concealment to Hide or Sneak. When a creature ends its turn within the aura, it is exposed to royal basilisk venom."}, {"name": "Greater Constrict", "type": "action", "traits": [], "cost": 1, "text": "(4d8+3) bludgeoning, DC 32 Fortitude"}, {"name": "Royal Basilisk Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 36%rMaximum Duration 6 rounds%rStage 1 2d10 poison and Clumsy 2 (1 round)%rStage 2 3d10 poison and Clumsy 3 (1 round)%rStage 3 4d10 poison, clumsy 3, and Slowed 1 (1 round)"}, {"name": "Stone-Hewing Spit", "type": "action", "traits": ["acid"], "cost": 2, "text": "The royal basilisk spits its poison with immense force, dealing 5d10 acid and 5d8 piercing damage (DC 32 Reflex save) to creatures in a 240-foot and exposing each creature that took damage to royal basilisk venom. The line penetrates barriers with Hardness of less than 20, ignoring any bonuses they'd provide from cover. The royal basilisk can't use Stone-Hewing Spit again for 1d4 rounds."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, (5d10) acid, Rupture 30"}, {"name": "Wrap in Coils", "type": "action", "traits": [], "cost": 1, "text": "Requirements A Large or smaller creature is Grabbed or Restrained in the royal basilisk's jaws%rEffect The royal basilisk moves the creature into its coils, freeing its jaws to make attacks, then uses Greater Constrict against the creature. The royal basilisk's coils can hold as many creatures as will fit in its space."}]
+"Rumindrol":
+  pack: "howl-of-the-wild-bestiary"
+  level: 15
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 37
+  hp: 295
+  perception: 28
+  saves: {"fortitude": 30, "reflex": 26, "will": 23}
+  abilities: {"cha": -1, "con": 7, "dex": 6, "int": -1, "str": 9, "wis": 5}
+  speeds: {"land": 20, "burrow": 60}
+  senses: ["motion-sense"]
+  skills: {"Athletics": 30, "Deception": 27, "Survival": 25}
+  weaknesses: {"cold": 10}
+  resistances: {"poison": 15, "sonic": 15}
+  strikes: [{"name": "Jaws", "bonus": 30, "damage": [["3d12+15", "piercing", null]], "traits": ["reach-15", "unarmed"], "effects": ["Improved Grab"]}, {"name": "Leg", "bonus": 30, "damage": [["3d8+15", "slashing", null]], "traits": ["agile", "reach-15"]}, {"name": "Focused Resonance", "bonus": 30, "damage": [["3d10+15", "sonic", null]], "traits": [], "range": 120}]
+  actions: [{"name": "Motion Sense", "type": "passive", "traits": [], "text": "A rumindrol can sense nearby motion through vibration and air movement."}, {"name": "Dreadful Resonance", "type": "passive", "traits": ["auditory", "aura", "incapacitation"], "text": "60 feet. Each creature that enters or starts its turn in the emanation must succeed at a DC 36 Fortitude save or become Enfeebled 1 (Enfeebled 2 on a critical failure) and take 3d8 sonic damage."}, {"name": "Enthralling Call", "type": "passive", "traits": ["auditory", "aura", "emotion", "mental"], "text": "1 mile. Each non-rumindrol creature that enters or starts its turn within the emanation must succeed at a DC 26 Will save or become Fascinated. The creature then becomes temporarily immune to this effect for 1 day (1 hour on a critical failure). Any creature fascinated in this way will attempt to find the source of the rumindrol's cry, mindlessly wandering towards it."}, {"name": "Entropic Cry", "type": "action", "traits": ["auditory", "incapacitation"], "cost": 1, "text": "The rumindrol focuses its sonic emanations on a creature it's aware of within the area of its enthralling call aura. The target must attempt a DC 31 Fortitude save.%rCritical Success The creature becomes temporarily immune to Entropic Cry for 1 hour.%rSuccess The target is Sickened 1.%rFailure The target is Sickened 2.%rCritical Failure The target is sickened 2, Enfeebled 1, and Stupefied 1."}, {"name": "Fast Swallow", "type": "reaction", "traits": [], "text": "Trigger The rumindrol Grabs a creature%rEffect The rumindrol uses Swallow Whole."}, {"name": "Inexorable", "type": "passive", "traits": [], "text": "The rumindrol recovers from the Paralyzed, Slowed, and Stunned conditions at the end of its turn. It's also immune to penalties to its Speeds and the Immobilized condition, and it ignores difficult terrain and greater difficult terrain."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Huge, (3d10+9) bludgeoning, Rupture 30"}, {"name": "Thrash", "type": "action", "traits": ["attack"], "cost": 2, "text": "The rumindrol attempts individual Strikes against each creature in its reach. It can attempt up to one jaws Strike and any number of leg Strikes. Each attack counts toward the rumindrol's multiple attack penalty, but the penalty doesn't increase until after it makes all the attacks."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Huge or smaller, leg, DC 36 Reflex"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Scroungefeather":
+  pack: "howl-of-the-wild-bestiary"
+  level: 5
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 21
+  hp: 76
+  perception: 13
+  saves: {"fortitude": 14, "reflex": 16, "will": 8}
+  abilities: {"cha": 2, "con": 2, "dex": 5, "int": -4, "str": 3, "wis": 1}
+  speeds: {"land": 20, "fly": 40}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 12, "Stealth": 12, "Thievery": 14}
+  strikes: [{"name": "Beak", "bonus": 12, "damage": [["2d8+3", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Talon", "bonus": 12, "damage": [["2d6+3", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Junk Nest", "type": "passive", "traits": [], "text": "The scroungefeather's nest of sharp metallic junk covers a 15-foot-by-15-foot area. The area is difficult terrain and hazardous terrain to any non-scroungefeather creatures. A creature that moves on the ground through the nest takes 3 piercing damage for each square of the area it moves into. Scroungefeathers can Take Cover at any point in the nest."}, {"name": "Tossed Scraps", "type": "action", "traits": [], "cost": 1, "text": "Requirements The scroungefeather has Grabbed Debris%rEffect The scroungefeather flings the debris at a target within 20 feet, making an attack roll with a +12 modifier. On a success, the target takes (2d10+5) bludgeoning damage."}, {"name": "Grab Debris", "type": "action", "traits": [], "cost": 1, "text": "Requirements The scroungefeather is in its nest or another environment rich with debris%rEffect The scroungefeather uses an Interact action to grab an item with its beak, selected randomly; roll 1d4 to determine the type of debris. The scroungefeather gains access to the listed abilities until it uses Tossed Scraps to discard the debris or until it Releases the debris. The scroungefeather can't use its beak attack while it is using its beak to Grab Debris.%rd4 Item Effect 1 Armor scrap The…"}]
+"Shotalashu":
+  pack: "howl-of-the-wild-bestiary"
+  level: 2
+  size: "large"
+  rarity: "uncommon"
+  traits: ["beast"]
+  ac: 18
+  hp: 35
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 10, "will": 11}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": -3, "str": 2, "wis": 3}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 8, "Stealth": 8, "Survival": 7}
+  strikes: [{"name": "Claws", "bonus": 10, "damage": [["1d6+2", "slashing", null], ["1d4", "mental", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Empathic Communication", "type": "passive", "traits": [], "text": "While a shotalashu can't speak, even telepathically, it understands simple commands in the languages it knows. It returns telepathic sensations of emotion to creatures touching it or the partner of its telepathic link at any distance."}, {"name": "Telepathic Link", "type": "passive", "traits": ["mental", "occult"], "text": "A rider who would tame a shotalashu for a mount must first form a telepathic link with it. Establishing this link require spending a week with the desired mount and succeeding at a DC 21 Occultism check. Any creature with telepathic capabilities, such as telepathy, touch telepathy, empathic sense, or the ability to cast spells such as Telepathy, gains a +4 circumstance bonus to this check. This link remains and neither can form a new link until one member dies. The shock of a partner dying…"}, {"name": "Jungle Stride", "type": "passive", "traits": [], "text": "The shotalashu ignores difficult terrain due to vegetation."}, {"name": "Telepathic Pounce", "type": "action", "traits": ["mental", "occult"], "cost": 2, "text": "The shotalashu hunts by pinning its foes with its mind. One creature within 30 feet must attempt a DC 18 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature takes a –5 foot status penalty to its Speeds for one round.%rFailure The creature takes a –10 foot status penalty to its Speeds for one round. The shotalashu can then Leap.%rCritical Failure The creature is Off-Guard and Immobilized for one round. The shotalashu can Leap."}]
+"Sky Fisher":
+  pack: "howl-of-the-wild-bestiary"
+  level: 11
+  size: "huge"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 30
+  hp: 200
+  perception: 18
+  saves: {"fortitude": 22, "reflex": 22, "will": 15}
+  abilities: {"cha": -3, "con": 7, "dex": 7, "int": -4, "str": 5, "wis": 0}
+  speeds: {"land": 0, "fly": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 21, "Athletics": 21, "Stealth": 23}
+  immunities: ["precision"]
+  weaknesses: {"piercing": 7, "slashing": 7}
+  resistances: {"bludgeoning": 14, "poison": 14}
+  strikes: [{"name": "Stinging Tentacle", "bonus": 24, "damage": [["2d8+8", "bludgeoning", null]], "traits": ["agile", "reach-30"], "effects": ["Grab", "Sky Fisher Venom"]}]
+  actions: [{"name": "Transparency", "type": "passive", "traits": [], "text": "Unless it has fed recently, the sky fisher is naturally Invisible. Using non-hostile actions does not cause the sky fisher to become Hidden. When it takes a hostile action of any kind, the sky fisher is hidden instead of Undetected until the start of its next turn, as the vague outline of its many tendrils temporarily becomes faintly visible."}, {"name": "Abduct", "type": "action", "traits": ["attack"], "cost": 1, "text": "The sky fisher reels in a target Grabbed by its tentacles, pulling them into an adjacent space, and then attempts to Swallow them Whole (Large, (3d8+12) acid, Rupture 25). The sky fisher can only use Swallow Whole when using Abduct."}, {"name": "Enzymic Vent", "type": "action", "traits": ["poison"], "cost": 2, "text": "The sky fisher vents flesh-eating enzymes into the air, dealing 3d6 persistent acid damage and 3d6 persistent bleed damage in a 20-foot (DC 25 Reflex save). It can't use Enzymic Vent again for 1d4 rounds."}, {"name": "Jet", "type": "action", "traits": ["move"], "cost": 2, "text": "The sky fisher quickly expels some of its gases to move swiftly through the air, Flying up to 100 feet in a straight line; this movement doesn't trigger reactions."}, {"name": "Sky Fisher Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds%rStage 1 3d6 poison damage, Clumsy 1, and can't speak above a whisper (1 round)%rStage 2 3d8 poison damage, Clumsy 2, and can't speak (1 round)%rStage 3 3d10 poison damage and Paralyzed (1 round)"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Soniphak":
+  pack: "howl-of-the-wild-bestiary"
+  level: 9
+  size: "huge"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 27
+  hp: 180
+  perception: 21
+  saves: {"fortitude": 21, "reflex": 21, "will": 15}
+  abilities: {"cha": 1, "con": 4, "dex": 6, "int": -2, "str": 7, "wis": 4}
+  speeds: {"land": 20, "fly": 50}
+  senses: ["echolocation"]
+  skills: {"Acrobatics": 19, "Athletics": 20, "Survival": 17}
+  immunities: ["visual"]
+  resistances: {"sonic": 10}
+  strikes: [{"name": "Jaws", "bonus": 19, "damage": [["3d8+9", "piercing", null]], "traits": ["reach-15", "unarmed"]}, {"name": "Claw", "bonus": 19, "damage": [["3d6+9", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}, {"name": "Screech", "bonus": 19, "damage": [["6d6", "sonic", null]], "traits": ["sonic"], "effects": ["Aftershock"]}]
+  actions: [{"name": "Sensitive Echolocation", "type": "passive", "traits": [], "text": "The soniphak can use its hearing as a precise sense with the listed range. If the soniphak takes sonic damage beyond its resistance, its senses are overloaded and all creatures are Concealed from it for 1 round."}, {"name": "Snatch", "type": "passive", "traits": [], "text": "The soniphak can Fly at half Speed with a creature Grabbed or Restrained in its claws, carrying that creature along with it."}, {"name": "Aftershock", "type": "passive", "traits": [], "text": "Whenever a soniphak hits with a screech Strike, feedback deals each creature the soniphak has Grabbed or Restrained 1d6 sonic damage."}, {"name": "Disruptive Screech", "type": "reaction", "traits": [], "text": "Trigger A creature within 30 feet of the soniphak uses an auditory action%rEffect The soniphak makes a screech Strike against the triggering creature. This disrupts a triggering concentrate action if the Strike is a critical hit."}, {"name": "Shattering Scream", "type": "action", "traits": ["sonic"], "cost": 2, "text": "The soniphak can focus its screech at a stone or rock surface within 60 feet to create an explosion in a 15-foot from the point of impact. Creatures in the area take 5d6 piercing|options:area-damage damage (DC 28 Reflex save), and the area becomes difficult terrain due to fragments of loose stone."}]
+"Sporeback Frog":
+  pack: "howl-of-the-wild-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 21
+  hp: 94
+  perception: 12
+  saves: {"fortitude": 15, "reflex": 12, "will": 9}
+  abilities: {"cha": 1, "con": 5, "dex": 3, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 25, "burrow": 20}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 10, "Athletics": 12, "Stealth": 13}
+  weaknesses: {"fire": 4}
+  resistances: {"poison": 8}
+  strikes: [{"name": "Jaws", "bonus": 13, "damage": [["2d8+6", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Tongue", "bonus": 15, "damage": [], "traits": ["reach-15"], "effects": ["Seed Spores"]}]
+  actions: [{"name": "Seed Spores", "type": "passive", "traits": [], "text": "A creature hit by the sporeback frog's tongue Strike takes 1d6 persistent poison damage as fungal spores begin to grow."}, {"name": "Soporific Spores", "type": "action", "traits": ["mental", "poison"], "cost": 2, "text": "The sporeback frog shakes the plants and fungi on its back until they emit a cloud of spores in a 20-foot. All creatures in the area must succeed a DC 22 Fortitude save or become Clumsy 2 and Stupefied 2 for 1 minute (Clumsy 3 and Stupefied 3 on a critical failure). This ability can't be used again for 1d4 rounds."}]
+"Stargut Hydra":
+  pack: "howl-of-the-wild-bestiary"
+  level: 9
+  size: "large"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 27
+  hp: 150
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 18, "will": 14}
+  abilities: {"cha": -1, "con": 6, "dex": 3, "int": -3, "str": 5, "wis": 3}
+  speeds: {"land": 25, "burrow": 25}
+  hp_details: "hydra regeneration"
+  senses: ["scent"]
+  skills: {"Athletics": 20, "Stealth": 18, "Survival": 18}
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["2d8+8", "piercing", null]], "traits": ["reach-15", "unarmed"]}]
+  actions: [{"name": "Skymetal Metamorphosis", "type": "passive", "traits": [], "text": "Each stargut hydra has at least one metamorphosis resulting from consuming a specific skymetal and internalizing its properties. If you give a stargut hydra more than one metamorphosis, you should consider increasing its level and changing its statistics.%rAdamantine The stargut hydra's Strikes bypass Hardness and are treated as adamantine. The stargut hydra gains resistance 10 to physical damage (except adamantine).%rAbysium (aura, poison) The stargut hydra emits an aura of nauseating…"}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Hydra Regeneration", "type": "passive", "traits": [], "text": "The stargut hydra has regeneration equal to 3 × the number of heads it has. If a hydra's body is missing any heads and the remaining stumps have not been cauterized, the hydra attempts a DC 29 Fortitude save after it regains Hit Points from regeneration. On a success, one uncauterized stump regrows two heads; on a critical success, two uncauterized stumps regrow into two heads each. The hydra can never grow more than double the number of heads it ordinarily has. The hydra's regeneration only…"}, {"name": "Head Regrowth", "type": "passive", "traits": [], "text": "A stargut hydra ordinarily has five heads. A creature can attempt to sever one of the hydra's heads by specifically targeting it and dealing damage equal to the head's Hit Points. A head that is not completely severed returns to full Hit Points at the end of any creature's turn. A hydra can regrow a severed head using hydra regeneration. A creature can prevent this regrowth by dealing acid or fire damage to the stump, cauterizing it. Single-target acid or fire effects need to be targeted at a…"}, {"name": "Reactive Heads", "type": "passive", "traits": [], "text": "A stargut hydra gains an extra reaction per round for each of its heads beyond the first, which it can use only to make Reactive Strikes. It can't use more than 1 reaction on the same triggering action, even if a creature leaves several squares within its reach, and the hydra must use a different head for each Reactive Strike it makes. Whenever one of the hydra's heads is severed, the hydra loses 1 of its extra reactions per round."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Stargut Hydra Heads", "type": "passive", "traits": [], "text": "HP (head) 22, head regrowth%rImmunities area damage%rWeaknesses slashing 10"}, {"name": "Vomit Meteorites", "type": "action", "traits": [], "cost": 2, "text": "The stargut hydra lurches its entire body, spewing forth chunks of meteorite in a 30-foot that deal 5d6 bludgeoning|options:area-damage damage to all creatures in the area (DC 25 Reflex). The area becomes difficult terrain for 1 minute, though a creature can use an Interact action to clear one square of the rubble. The stargut hydra can't Vomit Meteorites for 1d4 rounds."}]
+"Stonefish":
+  pack: "howl-of-the-wild-bestiary"
+  level: 0
+  size: "tiny"
+  rarity: "common"
+  traits: ["animal", "aquatic"]
+  ac: 16
+  hp: 15
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 6, "will": 3}
+  abilities: {"cha": -1, "con": 2, "dex": 3, "int": -5, "str": 2, "wis": 1}
+  speeds: {"land": 0, "swim": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 7, "Athletics": 4, "Stealth": 9}
+  strikes: [{"name": "Bite", "bonus": 7, "damage": [["1d6+2", "piercing", null]], "traits": ["finesse"]}, {"name": "Spines", "bonus": 6, "damage": [["1d4+2", "piercing", null]], "traits": [], "effects": ["Stonefish Venom"]}]
+  actions: [{"name": "Camouflage", "type": "passive", "traits": [], "text": "The stonefish can hide in its natural environment even if it doesn't have cover."}, {"name": "Defensive Spines", "type": "passive", "traits": [], "text": "When a creature moves into a space with one or more stonefish, that creature takes 1d4 piercing damage and is exposed to stonefish venom."}, {"name": "Stonefish Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 16 Fortitude%rMaximum Duration 3 hours%rStage 1 Clumsy 1 (1 round)%rStage 2 Clumsy 2 (10 minutes)%rStage 3 3d6 poison and clumsy 2 (1 hour)"}]
+"Stonefish Swarm":
+  pack: "howl-of-the-wild-bestiary"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["animal", "aquatic", "swarm"]
+  ac: 16
+  hp: 25
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 8, "will": 5}
+  abilities: {"cha": -1, "con": 2, "dex": 3, "int": -5, "str": 2, "wis": 1}
+  speeds: {"land": 0, "swim": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 9, "Athletics": 6, "Stealth": 11}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 3, "splash-damage": 3}
+  resistances: {"bludgeoning": 3, "slashing": 3}
+  actions: [{"name": "Defensive Spines", "type": "passive", "traits": [], "text": "When a creature enters the stonefish swarm's space, that creature takes 1d4 piercing damage and is exposed to stonefish swarm venom."}, {"name": "Reef Camouflage", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the stonefish swarm appears to be a colorful coral reef. It has an automatic result of 26 on Deception checks and DCs to pass as a reef."}, {"name": "Inject Poison", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 2d4 piercing damage (DC 18 Reflex save). Creatures that fail the save are exposed to stonefish swarm venom."}, {"name": "Stonefish Swarm Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 18 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison and Clumsy 1 (1 round)%rStage 2 1d6 poison and Clumsy 2 (1 round)%rStage 3 2d6 poison damage and clumsy 2 (1 round)"}]
+"Stony Bat":
+  pack: "howl-of-the-wild-bestiary"
+  level: 3
+  size: "small"
+  rarity: "uncommon"
+  traits: ["beast"]
+  ac: 18
+  hp: 48
+  perception: 11
+  saves: {"fortitude": 9, "reflex": 11, "will": 7}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": -3, "str": 2, "wis": 2}
+  speeds: {"land": 15, "fly": 30}
+  senses: ["echolocation"]
+  skills: {"Acrobatics": 11, "Stealth": 11}
+  immunities: ["petrified"]
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["2d8+2", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Stone Feast"]}]
+  actions: [{"name": "Echolocation", "type": "passive", "traits": [], "text": "The stony bat can use hearing as a precise sense with the listed range."}, {"name": "Petrify Body Part", "type": "action", "traits": ["earth", "primal"], "cost": 2, "text": "The stony bat breathes a puff of petrifying gas onto an adjacent creature, targeting a specific body part. The target must succeed at a DC 20 Fortitude save or be partially petrified for 1 minute, with an effect varying with the body part targeted.%rFace The creature's face stiffens and a film of stone partially blocks its vision. It is Dazzled. Hand One of the creature's hands is petrified. It cannot Release items from that hand or use the hand for fine manipulation. Attack rolls with weapons…"}, {"name": "Petrify Vapor", "type": "action", "traits": ["earth", "primal"], "cost": 2, "text": "The stony bat breathes petrifying gas in a 15-foot, too thin to harm creatures in the area. However, it petrifies ambient moisture, raining down a cascade of tiny stones onto any creatures in the space directly below the cone. The falling rocks deal 4d6 bludgeoning|options:area-damage damage (DC 20 Reflex). The stony bat can't use Petrify Vapor again for 1d4 rounds."}, {"name": "Stone Feast", "type": "passive", "traits": [], "text": "The stony bat specifically targets petrified body parts, which it can consume, unlike flesh. The stony bat's jaws deal an extra 1d6 damage against a creature that has been petrified, either partially or completely, and ignore the Hardness of petrified creatures."}]
+"Stony Goat":
+  pack: "howl-of-the-wild-bestiary"
+  level: 2
+  size: "small"
+  rarity: "rare"
+  traits: ["animal"]
+  ac: 17
+  hp: 28
+  perception: 11
+  saves: {"fortitude": 8, "reflex": 11, "will": 5}
+  abilities: {"cha": 1, "con": 3, "dex": 4, "int": -4, "str": 3, "wis": 2}
+  speeds: {"land": 40}
+  skills: {"Acrobatics": 8, "Athletics": 8, "Survival": 6}
+  strikes: [{"name": "Head", "bonus": 8, "damage": [["1d8+3", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Cliff Climber", "type": "passive", "traits": [], "text": "A stony goat can trot across the steepest cliffs. It doesn't need to attempt Climb checks to scale inclines, and it isn't Off-Guard while Climbing an incline. It ignores difficult terrain caused by rocks, rubble, and uneven ground made of earth and stone."}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Self-Petrify", "type": "reaction", "traits": ["polymorph"], "text": "Trigger The stony goat gains the Frightened condition or takes more than 8 damage in a single hit%rEffect The stony goat turns to stone in self-defense. It gains the Petrified condition for 1d4 rounds. If the goat is damaged while it's petrified, it immediately heals by that amount by absorbing minerals from its cud, causing its cud to lose value equal to the amount of Hit Points restored (for instance, losing 5 gp worth of value to restore 5 Hit Points); if the goat's cud is reduced to 0 gp,…"}, {"name": "Overhead Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The stony goat Leaps up to 12 feet vertically and 20 feet horizontally; this movement doesn't trigger reactions."}, {"name": "Shove and Run", "type": "action", "traits": [], "cost": 1, "text": "The stony goat attempts to Shove the nearest creature and then Strides with a +20-foot circumstance bonus to Speed."}, {"name": "Stone Bolt", "type": "reaction", "traits": [], "text": "Trigger The stony goat loses the Petrified condition%rEffect The stony goat's first instinct is to escape. It Strides with a +20 circumstance bonus to its Speed."}]
+"Storm Snake":
+  pack: "howl-of-the-wild-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["beast", "dragon", "electricity"]
+  ac: 21
+  hp: 70
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 15, "will": 9}
+  abilities: {"cha": 0, "con": 2, "dex": 5, "int": -1, "str": 3, "wis": 3}
+  speeds: {"land": 30, "fly": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 11, "Stealth": 10}
+  resistances: {"electricity": 8}
+  strikes: [{"name": "Tail", "bonus": 12, "damage": [["2d4+5", "slashing", null], ["1d4", "electricity", null]], "traits": []}]
+  actions: [{"name": "Static Shock", "type": "reaction", "traits": [], "text": "Trigger A creature touches the storm snake or damages it with an unarmed melee attack or non-reach melee weapon%rEffect The triggering enemy is shocked for 2d8 electricity damage (DC 19 Fortitude save). On a failed save, the target is Stunned 1."}, {"name": "Lightning Strike", "type": "action", "traits": [], "cost": 1, "text": "The storm snake redirects the lightning it has absorbed from storms, dealing 2d10 electricity damage to a single target within 20 feet (DC 19 Reflex save). On a failure, the target is Dazzled until the end of its next turn."}, {"name": "Static Field", "type": "action", "traits": [], "cost": 2, "text": "The storm snake gathers all static electricity in the area before releasing it in a 30-foot that deals 3d12 electricity|options:area-damage damage to all non-plant creatures (DC 19 Reflex save) and grants plant creatures 5 temporary Hit Points that last for 1 minute. Plant life in the area begins to grow significantly faster than the average for plants of their genus; in forests, fields, or otherwise floral locations, this immediately transforms the area into non-magical difficult terrain. The…"}]
+"Sunscale Serpent":
+  pack: "howl-of-the-wild-bestiary"
+  level: 14
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["beast"]
+  ac: 36
+  hp: 251
+  perception: 25
+  saves: {"fortitude": 25, "reflex": 26, "will": 28}
+  abilities: {"cha": -1, "con": 3, "dex": 4, "int": 1, "str": 8, "wis": 6}
+  speeds: {"land": 40, "fly": 40}
+  senses: ["low-light-vision", "tremorsense"]
+  skills: {"Acrobatics": 25, "Athletics": 25, "Stealth": 33, "Survival": 28}
+  immunities: ["disease", "paralyzed", "poison", "precision"]
+  resistances: {"all-damage": 14}
+  strikes: [{"name": "Jaws", "bonus": 28, "damage": [["3d8+11", "force", null]], "traits": ["magical", "reach-10", "unarmed"], "effects": ["Improved Grab"]}, {"name": "Tail", "bonus": 28, "damage": [["3d6+11", "force", null]], "traits": ["agile", "magical", "reach-15"], "effects": ["Push"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Reactive Strike (Tail Only)", "type": "reaction", "traits": []}, {"name": "Bond with Mortal", "type": "passive", "traits": ["mental", "primal"], "text": "Frequency once per day%rEffect The spirit guide spends 10 minutes to form a bond with a mortal creature. While the bond exists, the spirit guide increases their current and maximum Hit Points by 28, gains a +2 status bonus to their attack and damage rolls, and can communicate telepathically with the bonded mortal as long as the two beings are on the same plane. The spirit guide can only be bonded with one mortal at a time, and they can take this action again to end the bond or to form a new…"}, {"name": "Bonded Strike", "type": "action", "traits": [], "cost": 2, "text": "Requirements The sunscale serpent is currently Bonded with a Mortal%rEffect The sunscale serpent makes a jaws Strike. If this attack hits, the bonded mortal can spend their reaction to Strike the same target."}, {"name": "Sun's Heat", "type": "action", "traits": [], "cost": 2, "text": "The sunscale serpent Flies up to its fly Speed. All creatures directly below the spaces it moves through must succeed at a DC 31 Fortitude save or be exposed to sun's touch poison. The serpent cannot fly further than 60 feet above the target or the poison becomes too dispersed in the fall to take effect."}, {"name": "Sun's Touch", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 34 Fortitude%rMaximum Duration 6 rounds%rStage 1 6d8 poison damage and Clumsy 1 (1 round)%rStage 2 8d6 poison damage and Clumsy 2 (1 round)%rStage 3 6d10 poison damage and Fatigued (1 round)"}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, 2d10+9 force and 2d10 fire, Rupture 32"}, {"name": "Unleash the Sun", "type": "action", "traits": [], "cost": 3, "text": "Requirements The sunscale serpent is flying%rEffect The sunscale serpent Flies up to its fly Speed, then crashes to the ground, releasing a wave of heat dealing 5d10 fire|options:area-damage damage to all creatures within a 60-foot and searing their eyes with the erupting glory of its scales. Each creature in the area must attempt a DC 31 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The creature takes half damage.%rFailure The creature takes full damage and is Dazzled for…"}, {"name": "Improved Grab", "type": "free", "traits": []}, {"name": "Push", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 31, "attack": 0, "spells": {"5": ["Truespeech (Constant)"]}}]
+"Swordfish":
+  pack: "howl-of-the-wild-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["animal", "aquatic"]
+  ac: 18
+  hp: 50
+  perception: 11
+  saves: {"fortitude": 10, "reflex": 12, "will": 7}
+  abilities: {"cha": 0, "con": 1, "dex": 3, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 0, "swim": 60}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 10, "Athletics": 12}
+  strikes: [{"name": "Bill", "bonus": 12, "damage": [["1d10+5", "slashing", null]], "traits": ["sweep"]}]
+  actions: [{"name": "Warm Brain", "type": "reaction", "traits": [], "text": "Requirements The swordfish is in cold water%rTrigger The swordfish rolls initiative%rEffect The swordfish Seeks or Swims."}, {"name": "Fast Sweep", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per turn%rEffect The swordfish makes two bill Strikes against two adjacent targets, with a +1 circumstance bonus to its attack rolls."}]
+"Taldan Cave Squirrel":
+  pack: "howl-of-the-wild-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 21
+  hp: 95
+  perception: 15
+  saves: {"fortitude": 13, "reflex": 15, "will": 9}
+  abilities: {"cha": 2, "con": 5, "dex": 4, "int": -4, "str": 4, "wis": 1}
+  speeds: {"land": 30, "burrow": 40}
+  senses: ["low-light-vision", "scent", "tremorsense"]
+  skills: {"Acrobatics": 11, "Athletics": 12, "Survival": 13}
+  strikes: [{"name": "Jaws", "bonus": 15, "damage": [["2d6+4", "piercing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 13, "damage": [["2d8+4", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Gem Spit", "bonus": 15, "damage": [["2d8+6", "bludgeoning", null]], "traits": [], "effects": ["Concussive Gem"]}]
+  actions: [{"name": "Studded Cheeks", "type": "passive", "traits": [], "text": "The cave squirrel can store up to six gems in its cheeks. It typically begins combat with all six, and it loses a gem each time it uses gem spit."}, {"name": "Defensive Scream", "type": "reaction", "traits": ["auditory"], "text": "Trigger The cave squirrel rolls initiative or has taken damage before initiative%rEffect The cave squirrel lets out an ear-piercing shriek, alerting any other cave squirrels in the area to its plight. It uses Screaming Force."}, {"name": "Concussive Gem", "type": "passive", "traits": [], "text": "On a critical hit on a gem spit Strike, the target must succeed at a DC 22 Fortitude save or become Stunned 1."}, {"name": "Forage for Gems", "type": "action", "traits": [], "cost": 2, "text": "The cave squirrel dives underground in search of gems. The cave squirrel Burrows up to its Speed. It must end its movement back on the surface. During its burrow, it happens upon 1d4 #Gems cheap gems (such as salt or quartz), which it stuffs in its cheeks, up to its maximum of 6."}, {"name": "Natural Speed", "type": "passive", "traits": [], "text": "A cave squirrel isn't affected by difficult terrain from earth or stone."}, {"name": "Screaming Force", "type": "action", "traits": ["auditory", "sonic"], "cost": 1, "text": "The cave squirrel lets out a terrible scream. Non–cave squirrel creatures within 30 feet must succeed at a DC 22 Fortitude save or take 2d10 sonic|options:area-damage damage. On a critical failure, a creature is Deafened for 1 minute. The cave squirrel can't use Screaming Force again for 1d4 rounds."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Tardigrade Swarm":
+  pack: "howl-of-the-wild-bestiary"
+  level: 12
+  size: "large"
+  rarity: "common"
+  traits: ["amphibious", "animal"]
+  ac: 28
+  hp: 140
+  perception: 21
+  saves: {"fortitude": 26, "reflex": 21, "will": 19}
+  abilities: {"cha": 1, "con": 6, "dex": 4, "int": -5, "str": 2, "wis": 3}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 19, "Survival": 21}
+  immunities: ["precision", "swarm-mind"]
+  resistances: {"all-damage": 5}
+  actions: [{"name": "Eyespots", "type": "passive", "traits": [], "text": "A tardigrade swarm can't see anything beyond 30 feet."}, {"name": "Tun Marbles", "type": "passive", "traits": [], "text": "As the tardigrade swarm is damaged, the bodies of those that enter a tun state make the ground treacherous. When the tardigrade swarm drops below 70 Hit Points, the space they occupy is considered difficult terrain."}, {"name": "Stylets", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 4d8 piercing|options:area-damage damage (DC 32 Reflex save). Creatures that fail their save become Drained 1 or increase their drained condition by one, to a maximum of drained 4."}]
+"Therizinosaurus":
+  pack: "howl-of-the-wild-bestiary"
+  level: 9
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "dinosaur"]
+  ac: 27
+  hp: 210
+  perception: 18
+  saves: {"fortitude": 21, "reflex": 16, "will": 16}
+  abilities: {"cha": 0, "con": 6, "dex": 0, "int": -4, "str": 7, "wis": 3}
+  speeds: {"land": 35}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 20, "Survival": 17}
+  strikes: [{"name": "Claw", "bonus": 21, "damage": [["2d12+7", "slashing", null]], "traits": ["reach-20", "unarmed"], "effects": ["Winnowing Claws"]}]
+  actions: [{"name": "Stomp Pests", "type": "action", "traits": [], "cost": 2, "text": "The therizinosaurus stomps about, dealing 5d8 bludgeoning damage (DC 28 Reflex save) to each adjacent creature. Large or smaller creatures who fail their save are also knocked Prone."}, {"name": "Swiping Claws", "type": "action", "traits": [], "cost": 2, "text": "The therizinosaurus makes two claw Strikes against different targets. Both attacks count toward its multiple attack penalty, but do not increase the penalty until it has made both attacks."}, {"name": "Winnowing Claws", "type": "passive", "traits": [], "text": "Whenever the therizinosaurus successfully Strikes a Large or smaller creature with its claw, it pulls that creature 5 feet toward it (10 feet on a critical hit)."}]
+"Thruneosaurus Rex":
+  pack: "howl-of-the-wild-bestiary"
+  level: 17
+  size: "gargantuan"
+  rarity: "rare"
+  traits: ["beast", "devil", "dinosaur", "unholy"]
+  ac: 39
+  hp: 290
+  perception: 29
+  saves: {"fortitude": 31, "reflex": 25, "will": 29}
+  abilities: {"cha": 5, "con": 6, "dex": 3, "int": -2, "str": 10, "wis": 6}
+  speeds: {"land": 40}
+  senses: ["greater-darkvision", "scent"]
+  skills: {"Acrobatics": 30, "Athletics": 35, "Intimidation": 30}
+  immunities: ["fire"]
+  weaknesses: {"holy": 15}
+  resistances: {"physical": 15}
+  strikes: [{"name": "Jaws", "bonus": 33, "damage": [["3d12+16", "piercing", null]], "traits": ["magical", "reach-20", "unarmed"], "effects": ["Grab"]}, {"name": "Foot", "bonus": 33, "damage": [["3d10+16", "bludgeoning", null]], "traits": ["magical", "reach-15", "unarmed"]}]
+  actions: [{"name": "Frightful Presence", "type": "passive", "traits": ["aura", "divine", "emotion", "fear", "mental"], "text": "90 feet. DC 38 Will"}, {"name": "Instinctive Teleportation", "type": "reaction", "traits": ["divine", "teleportation"], "text": "Trigger The thruneosaurus takes damage from a holy effect%rEffect The thruneosaurus teleports to an open space within 60 feet it can see, along with any creatures it has swallowed whole."}, {"name": "Hellfire Blast", "type": "action", "traits": [], "cost": 2, "text": "The thruneosaurus channels sulfurous hellfire in one of three ways. The thruneosaurus chooses the effect, but it can't make the same choice in two consecutive rounds.%rBlistering Sun (divine, fire, unholy) The thruneosaurus ignites an orb of hellfire between its horns that radiates heat in a 30-foot, dealing 2d8 persistent fire damage. Choking Fumes (divine, poison, unholy) The thruneosaurus exhales a 60-foot of sulfurous smoke that deals 6d8 poison|options:area-damage damage (DC 38 Fortitude…"}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Huge, (3d12+10) bludgeoning, Rupture 40"}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Huge or smaller, foot, DC 38 Reflex"}]
+"Titanosaur":
+  pack: "howl-of-the-wild-bestiary"
+  level: 16
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "dinosaur"]
+  ac: 38
+  hp: 370
+  perception: 27
+  saves: {"fortitude": 33, "reflex": 28, "will": 29}
+  abilities: {"cha": 6, "con": 9, "dex": 4, "int": -4, "str": 10, "wis": 5}
+  speeds: {"land": 30}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 34}
+  strikes: [{"name": "Tail", "bonus": 32, "damage": [["3d8+16", "bludgeoning", null]], "traits": ["reach-30"], "effects": ["Improved Knockdown"]}, {"name": "Foot", "bonus": 32, "damage": [["3d12+16", "bludgeoning", null]], "traits": ["reach-15", "unarmed"]}]
+  actions: [{"name": "Majestic Presence", "type": "passive", "traits": ["aura", "emotion", "visual"], "text": "90 feet. Creatures of Huge size or smaller that enter the aura must attempt a DC 38 Will save. Regardless of the result of the saving throw, the creature is temporarily immune to the titanosaur's Majestic Presence for 1 hour.%rCritical Success The creature is unaffected.%rSuccess The creature is Fascinated by the titanosaur for 1 round.%rFailure The creature is fascinated for 2 rounds.%rCritical Failure The creature is fascinated for 1 minute."}, {"name": "Seismic Slam", "type": "action", "traits": [], "cost": 2, "text": "Frequency once per minute%rEffect The titanosaur rears up on its hind legs before slamming its forelegs back on the ground with a thunderous crash, creating a localized tremor with the effects of an Earthquake spell centered on itself, though the effect is non-magical. Fissures do not form under the titanosaur."}, {"name": "Sweeping Tail", "type": "action", "traits": [], "cost": 2, "text": "The titanosaur lashes its tail in a 30-foot. Creatures in the area take 8d10 bludgeoning|options:area-damage damage (DC 38 Reflex save). The momentum of the titanosaur's swing then makes it Off-Guard until the beginning of its next turn."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Huge or smaller, foot, DC 38 Reflex"}]
+"Troodon":
+  pack: "howl-of-the-wild-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal", "dinosaur"]
+  ac: 16
+  hp: 20
+  perception: 9
+  saves: {"fortitude": 4, "reflex": 8, "will": 5}
+  abilities: {"cha": 3, "con": 1, "dex": 3, "int": -4, "str": 1, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 6, "Athletics": 5, "Deception": 8, "Stealth": 8, "Survival": 7}
+  strikes: [{"name": "Jaws", "bonus": 8, "damage": [["1d8+1", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Claw", "bonus": 8, "damage": [["1d6+1", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Mimicry", "type": "action", "traits": [], "cost": 1, "text": "The troodon repeats up to twelve words it heard in the last week. If it succeeds at a Deception check against the listeners' Perception DC, the sound is indistinguishable from the original. The troodon can't duplicate voice-based abilities or spells, although it can mimic the verbal sounds of spellcasting."}, {"name": "Running Attack", "type": "action", "traits": [], "cost": 2, "text": "The troodon Strides and makes a claw Strike at any point during that movement."}]
+"Tyrafdir":
+  pack: "howl-of-the-wild-bestiary"
+  level: 11
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["beast", "fey"]
+  ac: 30
+  hp: 190
+  perception: 21
+  saves: {"fortitude": 24, "reflex": 21, "will": 18}
+  abilities: {"cha": -1, "con": 6, "dex": 4, "int": -3, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "hydra regeneration"
+  senses: ["scent"]
+  skills: {"Athletics": 23, "Deception": 21, "Survival": 22}
+  immunities: ["mental"]
+  weaknesses: {"cold-iron": 10}
+  strikes: [{"name": "Jaws", "bonus": 24, "damage": [["2d10+9", "piercing", null]], "traits": ["reach-15", "unarmed"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Hydra Regeneration", "type": "passive", "traits": [], "text": "On a failure the tyrafdir grows two illusory heads.%rThe hydra has regeneration equal to 3 × the number of heads it has. If a hydra's body is missing any heads and the remaining stumps have not been cauterized, the hydra attempts a DC 31 Fortitude save after it regains Hit Points from regeneration. On a success, one uncauterized stump regrows two heads; on a critical success, two uncauterized stumps regrow into two heads each. The hydra can never grow more than double the number of heads it…"}, {"name": "Deceptive Heads", "type": "passive", "traits": ["illusion"], "text": "A tyrafdir is cunning, if unintelligent, using illusions of regrown heads to confuse and harry opponents. When a tyrafdir fails, but does not critically fail, its Fortitude save to regrow a head, a phantasm materializes to mimic the regrowth. This creates two deceptive heads that function differently than real heads. The tyrafdir gains a deceptive jaws Strike as long as it has at least one deceptive head. Any creature that attacks a deceptive head or uses the Seek action to examine it can…"}, {"name": "Deceptive Regrowth", "type": "passive", "traits": [], "text": "A tyrafdir ordinarily has six heads. A creature can attempt to sever one of the tyrafdir's heads by specifically targeting it and dealing damage equal to the head's Hit Points. A head that is not completely severed returns to full Hit Points at the end of any creature's turn. A tyrafdir can regrow a severed head using Hydra Regeneration. A creature can prevent this regrowth by dealing fire damage to the stump, cauterizing it. Single-target fire effects need to be targeted at a specific stump,…"}, {"name": "Reactive Heads", "type": "passive", "traits": [], "text": "A hydra gains an extra reaction per round for each of its heads beyond the first, which it can use only to make Reactive Strikes. It can't use more than 1 reaction on the same triggering action, even if a creature leaves several squares within its reach, and the hydra must use a different head for each Reactive Strike it makes. Whenever one of the hydra's heads is severed, the hydra loses 1 of its extra reactions per round."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Tyrafdir Heads", "type": "passive", "traits": [], "text": "HP (head) 30, deceptive regrowth%rImmunities area damage%rWeakness cold iron 10, slashing 10"}, {"name": "Noxious Exhalation", "type": "action", "traits": [], "cost": 2, "text": "The tyrafdir breathes out a noxious mist from all of its mouths, spreading in a 20-foot that deals 4d10 poison|options:area-damage damage to creatures within the area (DC 24 Reflex save). Any creature that fails its save must attempt a DC 24 Will save or gain weakness to mental 10 and a –1 status penalty to Will saves for 24 hours. The tyrafdir can't use Noxious Exhalation again for 1d4 rounds.%rEffect: Noxious Exhalation"}]
+"Vibrant Pup Swarm":
+  pack: "howl-of-the-wild-bestiary"
+  level: 11
+  size: "huge"
+  rarity: "common"
+  traits: ["animal", "swarm"]
+  ac: 29
+  hp: 140
+  perception: 22
+  saves: {"fortitude": 24, "reflex": 21, "will": 18}
+  abilities: {"cha": -4, "con": 5, "dex": 7, "int": -5, "str": -2, "wis": 5}
+  speeds: {"land": 30, "burrow": 30}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 16}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  resistances: {"bludgeoning": 5, "piercing": 10, "slashing": 10}
+  actions: [{"name": "Feel No Pain", "type": "reaction", "traits": [], "text": "Trigger The vibrant pup swarm is critically hit by a Strike%rEffect The worker pups become insensitive to pain and leap to the front. The swarm gains 10 temporary Hit Points that last for 1 round."}, {"name": "Reflective Skin", "type": "passive", "traits": ["aura", "light", "visual"], "text": "10 feet. Other creatures in the aura are Dazzled. The aura automatically activates when the swarm is in bright light and deactivates in dim light or darkness."}, {"name": "Focused Reflection", "type": "action", "traits": ["fire", "light"], "cost": 2, "text": "Requirements The vibrant pup swarm is in bright light%rEffect The swarm simultaneously turns to focus the light in an arcing beam, dealing (6d12) fire|options:area-damage damage to all creatures in a 30-foot (DC 30 Reflex save). A creature that fails its save is also Blinded for 1 round (or 1 minute on a critical failure). The swarm can't use Focused Reflection again for 1d4 rounds."}, {"name": "Swarming Bites", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes (2d6) piercing|options:area-damage damage (DC 30 Reflex save)."}]
+"Virtuosic Lyrebird":
+  pack: "howl-of-the-wild-bestiary"
+  level: 6
+  size: "tiny"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 24
+  hp: 65
+  perception: 14
+  saves: {"fortitude": 9, "reflex": 17, "will": 14}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 3, "str": 4, "wis": 2}
+  speeds: {"land": 15, "fly": 60}
+  skills: {"Acrobatics": 15, "Arcana": 14, "Performance": 16, "Stealth": 12}
+  strikes: [{"name": "Beak", "bonus": 12, "damage": [["2d8+4", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Talon", "bonus": 12, "damage": [["2d6+4", "piercing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Counter-Melody", "type": "reaction", "traits": [], "text": "Trigger An opponent within 60 feet Casts a Spell%rEffect The virtuosic lyrebird makes a counteract check against the triggering spell (+14 counteract modifier)."}, {"name": "Arcane Harmony", "type": "action", "traits": ["arcane", "auditory"], "cost": 1, "text": "Effect The virtuosic lyrebird sings a subtle trill that others can use to embellish their magic. The next virtuosic lyrebird to Cast a Spell within 60 feet of the first lyrebird that used Arcane Harmony chooses one of the following two benefits, after which the Arcane Harmony ends.%rThe spell gains a +2 status bonus to damage per spell rank. One target of the spell takes a –2 status penalty to saves against the spell."}, {"name": "Spell Mimicry", "type": "free", "traits": [], "text": "Frequency once per day%rRequirements A creature Casts a Spell of 3rd rank or lower since the end of the virtuosic lyrebird' s last turn, and the virtuosic lyrebird heard the incantation for the spell%rEffect The virtuosic lyrebird learns the spell enough to mimic and cast it this turn, using as many actions as the original spell took."}, {"name": "Spellsong Casting", "type": "passive", "traits": [], "text": "The virtuosic lyrebird's exquisite vocal control lets it cast spells purely through its song. While it must be able to vocalize to Cast a Spell, it doesn't need to gesture, removing the manipulate trait from any spell that it casts. If it Casts a Spell with the linguistic trait (usually with its Spell Mimicry), it can Cast that Spell in Common, even though the bird doesn't truly understand the language."}]
+  spellcasting: [{"name": "Arcane Spontaneous Spells", "tradition": "arcane", "type": "spontaneous", "dc": 24, "attack": 16, "spells": {"0": ["Bullhorn", "Daze", "Figment", "Ignition", "Telekinetic Projectile"], "1": ["Command", "Fear", "Gust of Wind"], "2": ["Breathe Fire", "Shatter"], "3": ["Force Barrage", "Hypnotize"]}}]
+"Warden of Caverns and Burrows":
+  pack: "howl-of-the-wild-bestiary"
+  level: 22
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["beast", "earth"]
+  ac: 45
+  hp: 500
+  perception: 36
+  saves: {"fortitude": 39, "reflex": 36, "will": 33}
+  abilities: {"cha": 9, "con": 10, "dex": 8, "int": 6, "str": 12, "wis": 8}
+  speeds: {"land": 40, "burrow": 40}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 42, "Intimidation": 37, "Stealth": 37, "Subterranean Lore": 35}
+  immunities: ["fire"]
+  weaknesses: {"cold": 20}
+  resistances: {"physical": 10, "sonic": 20}
+  strikes: [{"name": "Horned Crown", "bonus": 41, "damage": [["4d12+22", "piercing", null]], "traits": ["magical", "reach-10"]}, {"name": "Mandible", "bonus": 41, "damage": [["4d10+22", "bludgeoning", null]], "traits": ["agile", "magical", "reach-15"], "effects": ["Improved Grab"]}, {"name": "Chirp", "bonus": 33, "damage": [["4d10+18", "sonic", null]], "traits": ["magical"]}, {"name": "Magma Jet", "bonus": 33, "damage": [["4d8+13", "fire", null], ["2d6", "fire", "persistent"]], "traits": ["magical"], "range": 60, "effects": ["Obsidian Cage"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Darkvision", "type": "passive", "traits": []}, {"name": "Voice of Nature", "type": "passive", "traits": [], "text": "Though the Wardens of the Wild do not speak in words, they can communicate complex concepts flawlessly and wordlessly with any animal, beast, plant, or other creature of the natural world through prolonged eye contact. Sapient creatures with strong ties to the natural world, such as animal instinct barbarians or druids who speak the Wildsong, can somewhat understand a Warden of the Wild, though the meaning can be vague."}, {"name": "Warden's Crown", "type": "passive", "traits": [], "text": "A Warden of the Wild's horned crown commands respect from wild creatures. Wild creatures native to a warden's biome automatically improve their attitude toward it by one step (up to friendly) and typically do not take hostile actions towards each other while in the warden's presence."}, {"name": "+1 To All Saves vs. Primal", "type": "passive", "traits": []}, {"name": "Magmatic Reflex", "type": "reaction", "traits": [], "text": "Trigger The warden is targeted with an attack%rEffect The warden issues a spray of magma as they jump away from danger. This spray deals 6d12 fire damage to all adjacent creatures (DC 42 Reflex save). They then Leap or Step away, gaining a +2 circumstance bonus to their AC against the triggering attack."}, {"name": "Bury Beneath Stone", "type": "action", "traits": ["attack", "primal"], "cost": 1, "text": "Requirements The warden has a creature Grabbed%rEffect The warden attempts to wedge a creature they have grabbed in their mandibles within a crack in the earth that opens beneath them. The warden attempts an Athletics check against the grabbed creature's Reflex DC. If they succeed, they bury the creature in the ground. The creature takes 10d10 bludgeoning damage. It is also Restrained, Slowed 1, and has to hold its breath or start suffocating until it Escapes. If the creature is still buried at…"}, {"name": "Called to Depths", "type": "passive", "traits": [], "text": "The depths call to the warden, especially as they move through the air. When they Long Jump, they can use any unused movement from the Long Jump to Burrow. Additionally, the warden can Burrow through any earthen matter, including rock. When they do so, they move at their full burrow Speed."}, {"name": "Erupting Jump", "type": "action", "traits": ["primal"], "cost": 2, "text": "The warden draws out a stream of lava, then jumps off the solidifying mass as it cools. The warden Leaps up to twice their Speed. When they land, the force of the impact deals 6d12 bludgeoning|options:area-damage damage to all creatures within a 15-foot with a DC 42 Fortitude save. On a critical failure, the creature is also pushed 10 feet away from the warden."}, {"name": "Obsidian Cage", "type": "passive", "traits": [], "text": "Rapidly cooling obsidian clings to the target's body and stiffens around their limbs. The target must attempt a DC 42 Reflex save. On a failure, the target is Immobilized until they escape dc=42. On a critical failure, the target is Off-Guard for as long as they remain immobilized."}, {"name": "Vibratory Excavation", "type": "action", "traits": ["manipulate", "primal"], "cost": 2, "text": "The warden screeches with a resonant call that tears apart earth and stone. They create a 10-foot-square, 50-foot-deep pit in earthen material or stone within 60 feet."}, {"name": "Wall Cling", "type": "passive", "traits": [], "text": "The Warden of Caverns and Burrows clings to surfaces with their segmented feet. They do not need to use a hand to hold on to walls or ceilings."}]
+"Warden of Forests and Meadows":
+  pack: "howl-of-the-wild-bestiary"
+  level: 22
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["beast", "wood"]
+  ac: 48
+  hp: 435
+  perception: 36
+  saves: {"fortitude": 34, "reflex": 42, "will": 36}
+  abilities: {"cha": 12, "con": 8, "dex": 10, "int": 11, "str": 7, "wis": 8}
+  speeds: {"land": 60, "climb": 30}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 40, "Deception": 44, "Diplomacy": 40, "Intimidation": 42, "Nature": 36, "Society": 39, "Stealth": 42, "Survival": 36, "Thievery": 40}
+  strikes: [{"name": "Jaws", "bonus": 38, "damage": [["4d10+15", "piercing", null]], "traits": ["finesse", "magical", "reach-15", "unarmed"]}, {"name": "Horned Crown", "bonus": 40, "damage": [["4d8+15", "piercing", null], ["2d6", "poison", "persistent"]], "traits": ["finesse", "magical", "reach-10"]}, {"name": "Claw", "bonus": 40, "damage": [["4d6+15", "slashing", null]], "traits": ["agile", "finesse", "magical", "reach-15", "unarmed"]}, {"name": "Fox's Laughter", "bonus": 40, "damage": [["4d10", "sonic", null], ["3d6", "mental", null]], "traits": ["magical"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Scent (Imprecise) 1 mile", "type": "passive", "traits": []}, {"name": "Voice of Nature", "type": "passive", "traits": [], "text": "Though the Wardens of the Wild do not speak in words, they can communicate complex concepts flawlessly and wordlessly with any animal, beast, plant, or other creature of the natural world through prolonged eye contact. Sapient creatures with strong ties to the natural world, such as animal instinct barbarians or druids who speak the Wildsong, can somewhat understand a Warden of the Wild, though the meaning can be vague."}, {"name": "Warden's Crown", "type": "passive", "traits": [], "text": "A Warden of the Wild's horned crown commands respect from wild creatures. Wild creatures native to a warden's biome automatically improve their attitude toward it by one step (up to friendly) and typically do not take hostile actions towards each other while in the warden's presence."}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 To All Saves vs. Primal", "type": "passive", "traits": []}, {"name": "Wild Trickery", "type": "reaction", "traits": ["mental", "primal"], "text": "Trigger An enemy within 60 feet targets the warden with an attack, spell, or other ability%rEffect The triggering creature must attempt a DC 45 Will save. If it fails, the warden redirects the ability to target a different creature in range with a burst of mental laughter; this has no effect if there are no other eligible targets. The triggering creature is then temporarily immune for 24 hours unless it critically failed."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The warden transforms his size to Tiny, Small, Medium, or Huge (changing his reach to 0 feet for Tiny, 5 feet for Medium or Large, and 10 feet for Huge). The warden retains his shape but can change his color to any seasonal array."}, {"name": "Forest Passage", "type": "passive", "traits": [], "text": "The Warden of Forests and Meadows ignores difficult terrain and greater difficult terrain from non-magical foliage."}, {"name": "Fox's Wager", "type": "action", "traits": ["concentrate", "mental", "primal"], "cost": 1, "text": "The warden grants a boon to a willing creature he can see other than himself, requesting that the creature promise to use the granted power to destroy or undermine the creations of civilization. The target gains a +1 status bonus to attack rolls and a +5 status bonus to damage against constructs, objects, and structures constructed by humanoids. It also gains a +2 status bonus to Stealth checks against humanoids. The warden can have only one wager granted at a time. The wager ends if the target…"}, {"name": "Idyllic Panorama", "type": "action", "traits": ["concentrate", "primal"], "cost": 1, "text": "Frequency once per hour%rEffect The warden creates an area of peaceful calm. This is identical to a 5th-rank Mirage depicting a peaceful meadow or forest, except the area is a 200-foot.%rWhile within the area of an Idyllic Panorama, the warden has significant control over the senses of creatures within the area and can cast Mislead and 2nd-rank Silence at will."}, {"name": "Magical Pounce", "type": "action", "traits": [], "cost": 1, "text": "The warden Strides up to his Speed, Leaps up to his Speed, or casts Translocate; at the end of that movement, the warden Strikes. If the warden began this action Hidden, he remains hidden until after this ability's Strike."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The warden deals an additional 3d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 45, "attack": 41, "spells": {"0": ["Figment", "Light"], "4": ["Translocate (At Will)"], "7": ["Truespeech (Constant)", "Veil of Privacy (Constant)"], "10": ["Manifestation", "Petal Storm"]}}]
+"Warden of Oceans and Rivers":
+  pack: "howl-of-the-wild-bestiary"
+  level: 22
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["aquatic", "beast", "water"]
+  ac: 47
+  hp: 540
+  perception: 39
+  saves: {"fortitude": 39, "reflex": 36, "will": 33}
+  abilities: {"cha": 6, "con": 12, "dex": 9, "int": 6, "str": 10, "wis": 8}
+  speeds: {"land": 0, "swim": 100}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 37, "Athletics": 40, "Intimidation": 36, "Nature": 39, "Stealth": 42, "Survival": 42}
+  immunities: ["controlled", "emotion", "mental", "poison", "precision"]
+  weaknesses: {"electricity": 15}
+  resistances: {"bludgeoning": 20, "cold": 20}
+  strikes: [{"name": "Horned Crown", "bonus": 41, "damage": [["2d8+15", "cold", null], ["2d8+15", "poison", null]], "traits": ["magical", "reach-10"]}, {"name": "Tentacle", "bonus": 43, "damage": [["4d10+16", "bludgeoning", null]], "traits": ["agile", "magical", "unarmed"], "effects": ["Grasp Of The Deep"]}]
+  actions: [{"name": "Scent (Imprecise) 200 feet", "type": "passive", "traits": []}, {"name": "Darkvision", "type": "passive", "traits": []}, {"name": "Voice of Nature", "type": "passive", "traits": [], "text": "Though the Wardens of the Wild do not speak in words, they can communicate complex concepts flawlessly and wordlessly with any animal, beast, plant, or other creature of the natural world through prolonged eye contact. Sapient creatures with strong ties to the natural world, such as animal instinct barbarians or druids who speak the Wildsong, can somewhat understand a Warden of the Wild, though the meaning can be vague."}, {"name": "Warden's Crown", "type": "passive", "traits": [], "text": "A Warden of the Wild's horned crown commands respect from wild creatures. Wild creatures native to a warden's biome automatically improve their attitude toward it by one step (up to friendly) and typically do not take hostile actions towards each other while in the warden's presence."}, {"name": "+1 To All Saves vs. Primal", "type": "passive", "traits": []}, {"name": "Bioluminescent Maelstrom", "type": "passive", "traits": ["aura", "primal", "visual", "water"], "text": "30 feet. DC 45 Will%rThe warden's wrath conjures a dazzling storm around them that makes the area difficult terrain. Creatures that enter the storm must attempt a Will save. A creature that succeeds at this save is temporarily immune to the luring visuals for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature is Dazzled for 1 round, and for the first action on its next turn, the creature must use a single action to move as close to the warden as possible.%rCritical Failure The…"}, {"name": "All Are One", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per turn%rEffect The warden attracts organisms that extend their influence. The area of bioluminescent maelstrom and the reach of their tentacle Strike increase by 10 feet for 1 minute, to a maximum of an additional 30 feet."}, {"name": "Arctic Embrace", "type": "action", "traits": ["cold"], "cost": 2, "text": "All creatures in the warden's bioluminescent maelstrom take 10d6 cold damage (DC 45 Fortitude save). On a failure, the creature is also Slowed 1 for 1 round."}, {"name": "Grasp of the Deep", "type": "passive", "traits": [], "text": "Creatures struck by one of the warden's tentacles gain cold weakness 10 and take a –2 status penalty to Fortitude saves for 1 round.%rEffect: Grasp of the Deep"}, {"name": "I Am The Tide", "type": "action", "traits": ["primal", "water"], "cost": 2, "text": "The warden creates three lines of rushing water, each 10 feet wide and 120 feet long. Creatures in the area take 18d8 bludgeoning|options:area-damage damage (DC 45 Fortitude save). The warden can either push or pull, and all creatures that fail this save move up to 40 feet in the direction chosen. The warden can't use I Am The Tide again for 1d4 rounds."}, {"name": "What Lurks Beneath", "type": "action", "traits": [], "cost": 3, "text": "The warden attacks with their tentacles six times."}]
+"Warden of Peaks and Skies":
+  pack: "howl-of-the-wild-bestiary"
+  level: 22
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["air", "beast"]
+  ac: 48
+  hp: 445
+  perception: 40
+  saves: {"fortitude": 36, "reflex": 40, "will": 38}
+  abilities: {"cha": 8, "con": 9, "dex": 12, "int": 6, "str": 8, "wis": 10}
+  speeds: {"land": 60, "fly": 240}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 42, "Diplomacy": 34, "Medicine": 38, "Nature": 40, "Survival": 38, "Bird Lore": 38, "Mountain Lore": 38}
+  immunities: ["electricity"]
+  resistances: {"fire": 15, "cold": 15}
+  strikes: [{"name": "Beak", "bonus": 41, "damage": [["4d12+16", "piercing", null]], "traits": ["finesse", "magical", "reach-10", "unarmed"]}, {"name": "Horned Crown", "bonus": 41, "damage": [["4d8+16", "piercing", null]], "traits": ["agile", "finesse", "magical", "reach-15"]}, {"name": "Gale Blast", "bonus": 39, "damage": [["2d8+16", "bludgeoning", null], ["2d8", "electricity", null]], "traits": ["air", "magical"], "range": 90}]
+  actions: [{"name": "Scent (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Darkvision", "type": "passive", "traits": []}, {"name": "Stormsight", "type": "passive", "traits": [], "text": "Wind, precipitation, and clouds don't impair the warden's vision; she ignores the Concealed condition from storms, mist, precipitation, and the like."}, {"name": "Voice of Nature", "type": "passive", "traits": [], "text": "Though the Wardens of the Wild do not speak in words, they can communicate complex concepts flawlessly and wordlessly with any animal, beast, plant, or other creature of the natural world through prolonged eye contact. Sapient creatures with strong ties to the natural world, such as animal instinct barbarians or druids who speak the Wildsong, can somewhat understand a Warden of the Wild, though the meaning can be vague."}, {"name": "Warden's Crown", "type": "passive", "traits": [], "text": "A Warden of the Wild's horned crown commands respect from wild creatures. Wild creatures native to a warden's biome automatically improve their attitude toward it by one step (up to friendly) and typically do not take hostile actions towards each other while in the warden's presence."}, {"name": "+1 To All Saves vs. Primal", "type": "passive", "traits": []}, {"name": "Crystal Exhalation", "type": "action", "traits": ["cold", "primal"], "cost": 2, "text": "The warden breathes, creating a storm of ice crystals. All creatures in a 60-foot take 4d8 cold damage and 4d8 slashing damage (DC 44 Reflex save). On a critical failure, a creature is Immobilized by ice. The warden then can't use Crystal Exhalation for 1d4 rounds."}, {"name": "Orogenesis Dive", "type": "action", "traits": ["air", "earth", "move", "primal"], "cost": 3, "text": "The warden flies 240 feet upward in a straight line. As she does so, the ground in a 30-foot from her starting point rises into a 120-foot-high rocky pillar topped with a mountainous peak that becomes greater difficult terrain. All other creatures in that burst must succeed at a DC 44 Fortitude save or be Fatigued by the sudden altitude shift. The warden then flies straight downward to the center of the pillar's peak, driving her horns into the stone. As she lands, the newly formed mountains…"}, {"name": "Song of the Skies", "type": "action", "traits": ["air", "auditory", "primal"], "cost": 1, "text": "The warden trills a cheerful birdsong, granting a boon to all allies within 60 feet and evoking the freedom of flight. For the next minute, affected allies gain Unfettered Movement, a fly speed of 60 feet, and treat creatures on the ground as Off-Guard when they are airborne.%rEffect: Song of the Skies"}, {"name": "Tempest Downdrafts", "type": "free", "traits": ["air", "primal"], "text": "Trigger The warden Flies%rEffects The warden's flapping wings generate powerful gusts that blow smaller creatures off course. A 60-foot, centered on the warden, fills with lightning-pierced winds until the beginning of the warden's next turn. Creatures must succeed at a DC 42 Reflex save to take any move action within the winds; flying creatures use the outcome one degree of success worse than what they roll. Creatures who critically fail are blown 30 feet away from the warden, knocked Prone,…"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 45, "attack": 0, "spells": {"4": ["Unfettered Movement (Constant)"], "9": ["Soothing Spring"], "10": ["Revival", "Wrathful Storm"]}}]
+"Weremoose":
+  pack: "howl-of-the-wild-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["beast", "human", "humanoid", "werecreature"]
+  ac: 19
+  hp: 60
+  perception: 6
+  saves: {"fortitude": 11, "reflex": 8, "will": 6}
+  abilities: {"cha": 1, "con": 4, "dex": 1, "int": -1, "str": 4, "wis": 1}
+  speeds: {"land": 30}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 9, "Intimidation": 8}
+  weaknesses: {"silver": 5}
+  strikes: [{"name": "Greataxe", "bonus": 11, "damage": [["1d12+6", "slashing", null]], "traits": ["sweep"]}, {"name": "Hatchet", "bonus": 11, "damage": [["1d6+6", "slashing", null]], "traits": ["agile", "sweep"]}, {"name": "Hatchet", "bonus": 8, "damage": [["1d6+6", "slashing", null]], "traits": ["agile", "thrown-10"]}]
+  actions: [{"name": "Deer Empathy", "type": "passive", "traits": ["primal"], "text": "A weremoose can communicate with deer, including moose."}, {"name": "Cold Adaptation", "type": "passive", "traits": [], "text": "The weremoose treats environmental cold effects as if they were one step less extreme."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Medium human with fist +11 for 1d4+6 bludgeoning,%ror%rLarge moose with antler and hoof +11 for 1d8+6 bludgeoning."}, {"name": "Curse of the Weremoose", "type": "passive", "traits": ["curse", "primal"], "text": "This curse affects only humanoids.%rSaving Throw DC 17 Fortitude%rOn each full moon, the cursed creature must succeed at another Fortitude save or turn into the same kind of werecreature until dawn.%rThe creature is under the GM's control and goes on a rampage for half the night before falling unconscious until dawn."}, {"name": "Moon Frenzy", "type": "passive", "traits": ["polymorph", "primal"], "text": "When a full moon appears in the night sky, the werecreature must enter hybrid form, can't Change Shape thereafter, becomes one size larger, increases its reach by 5 feet, and increases the damage of its antlers by 2.%rWhen the moon sets or the sun rises, the werecreature returns to humanoid form and is Fatigued for 2d4 hours.%rEffect: Moon Frenzy"}, {"name": "Thundering Charge", "type": "action", "traits": [], "cost": 2, "text": "The weremoose Strides twice and then makes an antler Strike. A Medium or smaller creature damaged by this attack must succeed at a DC 17 Fortitude save or be Stunned 1."}]
+"Wereshark":
+  pack: "howl-of-the-wild-bestiary"
+  level: 4
+  size: "large"
+  rarity: "common"
+  traits: ["beast", "human", "humanoid", "werecreature"]
+  ac: 21
+  hp: 75
+  perception: 10
+  saves: {"fortitude": 12, "reflex": 11, "will": 8}
+  abilities: {"cha": -1, "con": 4, "dex": 3, "int": -1, "str": 4, "wis": 2}
+  speeds: {"land": 0}
+  senses: ["scent"]
+  skills: {"Athletics": 12, "Stealth": 9, "Survival": 8}
+  weaknesses: {"silver": 5}
+  strikes: [{"name": "Trident", "bonus": 14, "damage": [["1d8+7", "piercing", null]], "traits": [], "effects": ["Fish Fork"]}, {"name": "Trident", "bonus": 13, "damage": [["1d8+7", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Blood Scent", "type": "passive", "traits": [], "text": "The wereshark can smell blood in the water from up to 1 mile away."}, {"name": "Shark Empathy", "type": "passive", "traits": ["primal"], "text": "A wereshark can communicate with sharks."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Medium human with fist +14 for 1d4+7 bludgeoning,%ror Large shark with jaws +14 for 1d12+7 piercing, no land Speed, and swim Speed 40 feet.%rThe wereshark doesn't have the amphibious trait in human or shark form and has the aquatic trait in shark form."}, {"name": "Curse of the Wereshark", "type": "passive", "traits": ["curse", "primal"], "text": "This curse affects only humanoids.%rSaving Throw DC 18 Fortitude%rOn each full moon, the cursed creature must succeed at another Fortitude save or turn into the same kind of werecreature until dawn.%rThe creature is under the GM's control and goes on a rampage for half the night before falling unconscious until dawn."}, {"name": "Fish Fork", "type": "action", "traits": [], "cost": 1, "text": "Requirements The wereshark critically hit with a trident Strike on their most recent action this turn%rEffect The wereshark digs their trident deep within their target, skewering it before taking a massive bite. The target of the Strike becomes Grabbed (escape dc=18) and takes 1d4 bleed damage, and the wereshark attempts a jaws Strike against it. The wereshark can't use their trident while they have a creature grabbed with it, but they can pull the trident free with a single action that has the…"}, {"name": "Moon Frenzy", "type": "passive", "traits": ["polymorph", "primal"], "text": "When a full moon appears in the night sky, the werecreature must enter hybrid form, can't Change Shape thereafter, becomes one size larger, increases its reach by 5 feet, and increases the damage of its jaws by 2.%rWhen the moon sets or the sun rises, the werecreature returns to humanoid form and is Fatigued for 2d4 hours.%rEffect: Moon Frenzy"}]

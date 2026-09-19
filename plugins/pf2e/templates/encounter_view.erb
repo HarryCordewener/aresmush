@@ -8,6 +8,10 @@
 <%= i %>
 <% end %>
 
+<% if trusted.any? %>
+<%= section_line("Trusted")%>
+%b%b<%= trusted.join(", ") %>
+<% end %>
 <% if has_bonuses %>
 <%= section_line("Applicable Bonuses")%>
 

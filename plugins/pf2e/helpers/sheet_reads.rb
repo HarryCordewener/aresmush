@@ -30,11 +30,18 @@ module AresMUSH
 
       # The character's rows for `collection`, from the memo when one is open.
       def self.rows(char, collection)
+        memo(char, collection) { char.send(collection).to_a }
+      end
+
+      # Anything else worth reading once. Assembling a figure asks which feats, items and conditions
+      # carry effects, which is a config lookup per feat; a sheet showing twenty figures would ask
+      # twenty times.
+      def self.memo(char, key)
         held = (Thread.current[KEY] || {})[char.object_id]
 
-        return char.send(collection).to_a unless held
+        return yield unless held
 
-        held[collection] ||= char.send(collection).to_a
+        held.key?(key) ? held[key] : held[key] = yield
       end
     end
   end

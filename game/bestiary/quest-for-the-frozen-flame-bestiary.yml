@@ -1,0 +1,1160 @@
+---
+"Animated Blade":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: -1
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 16
+  hp: 4
+  perception: 3
+  saves: {"fortitude": 3, "reflex": 6, "will": 3}
+  abilities: {"cha": -5, "con": 0, "dex": 1, "int": -5, "str": 1, "wis": 0}
+  speeds: {"land": 0, "fly": 15}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6}
+  strikes: [{"name": "Rusty Blade", "bonus": 6, "damage": [["1d4+1", "slashing", null]], "traits": ["sweep"], "effects": ["Tetanus"]}]
+  actions: [{"name": "Construct Armor (Hardness 4)", "type": "passive", "traits": [], "text": "Like normal objects, an animated blade has Hardness. This Hardness reduces any damage the blade takes by an amount equal to the Hardness. Once an animated blade is reduced to fewer than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, and its Armor Class is reduced to 14."}, {"name": "Tetanus", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 15 Fortitude%rOnset 1 week%rStage 1 Clumsy 1 (1 week)%rStage 2 Clumsy 2 and can't speak (1 day)%rStage 3 Paralyzed (1 day)%rStage 4 death"}]
+"Arboreal Tar Tree":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 9
+  size: "large"
+  rarity: "rare"
+  traits: ["evil", "plant", "undead", "unholy"]
+  ac: 28
+  hp: 175
+  perception: 18
+  saves: {"fortitude": 21, "reflex": 15, "will": 18}
+  abilities: {"cha": 4, "con": 6, "dex": 3, "int": 2, "str": 6, "wis": 4}
+  speeds: {"land": 20}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Intimidation": 18, "Nature": 15, "Stealth": 18}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "sleep"]
+  weaknesses: {"fire": 10}
+  resistances: {"bludgeoning": 10, "piercing": 10}
+  strikes: [{"name": "Thorny Branch", "bonus": 19, "damage": [["2d8+11", "slashing", null]], "traits": ["reach-15"], "effects": ["Improved Grab"]}, {"name": "Rock", "bonus": 19, "damage": [["2d6+10", "bludgeoning", null]], "traits": ["brutal"], "range": 60}]
+  actions: [{"name": "Axe Vulnerability", "type": "passive", "traits": [], "text": "An arboreal tar tree takes 10 additional from axes."}, {"name": "Spawn Tar Tree", "type": "passive", "traits": ["primal"], "text": "A living arboreal or animated tree slain by a tar tree's thorny branch Strike rises as a tar tree spawn after 1d4 rounds. This tar tree spawn is under the command of the tar tree that killed it. It doesn't have primal innate spells or the spawn tar tree ability and becomes Clumsy 2 for as long as it's a tar tree spawn. If the creator of the tar tree spawn dies, the tar tree spawn becomes a full-fledged, autonomous tar tree; it regains its free will, gains primal innate spells and the spawn tar…"}, {"name": "Throw Rock", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "divine", "type": "innate", "dc": 25, "attack": 15, "spells": {"3": ["Earthbind", "Slow", "Wall of Thorns"], "5": ["Black Tentacles", "Cloudkill"]}}]
+"Ardissa Prendergant":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 18
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 6, "reflex": 9, "will": 11}
+  abilities: {"cha": 0, "con": 1, "dex": 2, "int": 4, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 7, "Arcana": 9, "Crafting": 9, "Nature": 9, "Stealth": 9, "Survival": 7}
+  strikes: [{"name": "Rapier", "bonus": 11, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse"]}, {"name": "Heavy Crossbow", "bonus": 11, "damage": [["1d10", "piercing", null]], "traits": ["reload-2"], "range": 120}]
+  actions: [{"name": "Mesmerizing Sigil", "type": "reaction", "traits": ["arcane", "concentrate"], "text": "Trigger A creature targets Ardissa with a melee Strike%rEffect Ardissa traces a dizzying symbol in the air. The creature must attempt a DC 20 Will save. The creature is then temporarily immune for 1 minute.%rSuccess The creature is unaffected.%rFailure Until the beginning of her next turn, Ardissa is Concealed from the creature.%rCritical Failure Until the end of her next turn, Ardissa is Hidden from the creature."}, {"name": "Drain Bonded Item", "type": "free", "traits": ["arcane"], "text": "Frequency twice per day%rEffect Ardissa regains the ability to cast one spell she has already cast. She must still Cast the Spell normally. She can use this ability once to recover a 1st-rank spell and once to recover a 2nd-rank spell. She typically uses this ability to recover her Force Barrage spells."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 20, "attack": 12, "spells": {"0": ["Dancing Lights", "Daze", "Mage Hand", "Ray of Frost", "Shield"], "1": ["Magic Missile", "Ray of Enfeeblement", "Summon Animal", "True Strike"], "2": ["Obscuring Mist"]}}, {"name": "Wizard School Spell", "tradition": "arcane", "type": "focus", "dc": 20, "attack": 12, "spells": {"1": ["Hand of the Apprentice"]}}]
+"Ardissa's Porter":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "rare"
+  traits: ["dwarf", "evil", "humanoid"]
+  ac: 14
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 9, "reflex": 3, "will": 6}
+  abilities: {"cha": 1, "con": 2, "dex": 1, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Intimidation": 3}
+  strikes: [{"name": "Cargo Hook", "bonus": 7, "damage": [["1d4+2", "piercing", null]], "traits": ["agile", "fatal-d8"]}]
+  actions: [{"name": "Stumbling Snag", "type": "reaction", "traits": [], "text": "Requirements The porter is holding a cargo hook%rTrigger An enemy within the porter's reach critically misses the porter with a melee Strike%rEffect The porter moves the enemy 5 feet in a direction of the porter's choosing."}]
+"Ashen Swale":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid"]
+  ac: 23
+  hp: 120
+  perception: 13
+  saves: {"fortitude": 18, "reflex": 12, "will": 15}
+  abilities: {"cha": 4, "con": 3, "dex": 1, "int": 2, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 12, "Arcana": 15, "Deception": 17, "Intimidation": 17, "Nature": 15, "Survival": 13, "Thievery": 12}
+  strikes: [{"name": "Spear", "bonus": 14, "damage": [["1d6+4", "piercing", null]], "traits": ["magical", "thrown-20"]}]
+  actions: [{"name": "Siphon Life", "type": "reaction", "traits": ["concentrate", "primal", "vitality"], "text": "Trigger A creature within 30 feet uses a spell or ability with the healing trait that restores Hit Points or is the target of a spell or ability with the healing trait that restores Hit Points%rEffect Ashen Swale seizes upon the healing magic, drawing a portion of it into himself instead of the intended target. The healing effect restores 10 fewer Hit Points to one of its targets and Ashen Swale is restored 10 Hit Points or the total amount of healing, whichever is less."}, {"name": "Corpse Puppet", "type": "action", "traits": ["concentrate", "incapacitation", "manipulate", "primal"], "cost": 2, "text": "Ashen Swale seizes control of the body of a creature within 30 feet that is dead or Unconscious. The target must attempt a Will save. Dead creatures automatically fail this save. On a success, the target is permanently immune to Corpse Puppet. On a failure, the target is controlled by Ashen Swale. It gains the minion trait and can act as though it were alive and conscious as long as it's controlled by Ashen Swale. Controlling each target requires Ashen Swale to take an action to Command a…"}, {"name": "Hasten Eidolon", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Ashen Swale focuses on the link he shares with Idovik to quicken his eidolon's actions. Idovik is Quickened 1 until the beginning of Ashen Swale's next turn."}, {"name": "Manifest Eidolon", "type": "action", "traits": ["concentrate", "magical", "manipulate", "teleportation"], "cost": 3, "text": "Ashen Swale summons Idovik in an adjacent open space. If Idovik was already manifested, Ashen Swale chooses whether to unmanifest Idovik or to teleport Idovik to an adjacent open space. If Idovik unmanifested at 0 Hit Points, this process takes 1 minute instead of 3 actions, but Idovik regains 1 Hit Point when he remanifests."}, {"name": "Transpose", "type": "action", "traits": ["concentrate", "manipulate", "primal", "teleportation"], "cost": 1, "text": "With a flash, Ashen Swale and Idovik switch places, each teleporting to the other's position."}]
+  spellcasting: [{"name": "Arcane Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 25, "attack": 17, "spells": {"0": ["Chill Touch", "Daze", "Electric Arc", "Forbidding Ward", "Light"], "3": ["Bind Undead", "Blindness", "Envenom Companion", "Vampiric Touch"], "4": ["Animate Dead", "Bone Spray", "Boneshaker", "Enervation"]}}, {"name": "Arcane Focus Spells", "tradition": "arcane", "type": "focus", "dc": 25, "attack": 17, "spells": {"0": ["Boost Eidolon", "Reinforce Eidolon"]}}]
+"Azi":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 24
+  hp: 97
+  perception: 19
+  saves: {"fortitude": 14, "reflex": 15, "will": 18}
+  abilities: {"cha": 4, "con": 2, "dex": 3, "int": 1, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Arcana": 13, "Deception": 16, "Diplomacy": 16, "Intimidation": 18, "Religion": 14}
+  strikes: [{"name": "Staff", "bonus": 15, "damage": [["1d6", "bludgeoning", null]], "traits": ["magical", "two-hand-d8"]}]
+  actions: [{"name": "Bloodline Magic", "type": "passive", "traits": [], "text": "When Azi casts Bind Undead, Drain Life, False Vitality, Harm, Talking Corpse, or Undeath's Blessing, either Azi gains temporary Hit Points equal to the spell's rank for 1 round, or a target takes 1 void per spell rank (if the spell already deals initial void damage, combine this with the spell's initial damage before determining weaknesses and resistances)."}, {"name": "Reach Spell", "type": "action", "traits": ["spellshape"], "cost": 1, "text": "Azi can extend the range of her spells. If the next action Azi uses is to Cast a Spell that has a range, increase that spell's range by 30 feet. If the spell normally has a range of touch, Azi extends its range to 30 feet."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 26, "attack": 18, "spells": {"0": ["Chill Touch", "Daze", "Detect Magic", "Forbidding Ward", "Guidance"], "1": ["Bane", "Fear", "Harm", "Ray of Enfeeblement"], "2": ["Bone Spray", "Dispel Magic", "False Life", "Sudden Blight"], "3": ["Bind Undead", "Blindness", "False Life", "Vampiric Touch"], "4": ["Air Walk", "Boneshaker", "Enervation", "Talking Corpse"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 26, "attack": 18, "spells": {"1": ["Undeath's Blessing"], "3": ["Drain Life"]}}]
+"Bargott":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "fey", "nymph", "plant"]
+  ac: 18
+  hp: 70
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 11, "will": 7}
+  abilities: {"cha": 4, "con": 1, "dex": 4, "int": 1, "str": 3, "wis": 2}
+  speeds: {"land": 35}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 10, "Intimidation": 11, "Nature": 11, "Stealth": 11, "Survival": 9}
+  immunities: ["emotion"]
+  weaknesses: {"cold-iron": 5}
+  strikes: [{"name": "Blighted Branch", "bonus": 11, "damage": [["1d10+7", "bludgeoning", null]], "traits": ["finesse", "magical", "reach-10"], "effects": ["Draining Impact"]}, {"name": "Claw", "bonus": 11, "damage": [["1d8+7", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Draining Impact", "type": "passive", "traits": ["primal"], "text": "When Bargott hits a creature with his blighted branch Strike, the creature must attempt a DC 20 Fortitude save. Whatever the result, the creature is immune to Bargott's draining impact for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature is Drained 1.%rCritical Failure The creature is Drained 2."}, {"name": "Impart Anguish", "type": "action", "traits": ["mental", "primal", "visual"], "cost": 2, "text": "Bargott twists his face into a visage of utter agony, sharing his anguish with those who gaze upon him. Creatures in a 15-foot take 3d6 mental|options:area-damage damage (DC 19 Will). On a critically failed save, the creature is also Stupefied 1 for 1 round."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "divine", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Tanglefoot"], "1": ["Fear"], "2": ["Darkness", "Shatter"], "4": ["Speak with Plants (Constant)"]}}]
+"Beaver":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: -1
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 8
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 4, "will": 4}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": -4, "str": 1, "wis": 2}
+  speeds: {"land": 15, "swim": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 3, "Crafting": 2, "Survival": 4}
+  strikes: [{"name": "Jaws", "bonus": 6, "damage": [["1d6+1", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Deep Breath", "type": "passive", "traits": [], "text": "A beaver can hold its breath for 15 minutes."}, {"name": "Construct Shelter", "type": "passive", "traits": [], "text": "The beaver takes 1 minute to rapidly construct a simple mound along one side of its space, which can be used to Take Cover."}, {"name": "Penetrating Bite", "type": "action", "traits": [], "cost": 2, "text": "The beaver makes a jaws Strike. The Strike ignores the first 5 Hardness of organic materials, such as rope, leather, and wood."}, {"name": "Prop", "type": "action", "traits": [], "cost": 1, "text": "The beaver stabilizes itself with its tail, gaining a +1 circumstance bonus to its Fortitude and Reflex DCs against Shove and Trip attempts until it next takes an action with the move trait."}]
+"Bone Warrior":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "human", "humanoid"]
+  ac: 21
+  hp: 65
+  perception: 11
+  saves: {"fortitude": 13, "reflex": 11, "will": 7}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": 1, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 10, "Athletics": 14, "Crafting": 9, "Intimidation": 8, "Nature": 7, "Survival": 7}
+  strikes: [{"name": "Bastard Sword", "bonus": 14, "damage": [["1d8+6", "slashing", null]], "traits": ["two-hand-d12"]}, {"name": "Fist", "bonus": 14, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Moderate Dread Ampoule", "bonus": 12, "damage": [["2d6", "mental", null], ["2", "mental", "splash"]], "traits": ["bomb", "splash"], "range": 20}, {"name": "Javelin", "bonus": 12, "damage": [["1d6+6", "piercing", null]], "traits": [], "range": 30}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Sudden Charge", "type": "action", "traits": [], "cost": 2, "text": "The bone warrior Strides twice. If they end their movement within melee reach of an enemy, the bone warrior makes a melee Strike against that enemy."}]
+"Burnbearer":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "human", "humanoid"]
+  ac: 15
+  hp: 8
+  perception: 6
+  saves: {"fortitude": 6, "reflex": 5, "will": 4}
+  abilities: {"cha": 1, "con": 2, "dex": 1, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 4, "Intimidation": 3, "Stealth": 5, "Survival": 4}
+  strikes: [{"name": "Club", "bonus": 8, "damage": [["1d6+2", "bludgeoning", null]], "traits": []}, {"name": "Torch", "bonus": 6, "damage": [["1d4", "fire", null]], "traits": []}, {"name": "Club", "bonus": 7, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["thrown-10"]}]
+  actions: [{"name": "Spurred by Death", "type": "reaction", "traits": [], "text": "Trigger An ally within 30 feet reduces a creature to 0 HP%rEffect The burnbearer Steps or Strides."}, {"name": "Torch and Go", "type": "action", "traits": [], "cost": 1, "text": "Requirements The burnbearer is flanking a creature%rEffect The burnbearer sets the distracted enemy ablaze. The burnbearer makes a torch Strike against the flanked creature, then Steps. If the burnbearer's Strike deals damage to the flanked creature, the creature also takes 1 persistent fire damage."}]
+"Burning Mammoth Commando":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "human", "humanoid"]
+  ac: 25
+  hp: 120
+  perception: 15
+  saves: {"fortitude": 17, "reflex": 15, "will": 13}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 1, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 15, "Athletics": 15, "Stealth": 17, "Survival": 15}
+  strikes: [{"name": "Hatchet", "bonus": 18, "damage": [["1d6+8", "slashing", null]], "traits": ["agile", "magical", "sweep"]}, {"name": "Hatchet", "bonus": 18, "damage": [["1d6+8", "slashing", null]], "traits": ["agile", "magical", "sweep", "thrown-10"]}]
+  actions: [{"name": "Evasion", "type": "passive", "traits": [], "text": "When the commando rolls a success on a Reflex save, they get a critical success instead."}, {"name": "Spurred by Death", "type": "reaction", "traits": [], "text": "Trigger An ally within 30 feet reduces a creature to 0 HP%rEffect The commando Interacts to draw a weapon, Steps, Strides, or uses Hunt Prey."}, {"name": "Cruel Cutter", "type": "passive", "traits": [], "text": "Burning Mammoth commandos ably carve flesh and wood with their axes. An axe the commando uses gains the reach trait and deals an additional 1d6 damage (included in the hatchet Strikes above)."}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The commando designates a single creature they can see and hear, or one they're Tracking, as their prey. The commando gains a +2 circumstance bonus to Perception checks to Seek their prey and to Survival checks to Track their prey. The first time the commando hits their designated prey in a round, they deal an additional 1d8 precision damage. The commando also ignores the penalty for making ranged attacks within the second range increment when attacking their prey. These effects last until the…"}]
+"Burning Mammoth Hunter":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "human", "humanoid"]
+  ac: 16
+  hp: 15
+  perception: 7
+  saves: {"fortitude": 4, "reflex": 7, "will": 7}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": -1, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 5, "Athletics": 4, "Nature": 5, "Stealth": 5, "Survival": 5}
+  strikes: [{"name": "Spear", "bonus": 8, "damage": [["1d6+2", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 7, "damage": [["1d6+2", "piercing", null]], "traits": ["thrown-20"]}, {"name": "Sling", "bonus": 7, "damage": [["1d6+1", "bludgeoning", null]], "traits": ["propulsive", "reload-1"], "range": 50}]
+  actions: [{"name": "Spurred by Death", "type": "reaction", "traits": [], "text": "Trigger An ally within 30 feet reduces a creature to 0 HP%rEffect The hunter Steps or Strides."}, {"name": "Muscle Slicer", "type": "passive", "traits": [], "text": "A target critically hit by a hunter's Strike is Off-Guard until the end of its next turn."}]
+"Burning Mammoth Longshield":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "human", "humanoid"]
+  ac: 15
+  hp: 20
+  perception: 8
+  saves: {"fortitude": 10, "reflex": 4, "will": 8}
+  abilities: {"cha": 1, "con": 3, "dex": 1, "int": 0, "str": 3, "wis": 1}
+  speeds: {"land": 20}
+  skills: {"Athletics": 6, "Intimidation": 6, "Survival": 6}
+  strikes: [{"name": "Spear", "bonus": 9, "damage": [["1d6+3", "piercing", null]], "traits": []}, {"name": "Shield Boss", "bonus": 9, "damage": [["1d6+3", "bludgeoning", null]], "traits": []}, {"name": "Spear", "bonus": 7, "damage": [["1d6+3", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Spurred by Death", "type": "reaction", "traits": [], "text": "Trigger An ally within 30 feet reduces a creature to 0 HP%rEffect The longshield Steps or Strides."}, {"name": "Opportunistic Defense", "type": "free", "traits": [], "text": "Trigger The longshield successfully Strikes with their shield boss%rEffect The longshield Raises their Shield."}, {"name": "Shield Shove", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rRequirements The longshield's shield is raised%rEffect The longshield rolls an Athletics check to Shove a creature in reach. If they roll a failure, they get a success instead, and if they roll a success, they get a critical success instead. The longshield's shield is lowered."}]
+"Burning Mammoth Reaver":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 8, "will": 6}
+  abilities: {"cha": 1, "con": 1, "dex": 2, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 8, "Intimidation": 7, "Nature": 8, "Survival": 8}
+  strikes: [{"name": "Battle Axe", "bonus": 11, "damage": [["1d8+4", "slashing", null]], "traits": ["sweep"], "effects": ["Cut Down"]}, {"name": "Javelin", "bonus": 9, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"]}, {"name": "Tallow Bomb", "bonus": 9, "damage": [["1d4", "fire", "persistent"], ["1", "fire", "splash"]], "traits": ["splash", "thrown-20"]}]
+  actions: [{"name": "Reaver's Howl", "type": "passive", "traits": [], "text": "When the reaver attempts an Intimidation check to Demoralize, the reaver compares the result of the Intimidation check to the Will DC of each non-Burning Mammoth creature within 30 feet, determining the effect separately for each creature. The reaver's howl ignores the usual circumstance penalty to the Intimidation check for not speaking the same language as the target."}, {"name": "Spurred by Death", "type": "reaction", "traits": [], "text": "Trigger An ally within 30 feet reduces a creature to 0 HP%rEffect The reaver Steps or Strides."}, {"name": "Cut Down", "type": "passive", "traits": [], "text": "When a reaver hits a creature with a battle axe Strike, the target must succeed at a DC 16 Fortitude save or fall Prone. If the creature critically fails its save, it takes 1d6 bludgeoning damage as it falls prone."}]
+"Cairn Wight (G4)":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "lawful", "undead", "unholy", "wight"]
+  ac: 20
+  hp: 67
+  perception: 11
+  saves: {"fortitude": 12, "reflex": 10, "will": 11}
+  abilities: {"cha": 3, "con": 4, "dex": 2, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 11, "Religion": 9, "Stealth": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Club", "bonus": 14, "damage": [["1d6+7", "bludgeoning", null]], "traits": [], "effects": ["Drain Life"]}, {"name": "Claw", "bonus": 14, "damage": [["1d6+7", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Drain Life"]}, {"name": "Club", "bonus": 12, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["thrown-10"]}]
+  actions: [{"name": "Final Spite", "type": "reaction", "traits": [], "text": "Trigger The cairn wight is reduced to 0 Hit Points%rEffect The cairn wight makes a Strike before being destroyed. It doesn't gain any temporary HP from drain life on this Strike."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Cairn Wight Spawn", "type": "passive", "traits": ["divine"], "text": "A living humanoid slain by a cairn wight's weapon or claw Strike rises as a spawned wight after 1d4 rounds. This spawned wight is under the command of the cairn wight that killed it. It doesn't have drain life or cairn wight spawn and is Clumsy 2 for as long as it is a spawned wight.%rIf its creator dies, the spawned wight becomes a full-fledged, autonomous cairn wight; it regains its free will, gains drain life and cairn wight spawn, and is no longer clumsy."}, {"name": "Drain Life", "type": "passive", "traits": ["divine"], "text": "When the cairn wight damages a living creature with a melee Strike, using an unarmed attack or its bound weapon, the cairn wight gains 5 temporary Hit Points and the creature must succeed at a DC 18 Fortitude save or become Drained 1. Further damage dealt by the cairn wraith increases the drained condition value by 1 on a failed save, to a maximum of drained 4.%rEffect: Drain Life"}, {"name": "Funereal Dirge", "type": "action", "traits": ["auditory", "divine", "emotion", "fear", "mental"], "cost": 2, "text": "The cairn wight chants a low, haunting melody. Living creatures within 50 feet must attempt a DC 21 Will save.%rThe cairn wight can't chant a new Funereal Dirge for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature is Frightened 1.%rFailure The creature is Frightened 2.%rCritical Failure The creature is Frightened 2 and takes a –2 status penalty to saving throws against drain life.%rEffect: Funereal Dirge"}]
+"Calcifda":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["earth", "evil", "fey", "lawful"]
+  ac: 31
+  hp: 140
+  perception: 21
+  saves: {"fortitude": 19, "reflex": 17, "will": 23}
+  abilities: {"cha": 3, "con": 5, "dex": 4, "int": 7, "str": 5, "wis": 5}
+  speeds: {"land": 25, "burrow": 25}
+  skills: {"Athletics": 19, "Nature": 19, "Occultism": 21, "Gem Lore": 21}
+  immunities: ["paralyzed", "petrified", "visual"]
+  weaknesses: {"cold-iron": 5}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Claw", "bonus": 22, "damage": [["3d6+11", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Coal Curse"]}]
+  actions: [{"name": "Gemsight", "type": "passive", "traits": [], "text": "As long as Calcifda holds a gemstone, she can see through the gem with darkvision and the effects of Truesight. When she uses her Aeon Stone (Pearlescent Pyramid) for this ability, she also knows the wounded and dying value of every creature she sees. Calcifda is blind when she isn't holding a gem in her hand."}, {"name": "Light Sickness", "type": "passive", "traits": [], "text": "Calcifda is Sickened 1 in bright light."}, {"name": "Coal Curse", "type": "passive", "traits": ["curse", "primal"], "text": "Wounds dealt by Calcifda's claws stiffen flesh and turn the blood that runs from them into tar. Each time a creature is damaged by Calcifda's claw Strike, it must succeed at a DC 29 Fortitude save or become permanently Slowed 1 (slowed 2 on a critical failure) as its flesh stiffens like stone. If a creature is reduced to 0 Hit Points from Calcifda's claw Strike and fails the saving throw against coal curse, it's petrified and turned to coal. A creature that spends 8 hours in direct sunlight can…"}, {"name": "Earth Glide", "type": "passive", "traits": [], "text": "Calcifda can Burrow through any earthen matter, including rock. When she does so, she moves at her full burrow Speed, leaving no tunnels or signs of her passing."}, {"name": "Gem Gaze", "type": "action", "traits": ["emotion", "fear", "mental", "primal"], "cost": 1, "text": "Calcifda holds aloft a gem and gazes into the mind of a creature within 30 feet, infusing the creature's thoughts with visions of their body slowly turning to coal. The creature must succeed at a DC 29 Will save or become Frightened 1 (frightened 2 on a critical failure)."}, {"name": "Lashing Stone", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Frequency once per round%rEffect Calcifda makes a claw Strike that originates from any stony or tarry surface within 60 feet. A creature that fails its Fortitude save against coal curse from this Strike increases its slowed value by 1 (Slowed 2 on a failed save, slowed 3 on a critical failure)."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If a reaction would disrupt Calcifda's spellcasting action, she attempts a DC 15 Flat. On a success, the action isn't disrupted."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "divine", "type": "innate", "dc": 29, "attack": 19, "spells": {"0": ["Know Direction", "Read Aura"], "2": ["Augury", "Undetectable Alignment"], "3": ["Clairaudience", "Earthbind"], "4": ["Clairvoyance", "Read Omens", "Shape Stone"], "5": ["Wall of Stone"]}}]
+"Castoroides":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 19
+  hp: 45
+  perception: 10
+  saves: {"fortitude": 12, "reflex": 6, "will": 8}
+  abilities: {"cha": 1, "con": 3, "dex": 1, "int": -4, "str": 4, "wis": 3}
+  speeds: {"land": 20, "swim": 20}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 10, "Crafting": 7, "Survival": 8}
+  strikes: [{"name": "Jaws", "bonus": 12, "damage": [["2d6+4", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Deep Breath", "type": "passive", "traits": [], "text": "A castoroides can hold its breath for 1 hour."}, {"name": "Slap", "type": "reaction", "traits": [], "text": "Trigger The castoroides is targeted by a physical ranged Strike from an attacker it can see%rEffect The castoroides swats at the projectile with its wide tail, gaining a +2 circumstance bonus to its AC against the triggering attack."}, {"name": "Construct Shelter", "type": "action", "traits": [], "cost": 3, "text": "The castoroides rapidly constructs a simple mound along one side of its space, which can be used to Take Cover."}, {"name": "Gouge", "type": "action", "traits": [], "cost": 1, "text": "The castoroides deals 2d8 piercing damage to a creature it has Grabbed or Restrained (DC 20 Fortitude). A creature that fails its save also takes 1d4 bleed."}, {"name": "Penetrating Bite", "type": "action", "traits": [], "cost": 2, "text": "As beaver, but the castoroides's jaws Strike ignores the first 10 Hardness instead of the first 5 Hardness."}, {"name": "Prop", "type": "action", "traits": [], "cost": 1, "text": "The castoroides stabilizes itself with its tail, gaining a +1 circumstance bonus to its Fortitude and Reflex DCs against Shove and Trip attempts until it next takes an action with the move trait."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Corrupted Elder Tree":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 8
+  size: "huge"
+  rarity: "unique"
+  traits: ["fiend", "good", "plant", "unholy"]
+  ac: 26
+  hp: 150
+  perception: 18
+  saves: {"fortitude": 20, "reflex": 11, "will": 16}
+  abilities: {"cha": 2, "con": 6, "dex": -1, "int": 1, "str": 7, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 19, "Diplomacy": 16, "Intimidation": 16, "Nature": 18, "Stealth": 11}
+  weaknesses: {"axe-vulnerability": 5, "cold-iron": 5, "fire": 10, "holy": 5}
+  resistances: {"bludgeoning": 5, "piercing": 5}
+  strikes: [{"name": "Branch", "bonus": 19, "damage": [["2d12+7", "bludgeoning", null]], "traits": ["reach-15"]}, {"name": "Root", "bonus": 19, "damage": [["2d8+7", "bludgeoning", null]], "traits": ["trip"]}, {"name": "Rock", "bonus": 19, "damage": [["2d10+7", "bludgeoning", null]], "traits": ["brutal"], "range": 120}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Axe Vulnerability", "type": "passive", "traits": [], "text": "The arboreal regent takes 5 additional damage from axes."}, {"name": "Awaken Tree", "type": "action", "traits": ["concentrate", "primal"], "cost": 2, "text": "The arboreal regent causes a tree within 180 feet to uproot itself and fight as a minion using the statistics for an Awakened Tree. The arboreal regent can control up to two awakened trees at a time, and it can issue commands to both trees as a single action, which has the concentrate and auditory traits."}, {"name": "Sunder Objects", "type": "passive", "traits": [], "text": "When an arboreal regent damages an item or structure, it deals an additional 2d10 damage to that item or structure."}, {"name": "Throw Rock", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 26, "attack": 18, "spells": {"4": ["Speak with Plants (Constant)"]}}]
+"Crawling Hand Swarm":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["evil", "swarm", "undead", "unholy"]
+  ac: 21
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 15, "will": 9}
+  abilities: {"cha": 0, "con": 4, "dex": 5, "int": -4, "str": 3, "wis": 2}
+  speeds: {"land": 30, "climb": 30}
+  hp_details: "void healing"
+  senses: ["lifesense", "tremorsense"]
+  skills: {"Athletics": 10, "Stealth": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "swarm-mind", "unconscious", "visual"]
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  resistances: {"bludgeoning": 2, "piercing": 5, "slashing": 5}
+  actions: [{"name": "Tremorsense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Lifesense 30 feet", "type": "passive", "traits": []}, {"name": "Stifle", "type": "reaction", "traits": [], "text": "Trigger A creature in the swarm's space attempts to Cast a Spell with a verbal component or attempts an action with the linguistic or vocal traits%rEffect The swarming hands clamp over the triggering creature's mouth, preventing it from vocalizing. The affected creature must succeed at a DC 22 Reflex save or the triggering action is disrupted."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Pummeling Grasp", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 3d6 slashing damage (DC 20 Reflex). A creature that fails its save against Pummeling Grasp is also knocked Prone."}]
+"Desiak":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "evil", "humanoid", "lawful"]
+  ac: 27
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 18, "will": 13}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 2, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 18, "Athletics": 16, "Intimidation": 12, "Stealth": 14}
+  resistances: {"void": 4}
+  strikes: [{"name": "Bone Spur", "bonus": 20, "damage": [["2d10+6", "piercing", null], ["1d10", "void", null]], "traits": []}, {"name": "Claw", "bonus": 20, "damage": [["2d8+6", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Bone Bolt", "bonus": 20, "damage": [["1d10+6", "piercing", null], ["1d10", "void", null]], "traits": [], "range": 30}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Dual Assault", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Desiak makes either two claw Strikes or a bone spur Strike and a claw Strike. Both Strikes are against the same target and are made with his current multiple attack penalty. This counts as two attacks when calculating Desiak's multiple attack penalty."}, {"name": "Erupt Bone Spur", "type": "action", "traits": [], "cost": 1, "text": "Desiak forces his bones to erupt from or retract back into his flesh. While his bones protrude from his flesh, he can use a bone spur Strike. On a critical hit with a bone spur, Desiak can drain his target's vital energy to restore a number of Hit Points equal to half the damage dealt."}]
+"Elk":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 16
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 7, "will": 5}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 7, "Survival": 5}
+  strikes: [{"name": "Antlers", "bonus": 9, "damage": [["1d6+4", "piercing", null]], "traits": []}, {"name": "Hoof", "bonus": 9, "damage": [["1d4+4", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Buck", "type": "reaction", "traits": [], "text": "DC 17 Reflex"}, {"name": "Startled Charge", "type": "action", "traits": [], "cost": 2, "text": "Requirements It's the first round of combat%rEffect The elk Strides twice and makes a hoof Strike at the end of either Stride. If the Strike hits, the elk deals an additional 1d4 piercing damage."}]
+"Everburning Mammoth":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "undead", "unholy"]
+  ac: 26
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 16, "reflex": 17, "will": 16}
+  abilities: {"cha": 0, "con": 4, "dex": 5, "int": 1, "str": 5, "wis": 4}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Athletics": 18, "Stealth": 17}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 20, "damage": [["2d6+8", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Paralysis"]}, {"name": "Claw", "bonus": 20, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Spurred by Death", "type": "reaction", "traits": [], "text": "Trigger An ally within 30 feet reduces a creature to 0 HP%rEffect The everburning mammoth uses Drink Blood on a creature that meets the ability's requirements."}, {"name": "Drink Blood", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the everburning mammoth's reach%rEffect The everburning mammoth tears into the creature with its jaws and gorges itself on the victim's blood. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions. The victim is Drained 1, and the everburning mammoth regains 15 healing HP, gaining any excess HP as temporary Hit Points.…"}, {"name": "Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any nonliving creature hit by the everburning mammoth's jaws Strike must succeed at a DC 23 Fortitude save or become Paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}]
+"Fiendish Arboreal":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "large"
+  rarity: "uncommon"
+  traits: ["chaotic", "evil", "fiend", "plant", "unholy"]
+  ac: 20
+  hp: 75
+  perception: 11
+  saves: {"fortitude": 13, "reflex": 9, "will": 11}
+  abilities: {"cha": 1, "con": 3, "dex": 1, "int": 1, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 13, "Stealth": 9}
+  weaknesses: {"axe-vulnerability": 5, "cold-iron": 5, "fire": 10, "holy": 5}
+  resistances: {"bludgeoning": 5, "piercing": 5}
+  strikes: [{"name": "Stone Longsword", "bonus": 13, "damage": [["1d8+10", "bludgeoning", null], ["1d4", "spirit", null]], "traits": ["evil", "reach-10", "unholy"]}, {"name": "Shield Bash", "bonus": 13, "damage": [["1d6+10", "bludgeoning", null], ["1d4", "spirit", null]], "traits": ["evil", "unholy"]}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Axe Vulnerability", "type": "passive", "traits": [], "text": "An arboreal warden takes 5 additional damage from axes."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Shield Push", "type": "action", "traits": [], "cost": 2, "text": "The arboreal warden Strides and then makes a shield bash Strike. If the attack hits, the target is pushed 10 feet."}]
+"Gathganara":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "chaotic", "fey", "good", "nymph", "water"]
+  ac: 16
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 3, "reflex": 6, "will": 8}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 1, "str": 0, "wis": 1}
+  speeds: {"land": 25, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 6, "Athletics": 3, "Diplomacy": 7, "Nature": 6, "Stealth": 6, "Survival": 4}
+  weaknesses: {"cold-iron": 3}
+  resistances: {"fire": 3}
+  strikes: [{"name": "Aqueous Fist", "bonus": 8, "damage": [["1d6", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "water"]}]
+  actions: [{"name": "Subterranean Naiad", "type": "passive", "traits": [], "text": "Gathganara has darkvision, rather than low-light vision."}, {"name": "Wild Empathy", "type": "passive", "traits": [], "text": "The naiad can use Diplomacy to make-an-impression on and make very simple Requests of animals."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Water Dependent", "type": "passive", "traits": [], "text": "A naiad bonds to a spring, pool, pond, or similar-sized water feature. While within 300 feet of her bonded body of water, she can use her innate Tidal Surge at will. She doesn't recover Hit Points or reduce the drained condition when resting beyond that range. Unlike most other nymphs, she doesn't suffer penalties from being apart from her bonded body of water. A naiad can perform a 24-hour ritual to bond herself to a new body of water."}, {"name": "Water Healing", "type": "action", "traits": ["concentrate", "healing", "primal"], "cost": 2, "text": "While within her bonded body of water, the naiad heals 1 Hit Point every 10 minutes."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 9, "spells": {"1": ["Charm", "Create Water", "Tidal Surge"], "2": ["Speak with Animals (Constant)"]}}]
+"Giant Tapir":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 7, "will": 6}
+  abilities: {"cha": 0, "con": 3, "dex": 1, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 8, "Stealth": 5}
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d8+6", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Grinding Bite", "type": "action", "traits": [], "cost": 1, "text": "Requirements The giant tapir's last action was a successful jaws Strike against a creature%rEffect The tapir gnaws the target's flesh and muscle with its blunt teeth. The creature must attempt a DC 18 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature is Enfeebled 1 until the start of its next turn.%rFailure The creature takes 2d4 bludgeoning damage and is enfeebled 1 until the end of its next turn.%rCritical Failure The creature takes 4d4 bludgeoning damage and…"}, {"name": "Splayed Toes", "type": "passive", "traits": [], "text": "Giant tapirs ignore difficult terrain from mud and shallow water."}]
+"Giant Tapir (Snared)":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 7, "will": 6}
+  abilities: {"cha": 0, "con": 3, "dex": 1, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 8, "Stealth": 5}
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d8+6", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Grinding Bite", "type": "action", "traits": [], "cost": 1, "text": "Requirements The giant tapir's last action was a successful jaws Strike against a creature%rEffect The tapir gnaws the target's flesh and muscle with its blunt teeth. The creature must attempt a DC 18 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature is Enfeebled 1 until the start of its next turn.%rFailure The creature takes 2d4 bludgeoning damage and is enfeebled 1 until the end of its next turn.%rCritical Failure The creature takes 4d4 bludgeoning damage and…"}, {"name": "Snared", "type": "passive", "traits": [], "text": "Due to the poison barbs stuck in its hooves, the tapir can't Stride farther than 10 feet."}, {"name": "Splayed Toes", "type": "passive", "traits": [], "text": "Giant tapirs ignore difficult terrain from mud and shallow water."}]
+"Glyptodon":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 23
+  hp: 65
+  perception: 9
+  saves: {"fortitude": 15, "reflex": 11, "will": 9}
+  abilities: {"cha": -2, "con": 4, "dex": 2, "int": -4, "str": 6, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["scent"]
+  skills: {"Athletics": 14}
+  strikes: [{"name": "Claw", "bonus": 15, "damage": [["2d6+6", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Tail", "bonus": 15, "damage": [["2d10+6", "bludgeoning", null]], "traits": ["reach-10"], "effects": ["Clobbering Tail"]}]
+  actions: [{"name": "Carapace Block", "type": "reaction", "traits": [], "text": "Trigger An adjacent creature targets the glyptodon with an attack%rEffect The glyptodon turns, blocking the attack with its carapace and thrusting its heavy body toward the attacker. It gains a +2 circumstance bonus to its AC against the triggering attack. If the attack critically fails, the glyptodon attempts to Shove the attacker."}, {"name": "Clobbering Tail", "type": "passive", "traits": [], "text": "A glyptodon's stiff tail is its strongest weapon. When a glyptodon critically hits with its tail Strike, the target is Off-Guard for 1 round."}]
+"Graylok Ambusher":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 8
+  size: "large"
+  rarity: "uncommon"
+  traits: ["chaotic", "cold", "evil", "giant", "humanoid"]
+  ac: 26
+  hp: 130
+  perception: 19
+  saves: {"fortitude": 16, "reflex": 19, "will": 13}
+  abilities: {"cha": 0, "con": 4, "dex": 3, "int": 1, "str": 5, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 16, "Athletics": 21, "Intimidation": 16, "Stealth": 18, "Survival": 16}
+  immunities: ["cold"]
+  weaknesses: {"fire": 10}
+  strikes: [{"name": "Hatchet", "bonus": 18, "damage": [["2d6+9", "slashing", null]], "traits": ["agile", "magical", "reach-10", "sweep", "thrown-10"]}, {"name": "Fist", "bonus": 18, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Deny Advantage", "type": "passive", "traits": [], "text": "A Graylok ambusher isn't Off-Guard to Hidden, undetected, or flanking creatures of 8th level or lower or creatures of 8th level or lower using sneak attack. However, such creatures can still help other creatures flank."}, {"name": "Opportune Backstab", "type": "reaction", "traits": [], "text": "Trigger A creature within melee reach is hit by a melee attack from one of the Graylok ambusher's allies%rEffect The Graylok ambusher attempts a Strike against the triggering creature."}, {"name": "Brutal Beating", "type": "passive", "traits": [], "text": "When the Graylok ambusher scores a critical hit with a melee Strike, the target is Frightened 1."}, {"name": "Dread Striker", "type": "passive", "traits": [], "text": "Any creature that has the Frightened condition is Off-Guard against the Graylok ambusher's attacks."}, {"name": "Ice Stride", "type": "passive", "traits": [], "text": "A frost giant isn't impeded by difficult terrain caused by snow or ice, nor do they need to attempt Acrobatics checks to keep from falling on slippery ice."}, {"name": "Light Step", "type": "passive", "traits": [], "text": "When the Graylok ambusher Strides or Steps, they ignore difficult terrain."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Graylok ambusher deals an additional 2d6 precision damage to Off-Guard creatures."}]
+"Graylok Artillerist":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 8
+  size: "large"
+  rarity: "uncommon"
+  traits: ["chaotic", "cold", "evil", "giant", "humanoid"]
+  ac: 26
+  hp: 100
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 16, "will": 13}
+  abilities: {"cha": 0, "con": 5, "dex": 3, "int": 3, "str": 5, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 21, "Crafting": 18, "Intimidation": 16}
+  immunities: ["cold"]
+  weaknesses: {"fire": 10}
+  strikes: [{"name": "Greataxe", "bonus": 21, "damage": [["2d12+8", "slashing", null]], "traits": ["magical", "reach-10", "sweep"]}, {"name": "Foot", "bonus": 18, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Ice Stride", "type": "passive", "traits": [], "text": "A frost giant isn't impeded by difficult terrain caused by snow or ice, nor do they need to attempt Acrobatics checks to keep from falling on slippery ice."}, {"name": "Ignite Greataxe", "type": "action", "traits": [], "cost": 2, "text": "The Graylok artillerist combines gelatin and other substances over their greataxe to ignite it. For 1 minute, the greataxe gains the fire trait, and creatures hit by it take 4 persistent fire damage."}, {"name": "Throw Bomb", "type": "action", "traits": ["alchemical", "fire"], "cost": 2, "text": "Requirements The Graylok artillerist has two free hands%rEffect The Graylok artillerist Interacts with a firebomb and then throws it at a point within 100 feet. The bomb erupts in a 10-foot, and works as moderate alchemist fire, except it inflicts 4d6 fire|options:area-damage damage with a DC 23 Reflex save. Creatures that fail or critically fail this save also take 4 persistent fire damage."}, {"name": "Wide Swing", "type": "action", "traits": [], "cost": 1, "text": "The frost giant makes a single greataxe Strike and compares the attack roll result to the ACs of up to two foes within their reach. This counts as two attacks for the frost giant's multiple attack penalty."}]
+"Graylok Gatebreaker":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 8
+  size: "large"
+  rarity: "uncommon"
+  traits: ["chaotic", "cold", "evil", "giant", "humanoid"]
+  ac: 28
+  hp: 130
+  perception: 16
+  saves: {"fortitude": 21, "reflex": 14, "will": 14}
+  abilities: {"cha": 0, "con": 5, "dex": 0, "int": 0, "str": 7, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 21, "Intimidation": 16}
+  immunities: ["cold"]
+  weaknesses: {"fire": 10}
+  strikes: [{"name": "Battle Axe", "bonus": 20, "damage": [["2d8+9", "slashing", null]], "traits": ["magical", "reach-10", "sweep"]}, {"name": "Foot", "bonus": 20, "damage": [["2d8+7", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Shield Block", "type": "passive", "traits": [], "text": "[reaction]"}, {"name": "Freeze Blade", "type": "action", "traits": [], "cost": 1, "text": "The frost giant gatebreaker breathes on the blade of their battleaxe, coating it in a layer of magical ice. For 1 minute, the frost giant's battleaxe Strikes gain the cold trait, and creatures struck by the battleaxe are Slowed 1; at the end of each of their turns, the slowed creature can attempt a DC 23 Fortitude save to end the condition."}, {"name": "Ice Stride", "type": "passive", "traits": [], "text": "A frost giant isn't impeded by difficult terrain caused by snow or ice, nor do they need to attempt Acrobatics checks to keep from falling on slippery ice."}, {"name": "Shielded Stride", "type": "passive", "traits": [], "text": "When the frost giant gatebreaker has their shield up, they can Stride to move half their Speed without triggering reactions that are triggered by their movement (such as Attacks of Opportunity)."}, {"name": "Trampling Ram", "type": "action", "traits": [], "cost": 3, "text": "Requirements Another frost giant gatebreaker has Readied to Stride on the frost giant gatebreaker's order%rEffect The two frost giants Stride, with a maximum distance equal to the slowest giant's Speed. Every creature whose space they move through takes (2d8+9) bludgeoning damage (DC 23 Reflex); creatures who fail their save fall Prone. At the end of their movement, the giants make a single Strike with a +20 modifier (reach 15 feet), inflicting 4d6+16 bludgeoning damage on a hit and knocking…"}]
+"Groplit":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 0
+  size: "small"
+  rarity: "uncommon"
+  traits: ["amphibious", "animal"]
+  ac: 16
+  hp: 16
+  perception: 6
+  saves: {"fortitude": 6, "reflex": 7, "will": 4}
+  abilities: {"cha": -2, "con": 2, "dex": 3, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 25, "swim": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 5, "Athletics": 6, "Stealth": 5}
+  weaknesses: {"fire": 2}
+  strikes: [{"name": "Jaws", "bonus": 8, "damage": [["1d4+2", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Incendiary Dollop"]}, {"name": "Tongue", "bonus": 8, "damage": [], "traits": ["agile", "finesse"], "effects": ["Incendiary Dollop"]}]
+  actions: [{"name": "Flammable Grease", "type": "passive", "traits": [], "text": "A groplit's DC to recover from persistent fire damage is increased by 2 (generally, from DC 15 to DC 17)."}, {"name": "Greasy Slide", "type": "reaction", "traits": [], "text": "Trigger A creature misses the groplit with a melee Strike%rEffect The groplit Strides or Swims up to 10 feet. This movement doesn't trigger reactions."}, {"name": "Hopping Charge", "type": "action", "traits": [], "cost": 2, "text": "The groplit Strides twice, Leaps twice, or Strides once and Leaps once. It then makes a jaws Strike at the end of the movement."}, {"name": "Incendiary Dollop", "type": "passive", "traits": [], "text": "Creatures struck by the groplit are smeared with some of its flammable grease. For the following 1 minute, or until a creature scrubs away the grease dollop with a single Interact action, the DC of the creature's checks to recover from persistent fire damage is increased by 2.%rEffect: Incendiary Dollop"}]
+"Hegremon":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 13
+  size: "large"
+  rarity: "unique"
+  traits: ["chaotic", "cold", "evil", "giant", "humanoid"]
+  ac: 34
+  hp: 225
+  perception: 27
+  saves: {"fortitude": 23, "reflex": 27, "will": 21}
+  abilities: {"cha": 4, "con": 4, "dex": 8, "int": 5, "str": 6, "wis": 6}
+  speeds: {"land": 30, "climb": 15}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 27, "Athletics": 25, "Crafting": 24, "Intimidation": 23, "Medicine": 23, "Nature": 27, "Stealth": 27, "Survival": 27}
+  immunities: ["cold"]
+  weaknesses: {"fire": 10}
+  strikes: [{"name": "Shortsword", "bonus": 26, "damage": [["2d6+12", "slashing", null]], "traits": ["agile", "finesse", "magical", "reach-10", "versatile-p"]}, {"name": "Foot", "bonus": 25, "damage": [["3d6+12", "bludgeoning", null]], "traits": ["agile", "finesse", "reach-10", "unarmed"]}, {"name": "Mammoth Bow", "bonus": 27, "damage": [["3d8+9", "piercing", null], ["2d6", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0", "volley-50"], "range": 180}]
+  actions: [{"name": "Evasion", "type": "passive", "traits": [], "text": "When Hegremon rolls a success on a Reflex save, he gets a critical success instead."}, {"name": "Aimed Shot", "type": "action", "traits": ["concentrate"], "cost": 2, "text": "Hegremon makes a single mammoth bow Strike against his prey; he gains a +2 circumstance bonus to the attack roll and ignores his prey's Concealed condition."}, {"name": "Chill Breath", "type": "action", "traits": [], "cost": 1, "text": "(cold, evocation, primal) Hegremon breathes out a 15-foot of freezing moisture that quickly condenses into ice, dealing 6d6 cold|options:area-damage damage. Each creature in the cone must attempt a DC 28 Reflex. A creature that fails its save is also Immobilized and takes 2d6 cold damage at the end of each of its turns until it breaks free (escape dc=28). Hegremon can't use Chill Breath again for 1d4 rounds."}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Hegremon designates a single creature he can see and hear, or one he's Tracking, as his prey. Hegremon has a +2 circumstance bonus to Perception checks to Seek his prey and a +2 circumstance bonus to Survival checks to Track his prey. He ignores the penalty to ranged attacks within his second range increment against his prey. The first time Hegremon hits his prey in a round, he inflicts an additional 2d8 precision damage. These effects last until Hegremon uses Hunt Prey again."}, {"name": "Hunting Shot", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Hegremon makes two mammoth bow Strikes against his prey. If both hit, combine their damage for the purposes of resistances and weaknesses. His multiple attack penalty applies to each Strike normally."}, {"name": "Ice Stride", "type": "passive", "traits": [], "text": "Hegremon isn't impeded by difficult terrain caused by snow or ice, nor does he need to attempt Acrobatics checks to keep from falling on slippery ice."}, {"name": "Nature's Edge", "type": "passive", "traits": [], "text": "Creatures in natural difficult terrain or on natural uneven ground are Off-Guard to Hegremon."}, {"name": "Penetrating Shot", "type": "action", "traits": [], "cost": 2, "text": "Hegremon chooses a target that's giving lesser cover to his prey and makes a mammoth bow Strike against the chosen target and his prey. This attack ignores lesser cover the chosen target provides his prey. Hegremon rolls damage twice and applies it to each creature he hits. A Penetrating Shot counts as two attacks for his multiple attack penalty."}]
+"Hobji":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "humanoid", "morlock"]
+  ac: 19
+  hp: 45
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 11, "will": 9}
+  abilities: {"cha": -1, "con": 3, "dex": 2, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9, "Crafting": 6, "Stealth": 10, "Thievery": 9}
+  strikes: [{"name": "Fist", "bonus": 12, "damage": [["1d6+6", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Strangling Grasp"]}, {"name": "Warhammer", "bonus": 13, "damage": [["1d8+6", "bludgeoning", null]], "traits": ["magical", "shove"]}]
+  actions: [{"name": "Light Blindness", "type": "passive", "traits": []}, {"name": "+2 Status to All Saves vs. Disease and Poison", "type": "passive", "traits": []}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Hobji's Strikes deal an additional 1d6 precision damage to Off-Guard creatures."}, {"name": "Strangling Grasp", "type": "free", "traits": [], "text": "Trigger Hobji hits a Medium or smaller creature with his fist Strike%rEffect The creature is Grabbed, and Hobji begins to strangle the creature. The creature is suffocating and can't speak as long as it's strangled. This prevents it from casting spells with a verbal component or activating items with a command component."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "In the first round of combat, creatures that haven't acted yet are Off-Guard to Hobji."}]
+"Idovik":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 7
+  size: "large"
+  rarity: "unique"
+  traits: ["beast", "chaotic", "eidolon"]
+  ac: 24
+  hp: 125
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 11, "will": 15}
+  abilities: {"cha": 2, "con": 4, "dex": 0, "int": 2, "str": 6, "wis": 3}
+  speeds: {"land": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 11, "Arcana": 13, "Athletics": 17, "Nature": 14}
+  strikes: [{"name": "Tusk", "bonus": 18, "damage": [["2d10+8", "piercing", null]], "traits": ["deadly-d10", "magical", "unarmed"]}, {"name": "Hoof", "bonus": 18, "damage": [["2d8+8", "bludgeoning", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "God's Intervention", "type": "reaction", "traits": ["primal", "teleportation"], "text": "Trigger Ashen Swale is the target of a physical Strike%rEffect Sensing Ashen Swale's peril, Idovik teleports to his side and interposes himself between Ashen Swale and danger. Idovik teleports to a space adjacent to Ashen Swale, then shields Ashen Swale with his body. Idovik becomes the target of the triggering Strike."}, {"name": "Independent Action", "type": "passive", "traits": [], "text": "Idovik is even older and more powerful than most Sarkorian gods, and he knows how to manifest in some forms without a god caller at all. Idovik does not share an initiative, actions, Hit Points, or a multiple attack penalty with Ashen Swale."}, {"name": "Indomitable Step", "type": "passive", "traits": [], "text": "Idovik ignores difficult terrain and uneven ground, and he treats greater difficult terrain as normal difficult terrain."}, {"name": "Otherworldly Roar", "type": "action", "traits": ["auditory"], "cost": 2, "text": "Idovik unleashes a powerful squeal while stomping his hooves and displaying his tusks. Idovik attempts Intimidate checks to Demoralize each foe within 30 feet. These checks take no penalty for not sharing a language."}, {"name": "Rampaging Charge", "type": "action", "traits": [], "cost": 2, "text": "Idovik rushes forward, using his momentum to power his attack. Idovik Strides twice and then makes a tusk Strike. As long as he moved at least 20 feet, he gains a +2 circumstance bonus to his attack roll. A Medium or smaller creature struck by this attack must succeed at a DC 25 Reflex save or be knocked Prone by the force of the blow."}, {"name": "Spirit Link", "type": "passive", "traits": [], "text": "Even if his link is unusual, Idovik is bound to his summoner; he must remain within 100 feet of Ashen Swale at all times. If he ever moves outside this range or is reduced to 0 Hit Points, Idovik's physical form dissolves. Because his link functions unusually and he does not share Hit Points with Ashen Swale, Idovik remains manifested when Ashen Swale is Unconscious or dead, as long as he stays near Ashen Swale's body. If Ashen Swale dies, Idovik's form fades away over the next minute. When…"}]
+"Ivarsa":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 33
+  hp: 212
+  perception: 21
+  saves: {"fortitude": 24, "reflex": 22, "will": 19}
+  abilities: {"cha": 3, "con": 4, "dex": 2, "int": 5, "str": 5, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Arcana": 25, "Athletics": 25, "Intimidation": 23, "Nature": 21, "Survival": 21, "Warfare Lore": 25}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Greataxe", "bonus": 25, "damage": [["3d12+13", "slashing", null]], "traits": ["magical", "reach-10", "sweep"]}]
+  actions: [{"name": "Attack of Opportunity", "type": "passive", "traits": [], "text": "[reaction]"}, {"name": "Capture Magic", "type": "reaction", "traits": [], "text": "Trigger Ivarsa succeeds at a save against a foe's harmful spell, or a foe fails a spell attack roll against her with a harmful spell%rEffect Ivarsa enters her Arcane Cascade. If she's already in Arcane Cascade, she gains a +2 status bonus to damage from Arcane Cascade until the end of her next turn."}, {"name": "Arcane Cascade", "type": "action", "traits": ["concentrate", "magus", "stance"], "cost": 1, "text": "Requirements Ivarsa can enter this stance only if her most recent action was to Cast a Spell or make a Spellstrike, but she can remain in the stance even if she no longer meets the requirements%rEffect When she enters this stance and at the beginning of each of her turns while she's in it, Ivarsa gains 6 temporary Hit Points. While in this stance, Ivarsa's melee Strikes gain the arcane trait, deal 2 extra fire damage, and deal 4 splash fire damage to foes adjacent to her target."}, {"name": "Companion Bond", "type": "passive", "traits": [], "text": "When Ivarsa uses a teleportation effect while she's riding a mount, the mount teleports with her."}, {"name": "Spellstrike", "type": "action", "traits": ["magus"], "cost": 2, "text": "Ivarsa channels a spell into a punch or axe swing to deliver a magically charged attack. She casts Ignition or Ray of Frost. The effects of the spell don't occur immediately but are imbued into her attack instead. She makes a melee Strike with a weapon or unarmed attack, which gains the arcane trait. Her spell is coupled with the attack, using her attack roll to determine the effects of both the Strike and the spell. This counts as two attacks for her multiple attack penalty, but the penalty…"}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 32, "attack": 24, "spells": {"0": ["Mage Hand", "Produce Flame", "Protect Companion", "Ray of Frost", "Shield"], "1": ["True Strike"], "3": ["Earthbind", "Haste"], "4": ["Dimension Door", "Dimensional Anchor", "Weapon Storm"], "5": ["Blink Charge"], "6": ["Collective Transposition", "Unexpected Transposition"]}}, {"name": "Arcane Focus Spells", "tradition": "arcane", "type": "focus", "dc": 32, "attack": 24, "spells": {"1": ["Thunderous Strike"]}}]
+"Jesseri The Hailstorm":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 29
+  hp: 150
+  perception: 23
+  saves: {"fortitude": 21, "reflex": 20, "will": 21}
+  abilities: {"cha": 2, "con": 5, "dex": 4, "int": 2, "str": 0, "wis": 5}
+  speeds: {"land": 25}
+  skills: {"Medicine": 23, "Nature": 23, "Performance": 20, "Religion": 21, "Society": 18, "Survival": 21, "Mammoth Lord Lore": 16}
+  resistances: {"cold": 10}
+  strikes: [{"name": "Staff", "bonus": 19, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["two-hand-d8"]}]
+  actions: [{"name": "Child of Winter", "type": "passive", "traits": [], "text": "When Jesseri Casts a Spell that deals damage and doesn't have a duration, she deals additional cold damage that's equal to the spell's rank and ignores cold resistance 10."}, {"name": "Signature Spells", "type": "passive", "traits": [], "text": "Jesseri can heighten Heal and Lightning Bolt to any level for which she has an available spell slot."}]
+  spellcasting: [{"name": "Primal Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 29, "attack": 21, "spells": {"0": ["Electric Arc", "Light", "Ray of Frost", "Read Aura", "Stabilize"], "1": ["Air Bubble", "Create Water", "Gust of Wind", "Heal"], "2": ["Create Food", "Endure Elements", "Water Walk"], "3": ["Lightning Bolt", "Wall of Wind"], "4": ["Hydraulic Torrent", "Ice Storm"], "5": ["Cone of Cold", "Wall of Ice"]}}]
+"Kadlaka":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "rare"
+  traits: ["beast", "lawful"]
+  ac: 21
+  hp: 60
+  perception: 14
+  saves: {"fortitude": 8, "reflex": 13, "will": 14}
+  abilities: {"cha": 3, "con": 0, "dex": 5, "int": 2, "str": 3, "wis": 4}
+  speeds: {"land": 25, "fly": 50}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 11, "Crafting": 10, "Diplomacy": 9, "Intimidation": 11, "Nature": 10, "Stealth": 11, "Survival": 10}
+  resistances: {"electricity": 5, "sonic": 5}
+  strikes: [{"name": "Beak", "bonus": 12, "damage": [["2d6+7", "piercing", null]], "traits": ["deadly-d8", "unarmed"]}, {"name": "Longspear", "bonus": 12, "damage": [["1d8+7", "piercing", null]], "traits": ["reach-10"]}, {"name": "Lightning Echo", "bonus": 14, "damage": [["2d10", "electricity", null], ["1d4", "electricity", "persistent"]], "traits": ["electricity"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The kadlaka can change their appearance to that of a Medium humanoid. This doesn't change their Speed or their attack and damage modifiers with their Strikes but might change the type of damage their melee Strikes deal (typically to bludgeoning). While in their humanoid shape, the kadlaka can't use Wingbeat. Each kadlaka has a fixed humanoid form-they can't adopt a different appearance each time they use this ability."}, {"name": "Silent Lightning", "type": "passive", "traits": ["illusion", "primal"], "text": "A kadlaka's movements are practically silent. Against a creature using only hearing to perceive them, they gain a +4 circumstance bonus to their Stealth check. As normal, this benefit also improves the kadlaka's Stealth DC."}, {"name": "Wingbeat", "type": "action", "traits": ["primal", "sonic"], "cost": 2, "text": "The kadlaka beats their wings with a mighty peal of thunder. Creatures in a 15-foot take 5d6 sonic|options:area-damage damage (DC 21 Fortitude). On a failed save, the creature is also pushed 5 feet away from the kadlaka.%rThe kadlaka can't use Wingbeat again for 1d4 rounds."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 20, "attack": 12, "spells": {"1": ["Charm", "Feather Fall"], "2": ["Animal Messenger (Ravens Only)", "Pass Without Trace (Constant)", "Speak with Animals"]}}]
+"Lagofir":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 3
+  size: "large"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 18
+  hp: 55
+  perception: 11
+  saves: {"fortitude": 9, "reflex": 12, "will": 6}
+  abilities: {"cha": 1, "con": 3, "dex": 4, "int": -4, "str": 3, "wis": 2}
+  speeds: {"land": 30, "swim": 30}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 10, "Athletics": 8, "Stealth": 9, "Survival": 7}
+  strikes: [{"name": "Jaws", "bonus": 12, "damage": [["1d8+3", "piercing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Feet", "bonus": 11, "damage": [["2d8+3", "bludgeoning", null]], "traits": [], "effects": ["Push"]}]
+  actions: [{"name": "Cold Adaptation", "type": "passive", "traits": [], "text": "The lagofir reduces the effects it suffers from cold environments by one step."}, {"name": "Consuming Fumes", "type": "passive", "traits": ["aura", "fire"], "text": "15 feet. The lagofir is surrounded by fumes from the flammable oil it exudes. Each nonmagical open flame the size of a torch or larger within the emanation explodes, dealing 4d4 fire damage to all creatures and objects adjacent to the flame (DC 17 Reflex). After exploding, the fire source is extinguished."}, {"name": "Deep Breath", "type": "passive", "traits": [], "text": "A lagofir can hold its breath for 1 hour."}, {"name": "Flammable", "type": "passive", "traits": [], "text": "Lagofirs excrete a warm, flammable oil. Any creature that Grapples a lagofir or is Grabbed or Restrained by a lagofir becomes coated in lagofir oil for 10 minutes or until the oil is washed off, which takes 1 minute of vigorous scrubbing. Any time a lagofir or a creature coated in lagofir oil is dealt fire damage, it catches flame, taking 1d6 persistent fire damage."}, {"name": "Gnaw", "type": "action", "traits": [], "cost": 1, "text": "Requirements The lagofir's last action was a successful jaws Strike%rEffect The lagofir gnaws on the target, driving its teeth deeper into its prey. The target takes (1d8+3) piercing damage."}, {"name": "Nimble Rush", "type": "action", "traits": [], "cost": 2, "text": "The lagofir attacks while darting around its foes. The lagofir Strides twice and Strikes at any point during its movement. It can substitute a Swim action in place of any Stride."}]
+"Loblobi":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 1
+  size: "small"
+  rarity: "uncommon"
+  traits: ["chaotic", "evil", "fey"]
+  ac: 16
+  hp: 25
+  perception: 6
+  saves: {"fortitude": 4, "reflex": 9, "will": 8}
+  abilities: {"cha": 3, "con": 1, "dex": 4, "int": 0, "str": 2, "wis": 1}
+  speeds: {"land": 20, "fly": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 7, "Crafting": 5, "Deception": 8, "Performance": 6, "Stealth": 7, "Thievery": 7}
+  strikes: [{"name": "Beak", "bonus": 9, "damage": [["1d6+2", "piercing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Unflappable Self-Importance", "type": "passive", "traits": [], "text": "When a loblobi rolls a success on a Will save against an emotion effect or an effect that would make it controlled, it gets a critical success instead. When it rolls a critical failure against such an effect, it gets a failure instead.%rHowever, a loblobi is vulnerable to flattery. It takes a -4 circumstance penalty to its Will and Perception DCs against any fulsome Deception and Diplomacy checks to Lie, Make an Impression, or Request."}, {"name": "Arrogant Preen", "type": "action", "traits": ["incapacitation", "mental", "primal"], "cost": 1, "text": "The loblobi tidies its feathered crest to look supernaturally regal. Each non-fey creature within 30 feet must attempt a DC 17 Will save, then is temporarily immune to Arrogant Preen for 1 hour.%rCritical Success The target is unaffected.%rSuccess The target is distracted by the preening and can't take reactions until the start of its next turn.%rFailure The target is Fascinated by the loblobi and can't take reactions for 1 minute.%rCritical Failure As failure. Additionally, while the creature…"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 16, "attack": 8, "spells": {"0": ["Dancing Lights", "Prestidigitation (Only to Move, Clean, or Soil Small Amounts of Water)"], "1": ["Grease", "Hydraulic Push"], "2": ["Faerie Fire", "Water Walk (At Will) (Loblobi Can Dismiss the Spell)"]}}]
+"Lomok":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["good", "human", "humanoid", "lawful", "nephilim"]
+  ac: 30
+  hp: 210
+  perception: 21
+  saves: {"fortitude": 20, "reflex": 18, "will": 23}
+  abilities: {"cha": 2, "con": 3, "dex": 3, "int": 0, "str": 5, "wis": 4}
+  speeds: {"land": 20}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 23, "Diplomacy": 19, "Nature": 21, "Religion": 19, "Survival": 21}
+  strikes: [{"name": "Longsword", "bonus": 24, "damage": [["2d8+11", "slashing", null]], "traits": ["versatile-p"], "effects": ["Oath Of The Burning Mammoths"]}, {"name": "Spear", "bonus": 22, "damage": [["1d6+11", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Aura of Courage", "type": "passive", "traits": [], "text": "15 feet. Whenever Lomok becomes Frightened, reduce the condition value by 1 (minimum 0). At the end of his turn, when he would reduce his frightened condition value by 1, also reduce the value by 1 for all allies in his aura."}, {"name": "Powerful Will", "type": "passive", "traits": [], "text": "When Lomok rolls a success on a Will save, he gets a critical success instead."}, {"name": "Retributive Strike", "type": "reaction", "traits": [], "text": "Trigger An enemy damages one of Lomok's allies, and both combatants are within 15 feet of him%rEffect Lomok shields his ally and calls for retribution upon the attacker. The ally reduces the triggering damage by 13. Lomok and any allies within reach of the triggering enemy can make melee Strikes against it."}, {"name": "Shield Block", "type": "reaction", "traits": [], "text": "Trigger While you have your shield raised, you would take damage from a physical attack%rYou snap your shield in place to ward off a blow. Your shield prevents you from taking an amount of damage up to the shield's Hardness. You and the shield each take any remaining damage, possibly breaking or destroying the shield."}, {"name": "Spurred by Death", "type": "reaction", "traits": [], "text": "Trigger An ally within 30 feet reduces a creature to 0 HP%rEffect Lomok Steps, Strides, or Strikes."}, {"name": "Oath of the Burning Mammoths", "type": "passive", "traits": [], "text": "Lomok's melee Strikes deal an additional 1d10 persistent fire damage. If he critically hits a creature with a melee Strike, the creature is Off-Guard for as long as it takes persistent fire damage."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 28, "attack": 18, "spells": {"0": ["Light"], "1": ["Bless"]}}, {"name": "Divine Focus Spells", "tradition": "divine", "type": "focus", "dc": 28, "attack": 18, "spells": {"1": ["Lay on Hands"]}}]
+"Long-horned Bison":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 6
+  size: "huge"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 23
+  hp: 110
+  perception: 13
+  saves: {"fortitude": 17, "reflex": 12, "will": 12}
+  abilities: {"cha": 0, "con": 5, "dex": 2, "int": -5, "str": 6, "wis": 3}
+  speeds: {"land": 35}
+  senses: ["scent"]
+  skills: {"Athletics": 16, "Survival": 13}
+  strikes: [{"name": "Hoof", "bonus": 16, "damage": [["2d8+8", "bludgeoning", null]], "traits": ["reach-10"]}, {"name": "Horn", "bonus": 16, "damage": [["2d10+8", "piercing", null]], "traits": ["reach-10", "unarmed"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Cold Adaptation", "type": "passive", "traits": [], "text": "The bison reduces the effects it suffers from cold environments by one step."}, {"name": "Toss", "type": "reaction", "traits": [], "text": "Trigger A creature ends its movement within reach of the bison's horn Strike%rEffect The bison attempts to Shove the triggering creature with its horns. The bison can't Stride after the triggering creature on a success or critical success."}, {"name": "Pointed Charge", "type": "action", "traits": [], "cost": 2, "text": "The bison surges toward its foe, horns lowered. It Strides twice. If the bison ends its movement with an enemy within its reach, it makes a horn Strike against that enemy. The strike gains the fatal d12 trait."}, {"name": "Rolling Thunder", "type": "action", "traits": [], "cost": 3, "text": "The bison kicks up dust and shakes the ground as it charges. The stampeding bison Strides up to twice its Speed in a straight line, dealing (4d8+8) bludgeoning damage (DC 24 Reflex) to any Large or smaller creature in its path.Multiple bison can participate in Rolling Thunder by spending this ability's actions and waiting to charge until the herd is ready. Before the beginning of its next turn, a bison can then charge as a reaction triggered by an adjacent bison beginning its Rolling Thunder…"}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Long-horned Bison Beheaded":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "mindless", "undead", "unholy"]
+  ac: 18
+  hp: 32
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 10, "will": 5}
+  abilities: {"cha": 0, "con": 1, "dex": 4, "int": -5, "str": 3, "wis": 1}
+  speeds: {"land": 15, "fly": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 7}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"vitality": 3}
+  strikes: [{"name": "Horn", "bonus": 11, "damage": [["1d10+3", "piercing", null]], "traits": ["unarmed"], "effects": ["Push"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Toss", "type": "reaction", "traits": [], "text": "Requirements The beheaded's previous action was a horn Strike that dealt damage to its target%rEffect The beheaded tosses its head, attempting to move the target creature into another space within reach of its horns. It rolls an Athletics check against the target's Fortitude DC. On a failure, the target remains in place."}, {"name": "Push (10 feet)", "type": "action", "traits": [], "cost": 1}]
+"Megaloceros":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "large"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 21
+  hp: 58
+  perception: 10
+  saves: {"fortitude": 13, "reflex": 11, "will": 8}
+  abilities: {"cha": 0, "con": 5, "dex": 3, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 50}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 13, "Survival": 10}
+  strikes: [{"name": "Antlers", "bonus": 13, "damage": [["2d6+7", "piercing", null]], "traits": ["deadly-d8"]}, {"name": "Hoof", "bonus": 13, "damage": [["2d4+7", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Buck", "type": "reaction", "traits": [], "text": "DC 21 Reflex"}, {"name": "Furious Charge", "type": "action", "traits": [], "cost": 2, "text": "The megaloceros Strides twice and makes a hoof Strike after either Stride. If the Strike hits, the megaloceros deals an additional 2d4 bludgeoning damage."}]
+"Metuak":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "fiend", "human", "humanoid", "unholy"]
+  ac: 33
+  hp: 240
+  perception: 20
+  saves: {"fortitude": 26, "reflex": 23, "will": 20}
+  abilities: {"cha": 5, "con": 7, "dex": 6, "int": 1, "str": 8, "wis": 3}
+  speeds: {"land": 25, "fly": 25}
+  hp_details: "(dual soul; 120 each for Metuak and Xeleria)"
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 27, "Deception": 24, "Intimidation": 26, "Nature": 22, "Stealth": 25, "Survival": 24}
+  immunities: ["death-effects", "disease", "fear-effects", "poison", "precision"]
+  weaknesses: {"cold-iron": 10, "holy": 10}
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Claw", "bonus": 27, "damage": [["3d8+14", "cold", null], ["2d6", "spirit", null]], "traits": ["magical", "unarmed", "unholy"]}, {"name": "Hatchet", "bonus": 27, "damage": [["3d6+14", "slashing", null], ["1d6", "spirit", null]], "traits": ["agile", "evil", "magical", "sweep", "unholy"]}]
+  actions: [{"name": "+1 to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Attack of Opportunity", "type": "passive", "traits": [], "text": "[reaction]"}, {"name": "Dual Deny Advantage", "type": "passive", "traits": [], "text": "Due to his dual nature with Xeleria, Metuak is never Off-Guard."}, {"name": "Axe Master", "type": "passive", "traits": [], "text": "Metuak has access to the critical specialization effect of axe weapons. Due to his hatchet's grievous rune, he can damage a third creature with the same restrictions."}, {"name": "Dual Soul", "type": "passive", "traits": [], "text": "A demon named Xeleria is bound to Metuak's soul. Though the two entities share one body and are a single creature for the purpose of both targeted and area effects, Metuak and Xeleria each have 120 Hit Points. Damage to each is tracked separately. Xeleria's HP is reduced by force, good, and vitality damage, and any damage from a cold iron weapon, a weapon with a ghost touch rune, and any damage originating from the Primordial Flame . All other damage reduces Metuak's HP.%rMetuak and Xeleria…"}, {"name": "Shadow Blend", "type": "action", "traits": ["divine", "illusion"], "cost": 2, "text": "Metuak Strides up to twice his Speed. If he ends his movement in an area of dim light, he is Hidden as long as he remains in dim light."}, {"name": "Soul Swipe", "type": "action", "traits": [], "cost": 2, "text": "Metuak makes a single hatchet or claw Strike and compares the result to the AC of up to four foes, each of whom must be within his reach. He rolls damage once and applies it to each creature he hits. A Soul Swipe counts as two attacks for his multiple attack penalty. Metuak's hatchet applies its sweep trait against all four targets."}, {"name": "Terrifying Howl", "type": "action", "traits": ["auditory"], "cost": 1, "text": "Metuak unleashes a terrifying howl, attempting to demoralize options=area-effect each creature within 30 feet. These creatures are then immune to Terrifying Howl for 1 minute."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 34, "attack": 26, "spells": {"0": ["Telekinetic Projectile"], "1": ["Fear"], "2": ["Darkness"], "5": ["Shadow Blast", "Shadow Siphon"]}}]
+"Necrohusk":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "undead", "unholy"]
+  ac: 22
+  hp: 75
+  perception: 14
+  saves: {"fortitude": 10, "reflex": 15, "will": 12}
+  abilities: {"cha": -1, "con": 1, "dex": 4, "int": -3, "str": 5, "wis": 3}
+  speeds: {"land": 30, "climb": 30}
+  hp_details: "void healing"
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 13, "Athletics": 12, "Stealth": 13}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "prone", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 15, "damage": [["2d6+5", "piercing", null], ["1d6", "poison", null]], "traits": ["unarmed"]}, {"name": "Leg", "bonus": 15, "damage": [["2d4+5", "piercing", null]], "traits": ["agile"]}, {"name": "Ichor Spit", "bonus": 14, "damage": [["3d8", "poison", null]], "traits": [], "range": 30, "effects": ["Vile Innards"]}]
+  actions: [{"name": "Lifesense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Skitter", "type": "reaction", "traits": [], "text": "Trigger A creature misses the necrohusk with a melee Strike%rEffect The necrohusk Steps."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Frenzied Assault", "type": "action", "traits": [], "cost": 2, "text": "The necrohusk makes three leg Strikes. If more than one Strike hits the same target, combine the damage of the Strikes that hit the creature and apply the creature's resistances and weaknesses only once."}, {"name": "Impaling Lunge", "type": "action", "traits": [], "cost": 2, "text": "The necrohusk Strides twice. If the necrohusk ends its movement within melee range of an enemy, it makes a leg Strike against that enemy. On a hit, the Strike deals an additional 1d6 bleed."}, {"name": "Vile Innards", "type": "passive", "traits": [], "text": "The necrohusk spews some of its rotting insides when it makes an ichor spit Strike. On a critical hit, the target is Sickened 2."}]
+"Pakano":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 20
+  hp: 70
+  perception: 11
+  saves: {"fortitude": 14, "reflex": 8, "will": 11}
+  abilities: {"cha": 0, "con": 2, "dex": 2, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 10, "Athletics": 12, "Deception": 8, "Nature": 9, "Survival": 11}
+  strikes: [{"name": "Spear", "bonus": 12, "damage": [["1d6+6", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 10, "damage": [["1d6+6", "piercing", null]], "traits": ["thrown-20"]}, {"name": "Tallow Bomb", "bonus": 10, "damage": [["2d4", "fire", "persistent"], ["2", "fire", "splash"]], "traits": ["splash", "thrown-20"]}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Spurred by Death", "type": "reaction", "traits": [], "text": "Trigger An ally within 30 feet reduces a creature to 0 HP%rEffect Pakano Steps or Strides."}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Pakano designates a single creature he can see and hear, or one he's Tracking, as his prey. He gains a +2 circumstance bonus to Perception checks to Seek his prey and to Survival checks to Track his prey.%rThe first time Pakano hits his designated prey in a round, he deals an additional 1d8 precision damage. Pakano also ignores the penalty for making ranged attacks within his second range increment.%rThese effects last until Pakano uses Hunt Prey again."}, {"name": "Spear Fighter", "type": "passive", "traits": [], "text": "Pakano's spear has the parry weapon trait, and his Strikes with the spear deal an additional 1d6 damage. If he critically hits a creature with a spear, the creature is Clumsy 1 until the start of Pakano's next turn."}]
+"Pakano (Level 12)":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 12
+  size: "huge"
+  rarity: "unique"
+  traits: ["animal", "chaotic", "cold", "evil"]
+  ac: 33
+  hp: 225
+  perception: 22
+  saves: {"fortitude": 24, "reflex": 22, "will": 20}
+  abilities: {"cha": 4, "con": 6, "dex": 4, "int": 1, "str": 7, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 25, "Intimidation": 25, "Stealth": 20, "Mammoth Lord Lore": 19}
+  immunities: ["cold"]
+  weaknesses: {"fire": 15}
+  strikes: [{"name": "Jaws", "bonus": 25, "damage": [["3d8+10", "piercing", null], ["2d6", "cold", "persistent"]], "traits": ["unarmed"]}]
+  actions: [{"name": "Death Throes", "type": "passive", "traits": ["cold", "primal"], "text": "When a frost worm dies, it explodes in a 100-foot of searing cold blood. All creatures and objects in range take 10d8 cold|options:area-damage damage (DC 29 Reflex save)."}, {"name": "Human Cunning", "type": "passive", "traits": [], "text": "Pakano's allies are unaffected by his worm chill aura and Worm Trill, and his Freezing Blood affects random enemies instead of random creatures. His Death Throes, however, still affect all creatures and objects in a 100-foot burst."}, {"name": "Worm Chill", "type": "passive", "traits": ["aura", "cold", "primal"], "text": "5 feet. A creature that enters or begins its turn in the emanation takes 3d6 cold|options:area-damage damage (DC 29 Reflex)."}, {"name": "Worm Trill", "type": "action", "traits": ["auditory", "concentrate", "mental", "primal"], "cost": 1, "text": "The frost worm emits a hypnotic trill. Each non-frost worm creature within 100 feet must attempt a DC 32 Will save. The effects of Worm Trill last for 1 round, but if the frost worm uses this ability again on subsequent rounds, it extends this duration by 1 round for any creature already affected.%rSuccess The creature is unaffected and is immune to Worm Trill for 24 hours.%rFailure The creature is Fascinated by the frost worm.%rCritical Failure As failure, but the fascinated condition doesn't…"}, {"name": "Breath Weapon", "type": "action", "traits": ["cold", "primal"], "cost": 2, "text": "The frost worm exhales a blast of frost, dealing 13d6 cold|options:area-damage damage to creatures in a 50-foot (DC 32 Reflex save).%rIt can't use Breath Weapon again for 1d4 rounds."}, {"name": "Freezing Blood", "type": "reaction", "traits": ["cold"], "text": "Trigger The frost worm takes piercing or slashing damage%rEffect The frost worm's freezing blood sprays out on a random creature within 10 feet of the frost worm. That creature takes 7d6 cold damage (DC 29 Reflex save)."}]
+"Rhino Warriors":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "human", "humanoid"]
+  ac: 20
+  hp: 70
+  perception: 11
+  saves: {"fortitude": 12, "reflex": 14, "will": 10}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Athletics": 12, "Intimidation": 10}
+  strikes: [{"name": "Pick", "bonus": 14, "damage": [["1d6+7", "piercing", null]], "traits": ["fatal-d10"]}]
+  actions: [{"name": "Counter-Charge", "type": "reaction", "traits": [], "text": "Trigger A creature Strides within reach of the warrior and critically fails to Strike the warrior with a melee weapon%rEffect The rhino warrior knocks the creature to the ground, and the triggering creature falls Prone and takes (2d6+5) bludgeoning damage. The rhino warrior is Off-Guard until the end of their next turn."}, {"name": "Str", "type": "passive", "traits": [], "text": "+5, Dex +2, Con +3, Int -1, Wis +1, Cha +0"}, {"name": "Dig In", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The rhino warrior makes two pick Strikes against a creature within reach. The rhino warrior rolls only one attack roll for both Strikes, then compares the result against the creature's AC. The rhino warrior's multiple attack penalty doesn't increase until after both Strikes."}]
+"Rime Sludge":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "rare"
+  traits: ["mindless", "ooze"]
+  ac: 8
+  hp: 38
+  perception: 4
+  saves: {"fortitude": 7, "reflex": 2, "will": 4}
+  abilities: {"cha": -5, "con": 2, "dex": -5, "int": -5, "str": 2, "wis": 1}
+  speeds: {"land": 10, "swim": 10}
+  senses: ["motion-sense"]
+  skills: {"Athletics": 7}
+  immunities: ["cold", "critical-hits", "poison", "precision", "unconscious", "visual"]
+  strikes: [{"name": "Pseudopod", "bonus": 9, "damage": [["1d4+2", "bludgeoning", null], ["1d4", "poison", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Motion Sense 60 feet", "type": "passive", "traits": [], "text": "A rime sludge can sense nearby motion through vibration and air movement."}, {"name": "Noxious Sublimation", "type": "passive", "traits": [], "text": "The first time each round that the rime sludge takes fire damage, a cloud of sickening decay roils outward, dealing 2d6 poison|options:area-damage damage (DC 17 Fortitude) to all creatures in a 10-foot. A creature that fails its saving throw is also Sickened 1 (or Sickened 3 on a critical failure)."}, {"name": "Slushy Undulation", "type": "passive", "traits": [], "text": "A rime sludge ignores difficult terrain and greater difficult terrain from ice and snow and doesn't risk falling Prone when crossing ice."}]
+"Roru":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["chaotic", "demon", "evil", "fiend", "unholy"]
+  ac: 25
+  hp: 120
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 17, "will": 12}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 0, "str": 6, "wis": 3}
+  speeds: {"land": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 15, "Athletics": 17, "Intimidation": 15, "Nature": 14, "Survival": 16}
+  weaknesses: {"cold-iron": 5, "holy": 5}
+  strikes: [{"name": "Jaws", "bonus": 18, "damage": [["2d10+8", "piercing", null], ["1d6", "spirit", null]], "traits": ["magical", "unarmed", "unholy"]}, {"name": "Claw", "bonus": 18, "damage": [["2d6+8", "slashing", null], ["1d6", "spirit", null]], "traits": ["agile", "magical", "unarmed", "unholy"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Disobedience Vulnerability", "type": "passive", "traits": [], "text": "The first time each round an attempt to Command an Animal fails within 60 feet of a roru, the roru takes 4d6 mental damage (10d6 mental if the roru failed the attempt)."}, {"name": "Predatory Aura", "type": "passive", "traits": ["aura"], "text": "30 feet. An animal or beast entering or starting its turn in the emanation must succeed at a DC 25 Will save or become Frightened 1 (frightened 2 on a critical failure). Frightened animals within the emanation can't attack the roru. A creature that succeeds at a saving throw against predatory aura is immune for 24 hours."}, {"name": "Incite Ferocity", "type": "action", "traits": ["divine", "mental"], "cost": 1, "text": "The roru focuses its corruption on an animal or beast it can see within 30 feet. The creature must succeed at a DC 25 Will save or become Confused for 1d4 rounds. The confused creature can't attack the roru. A creature that succeeds at its saving throw is temporarily immune to Incite Ferocity for 24 hours."}, {"name": "Wear Pelt", "type": "action", "traits": ["divine", "manipulate"], "cost": 2, "text": "The roru dons the pelt of an adjacent dead animal, transforming into its lookalike. The roru becomes the same size and gains the same Speeds as the target animal. The roru loses its claw and jaws unarmed Strikes and gains the types of melee Strikes of the animal whose pelt it wears. The Strike deals damage equal to the roru's jaws Strike or, if the Strike has the agile trait, the roru's claw Strike. Either way, the damage type changes to match the new unarmed attack. While a roru wears a pelt,…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 25, "attack": 17, "spells": {"2": ["Speak with Animals (Constant)"], "4": ["Dimension Door (At Will)"], "5": ["Dimension Door"], "6": ["Dominate (Animals Only)"]}}]
+"Skeletal Woolly Rhinoceros":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 5
+  size: "large"
+  rarity: "uncommon"
+  traits: ["evil", "mindless", "skeleton", "undead", "unholy"]
+  ac: 22
+  hp: 75
+  perception: 9
+  saves: {"fortitude": 15, "reflex": 8, "will": 11}
+  abilities: {"cha": 0, "con": 4, "dex": 1, "int": -5, "str": 5, "wis": 2}
+  speeds: {"land": 35}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 14}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Horn", "bonus": 15, "damage": [["2d10+5", "piercing", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Foot", "bonus": 15, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Rhinoceros Charge", "type": "action", "traits": [], "cost": 2, "text": "The rhino Strides twice, then makes a horn Strike. As long as the rhino moved at least 20 feet, the Strike's damage increases to (3d12+5) piercing. A Medium or smaller creature struck by this attack must succeed at a DC 22 Reflex save or be automatically Shoved back 5 feet and knocked Prone by the force of the blow."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, foot, DC 19 Reflex"}]
+"Summer Hora":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "fey", "good", "nymph"]
+  ac: 24
+  hp: 90
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 14, "will": 17}
+  abilities: {"cha": 5, "con": 2, "dex": 5, "int": 3, "str": 1, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 13, "Athletics": 11, "Diplomacy": 13, "Nature": 14, "Stealth": 15, "Survival": 14, "Astronomy Lore": 15}
+  weaknesses: {"cold-iron": 5}
+  resistances: {"fire": 5}
+  strikes: [{"name": "Solar Blade", "bonus": 17, "damage": [["2d8+4", "slashing", null], ["1d6", "fire", null]], "traits": ["agile", "finesse", "magical", "versatile-p"]}, {"name": "Solar Ray", "bonus": 17, "damage": [["2d12 + 2", "fire", null]], "traits": ["magical"], "range": 60}]
+  actions: [{"name": "Summer Bound", "type": "passive", "traits": [], "text": "During the winter months, a summer hora can't take reactions, is Sickened 1, and can't reduce their sickened condition below 1."}, {"name": "Solstice Dependent", "type": "passive", "traits": [], "text": "An hora is mystically bonded to a natural location with a simple astronomical calendar that marks the summer and winter solstice. If they aren't at that location at dawn when the sunlight touches the calendar, they become Drained 1, increasing the value by 1 for each missed day and reducing by 1 only when they witness dawn's light touch the calendar. Even on a cloudy day, there's enough sunlight to satisfy the hora's need. An hora can perform a 24-hour ritual to bond to a new location."}, {"name": "Summer's Salvation", "type": "reaction", "traits": [], "text": "Trigger The summer hora or an ally within 30 feet that the summer hora can see fails a Perception check or saving throw%rEffect If it's the month of the summer solstice, the hora's or ally's check retroactively gains a +4 status bonus, which can change the outcome from a critical failure to a failure or a failure to a success. If it's the month before or after the summer solstice, the check gains a retroactive +2 status bonus instead. In the other months except during the three winter solstice…"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 24, "attack": 14, "spells": {"0": ["Know Direction", "Light"], "1": ["Alarm", "Pass Without Trace"], "2": ["Animal Messenger", "Faerie Fire"], "3": ["Animal Vision", "Curse of Lost Time"]}}]
+"Summer Hora Queen":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "fey", "good", "nymph"]
+  ac: 35
+  hp: 190
+  perception: 26
+  saves: {"fortitude": 21, "reflex": 25, "will": 24}
+  abilities: {"cha": 8, "con": 4, "dex": 8, "int": 4, "str": 2, "wis": 5}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 25, "Athletics": 23, "Diplomacy": 27, "Nature": 28, "Stealth": 27, "Survival": 24, "Astronomy Lore": 27}
+  weaknesses: {"cold-iron": 10}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Solar Blade", "bonus": 27, "damage": [["3d8+8", "slashing", null], ["1d6", "fire", null]], "traits": ["agile", "finesse", "magical", "versatile-p"]}, {"name": "Solar Ray", "bonus": 27, "damage": [["3d12 + 6", "fire", null]], "traits": ["magical"], "range": 60}]
+  actions: [{"name": "Summer Bound", "type": "passive", "traits": [], "text": "During the winter months, a summer hora can't take reactions, is Sickened 1, and can't reduce their sickened condition below 1."}, {"name": "Tied to the Land", "type": "passive", "traits": [], "text": "A summer hora queen is intrinsically tied to a specific region, such as a forest or hilly plain. For 3 months around the summer solstice, the environment is supernaturally resilient, allowing the queen to automatically attempt to counteract spells and rituals that would harm the environment, such as Blight, with a +27 counteract modifier and a counteract rank of 7. For the 3 months around the winter solstice, however, her warded region becomes twisted or unhealthy unless a winter hora queen is…"}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Nymph's Beauty", "type": "passive", "traits": ["aura", "emotion", "mental", "primal", "visual"], "text": "30 feet. Creatures that start their turn in the aura must succeed at a DC 30 Will save or suffer an effect described in the nymph queen's entry.%rOn a failed save, the creature is Dazzled and Off-Guard for 1 minute."}, {"name": "Change Shape", "type": "action", "traits": ["polymorph", "primal"], "cost": 1, "text": "Nymph queens can transform between their original form, which looks much like a typical nymph of their kind, and any Small or Medium humanoid form, typically choosing a more humanoid-looking version of their natural form."}, {"name": "Focus Beauty", "type": "action", "traits": ["emotion", "incapacitation", "mental", "primal", "visual"], "cost": 1, "text": "The hora queen focuses her beauty upon a target within her aura. The creature must attempt a Will save. On a failure, it is affected as if by the hora queen's nymph's beauty aura; if it was already affected by the aura, it's Blinded until its sight is restored via restore senses or similar effect, or until the hora queen chooses to remove the effect using a single action, which has the concentrate trait. A hora queen can Focus Beauty on a given creature only once per turn."}, {"name": "Inspiration", "type": "action", "traits": ["emotion", "mental", "primal"], "cost": 3, "text": "A nymph queen can inspire a single intelligent creature by giving that creature a token of her favor, typically a lock of her hair. As long as the creature carries her token and remains in good standing with the nymph queen, the creature gains a +1 status bonus to all Crafting checks, Performance checks, and Will saves.%rIf a nymph queen grants her Inspiration to a bard and the nymph queen is that bard's muse, the bard gains an additional benefit depending on their muse theme: for lore muse,…"}, {"name": "Summer's Salvation", "type": "reaction", "traits": [], "text": "Trigger The summer hora or an ally within 30 feet that the summer hora can see fails a Perception check, saving throw, attack roll, or skill check.%rEffect If it's the month of the summer solstice, the hora's or ally's check retroactively gains a +4 status bonus, which can change the outcome from a critical failure to a failure or a failure to a success. If it's the month before or after the summer solstice, the check gains a retroactive +2 status bonus instead. In the other months except…"}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 33, "attack": 25, "spells": {"0": ["Dancing Lights", "Detect Magic", "Guidance", "Stabilize", "Tanglefoot"], "1": ["Charm", "Heal", "Longstrider", "Pest Form"], "2": ["Restore Senses", "Tree Shape", "Water Walk"], "3": ["Fireball", "Nondetection", "Slow"], "4": ["Fire Shield", "Fly", "Vital Beacon"], "5": ["Banishment", "Tree Stride"], "6": ["Baleful Polymorph", "Blanket Of Stars", "Stone Tell"], "7": ["Fiery Body", "Regenerate"]}}, {"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 33, "attack": 25, "spells": {"0": ["Know Direction", "Light"], "1": ["Alarm", "Pass Without Trace"], "2": ["Animal Messenger", "Faerie Fire", "Speak with Animals (Constant)"], "3": ["Animal Vision"], "4": ["Speak with Plants (Constant)"], "6": ["True Seeing"], "7": ["Curse of Lost Time", "Sunburst"]}}]
+"Syarstik Painted-Tiger":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 5
+  size: "large"
+  rarity: "unique"
+  traits: ["ghost", "incorporeal", "spirit", "undead"]
+  ac: 21
+  hp: 40
+  perception: 14
+  saves: {"fortitude": 9, "reflex": 12, "will": 16}
+  abilities: {"cha": 4, "con": 0, "dex": 5, "int": -1, "str": -5, "wis": 5}
+  speeds: {"land": 0, "fly": 30}
+  hp_details: "void healing, rejuvenation"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 14, "Intimidation": 12, "Nature": 14, "Stealth": 14}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Ghostly Fangs", "bonus": 15, "damage": [["2d6+6", "void", null]], "traits": ["finesse", "magical"]}, {"name": "Ghostly Claw", "bonus": 15, "damage": [["2d4+4", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "Syarstik can't leave Red Cat Cave, and he rarely ever leaves area E9%rA typical ghost can stray only a short distance from where it was killed or the place it haunts. A typical limit is 120 feet. Some ghosts are instead bound to a room, building, item, or creature that was special to it rather than a location."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "When Syarstik is destroyed, he re-forms after 2d4 days within area E9 , fully healed. Syarstik can be permanently destroyed only by a non-possessed wielder of the Primordial Flame ."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Awaken Painting", "type": "action", "traits": ["divine"], "cost": 2, "text": "Syarstik animates a cave painting within 60 feet for 10 minutes. The painting's movement mimics Syarstik's, so the connection between the ghost and the awakened painting is obvious. Creatures other than Syarstik within 10 feet of the awakened painting are Off-Guard because of these eerie movements. Syarstik can make ghostly fangs Strikes at any creature within 10 feet of a cave painting; the target's cover or concealment from the cave painting, rather than from Syarstik, applies to this…"}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "Syarstik Strides and makes a Strike at the end of that movement. If he began this action Hidden, he remains hidden until after this ability's Strike."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Syarstik deals an additional 1d6 precision damage to Off-Guard creatures."}]
+"Tar Ooze":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 10
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["mindless", "ooze"]
+  ac: 18
+  hp: 255
+  perception: 18
+  saves: {"fortitude": 22, "reflex": 10, "will": 15}
+  abilities: {"cha": -5, "con": 8, "dex": -3, "int": -5, "str": 8, "wis": 0}
+  speeds: {"land": 15, "climb": 10}
+  senses: ["motion-sense"]
+  skills: {"Athletics": 23, "Stealth": 13}
+  immunities: ["critical-hits", "precision", "unconscious", "visual"]
+  weaknesses: {"fire": 10}
+  strikes: [{"name": "Pseudopod", "bonus": 23, "damage": [["2d10+14", "bludgeoning", null]], "traits": ["reach-10", "unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Motion Sense", "type": "passive", "traits": [], "text": "A tar ooze can sense nearby motion through vibration and movement."}, {"name": "Sticky", "type": "reaction", "traits": [], "text": "Trigger The tar ooze is hit by a melee attack%rEffect The ooze attempts to Grapple the creature that hit it. The ooze must still spend an action to extend the duration of the Grab on subsequent rounds, as normal."}, {"name": "Engulf", "type": "action", "traits": [], "cost": 2, "text": "DC 29 Reflex, 6d6 bludgeoning damage, escape dc=29, Rupture 17"}, {"name": "Viscous Sludge", "type": "passive", "traits": [], "text": "The tar ooze can have up to eight creatures grabbed at the same time; doing so doesn't prevent it from making pseudopod Strikes. A tar ooze can climb on ceilings and other inverted surfaces, though such surfaces are difficult terrain."}, {"name": "Zombification", "type": "passive", "traits": ["primal"], "text": "A creature slain while engulfed by a tar ooze undergoes a horrifying transformation and crawls from the ooze a week later as a tar zombie."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Tar Zombie Mammoth":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 9
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["evil", "mindless", "undead", "unholy", "zombie"]
+  ac: 26
+  hp: 240
+  perception: 18
+  saves: {"fortitude": 22, "reflex": 14, "will": 16}
+  abilities: {"cha": -3, "con": 5, "dex": -1, "int": -5, "str": 7, "wis": 1}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Stealth": 12}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 10, "vitality": 10, "slashing": 10}
+  strikes: [{"name": "Tusk", "bonus": 21, "damage": [["2d12+11", "piercing", null]], "traits": ["reach-15", "unarmed"]}, {"name": "Trunk", "bonus": 21, "damage": [["2d8+11", "bludgeoning", null]], "traits": ["reach-15"], "effects": ["Improved Grab"]}, {"name": "Foot", "bonus": 21, "damage": [["2d6+11", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Flammable", "type": "passive", "traits": [], "text": "A tar zombie requires a successful DC 20 flat check to recover from persistent fire damage. This DC isn't reduced for assisted recovery."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Fling", "type": "action", "traits": [], "cost": 1, "text": "Requirements The tar zombie mammoth has a creature Grabbed or Restrained by its trunk%rEffect The tar zombie mammoth whips its prey violently into the air. It attempts an Athletics check against the grabbed or restrained creature's Fortitude DC. If the creature is restrained, the mammoth gains a +4 circumstance bonus to this check. On a success, the mammoth flings the creature up to 30 feet overhead and up to 30 feet away (the creature takes damage from the fall as normal, up to 15 damage for a…"}, {"name": "Shambling Trample", "type": "action", "traits": [], "cost": 2, "text": "As Trample, but the tar zombie mammoth Strides up to its Speed instead of double its Speed."}, {"name": "Vomit Tar", "type": "action", "traits": ["primal"], "cost": 2, "text": "The tar zombie vomits a gout of sticky tar in a 15-foot that deals 7d6 bludgeoning|options:area-damage damage ((DC 28 Reflex) save). Creatures that fail the save are Slowed 1 and gain fire weakness 5. Both conditions end after 3 rounds or when the tar is scrubbed off (which requires 3 Interact actions). The tar zombie can't Vomit Tar again for 1d4 rounds.%rEffect: Vomit Tar"}]
+"Tar Zombie Predator":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 7
+  size: "large"
+  rarity: "uncommon"
+  traits: ["evil", "mindless", "undead", "unholy", "zombie"]
+  ac: 23
+  hp: 180
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 11, "will": 15}
+  abilities: {"cha": -3, "con": 4, "dex": 0, "int": -5, "str": 6, "wis": 2}
+  speeds: {"land": 30, "climb": 10}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 17, "Stealth": 11}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 10, "vitality": 10, "slashing": 10}
+  strikes: [{"name": "Fist", "bonus": 18, "damage": [["2d10+10", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Flammable", "type": "passive", "traits": [], "text": "A tar zombie requires a successful DC 20 flat check to recover from persistent fire damage. This DC isn't reduced for assisted recovery."}, {"name": "Tar-Splattered Charge", "type": "action", "traits": [], "cost": 2, "text": "The tar zombie predator lurches at its foe. It Strides twice and makes a claw Strike, or strides once and makes two claw Strikes. Both Strikes count toward its multiple attack penalty as normal. It can't make a Tar-Spattered Charge again for 1d4 rounds."}, {"name": "Vomit Tar", "type": "action", "traits": ["primal"], "cost": 2, "text": "The tar zombie vomits a gout of sticky tar in a 15-foot that deals 6d6 bludgeoning|options:area-damage damage ((DC 25 Reflex) save). Creatures that fail the save are Slowed 1 and gain fire weakness 5. Both conditions end after 3 rounds or when the tar is scrubbed off (which requires 3 Interact actions). The tar zombie can't Vomit Tar again for 1d4 rounds.%rEffect: Vomit Tar"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Tar Zombie Snatcher":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "mindless", "undead", "unholy", "zombie"]
+  ac: 22
+  hp: 130
+  perception: 12
+  saves: {"fortitude": 18, "reflex": 10, "will": 13}
+  abilities: {"cha": -3, "con": 4, "dex": 0, "int": -5, "str": 5, "wis": 1}
+  speeds: {"land": 25, "climb": 10}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 15, "Stealth": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"fire": 5, "vitality": 5, "slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 17, "damage": [["2d8+8", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Flammable", "type": "passive", "traits": [], "text": "A tar zombie requires a successful DC 20 flat check to recover from persistent fire damage. This DC isn't reduced for assisted recovery."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Vomit Tar", "type": "action", "traits": ["primal"], "cost": 2, "text": "The tar zombie vomits a gout of sticky tar in a 15-foot that deals 5d6 bludgeoning|options:area-damage damage ((DC 24 Reflex) save). Creatures that fail the save are Slowed 1 and gain fire weakness 5. Both conditions end after 3 rounds or when the tar is scrubbed off (which requires 3 Interact actions). The tar zombie can't Vomit Tar again for 1d4 rounds.%rEffect: Vomit Tar"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Throttled Blindheim":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 18
+  hp: 27
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 9, "will": 5}
+  abilities: {"cha": -2, "con": 3, "dex": 3, "int": -4, "str": 2, "wis": 1}
+  speeds: {"land": 25, "climb": 15, "swim": 15}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 6, "Stealth": 7}
+  immunities: ["blinded", "light"]
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d12+2", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 11, "damage": [["1d8+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Crushed Windpipes", "type": "passive", "traits": [], "text": "The blindheim can't vocalize and is Slowed 1 until its neck injuries heal."}, {"name": "Spotlight", "type": "action", "traits": ["concentrate", "light"], "cost": 1, "text": "Bright light shines from the blindheim's eyes in a 30-foot (also creating dim light to 60 feet). Each creature in the bright light when the blindheim uses this action, or who enters it while the light continues, must attempt a DC 18 Fortitude save. It is then temporarily immune for 1 hour. This light remains until the blindheim dims its eyes by using this action again.%rCritical Success The creature is unaffected.%rSuccess The creature is Dazzled for 1 round.%rFailure The creature is Blinded…"}]
+"Turkek":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["dhampir", "evil", "human", "humanoid"]
+  ac: 23
+  hp: 100
+  perception: 12
+  saves: {"fortitude": 16, "reflex": 16, "will": 14}
+  abilities: {"cha": 1, "con": 2, "dex": 2, "int": 4, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Arcana": 17, "Athletics": 14, "Deception": 10, "Intimidation": 12, "Stealth": 13}
+  strikes: [{"name": "Fangs", "bonus": 16, "damage": [["1d6+5", "piercing", null], ["1d6", "bleed", null]], "traits": ["grapple", "unarmed"]}]
+  actions: [{"name": "+2 Circumstance to All Saves vs. Disease", "type": "passive", "traits": []}, {"name": "Clot", "type": "reaction", "traits": [], "text": "Trigger Turkek takes persistent bleed damage%rEffect Turkek's blood hardens, sealing her wounds. Turkek automatically passes her next flat check to recover from the triggering persistent bleed damage."}, {"name": "Sanguine Aura", "type": "passive", "traits": ["arcane", "aura"], "text": "30 feet. Around Turkek, wounds heal slowly and blood flows faster. The flat check to stop persistent bleed damage is DC 16, rather than DC 15. In addition, each time a creature in the emanation takes persistent bleed damage, it takes 1d6 additional bleed damage."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blood Let", "type": "action", "traits": [], "cost": 1, "text": "Requirements Turkek's last action was a fang Strike that hit the target%rEffect Turkek rips her fangs across one of the target's arteries or veins, dealing an additional (1d6+5) slashing damage."}, {"name": "Siphon Blood", "type": "action", "traits": [], "cost": 2, "text": "Requirements A creature within Turkek's sanguine aura is taking persistent bleed damage%rEffect Turkek draws her enemy's blood into her own body to heal her wounds. She regains 7 healing Hit Points."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Detect Magic", "Ghost Sound", "Mage Hand", "Shield", "Telekinetic Projectile"], "1": ["Grim Tendrils", "Mage Armor", "Ray of Enfeeblement"], "2": ["Blood Vendetta", "Bone Spray", "False Life", "Invisibility", "Spider Climb"], "3": ["Bind Undead"], "4": ["Sanguine Mist"]}}]
+"Varilyn \"Vare\" Eridge":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "small"
+  rarity: "unique"
+  traits: ["good", "halfling", "humanoid"]
+  ac: 21
+  hp: 60
+  perception: 14
+  saves: {"fortitude": 12, "reflex": 11, "will": 14}
+  abilities: {"cha": 0, "con": 2, "dex": 1, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 14, "Athletics": 12, "Crafting": 14, "Stealth": 11, "Survival": 12, "Scouting Lore": 12}
+  strikes: [{"name": "Shortsword", "bonus": 12, "damage": [["1d6+6", "piercing", null]], "traits": ["agile", "versatile-s"]}, {"name": "Crossbow", "bonus": 9, "damage": [["1d8+2", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  actions: [{"name": "Guide's Warning", "type": "passive", "traits": [], "text": "When Vare is about to roll a Perception or Survival check to determine her initiative, she can alert her allies as a free action. Vare visually or audibly warns allies, granting them a +1 circumstance bonus to their initiative rolls. Depending on how Vare warns allies, this action has the auditory or visual trait.%rEffect: Guide's Warning"}, {"name": "Snare Crafting", "type": "passive", "traits": [], "text": "Vare can use the Crafting skill to create the following snares: alarm snare, hampering snare, irritating thorn snare, marking snare, signaling snare, and smoke screen snare. Vare can create four snares each day without paying for the materials, using 3 Interact actions to set up each snare."}, {"name": "Guiding Words", "type": "action", "traits": [], "cost": 1, "text": "Vare points out a weakness of a creature within 30 feet. Vare and all allies that can hear or see her gain a +1 status bonus to attack and damage rolls against that creature until the beginning of Vare's next turn. Vare adds an extra 1d6 precision damage to her weapon and unarmed attacks that hit that creature for the duration.%rEffect: Guiding Words"}]
+"Venexus":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["chaotic", "cold", "dragon", "evil"]
+  ac: 28
+  hp: 170
+  perception: 20
+  saves: {"fortitude": 21, "reflex": 15, "will": 17}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": 2, "str": 6, "wis": 3}
+  speeds: {"land": 30, "fly": 120}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 17, "Arcana": 17, "Athletics": 21, "Intimidation": 19, "Stealth": 15}
+  immunities: ["cold", "paralyzed", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["2d10+10", "piercing", null], ["1d6", "cold", null]], "traits": ["cold", "magical", "reach-10", "unarmed"]}, {"name": "Claw", "bonus": 21, "damage": [["2d8+10", "slashing", null]], "traits": ["agile", "magical", "unarmed"]}, {"name": "Tail", "bonus": 20, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["magical", "reach-15"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Freezing Blood", "type": "reaction", "traits": ["arcane", "cold"], "text": "Trigger An adjacent creature deals piercing or slashing damage to Venexus%rEffect Venexus's blood splatters onto the triggering creature, dealing 2d6 cold damage. A creature that takes cold damage in this way is Slowed 1 for 1 round."}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 25 Will"}, {"name": "Mist Shroud", "type": "passive", "traits": ["arcane", "aura", "water"], "text": "10 feet. The Primordial Flame continually heats the cold emanating from Venexus's body, surrounding the dragon in a thin veil of fog. Creatures in the aura are Concealed, and other creatures are concealed to creatures in the area. Venexus's storm vision allows her to see through this concealment, however. If wind disperses the aura, it returns automatically at the start of Venexus's turn. The aura is suppressed in water."}, {"name": "Storm Vision", "type": "passive", "traits": [], "text": "Inclement weather doesn't impair Venexus's vision; she ignores Concealment from fog, mist, rain, and snowfall."}, {"name": "Breath Weapon", "type": "action", "traits": ["arcane", "cold"], "cost": 2, "text": "Venexus breathes a cloud of frost that deals 10d6 cold|options:area-damage damage in a 40-foot (DC 28 Reflex). She can't use Breath Weapon again for 1d4 rounds."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "Venexus makes two claw Strikes and one tail Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "When Venexus scores a critical hit with a Strike, she recharges her Breath Weapon."}, {"name": "Ice Climb 30 feet", "type": "passive", "traits": [], "text": "Venexus can climb on ice as though she had the listed climb Speed. She ignores difficult terrain and greater difficult terrain from ice and snow and doesn't risk falling when crossing ice."}, {"name": "Shape Ice", "type": "action", "traits": ["arcane", "water"], "cost": 2, "text": "Venexus magically reshapes a cube of ice or snow she touches, up to 10 feet across. Any creature standing atop the ice must succeed at a DC 15 Reflex save or Acrobatics check. On a failure, the creature falls Prone on the ice; on a critical failure, it falls off the ice entirely and is also prone."}, {"name": "Snuff", "type": "action", "traits": ["arcane", "water"], "cost": 1, "text": "Venexus releases a wave of sleet, which douses open flames within 30 feet. All non-magical fire is automatically extinguished. All creatures in the area suffering from persistent fire damage immediately attempt a DC 10 Flat to end the persistent damage. If Snuff overlaps with an ongoing fire effect, Snuff attempts to counteract the fire effect."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "divine", "type": "innate", "dc": 25, "attack": 17, "spells": {"1": ["Gust of Wind (At Will)"], "2": ["Obscuring Mist (At Will)"]}}, {"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Produce Flame"], "7": ["Sunburst"]}}]
+"Venexus's Chosen":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "rare"
+  traits: ["beast", "beastkin", "evil", "humanoid", "lawful"]
+  ac: 23
+  hp: 115
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 16, "will": 14}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 1, "str": 3, "wis": 2}
+  speeds: {"land": 35}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 14, "Athletics": 11, "Intimidation": 10, "Stealth": 12}
+  weaknesses: {"fire": 5}
+  resistances: {"cold": 5}
+  strikes: [{"name": "Fist", "bonus": 16, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "nonlethal", "unarmed"]}, {"name": "Tail", "bonus": 16, "damage": [["1d10+5", "bludgeoning", null]], "traits": ["finesse", "magical", "reach-10", "unarmed"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Tail Lash", "type": "reaction", "traits": [], "text": "Trigger A creature within reach of the chosen's tail Strike uses an action to Strike or attempt a skill check%rEffect Venexus's chosen attempts to Strike the triggering creature with their tail. If it hits, the creature takes a -2 circumstance penalty to the triggering roll.%rEffect: Tail Lash"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Venexus's chosen changes between their humanoid shape and hybrid shape. They gain a tail unarmed Strike while in their hybrid shape."}, {"name": "Flurry of Blows", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Venexus's chosen makes two unarmed Strikes. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses."}, {"name": "Ice Walk", "type": "passive", "traits": [], "text": "Venexus's chosen ignores difficult terrain and greater difficult terrain from ice and snow and doesn't risk falling when crossing ice."}, {"name": "Powerful Fists", "type": "passive", "traits": [], "text": "Venexus's chosen's fist Strikes are treated as cold iron and silver, and the chosen doesn't take penalties when making lethal attacks."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "divine", "type": "innate", "dc": 24, "attack": 16, "spells": {}}]
+"Venexus's Wyrmling":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["chaotic", "cold", "dragon", "evil"]
+  ac: 22
+  hp: 90
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 15, "will": 9}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 5, "wis": 1}
+  speeds: {"land": 30, "fly": 60}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 12, "Athletics": 13, "Intimidation": 10, "Stealth": 12}
+  immunities: ["cold", "paralyzed", "sleep"]
+  weaknesses: {"fire": 5}
+  strikes: [{"name": "Jaws", "bonus": 15, "damage": [["2d8+5", "piercing", null], ["1d4", "cold", null]], "traits": ["cold", "magical", "unarmed"]}, {"name": "Claw", "bonus": 15, "damage": [["2d6+5", "slashing", null]], "traits": ["agile", "magical", "unarmed"]}, {"name": "Tail", "bonus": 13, "damage": [["2d8+5", "bludgeoning", null]], "traits": ["magical", "reach-10"]}]
+  actions: [{"name": "Freezing Blood", "type": "reaction", "traits": ["arcane", "cold"], "text": "Trigger An adjacent creature deals piercing or slashing damage to the wyrmling%rEffect The wyrmling's blood splatters onto the triggering creature, dealing 1d4 cold damage. A creature that takes cold damage in this way is Slowed 1 for 1 round."}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 19 Will"}, {"name": "Snow Vision", "type": "passive", "traits": [], "text": "Snow doesn't impair a white dragon's vision; the wyrmling ignores Concealment from snowfall."}, {"name": "Breath Weapon", "type": "action", "traits": ["arcane", "cold"], "cost": 2, "text": "The wyrmling breathes a cloud of frost that deals 6d6 cold|options:area-damage damage in a 30-foot (DC 22 Reflex). They can't use Breath Weapon again for 1d4 rounds."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The wyrmling makes two claw Strikes and one tail Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "When the wyrmling scores a critical hit with a Strike, they recharge their Breath Weapon."}, {"name": "Ice Climb", "type": "passive", "traits": [], "text": "A white dragon can climb on ice as though they had the listed climb Speed. They ignore difficult terrain and greater difficult terrain from ice and snow and don't risk falling when crossing ice."}]
+"Weykoward":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 29
+  hp: 145
+  perception: 18
+  saves: {"fortitude": 23, "reflex": 19, "will": 16}
+  abilities: {"cha": -5, "con": 3, "dex": 5, "int": -4, "str": 7, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 21, "Stealth": 17}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Fist", "bonus": 23, "damage": [["2d12+13", "bludgeoning", null]], "traits": ["magical", "unarmed"], "effects": ["Push"]}]
+  actions: [{"name": "Aura of Discarded Things", "type": "passive", "traits": ["aura", "occult"], "text": "30 feet. Items in the emanation can't regain Hit Points unless the effect that attempts to repair them counteracts the aura, which has a counteract rank of 5 and a counteract DC of 30."}, {"name": "Debris Shield", "type": "reaction", "traits": [], "text": "Trigger The weykoward is targeted by an attack from an attacker it can see%rEffect The weykoward intercepts the attack with junk, gaining a +2 circumstance bonus to its AC against the triggering attack. If the attack misses and the attacker is within the weykoward's reach, it can Shove the attacker. It doesn't need a hand free to Shove."}, {"name": "Wasting Gaze", "type": "action", "traits": ["occult"], "cost": 2, "text": "The weykoward glances at an item of 4 Bulk or less it can see within 30 feet. A creature holding or wearing the object must attempt a DC 26 Will save. An unattended item always critically fails this save.%rCritical Success The targeted item is unaffected. All of the creature's equipment is immune to Wasting Gaze for 24 hours.%rSuccess The item is unaffected.%rFailure The item loses 10d6 untyped Hit Points; this can make the item broken, but it can't reduce the target's Hit Points beyond its…"}]
+"Yana No-trail":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "humanoid", "kitsune"]
+  ac: 25
+  hp: 110
+  perception: 13
+  saves: {"fortitude": 14, "reflex": 19, "will": 11}
+  abilities: {"cha": 4, "con": 1, "dex": 4, "int": 3, "str": 1, "wis": 0}
+  speeds: {"land": 25, "climb": 10}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 17, "Deception": 17, "Diplomacy": 17, "Society": 16, "Stealth": 17, "Thievery": 17}
+  resistances: {"cold": 3}
+  strikes: [{"name": "Claw", "bonus": 19, "damage": [["2d4+3", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Cold Tolerant", "type": "passive", "traits": [], "text": "Yana treats environmental cold effects as if they were one step less extreme."}, {"name": "Evasion", "type": "passive", "traits": [], "text": "When Yana rolls a success on a Reflex save, he gets a critical success instead."}, {"name": "Nimble Dodge", "type": "reaction", "traits": [], "text": "Trigger Yana is targeted by a melee or ranged attack from an attacker he can see%rEffect Yana gains a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "kitsune", "polymorph"], "cost": 1, "text": "Yana can transform into an Ulfen human, Tiny fox, or hybrid kitsune form. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. He can remain in any of his forms indefinitely."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Yana deals an additional 3d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "divine", "type": "innate", "dc": 23, "attack": 13, "spells": {"2": ["Animal Messenger"]}}]
+"Zombie Megaloceros":
+  pack: "quest-for-the-frozen-flame-bestiary"
+  level: 4
+  size: "large"
+  rarity: "unique"
+  traits: ["evil", "mindless", "undead", "unholy", "zombie"]
+  ac: 21
+  hp: 100
+  perception: 10
+  saves: {"fortitude": 13, "reflex": 11, "will": 8}
+  abilities: {"cha": 0, "con": 5, "dex": 3, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 50}
+  hp_details: "void healing"
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 13, "Survival": 10}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"vitality": 10, "slashing": 10}
+  strikes: [{"name": "Antlers", "bonus": 13, "damage": [["2d6+7", "piercing", null]], "traits": ["deadly-d8"]}, {"name": "Hoof", "bonus": 13, "damage": [["2d4+7", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Slow", "type": "passive", "traits": [], "text": "A zombie is permanently Slowed 1 and can't use reactions."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Furious Charge", "type": "action", "traits": [], "cost": 2, "text": "The megaloceros Strides twice and makes a hoof Strike after either Stride. If the Strike hits, the megaloceros deals an additional 2d4 bludgeoning damage."}]

@@ -84,6 +84,10 @@ pf2e_consumables:
       - consumable
       - sonic
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The bomb also deals )[sonic]]{1 sonic splash damage} and all creatures within 10 feet must succeed at a save or be Deafened until the end of its next turn."
   Blight Bomb (Lesser):
     category: martial
     group: Bomb
@@ -108,6 +112,10 @@ pf2e_consumables:
       - consumable
       - electricity
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The bomb also deals )[electricity]]{1 electricity splash damage} and the target becomes Off-Guard until the start of your next turn."
   Caltrop Snare:
     bulk: 0
     level: 1
@@ -160,6 +168,15 @@ pf2e_consumables:
       - mental
       - poison
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["success"]
+        text: "On a hit, The target is Frightened 1"
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["criticalSuccess"]
+        text: "On a hit, The target is Frightened 2"
   Eagle Eye Elixir (Lesser):
     bulk: 0.1
     level: 1
@@ -204,6 +221,10 @@ pf2e_consumables:
       - cold
       - consumable
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The target takes a -5-foot penalty to its Speeds until the end of its next turn (Effect: Frost Vial)."
   Gecko Potion:
     bulk: 0.1
     level: 1
@@ -224,6 +245,10 @@ pf2e_consumables:
       - consumable
       - splash
       - vitality
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "The target that takes damage becomes Enfeebled 1 until the start of your next turn."
   Ghost Ink:
     bulk: 0.1
     level: 1
@@ -258,6 +283,17 @@ pf2e_consumables:
       - alchemical
       - bomb
       - consumable
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "On a hit, -10-foot Speed penalty for 1 minute."
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "On a critical hit, -10-foot Speed penalty for 1 minute and Immobilized for 1 round."
   Hampering Snare:
     bulk: 0
     level: 1
@@ -287,6 +323,11 @@ pf2e_consumables:
       - holy
       - splash
       - thrown
+    rules:
+      - key: "Note"
+        selector: "{item|id}-damage"
+        title: "{item|name}"
+        text: "Can damage only creatures with the unholy trait."
   Juggernaut Mutagen (Lesser):
     bulk: 0.1
     level: 1
@@ -456,6 +497,11 @@ pf2e_consumables:
       - consumable
       - light
       - magical
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        title: "Shining Ammunition"
+        text: "The ammunition sheds bright light in a 20-foot radius (and dim light to the next 20 feet) for 10 minutes. If it hits a target, it sticks, causing the target to shed light in the same radius. Effect: Shining Ammunition"
   Signaling Snare:
     bulk: 0
     level: 1
@@ -508,6 +554,11 @@ pf2e_consumables:
       - splash
       - thrown
       - unholy
+    rules:
+      - key: "Note"
+        selector: "{item|id}-damage"
+        title: "{item|name}"
+        text: "Can damage only creatures with the holy trait."
   Wolf Fang:
     bulk: 0
     level: 1
@@ -524,6 +575,35 @@ pf2e_consumables:
     traits:
       - consumable
       - magical
+    rules:
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["success"]
+        title: "Antler Arrow"
+        text: "The target must succeed at a save or become stuck to the surface, taking the critical specialization effects of a bow"
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["success"]
+        title: "Critical Specialization"
+        text: "If the target of the critical hit is adjacent to a surface, it gets stuck to that surface by the missile. The target is Immobilized and must spend an Interact action to attempt a check to pull the missile free; it can't move from its space until it succeeds. The creature doesn't become stuck if it is incorporeal, is liquid, or could otherwise escape without effort (such as by being large enough that the missile would not be an impediment.)"
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["criticalSuccess"]
+        title: "Antler Arrow"
+        text: "The target must succeed at a save or become stuck to the surface, taking the critical specialization effects of a bow"
+        predicate: [{"not": "critical-specialization"}]
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["criticalSuccess"]
+        title: "Critical Specialization"
+        text: "If the target of the critical hit is adjacent to a surface, it gets stuck to that surface by the missile. The target is Immobilized and must spend an Interact action to attempt a check to pull the missile free; it can't move from its space until it succeeds. The creature doesn't become stuck if it is incorporeal, is liquid, or could otherwise escape without effort (such as by being large enough that the missile would not be an impediment.)"
+        predicate: [{"not": "critical-specialization"}]
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        outcome: ["criticalSuccess"]
+        title: "Antler Arrow"
+        text: "The DC of the Athletics check to pull the missile free increases to"
+        predicate: ["critical-specialization"]
   Belladonna:
     bulk: 0.1
     level: 2
@@ -785,6 +865,10 @@ pf2e_consumables:
       - consumable
       - sonic
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The bomb also deals )[sonic]]{2 sonic splash damage} and all creatures within 10 feet must succeed at a save or be Deafened until the end of its next turn."
   Blight Bomb (Moderate):
     category: martial
     group: Bomb
@@ -809,6 +893,10 @@ pf2e_consumables:
       - consumable
       - electricity
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The bomb also deals )[electricity]]{2 electricity splash damage} and the target becomes Off-Guard until the start of your next turn."
   Cognitive Mutagen (Moderate):
     bulk: 0.1
     level: 3
@@ -853,6 +941,15 @@ pf2e_consumables:
       - mental
       - poison
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["success"]
+        text: "On a hit, The target is Frightened 1"
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["criticalSuccess"]
+        text: "On a hit, The target is Frightened 2"
   Elixir of Gender Transformation (Moderate):
     bulk: 0.1
     level: 3
@@ -881,6 +978,10 @@ pf2e_consumables:
       - cold
       - consumable
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The target takes a -10-foot penalty to its Speeds until the end of its next turn (Effect: Frost Vial)."
   Ghost Charge (Moderate):
     category: martial
     group: Bomb
@@ -893,6 +994,10 @@ pf2e_consumables:
       - consumable
       - splash
       - vitality
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "The target that takes damage becomes Enfeebled 1 until the start of your next turn."
   Glue Bomb (Moderate):
     category: martial
     group: Bomb
@@ -903,6 +1008,17 @@ pf2e_consumables:
       - alchemical
       - bomb
       - consumable
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "On a hit, -15-foot Speed penalty for 1 minute."
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "On a critical hit, -15-foot Speed penalty for 1 minute and Immobilized for 1 round."
   Graveroot:
     bulk: 0.1
     level: 3
@@ -1112,6 +1228,10 @@ pf2e_consumables:
       - consumable
       - earth
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|id}-damage"
+        text: "The target takes 1 persistent bleed damage from the crystals embedded in its flesh. As long as the bleed damage persists, the target also takes a \u20135-foot penalty to its speed. Effect: Crystal Shards"
   Darkvision Elixir (Moderate):
     bulk: 0.1
     level: 4
@@ -1321,6 +1441,11 @@ pf2e_consumables:
       - cold
       - consumable
       - magical
+    rules:
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        title: "Freezing Ammunition"
+        text: "The target must succeed at a save or be Slowed 1 for 1 round by the intense cold (slowed 1 for 1 minute on a critical failure)."
   Frozen Lava:
     bulk: 0
     level: 5
@@ -2010,6 +2135,11 @@ pf2e_consumables:
       - consumable
       - fire
       - magical
+    rules:
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        title: "Explosive Ammunition"
+        text: "The missile explodes in a , dealing |options:area-damage] damage to each creature in the area (including the target). Each creature must attempt a save."
   Frozen Lava of the Sky Curtains:
     bulk: 0
     level: 9
@@ -2264,6 +2394,10 @@ pf2e_consumables:
       - consumable
       - sonic
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The bomb also deals )[sonic]]{3 sonic splash damage} and all creatures within 10 feet must succeed at a save or be Deafened until the end of its next turn."
   Blight Bomb (Greater):
     category: martial
     group: Bomb
@@ -2297,6 +2431,10 @@ pf2e_consumables:
       - consumable
       - electricity
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The bomb also deals )[electricity]]{3 electricity splash damage} and the target becomes Off-Guard until the start of your next turn."
   Cognitive Mutagen (Greater):
     bulk: 0.1
     level: 11
@@ -2332,6 +2470,15 @@ pf2e_consumables:
       - mental
       - poison
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["success"]
+        text: "On a hit, The target is Frightened 1"
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["criticalSuccess"]
+        text: "On a hit, The target is Frightened 2"
   Frost Vial (Greater):
     category: martial
     group: Bomb
@@ -2344,6 +2491,10 @@ pf2e_consumables:
       - cold
       - consumable
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The target takes a -10-foot penalty to its Speeds until the end of its next turn (Effect: Frost Vial)."
   Frozen Lava of Am'shere:
     bulk: 0
     level: 11
@@ -2364,6 +2515,10 @@ pf2e_consumables:
       - consumable
       - splash
       - vitality
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "The target that takes damage becomes Enfeebled 2 until the start of your next turn."
   Glue Bomb (Greater):
     category: martial
     group: Bomb
@@ -2374,6 +2529,17 @@ pf2e_consumables:
       - alchemical
       - bomb
       - consumable
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "On a hit, -15-foot Speed penalty for 1 minute."
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "On a critical hit, -15-foot Speed penalty for 1 minute and Immobilized for 1 round."
   Grim Trophy (Greater):
     bulk: 0
     level: 11
@@ -2537,6 +2703,10 @@ pf2e_consumables:
       - consumable
       - earth
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "The target takes 1 persistent bleed damage from the crystals embedded in its flesh. As long as the bleed damage persists, the target also takes a \u20135-foot penalty to its speed. Effect: Crystal Shards"
   Energy Breath Potion (Acid, Moderate):
     bulk: 0.1
     level: 12
@@ -2659,6 +2829,12 @@ pf2e_consumables:
     traits:
       - consumable
       - magical
+    rules:
+      - key: "DamageDice"
+        selector: "{item|id}-ranged-damage"
+        diceNumber: 1
+        dieSize: "d6"
+        damageType: "bleed"
   Potion of Acid Retaliation (Greater):
     bulk: 0.1
     level: 12
@@ -2799,6 +2975,11 @@ pf2e_consumables:
       - consumable
       - fire
       - magical
+    rules:
+      - key: "Note"
+        selector: "{item|id}-ranged-damage"
+        title: "Explosive Ammunition (Greater)"
+        text: "The missile explodes in a , dealing |options:area-damage] damage to each creature in the area (including the target). Each creature must attempt a save."
   Frozen Lava of the Kueu:
     bulk: 0
     level: 13
@@ -3235,6 +3416,10 @@ pf2e_consumables:
       - consumable
       - sonic
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The bomb also deals )[sonic]]{4 sonic splash damage} and all creatures within 10 feet must succeed at a save or be Deafened until the end of its next turn."
   Blight Bomb (Major):
     category: martial
     group: Bomb
@@ -3259,6 +3444,10 @@ pf2e_consumables:
       - consumable
       - electricity
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The bomb also deals )[electricity]]{4 electricity splash damage} and the target becomes Off-Guard until the start of your next turn."
   Cognitive Mutagen (Major):
     bulk: 0.1
     level: 17
@@ -3302,6 +3491,15 @@ pf2e_consumables:
       - mental
       - poison
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["success"]
+        text: "On a hit, The target is Frightened 1"
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["criticalSuccess"]
+        text: "On a hit, The target is Frightened 2"
   Energy Breath Potion (Acid, Greater):
     bulk: 0.1
     level: 17
@@ -3359,6 +3557,10 @@ pf2e_consumables:
       - cold
       - consumable
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "Effect The target takes a -15-foot penalty to its Speeds until the end of its next turn (Effect: Frost Vial)."
   Frozen Lava of Dran:
     bulk: 0
     level: 17
@@ -3379,6 +3581,10 @@ pf2e_consumables:
       - consumable
       - splash
       - vitality
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "The target that takes damage becomes Enfeebled 2 until the start of your next turn."
   Glue Bomb (Major):
     category: martial
     group: Bomb
@@ -3389,6 +3595,17 @@ pf2e_consumables:
       - alchemical
       - bomb
       - consumable
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "On a hit, -20-foot Speed penalty for 1 minute."
+      - key: "Note"
+        selector: "{item|_id}-attack"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "On a critical hit, -20-foot Speed penalty for 1 minute and Immobilized for 1 round."
   Hemlock:
     bulk: 0.1
     level: 17
@@ -3483,6 +3700,10 @@ pf2e_consumables:
       - consumable
       - earth
       - splash
+    rules:
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        text: "The target takes 1 persistent bleed damage from the crystals embedded in its flesh. As long as the bleed damage persists, the target also takes a \u20135-foot penalty to its speed. Effect: Crystal Shards"
   Healing Potion (Major):
     bulk: 0.1
     level: 18

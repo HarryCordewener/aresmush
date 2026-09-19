@@ -1,0 +1,113 @@
+---
+"Boggard Guard":
+  pack: "standalone-adventures"
+  level: -1
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "boggard", "humanoid"]
+  ac: 14
+  hp: 9
+  perception: 5
+  saves: {"fortitude": 7, "reflex": 4, "will": 3}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": -1, "str": 1, "wis": 1}
+  speeds: {"land": 20, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 4, "Athletics": 5, "Stealth": 4}
+  strikes: [{"name": "Tongue", "bonus": 6, "damage": [], "traits": ["reach-10"], "effects": ["Tongue Grab"]}, {"name": "Club", "bonus": 5, "damage": [["1d6+1", "bludgeoning", null]], "traits": []}, {"name": "Sling", "bonus": 6, "damage": [["1d6", "bludgeoning", null]], "traits": ["propulsive", "reload-1"], "range": 50}]
+  actions: [{"name": "Warning Croak", "type": "free", "traits": ["auditory"], "text": "Trigger The boggard guard spots a foe before combat begins%rEffect The boggard guard lets loose a cry of warning that other boggards immediately recognize. Boggards within 50 feet get a +2 circumstance bonus on initiative checks made in the next minute and a +2 circumstance bonus on Perception to notice hiding creatures. The boggard then rolls initiative."}, {"name": "Swamp Passage", "type": "passive", "traits": [], "text": "A boggard scout ignores difficult terrain caused by swamp terrain features."}, {"name": "Tongue Grab", "type": "passive", "traits": [], "text": "If the boggard guard hits a creature with their tongue, that creature becomes Grabbed by the boggard. Unlike with a normal Grab, the creature is not Immobilized, but it can't move beyond the reach of the boggard's tongue. The DC to escape dc=15 is 15, or a creature can sever the tongue by hitting AC 12 and dealing at least 1 slashing damage. Though this doesn't deal any damage to the boggard, it prevents them from using their tongue Strike again until they regrow their tongue, which takes a…"}]
+"Giant Swamp Fly":
+  pack: "standalone-adventures"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 17
+  hp: 20
+  perception: 8
+  saves: {"fortitude": 6, "reflex": 9, "will": 6}
+  abilities: {"cha": -5, "con": 3, "dex": 4, "int": -5, "str": 3, "wis": 3}
+  speeds: {"land": 20, "climb": 20, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 6}
+  strikes: [{"name": "Mandibles", "bonus": 8, "damage": [["1d6+3", "piercing", null]], "traits": [], "effects": ["Stinging Bite"]}]
+  actions: [{"name": "Avoid the Swat", "type": "reaction", "traits": [], "text": "Trigger The giant fly is targeted with a melee or ranged attack by an attacker it can see%rEffect The giant fly gains a +2 circumstance bonus to AC against the triggering attack. If the attack misses, the giant fly can move up to its fly Speed."}, {"name": "Stinging Bite", "type": "passive", "traits": ["disease"], "text": "The bite of a giant swamp fly spreads irritating toxin into the wound. A PC who is bitten by a giant swamp fly must attempt a DC 16 Fortitude save. On a failure, they become Sickened 1, or Sickened 2 on a critical failure."}]
+"Leather Cap":
+  pack: "standalone-adventures"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["fungus", "leshy"]
+  ac: 18
+  hp: 30
+  perception: 6
+  saves: {"fortitude": 8, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Nature": 6}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["agile", "finesse"]}, {"name": "Spore Pod", "bonus": 10, "damage": [["1d6+2", "bludgeoning", null]], "traits": [], "range": 30, "effects": ["Spores"]}]
+  actions: [{"name": "Spore Cloud", "type": "action", "traits": ["poison"], "cost": 2, "text": "Frequency once per day%rEffect Leather Cap unleashes a faintly purple cloud of sparkling spores that irritates the eyes and throats of all non-fungus creatures exposed to it. Each creature within 15 feet of Leather Cap must succeed at a DC 16 Fortitude save or take 1d6 poison|options:area-damage damage and become Sickened 1."}, {"name": "Spores", "type": "passive", "traits": [], "text": "A creature that takes damage from Leather Cap's spore pod Strike must attempt a DC 16 Fortitude save to avoid becoming Sickened 1 from the spores that burst around them."}]
+"Swamp Beetle":
+  pack: "standalone-adventures"
+  level: -1
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 6
+  perception: 6
+  saves: {"fortitude": 4, "reflex": 7, "will": 2}
+  abilities: {"cha": -2, "con": 2, "dex": 3, "int": -5, "str": 1, "wis": 1}
+  speeds: {"land": 20}
+  skills: {"Acrobatics": 5, "Athletics": 4}
+  strikes: [{"name": "Mandibles", "bonus": 5, "damage": [["1d4+1", "piercing", null]], "traits": []}, {"name": "Swamp Spit", "bonus": 7, "damage": [["1d4", "acid", null]], "traits": [], "range": 20}]
+  actions: [{"name": "Splatter", "type": "passive", "traits": [], "text": "When a swamp beetle dies, it splatters everyone next to it with foul-smelling acid. PCs next to the swamp beetle take 1 acid|options:area-damage damage. The other beetles are immune to this damage."}]
+"Two Tusk":
+  pack: "standalone-adventures"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 17
+  hp: 35
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 6, "will": 4}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -4, "str": 4, "wis": 0}
+  speeds: {"land": 30, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 6, "Athletics": 8, "Stealth": 5}
+  strikes: [{"name": "Tusks", "bonus": 11, "damage": [["1d8+4", "piercing", null]], "traits": ["deadly-d10"]}, {"name": "Slime Squirt", "bonus": 9, "damage": [], "traits": [], "range": 30, "effects": ["Entangling Slime"]}]
+  actions: [{"name": "+2 to Fortitude Saves vs. Grapple", "type": "passive", "traits": []}, {"name": "Belly Grease", "type": "action", "traits": [], "cost": 3, "text": "Two Tusk extrudes a slippery grease from his ventral glands to coat the barge under him and in a 5-foot, turning the affected area into uneven ground for 10 minutes, after which it dries to a putrid crust. The DC to balance dc=18 across the grease is 18."}, {"name": "Entangling Slime", "type": "passive", "traits": [], "text": "A creature struck by Two Tusk's slime squirt becomes Clumsy 1 and takes a –5-foot penalty to Speed for 1 hour or until the slime is removed. A PC can use an Interact action to splash swamp water on themself to wash away the stuff and remove this penalty.%rEffect: Entangling Slime"}]
+"Young Monitor Lizard":
+  pack: "standalone-adventures"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 24
+  perception: 6
+  saves: {"fortitude": 8, "reflex": 7, "will": 4}
+  abilities: {"cha": -2, "con": 3, "dex": 2, "int": -4, "str": 2, "wis": 1}
+  speeds: {"land": 30, "swim": 20}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 5, "Athletics": 7, "Stealth": 5}
+  strikes: [{"name": "Jaws", "bonus": 7, "damage": [["1d4+2", "piercing", null]], "traits": [], "effects": ["Young Monitor Lizard Venom"]}]
+  actions: [{"name": "Lurching Charge", "type": "action", "traits": [], "cost": 2, "text": "The young monitor lizard Strides twice and then makes a jaws Strike. If it moves at least 20 feet from where it started, it gets a +2 circumstance bonus on the attack roll."}, {"name": "Young Monitor Lizard Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 15 Fortitude%rMaximum Duration 4 rounds%rStage 1 1d4 poison damage%rStage 2 1d6 poison damage"}]
+"Zungur":
+  pack: "standalone-adventures"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["amphibious", "boggard", "humanoid"]
+  ac: 18
+  hp: 40
+  perception: 11
+  saves: {"fortitude": 9, "reflex": 7, "will": 11}
+  abilities: {"cha": 3, "con": 2, "dex": 0, "int": 0, "str": 3, "wis": 4}
+  speeds: {"land": 20, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8, "Intimidation": 8, "Medicine": 9, "Nature": 11, "Performance": 8, "Religion": 9, "Stealth": 6}
+  strikes: [{"name": "Tongue", "bonus": 10, "damage": [], "traits": ["reach-10"], "effects": ["Tongue Grab"]}, {"name": "Trident", "bonus": 10, "damage": [["1d8+6", "piercing", null]], "traits": []}, {"name": "Trident", "bonus": 10, "damage": [["1d8+6", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Focusing Drone", "type": "reaction", "traits": ["auditory", "mental"], "text": "Trigger Zungur attempts a Will saving throw%rEffect Zungur reflexively groans in a series of low, rhythmic croaking sounds to help her focus her mind on her faith in the frog goddess Gogunta. She rolls a Performance check. She can use the higher result between her Performance check and her Will saving throw to resolve the effects against the attack that triggered her Will saving throw."}, {"name": "Destructive Croak", "type": "action", "traits": ["sonic"], "cost": 2, "text": "Zungur utters a powerful croak that deals 4d6 sonic|options:area-damage damage to any non-boggard within a 15-foot emanation. Any creature with the frightened condition takes additional sonic damage equal to twice the value of its frightened condition. Zungur can't use Destructive Croak again for 1d4 rounds."}, {"name": "Swamp Passage", "type": "passive", "traits": [], "text": "A boggard warrior ignores difficult terrain caused by swamp terrain features."}, {"name": "Terrifying Croak", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 1, "text": "The boggard warrior unleashes a terrifying croak. Any non-boggard within 30 feet becomes Frightened 1 unless they succeed at a DC 19 Will save; those who critically succeed are temporarily immune for 1 minute."}, {"name": "Tongue Grab", "type": "passive", "traits": [], "text": "If the boggard warrior hits a creature with their tongue, that creature becomes Grabbed by the boggard. Unlike with a normal Grab, the creature isn't Immobilized, but it can't move beyond the reach of the boggard's tongue. A creature can sever the tongue by hitting AC 15 and dealing at least 3 slashing damage. Though this doesn't deal any damage to the boggard, it prevents them from using their tongue Strike until they regrow their tongue, which takes a week."}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 21, "attack": 11, "spells": {"0": ["Caustic Blast", "Light", "Sigil", "Tangle Vine"], "1": ["Breathe Fire", "Jump"], "2": ["Acid Grip", "Mist"]}}]

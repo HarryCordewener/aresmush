@@ -50,6 +50,11 @@ pf2e_gear:
     level: 0
     price: 1
     traits: []
+    rules:
+      - key: "RollOption"
+        option: "lit-candle"
+        toggleable: true
+        label: "Candle is lit"
   Chain:
     bulk: 1
     level: 0
@@ -90,6 +95,12 @@ pf2e_gear:
     level: 0
     price: 100
     traits: []
+    rules:
+      - key: "AdjustModifier"
+        selector: "survival"
+        suppress: true
+        slug: "no-compass"
+        requiresEquipped: false
   Cookware:
     bulk: 2
     level: 0
@@ -100,6 +111,11 @@ pf2e_gear:
     level: 0
     price: 50
     traits: []
+    rules:
+      - key: "AdjustModifier"
+        selector: "athletics"
+        suppress: true
+        slug: "no-crowbar"
   Disguise Kit:
     bulk: 0.1
     level: 0
@@ -165,6 +181,11 @@ pf2e_gear:
     level: 0
     price: 70
     traits: []
+    rules:
+      - key: "RollOption"
+        option: "active-lantern"
+        toggleable: true
+        label: "{item} is lit"
   Light Barding (Large):
     bulk: 4
     level: 0
@@ -249,11 +270,19 @@ pf2e_gear:
     level: 0
     price: 200
     traits: []
+    rules:
+      - key: "RollOption"
+        option: "has-religious-symbol"
+        requiresEquipped: false
   Religious Symbol (Wooden):
     bulk: 0.1
     level: 0
     price: 10
     traits: []
+    rules:
+      - key: "RollOption"
+        option: "has-religious-symbol"
+        requiresEquipped: false
   Religious Text:
     bulk: 0.1
     level: 0
@@ -344,6 +373,26 @@ pf2e_gear:
     level: 0
     price: 1
     traits: []
+    rules:
+      - key: "Strike"
+        category: "simple"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d4"}}
+        otherTags: ["improvised"]
+        predicate: [{"not": "lit-torch"}]
+      - key: "Strike"
+        category: "simple"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d4"}}
+        otherTags: ["improvised"]
+        predicate: ["lit-torch"]
+      - key: "FlatModifier"
+        selector: "{item|_id}-damage"
+        value: 1
+        damageType: "fire"
+        predicate: ["lit-torch"]
+      - key: "RollOption"
+        option: "lit-torch"
+        toggleable: true
+        label: "Torch is lit"
   Waterskin:
     bulk: 0.1
     level: 0
@@ -391,41 +440,104 @@ pf2e_gear:
     level: 3
     price: 5500
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 1
+        label: "Alchemist's Lab, Expanded (craft alchemical items)"
+        predicate: ["alchemical", "action:craft"]
   Artisan's Toolkit (Sterling):
     bulk: 2
     level: 3
     price: 5000
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 1
+        label: "Artisan's Tools, Sterling (craft items)"
+        predicate: ["action:craft"]
   Climbing Kit (Extreme):
     bulk: 1
     level: 3
     price: 4000
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 1
+        predicate: ["action:climb"]
   Clothing (High-Fashion Fine):
     bulk: 0.1
     level: 3
     price: 5500
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "item"
+        value: 1
+        label: "High-Fashion Clothes (Make an Impression on nobility)"
+        predicate: ["action:make-an-impression"]
   Compass (Lensatic):
     bulk: 0
     level: 3
     price: 2000
     traits: []
+    rules:
+      - key: "AdjustModifier"
+        selector: "survival"
+        suppress: true
+        slug: "no-compass"
+        requiresEquipped: false
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+        label: "Lensatic Compass (Sense Direction or navigate)"
+        predicate: [{"or": ["action:sense-direction", "action:navigate"]}]
   Concealed Sheath:
     bulk: 0
     level: 3
     price: 2500
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "stealth"
+        type: "item"
+        value: 1
+        label: "Concealed Sheath (hide or conceal contents)"
+        predicate: ["action:conceal-an-object", "target:contents"]
   Crowbar (Levered):
     bulk: 0.1
     level: 3
     price: 2000
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "item"
+        value: 1
+        label: "Levered Crowbar (Force Open)"
+        predicate: ["action:force-open"]
+      - key: "AdjustModifier"
+        selector: "athletics"
+        suppress: true
+        slug: "no-crowbar"
   Detective's Kit:
     bulk: 1
     level: 3
     price: 2500
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: ["perception", "skill-check"]
+        type: "item"
+        value: 1
+        predicate: ["action:investigate"]
   Disguise Kit (Elite Cosmetics):
     bulk: 0.1
     level: 3
@@ -436,6 +548,13 @@ pf2e_gear:
     level: 3
     price: 4000
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "item"
+        value: 1
+        label: "Elite Disguise Kit (Impersonate)"
+        predicate: ["action:impersonate"]
   Fishing Tackle (Professional):
     bulk: 1
     level: 3
@@ -446,6 +565,12 @@ pf2e_gear:
     level: 3
     price: 5000
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "medicine"
+        type: "item"
+        value: 1
+        predicate: [{"or": ["action:administer-first-aid", "action:treat-disease", "action:treat-poison", "action:treat-wounds"]}]
   Heavy Barding (Large):
     bulk: 4
     level: 3
@@ -463,6 +588,13 @@ pf2e_gear:
     level: 3
     price: 4000
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "item"
+        value: 1
+        label: "Magnifying Glass (minute details)"
+        predicate: ["minute-details"]
   Manacles (Average):
     bulk: 0
     level: 3
@@ -473,16 +605,45 @@ pf2e_gear:
     level: 3
     price: 5000
     traits: []
+    rules:
+      - key: "RollOption"
+        option: "playing"
+        domain: "performance"
+        toggleable: true
+        label: "Playing {item}"
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 1
+        predicate: ["playing"]
   Musical Instrument (Virtuoso heavy):
     bulk: 16
     level: 3
     price: 10000
     traits: []
+    rules:
+      - key: "RollOption"
+        option: "playing"
+        domain: "performance"
+        toggleable: true
+        label: "Playing {item}"
+      - key: "FlatModifier"
+        selector: "performance"
+        type: "item"
+        value: 1
+        predicate: ["playing"]
   Repair Toolkit (Superb):
     bulk: 1
     level: 3
     price: 2500
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "crafting"
+        type: "item"
+        value: 1
+        label: "Repair Kit, Superb (Repair)"
+        predicate: ["action:repair"]
   Scholarly Journal:
     bulk: 0.1
     level: 3
@@ -501,12 +662,38 @@ pf2e_gear:
     price: 1000
     traits:
       - uncommon
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+        label: "Survey Map (mapped area)"
+        predicate: ["mapped-area"]
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "item"
+        value: 1
+        label: "Survey Map (Recall knowledge on mapped area)"
+        predicate: ["mapped-area", "action:recall-knowledge"]
   Survey Map (Atlas):
     bulk: 0.1
     level: 3
     price: 5000
     traits:
       - uncommon
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+        label: "Survey Map (mapped area)"
+        predicate: ["mapped-area"]
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "item"
+        value: 1
+        label: "Survey Map (Recall knowledge on mapped area)"
+        predicate: ["mapped-area", "action:recall-knowledge"]
   Thieves' Toolkit (Infiltrator Picks):
     bulk: 0
     level: 3
@@ -517,11 +704,24 @@ pf2e_gear:
     level: 3
     price: 5000
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "thievery"
+        type: "item"
+        value: 1
+        predicate: [{"or": ["action:disable-a-device", "action:pick-a-lock"]}]
   Spyglass (Fine):
     bulk: 0.1
     level: 4
     price: 8000
     traits: []
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "item"
+        value: 1
+        label: "Fine Spyglass (Notice details at distance)"
+        predicate: ["distance"]
   Lock (Good):
     bulk: 0
     level: 9

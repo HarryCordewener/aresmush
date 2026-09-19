@@ -1,0 +1,199 @@
+---
+"Abridan Ashau":
+  pack: "shadows-at-sundown-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid"]
+  ac: 28
+  hp: 190
+  perception: 18
+  saves: {"fortitude": 13, "reflex": 15, "will": 18}
+  abilities: {"cha": 4, "con": 2, "dex": 4, "int": 1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Deception": 22, "Diplomacy": 18, "Medicine": 20, "Religion": 18, "Society": 17}
+  strikes: [{"name": "Staff", "bonus": 16, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["two-hand-d8"]}]
+  actions: [{"name": "False Faith", "type": "passive", "traits": [], "text": "Abridan is an ex-cleric. While he's lost the magical abilities that come from his connection to Pharasma, he can still use the major staff of healing or any of his scrolls by tricking the item. Since he can't cast spells, he can't recharge his staff, and uses its remaining charges only as a last resort."}, {"name": "Marked by Urgathoa", "type": "free", "traits": ["divine", "evil"], "text": "Trigger Abridan dies before he's had a chance to atone for his blasphemies or has become an actual cleric of Urgathoa%rEffect Urgathoa watched Abridan's fall from grace, and if he dies before he finishes his conversion, her disappointment causes his body to decay as if he had been dead for a week. This process also causes all living creatures within 30 feet to take 11d6 void|options:area-damage damage (DC 33 Fortitude). If steps are not thereafter taken to prevent his soul from returning (such…"}, {"name": "Trick Item", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Abridan attempts to trick his staff or a scroll by attempting a Religion check against the item's Trick DC.%rSuccess For the rest of his turn, Abridan can spend actions to activate the staff or scroll as if he could normally use it.%rFailure Abridan can't use the item or try to trick it again this turn, but can try again on subsequent turns.%rCritical Failure Abridan can't use the item, and can't try to trick it again until his next daily preparation at sunrise.%rThe trick DCs for Abridan's…"}]
+"Acolyte of Pharasma":
+  pack: "shadows-at-sundown-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid"]
+  ac: 15
+  hp: 16
+  perception: 7
+  saves: {"fortitude": 2, "reflex": 5, "will": 9}
+  abilities: {"cha": 1, "con": -1, "dex": 2, "int": 2, "str": 1, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Crafting": 5, "Diplomacy": 4, "Occultism": 5, "Religion": 7, "Society": 5}
+  strikes: [{"name": "Dagger", "bonus": 4, "damage": [["1d4+2", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}, {"name": "Dagger", "bonus": 4, "damage": [["1d4+2", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 17, "attack": 9, "spells": {"0": ["Detect Magic", "Disrupt Undead", "Light", "Prestidigitation", "Read Aura"], "1": ["Create Water", "Heal", "Mending"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 17, "attack": 9, "spells": {"1": ["Healer's Blessing"]}}]
+"Aliriel":
+  pack: "shadows-at-sundown-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "lawful", "shadow", "undead", "unholy", "vampire"]
+  ac: 37
+  hp: 210
+  perception: 27
+  saves: {"fortitude": 25, "reflex": 29, "will": 27}
+  abilities: {"cha": 6, "con": 4, "dex": 8, "int": 8, "str": 6, "wis": 4}
+  speeds: {"land": 25, "fly": 25}
+  hp_details: "coffin restoration, fast healing 15, void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 27, "Arcana": 29, "Athletics": 25, "Deception": 27, "Occultism": 27, "Society": 25, "Stealth": 29, "Thassilon Lore": 29}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Claw", "bonus": 29, "damage": [["3d10+12", "slashing", null]], "traits": ["agile", "magical", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Fast Healing 15", "type": "passive", "traits": []}, {"name": "Coffin Restoration", "type": "passive", "traits": ["divine", "void"], "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, it falls Unconscious. If its body rests in its coffin for 1 hour, the vampire gains 1 HP, after which its fast healing begins to function normally."}, {"name": "Domain of Dusk", "type": "action", "traits": ["divine", "shadow"], "cost": 2, "text": "With a wave of its hand, the strigoi calls fourth vile ruination from the surrounding shadows, causing coils of darkness and shadowy bats, rats, and wolves to lash out at living targets in a 30-foot. Living creatures in this area take 8d6 void|options:area-damage damage (DC 34 Fortitude save against the DC of the strigoi's level). A creature that fails this save is also Dazzled for 1 round (or Blinded for 1 round and then dazzled for 1 round)"}, {"name": "Shadow Escape", "type": "free", "traits": [], "text": "Trigger The strigoi is reduced to 0 HP%rEffect The strigoi uses Shadow Form. It can take move actions to move toward its coffin even though it's at 0 HP. While at 0 HP in this form, the strigoi is unaffected by further damage. Once the strigoi reaches its coffin, or if it hasn't done so within 2 hours, it automatically returns to its physical form, Unconscious."}, {"name": "Shadow Form", "type": "action", "traits": ["concentrate", "divine", "shadow"], "cost": 1, "text": "The strigoi reverts to pure shadow and absorbs its body and its gear into the darkness, or it shifts back to its physical form. In shadow form, the strigoi gains a climb Speed equal to its land Speed and can move through any gap that isn't airtight. However, it can only move along solid surfaces that aren't highly reflective, not liquid or mirrored surfaces. If the surface it's on is destroyed, the strigoi returns to physical form and is Stunned 1. The strigoi loses fast healing while in shadow…"}, {"name": "Slip Into Shadows", "type": "reaction", "traits": ["divine"], "text": "Trigger Aliriel succeeds at a save against an effect that is not a darkness or light effect%rEffect Aliriel disappears into shadows at the last moment, critically succeeding at the save instead."}, {"name": "Strigoi Weaknesses", "type": "passive", "traits": [], "text": "All strigoi possess the following weaknesses:%rRevulsion Strigoi are uncomfortable near mirrors or sources of bright light. Only a strigoi's shadow reflects in a mirror, and this often compels them to cover or destroy mirrors in their presence rather than risk their true nature being displayed. A strigoi can't voluntarily come within 10 feet of a brandished mirror or source of bright light. To brandish a mirror or light source, a creature must Interact to do so for 1 round (similar to Raising a…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Create Servitor", "type": "passive", "traits": ["divine", "downtime"], "text": "If a creature dies after being reduced to 0 HP by Drink Essence or Domain of Dusk, the vampire can turn this victim into a vampire by donating some of its own blood to the victim and burying the victim in earth for 3 nights.%rIf the new vampire is lower level than its creator, it is under the creator's control. If a vampire controls too many spawn at once (as determined by the GM), strong-willed spawn can free themselves by succeeding at a Will saving throw against the vampire's Will DC.%rA…"}, {"name": "Dominate", "type": "action", "traits": ["divine", "incapacitation", "mental", "visual"], "cost": 2, "text": "The vampire can cast Dominate at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait (DC 34 Will). A creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours.%rFully destroying the vampire ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell."}, {"name": "Drink Essence", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within Aliriel's reach%rEffect Aliriel sinks her fangs into the targeted creature to drink its blood and draw out its vital essence. This requires an Athletics check against the creature's Fortitude DC if the creature is grabbed and is automatic for any of the other conditions. The creature becomes Drained 2 and Stupefied 2, and Aliriel regains 21 healing HP, gaining any excess HP as temporary Hit Points.…"}, {"name": "Thassilonian Necromancer", "type": "passive", "traits": [], "text": "Aliriel cannot cast abjuration or enchantment spells."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Wizard Spells Prepared", "tradition": "arcane", "type": "prepared", "dc": 36, "attack": 28, "spells": {"0": ["Chill Touch", "Detect Magic", "Electric Arc", "Mage Hand", "Prestidigitation"], "1": ["Grim Tendrils", "Magic Missile", "Ray of Enfeeblement", "True Strike"], "2": ["Deafness", "Dispel Magic", "Mirror Image", "Spectral Hand"], "3": ["Blindness", "Mind Reading", "Slow"], "4": ["Dimension Door", "Nightmare"], "5": ["Cloudkill", "Mind Probe", "Sending", "Shadow Walk"], "6": ["Baleful Polymorph", "Vampiric Exsanguination", "Wall of Force"], "7": ["Eclipse Burst"], "8": ["Horrid Wilting", "Maze"]}}, {"name": "Wizard School Spells", "tradition": "arcane", "type": "focus", "dc": 36, "attack": 28, "spells": {"1": ["Call of the Grave", "Overstuff"], "4": ["Take its Course"]}}]
+"Bishop Keppira D'Bear":
+  pack: "shadows-at-sundown-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "lawful", "shadow", "undead", "unholy", "vampire"]
+  ac: 31
+  hp: 150
+  perception: 20
+  saves: {"fortitude": 20, "reflex": 24, "will": 22}
+  abilities: {"cha": 5, "con": 5, "dex": 7, "int": 3, "str": 6, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "coffin restoration, fast healing 10, void healing"
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 23, "Deception": 22, "Stealth": 22}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "sleep"]
+  resistances: {"physical": 10}
+  strikes: [{"name": "Claw", "bonus": 22, "damage": [["2d8+8", "slashing", null]], "traits": ["agile", "magical", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Fast Healing 10", "type": "passive", "traits": []}, {"name": "Coffin Restoration", "type": "passive", "traits": ["divine", "void"], "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, it falls Unconscious. If its body rests in its coffin for 1 hour, the vampire gains 1 HP, after which its fast healing begins to function normally."}, {"name": "Shadow Form", "type": "action", "traits": ["concentrate", "divine", "shadow"], "cost": 1, "text": "The strigoi reverts to pure shadow and absorbs its body and its gear into the darkness, or it shifts back to its physical form. In shadow form, the strigoi gains a climb Speed equal to its land Speed and can move through any gap that isn't airtight. However, it can only move along solid surfaces that aren't highly reflective, not liquid or mirrored surfaces. If the surface it's on is destroyed, the strigoi returns to physical form and is Stunned 1. The strigoi loses fast healing while in shadow…"}, {"name": "Strigoi Weaknesses", "type": "passive", "traits": [], "text": "All strigoi possess the following weaknesses:%rRevulsion Strigoi are uncomfortable near mirrors or sources of bright light. Only a strigoi's shadow reflects in a mirror, and this often compels them to cover or destroy mirrors in their presence rather than risk their true nature being displayed. A strigoi can't voluntarily come within 10 feet of a brandished mirror or source of bright light. To brandish a mirror or light source, a creature must Interact to do so for 1 round (similar to Raising a…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blasphemous Invocation", "type": "action", "traits": ["divine", "void"], "cost": 2, "text": "While Bishop Keppira D'Bear lost her spellcasting abilities and other clerical powers upon being transformed into a strigoi, Urgathoa is pleased with the development and granted the fallen bishop a boon. In time, and if she's allowed to continue her undeath, the bishop may well regain many of her spellcasting powers as a cleric of Urgathoa, but until that time she can draw upon this connection to the goddess of undeath to utter a blasphemous invocation. When she does so, shadows within a…"}, {"name": "Drink Essence", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirements A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the strigoi's reach%rEffect The strigoi sinks their fangs into the targeted creature to drink its blood and draw out its vital essence. This requires an Athletics check against the creature's Fortitude DC if the creature is grabbed and is automatic for any of the other conditions. The creature becomes Drained 1 and Stupefied 1, and the strigoi regains 15 healing HP, gaining any excess HP as temporary Hit…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 27, "attack": 19, "spells": {"5": ["Levitate (At Will)"]}}]
+"Ibrique":
+  pack: "shadows-at-sundown-bestiary"
+  level: 13
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "ghoul", "undead", "unholy"]
+  ac: 35
+  hp: 200
+  perception: 18
+  saves: {"fortitude": 25, "reflex": 28, "will": 21}
+  abilities: {"cha": 5, "con": 5, "dex": 8, "int": 6, "str": 4, "wis": -1}
+  speeds: {"land": 25, "burrow": 10}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 27, "Crafting": 25, "Deception": 24, "Occultism": 25, "Performance": 24, "Stealth": 27}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 27, "damage": [["3d10+10", "piercing", null], ["2d6", "void", null]], "traits": ["finesse", "unarmed"], "effects": ["Ghoul Ghoul Fever", "Profane Paralysis"]}, {"name": "Claw", "bonus": 27, "damage": [["3d6+10", "slashing", null], ["2d6", "void", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Profane Paralysis"]}]
+  actions: [{"name": "Vulnerable to Sunlight", "type": "passive", "traits": [], "text": "Ibrique takes 20 untyped damage for each hour she is exposed to sunlight."}, {"name": "Cytillesh Stare", "type": "action", "traits": ["concentrate", "incapacitation", "mental", "visual"], "cost": 1, "text": "Frequency once per round%rEffect Ibrique focuses her gaze on a creature she can see within 30 feet. The target is Dazzled for 1 round and must succeed at a DC 33 Will save or be Confused for 1 round."}, {"name": "Ghoul Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 33 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 2d6 void damage and regains half as many Hit Points from all healing (1 day)%rStage 3 as stage 2 (1 day)%rStage 4 2d6 void damage and gains no benefit from healing (1 day)%rStage 5 as stage 4 (1 day)%rStage 6 dead, and rises as a Ghoul the next midnight."}, {"name": "Profane Paralysis", "type": "passive", "traits": [], "text": "Any living, non-elf creature hit by Ibrique's attack must attempt a DC 33 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature is Slowed 1.%rFailure The creature is Paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 25, "spells": {"0": ["Daze", "Ghost Sound", "Telekinetic Projectile"], "2": ["Darkness (At Will)"], "4": ["Confusion"], "5": ["Dimension Door"], "6": ["Modify Memory", "Phantasmal Killer", "Teleport"], "7": ["Sound Burst"]}}]
+"Ileosa's Shell":
+  pack: "shadows-at-sundown-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "undead", "unholy"]
+  ac: 34
+  hp: 235
+  perception: 24
+  saves: {"fortitude": 22, "reflex": 26, "will": 24}
+  abilities: {"cha": 0, "con": 5, "dex": 5, "int": 0, "str": 8, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 24, "Athletics": 27}
+  immunities: ["death-effects", "disease", "mental", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"bleed": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Fangs", "bonus": 29, "damage": [["3d12+8", "piercing", null], ["2d6", "bleed", null]], "traits": ["magical"], "effects": ["Blood Feast"]}, {"name": "Claw", "bonus": 29, "damage": [["3d8+8", "slashing", null], ["2d6", "bleed", null]], "traits": ["agile", "magical", "unarmed"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Escape From Hell", "type": "passive", "traits": ["auditory", "divine", "emotion", "fear", "mental"], "text": "When Ileosa's shell is reduced to 0 HP, the hollow corpse immediately melts into a pool of blood, at the center of which lies her still-beating heart. A moment later, a crimson ghostly shape-Queen Ileosa's soul-rises from the heart. After the soul shrieks in relief at escaping from Hell, it rises through the ceiling and vanishes while the heart dies and rots. All creatures within 30 feet of the shell when this occurs must attempt a DC 30 Will save.%rCritical Success A living creature becomes…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blood Feast", "type": "passive", "traits": [], "text": "When a creature takes damage from a fangs Strike, the creature must succeed at a DC 33 Fortitude save or become Enfeebled 1 (enfeebled 1 and Drained 1 on a critical failure). The shell becomes Quickened for 1 round, and can use the extra action only for fangs Strike actions against a creature that is taking persistent bleed damage. Further damage dealt by the shell increases the enfeebled condition by 1 on a failed save, to a maximum of enfeebled 4."}]
+"Loreavor":
+  pack: "shadows-at-sundown-bestiary"
+  level: 9
+  size: "small"
+  rarity: "rare"
+  traits: ["astral"]
+  ac: 28
+  hp: 155
+  perception: 19
+  saves: {"fortitude": 15, "reflex": 21, "will": 19}
+  abilities: {"cha": 3, "con": 4, "dex": 6, "int": 6, "str": 3, "wis": 4}
+  speeds: {"land": 20, "fly": 20}
+  senses: ["thoughtsense"]
+  skills: {"Acrobatics": 19, "Arcana": 17, "Occultism": 21, "Society": 17, "Stealth": 19}
+  resistances: {"mental": 10}
+  strikes: [{"name": "Touch", "bonus": 19, "damage": [["2d10+7", "mental", null]], "traits": ["agile", "finesse"], "effects": ["Search Memory"]}, {"name": "Mind Bolt", "bonus": 21, "damage": [["2d12+4", "mental", null]], "traits": []}]
+  actions: [{"name": "Thoughtsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Reconstruct Spell", "type": "reaction", "traits": ["mental", "occult"], "text": "Trigger A creature within 30 feet attempts and fails to Cast a Spell while stupefied%rEffect The loreavor gains use of the failed spell as an occult innate spell. It can cast that spell once; if the spell is of a higher level than half the loreavor's level (5th level or higher for most loreavors), the loreavor must succeed at a flat check with a DC equal to 5 + the rank of the spell it is attempting to cast; on a failure, the spell fails, and the loreavor becomes Stupefied 1 for 1 minute. If…"}, {"name": "Redact", "type": "passive", "traits": ["occult"], "text": "By spending an hour in contact with a non-magical document or piece of artwork no larger than 1 Bulk, a loreavor can consume either a few words from the text or render the artistry of the work more mundane. Doing so heals the loreavor of 4d8 healing HP. Words fade from the text, leaving an obvious blank space behind, while artwork is reduced in worth by 10% of its original value. A loreavor can consume incidental text in this manner from a spellbook but cannot consume actual spells recorded in…"}, {"name": "Search Memory", "type": "passive", "traits": ["mental", "occult"], "text": "When the loreavor damages a creature with its touch Strike, the creature must succeed at a DC 28 Will save or become Stupefied 1, or Stupefied 2 on a critical failure."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 28, "attack": 20, "spells": {"0": ["Mage Hand"], "4": ["Modify Memory (AT Will)"], "5": ["Tongues (Constant)"]}}]
+"Lorthact":
+  pack: "shadows-at-sundown-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "unique"
+  traits: ["devil", "evil", "fiend", "lawful", "unholy"]
+  ac: 38
+  hp: 300
+  perception: 27
+  saves: {"fortitude": 28, "reflex": 30, "will": 25}
+  abilities: {"cha": 9, "con": 6, "dex": 6, "int": 6, "str": 6, "wis": 3}
+  speeds: {"land": 25, "fly": 20}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 28, "Arcana": 30, "Deception": 33, "Diplomacy": 31, "Intimidation": 31, "Occultism": 30, "Religion": 27, "Society": 30, "Stealth": 32, "Academia Lore": 32, "Legal Lore": 30}
+  immunities: ["fire"]
+  weaknesses: {"holy": 15}
+  resistances: {"mental": 15, "physical": 15}
+  strikes: [{"name": "Staff", "bonus": 32, "damage": [["3d4+14", "bludgeoning", null], ["2d8", "mental", null]], "traits": ["two-hand-d8", "unholy", "versatile-p"], "effects": ["Thought Theft"]}, {"name": "Claw", "bonus": 30, "damage": [["3d4+14", "slashing", null], ["2d8", "mental", null]], "traits": ["agile", "magical", "unarmed", "unholy"], "effects": ["Thought Theft"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Divination Immunity", "type": "passive", "traits": [], "text": "As a side effect of existing slightly outside the normal time stream, Lorthact is difficult to detect via divination spells and abilities. These effects function as though Lorthact and items he carries are not present, and those specifically targeting him, such as scrying, fail entirely unless the source of the divination is a higher level than Lorthact-in which case they succeed only if the caster succeeds at a secret flat check."}, {"name": "Arcane Absorption", "type": "action", "traits": ["arcane", "manipulate", "mental"], "cost": 3, "text": "Requirements Any creature adjacent to Lorthact is Stupefied, capable of casting prepared arcane spells, and is either Immobilized, Unconscious, or willing%rEffect Lorthact attempts to drain a 1st- through 8th-rank prepared spell from the target, who can resist with a successful DC 37 Will saving throw. On a failure or against a willing target, the prepared arcane spell is transferred from that creature as if it were cast, and Lorthact immediately prepares that spell in the same rank slot. If he…"}, {"name": "Arcane Spellcaster", "type": "passive", "traits": [], "text": "As long as Lorthact has one arcane spell prepared in this way, all arcane spells are on his spell list, which allows him to activate items such as scrolls, wands, and staves. He can recharge his staff of power as a prepared spellcaster by using his arcane spell slots. He has one spell slot to prepare arcane spells of each level from 1st to 8th, and can prepare any Common arcane spell in these slots during his daily preparations. The spells listed above represent those he most typically…"}, {"name": "Scholastic Masquerade", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "Lorthact takes on the appearance of Volshyenek Ornelos or reverts to his true form. In Volshyenek's form, he loses his fly Speed and claw Strikes, doesn't inflict additional mental damage with his Strikes, and reduces his AC to 34. He gains a +4 status bonus on Deception checks to appear human in this guise."}, {"name": "Staff of Power", "type": "passive", "traits": [], "text": "Lorthact's staff of power is tipped with a pair of metal tines that grant the weapon the versatile piercing trait."}, {"name": "Thought Theft", "type": "passive", "traits": ["curse", "divine", "mental"], "text": "Any creature that takes mental damage from Lorthact's claws or staff must succeed at a DC 37 Will save or become Stupefied 1 (Stupefied 2 on a critical failure). Further mental damage dealt by Lorthact increases the value of the stupefied condition by 1 on a failed save to a maximum of stupefied 4. Whenever Lorthact causes a creature to become stupefied in this way, he absorbs some of those thoughts and gains a +1 status bonus on all Will saving throws and Intelligence-, Wisdom-, or…"}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 37, "attack": 29, "spells": {"1": ["Magic Missile", "Ray of Enfeeblement"], "2": ["Invisibility", "Mirror Image"], "3": ["Mind Reading"], "4": ["Phantasmal Killer"], "5": ["Shadow Blast"], "8": ["Horrid Wilting"]}}, {"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 37, "attack": 29, "spells": {"0": ["Detect Magic", "Mage Hand", "Message", "Produce Flame", "Read Aura"], "5": ["Dimension Door (At Will)"], "6": ["Dominate", "Feeblemind", "Scrying", "Slow"], "7": ["Divine Decree", "Magic Missile", "Teleport"], "8": ["Dispel Magic", "Maze", "Suggestion", "Tongues (Constant)"]}}]
+"Profane Ghoul":
+  pack: "shadows-at-sundown-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "ghoul", "undead", "unholy"]
+  ac: 30
+  hp: 180
+  perception: 19
+  saves: {"fortitude": 17, "reflex": 22, "will": 19}
+  abilities: {"cha": 5, "con": 5, "dex": 6, "int": 3, "str": 3, "wis": 5}
+  speeds: {"land": 30, "burrow": 10}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 17, "Religion": 19, "Stealth": 20}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 22, "damage": [["2d10+7", "piercing", null], ["2d6", "void", null]], "traits": ["finesse", "unarmed"], "effects": ["Ghoul Ghoul Fever", "Profane Paralysis"]}, {"name": "Claw", "bonus": 22, "damage": [["2d6+7", "slashing", null], ["2d6", "void", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Profane Paralysis"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Ghoul Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 29 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 2d6 void damage and regains half as many Hit Points from all healing (1 day)%rStage 3 as stage 2 (1 day)%rStage 4 2d6 void damage and gains no benefit from healing (1 day)%rStage 5 as stage 4 (1 day)%rStage 6 dead, and rises as a Ghoul the next midnight."}, {"name": "Profane Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any living, non-elf creature hit by the profane ghoul's attack must attempt a DC 29 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature is Slowed 1.%rFailure The creature is Paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}, {"name": "Profane Whispers", "type": "action", "traits": ["auditory", "mental", "occult"], "cost": 2, "text": "The ghoul whispers profane secrets of undeath. Living creatures within 10 feet of the ghoul take 2d8 persistent mental|options:area-damage damage. Those with ghoul fever must also succeed at a DC 29 Will save or have the disease advance one step. The profane ghoul can't use Profane Whispers again for 24 hours."}, {"name": "Scuttle", "type": "action", "traits": ["move"], "cost": 1, "text": "The profane ghoul crawls on all fours, moving up to half its Speed. This movement doesn't trigger reactions."}]
+"Scarlet Walker":
+  pack: "shadows-at-sundown-bestiary"
+  level: 12
+  size: "huge"
+  rarity: "rare"
+  traits: ["aberration", "dream", "evil", "lawful"]
+  ac: 33
+  hp: 225
+  perception: 23
+  saves: {"fortitude": 21, "reflex": 25, "will": 21}
+  abilities: {"cha": 4, "con": 5, "dex": 7, "int": 4, "str": 6, "wis": 5}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 25, "Arcana": 22, "Athletics": 22, "Intimidation": 23, "Medicine": 23, "Occultism": 24, "Stealth": 25, "Blood Lore": 26}
+  immunities: ["cold"]
+  weaknesses: {"electricity": 10}
+  resistances: {"poison": 10}
+  strikes: [{"name": "Claw", "bonus": 24, "damage": [["3d6+12", "piercing", null], ["2d12", "bleed", null]], "traits": ["magical", "reach-15", "unarmed"]}, {"name": "Tentacle", "bonus": 24, "damage": [["3d8+12", "bludgeoning", null]], "traits": ["agile", "magical", "reach-15", "unarmed"], "effects": ["Paralysis"]}]
+  actions: [{"name": "Telepathy 300 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Bloodsense 60 feet", "type": "passive", "traits": [], "text": "The scarlet walker can sense living creatures with blood in their veins, as well as undead that feed on blood (such as vampires)."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Blood-Draining Gaze", "type": "passive", "traits": ["aura", "occult", "visual"], "text": "20 feet. When a living, non-scarlet walker creature ends its turn in the aura, it must attempt a DC 29 Fortitude save to prevent thin streams of blood from streaming from its eyes and into the eyeless pits in the scarlet walker's face. On a failed save, the victim becomes Drained 1 (Drained 2 on a critical failure) and Sickened 1 from the pain."}, {"name": "No Breath", "type": "passive", "traits": [], "text": "The scarlet walker doesn't breathe and is immune to effects that require breathing (such as an inhaled poison)."}, {"name": "Eerie Flexibility", "type": "passive", "traits": [], "text": "The scarlet walker can fit through tight spaces as if it were a Medium creature. While Squeezing, it can move at its full Speed."}, {"name": "Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any living, non-scarlet walker creature hit by a scarlet walker's tentacle Strike must attempt a DC 29 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature is Slowed 1 for 1 round.%rFailure The creature is Paralyzed for 1 round, and is then slowed 1 for 1 round after recovering.%rCritical Failure As failure, but the paralysis doesn't automatically end after 1 round. The creature can attempt a new save at the end of each of its turns, and the DC cumulatively…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 32, "attack": 24, "spells": {"0": ["Daze"], "4": ["Confusion"], "5": ["Mind Probe", "Sending", "Subconscious Suggestion"], "6": ["Air Walk (Constant)", "Feeblemind", "True Seeing", "Vampiric Exsanguination"]}}]
+"Yniesse Zenderholm":
+  pack: "shadows-at-sundown-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 25
+  hp: 120
+  perception: 16
+  saves: {"fortitude": 17, "reflex": 11, "will": 14}
+  abilities: {"cha": 1, "con": 4, "dex": 0, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 20}
+  skills: {"Athletics": 17, "Crafting": 12, "Intimidation": 14, "Religion": 12}
+  strikes: [{"name": "Longsword", "bonus": 18, "damage": [["1d8+7", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Shortbow", "bonus": 11, "damage": [["1d6+6", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Erinyes Fury", "type": "action", "traits": [], "cost": 2, "text": "Requirements The Erinyes Company agent is suffering from persistent damage%rEffect The agent makes a Strike. If it hits, it deals an additional 1d6 points of persistent damage; the type of this extra damage is the same as the persistent damage from which they're suffering. The agent can choose to instead have this persistent damage be spirit damage. This counts as two attacks when calculating their multiple attack penalty."}]

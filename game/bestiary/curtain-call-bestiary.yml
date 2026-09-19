@@ -1,0 +1,1104 @@
+---
+"Agadaz":
+  pack: "curtain-call-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 20
+  hp: 50
+  perception: 10
+  saves: {"fortitude": 12, "reflex": 14, "will": 10}
+  abilities: {"cha": 4, "con": 4, "dex": 4, "int": 3, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Deception": 12, "Diplomacy": 11, "Intimidation": 10, "Thievery": 11, "Accounting Lore": 11, "Games Lore": 13}
+  immunities: ["fire"]
+  weaknesses: {"holy": 5}
+  resistances: {"physical": 5, "poison": 5}
+  strikes: [{"name": "Fist", "bonus": 12, "damage": [["2d4+7", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "unarmed", "unholy"]}, {"name": "Thrown Coin", "bonus": 12, "damage": [["2d4+5", "bludgeoning", null], ["1d6", "bludgeoning", "precision"]], "traits": ["magical", "unholy"]}]
+  actions: [{"name": "Risk Aura", "type": "passive", "traits": ["aura", "divine", "mental", "misfortune"], "text": "30 feet. A feeling of recklessness surrounds a gambling devil. When a non-fiend creature enters the aura or begins its turn in the aura, it must attempt a DC 21 Will save.%rCritical Success The creature is unaffected and is temporarily immune to Risk Aura for 24 hours.%rSuccess The creature is unaffected.%rFailure The next time the creature rolls a d20, it must roll twice. If either roll is a natural 20, the creature uses that result; otherwise, it must take the lower of the two…"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The agadaz adopts the appearance of any Small or Medium humanoid. This doesn't change their Speed or their attack and damage bonuses with their Strikes, but it might change the type of damage their Strikes deal."}, {"name": "Double Down", "type": "reaction", "traits": ["divine", "fortune"], "text": "Trigger The agadaz attempts a Strike, saving throw, or skill check%rEffect The agadaz takes a –2 status penalty to the roll, then gains a +2 status bonus to the next Strike, saving throw, or skill check they attempt before the end of their turn, or before the end of their next turn if they used Double Down during another creature's turn."}, {"name": "Produce Gold Coins", "type": "free", "traits": [], "text": "Frequency once per round%rRequirements The agadaz has a free hand%rEffect The agadaz creates up to 5 gp in their hand. At any one time, an agadaz can possess no more than 20 gp created in this way; coins created in excess of this value vanish. A coin created in this way vanishes automatically 1 hour after leaving the devil's possession."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 18, "attack": 10, "spells": {"0": ["Figment"], "1": ["Ill Omen (At Will)"], "2": ["Illusory Creature", "Illusory Object"]}}]
+"Anguish Siktempora":
+  pack: "curtain-call-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "rare"
+  traits: ["siktempora", "time"]
+  ac: 34
+  hp: 180
+  perception: 26
+  saves: {"fortitude": 24, "reflex": 22, "will": 26}
+  abilities: {"cha": 5, "con": 5, "dex": 5, "int": 5, "str": 8, "wis": 7}
+  speeds: {"land": 10, "fly": 40}
+  hp_details: "regeneration 40 (deactivated by mental, orichalcum, or spirit)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 24, "Athletics": 27, "Deception": 24, "Intimidation": 24, "Dimension of Time Lore": 26}
+  immunities: ["disease", "emotion", "poison"]
+  strikes: [{"name": "Jaws", "bonus": 27, "damage": [["3d6+14", "bludgeoning", null], ["2d6", "sonic", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 27, "damage": [["3d8+14", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Telepathy 300 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Temporal Sense", "type": "passive", "traits": [], "text": "A siktempora can always roll Dimension of Time Lore for initiative. When it does, it gains a +2 circumstance bonus to the roll."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Regeneration 40 (Deactivated by Mental, Orichalcum, or Spirit)", "type": "passive", "traits": []}, {"name": "Foster Fear", "type": "passive", "traits": [], "text": "Creatures with the Frightened condition are always Off-Guard to the anguish siktempora."}, {"name": "Uncanny Pounce", "type": "free", "traits": [], "text": "Trigger The anguish siktempora rolls Dimension of Time Lore for initiative%rEffect The siktempora Strides once and makes a jaws Strike, in either order."}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Claw"}, {"name": "Scream of Despair", "type": "action", "traits": ["emotion", "mental", "occult", "sonic"], "cost": 2, "text": "The anguish siktempora emits a terrible scream in a 30-foot. Creatures in the area must attempt a DC 33 Will save. The anguish siktempora can't use Scream of Despair for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature takes 2d6 mental damage, 2d6 sonic damage, and is Frightened 1.%rFailure The creature takes 6d6 mental damage, 6d6 sonic damage, and is Frightened 2.%rCritical Failure As failure, but Frightened 3 and the creature gains weakness to mental 15 (this…"}, {"name": "Wracking Despair", "type": "action", "traits": ["emotion", "mental", "occult"], "cost": 1, "text": "Frequency once per round%rEffect The anguish siktempora projects their crippling despair into the mind of a Frightened creature they can see within range of their telepathy. The frightened creature takes 6d6 mental damage (DC 30 Will save)."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 25, "spells": {"4": ["Translocate (At Will)"], "7": ["Flicker", "Fly (Constant)"]}}]
+"Animated Boiler":
+  pack: "curtain-call-bestiary"
+  level: 18
+  size: "huge"
+  rarity: "common"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 44
+  hp: 400
+  perception: 26
+  saves: {"fortitude": 35, "reflex": 24, "will": 26}
+  abilities: {"cha": -5, "con": 9, "dex": 0, "int": -5, "str": 9, "wis": 0}
+  speeds: {"land": 10}
+  senses: ["darkvision"]
+  skills: {"Athletics": 35}
+  strikes: [{"name": "Door", "bonus": 35, "damage": [["3d12+17", "bludgeoning", null], ["3d8", "fire", null]], "traits": ["magical"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Construct Armor (Hardness 15)", "type": "passive", "traits": [], "text": "Like normal objects, an animated furnace has Hardness. This Hardness reduces any damage the furnace takes by an amount equal to the Hardness. Once an animated furnace is reduced to fewer than half its Hit Points, or immediately upon being damaged by a critical hit, its construct armor breaks, removing the Hardness and reducing its Armor Class to 40."}, {"name": "Fan the Flames", "type": "action", "traits": [], "cost": 2, "text": "The animated furnace opens its door and fans its flames in a 30-foot cone that deals 9d6 fire|options:area-damage damage (DC 40 Reflex save)."}, {"name": "Hungry Gears", "type": "action", "traits": [], "cost": 3, "text": "The animated boiler attempts to Grab all adjacent creatures."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, (3d8+17) fire, Rupture 25"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Arshean Warden":
+  pack: "curtain-call-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 33
+  hp: 270
+  perception: 23
+  saves: {"fortitude": 21, "reflex": 25, "will": 20}
+  abilities: {"cha": -5, "con": 5, "dex": 7, "int": -5, "str": 6, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 23}
+  strikes: [{"name": "Fist", "bonus": 24, "damage": [["3d6+11", "bludgeoning", null]], "traits": ["agile", "unarmed"]}, {"name": "Flail", "bonus": 25, "damage": [["3d6+11", "bludgeoning", null], ["1d6", "fire", null]], "traits": ["disarm", "magical", "sweep", "trip"]}]
+  actions: [{"name": "Divine Destruction", "type": "passive", "traits": ["divine", "vitality"], "text": "When the divine warden is reduced to 0 HP, it erupts with divine energy in a 30-foot, dealing 12d6 vitality|options:area-damage damage. Each creature in the area must attempt a DC 32 Will save with the following outcomes.%rCritical Success The creature takes half damage.%rSuccess The creature takes full damage.%rFailure The creature takes full damage and becomes temporarily cursed by the patron deity. The creature becomes Enfeebled 1 and Stupefied 1 for 1 day; this is a curse effect that uses…"}, {"name": "Faith Bound", "type": "passive", "traits": ["divine"], "text": "A divine warden can't attack a creature that openly wears or displays the religious symbol of the divine warden's patron deity unless that creature uses a hostile action against the divine warden first. If the divine warden is intelligent, it can also attack a creature it believes isn't faithful to its deity or who wears the religious symbol as a ruse (typically after succeeding at a Perception check to sense-motive)."}, {"name": "Faithful Weapon", "type": "passive", "traits": [], "text": "Flail, greater striking rune%rA divine warden always wields its patron deity's favored weapon. If the weapon is a ranged weapon, the divine warden automatically generates new ammunition with each attack. For a divine warden of 4th level or higher, the deity's favored weapon gains the effects of a Striking rune while the divine warden wields it; at 12th level, these effects are of a Greater Striking rune, and at 19th level, they're instead of a Major Striking rune."}, {"name": "Instrument of Faith", "type": "passive", "traits": [], "text": "The divine warden is a beacon for its deity's faith. A cleric of the divine warden's patron deity can channel a Heal spell through a divine warden they can see within 60 feet. The cleric determines any targets or area for the spell as if they were standing in the divine warden's space."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 32, "attack": 24, "spells": {"0": ["Divine Lance"]}}, {"name": "Divine Domain Spells", "tradition": "divine", "type": "focus", "dc": 32, "attack": 24, "spells": {"1": ["Charming Touch", "Unimpeded Stride"], "4": ["Captivating Adoration", "Word of Freedom"]}}]
+"Augusta Wormwood":
+  pack: "curtain-call-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "nephilim"]
+  ac: 34
+  hp: 250
+  perception: 24
+  saves: {"fortitude": 22, "reflex": 25, "will": 27}
+  abilities: {"cha": 5, "con": 1, "dex": 2, "int": 2, "str": 4, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 22, "Deception": 27, "Intimidation": 25, "Occultism": 24, "Society": 22, "Thievery": 24, "Vyre Lore": 26}
+  strikes: [{"name": "Hatchet", "bonus": 26, "damage": [["3d6+10", "slashing", null], ["1d6", "acid", null], ["1d4", "void", null]], "traits": ["agile", "magical", "sweep"]}, {"name": "Hatchet", "bonus": 26, "damage": [["3d6+10", "slashing", null], ["1d4", "void", null], ["1d6", "acid", null]], "traits": ["agile", "magical", "sweep", "thrown-10"]}]
+  actions: [{"name": "Infernal Insight", "type": "action", "traits": ["auditory", "emotion", "linguistic", "mental", "occult"], "cost": 1, "text": "Augusta Wormwood draws upon her knowledge of how secrets kept can weigh upon the mind along with her supernatural heritage from being the granddaughter of a gylou devil to unnerve a creature she can see within 30 feet. She speaks aloud an uncanny insight about the target's fears, doubts, and shames; the target must then attempt a DC 34 Will save, after which they're temporarily immune to Infernal Insight for 24 hours.%rCritical Success The target is unaffected, and Augusta suddenly doubts her…"}, {"name": "Quickened Casting", "type": "free", "traits": ["concentrate", "spellshape"], "text": "Frequency once per day%rEffect If Augusta's next action is to cast a 5th-rank or lower occult spell or cantrip, reduce the number of actions to cast it by 1 (minimum 1 action)."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 34, "attack": 26, "spells": {"0": ["Detect Magic", "Message", "Sigil", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Charm", "Fear", "Phantasmal Minion"], "2": ["Blur", "Stupefy", "Translate"], "3": ["Blindness", "Haste", "Paralyze"], "4": ["Confusion", "Honeyed Words", "Suggestion"], "5": ["Shadow Blast", "Translocate", "Truespeech"], "6": ["Never Mind", "Phantasmal Calamity", "Scrying"], "7": ["Dispel Magic", "Retrocognition", "Soothe"]}}]
+"Azarpal":
+  pack: "curtain-call-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["fey"]
+  ac: 34
+  hp: 275
+  perception: 24
+  saves: {"fortitude": 24, "reflex": 26, "will": 20}
+  abilities: {"cha": 8, "con": 5, "dex": 7, "int": 5, "str": 4, "wis": 4}
+  speeds: {"land": 30, "burrow": 15}
+  senses: ["low-light-vision"]
+  skills: {"Crafting": 23, "Deception": 27, "Stealth": 26, "Thievery": 24, "Cooking Lore": 23}
+  immunities: ["disease"]
+  weaknesses: {"cold-iron": 10}
+  strikes: [{"name": "Jaws", "bonus": 26, "damage": [["3d12+12", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Tail", "bonus": 26, "damage": [["3d10+10", "bludgeoning", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Azarpal Poison", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 28 Fortitude%rOnset 1 minute%rMaximum Duration 6 minutes%rStage 1 Sickened 1 (1 minute)%rStage 2 Fatigued and Sickened 2 (1 minute)%rStage 3 2d12 poison damage plus fatigued and Sickened 3 (1 minute); the sickened condition value caused by azarpal poison cannot be reduced below 1 as long as the poison's duration remains active."}, {"name": "Culinary Alchemy", "type": "passive", "traits": [], "text": "The azarpal knows the formulas for all common and uncommon alchemical foods of its level or lower found on pages 46–51 of Treasure Vault without needing a formula book. A typical azarpal carries about 700 gp of alchemical food."}, {"name": "Gulp or Grab", "type": "action", "traits": ["manipulate"], "cost": 3, "text": "The Azarpal swallows a single meal or alchemical food and stores it in one of six stomachs. Therein, the food doesn't spoil (drinks must be swallowed in closed containers, or they spill and affect the azarpal normally). The azarpal can use this activity to reach into its mouth and retrieve a stored item as well. Any item that remains stored in an azarpal's stomach for at least 24 hours becomes laced with azarpal poison."}, {"name": "Lasting Illusion", "type": "passive", "traits": [], "text": "When an azarpal casts illusory disguise and only targets themselves, the duration increases to 24 hours."}, {"name": "Twirl Tail", "type": "action", "traits": [], "cost": 1, "text": "The azarpal lashes and twirls their confounding tail, snapping and lashing it in all adjacent squares. Until the start of the azarpal's next turn, all non-azarpals treat the squares adjacent to the azarpal as difficult terrain."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 30, "attack": 22, "spells": {"7": ["Illusory Disguise"]}}]
+"Blackfingers":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "unholy"]
+  ac: 45
+  hp: 360
+  perception: 35
+  saves: {"fortitude": 37, "reflex": 35, "will": 33}
+  abilities: {"cha": 6, "con": 9, "dex": 7, "int": 10, "str": 6, "wis": 7}
+  speeds: {"land": 40, "climb": 30}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 35, "Crafting": 38, "Deception": 35, "Intimidation": 35, "Medicine": 37, "Occultism": 38, "Religion": 35, "Stealth": 37, "Norgorber Lore": 38, "Vyre Lore": 38}
+  immunities: ["poison"]
+  weaknesses: {"holy": 15}
+  strikes: [{"name": "Jaws", "bonus": 34, "damage": [["4d10+16", "piercing", null]], "traits": ["unarmed"], "effects": ["Blackfingers Venom"]}, {"name": "Dagger", "bonus": 38, "damage": [["3d4+16", "piercing", null], ["1d6", "acid", null]], "traits": ["agile", "finesse", "magical", "versatile-s"], "effects": ["Blackfingers Venom"]}, {"name": "Dagger", "bonus": 38, "damage": [["4d8+15", "piercing", null]], "traits": ["agile", "finesse", "magical", "thrown-10", "versatile-s"], "effects": ["Blackfingers Venom"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Consumed by Bloodlust", "type": "reaction", "traits": ["emotion", "mental"], "text": "Frequency once per day%rDuration 1 minute%rTrigger Blackfingers damages a creature%rEffect Murderous instinct consumes Blackfingers' mind. He gains a +2 status bonus to attacks and damage with his dagger, but is Stupefied 2 and cannot use concentrate abilities. If he brings a creature to 0 Hit Points while consumed by bloodlust, he gains 20 temporary Hit Points, and this effect ends."}, {"name": "Poison Sense (Precise) 60 feet", "type": "passive", "traits": [], "text": "Blackfingers senses any poisoned creature. He can spend an action with the concentrate trait to determine the poison's type and current stage."}, {"name": "Venomous Aura", "type": "passive", "traits": ["aura", "occult", "poison"], "text": "60 feet. Each creature that enters or starts its turn within the area must succeed at a DC 39 Fortitude saving throw or gain weakness 10 to poison (weakness 15 on a critical failure). Worshippers of Norgorber are immune, as are those who drank any poison in area C3 .%rEffect: Venomous Aura"}, {"name": "Blackfingers' Venom", "type": "passive", "traits": ["divine", "incapacitation", "poison"], "text": "Blackfingers' dagger is constantly coated with the same insidious toxin that drips from his fangs, and recoats his dagger instantly each time after he Strikes%rSaving Throw DC 42 Fortitude%rMaximum Duration 4 hours%rStage 1 3d6 poison damage%rStage 2 3d6 poison damage and Slowed 1 (1 round),%rStage 3 4d6 poison and Slowed 2 (1 round)%rStage 4 Paralyzed for 1d4 hours."}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "Blackfingers can take the shape of a Tiny spider. This doesn't change his Speed or jaws Strike, but prevents him from making dagger Strikes."}, {"name": "Enhance Poison", "type": "free", "traits": ["divine"], "text": "Frequency once per round%rEffect Blackfingers causes the save DC of a dose of poison he holds in a hand (or that coats a weapon he holds) to increase to DC 42 until the start of his next turn."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Blackfingers deals 3d6 extra precision damage to creatures who are Off-Guard."}, {"name": "Stab! Stab! Stab! Stab!", "type": "action", "traits": [], "cost": 3, "text": "Requirements Blackfingers is Consumed by Bloodlust%rEffect Blackfingers lashes out and makes four dagger Strikes against adjacent targets at his current attack modifier but with a –2 penalty. Each attack counts toward his multiple attack penalty but the penalties don't apply until the end of this activity. On each successful hit he restores 15 healing Hit Points. Consumed by Bloodlust's effects then end."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "divine", "type": "innate", "dc": 41, "attack": 33, "spells": {"5": ["Hallucination (At Will)"], "8": ["Disappearance"], "9": ["Slither (Spiders Instead of Snakes)", "Vision of Death"], "10": ["Toxic Cloud", "Truespeech (Constant)"]}}]
+"Delaraius Solzakarr":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "unholy"]
+  ac: 45
+  hp: 375
+  perception: 36
+  saves: {"fortitude": 32, "reflex": 35, "will": 38}
+  abilities: {"cha": 9, "con": 6, "dex": 9, "int": 8, "str": 4, "wis": 10}
+  speeds: {"land": 25}
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 35, "Deception": 39, "Diplomacy": 37, "Intimidation": 37, "Medicine": 36, "Occultism": 36, "Religion": 38, "Society": 34, "Stealth": 37, "Thievery": 37, "Norgorber Lore": 38, "Vyre Lore": 38}
+  immunities: ["bleed"]
+  weaknesses: {"vulnerable-to-sunlight": 50}
+  strikes: [{"name": "Shortsword", "bonus": 37, "damage": [["1d6", "bleed", "persistent"], ["3d6+12", "piercing", null], ["1d4", "spirit", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}]
+  actions: [{"name": "Skinsaw Eye", "type": "passive", "traits": [], "text": "Norgorber granted Delaraius an eye to aid him in his quest for vengeance, but this eye also significantly enhances the priest. It grants him darkvision and Truesight as a constant innate spell, and also increases all of his attribute modifiers by 4. He is immune to bleed damage, magical detection and mental communication (unless he chooses otherwise), and magical alteration of his memories unless he chooses to be affected or the effect comes from a deity or artifact. The Skinsaw Eye serves as a…"}, {"name": "Vulnerable to Sunlight", "type": "passive", "traits": [], "text": "Delaraius takes 50 untyped damage for every hour he's exposed to sunlight."}, {"name": "King of Keys", "type": "passive", "traits": [], "text": "Delaraius's magic is more powerful when he's located in Vyre or Duskfathom. The counteract DC for all of his spells increases by 2 as long as the spell effect is located in either of these locations, and Delaraius gains a +2 status bonus on counteract checks while in either location."}, {"name": "Skinsaw Strike", "type": "action", "traits": ["divine"], "cost": 1, "text": "Delaraius focuses his attention on a target he can see, causing his Skinsaw Eye to glow red for a moment as he seeks out the most painful place to attack that target. He then attempts a Medicine check against the target's Fortitude DC; on a success, that target is Off-Guard to Delaraius until the end of his turn. On a critical success, that target is off-guard to Delaraius until the end of his next turn."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Delaraius deals 3d6 extra precision damage to creatures who are Off-Guard."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 42, "attack": 34, "spells": {"0": ["Daze", "Message", "Read Aura", "Shield", "Void Warp"], "1": ["Command", "Enfeeble", "Fear", "Harm", "Heal", "Lock", "Sanctuary"], "2": ["Blood Vendetta", "Calm", "Cleanse Affliction", "Dispel Magic", "Invisibility", "Translate"], "3": ["Blindness", "Dream Message"], "4": ["Talking Corpse", "Unfettered Movement", "Vision of Death"], "5": ["Scouting Eye", "Truespeech"], "6": ["Dominate", "Repulsion"], "7": ["Interplanar Teleport", "Planar Seal", "Regenerate"], "8": ["Pinpoint"], "9": ["Overwhelming Presence"], "10": ["Gate"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 42, "attack": 34, "spells": {"1": ["Death's Call", "Sudden Shift"], "4": ["Trickster's Twin"]}}]
+"Echopsyvne":
+  pack: "curtain-call-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "rare"
+  traits: ["incorporeal", "palinthanos", "undead", "unholy"]
+  ac: 39
+  hp: 255
+  perception: 31
+  saves: {"fortitude": 24, "reflex": 33, "will": 31}
+  abilities: {"cha": 6, "con": 0, "dex": 9, "int": 6, "str": -5, "wis": 5}
+  speeds: {"land": 0, "fly": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 35, "Deception": 32}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 15}
+  strikes: [{"name": "Claw", "bonus": 33, "damage": [["3d6", "spirit", null], ["3d6+8", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Backward Speakers", "type": "passive", "traits": [], "text": "When a palinthanos vocalizes, the sounds it creates are reversed. For the egarhowl, this only results in unnerving backwards sounds of angry roars and bestial noises, but for those who can speak, it makes understanding them difficult. A palinthanos has no difficulty understanding any language it can speak, but when it speaks, listeners must succeed at a DC 30 Perception check made as a free action with the concentrate trait each round to quickly decipher the reversed conversation. This prevents…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Distort Perception", "type": "action", "traits": ["incapacitation", "mental", "occult"], "cost": 1, "text": "Frequency once per round%rEffect The echopsyvne targets a creature it can see within 30 feet and alters its perception of time. The target must attempt a DC 40 Will save. Regardless of success or failure, the creature then becomes temporarily immune to this ability for 24 hours.%rCritical Success The creature is unaffected.%rSuccess The creature perceives time to flow backward briefly and becomes Slowed 1 for 1 round.%rFailure Time flows backward for the creature, leaving them unable to…"}, {"name": "Predestined Defeat", "type": "reaction", "traits": ["occult"], "text": "Trigger The echopsyvne rolls initiative%rFrequency once per day%rEffect At the start of combat, an inverted, reversed explosion of spiritual and void energy implodes in a 30-foot emanation centered on the echopsyvne—a reversal of the creature's spiritually explosive death. All creatures in the area take 15d8 spirit|options:area-damage damage (DC 37 Fortitude save); creatures that fail this save are also Slowed 1 for 1 round as time seems to distort around them."}, {"name": "Reaction Reversal", "type": "passive", "traits": [], "text": "Since an echopsyvne appears to move backwards in time and the results of its actions manifest slightly out of sync, its manipulate or move actions and Strikes don't trigger reactions normally. Whenever a reaction would be triggered by an echopsyvne in this way, the reacting creature must attempt a DC 11 Flat. On a failure, their reaction does not trigger."}, {"name": "Temporal Possession", "type": "passive", "traits": [], "text": "When the echopsyvne casts possession on a creature, that creature experiences time backward. When the echopsyvne controls the target, they function normally, but when the target takes their own actions while the echopsyvne is in partial control or riding along in their body, they become Clumsy 3 and take a –10-foot status penalty to all of their Speeds. When the echopsyvne stops possessing the target, willingly or otherwise, the target must succeed at a DC 37 Will save or be Stunned 1 as they…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 40, "attack": 32, "spells": {"9": ["Possession"]}}]
+"Egarhowl":
+  pack: "curtain-call-bestiary"
+  level: 17
+  size: "medium"
+  rarity: "rare"
+  traits: ["incorporeal", "palinthanos", "undead", "unholy"]
+  ac: 38
+  hp: 235
+  perception: 31
+  saves: {"fortitude": 25, "reflex": 32, "will": 29}
+  abilities: {"cha": 0, "con": 0, "dex": 7, "int": -4, "str": -5, "wis": 6}
+  speeds: {"land": 0, "fly": 30}
+  hp_details: "void healing"
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 32}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 15}
+  strikes: [{"name": "Jaws", "bonus": 32, "damage": [["3d12+8", "piercing", null], ["3d6", "spirit", null]], "traits": ["finesse", "magical", "unarmed"], "effects": ["Rabid Rage"]}, {"name": "Claw", "bonus": 32, "damage": [["3d8+8", "slashing", null], ["3d6", "spirit", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Backward Speakers", "type": "passive", "traits": [], "text": "When a palinthanos vocalizes, the sounds it creates are reversed. For the egarhowl, this only results in unnerving backwards sounds of angry roars and bestial noises, but for those who can speak, it makes understanding them difficult. A palinthanos has no difficulty understanding any language it can speak, but when it speaks, listeners must succeed at a DC 30 Perception check made as a free action with the concentrate trait each round to quickly decipher the reversed conversation. This prevents…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Predestined Defeat", "type": "reaction", "traits": ["occult"], "text": "Trigger The egarhowl rolls initiative%rFrequency once per day%rEffect At the start of combat, an inverted, reversed explosion of spiritual and void energy implodes in a 30-foot emanation centered on the egarhowl—a reversal of the creature's spiritually explosive death. All creatures in the area take 6d8 spirit|options:area-damage damage (DC 35 Fortitude save); creatures that fail this save are also Slowed 1 for 1 round as time seems to distort around them."}, {"name": "Rabid Rage", "type": "passive", "traits": ["emotion", "mental", "occult"], "text": "An egarhowl's bite transmits its supernatural fury. A creature bitten by an egarhowl must attempt a DC 36 Will save. They then become temporarily immune to rabid rage for 24 hours.%rCritical Success The creature suffers no ill effects.%rSuccess The creature is filled with anger and becomes Slowed 1 for 1 round as they waste some of their time shrieking and raving on their turn.%rFailure As success, but slowed 1 for 1 minute.%rCritical Failure As failure, but the creature is also Confused for as…"}, {"name": "Reaction Reversal", "type": "passive", "traits": [], "text": "Since an egarhowl appears to move backwards in time and the results of its actions manifest slightly out of sync, its manipulate or move actions and Strikes don't trigger reactions normally. Whenever a reaction would be triggered by an egarhowl in this way, the reacting creature must attempt a DC 11 Flat. On a failure, their reaction does not trigger."}]
+"Emriss":
+  pack: "curtain-call-bestiary"
+  level: 12
+  size: "large"
+  rarity: "unique"
+  traits: ["beast"]
+  ac: 33
+  hp: 210
+  perception: 25
+  saves: {"fortitude": 22, "reflex": 19, "will": 25}
+  abilities: {"cha": 3, "con": 6, "dex": 5, "int": 3, "str": 6, "wis": 7}
+  speeds: {"land": 40}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 24, "Intimidation": 23, "Religion": 25, "Survival": 23}
+  strikes: [{"name": "Pincer", "bonus": 24, "damage": [["3d8 + 12", "bludgeoning", null]], "traits": ["agile"], "effects": ["Grab"]}, {"name": "Stinger", "bonus": 24, "damage": [["3d6 + 12", "piercing", null]], "traits": ["reach-10"], "effects": ["Girtablilu Venom"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Divine Aegis", "type": "reaction", "traits": ["divine"], "text": "Trigger The girtablilu seer attempts a saving throw against a magical effect but hasn't rolled yet%rEffect The seer summons divine energy to protect themself at the cost of their other magical defenses. Until the start of their next turn, they gain a +1 circumstance bonus to saving throws against non-divine magical effects and a -1 circumstance penalty to saves against divine effects.%rEffect: Divine Aegis"}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(3d8+6) bludgeoning, DC 24 Fortitude"}, {"name": "Desert Stride", "type": "passive", "traits": [], "text": "A girtablilu ignores natural difficult terrain in the desert."}, {"name": "Girtablilu Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 30 Fortitude%rMaximum Duration 6 rounds%rStage 1 2d6 poison damage and Enfeebled 1 (1 round)%rStage 2 3d6 poison damage and enfeebled 1 (1 round)%rStage 3 3d6 poison damage and Enfeebled 2 (1 round)"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 33, "attack": 24, "spells": {"0": ["Detect Magic", "Electric Arc", "Ignition", "Prestidigitation", "Stabilize"], "1": ["Create Water", "Fear", "Spider Sting"], "2": ["Create Food", "Mist", "Revealing Light"], "3": ["Blindness", "Fireball", "Heal"], "4": ["Dispel Magic", "Heal", "Wall of Fire"], "5": ["Elemental Form", "Toxic Cloud", "Wall of Stone"], "6": ["Chain Lightning", "Heal", "Truesight"]}}]
+"Facade":
+  pack: "curtain-call-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "unique"
+  traits: ["astral", "construct", "eidolon"]
+  ac: 37
+  hp: 300
+  perception: 23
+  saves: {"fortitude": 28, "reflex": 26, "will": 23}
+  abilities: {"cha": -1, "con": 5, "dex": 3, "int": 2, "str": 6, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 21, "Crafting": 21}
+  strikes: [{"name": "Fist", "bonus": 29, "damage": [["3d10+14", "bludgeoning", null]], "traits": ["agile", "magical", "shove", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "+2 Vs. Death Effects, Disease, Poison, and Effects Causing the Fatigued or Sickened Conditions", "type": "passive", "traits": []}, {"name": "Construct Heart", "type": "passive", "traits": [], "text": "Facade removes persistent bleed damage on a DC 10 flat check (DC 5 with aid)."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d10+14) bludgeoning, DC 38 Fortitude"}, {"name": "Encase in Wax", "type": "action", "traits": [], "cost": 1, "text": "Requirements Facade's previous action was to Constrict a creature%rEffect Facade encases the creature they just Constricted with wax. That creature becomes Slowed 1 until it takes a 3-action activity to Interact with the wax and peel it off."}, {"name": "Remake Self", "type": "action", "traits": ["arcane", "polymorph"], "cost": 1, "text": "Facade changes their appearance to be similar to any Medium humanoid creature they've seen, though they're still obviously a wax statue and can't use this ability to Impersonate that creature."}, {"name": "Unsettle", "type": "reaction", "traits": ["arcane", "emotion", "fear", "mental"], "text": "Trigger Facade Strikes a creature they've assumed the basic appearance of%rEffects The damaged creature becomes Frightened 1 (Frightened 2 on a critical hit)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Fallenta":
+  pack: "curtain-call-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 29
+  hp: 160
+  perception: 21
+  saves: {"fortitude": 16, "reflex": 22, "will": 22}
+  abilities: {"cha": 5, "con": 0, "dex": 4, "int": 2, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 19, "Crafting": 19, "Deception": 22, "Diplomacy": 22, "Intimidation": 20, "Occultism": 19, "Performance": 22, "Society": 19, "Stealth": 19, "Theater Lore": 19}
+  strikes: [{"name": "Rapier", "bonus": 22, "damage": [["1d6", "sonic", null], ["2d6", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse", "magical"]}]
+  actions: [{"name": "Direct Allies", "type": "reaction", "traits": ["concentrate"], "text": "Trigger An ally benefiting from one of Fallenta's composition spells is subject to an effect with the auditory, emotion, fear, linguistic, or mental traits%rEffect Fallenta adjusts the properties of her composition to bolster her compelling presence and to work against intrusive effects. All allies affected by her composition spell gain a +1 circumstance bonus to saving throws against effects with the auditory, emotion, fear, linguistic, or mental traits."}, {"name": "Performer's Heart", "type": "passive", "traits": [], "text": "When Fallenta rolls a success on a Will save, she gets a critical success instead."}, {"name": "Bard Muse", "type": "passive", "traits": [], "text": "Fallenta's maestro muse is Shelyn."}, {"name": "Director's Magic", "type": "action", "traits": ["concentrate", "spellshape"], "cost": 1, "text": "Fallenta weaves her spellcasting into director's instructions. If the next action she uses is to Cast a Spell, the spell gains the subtle trait, although the spell's effects appear as normal. As part of using Director's Magic, Fallenta can choose to Create a Diversion, Lie, Perform, or Request. If she does so, the spell she casts must have the auditory, emotion, sonic, or visual trait to gain the subtle trait."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If a reaction would disrupt Fallenta's spellcasting action, attempt a DC 15 Flat; on a success, her action isn't disrupted."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 30, "attack": 22, "spells": {"0": ["Figment", "Forbidding Ward", "Message", "Prestidigitation", "Read Aura"], "1": ["Illusory Disguise", "Illusory Object", "Mending", "Soothe"], "2": ["Cleanse Affliction", "Dispel Magic", "Embed Message"], "3": ["Blindness", "Dream Message", "Veil of Privacy"], "4": ["Fly", "Mirage", "Vapor Form"], "5": ["Illusory Scene", "Scouting Eye", "Sending"], "6": ["Illusory Scene", "Wall of Force"]}}, {"name": "Bard Composition Spells", "tradition": "occult", "type": "focus", "dc": 30, "attack": 22, "spells": {"0": ["Courageous Anthem"], "1": ["Counter Performance", "Hymn of Healing", "Lingering Composition"], "5": ["Symphony of the Unfettered Heart"]}}]
+"Father Skinsaw":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["illusion", "mental", "unholy"]
+  ac: 44
+  hp: 380
+  perception: 33
+  saves: {"fortitude": 33, "reflex": 38, "will": 31}
+  abilities: {"cha": 10, "con": 7, "dex": 8, "int": 6, "str": 7, "wis": 5}
+  speeds: {"land": 30, "fly": 30}
+  senses: ["greater-darkvision"]
+  skills: {"Athletics": 37, "Deception": 38, "Intimidation": 40, "Occultism": 34, "Religion": 33, "Society": 36, "Stealth": 38, "Norgorber Lore": 36}
+  immunities: ["death-effects", "disease", "doomed", "scrying", "detection"]
+  weaknesses: {"mental": 15}
+  resistances: {"physical": 15}
+  strikes: [{"name": "Retribution", "bonus": 41, "damage": [["3d4+17", "slashing", null], ["1d6", "bleed", "persistent"]], "traits": ["agile", "backstabber", "deadly-d8", "finesse", "magical"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Universal Language", "type": "passive", "traits": [], "text": "Anything spoken by the brainchild is perceived by the listener in its native language."}, {"name": "Urban Legend", "type": "passive", "traits": [], "text": "As brainchild except Father Skinsaw's abilities are determined by the collective memories of his worshippers and Norgorber himself. Instead of using Seek or Sense Motive to disbelieve any of his abilities, a character who's discovered some of Norgorber's secrets can confront Father Skinsaw with these truths by using Demoralize (DC 41), or they can taunt him with these secrets by Creating a Diversion (DC 43). On a success, in addition to the normal effects, that person can disbelieve one of…"}, {"name": "Persistence of Memory", "type": "passive", "traits": ["illusion", "mental", "occult"], "text": "As brainchild, except the time is chosen by Norgorber.%rWhen a brainchild is destroyed, it returns if anyone still fully believes it exists, re-forming within 100 feet of any believer after 2d4 days."}, {"name": "Bloodletting", "type": "free", "traits": [], "text": "Trigger Father Skinsaw is adjacent to a creature that takes persistent bleed damage%rFrequency once per round%rEffect Blood writhes from the bleeding creature to splash onto Father Skinsaw, granting him 40 temporary Hit Points for 1 minute.%rEffect: Bloodletting"}, {"name": "Cut Across Space", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Father Skinsaw makes a war razor Strike against a target within 120 feet."}, {"name": "Grievous Cut", "type": "action", "traits": [], "cost": 2, "text": "Father Skinsaw attempts a war razor Strike against an adjacent target. If he hits, the blade cuts deep and creates a grievous wound. In addition to the normal damage caused by the attack, the creature struck takes 4d6 bleed damage and becomes Wounded 1 (or increases the value of an existing wounded condition by 1, to a maximum of Wounded 4)."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Father Skinsaw deals 3d6 extra precision damage to creatures who are Off-Guard."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 41, "attack": 33, "spells": {"6": ["Blood Vendetta (At Will)"], "8": ["Disappearance"], "9": ["Phantasmagoria", "Vampiric Exsanguination"], "10": ["Massacre", "Truespeech (Constant)"]}}]
+"Fenton Vilorgo":
+  pack: "curtain-call-bestiary"
+  level: 17
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 39
+  hp: 300
+  perception: 28
+  saves: {"fortitude": 29, "reflex": 27, "will": 31}
+  abilities: {"cha": 6, "con": 1, "dex": 5, "int": 4, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 33, "Arcana": 29, "Crafting": 29, "Deception": 33, "Intimidation": 31, "Occultism": 27, "Religion": 28, "Stealth": 30, "Thievery": 30, "Theater Lore": 27}
+  strikes: [{"name": "War Razor", "bonus": 31, "damage": [["1d6", "spirit", null], ["1d6", "bleed", "persistent"], ["3d4+8", "slashing", null]], "traits": ["agile", "backstabber", "deadly-d8", "finesse", "magical"]}]
+  actions: [{"name": "Living Secret", "type": "passive", "traits": [], "text": "Fenton is one of Norgorber's favored murderers, and as such, he's been granted a major boon. He's immune to divination effects and attempts to magically alter his memory, unless he chooses to be affected or those effects come from a deity or similarly powerful source. He can never be tricked or forced by mundane means into uttering a secret he wishes to keep."}, {"name": "Manifest Facade", "type": "action", "traits": ["arcane", "concentrate", "manipulate", "teleportation"], "cost": 3, "text": "Fenton causes Facade to appear in an open adjacent space. Facade can then take a single action. If Facade is already manifested, they're instead unmanifested. Facade must remain within 100 feet of Fenton at all times; if forced beyond this distance (or if Fenton is reduced to 0 Hit Points), Facade unmanifests."}, {"name": "Share Senses", "type": "action", "traits": ["arcane", "concentrate", "scrying"], "cost": 1, "text": "Fenton projects his senses into Facade, allowing him to perceive through his eidolon. When he does, he loses all sensory information from his own body but can sense through Facade's body for up to 1 minute. Fenton can Dismiss this effect."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Fenton deals 3d6 extra precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Arcane Spontaneous Spells", "tradition": "arcane", "type": "spontaneous", "dc": 39, "attack": 31, "spells": {"0": ["Daze", "Detect Magic", "Prestidigitation", "Telekinetic Hand", "Telekinetic Projectile"], "8": ["Blood Vendetta", "Hidden Mind"], "9": ["Foresight", "Phantasmagoria"]}}, {"name": "Summoner Link Spells", "tradition": "arcane", "type": "focus", "dc": 39, "attack": 31, "spells": {"0": ["Boost Eidolon"], "1": ["Evolution Surge"], "2": ["Lifelink Surge"]}}]
+"Fenton's Faithful":
+  pack: "curtain-call-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration"]
+  ac: 33
+  hp: 220
+  perception: 23
+  saves: {"fortitude": 22, "reflex": 22, "will": 26}
+  abilities: {"cha": -1, "con": 4, "dex": 6, "int": 8, "str": 5, "wis": 6}
+  speeds: {"land": 25}
+  hp_details: "Regeneration 10 (deactivated by piercing)"
+  senses: ["low-light-vision"]
+  skills: {"Arcana": 27, "Athletics": 22, "Occultism": 27, "Lore (Any One Subcategory)": 27}
+  immunities: ["controlled", "mental"]
+  weaknesses: {"piercing": 10}
+  resistances: {"bludgeoning": 10, "slashing": 10}
+  strikes: [{"name": "Limb", "bonus": 24, "damage": [["3d10+11", "bludgeoning", null]], "traits": []}, {"name": "Warping Ray", "bonus": 27, "damage": [["3d8+8", "force", null]], "traits": ["deadly-2d8", "magical"]}]
+  actions: [{"name": "Regeneration 10 (Deactivated by Piercing)", "type": "passive", "traits": []}, {"name": "Destabilizing Field", "type": "passive", "traits": ["aura"], "text": "40 feet. A creature that begins its turn within the area feels its body begin to stretch and must succeed at a DC 33 Fortitude save or become destabilized.%rA destabilized creature emits a 10-foot destabilizing field aura and becomes Sickened 1. The destabilization ends when the creature is no longer sickened.%rA creature that succeeds at its saving throw against the aura is temporarily immune to all destabilizing fields for 1 minute."}, {"name": "Displace", "type": "reaction", "traits": [], "text": "Trigger The amalgamite is hit by a Strike.%rEffect The amalgamite Repositions itself or Transposes itself with another creature. If the amalgamite successfully changes its location, it and any Transposed creature take half damage from the triggering Strike."}, {"name": "Reposition", "type": "action", "traits": ["concentrate", "occult", "teleportation"], "cost": 2, "text": "The amalgamite teleports into an unoccupied space it can see within 50 feet."}, {"name": "Transpose", "type": "action", "traits": ["occult", "teleportation"], "cost": 2, "text": "The amalgamite chooses up to two destabilized creatures they can see within 50 feet and swaps their positions, or moves a single such creature to an unoccupied space they can see within range. If the amalgamite chooses two creatures, they can choose their self as one of these creatures, but both targets must be the same size.%rAn unwilling creature can attempt a DC 33 Will save. If either target succeeds at this saving throw, both are unaffected."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 25, "spells": {"6": ["Flicker"], "7": ["Vision of Death (Causes Those Who are Affected to Believe They're Being Turned Inside Out)", "Warp Mind"]}}]
+"Furnerico":
+  pack: "curtain-call-bestiary"
+  level: 14
+  size: "large"
+  rarity: "rare"
+  traits: ["aberration"]
+  ac: 33
+  hp: 320
+  perception: 24
+  saves: {"fortitude": 28, "reflex": 23, "will": 24}
+  abilities: {"cha": -3, "con": 8, "dex": 5, "int": -4, "str": 8, "wis": 4}
+  speeds: {"land": 15, "climb": 30}
+  skills: {"Athletics": 28, "Stealth": 25}
+  immunities: ["acid", "disease"]
+  weaknesses: {"slashing": 15}
+  resistances: {"bludgeoning": 15, "piercing": 15, "poison": 15}
+  strikes: [{"name": "Pseudopod", "bonus": 28, "damage": [["3d12+14", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Acidic Slime", "bonus": 25, "damage": [["3d6", "acid", "persistent"], ["4d6", "acid", null]], "traits": []}]
+  actions: [{"name": "Fetid Aura", "type": "passive", "traits": ["aura", "olfactory"], "text": "80 feet. A creature entering or beginning its turn in a furnerico's fetid aura must succeed at a DC 31 Fortitude or be Sickened 1; the creature also becomes Enfeebled 1 until the end of their next turn. A creature that succeeds at its save is temporarily immune to all furnerico fetid auras for 1 minute."}, {"name": "Hydrophobic", "type": "passive", "traits": [], "text": "A furnerico avoids water and won't willingly approach within five feet of a body of water. It won't initiate an attack against any creature that's soaking wet with water or that has the water trait. A furnerico takes a –2 circumstance penalty to its attack rolls against such creatures who attack it."}, {"name": "Susceptible to Water", "type": "passive", "traits": [], "text": "A furnerico cleansed of filth becomes sluggish. If ever immersed fully in pure, clean water, or if it ever fails a saving throw against a water effect, the furnerico becomes Slowed 1 until it starts its turn in an area of filth or contaminated water."}, {"name": "Feast on Illness", "type": "action", "traits": ["occult"], "cost": 1, "text": "Requirements The furnerico's last action was a successful pseudopod Strike against a creature with the Sickened condition%rEffect The furnerico feeds off the sweet sickness of the creature, gaining 30 temporary hit points for 1 minute."}, {"name": "Sticky Slime", "type": "passive", "traits": [], "text": "A creature that's critically hit by a furnerico's acidic slime becomes Immobilized until they escape dc=34 or 1 minute passes, after which the slime dissolves."}]
+"Girtablilu Guardian":
+  pack: "curtain-call-bestiary"
+  level: 10
+  size: "large"
+  rarity: "rare"
+  traits: ["beast"]
+  ac: 30
+  hp: 180
+  perception: 22
+  saves: {"fortitude": 20, "reflex": 18, "will": 22}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": 3, "str": 6, "wis": 6}
+  speeds: {"land": 40}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 22, "Intimidation": 19, "Religion": 20, "Survival": 22}
+  strikes: [{"name": "Pincer", "bonus": 22, "damage": [["2d8+12", "bludgeoning", null]], "traits": ["agile"], "effects": ["Grab"]}, {"name": "Stinger", "bonus": 22, "damage": [["2d6+12", "piercing", null]], "traits": ["reach-10"], "effects": ["Girtablilu Venom"]}, {"name": "Temple Sword", "bonus": 23, "damage": [["2d8+12", "slashing", null]], "traits": ["monk", "trip"]}, {"name": "Shortbow", "bonus": 22, "damage": [["2d6+6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d8+9) bludgeoning, DC 26 Fortitude"}, {"name": "Desert Stride", "type": "passive", "traits": [], "text": "A girtablilu ignores natural difficult terrain in the desert."}, {"name": "Girtablilu Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 28 Fortitude%rMaximum Duration 6 rounds%rStage 1 2d6 poison damage and Enfeebled 1 (1 round)%rStage 2 3d6 poison damage and enfeebled 1 (1 round)%rStage 3 3d6 poison damage and Enfeebled 2 (1 round)"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Girtablilu Sentry":
+  pack: "curtain-call-bestiary"
+  level: 8
+  size: "large"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 27
+  hp: 160
+  perception: 18
+  saves: {"fortitude": 20, "reflex": 16, "will": 12}
+  abilities: {"cha": 3, "con": 6, "dex": 4, "int": 3, "str": 6, "wis": 4}
+  speeds: {"land": 40}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Athletics": 20, "Intimidation": 17, "Religion": 16, "Survival": 18}
+  strikes: [{"name": "Pincer", "bonus": 20, "damage": [["2d8 + 9", "bludgeoning", null]], "traits": ["agile"], "effects": ["Grab"]}, {"name": "Stinger", "bonus": 20, "damage": [["2d6 + 9", "piercing", null]], "traits": ["reach-10"], "effects": ["Girtablilu Venom"]}, {"name": "Temple Sword", "bonus": 21, "damage": [["2d8+9", "slashing", null]], "traits": ["monk", "trip"]}, {"name": "Shortbow", "bonus": 19, "damage": [["2d6+3", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d8+6) bludgeoning, DC 24 Fortitude"}, {"name": "Desert Stride", "type": "passive", "traits": [], "text": "A girtablilu ignores natural difficult terrain in the desert."}, {"name": "Girtablilu Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 24 Fortitude%rMaximum Duration 6 rounds%rStage 1 2d6 poison damage and Enfeebled 1 (1 round)%rStage 2 3d6 poison damage and enfeebled 1 (1 round)%rStage 3 3d6 poison damage and Enfeebled 2 (1 round)"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Grandmama":
+  pack: "curtain-call-bestiary"
+  level: 10
+  size: "large"
+  rarity: "unique"
+  traits: ["monitor", "protean"]
+  ac: 30
+  hp: 175
+  perception: 19
+  saves: {"fortitude": 21, "reflex": 19, "will": 17}
+  abilities: {"cha": 5, "con": 5, "dex": 5, "int": 7, "str": 7, "wis": 3}
+  speeds: {"land": 25, "fly": 25, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 17, "Athletics": 19, "Deception": 21, "Diplomacy": 19, "Performance": 21, "Stealth": 21, "Thievery": 17}
+  resistances: {"precision": 10, "protean-anatomy": 15}
+  strikes: [{"name": "Jaws", "bonus": 23, "damage": [["2d10+11", "piercing", null], ["1d6", "spirit", null]], "traits": ["magical", "reach-10", "unarmed"], "effects": ["Warpwave Strike"]}, {"name": "Claw", "bonus": 23, "damage": [["2d6+11", "slashing", null], ["1d6", "spirit", null]], "traits": ["agile", "magical", "reach-10", "unarmed"]}, {"name": "Tail", "bonus": 23, "damage": [["2d10+11", "bludgeoning", null], ["1d6", "spirit", null]], "traits": ["magical", "reach-15"], "effects": ["Grab"]}]
+  actions: [{"name": "Entropy Sense", "type": "passive", "traits": ["divine", "prediction"], "text": "An imentesh can anticipate the most likely location of a creature through their supernatural insight into the forces of chaotic probabilities and chance. This grants the imentesh the ability to sense creatures within the listed range. A creature under the effects of Veil of Privacy or that is otherwise shielded from divination and prediction cannot be noticed via entropy sense."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Fast Healing 5", "type": "passive", "traits": []}, {"name": "Protean Anatomy 15", "type": "passive", "traits": ["divine", "polymorph"], "text": "An imentesh's vital organs shift and change shape and position constantly. Immediately after the imentesh takes acid, electricity, or sonic damage, it gains the listed amount of resistance to that damage type. This lasts for 1 hour or until the next time the protean takes damage of one of the other types (in which case its resistance changes to match that type), whichever comes first.%rThe imentesh is immune to polymorph effects unless it is a willing target. If Blinded or Deafened, the…"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The imentesh takes the appearance of any Large or smaller creature. This doesn't change its Speed or its attack and damage bonuses with its Strikes, but might change the damage type its Strikes deal."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d10+11) bludgeoning damage, DC 29 Fortitude"}, {"name": "Inflict Warpwave", "type": "action", "traits": ["divine"], "cost": 1, "text": "An imentesh inflicts a warpwave on a creature within 100 feet (DC 29 Fortitude save to resist)."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "An imentesh's Strikes deal an additional 2d6 precision damage to Off-Guard targets."}, {"name": "Warpwave Strike", "type": "passive", "traits": ["divine"], "text": "Any creature struck and damaged by an imentesh's jaws Strike must succeed at a DC 29 Fortitude save or be subject to a warpwave."}, {"name": "Warpwaves", "type": "passive", "traits": [], "text": "Many proteans can subject their foes to disorienting alterations perceived in time and space by creating ripples of unstable reality in the environment called warpwaves.%rWhen a creature fails its saving throw and is affected by a warpwave, roll 1d8 and consult the table below for the specific effect on that creature.%rUnless indicated otherwise, a warpwave effect lasts for 1d4 rounds, and a new warpwave effect negates any previous warpwave effect already affecting a creature.%rd8 Warpwave…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 32, "attack": 24, "spells": {"3": ["Haste", "Mending", "Shrink Item", "Slow"], "4": ["Creation", "Shatter", "Translocate (At Will)"], "5": ["Dispel Magic", "Divine Wrath", "Sending", "Translocate", "Truespeech (Constant)", "Unfettered Movement (Constant)"]}}]
+"Graverobber":
+  pack: "curtain-call-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "rare"
+  traits: ["human", "humanoid", "nephilim"]
+  ac: 31
+  hp: 180
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 22, "will": 21}
+  abilities: {"cha": 3, "con": 1, "dex": 5, "int": 2, "str": 1, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 18, "Deception": 20, "Intimidation": 20, "Society": 18, "Stealth": 22, "Thievery": 22, "Vyre Lore": 20}
+  strikes: [{"name": "Light Pick", "bonus": 23, "damage": [["2d4+11", "piercing", null]], "traits": ["agile", "fatal-d8", "magical"]}, {"name": "Shuriken", "bonus": 22, "damage": [["1d4+7", "piercing", null]], "traits": ["agile", "monk", "reload-0", "thrown-20"]}]
+  actions: [{"name": "Evasion", "type": "passive", "traits": [], "text": "When a Graverobber rolls a success on a Reflex save, they get a critical success instead."}, {"name": "Deft Pick", "type": "passive", "traits": [], "text": "A Graverobber adds their Dexterity modifier to damage rolls with a light pick instead of their Strength modifier, and on a critical hit, they inflict an additional 4 damage."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A Graverobber deals an extra 2d6 precision damage to Off-Guard creatures."}]
+"Gray Master":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["incorporeal", "undead", "unholy"]
+  ac: 43
+  hp: 280
+  perception: 34
+  saves: {"fortitude": 28, "reflex": 37, "will": 34}
+  abilities: {"cha": 7, "con": 0, "dex": 7, "int": 6, "str": -5, "wis": 6}
+  speeds: {"land": 0, "fly": 30}
+  hp_details: "void healing"
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 35, "Deception": 36, "Intimidation": 38, "Society": 34, "Stealth": 37, "Thievery": 35, "Norgorber Lore": 34, "Vyre Lore": 36}
+  immunities: ["bleed", "confused", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"all-damage": 15}
+  strikes: [{"name": "Bite", "bonus": 37, "damage": [["4d10+10", "piercing", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Glide Aside", "type": "reaction", "traits": ["move"], "text": "Trigger A Strike targeting Gray Master fails or critically fails%rEffect Gray Master dodges and redirects the attack to a creature adjacent to him and within reach of the triggering Strike. The attacker rerolls the Strike's attack roll against the new target."}, {"name": "Ignore Gauntlet Traps", "type": "passive", "traits": [], "text": "Gray Master does not trigger any of the traps in his Gauntlet, and cannot be damaged by them."}, {"name": "Power of the Trap", "type": "passive", "traits": [], "text": "As long as there's at least one trap in Gray Master's Gauntlet that isn't disabled or destroyed, Gray Master gains a +2 status bonus to AC and saving throws and deals an additional 1d6 spirit damage with his bite Strikes. Gray Master is automatically aware of any trap in his Gauntlet as soon as it is triggered, and also as soon as it is disabled or destroyed."}, {"name": "Scry Trap", "type": "reaction", "traits": ["divine"], "text": "Frequency once per minute%rTrigger Gray Master senses a trap activate in his Gauntlet via Power of the Trap%rEffect Gray Master casts scouting eye, but instead of creating an invisible, floating eye, he uses the triggering trap as the eye, and can see in all directions from it. He can Sustain the spell normally, and can continue to view through the trap even if it deactivates without being disabled or destroyed, but can't move his point of view away from it. If the trap is destroyed or disabled…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Brushed by Death", "type": "action", "traits": [], "cost": 2, "text": "Gray Master Flies once and makes a Strike against up to three targets he passes through at his current attack modifier. Each attack counts toward his multiple attack penalty, but he does not increase his penalty until he has made all three attacks. Gray Master cannot use Brushed by Death again for 1d4 rounds."}, {"name": "Infectious Delirium", "type": "action", "traits": ["divine", "emotion", "fear", "mental"], "cost": 1, "text": "Frequency once per minute%rEffect Gray Master unleashes a blast of stilted laughter in a 20-foot emanation, lasting until the beginning of his next turn. Any creature in the area or entering it must succeed at a DC 39 Will save or be overcome with conflicting thoughts, becoming Stupefied 3 (and also Confused for 1 minute on a critical failure). A creature attempts only one save per Infectious Delirium, and a creature that succeeds on its saving throw is temporarily immune for 24 hours."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Gray Master deals 3d6 extra precision damage to creatures who are Off-Guard."}, {"name": "Wrath of the Trap", "type": "action", "traits": ["divine"], "cost": 2, "text": "Frequency once per round%rRequirements Gray Master is within 100 feet of an active complex trap%rEffect Gray Master absorbs the power of the complex trap. It becomes inactive until the end of his next turn, and Power of the Trap deactivates until the complex trap becomes active again. The edges of Gray Master's cloak transform into knife-like blades that stab out at all nearby creatures. Any living creature within 10 feet of Gray Master takes 8d10 slashing damage and 8d6 void damage (DC 40…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 41, "attack": 33, "spells": {"5": ["Scouting Eye (At Will)"], "8": ["Disappearance"], "9": ["Possession", "Seize Soul"], "10": ["Collective Transposition", "Truespeech (Constant)"]}}]
+"Hellshadow":
+  pack: "curtain-call-bestiary"
+  level: 13
+  size: "large"
+  rarity: "rare"
+  traits: ["fiend", "incorporeal", "undead", "unholy"]
+  ac: 33
+  hp: 175
+  perception: 24
+  saves: {"fortitude": 23, "reflex": 25, "will": 22}
+  abilities: {"cha": 8, "con": 5, "dex": 6, "int": 4, "str": -5, "wis": 5}
+  speeds: {"land": 0, "fly": 40}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 25, "Intimidation": 27, "Stealth": 25}
+  immunities: ["bleed", "death-effects", "disease", "fire", "paralyzed", "poison", "precision", "unconscious"]
+  weaknesses: {"holy": 10}
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Brimstone Tendrils", "bonus": 27, "damage": [["3d8+6", "fire", null], ["2d6", "void", null]], "traits": ["agile", "finesse", "fire", "reach-15", "sanctified"], "effects": ["Clinging Smoke"]}]
+  actions: [{"name": "Brimstone Cloak", "type": "passive", "traits": ["aura", "divine", "fire", "sanctified"], "text": "10 feet. The hellshadow constantly exudes a cloud of smoke that scorches flesh but leaves other materials unharmed. Living creatures who start their turn in this aura take 2d6 fire|options:area-damage damage (DC 30 Reflex). On a critical failure, the creature is also Sickened 1."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Clinging Smoke", "type": "passive", "traits": ["divine"], "text": "A creature that takes damage from the hellshadow's brimstone tendrils Strike has coils of the creature's smoke solidify around their body, impeding movement. The creature must attempt a DC 33 Reflex save.%rCritical Success The creature is unaffected.%rSuccess The smoke solidifies as it coils around their limbs, imposing a –5-foot status penalty to all Speeds until the end of the creature's next turn.%rFailure As success, except –10 feet to speed and the creature is also Clumsy 1 until the end…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 33, "attack": 25, "spells": {"0": ["Divine Lance", "Void Warp"], "6": ["Crisis of Faith", "Divine Immolation"], "7": ["Divine Decree", "Shadow Blast (Fire or Spirit only)"]}}]
+"Honor Guard":
+  pack: "curtain-call-bestiary"
+  level: 9
+  size: "large"
+  rarity: "common"
+  traits: ["giant", "humanoid", "lawful"]
+  ac: 27
+  hp: 185
+  perception: 19
+  saves: {"fortitude": 18, "reflex": 21, "will": 15}
+  abilities: {"cha": 0, "con": 5, "dex": 6, "int": 3, "str": 6, "wis": 4}
+  speeds: {"land": 40}
+  skills: {"Acrobatics": 21, "Intimidation": 15, "Survival": 19, "Desert Lore": 18}
+  strikes: [{"name": "Scimitar", "bonus": 21, "damage": [["2d6+12", "slashing", null]], "traits": ["forceful", "magical", "reach-10", "sweep"]}, {"name": "Dragon Mouth Pistol", "bonus": 17, "damage": [["2d6+4", "piercing", null], ["1d6", "sonic", null]], "traits": ["concussive", "magical", "reload-1", "scatter-5"], "range": 40}]
+  actions: [{"name": "Catch Rock", "type": "reaction", "traits": []}, {"name": "Sand Spin", "type": "action", "traits": [], "cost": 1, "text": "Requirements The desert giant is standing in sandy terrain%rEffect The desert giant spins around and stirs up loose sand in a 10-foot. Until the beginning of the giant's next turn, creatures in the area are Concealed, and other creatures are concealed to them."}, {"name": "Sandwalking", "type": "passive", "traits": [], "text": "Desert giants have adapted to the loose sands of the desert and can move across them with ease. Desert giants ignore non-magical difficult terrain and uneven ground caused by sand."}, {"name": "Scimitar Blitz", "type": "action", "traits": [], "cost": 2, "text": "The desert giant Strides up to their Speed, Striking once with each of their scimitars at any point during the movement."}, {"name": "Throw Rock", "type": "action", "traits": [], "cost": 1}]
+"Izhkarial":
+  pack: "curtain-call-bestiary"
+  level: 16
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["amphibious", "dragon", "primal"]
+  ac: 39
+  hp: 300
+  perception: 28
+  saves: {"fortitude": 29, "reflex": 29, "will": 28}
+  abilities: {"cha": 5, "con": 5, "dex": 5, "int": 4, "str": 8, "wis": 4}
+  speeds: {"land": 50, "fly": 140, "swim": 70}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 29, "Athletics": 32, "Deception": 29, "Intimidation": 31, "Nature": 28, "Performance": 29, "Society": 28, "Survival": 26}
+  immunities: ["acid", "paralyzed", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 32, "damage": [["3d10+16", "piercing", null], ["4d4", "acid", null]], "traits": ["acid", "magical", "reach-20", "unarmed"]}, {"name": "Claw", "bonus": 32, "damage": [["3d10+16", "slashing", null]], "traits": ["agile", "magical", "reach-15", "unarmed"]}, {"name": "Tail", "bonus": 30, "damage": [["3d12+16", "bludgeoning", null]], "traits": ["magical", "reach-25"]}, {"name": "Wing", "bonus": 30, "damage": [["2d12+16", "piercing", null]], "traits": ["magical", "reach-20"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Brine Spit", "type": "reaction", "traits": ["concentrate"], "text": "Trigger A creature the brine dragon observes within 30 feet uses a concentrate action%rEffect The dragon spits a glob of caustic salt water at the creature. The creature takes 6d6 acid damage (DC 34 Reflex save). On a failure, the concentrate action is disrupted."}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 34 Will"}, {"name": "Brine Breath", "type": "action", "traits": ["acid", "primal"], "cost": 2, "text": "Izhkarial breathes a spray of acidic salt water that deals 17d6 acid|options:area-damage damage in a 120-foot line (DC 37 Reflex save). She can't use Brine Breath again for 1d4 rounds."}, {"name": "Capsize", "type": "action", "traits": ["attack"], "cost": 1, "text": "The dragon tries to capsize an adjacent aquatic vessel of their size or smaller. They must succeed at an Athletics check with a DC of 35 (reduced by 5 for each size smaller the vessel is than the dragon) or the pilot's Sailing Lore DC, whichever is higher."}, {"name": "Desiccating Bite", "type": "action", "traits": [], "cost": 2, "text": "The dragon makes a jaws Strike. On a hit, the target takes 5d6 persistent acid damage, and is Sickened 3 from the pain of salt and brine in its wounds."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The dragon makes two claw Strikes and one wing Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "The dragon recharges their Breath Weapon whenever they score a critical hit with a Strike."}, {"name": "Painful Strikes", "type": "passive", "traits": ["acid"], "text": "The brine dragon's body is encrusted with salty, acidic crystals. When a target takes damage from one of the dragon's melee Strikes, it must succeed at a DC 38 Fortitude Save or be Stunned 1 (Stunned 3 on a critical failure). The target then becomes temporarily immune for 1 minute."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 37, "attack": 29, "spells": {"4": ["Hydraulic Push (At Will)", "Mist (At Will)"], "5": ["Control Water", "Mariner's Curse"], "6": ["Hydraulic Torrent"]}}]
+"Jorogumo Disciple":
+  pack: "curtain-call-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "rare"
+  traits: ["humanoid"]
+  ac: 39
+  hp: 315
+  perception: 27
+  saves: {"fortitude": 25, "reflex": 27, "will": 29}
+  abilities: {"cha": 7, "con": 5, "dex": 5, "int": 3, "str": 6, "wis": 5}
+  speeds: {"land": 30, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 29, "Athletics": 30, "Crafting": 27, "Deception": 31, "Diplomacy": 31, "Occultism": 27, "Performance": 29, "Religion": 29, "Stealth": 29}
+  weaknesses: {"cold-iron": 10}
+  resistances: {"poison": 15}
+  strikes: [{"name": "Jaws", "bonus": 30, "damage": [["3d12+14", "piercing", null]], "traits": ["unarmed"], "effects": ["Jorogumo Venom"]}, {"name": "Claw", "bonus": 30, "damage": [["3d8+14", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Web", "bonus": 25, "damage": [], "traits": [], "range": 60, "effects": ["Web Trap"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Darting Legs", "type": "reaction", "traits": [], "text": "Requirements The jorogumo has their spider legs extended or has Changed Shape%rTrigger The jorogumo is targeted with an attack%rEffect The jorogumo raises a leg, gaining a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "The jorogumo takes on the appearance of any Small or Medium spider. This doesn't change their Speed or Strikes."}, {"name": "Jorogumo Venom", "type": "passive", "traits": ["incapacitation", "poison"], "text": "Saving Throw DC 37 Fortitude%rMaximum Duration 4 hours%rStage 1 3d6 poison damage and Stupefied 1 (1 round)%rStage 2 3d6 poison damage and Stupefied 2 (1 round)%rStage 3 4d6 poison damage and Stupefied 2 (1 round)%rStage 4 Paralyzed for 1d4 hours"}, {"name": "Skilled Poisoner", "type": "passive", "traits": [], "text": "When the jorogumo disciple successfully Strikes an Off-Guard creature with their jaws, that creature takes a –2 circumstance penalty to its initial save against the poison."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The jorogumo's Strikes deal an additional 2d6 precision damage to Off-Guard creatures."}, {"name": "Spider Legs", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "Requirements The jorogumo is in humanoid form%rEffect Eight large spider legs sprout from the jorogumo's back, granting them a 40-foot climb Speed and allowing them to use the Darting Legs reaction."}, {"name": "Web Trap", "type": "passive", "traits": [], "text": "A creature hit by the jorogumo's web attack is Immobilized and stuck to the nearest surface, preventing the creature from moving.%rThe DC to escape dc=37 or force-open dc=37 the web trap is 37."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 37, "attack": 29, "spells": {"3": ["Charm (At Will)", "Mind Reading (At Will)"], "6": ["Mind Probe", "Suggestion"], "7": ["Outcast's Curse"], "8": ["Speak with Animals (Spiders Only, Constant)", "Suggestion", "Summon Animal (Spiders Only)", "Truespeech (Constant)"]}}]
+"Karumzek Priest (Dispel Magic)":
+  pack: "curtain-call-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration", "unholy"]
+  ac: 37
+  hp: 275
+  perception: 29
+  saves: {"fortitude": 24, "reflex": 27, "will": 31}
+  abilities: {"cha": 6, "con": 5, "dex": 6, "int": 2, "str": 6, "wis": 8}
+  speeds: {"land": 40, "climb": 30}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 27, "Crafting": 23, "Intimidation": 27, "Religion": 31, "Stealth": 29}
+  immunities: ["poison"]
+  weaknesses: {"holy": 15}
+  strikes: [{"name": "Bite", "bonus": 29, "damage": [["3d12+14", "piercing", null]], "traits": [], "effects": ["Karumzek Venom"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Poison Sense (Precise) 30 feet", "type": "passive", "traits": [], "text": "A karumzek senses any poisoned creature. It can spend an action with the concentrate trait to determine the poison's type and current stage."}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "A karumzek can take the shape of a Tiny spider. This doesn't change its Speed or Strikes."}, {"name": "Karumzek Venom", "type": "passive", "traits": ["poison", "virulent"], "text": "Saving Throw DC 36 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison (1 round)%rStage 2 1d6 poison,1d6 spirit, and Enfeebled 1 (1 round)%rStage 3 2d6 poison,2d6 spirit, Clumsy 1, and enfeebled 1 (1 round)"}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 36, "attack": 28, "spells": {"0": ["Daze", "Detect Magic", "Divine Lance", "Message", "Void Warp"], "1": ["Command", "Enfeeble", "Fear", "Heal", "Sanctuary"], "2": ["Cleanse Affliction", "Resist Energy", "See the Unseen", "Spiritual Armament", "Translate"], "3": ["Blindness"], "4": ["Fly"], "5": ["Breath of Life", "Shadow Blast"], "6": ["Spirit Blast", "Vampiric Exsanguination"], "7": ["Divine Decree", "Execute", "Interplanar Teleport"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 36, "attack": 28, "spells": {"2": ["Invisibility (At Will, Self Only)"], "8": ["Vision of Death", "Vomit Swarm"]}}]
+"Karumzek Priest (Divine Immolation)":
+  pack: "curtain-call-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration", "unholy"]
+  ac: 37
+  hp: 275
+  perception: 29
+  saves: {"fortitude": 24, "reflex": 27, "will": 31}
+  abilities: {"cha": 6, "con": 5, "dex": 6, "int": 2, "str": 6, "wis": 8}
+  speeds: {"land": 40, "climb": 30}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 27, "Crafting": 23, "Intimidation": 27, "Religion": 31, "Stealth": 29}
+  immunities: ["poison"]
+  weaknesses: {"holy": 15}
+  strikes: [{"name": "Bite", "bonus": 29, "damage": [["3d12+14", "piercing", null]], "traits": [], "effects": ["Karumzek Venom"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Poison Sense (Precise) 30 feet", "type": "passive", "traits": [], "text": "A karumzek senses any poisoned creature. It can spend an action with the concentrate trait to determine the poison's type and current stage."}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "A karumzek can take the shape of a Tiny spider. This doesn't change its Speed or Strikes."}, {"name": "Karumzek Venom", "type": "passive", "traits": ["poison", "virulent"], "text": "Saving Throw DC 36 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison (1 round)%rStage 2 1d6 poison,1d6 spirit, and Enfeebled 1 (1 round)%rStage 3 2d6 poison,2d6 spirit, Clumsy 1, and enfeebled 1 (1 round)"}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 36, "attack": 28, "spells": {"0": ["Daze", "Detect Magic", "Divine Lance", "Message", "Void Warp"], "1": ["Command", "Enfeeble", "Fear", "Heal", "Sanctuary"], "2": ["Cleanse Affliction", "Resist Energy", "See the Unseen", "Spiritual Armament", "Translate"], "3": ["Blindness"], "4": ["Fly"], "5": ["Breath of Life", "Shadow Blast"], "6": ["Spirit Blast", "Vampiric Exsanguination"], "7": ["Divine Decree", "Execute", "Interplanar Teleport"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 36, "attack": 28, "spells": {"2": ["Invisibility (At Will, Self Only)"], "8": ["Vision of Death", "Vomit Swarm"]}}]
+"Karumzek Priest (Eclipse Burst)":
+  pack: "curtain-call-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration", "unholy"]
+  ac: 37
+  hp: 275
+  perception: 29
+  saves: {"fortitude": 24, "reflex": 27, "will": 31}
+  abilities: {"cha": 6, "con": 5, "dex": 6, "int": 2, "str": 6, "wis": 8}
+  speeds: {"land": 40, "climb": 30}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 27, "Crafting": 23, "Intimidation": 27, "Religion": 31, "Stealth": 29}
+  immunities: ["poison"]
+  weaknesses: {"holy": 15}
+  strikes: [{"name": "Bite", "bonus": 29, "damage": [["3d12+14", "piercing", null]], "traits": [], "effects": ["Karumzek Venom"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Poison Sense (Precise) 30 feet", "type": "passive", "traits": [], "text": "A karumzek senses any poisoned creature. It can spend an action with the concentrate trait to determine the poison's type and current stage."}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "A karumzek can take the shape of a Tiny spider. This doesn't change its Speed or Strikes."}, {"name": "Karumzek Venom", "type": "passive", "traits": ["poison", "virulent"], "text": "Saving Throw DC 36 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison (1 round)%rStage 2 1d6 poison,1d6 spirit, and Enfeebled 1 (1 round)%rStage 3 2d6 poison,2d6 spirit, Clumsy 1, and enfeebled 1 (1 round)"}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 36, "attack": 28, "spells": {"0": ["Daze", "Detect Magic", "Divine Lance", "Message", "Void Warp"], "1": ["Command", "Enfeeble", "Fear", "Heal", "Sanctuary"], "2": ["Cleanse Affliction", "Resist Energy", "See the Unseen", "Spiritual Armament", "Translate"], "3": ["Blindness"], "4": ["Fly"], "5": ["Breath of Life", "Shadow Blast"], "6": ["Spirit Blast", "Vampiric Exsanguination"], "7": ["Divine Decree", "Execute", "Interplanar Teleport"]}}, {"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 36, "attack": 28, "spells": {"2": ["Invisibility (At Will, Self Only)"], "8": ["Vision of Death", "Vomit Swarm"]}}]
+"Kimingio":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["rakshasa", "spirit", "unholy"]
+  ac: 45
+  hp: 380
+  perception: 33
+  saves: {"fortitude": 32, "reflex": 35, "will": 34}
+  abilities: {"cha": 10, "con": 6, "dex": 7, "int": 6, "str": 7, "wis": 7}
+  speeds: {"land": 35}
+  senses: ["darkvision"]
+  skills: {"Athletics": 35, "Deception": 40, "Diplomacy": 38, "Intimidation": 38, "Performance": 36, "Religion": 33, "Society": 34, "Stealth": 35}
+  immunities: ["fear-effects", "misfortune-effects", "fortune-effects"]
+  weaknesses: {"holy": 20}
+  strikes: [{"name": "Fangs", "bonus": 35, "damage": [["3d6+15", "piercing", null]], "traits": ["agile", "magical", "unholy"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 35, "damage": [["3d6+15", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed", "unholy"]}, {"name": "Shortsword", "bonus": 38, "damage": [["3d6+15", "piercing", null], ["1d6", "bleed", "persistent"]], "traits": ["agile", "finesse", "magical", "unholy", "versatile-s"]}]
+  actions: [{"name": "+2 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Knowledge of Delusion", "type": "passive", "traits": [], "text": "A creature that fails a Recall Knowledge check or a Perception check to Sense Motive on a raja-krodha is Off-Guard until the end of its next turn."}, {"name": "Reassert Fate", "type": "reaction", "traits": ["divine"], "text": "Trigger A creature within 30 feet uses a fortune or misfortune effect%rEffect The raja-krodha reasserts the ebb and flow of fate, instilling a deep dread in those who would attempt to cheat their written role. They disrupt the triggering effect, and the triggering creature becomes Frightened 2 and is Off-Guard to the raja-krodha until the end of its next turn."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 1, "text": "As raja-krodha, but Kimingio can use this ability to appear as a specific individual.%rThe raja-krodha takes on the appearance of any Medium humanoid. This doesn't change the raja-krodha's Speed or their attack and damage modifiers with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning). They lose their fangs Strike unless the humanoid form has fangs or a similar unarmed attack."}, {"name": "Cruel Majesty", "type": "action", "traits": ["emotion", "mental", "visual"], "cost": 1, "text": "Requirements The rakshasa is not in its true form%rEffect The rakshasa Changes Shape into its true form in a display that is equal parts terrifying and majestic. Creatures within 30 feet of the rakshasa must succeed at a DC 42 Will save or be Off-Guard to the rakshasa until the beginning of the rakshasa's next turn as they are awestruck."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Kimingio deals 3d6 extra precision damage to Off-Guard creatures."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Medium, (4d12+15) bludgeoning, Rupture 38"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 42, "attack": 34, "spells": {"0": ["Detect Magic", "Divine Lance"], "6": ["Clairaudience", "Clairvoyance", "Unfettered Movement"], "7": ["Haste", "Interplanar Teleport", "Invisibility"], "8": ["Blood Vendetta", "Dispel Magic", "Hallucination"], "9": ["Crisis of Faith", "Invoke Spirits", "Vampiric Feast"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 42, "attack": 34, "spells": {"1": ["Savor the Sting", "Sudden Shift"]}}]
+"Living Nightmare":
+  pack: "curtain-call-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["dream", "incorporeal"]
+  ac: 24
+  hp: 110
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 18, "will": 14}
+  abilities: {"cha": 6, "con": 3, "dex": 4, "int": 0, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Deception": 18, "Intimidation": 18, "Occultism": 12, "Stealth": 18}
+  immunities: ["disease", "paralyzed", "poison", "precision", "sleep"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Nightmare Tendril", "bonus": 20, "damage": [["4d8", "void", null]], "traits": ["agile", "finesse"], "effects": ["Endless Nightmare"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Endless Nightmare", "type": "passive", "traits": ["curse", "emotion", "fear", "mental", "occult"], "text": "An animate dream's touch fills the victim's mind with terrifying visions%rSaving Throw DC 26 Fortitude%rStage 1 Fatigued (1 day)%rStage 2 fatigued and Stupefied 1 (1 day)%rStage 3 The victim falls Unconscious and can't be awakened as long as they remain at this stage (1 day)."}, {"name": "Thematic Innate Spell", "type": "passive", "traits": [], "text": "In addition to the occult innate spells, these living nightmares also have a 4th-rank thematic innate spell, chosen by you to match the themes and needs of the enemy the living nightmare embodies. For example, if the foe Nemesis is based on allied with will-o'-wisps, the living nightmares might have Invisibility or Thunderstrike as their additional thematic innate spell, or if the foe Nemesis is based on allied with mind-manipulating creatures from the frozen north, the living nightmares might…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 26, "attack": 18, "spells": {"3": ["Fear"], "4": ["Nightmare", "Sleep", "Translocate (At Will)", "Vision of Death"]}}]
+"Mask of Blackfingers":
+  pack: "curtain-call-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "rare"
+  traits: ["fiend", "human", "humanoid", "unholy"]
+  ac: 39
+  hp: 290
+  perception: 32
+  saves: {"fortitude": 25, "reflex": 33, "will": 28}
+  abilities: {"cha": 6, "con": 5, "dex": 9, "int": 5, "str": 6, "wis": 6}
+  speeds: {"land": 30}
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 31, "Athletics": 28, "Crafting": 29, "Deception": 30, "Diplomacy": 30, "Intimidation": 30, "Religion": 28, "Society": 27, "Stealth": 33, "Thievery": 31, "Norgorber Lore": 31}
+  strikes: [{"name": "Shortsword", "bonus": 33, "damage": [["3d6+14", "slashing", null]], "traits": ["agile", "finesse", "magical", "versatile-p"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Secretive Tattoos", "type": "passive", "traits": [], "text": "The mask keeps their faith tattoo hidden (typically by wearing gloves to cover the palm). To use it as a divine focus, they must first Interact to uncover the tattoo. The tattoo then stays uncovered until the mask Interacts to cover it up. A mask's faith tattoo only allows for the casting of Harm. Upon the mask's death, the tattoo disappears."}, {"name": "Aspect's Agony", "type": "passive", "traits": [], "text": "When a mask of Norgorber Strikes a foe with a weapon, they inflict an additional 1d6 persistent poison damage. As long as a creature is taking this persistent damage, they're Off-Guard."}, {"name": "Evaporate Poison", "type": "action", "traits": ["divine", "poison"], "cost": 1, "text": "Frequency once per day%rEffect The mask blows out a breath and targets a creature within 30 feet that is currently poisoned or is taking persistent poison damage. The target must attempt a DC 37 Fortitude save as the mask attempts to transmute the poison afflicting them into toxic vapor.%rCritical Success The poison effect on the target immediately ends.%rSuccess The poison effect on the target immediately ends, but toxic vapor fills one of the target's adjacent squares, chosen by the mask. A…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A mask of Norgorber deals 2d6 extra precision damage to creatures who are Off-Guard."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 37, "attack": 29, "spells": {"0": ["Daze", "Detect Magic", "Message"], "4": ["Invisibility", "Silence"], "6": ["Sending", "Spellwrack"], "7": ["Cleanse Affliction", "Divine Decree", "Slither"], "8": ["Heal", "Shadow Blast", "Toxic Cloud", "Truesight (Constant)", "Truespeech (Constant)"]}}]
+"Mask of Father Skinsaw":
+  pack: "curtain-call-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "rare"
+  traits: ["fiend", "human", "humanoid", "unholy"]
+  ac: 39
+  hp: 290
+  perception: 32
+  saves: {"fortitude": 25, "reflex": 33, "will": 28}
+  abilities: {"cha": 6, "con": 5, "dex": 9, "int": 5, "str": 6, "wis": 6}
+  speeds: {"land": 30}
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 31, "Athletics": 28, "Crafting": 29, "Deception": 30, "Diplomacy": 30, "Intimidation": 30, "Religion": 28, "Society": 27, "Stealth": 33, "Thievery": 31, "Norgorber Lore": 31}
+  strikes: [{"name": "Shortsword", "bonus": 33, "damage": [["3d6+14", "slashing", null]], "traits": ["agile", "finesse", "magical", "versatile-p"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Secretive Tattoos", "type": "passive", "traits": [], "text": "The mask keeps their faith tattoo hidden (typically by wearing gloves to cover the palm). To use it as a divine focus, they must first Interact to uncover the tattoo. The tattoo then stays uncovered until the mask Interacts to cover it up. A mask's faith tattoo only allows for the casting of Harm. Upon the mask's death, the tattoo disappears."}, {"name": "Aspect's Agony", "type": "passive", "traits": [], "text": "When a mask of Norgorber Strikes a foe with a weapon, they inflict an additional 1d6 persistent bleed damage. As long as a creature is taking this persistent damage, they're Off-Guard."}, {"name": "Invigorating Flense", "type": "action", "traits": ["divine"], "cost": 1, "text": "Frequency once per day%rEffect The mask makes a quick striking motion, as if slicing flesh with a small knife, and targets a creature within 30 feet. The target immediately takes 12d6 slashing and 5d6 persistent bleed damage (DC 37 Fortitude save), and the mask becomes Quickened as long as the target continues to take persistent bleed damage. The mask can use the extra action only to Stride or Strike"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A mask of Norgorber deals 2d6 extra precision damage to creatures who are Off-Guard."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 37, "attack": 29, "spells": {"0": ["Daze", "Detect Magic", "Message"], "4": ["Invisibility", "Silence"], "6": ["Sending", "Spellwrack"], "7": ["Cleanse Affliction", "Divine Decree", "Mask of Terror"], "8": ["Blood Vendetta", "Heal", "Shadow Blast", "Truesight (Constant)", "Truespeech (Constant)"]}}]
+"Mask of Gray Master":
+  pack: "curtain-call-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "rare"
+  traits: ["fiend", "human", "humanoid", "unholy"]
+  ac: 39
+  hp: 290
+  perception: 32
+  saves: {"fortitude": 25, "reflex": 33, "will": 28}
+  abilities: {"cha": 6, "con": 5, "dex": 9, "int": 5, "str": 6, "wis": 6}
+  speeds: {"land": 30}
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 31, "Athletics": 28, "Crafting": 29, "Deception": 30, "Diplomacy": 30, "Intimidation": 30, "Religion": 28, "Society": 27, "Stealth": 33, "Thievery": 31, "Norgorber Lore": 31}
+  strikes: [{"name": "Shortsword", "bonus": 33, "damage": [["3d6+14", "slashing", null]], "traits": ["agile", "finesse", "magical", "versatile-p"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Secretive Tattoos", "type": "passive", "traits": [], "text": "The mask keeps their faith tattoo hidden (typically by wearing gloves to cover the palm). To use it as a divine focus, they must first Interact to uncover the tattoo. The tattoo then stays uncovered until the mask Interacts to cover it up. A mask's faith tattoo only allows for the casting of Harm. Upon the mask's death, the tattoo disappears."}, {"name": "Aspect's Agony", "type": "passive", "traits": [], "text": "When a mask of Norgorber Strikes a foe with a weapon, they inflict an additional 1d6 persistent void damage. As long as a creature is taking this persistent damage, they're Off-Guard."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A mask of Norgorber deals 2d6 extra precision damage to creatures who are Off-Guard."}, {"name": "Steal Life", "type": "action", "traits": ["death", "divine", "void"], "cost": 2, "text": "Frequency once per day%rEffect The mask makes a quick plucking gesture as they attempt to steal a creature's life. The mask targets a living creature within 30 feet, inflicting 17d6 void damage (DC 37 Fortitude save). The mask gains temporary Hit Points equal to half the void damage the target takes (after applying resistances and the like), and loses any remaining temporary Hit Points after 24 hours."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 37, "attack": 29, "spells": {"0": ["Daze", "Detect Magic", "Message"], "4": ["Invisibility", "Silence"], "6": ["Sending", "Spellwrack"], "7": ["Cleanse Affliction", "Divine Decree", "Umbral Graft"], "8": ["Heal", "Quandary", "Shadow Blast", "Truesight (Constant)", "Truespeech (Constant)"]}}]
+"Mask of the Reaper":
+  pack: "curtain-call-bestiary"
+  level: 16
+  size: "medium"
+  rarity: "rare"
+  traits: ["fiend", "human", "humanoid", "unholy"]
+  ac: 39
+  hp: 290
+  perception: 32
+  saves: {"fortitude": 25, "reflex": 33, "will": 28}
+  abilities: {"cha": 6, "con": 5, "dex": 9, "int": 5, "str": 6, "wis": 6}
+  speeds: {"land": 30}
+  senses: ["darkvision", "truesight"]
+  skills: {"Acrobatics": 31, "Athletics": 28, "Crafting": 29, "Deception": 30, "Diplomacy": 30, "Intimidation": 30, "Religion": 28, "Society": 27, "Stealth": 33, "Thievery": 31, "Norgorber Lore": 31}
+  strikes: [{"name": "Shortsword", "bonus": 33, "damage": [["3d6+14", "slashing", null]], "traits": ["agile", "finesse", "magical", "versatile-p"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Secretive Tattoos", "type": "passive", "traits": [], "text": "The mask keeps their faith tattoo hidden (typically by wearing gloves to cover the palm). To use it as a divine focus, they must first Interact to uncover the tattoo. The tattoo then stays uncovered until the mask Interacts to cover it up. A mask's faith tattoo only allows for the casting of Harm. Upon the mask's death, the tattoo disappears."}, {"name": "Aspect's Agony", "type": "passive", "traits": [], "text": "When a mask of Norgorber Strikes a foe with a weapon, they inflict an additional 1d6 persistent mental damage. As long as a creature is taking this persistent damage, they're Off-Guard."}, {"name": "Insidious Secrets", "type": "action", "traits": ["auditory", "divine", "emotion", "fear", "linguistic", "mental"], "cost": 1, "text": "Frequency once per day%rEffect The mask whispers, then targets a creature within 30 feet. The target must then attempt a DC 37 Will save.%rCritical Success The target fails to hear the secret whispered and is unaffected.%rSuccess The mask whispers a horrific secret to the target, and though their mind recoils and forgets, the target still takes 8d6 mental damage and is Frightened 1.%rFailure As failure, but 17d6 mental damage and Frightened 2; the target is Confused as long as they are…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A mask of Norgorber deals 2d6 extra precision damage to creatures who are Off-Guard."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 37, "attack": 29, "spells": {"0": ["Daze", "Detect Magic", "Message"], "4": ["Invisibility", "Silence"], "6": ["Sending", "Spellwrack"], "7": ["Cleanse Affliction", "Divine Decree", "Warp Mind"], "8": ["Heal", "Shadow Blast", "Suggestion", "Truesight (Constant)", "Truespeech (Constant)"]}}]
+"Masque Mannequin":
+  pack: "curtain-call-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "soulbound"]
+  ac: 38
+  hp: 210
+  perception: 26
+  saves: {"fortitude": 26, "reflex": 29, "will": 24}
+  abilities: {"cha": 0, "con": 5, "dex": 6, "int": -2, "str": 8, "wis": 3}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 29, "Athletics": 29, "Stealth": 29}
+  weaknesses: {"fire": 15}
+  resistances: {"bludgeoning": 7, "slashing": 7, "piercing": 15}
+  strikes: [{"name": "Fist", "bonus": 29, "damage": [["3d8+16", "bludgeoning", null]], "traits": ["agile", "unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Soul Mask", "type": "passive", "traits": [], "text": "The spark of the soul used to create a masque mannequin is infused into its mask. A creature can break a masque mannequin's soul mask with a DC 40 Athletics check or steal it with a DC 40 Thievery check. If its mask is broken or removed, a masque mannequin must attempt a DC 40 Fortitude save.%rCritical Success The masque mannequin's animating spark shifts to infuse its body; it is unaffected and no longer has a soul mask.%rSuccess The masque mannequin takes 2d6 persistent mental damage. If it…"}, {"name": "Awaken", "type": "reaction", "traits": [], "text": "Requirements The masque mannequin is in Pose%rTrigger A creature unaware of the mannequin's true nature approaches within reach%rEffect The mannequin makes a Strike against the triggering creature."}, {"name": "Pose", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time the masque mannequin acts, it appears to be an inanimate mannequin. It has an automatic result of 45 on Deception checks and DCs to appear as an ordinary mannequin."}, {"name": "Refashion", "type": "action", "traits": ["incapacitation", "occult"], "cost": 1, "text": "Requirements The masque mannequin is grappling a living creature%rEffect The Grabbed creature must attempt a DC 36 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature is Slowed 1 for 1 round as its body grows more wooden.%rFailure The creature is petrified for the next 24 hours, but instead of turning to stone, it turns into a wooden mannequin. It can attempt a new save at the end of each of its turns.%rCritical Failure The creature turns into a wooden mannequin…"}, {"name": "Improved Grab", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 25, "spells": {"0": ["Daze"], "7": ["Spirit Blast"]}}]
+"Miavri":
+  pack: "curtain-call-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "unique"
+  traits: ["fey"]
+  ac: 32
+  hp: 232
+  perception: 23
+  saves: {"fortitude": 20, "reflex": 26, "will": 23}
+  abilities: {"cha": 6, "con": 3, "dex": 5, "int": 1, "str": 7, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 26, "Deception": 25, "Diplomacy": 23, "Society": 20, "Stealth": 24}
+  weaknesses: {"cold-iron": 15}
+  resistances: {"piercing": 15, "acid": 15}
+  strikes: [{"name": "Jaws", "bonus": 26, "damage": [["3d10+13", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 26, "damage": [["3d8+13", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d10+13) piercing, DC 33 Fortitude (Grabbed by jaws only)"}, {"name": "Head Spin", "type": "free", "traits": [], "text": "The kishi switches between showing their attractive human face and their snarling hyena face. A kishi can use their innate spell and their Deception and Diplomacy skills only when their human face is showing, and they can use their jaws Strike only when their hyena face is showing."}, {"name": "Sudden Charge", "type": "action", "traits": [], "cost": 2, "text": "The kishi Strides twice. If they end their movement within melee reach of at least one enemy, they can make a melee Strike against that enemy."}, {"name": "Vicelike Jaws", "type": "passive", "traits": [], "text": "A creature Grabbed in the kishi's jaws can barely speak; a creature must succeed at a DC 8 Flat check to provide verbal components for spells, doing so in a choked whisper."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 33, "attack": 25, "spells": {"1": ["Charm (At Will)"], "5": ["Subconscious Suggestion"]}}]
+"Nemesis":
+  pack: "curtain-call-bestiary"
+  level: 13
+  size: "large"
+  rarity: "unique"
+  traits: ["illusion", "mental"]
+  ac: 33
+  hp: 240
+  perception: 23
+  saves: {"fortitude": 22, "reflex": 25, "will": 21}
+  abilities: {"cha": 8, "con": 5, "dex": 6, "int": 3, "str": 7, "wis": 4}
+  speeds: {"land": 30, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Crafting": 24, "Deception": 27, "Intimidation": 27, "Society": 24, "Stealth": 25}
+  immunities: ["death-effects", "disease", "doomed", "scrying", "detection"]
+  weaknesses: {"mental": 15}
+  strikes: [{"name": "Illusory Weapon", "bonus": 26, "damage": [["3d12+13", "mental", null]], "traits": ["illusion", "mental", "occult"]}, {"name": "Illusory Weapon", "bonus": 25, "damage": [["3d4+13", "mental", null]], "traits": ["illusion", "mental", "occult"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Universal Language", "type": "passive", "traits": [], "text": "Anything spoken by Nemesis is perceived by the listener in its native language."}, {"name": "Urban Legend", "type": "passive", "traits": [], "text": "As a brainchild formed from a legendary villain defeated by the PCs, Nemesis possesses two unique abilities, one chosen from the defensive abilities and one from the offensive abilities listed above. As long as the PCs exist, Nemesis has full uses of its two Urban Legend abilities, but a creature can Seek or Sense Motive (DC 37) Nemesis to attempt to disbelieve one of these abilities, thereafter treating that ability as if the brainchild didn't possess it."}, {"name": "Persistence of Memory", "type": "passive", "traits": ["illusion", "mental", "occult"], "text": "When a brainchild is destroyed, it returns if anyone still fully believes it exists, re-forming within 100 feet of any believer after 2d4 days."}, {"name": "Will They Come Back?", "type": "passive", "traits": ["curse", "mental", "occult"], "text": "Normally, when a brainchild is destroyed, it returns after 2d4 days if anyone still fully believes it exists. Nemesis remains dead once slain by the PCs, but as the brainchild is slain, any PC within 120 feet must succeed at a DC 30 Will save or become cursed.%rCritical Success The PC is unaffected.%rSuccess The PC fears that Nemesis might come back from death to strike at them as they sleep. The next time the PC attempts to rest for the night, they must succeed at a DC 30 Will save or they'll…"}, {"name": "I Know You", "type": "passive", "traits": [], "text": "Even before the brainchild version of Nemesis actually encounters the PCs, the fact that they manifested from the legends and emotional histories involving the PCs previous clash against their old enemy allows this brainchild to cast Nightmare and Sending spells as if it has met the PCs in person and knows their names."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 25, "spells": {"0": ["Figment", "Message"], "4": ["Nightmare"], "5": ["Illusory Disguise", "Sending", "Translocate"], "6": ["Vision of Death"]}}]
+"Niallana":
+  pack: "curtain-call-bestiary"
+  level: 15
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead"]
+  ac: 36
+  hp: 275
+  perception: 26
+  saves: {"fortitude": 24, "reflex": 28, "will": 26}
+  abilities: {"cha": 6, "con": 3, "dex": 5, "int": 0, "str": 8, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 31, "Performance": 29, "Stealth": 28}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "sleep"]
+  resistances: {"physical": 15}
+  strikes: [{"name": "Claw", "bonus": 29, "damage": [["3d8+16", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Self-Loathing", "type": "passive", "traits": [], "text": "If a silent stalker sees their own reflection or any object important to them in life, they must attempt a DC 40 Will save.%rCritical Success The pale stranger is unaffected and can no longer be affected by that reflection or object in this way.%rSuccess The silent stalker is distracted by self-loathing and is Slowed 1 for 1 round.%rFailure The silent stalker becomes Fascinated by the source of their self-loathing and does everything they can to destroy it until the end of their next…"}, {"name": "Sense Murderer", "type": "passive", "traits": ["detection", "occult"], "text": "A silent stalker knows the direction of their murderer (as long as both are on the same plane), but not the distance."}, {"name": "Silent Aura", "type": "passive", "traits": ["aura", "illusion", "occult"], "text": "10 feet. A silent stalker makes no sound, preventing creatures from noticing them using hearing or a similar sense alone. This silence stops all sound within it or passing through. The silent stalker and all creatures in the aura can't use sonic attacks or actions that have the auditory trait; this prevents creatures from casting spells with verbal components or activating items with command components.%rEffect: Silent Aura"}, {"name": "Undying Vendetta", "type": "passive", "traits": [], "text": "If the silent stalker's murderer dies, the pale stranger is immediately destroyed. A pale stranger that can't sense their murderer must attempt a DC 11 Flat once every 24 hours to avoid becoming Immobilized and Prone; they immediately rise again once they can sense their murderer. A murderer who becomes undead does not trigger the silent stalker's destruction until the murderer is finally destroyed. The silent stalker gains a +2 status bonus to checks and DCs against their murderer."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(3d8+8) bludgeoning, DC 36 Fortitude"}, {"name": "Siphon Voice", "type": "action", "traits": ["curse", "occult"], "cost": 2, "text": "Niallana attempts to steal the voice of a living creature within 30 feet. The target must attempt a DC 36 Fortitude save. As long as a creature is voiceless due to this effect, Niallana's silent aura is suppressed, and she can speak in the voice of the affected creature.%rCritical Success The creature is unaffected.%rSuccess The target becomes voiceless until the end of Niallana's next turn. A voiceless creature can't speak, create vocal sounds, or take auditory actions (including supplying…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Ockomlire":
+  pack: "curtain-call-bestiary"
+  level: 13
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration"]
+  ac: 33
+  hp: 235
+  perception: 23
+  saves: {"fortitude": 26, "reflex": 21, "will": 23}
+  abilities: {"cha": 0, "con": 5, "dex": 4, "int": 5, "str": 8, "wis": 4}
+  speeds: {"land": 20, "climb": 10}
+  senses: ["darkvision"]
+  skills: {"Athletics": 27, "Occultism": 24, "Survival": 23}
+  strikes: [{"name": "Jaws", "bonus": 27, "damage": [["3d10+14", "piercing", null]], "traits": ["forceful", "unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Emotion Vulnerability", "type": "passive", "traits": [], "text": "If an ockomlire fails a saving throw against an emotion effect, they loses their resistance to mental damage and gains an equal amount of weakness to mental damage (weakness to mental 15 for the typical ockomlire) until the end of their next turn.%rEffect: Emotion Vulnerability"}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Emotion", "type": "passive", "traits": []}, {"name": "Devour Magic", "type": "action", "traits": ["occult"], "cost": 2, "text": "The ockomlire attempts to devour a spell effect from a creature they've Grabbed. To successfully do so, they must counteract that effect with an Occultism check. If the spell effect is an emotion effect, the ockomlire gains a +2 circumstance bonus to this check.%rCritical Success The spell is countered, the ockomlire gains temporary Hit Points equal to twice the spell's rank for 1 minute, and the grabbed creature becomes Stupefied 2 for 1 minute.%rSuccess As success but Stupefied 1.%rCritical…"}, {"name": "Haze of Despair", "type": "action", "traits": ["emotion", "mental", "occult"], "cost": 2, "text": "Requirements The ockomlire has temporary hit points gained from Devour Magic%rEffects The ockomlire digests the magic and releases mist that stings the eyes and heart alike. The ockomlire loses any temporary Hit Points they have and all non-ockomlire creatures in a 30-foot take 9d10 mental|options:area-damage damage (DC 33 Will save)."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 25, "spells": {"0": ["Detect Magic (Constant)"], "7": ["Calm (At Will)"]}}]
+"Operatic Emissary":
+  pack: "curtain-call-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "common"
+  traits: ["angel", "celestial", "holy"]
+  ac: 36
+  hp: 285
+  perception: 26
+  saves: {"fortitude": 27, "reflex": 26, "will": 22}
+  abilities: {"cha": 6, "con": 5, "dex": 4, "int": 4, "str": 8, "wis": 4}
+  speeds: {"land": 40, "fly": 75}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 24, "Diplomacy": 26, "Intimidation": 28, "Religion": 24}
+  weaknesses: {"unholy": 15}
+  strikes: [{"name": "Trident", "bonus": 26, "damage": [["2d8+10", "piercing", null], ["1d4", "spirit", null]], "traits": ["holy", "magical", "thrown-20"]}, {"name": "Trident", "bonus": 30, "damage": [["2d8+14", "piercing", null], ["1d4", "spirit", null]], "traits": ["holy", "magical"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Messenger's Amnesty", "type": "passive", "traits": ["divine"], "text": "An tabellia with a message to deliver is continually protected by the effect of Sanctuary (DC 32 Will). If the angel breaks the sanctuary , the effect returns if the angel ceases hostility for 10 minutes."}, {"name": "Traveler's Aura", "type": "passive", "traits": ["aura", "divine"], "text": "20 feet.%rCreatures in the tabellia's aura are immune to ambient environmental damage from any plane, including severe and extreme heat and cold as well as more otherworldly dangers. The tabellia is never Off-Guard to creatures within their aura."}, {"name": "Nonlethal Damage", "type": "passive", "traits": [], "text": "When they attack, the operatic emissaries take a –2 circumstance penalty to their Strikes with their tridents, as they make nonlethal Strikes with the weapons. They avoid using lethal spells like Blessed Boundary, Divine Decree, or Divine Wrath in the fight."}, {"name": "Stunning Strike", "type": "action", "traits": [], "cost": 1, "text": "Requirements The tabellia hit a foe earlier this turn with a weapon Strike%rEffect The tabellia makes a weapon Strike against the foe. On a success, the foe must also succeed at a DC 34 Fortitude save or become Stunned 1 (or Stunned 2 on a critical failure)."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 36, "attack": 28, "spells": {"0": ["Light"], "2": ["Invisibility (At Will, Self Only)"], "3": ["Ring of Truth (At will)"], "5": ["Truespeech (Constant)"], "7": ["Blessed Boundary", "Cleanse Affliction", "Clear Mind", "Divine Decree", "Divine Wrath", "Heal"]}}]
+"Operatic Stone Bulwark":
+  pack: "curtain-call-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "mindless"]
+  ac: 30
+  hp: 175
+  perception: 17
+  saves: {"fortitude": 24, "reflex": 18, "will": 19}
+  abilities: {"cha": -5, "con": 4, "dex": -1, "int": -5, "str": 7, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 26}
+  resistances: {"physical": 10, "spells": 10}
+  strikes: [{"name": "Fist", "bonus": 24, "damage": [["2d10+13", "bludgeoning", null]], "traits": ["magical", "reach-10", "unarmed"], "effects": ["Binding Stone"]}]
+  actions: [{"name": "Statuary Aura", "type": "passive", "traits": ["arcane", "aura", "earth"], "text": "20 feet.%rRocks of marble magically arise from the ground in the aura. They protect the bulwark's allies, giving each of them standard Cover. These stones can be used for Throw Rock.%rThis aura automatically activates at the start of the stone bulwark's first turn in combat and deactivates at the end of combat."}, {"name": "Binding Stone", "type": "passive", "traits": ["arcane", "earth"], "text": "Any creature hit by the stone bulwark's fist or rock Strike is affected by a DC 30 Fortitude Earthbind spell."}, {"name": "Inexorable March", "type": "action", "traits": [], "cost": 1, "text": "The stone bulwark Strides up to its Speed, pushing back each creature whose space it moves into and damaging them if they try to stop its movement. A creature can attempt to bar the way by succeeding at a DC 34 Fortitude save. On a critical success, the resisting creature takes no damage; otherwise it is damaged as if hit by the construct's fist."}, {"name": "Throw Rock", "type": "action", "traits": [], "cost": 1}]
+"Oriole":
+  pack: "curtain-call-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "unique"
+  traits: ["ganzi", "human", "humanoid"]
+  ac: 35
+  hp: 255
+  perception: 21
+  saves: {"fortitude": 25, "reflex": 27, "will": 22}
+  abilities: {"cha": 5, "con": 2, "dex": 4, "int": 3, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 22, "Deception": 27, "Diplomacy": 27, "Intimidation": 23, "Nature": 19, "Performance": 29, "Society": 23, "Survival": 19, "Theater Lore": 25}
+  strikes: [{"name": "Dagger", "bonus": 26, "damage": [["3d4+5", "piercing", null], ["1d6", "sonic", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Dagger", "bonus": 26, "damage": [["3d4+5", "piercing", null], ["1d6", "sonic", null]], "traits": ["agile", "magical", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "+1 Vs. Effects Granting the Controlled Condition", "type": "passive", "traits": []}, {"name": "Ganzi Resistance", "type": "passive", "traits": [], "text": "At the beginning of each day, the element Oriole resists is randomly determined by rolling 1d6 (1–2 acid, 3–4 electricity, and 5–6 sonic), but this resistance can change during the day as they Alter Resistance."}, {"name": "Alter Resistance", "type": "reaction", "traits": [], "text": "Frequency once per hour%rTrigger Oriole takes acid, electricity, or sonic damage%rEffect Oriole's energy resistance changes to match the triggering damage and immediately applies to the damage."}, {"name": "Blood Magic", "type": "passive", "traits": [], "text": "When Oriole casts Animal Vision, Calm, Charm, Repulsion, Unfettered Pack, Vital Beacon, Wave of Despair, or any of their bloodline spells, their movements are so graceful that they distract foes. This either grants Oriole a +1 status bonus to Diplomacy checks for 1 round or imposes a –1 status penalty on one target's Will saves for 1 round."}, {"name": "Crossblooded Evolution", "type": "passive", "traits": [], "text": "While Oriole's sorcerous bloodline comes from a mysterious connection to nymphs in their ancestry, their equally mysterious ancestral connection to proteans influences their spell repertoire such that they can cast Illusory Disguise as well. They can heighten illusory disguise freely."}, {"name": "Legendary Diva", "type": "free", "traits": [], "text": "Frequency once per day%rTrigger Oriole succeeds at a Performance check to act, dance, or sing%rEffect Oriole critically succeeds at the check instead."}, {"name": "Many Forms", "type": "passive", "traits": [], "text": "Oriole can freely heighten any spell with the polymorph trait."}]
+  spellcasting: [{"name": "Primal Spontaneous Spells", "tradition": "primal", "type": "spontaneous", "dc": 33, "attack": 25, "spells": {"0": ["Detect Magic", "Electric Arc", "Light", "Prestidigitation", "Sigil", "Tangle Vine"], "1": ["Charm", "Illusory Disguise", "Mending", "Pest Form", "Ventriloquism"], "2": ["Animal Form", "Calm", "Create Food", "Humanoid Form", "Speak with Animals"], "3": ["Animal Vision", "Haste", "Insect Form", "Slow", "Wall of Wind"], "4": ["Aerial Form", "Cleanse Affliction", "Dinosaur Form", "Vapor Form", "Vital Beacon"], "5": ["Elemental Form", "Lightning Bolt", "Plant Form", "Wall of Thorns", "Wave of Despair"], "6": ["Chain Lightning", "Cursed Metamorphosis", "Dragon Form", "Nature's Pathway", "Repulsion"], "7": ["Dispel Magic", "Heal", "Interplanar Teleport", "Sunburst", "Unfettered Pack"]}}, {"name": "Primal Focus Spells", "tradition": "primal", "type": "focus", "dc": 33, "attack": 25, "spells": {"1": ["Nymph's Token"], "3": ["Blinding Beauty"], "5": ["Establish Ward"]}}]
+"Prince of Propaganda":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["fey", "unholy"]
+  ac: 47
+  hp: 400
+  perception: 37
+  saves: {"fortitude": 36, "reflex": 39, "will": 33}
+  abilities: {"cha": 9, "con": 7, "dex": 7, "int": 7, "str": 9, "wis": 6}
+  speeds: {"land": 40, "fly": 120}
+  senses: ["greater-darkvision", "truesight"]
+  skills: {"Acrobatics": 36, "Athletics": 36, "Deception": 40, "Diplomacy": 38, "Intimidation": 40, "Religion": 35, "Society": 36, "Stealth": 38, "Thievery": 36, "Norgorber Lore": 38, "Warfare Lore": 38}
+  immunities: ["curse", "death-effects", "drained", "fear-effects"]
+  weaknesses: {"cold-iron": 20}
+  strikes: [{"name": "Club", "bonus": 40, "damage": [["3d6+19", "bludgeoning", null]], "traits": ["magical"], "effects": ["Princes Curse"]}, {"name": "Club", "bonus": 38, "damage": [["3d6+14", "bludgeoning", null]], "traits": ["magical", "thrown-20"], "effects": ["Princes Curse"]}, {"name": "Shortsword", "bonus": 40, "damage": [["3d6+19", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"], "effects": ["Princes Curse"]}, {"name": "Manacle", "bonus": 40, "damage": [], "traits": ["magical", "reach-10"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Aura of Disquietude", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "30 feet. DC 41 Will%rAs Frightful Presence, plus a creature frightened by the aura becomes suspicious; it doesn't count any other creature as its ally and can't Aid or flank. On a critical failure, the creature also can't be a willing target for harmless or helpful magic.%rEffect: Aura of Disquietude"}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Inscribe Propaganda", "type": "action", "traits": ["curse", "divine", "incapacitation", "mental"], "cost": 1, "text": "Frequency once per turn%rEffect The Prince lifts the writer's quill he carries, points its nib at a target he can see that's within 120 feet, and then writes Invisible text in the air. The target hears the sound of the quill nib scratching words into parchment and must attempt a DC 44 Will save. The target then becomes temporarily immune to Inscribe Propaganda for 24 hours.%rCritical Success The target is unaffected.%rSuccess The target's worldview shifts, causing it to momentarily lose track…"}, {"name": "Prince's Curse", "type": "passive", "traits": ["curse", "occult"], "text": "A creature hit by the Prince's melee attack becomes cursed. It becomes Off-Guard and takes 2d6 persistent bleed damage that's difficult to stanch. The DC to stop the bleeding using Administer First Aid is 40, and healing the creature to full HP doesn't automatically end the bleeding. Removing the curse ends the bleeding and off-guard condition."}, {"name": "Shed Manacle", "type": "reaction", "traits": [], "text": "Trigger The Prince has grabbed a creature with his manacle%rEffect The manacle clasps drop away from the chain the Prince holds. The creature remains grabbed until they escape dc=44, at which point its manacles vanish. The Prince can't make manacle Strikes again until his next turn when his chain creates a new set of manacles at its end."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Prince deals an additional 3d6 precision damage to Off-Guard creatures."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 44, "attack": 36, "spells": {"5": ["Mind Probe (At Will)"], "8": ["Disappearance"], "9": ["Confusion", "Rewrite Memory"], "10": ["Fabricated Truth", "Truesight (Constant)", "Truespeech (Constant)"]}}]
+"Princess Sweetie":
+  pack: "curtain-call-bestiary"
+  level: 6
+  size: "small"
+  rarity: "unique"
+  traits: ["beast"]
+  ac: 24
+  hp: 75
+  perception: 17
+  saves: {"fortitude": 13, "reflex": 16, "will": 11}
+  abilities: {"cha": 1, "con": 3, "dex": 4, "int": -3, "str": 5, "wis": 3}
+  speeds: {"land": 20, "climb": 15, "fly": 10}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 12, "Athletics": 15, "Deception": 16}
+  strikes: [{"name": "Tongue", "bonus": 17, "damage": [["2d4+8", "slashing", null], ["1d8", "bleed", null]], "traits": ["agile", "fatal-d12", "reach-10"]}, {"name": "Claw", "bonus": 17, "damage": [["2d10+8", "slashing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Snatch Skull", "type": "reaction", "traits": [], "text": "Trigger The skull peeler is using Perfect Camouflage and a creature moves into a space within 15 feet of it%rEffect The skull peeler Leaps toward the triggering creature and Strikes with its tongue. If this Strike is successful, the skull peeler automatically Grabs the target with its tongue."}, {"name": "Anticoagulant", "type": "passive", "traits": [], "text": "The skull peeler's razor-sharp tongue is coated in an anticoagulant substance that makes wounds it inflicts particularly hard to close.%rThe DC of the flat check to end the persistent bleed damage from a skull peeler's tongue is DC 16 Flat, or DC 11 Flat with appropriate assistance."}, {"name": "Perfect Camouflage", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Requirements The skull peeler is in a treetop or standing on a tree limb%rEffect Until the next time it acts, the skull peeler hangs perfectly still, blending into the treetop surroundings. It has an automatic result of 36 on Stealth checks and DCs to Hide from any creature more than 10 feet away from it."}]
+"Razorbones":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "large"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 45
+  hp: 430
+  perception: 34
+  saves: {"fortitude": 33, "reflex": 35, "will": 32}
+  abilities: {"cha": 6, "con": 6, "dex": 7, "int": 0, "str": 10, "wis": 6}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 35, "Athletics": 38, "Stealth": 36}
+  immunities: ["paralyzed", "unconscious", "poison", "death-effects", "disease", "bleed"]
+  weaknesses: {"bludgeoning": 20}
+  strikes: [{"name": "Claw", "bonus": 38, "damage": [["1d6", "bleed", "persistent"], ["4d6+18", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"], "effects": ["Improved Grab"]}, {"name": "Hurled Bone", "bonus": 38, "damage": [["4d4+18", "piercing", null]], "traits": ["brutal"]}]
+  actions: [{"name": "Ectoplasmic Filaments", "type": "reaction", "traits": [], "text": "Trigger A creature within the razorbones' reach uses a manipulate action or a move action or leaves a square during a move action it's using%rEffect A filament of black, oily ectoplasm lashes out at the triggering creature, dealing (4d8+18) slashing damage (DC 42 Reflex save). If the filament deals damage, the razorbones gains 8d8 temporary Hit Points as blood flows back along its bones to sheathe them in glisten red fluid."}, {"name": "Eerie Flexibility", "type": "passive", "traits": [], "text": "A razorbones can shift and adjust its mass to fit into smaller areas, allowing it to fit through tight spaces as if it were a Medium creature. While Squeezing, it can move at its full speed."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Gnaw", "type": "action", "traits": [], "cost": 1, "text": "Requirements The razorbones has Grabbed a foe%rEffect The razorbones gnaws and chews on the grabbed target with its many skulls, dealing (4d6+18) piercing damage (DC 42 Fortitude save). On a critical failure, the creature is also Drained 1 (or increases an existing drained condition by 1, to a maximum of drained 4) from the grievous gnawing."}, {"name": "Skeletal Storm", "type": "action", "traits": [], "cost": 2, "text": "The razorbones makes a single claw Strike against every creature in reach. These attacks count toward the razorbones' multiple attack penalty, but the multiple attack penalty doesn't increase until after the razorbones makes all its attacks."}, {"name": "Sprawled Bones", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the razorbones appears as a sprawling mass of bones. It has an automatic result of 56 on Deception checks and DCs to pass as a grisly but seemingly harmless mess."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+"Reaper of Reputation":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid", "unholy"]
+  ac: 45
+  hp: 375
+  perception: 37
+  saves: {"fortitude": 30, "reflex": 35, "will": 37}
+  abilities: {"cha": 10, "con": 4, "dex": 7, "int": 8, "str": 6, "wis": 7}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision", "scent"]
+  skills: {"Acrobatics": 35, "Athletics": 34, "Deception": 40, "Diplomacy": 38, "Intimidation": 38, "Occultism": 36, "Religion": 36, "Society": 36, "Norgorber Lore": 38, "Vyre Lore": 38}
+  immunities: ["mental"]
+  strikes: [{"name": "Fist", "bonus": 35, "damage": [["4d4+16", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "unarmed"], "effects": ["Grab"]}, {"name": "Antler", "bonus": 35, "damage": [["4d8+16", "piercing", null]], "traits": ["magical"], "effects": ["Knockdown"]}, {"name": "Rapier", "bonus": 37, "damage": [["3d6+16", "piercing", null], ["1d6", "spirit", null], ["1d6", "bleed", "persistent"]], "traits": ["deadly-d8", "disarm", "finesse", "magical"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Corrupt Speech", "type": "reaction", "traits": ["auditory", "illusion", "linguistic", "occult"], "text": "Trigger The Reaper of Reputation hears a creature speak within 30 feet%rEffect The Reaper of Reputation manipulates those words to damage the speaker's repute by putting treacherous words on another's lips. The Reaper whispers up to 12 words and attempts a Deception check against the Perception DC of a creature other than the triggering creature within 30 feet.%rCritical Success The target hears the Reaper's words as if they were spoken by the triggering creature. This can alter linguistic…"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "The Reaper of Reputations can take on the appearance of any Small or Medium humanoid. This doesn't change his Speed or his attack and damage bonuses with his rapier or fist Strikes, but does prevent him from using his antlers Strike. The Reaper can Change Shape to Impersonate specific individuals."}, {"name": "Reap Reputation", "type": "action", "traits": ["auditory", "emotion", "linguistic", "mental", "occult"], "cost": 2, "text": "The Reaper of Reputation makes a compelling and devastating speech in a language of his choice. Any number creatures chosen by the Reaper who are within 30 feet who can understand this speech feel their own reputations twisting as a mix of fear and paranoia take hold. Each creature in the area must attempt a DC 42 Will save. The Reaper of Reputation can't Reap Reputation again for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature takes 10d6…"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Reaper of Reputation deals 3d6 extra precision damage to creatures who are Off-Guard"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 41, "attack": 33, "spells": {"5": ["Subconscious Suggestion (At Will)"], "8": ["Disappearance"], "9": ["Duplicate Foe", "Spirit Blast"], "10": ["Fabricated Truth", "Truespeech (Constant)"]}}]
+"Rezzelki":
+  pack: "curtain-call-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["beast"]
+  ac: 29
+  hp: 175
+  perception: 21
+  saves: {"fortitude": 21, "reflex": 17, "will": 19}
+  abilities: {"cha": 2, "con": 5, "dex": 3, "int": -3, "str": 6, "wis": 3}
+  speeds: {"land": 25, "fly": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 22}
+  resistances: {"acid": 10}
+  strikes: [{"name": "Tail", "bonus": 22, "damage": [["2d12+10", "bludgeoning", null]], "traits": ["forceful", "magical"], "effects": ["Knockdown"]}, {"name": "Tongue", "bonus": 22, "damage": [["2d6+6", "slashing", null], ["1d6", "acid", null]], "traits": ["agile", "reach-10"]}]
+  actions: [{"name": "Glutton Scent", "type": "passive", "traits": [], "text": "A rezzelki's scent ability becomes a precise sense against its favored meal."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Favored Meal", "type": "passive", "traits": [], "text": "All rezzelkis have a favorite type of creature to feast upon. Against a favored meal in combat, a rezzelki gains a +1 circumstance bonus to all Strikes and Athletics checks.%rIf an encounter doesn't specify what a rezzelki's favorite foodstuff is, roll 1d6:%r1—human%r2—dwarf%r3—elf%r4—kholo%r5—desert giant%r6—mummy"}, {"name": "Reactive Taste", "type": "reaction", "traits": ["primal"], "text": "Trigger A creature within reach of the rezzelki's tongue uses a manipulate or a move action, makes a ranged attack, or leaves a square during a move action it's using%rEffect The rezzelki makes a tongue Strike against the triggering creature."}, {"name": "Fracturing Smash", "type": "action", "traits": ["attack"], "cost": 2, "text": "The rezzelki Strikes a target with a particularly powerful blow from its tail, with enough force to potentially pulverize bone. This Strike treats any object it hits as if it had half as much Hardness as usual, unless the object's hardness is greater than the rezzelki's level. If the Fracturing Smash hits, it deals two extra dice of weapon damage. A creature with a skeleton that takes damage must succeed at a DC 26 Fortitude save or become Clumsy 1 (Clumsy 2 on a critical failure) by the…"}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 29, "attack": 21, "spells": {"5": ["Fly (Constant)"]}}]
+"Risen Nemesis":
+  pack: "curtain-call-bestiary"
+  level: 20
+  size: "medium"
+  rarity: "unique"
+  traits: ["fiend", "incorporeal", "palinthanos", "undead", "unholy"]
+  ac: 43
+  hp: 290
+  perception: 35
+  saves: {"fortitude": 33, "reflex": 33, "will": 33}
+  abilities: {"cha": 7, "con": 7, "dex": 7, "int": 7, "str": -5, "wis": 7}
+  speeds: {"land": 0, "fly": 30}
+  hp_details: "void healing"
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 35, "Deception": 35, "Intimidation": 37}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 20}
+  strikes: [{"name": "Claw", "bonus": 35, "damage": [["4d6+10", "slashing", null], ["4d6", "spirit", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Backward Speakers", "type": "passive", "traits": [], "text": "When a palinthanos vocalizes, the sounds it creates are reversed. For the egarhowl, this only results in unnerving backwards sounds of angry roars and bestial noises, but for those who can speak, it makes understanding them difficult. A palinthanos has no difficulty understanding any language it can speak, but when it speaks, listeners must succeed at a DC 30 Perception check made as a free action with the concentrate trait each round to quickly decipher the reversed conversation. This prevents…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Come Out, You Cowards!", "type": "action", "traits": ["move", "occult"], "cost": 3, "text": "In each round the Risen Nemesis does not have a PC to target, they go on a rampage, harming innocent bystanders and damaging the opera house structure. The Risen Nemesis Strides, then damages enough of their immediate surroundings at the end of this Stride to fill a 10-foot emanation with rubble that functions as difficult terrain (or greater difficult terrain where difficult terrain from rubble already existed). The PCs lose 1d4 Opera Points from their accumulated total."}, {"name": "Distort Perception", "type": "action", "traits": ["incapacitation", "mental", "occult"], "cost": 1, "text": "Frequency once per round%rEffect The risen nemesis targets a creature it can see within 30 feet and alters its perception of time. The target must attempt a DC 42 Will save. Regardless of success or failure, the creature then becomes temporarily immune to this ability for 24 hours.%rCritical Success The creature is unaffected.%rSuccess The creature perceives time to flow backward briefly and becomes Slowed 1 for 1 round.%rFailure Time flows backward for the creature, leaving them unable to…"}, {"name": "Predestined Defeat", "type": "reaction", "traits": ["occult"], "text": "Trigger The risen nemesis rolls initiative%rFrequency once per day%rEffect At the start of combat, an inverted, reversed explosion of spiritual and void energy implodes in a 30-foot emanation centered on the risen nemesis—a reversal of the creature's spiritually explosive death. All creatures in the area take 16d8 spirit|options:area-damage damage (DC 39 Fortitude save); creatures that fail this save are also Slowed 1 for 1 round as time seems to distort around them."}, {"name": "Reaction Reversal", "type": "passive", "traits": [], "text": "Since an risen nemesis appears to move backwards in time and the results of its actions manifest slightly out of sync, its manipulate or move actions and Strikes don't trigger reactions normally. Whenever a reaction would be triggered by an risen nemesis in this way, the reacting creature must attempt a DC 11 Flat. On a failure, their reaction does not trigger."}, {"name": "Temporal Possession", "type": "passive", "traits": [], "text": "When the echopsyvne casts possession on a creature, that creature experiences time backward. When the echopsyvne controls the target, they function normally, but when the target takes their own actions while the echopsyvne is in partial control or riding along in their body, they become Clumsy 3 and take a –10-foot status penalty to all of their Speeds. When the echopsyvne stops possessing the target, willingly or otherwise, the target must succeed at a DC 37 Will save or be Stunned 1 as they…"}, {"name": "Undo Destruction", "type": "action", "traits": ["occult"], "cost": 2, "text": "Destruction is the beginning, not the end! The Risen Nemesis rewinds time on a pile of rubble that they can see within 120 feet, causing the rubble in a 10-foot burst to restore itself to its pre-destroyed state and causing the area to no longer serve as difficult terrain. All creatures in the area must make a DC 42 Reflex save. The Risen Nemesis cannot use Undo Destruction again for 1d4 rounds.%rCritical Success The creature avoids being harmed by the violence of the repairs.%rSuccess The…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 42, "attack": 34, "spells": {"0": ["Telekinetic Projectile", "Void Warp"], "7": ["Warp Mind"], "8": ["Vision of Death"], "9": ["Phantasmagoria"]}}]
+"Rooftop Guardian":
+  pack: "curtain-call-bestiary"
+  level: 13
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["aberration", "chaotic", "dream", "evil"]
+  ac: 34
+  hp: 235
+  perception: 26
+  saves: {"fortitude": 22, "reflex": 26, "will": 24}
+  abilities: {"cha": 5, "con": 5, "dex": 7, "int": 7, "str": 6, "wis": 5}
+  speeds: {"land": 40, "climb": 40}
+  hp_details: "(fast healing 10)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 24, "Athletics": 27, "Crafting": 22, "Deception": 22, "Occultism": 26, "Religion": 24, "Stealth": 26}
+  immunities: ["cold", "confused"]
+  resistances: {"poison": 15, "sonic": 15}
+  strikes: [{"name": "Web War Flail", "bonus": 27, "damage": [["3d10+14", "bludgeoning", null]], "traits": ["disarm", "magical", "reach-15", "sweep", "trip"]}, {"name": "Fangs", "bonus": 27, "damage": [["3d12+14", "piercing", null]], "traits": ["reach-10"], "effects": ["Leng Spider Venom"]}, {"name": "Leg", "bonus": 27, "damage": [["3d8+14", "slashing", null]], "traits": ["agile", "reach-10"]}, {"name": "Web Bola", "bonus": 28, "damage": [["2d6+14", "bludgeoning", null]], "traits": ["magical", "nonlethal", "ranged-trip", "thrown-20"]}]
+  actions: [{"name": "Greater Web Sense", "type": "passive", "traits": [], "text": "While touching its webs, the Leng spider has precise Tremorsense to detect the vibrations of creatures touching its web."}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Fast Healing 10", "type": "passive", "traits": []}, {"name": "Create Web Weaponry", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "The Leng spider creates a weapon by applying a cord of webbing to heavy objects, such as rocks or chunks of metal, either attaching two heavy objects together to create a web bola or fastening one to its leg to create a web war flail."}, {"name": "Descend on a Web", "type": "action", "traits": ["move"], "cost": 1, "text": "The Leng spider moves straight down up to 120 feet, suspended by a web line. It can hang from the web or drop off. The distance it Descends on a Web doesn't count when calculating falling damage.%rThe web can be severed by a Strike that deals slashing damage (AC 30, Hardness 15, 25 HP), causing the Leng spider to fall."}, {"name": "Lay Web Trap", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Frequency three times per day%rEffect The Leng spider spins a web within 20 feet of itself to create a Grasping Snare, Stunning Snare, or Warning Snare. The Leng spider's web provides all the raw materials it needs. All save and Escape DCs associated with web traps use the Leng spider's Crafting DC for traps (DC 36). A web trap decays after 24 hours."}, {"name": "Leng Spider Venom", "type": "passive", "traits": ["emotion", "mental", "poison"], "text": "Saving Throw DC 33 Fortitude%rMaximum Duration 6 rounds%rStage 1 2d6 poison damage and Drained 1 (1 round)%rStage 2 2d6 poison damage, Confused, and Drained 2 (1 round); the confused effect has the emotion and mental traits."}, {"name": "Ranged Trip", "type": "passive", "traits": [], "text": "A Leng spider can use a web bola to Trip a target with the Athletics skill. The skill check takes a -2 circumstance penalty. A web bola deals no damage when used to Trip."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 33, "attack": 23, "spells": {"0": ["Detect Magic"], "2": ["Invisibility (At Will)"], "4": ["Charm", "Unfettered Movement"], "6": ["Mislead", "Phantasmal Calamity"], "7": ["Dispel Magic", "Fly (Constant)", "Interplanar Teleport (To Leng or the Universe only)", "Truespeech (Constant)", "Warp Mind"]}}]
+"Rusalka":
+  pack: "curtain-call-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "common"
+  traits: ["aquatic", "fey", "water"]
+  ac: 33
+  hp: 230
+  perception: 22
+  saves: {"fortitude": 21, "reflex": 25, "will": 21}
+  abilities: {"cha": 7, "con": 3, "dex": 5, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25, "swim": 50}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 21, "Athletics": 22, "Deception": 25, "Diplomacy": 21, "Nature": 21, "Performance": 23, "Stealth": 25}
+  weaknesses: {"cold-iron": 15}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Tresses", "bonus": 24, "damage": [["3d8+10", "bludgeoning", null]], "traits": ["agile", "finesse", "reach-15"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Blurred Form", "type": "passive", "traits": [], "text": "A rusalka is Concealed while underwater."}, {"name": "Beckoning Call", "type": "action", "traits": ["auditory", "concentrate", "incapacitation", "mental", "primal"], "cost": 1, "text": "The rusalka cries out a compelling invitation. Each non-fey creature within a 300-foot must attempt a DC 27 Will save. The effect lasts for 1 round, but if the rusalka uses Beckoning Call again on subsequent rounds, the duration extends by 1 round for all affected creatures. Once a creature succeeds at any save against Beckoning Call, that creature is temporarily immune for 24 hours.%rSuccess The creature is unaffected.%rFailure The creature is Fascinated and must spend each of its actions to…"}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d8+10) bludgeoning, DC 32 Fortitude"}, {"name": "Entangling Tresses", "type": "passive", "traits": [], "text": "A rusalka can have up to eight creatures grabbed within their tresses at a time."}, {"name": "Flowing Hair", "type": "action", "traits": [], "cost": 1, "text": "The rusalka attempts an Athletics check against each Grabbed creature's Fortitude DC. The rusalka moves each creature they succeed against up to 10 feet and each creature they critically succeed against up to 20 feet. This movement must all be within reach of its tresses."}, {"name": "Shameful Touch", "type": "action", "traits": ["emotion", "mental", "primal"], "cost": 1, "text": "The rusalka touches a creature within 5 feet using their hand, stirring up memories of regret and shame. The target must attempt a DC 35 Will save.%rCritical Success The target is unaffected.%rSuccess The target is Sickened 1.%rFailure The creature is sickened 1 and Stunned 1.%rCritical Failure The creature is sickened 1 and stunned 1, and it must use its first action on its next turn to Strike itself, automatically hitting."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 35, "attack": 25, "spells": {"2": ["Invisibility (At Will)", "Mist (At Will)"], "5": ["Control Water (At Will)", "Hydraulic Push"], "6": ["Water Walk (Constant)"]}}]
+"Shanty Chanter":
+  pack: "curtain-call-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "rare"
+  traits: ["fey"]
+  ac: 30
+  hp: 175
+  perception: 20
+  saves: {"fortitude": 17, "reflex": 22, "will": 20}
+  abilities: {"cha": 6, "con": 5, "dex": 6, "int": 4, "str": 5, "wis": 4}
+  speeds: {"land": 25, "fly": 60}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 20, "Deception": 22, "Diplomacy": 20, "Nature": 20, "Performance": 22, "Sailing Lore": 18}
+  weaknesses: {"cold-iron": 10}
+  strikes: [{"name": "Beak", "bonus": 22, "damage": [["2d12+11", "piercing", null]], "traits": ["finesse", "magical", "unarmed"]}, {"name": "Talon", "bonus": 22, "damage": [["2d8+11", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Seasong", "type": "passive", "traits": ["air", "concentrate", "primal"], "text": "A shanty chanter aboard a vessel that uses wind propulsion can use this exploration activity to call up lightly buffeting winds. The chanter can Sustain this effect for up to 8 hours, during which the vessel they're on benefits from the propulsion in the desired direction. Seasong is overwhelmed and negated by powerful storms."}, {"name": "Shanty Call", "type": "action", "traits": ["auditory", "linguistic", "primal"], "cost": 3, "text": "Frequency once per day%rEffect The shanty chanter begins to sing a catchy sea shanty and selects up to 10 allies within 60 feet who can hear the shanty chanter to potentially join in. Selected allies feel an urge to join but aren't required to—a targeted ally can join as a Reaction. A shanty chanter can Sustain Shanty Call as a Reaction at the start of their turn for up to 1 minute. While sustained, the shanty chanter and all allies who joined the shanty when they began to sing become Quickened…"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 29, "attack": 17, "spells": {"0": ["Electric Arc"], "3": ["Wall of Wind"], "4": ["Charm", "Lightning Bolt", "Water Breathing"], "5": ["Mariner's Curse"]}}]
+"Silverhand Salvo":
+  pack: "curtain-call-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "unique"
+  traits: ["devil", "fiend"]
+  ac: 36
+  hp: 255
+  perception: 26
+  saves: {"fortitude": 22, "reflex": 26, "will": 28}
+  abilities: {"cha": 8, "con": 4, "dex": 6, "int": 5, "str": 5, "wis": 6}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Deception": 28, "Diplomacy": 26, "Intimidation": 28, "Thievery": 28, "Accounting Lore": 25, "Games Lore": 29}
+  immunities: ["fire"]
+  weaknesses: {"holy": 15}
+  resistances: {"physical": 15, "poison": 15}
+  strikes: [{"name": "Fist", "bonus": 26, "damage": [["3d4+11", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "unarmed", "unholy"]}, {"name": "Sword Cane", "bonus": 28, "damage": [["3d6+11", "piercing", null], ["1d4", "spirit", null]], "traits": ["agile", "concealable", "finesse", "magical", "unholy"]}, {"name": "Thrown Coin", "bonus": 28, "damage": [["3d6+8", "bludgeoning", null], ["1d6", "bludgeoning", "precision"]], "traits": ["magical", "unholy"]}]
+  actions: [{"name": "Risk Aura", "type": "passive", "traits": ["aura", "divine", "mental", "misfortune"], "text": "30 feet. A feeling of recklessness surrounds a gambling devil. When a non-fiend creature enters the aura or begins its turn in the aura, it must attempt a DC 31 Will save.%rCritical Success The creature is unaffected and is temporarily immune to Risk Aura for 24 hours.%rSuccess The creature is unaffected.%rFailure The next time the creature rolls a d20, it must roll twice. If either roll is a natural 20, the creature uses that result; otherwise, it must take the lower of the two…"}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The agadaz adopts the appearance of any Small or Medium humanoid. This doesn't change their Speed or their attack and damage bonuses with their Strikes, but it might change the type of damage their Strikes deal."}, {"name": "Double Down", "type": "reaction", "traits": ["divine", "fortune"], "text": "Trigger The agadaz attempts a Strike, saving throw, or skill check%rEffect The agadaz takes a –2 status penalty to the roll, then gains a +2 status bonus to the next Strike, saving throw, or skill check they attempt before the end of their turn, or before the end of their next turn if they used Double Down during another creature's turn."}, {"name": "Produce Gold Coins", "type": "free", "traits": [], "text": "Frequency once per round%rRequirements The agadaz has a free hand%rEffect The agadaz creates up to 5 gp in their hand. At any one time, an agadaz can possess no more than 20 gp created in this way; coins created in excess of this value vanish. A coin created in this way vanishes automatically 1 hour after leaving the devil's possession."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 34, "attack": 26, "spells": {"0": ["Figment"], "4": ["Translocate (At Will)"], "5": ["Ill Omen (At Will)", "Illusory Object", "Translocate"], "6": ["Truesight"], "7": ["Illusory Creature"]}}]
+"Simandu":
+  pack: "curtain-call-bestiary"
+  level: 19
+  size: "medium"
+  rarity: "unique"
+  traits: ["humanoid"]
+  ac: 43
+  hp: 355
+  perception: 35
+  saves: {"fortitude": 29, "reflex": 34, "will": 33}
+  abilities: {"cha": 7, "con": 6, "dex": 7, "int": 5, "str": 6, "wis": 8}
+  speeds: {"land": 30, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 34, "Athletics": 33, "Deception": 36, "Diplomacy": 34, "Intimidation": 34, "Society": 32, "Stealth": 36, "Norgorber Lore": 32, "Vyre Lore": 34}
+  weaknesses: {"cold-iron": 15}
+  resistances: {"poison": 20}
+  strikes: [{"name": "Jaws", "bonus": 33, "damage": [["3d12+14", "piercing", null]], "traits": ["unarmed"], "effects": ["Jorogumo Venom"]}, {"name": "Shortsword", "bonus": 36, "damage": [["1d6", "bleed", "persistent"], ["3d6+14", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Web", "bonus": 34, "damage": [], "traits": [], "range": 60, "effects": ["Web Trap"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Aura of Whispered Secrets", "type": "passive", "traits": ["aura", "mental", "occult"], "text": "30 feet. The soft sound of whispering fills the area, and those in the area hear their own voice whispering among the voices. A creature that enters the area or begins their turn in the area must attempt a DC 38 Will save. On a failure, they become distracted by the conviction that their own voice is whispering out their secrets, and the creature becomes Off-Guard until the start of their next turn."}, {"name": "Darting Legs", "type": "reaction", "traits": [], "text": "Requirements The jorogumo has their spider legs extended or has Changed Shape%rTrigger The jorogumo is targeted with an attack%rEffect The jorogumo raises a leg, gaining a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "The jorogumo takes on the appearance of any Small or Medium spider. This doesn't change their Speed or Strikes."}, {"name": "Jorogumo Venom", "type": "passive", "traits": ["incapacitation", "poison"], "text": "Saving Throw DC 41 Fortitude%rMaximum Duration 4 hours%rStage 1 3d6 poison damage and Stupefied 1 (1 round)%rStage 2 3d6 poison damage and Stupefied 2 (1 round)%rStage 3 4d6 poison damage and Stupefied 2 (1 round)%rStage 4 Paralyzed for 1d4 hours"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Simandu deals 3d6 extra precision damage to creatures who are Off-Guard."}, {"name": "Spider Legs", "type": "action", "traits": ["concentrate", "occult", "polymorph"], "cost": 1, "text": "Requirements The jorogumo is in humanoid form%rEffect Eight large spider legs sprout from the jorogumo's back, granting them a 40-foot climb Speed and allowing them to use the Darting Legs reaction."}, {"name": "Web Trap", "type": "passive", "traits": [], "text": "A creature hit by the jorogumo's web attack is Immobilized and stuck to the nearest surface, preventing the creature from moving.%rThe DC to escape dc=34 or force-open dc=34 the web trap is 34."}, {"name": "Whispered Revelation", "type": "action", "traits": ["incapacitation", "mental", "occult"], "cost": 2, "text": "Simandu whispers an overwhelming secret to an adjacent creature—the nature of the secret is so staggering that the creature's mind immediately recoils from the truth and forgets it; the creature must then attempt a DC 41 Will save.%rCritical Success The creature is Off-Guard until the end of Simandu's turn.%rSuccess The creature is Slowed 1 for 1 round.%rFailure The creature is Stunned 3.%rCritical Failure The creature becomes Paralyzed for 1 minute. At the end of each of its turns, it can…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 34, "attack": 26, "spells": {"7": ["Mind Probe", "Mind Reading (At Will)"], "8": ["Charm", "Outcast's Curse", "Pinpoint", "Quandary", "Suggestion"], "9": ["Speak with Animals (Constant, Spiders Only)", "Summon Animal (Spiders Only)", "Truespeech (Constant)"]}}]
+"Skinsaw Trophy":
+  pack: "curtain-call-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "rare"
+  traits: ["aberration", "evil", "lawful"]
+  ac: 36
+  hp: 252
+  perception: 28
+  saves: {"fortitude": 22, "reflex": 28, "will": 24}
+  abilities: {"cha": 5, "con": 4, "dex": 8, "int": 5, "str": 4, "wis": 6}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 28, "Athletics": 22, "Intimidation": 27, "Stealth": 26}
+  weaknesses: {"mental": 10}
+  resistances: {"slashing": 15}
+  strikes: [{"name": "Silver Scissors", "bonus": 30, "damage": [["3d6+12", "slashing", null]], "traits": ["agile", "backstabber", "fatal-d12", "finesse"]}]
+  actions: [{"name": "Compulsive Counting", "type": "passive", "traits": [], "text": "When numerous small items are scattered before the kuchisake-onna, they compulsively begins to count them. The kuchisake-onna becomes Off-Guard to all creatures for 1d4 rounds."}, {"name": "Am I Pretty?", "type": "action", "traits": [], "cost": 1, "text": "The kuchisake-onna asks a single adjacent target, \"Am I pretty?\" The target must attempt a DC 35 Will save. If it fails, it is Immobilized for 1 round, and if it critically fails, it is Paralyzed for 1 round, though still able to respond to the question; this is a mental effect.%rIf the target responds \"No\", the kuchisake-onna makes two silver scissors Strikes against the target. If the target responds \"Yes\", the kuchisake-onna makes no Strikes this turn and must use Even Now? as their next…"}, {"name": "Compulsive Wound Admiration", "type": "passive", "traits": [], "text": "A Skinsaw Trophy is compelled to admire grisly wounds inflicted in battle. When any creature in a fight they're in suffers a critical hit, a Skinsaw Trophy becomes Off-Guard to all creatures until the start of their next turn."}, {"name": "Even Now?", "type": "action", "traits": [], "cost": 1, "text": "Requirements An adjacent creature previously targeted by Am I Pretty? answered \"Yes\"%rEffect The kuchisake-onna takes off their mask, revealing their slit face and asking, \"Even now?\" The target must attempt a DC 35 Will save.%rIf it fails, it is Immobilized for 1 round, and if it critically fails, it is Paralyzed for 1 round, though still able to respond to the question; this is a mental effect.%rWhether the target responds \"Yes\" or \"No\", the kuchisake-onna makes two silver scissors Strikes…"}, {"name": "Lingering Enmity", "type": "passive", "traits": [], "text": "The kuchisake-onna's silver scissors Strikes are manifestations of the toxic malice that created them and vanish when the kuchisake-onna is destroyed.%rWhen the kuchisake-onna has less than half their maximum Hit Points remaining, this concentrated enmity begins to leak out and make their attacks more vicious. Their silver scissors Strikes deal 6d6 persistent bleed damage.%rNote: Due to a later published errata this persistent damage is doubled on a critical hit. Due to the high damage…"}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "Silver Scissors"}]
+"Skurg":
+  pack: "curtain-call-bestiary"
+  level: 12
+  size: "tiny"
+  rarity: "common"
+  traits: ["animal", "minion"]
+  ac: 30
+  hp: 60
+  perception: 15
+  saves: {"fortitude": 20, "reflex": 18, "will": 20}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 25, "fly": 25}
+  senses: ["echolocation", "low-light-vision"]
+  skills: {"Acrobatics": 15, "Stealth": 15}
+  actions: [{"name": "Damage Avoidance", "type": "passive", "traits": [], "text": "Skurg takes no damage when he rolls a success on a Reflex save; this doesn't prevent effects other than damage."}, {"name": "Independent", "type": "passive", "traits": [], "text": "If the Final Herald doesn't command Skurg, he still gains 1 action on his turn. In combat, Skurg typically uses this action either to try to Hide or move to be adjacent to an enemy if it's Concealed, Hidden, or Undetected so that when the Final Herald Casts or Sustains a hex, that adjacent enemy becomes Frightened 1 as a result of her Starless Shadow patronage."}, {"name": "Restore Final Herald", "type": "action", "traits": ["concentrate"], "cost": 2, "text": "Frequency once per day%rRequirements Skurg must be in the Final Herald's space%rEffect Skurg restores 6d8 healing Hit Points to the Final Herald."}]
+"The Final Herald":
+  pack: "curtain-call-bestiary"
+  level: 12
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 32
+  hp: 164
+  perception: 20
+  saves: {"fortitude": 21, "reflex": 19, "will": 21}
+  abilities: {"cha": 3, "con": 2, "dex": 2, "int": 5, "str": 2, "wis": 2}
+  speeds: {"land": 30}
+  skills: {"Deception": 21, "Intimidation": 21, "Occultism": 23, "Religion": 18, "Stealth": 22}
+  strikes: [{"name": "Battle Axe", "bonus": 9, "damage": [["1d8+2", "slashing", null]], "traits": ["magical", "sweep"]}]
+  actions: [{"name": "+2 Status to Will Vs. Controlled", "type": "passive", "traits": []}, {"name": "Obsessive Servant", "type": "passive", "traits": [], "text": "If the Final Herald succeeds at a saving throw against an effect that would grant another control over her, she critically succeeds instead."}, {"name": "Ashen Curse", "type": "action", "traits": ["curse", "emotion", "fear", "mental", "misfortune"], "cost": 2, "text": "Frequency once per day%rEffect The Final Herald points at a sapient creature she can see within 30 feet and warns them, \"You have been seen by the Ashen Man!\"; the target automatically understands this curse in their native language and is filled with dread that some potent otherworldly force has taken an interest in a devastating impending doom that will affect them personally sometime soon. The target must attempt a DC 32 Will save.%rCritical Success The target is unaffected.%rSuccess The…"}, {"name": "Patron", "type": "passive", "traits": [], "text": "Starless Shadow (Ashen Man)"}, {"name": "Quickened Casting", "type": "free", "traits": ["concentrate", "spellshape"], "text": "Frequency once per day%rEffect If the Final Herald's next action is to cast a 4th-rank or lower cantrip or spell, reduce the number of actions to cast it by 1 (minimum 1 action)."}, {"name": "Share Senses", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Frequency once every 10 minutes%rEffect The Final Herald projects her senses into her familiar, Skurg. When she does, she loses all sensory information from her own body, but can sense through Skurg's body for up to 1 minute. She can Dismiss this effect."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Final Herald deals 3d6 extra precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Occult Prepared Spells", "tradition": "occult", "type": "prepared", "dc": 32, "attack": 24, "spells": {"0": ["Figment", "Light", "Prestidigitation", "Shield", "Telekinetic Projectile"], "1": ["Command", "Enfeeble", "Fear", "Soothe"], "2": ["Blur", "Dispel Magic", "Invisibility", "See the Unseen", "Silence"], "3": ["Blindness", "Chilling Darkness", "Paralyze"], "4": ["Fly", "Translocate", "Vision of Death"], "6": ["Phantasmal Calamity"]}}, {"name": "Witch Hexes", "tradition": "occult", "type": "focus", "dc": 32, "attack": 24, "spells": {"0": ["Shroud of Night"], "1": ["Needle of Vengeance", "Patron's Puppet"], "3": ["Malicious Shadow"]}}]
+"Venomfist":
+  pack: "curtain-call-bestiary"
+  level: 22
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["amphibious", "elemental", "unholy", "water"]
+  ac: 48
+  hp: 430
+  perception: 40
+  saves: {"fortitude": 42, "reflex": 34, "will": 36}
+  abilities: {"cha": 6, "con": 10, "dex": 8, "int": 9, "str": 11, "wis": 8}
+  speeds: {"land": 40, "swim": 120}
+  senses: ["greater-darkvision", "truesight", "wavesense"]
+  skills: {"Athletics": 43, "Crafting": 39, "Diplomacy": 36, "Intimidation": 38, "Nature": 38, "Religion": 40, "Stealth": 38, "Norgorber Lore": 41}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  resistances: {"acid": 20, "bludgeoning": 20, "fire": 20}
+  strikes: [{"name": "Fist", "bonus": 42, "damage": [["4d6+21", "bludgeoning", null], ["4d6", "poison", null]], "traits": ["magical", "reach-20", "unarmed"], "effects": ["Improved Grab"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Toxic Downpour", "type": "passive", "traits": ["aura", "primal"], "text": "Venomfist's presence alters the weather within 2 miles to heavy rainfall as long as they're located in a sizable body of water. When they become hostile, the rain in a 120-foot emanation from them becomes highly toxic and deals 8d8 poison|options:area-damage damage (DC 42 Fortitude half) to all creatures in the area."}, {"name": "Vortex", "type": "passive", "traits": ["aura", "water"], "text": "120 feet. Water in the area that is in the same body of water as Venomfist is difficult terrain for Swimming creatures that don't have the water trait."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "4d6 bludgeoning,4d6 poison, DC 45 Fortitude"}, {"name": "Create Poison", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per day%rEffect Venomfist transforms a portion of their watery body into a single dose of any type of common poison of 20th level or lower—tears of death is their favorite. If they're holding a container, they can create the poison within that container, at which point the poison remains viable for 24 hours before it reverts to water. Alternatively, they can apply a contact or injury-created poison to their fist."}, {"name": "Surge", "type": "action", "traits": [], "cost": 2, "text": "Venomfist expands their space to fill the area of their vortex. Creatures within the aura take 6d12+6 bludgeoning and 6d12+6 poison damage with a DC 45 Fortitude save. A creature that fails this save is pushed 40 feet. Venomfist then retracts to their former space and cannot use Surge again for 1d4 rounds."}, {"name": "Improved Grab", "type": "free", "traits": []}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 45, "attack": 37, "spells": {"0": ["Caustic Blast"], "8": ["Hydraulic Push (At Will)"], "9": ["Toxic Cloud", "Wrathful Storm"], "10": ["Cataclysm", "Truesight (Constant)", "Truespeech (Constant)"]}}]
+"Vorens":
+  pack: "curtain-call-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 35
+  hp: 254
+  perception: 23
+  saves: {"fortitude": 21, "reflex": 28, "will": 24}
+  abilities: {"cha": 3, "con": 2, "dex": 5, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Athletics": 22, "Deception": 21, "Diplomacy": 19, "Intimidation": 21, "Society": 21}
+  strikes: [{"name": "Rapier", "bonus": 27, "damage": [["3d6+10", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse", "magical"]}]
+  actions: [{"name": "+2 Circumstance Bonus to Initiative Checks", "type": "passive", "traits": []}, {"name": "Adroit Duelist", "type": "passive", "traits": [], "text": "Vorens is adept at exploiting an opponent's weaknesses in a duel. If he wins initiative in a duel round, he deals an extra 2d6 precision damage with Strikes made before the beginning of his next turn."}, {"name": "Dueling Dance", "type": "action", "traits": [], "cost": 1, "text": "Requirements Vorens wields a one-handed melee weapon and his other hand is free%rEffect Vorens gains a +2 circumstance bonus to his AC until the start of his next turn."}, {"name": "Dueling Riposte", "type": "reaction", "traits": [], "text": "Trigger A creature critically fails a Strike against Vorens%rEffect Vorens makes a melee Strike against or attempts to disarm the triggering creature."}]
+"Waxen Effigy":
+  pack: "curtain-call-bestiary"
+  level: 18
+  size: "medium"
+  rarity: "rare"
+  traits: ["ooze", "undead"]
+  ac: 38
+  hp: 415
+  perception: 29
+  saves: {"fortitude": 31, "reflex": 24, "will": 27}
+  abilities: {"cha": 0, "con": 7, "dex": 4, "int": -1, "str": 9, "wis": 5}
+  speeds: {"land": 20, "climb": 20}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 35, "Stealth": 32}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  weaknesses: {"cold": 15}
+  strikes: [{"name": "Fist", "bonus": 35, "damage": [["2d6", "fire", "persistent"], ["3d10+17", "bludgeoning", null]], "traits": ["agile", "fire", "magical", "unarmed"]}, {"name": "Wax Spray", "bonus": 30, "damage": [["3d8+8", "bludgeoning", null], ["2d6", "fire", "persistent"]], "traits": ["fire", "magical"]}]
+  actions: [{"name": "Memento Vulnerability", "type": "passive", "traits": [], "text": "Waxen effigies retain an attachment to objects they had a strong tie to in life. A character who holds such a memento in a hand can use it to alter the effects of Demoralize. Doing so adds the manipulate trait to Demoralize. If the attempt to Demoralize the waxen effigy is successful, it becomes Slowed 1 (Slowed 2 on a critical success) for 1 round rather than becoming frightened. On a critical failure, the waxen effigy loses Memento Vulnerability for 24 hours."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Wax Trail", "type": "passive", "traits": [], "text": "A waxen effigy leaves behind a trail of molten wax when it Strides, making any spaces it moves through difficult hazardous terrain until the beginning of its next turn, whereupon the molten wax trail vanishes. Creatures moving through the wax trail take 4d6 fire damage each time they do so (DC 40 Reflex save)."}, {"name": "Enervating Howl", "type": "action", "traits": ["auditory"], "cost": 2, "text": "The waxen effigy emits a gurgling howl, sapping the life energy from all living creatures within 30 feet. Affected creatures must attempt a DC 40 Fortitude save. The waxen effigy can't use Enervating Howl again for 1d4 rounds%rCritical Success The creature is unaffected.%rSuccess The creature takes 6d6 void damage and is Drained 1.%rFailure The creature takes 12d6 void damage and is Drained 2.%rCritical Failure The creature takes 24d6 void damage, is drained 2, and is Doomed 1 for as long as…"}]
+"Zimiezek":
+  pack: "curtain-call-bestiary"
+  level: 18
+  size: "large"
+  rarity: "rare"
+  traits: ["aberration", "fiend", "unholy"]
+  ac: 41
+  hp: 335
+  perception: 33
+  saves: {"fortitude": 28, "reflex": 31, "will": 33}
+  abilities: {"cha": 6, "con": 6, "dex": 7, "int": 5, "str": 6, "wis": 9}
+  speeds: {"land": 40, "climb": 40}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 35, "Athletics": 32, "Deception": 34, "Society": 31, "Stealth": 35, "Survival": 33, "Duskfathom Lore": 31}
+  immunities: ["poison"]
+  strikes: [{"name": "Shortsword", "bonus": 35, "damage": [["1d6", "acid", null], ["3d6+14", "piercing", null], ["1d6", "spirit", null]], "traits": ["agile", "finesse", "magical", "reach-10", "versatile-s"]}, {"name": "Bite", "bonus": 33, "damage": [["3d6", "poison", null], ["3d10+14", "piercing", null]], "traits": ["finesse", "magical"], "effects": ["Zimiezek Infection"]}, {"name": "Web", "bonus": 33, "damage": [], "traits": [], "effects": ["Web Restraints"]}]
+  actions: [{"name": "Darting Legs", "type": "reaction", "traits": [], "text": "Trigger The zimiezek is targeted with an attack%rEffect The Zimiezek gains a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Reactive Strike", "type": "reaction", "traits": [], "text": "The zimiezek gains two extra reactions on their turn that they can only use to make Reactive Strikes."}, {"name": "Web Restraints", "type": "passive", "traits": [], "text": "A creature hit by the zimiezek's web Strike is Restrained either to a surface or tethered to the zimiezek until it Escapes. The zimiezek gains a +2 circumstance bonus to trip options=web-restraints a tethered target and can Interact with the tether to pull a target 15 feet toward them."}, {"name": "Zimiezek Infection", "type": "passive", "traits": ["disease", "virulent"], "text": "Anadis are immune%rSaving Throw DC 37 Fortitude%rStage 1 Clumsy 1 (1 day)%rStage 2 Clumsy 2 (eight spider legs start to grow out of your back; 1 day)%rStage 3 clumsy 2, Drained 1 (venomous fangs grow from your mouth, 1 day)%rStage 4 clumsy 2, drained 1, Slowed 1 (sticky webbing exudes from your flesh, 1 day)%rStage 5 Unconscious (you become cocooned in webbing, during which you have no need for food and water, 1 week)%rStage 6 death (and a brand new zimiezek emerges from your cocooned body)"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 37, "attack": 29, "spells": {"0": ["Telekinetic Hand", "Telekinetic Projectile"], "4": ["Translocate (At Will)"], "5": ["Translocate"], "9": ["Web"]}}]

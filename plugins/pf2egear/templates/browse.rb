@@ -42,7 +42,8 @@ module AresMUSH
           prof = ""
         end
 
-        fmt_bulk = bulk == 0.1 ? "L" : bulk.to_i
+        # A rune has no bulk of its own: it is etched onto something that does.
+        fmt_bulk = bulk.nil? ? "-" : (bulk == 0.1 ? "L" : bulk.to_i)
         fmt_price = Pf2egear.display_money(price)
 
         "#{prof}#{left(name, 45)}%b#{left(fmt_bulk, 8)}%b#{left(fmt_price, 15)}%xn"

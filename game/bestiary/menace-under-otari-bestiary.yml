@@ -1,0 +1,1379 @@
+---
+"Animated Armor (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["construct", "mindless"]
+  ac: 17
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 3, "will": 4}
+  abilities: {"cha": -5, "con": 4, "dex": -3, "int": -5, "str": 3, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9}
+  immunities: ["vitality", "void"]
+  strikes: [{"name": "Longsword", "bonus": 11, "damage": [["1d8+4", "slashing", null]], "traits": ["magical", "versatile-p"]}, {"name": "Armored Fist", "bonus": 9, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "Construct Armor", "type": "passive", "traits": [], "text": "The animated armor reduces all damage it takes by 9. However, after a critical hit that deals damage, or after its HP drops below 10, its construct armor breaks. Its AC drops to 13 and it no longer reduces damage by 9."}]
+"Basilisk (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 22
+  hp: 75
+  perception: 11
+  saves: {"fortitude": 14, "reflex": 8, "will": 11}
+  abilities: {"cha": 1, "con": 5, "dex": -1, "int": -3, "str": 4, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Stealth": 8}
+  strikes: [{"name": "Jaws", "bonus": 15, "damage": [["2d8+4", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Petrifying Glance", "type": "reaction", "traits": ["arcane", "aura"], "text": "When a creature the basilisk can see within 30 feet starts its turn, the basilisk can use its reaction to glance at the creature.%rThe creature must attempt a DC 20 Fortitude save. If it fails, it gains the Slowed 1 condition for 1 minute as its body slowly stiffens."}, {"name": "Petrifying Gaze", "type": "action", "traits": ["arcane", "concentrate"], "cost": 2, "text": "The basilisk stares at a creature it can see within 30 feet. If the creature can see the basilisk, that creature must attempt a DC 22 Fortitude save. If it fails and hasn't already gained the slowed condition from Petrifying Glance or this ability, it gains the Slowed 1 condition. If the creature fails this save when it already has the slowed condition from this ability or Petrifying Glance, the creature is permanently turned to stone.%rA creature petrified in this manner that is coated with…"}]
+"Boar (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 40
+  perception: 8
+  saves: {"fortitude": 10, "reflex": 5, "will": 8}
+  abilities: {"cha": -3, "con": 4, "dex": 1, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 5, "Athletics": 8, "Survival": 8}
+  strikes: [{"name": "Tusk", "bonus": 10, "damage": [["2d6+4", "piercing", null]], "traits": []}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": [], "text": "When the boar is reduced to 0 Hit Points, it can use its reaction to remain conscious with 1 Hit Point, but it gains the Wounded 1 condition (or increases its wounded value by 1 if it already has that condition). It can't use this ability at wounded 3."}, {"name": "Boar Charge", "type": "action", "traits": [], "cost": 2, "text": "The boar Strides twice and then makes a tusk Strike. As long as it moved at least 20 feet, it gains a +2 circumstance bonus to its attack roll."}]
+"Brine Shark (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["aquatic", "elemental", "water"]
+  ac: 19
+  hp: 45
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 11, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 2, "int": -4, "str": 3, "wis": 1}
+  speeds: {"land": 15, "swim": 50}
+  senses: ["darkvision"]
+  skills: {"Athletics": 10, "Stealth": 11, "Survival": 8}
+  immunities: ["bleed", "poison", "sleep"]
+  resistances: {"fire": 5}
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d12+7", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Deep Plunge", "type": "action", "traits": [], "cost": 1, "text": "The brine shark dives straight down into the water, swimming up to 100 feet in a straight vertical line. It can use this ability while Grabbing a creature."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "When the brine shark succeeds at its jaws Strike, it can use this action immediately after to attempt to Grapple the target. This Grapple doesn't apply or count toward the shark's multiple attack penalty."}]
+"Bugbear Prowler (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["bugbear", "humanoid"]
+  ac: 17
+  hp: 34
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 8, "will": 5}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": -1, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 6, "Athletics": 7, "Intimidation": 4, "Stealth": 6}
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Javelin", "bonus": 8, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"]}, {"name": "Longsword", "bonus": 10, "damage": [["1d8+4", "slashing", null]], "traits": ["versatile-p"]}]
+  actions: [{"name": "Bushwhack", "type": "action", "traits": [], "cost": 1, "text": "The bugbear prowler Strides up to 10 feet and attempts to grapple a creature that can't see them and doesn't know where they are. If the bugbear succeeds, they also deal damage from their fist Strike to that creature."}, {"name": "Mauler", "type": "passive", "traits": [], "text": "The bugbear prowler gains a +3 circumstance bonus to damage rolls against creatures they have Grabbed."}]
+"Bugbear Tormentor (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["bugbear", "humanoid"]
+  ac: 20
+  hp: 44
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": -1, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 9, "Intimidation": 7, "Stealth": 8, "Thievery": 8}
+  strikes: [{"name": "Dagger", "bonus": 10, "damage": [["1d4+6", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}, {"name": "Dagger", "bonus": 11, "damage": [["1d4+6", "piercing", null]], "traits": ["agile", "versatile-s"]}, {"name": "Sickle", "bonus": 11, "damage": [["1d4+6", "slashing", null]], "traits": ["agile", "trip"]}]
+  actions: [{"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The bugbear tormentor's Strikes deal 1d6 extra precision damage to Off-Guard creatures."}, {"name": "Twin Feint", "type": "action", "traits": [], "cost": 2, "text": "The bugbear tormentor makes a dazzling series of attacks with two weapons, using the first attack to throw their foe Off-Guard against a second attack at a different angle. They make one Strike with each of their two melee weapons, both against the same target. The target is automatically off-guard against the second attack. The bugbear tormentor applies their multiple attack penalty to these Strikes normally."}]
+"Caligni Dancer (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["caligni", "humanoid"]
+  ac: 17
+  hp: 18
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 9, "will": 4}
+  abilities: {"cha": 3, "con": 2, "dex": 4, "int": -1, "str": 0, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Diplomacy": 8, "Performance": 6, "Stealth": 7, "Thievery": 7}
+  strikes: [{"name": "Mace", "bonus": 9, "damage": [["1d4", "bludgeoning", null]], "traits": ["shove"]}, {"name": "Dagger", "bonus": 9, "damage": [["1d4", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Light Blindness", "type": "passive", "traits": [], "text": "When first exposed to bright light, the caligni can't see until the end of their next turn. All squares are difficult terrain for them, and they take a -4 status penalty to Perception. If they try to attack a creature, the attack fails unless they succeed at a DC 11 Flat. Light doesn't blind them again for 1 hour."}, {"name": "Final Dance", "type": "passive", "traits": [], "text": "When a caligni dancer dies, their body dissolves into a swirl of darkness and light. All creatures within 10 feet must succeed at a DC 17 Will save or take a -2 circumstance penalty on all attack rolls for 1 round."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The caligni dancer deals an additional 1d6 damage to Off-Guard creatures."}]
+"Caligni Hunter (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["caligni", "humanoid"]
+  ac: 21
+  hp: 60
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 13, "will": 8}
+  abilities: {"cha": 1, "con": 2, "dex": 5, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Athletics": 8, "Stealth": 13, "Survival": 12, "Thievery": 11}
+  strikes: [{"name": "Shortsword", "bonus": 13, "damage": [["1d6+7", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"], "effects": ["Darkening Poison"]}]
+  actions: [{"name": "Light Blindness", "type": "passive", "traits": [], "text": "When first exposed to bright light, the caligni can't see until the end of their next turn. All squares are difficult terrain for them, and they take a -4 status penalty to Perception. If they try to attack a creature, the attack fails unless they succeed at a DC 11 Flat. Light doesn't blind them again for 1 hour."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The caligni hunter deals an extra 1d6 damage to creatures that have the Off-Guard condition."}, {"name": "Final Fate", "type": "passive", "traits": [], "text": "When a caligni hunter dies, their body explodes. All creatures within 20 feet must take 5d6 fire|options:area-damage. Each creature in the area must attempt a DC 19 Reflex save."}, {"name": "Darkening Poison", "type": "action", "traits": ["poison"], "cost": 1, "text": "The next time the hunter deals damage with a shortsword Strike, the target must succeed at a DC 16 Fortitude save or take 1d8 poison damage and treat all creatures as Concealed for 1 round."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 19, "attack": 11, "spells": {"0": ["Figment"], "2": ["See the Unseen (At Will)"]}}]
+"Caligni Skulker (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["caligni", "humanoid"]
+  ac: 19
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 10, "will": 6}
+  abilities: {"cha": 1, "con": 3, "dex": 4, "int": -1, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 4, "Stealth": 10, "Thievery": 8}
+  strikes: [{"name": "Dagger", "bonus": 10, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 10, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Light Blindness", "type": "passive", "traits": [], "text": "When first exposed to bright light, the caligni can't see until the end of their next turn. All squares are difficult terrain for them, and they take a -4 status penalty to Perception. If they try to attack a creature, the attack fails unless they succeed at a DC 11 Flat. Light doesn't blind them again for 1 hour."}, {"name": "Final Night", "type": "passive", "traits": [], "text": "When a caligni skulker dies, their body dissolves fog of inky darkness. All light sources within 20 feet are extinguished. Any light spells in the area go out for 1 round."}, {"name": "Darkening Poison", "type": "action", "traits": ["poison"], "cost": 1, "text": "The next time the skulker deals damage with a dagger Strike, the target must succeed at a DC 16 Fortitude save or take 1d8 poison damage and treat all creatures as Concealed for 1 round."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The caligni skulker deals an extra 1d6 damage to creatures that have the Off-Guard condition."}]
+"Cinder Rat (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "small"
+  rarity: "common"
+  traits: ["elemental", "fire"]
+  ac: 18
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 12, "will": 6}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Stealth": 10, "Survival": 9}
+  immunities: ["bleed", "fire", "poison", "sleep"]
+  weaknesses: {"cold": 5}
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d8+4", "fire", null], ["1d4", "fire", "persistent"]], "traits": ["finesse", "unarmed"]}]
+  actions: [{"name": "Smoke Vision", "type": "passive", "traits": [], "text": "The cinder rat ignores the Concealed condition from smoke."}, {"name": "Fetid Fumes", "type": "passive", "traits": [], "text": "A cloud of smoke surrounds the cinder rat. All creatures within 5 feet, including the cinder rat, gain the Concealed condition from this smoke. A creature that comes within 5 feet of the cinder rat or begins its turn within 5 feet must succeed at a DC 22 Fortitude save or take a -1 status penalty to all checks and DCs for 1 round (Use Sickened 1) ."}]
+"Crawling Hand (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "tiny"
+  rarity: "common"
+  traits: ["undead", "unholy"]
+  ac: 12
+  hp: 8
+  perception: 5
+  saves: {"fortitude": 2, "reflex": 5, "will": 2}
+  abilities: {"cha": 0, "con": 0, "dex": 3, "int": -4, "str": 1, "wis": 0}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["lifesense"]
+  skills: {"Athletics": 5, "Stealth": 6, "Survival": 2}
+  immunities: ["bleed", "mental", "poison", "unconscious", "void", "visual"]
+  strikes: [{"name": "Claw", "bonus": 7, "damage": [["1d4+1", "slashing", null]], "traits": ["agile", "finesse", "reach-0", "unarmed"], "effects": ["Throat Grab"]}]
+  actions: [{"name": "Lifesense", "type": "passive", "traits": [], "text": "A crawling hand can sense the vital essence of living and undead creatures within 30 feet. This sense can distinguish between the vitality energy animating living creatures and the void energy animating undead creatures, much as sight distinguishes color. However, a crawling hand can't see, so effects that depend on vision or seeing don't work on it."}, {"name": "Throat Grab", "type": "action", "traits": [], "cost": 1, "text": "When the crawling hand succeeds at its claw Strike against a Medium or smaller creature, it can use this action immediately after to attempt to grapple the target. This Grapple doesn't apply or count toward the crawling hand's multiple attack penalty. A creature Grabbed this way has difficulty speaking and must spend an extra action to perform any action that requires speaking, including casting spells."}]
+"Doppelganger (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid"]
+  ac: 18
+  hp: 50
+  perception: 7
+  saves: {"fortitude": 5, "reflex": 10, "will": 11}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 1, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Deception": 11, "Diplomacy": 11, "Society": 8, "Stealth": 8}
+  strikes: [{"name": "Claw", "bonus": 10, "damage": [["2d6+5", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "End the Charade", "type": "reaction", "traits": [], "text": "When the doppelganger is transformed with Change Shape and another creature moves adjacent to them or uses a Strike or another hostile action against them, the doppelganger can use its reaction to revert to its natural form and make a Strike against that creature.%rIf the creature was unaware the doppelganger was in disguise, that creature has the Off-Guard condition against this Strike."}, {"name": "Change Shape", "type": "action", "traits": ["arcane", "concentrate", "polymorph"], "cost": 1, "text": "The doppelganger takes on the specific appearance of any Small or Medium humanoid it has seen. This doesn't change the doppelganger's Stride speed or their attack and damage bonuses with their Strikes, but it might change the damage type their Strikes deal (typically to bludgeoning)."}, {"name": "Mind Reading", "type": "action", "traits": ["arcane", "manipulate"], "cost": 2, "text": "The doppelganger attempts to read the surface thoughts of one creature within 30 feet. The target resists if it succeeds at a DC 21 Will save."}]
+"Drow Priestess (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "drow", "elf", "evil", "humanoid"]
+  ac: 20
+  hp: 39
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 7, "will": 11}
+  abilities: {"cha": 1, "con": 1, "dex": 2, "int": 0, "str": 1, "wis": 4}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Deception": 8, "Intimidation": 8, "Religion": 9, "Society": 5, "Stealth": 7}
+  immunities: ["sleep"]
+  strikes: [{"name": "Rapier", "bonus": 9, "damage": [["1d6+2", "piercing", null]], "traits": ["deadly-d8", "finesse"]}, {"name": "Hand Crossbow", "bonus": 9, "damage": [["1d6", "piercing", null]], "traits": ["reload-1"], "range": 60}]
+  actions: [{"name": "Light Blindness", "type": "passive", "traits": [], "text": "When first exposed to bright light, the drow Can't See until the end of their next turn. All squares are difficult terrain for them, and they take a -4 status penalty to Perception. If they try to attack a creature, the attack fails unless they succeed at a DC 11 Flat. Light doesn't blind them again for 1 hour."}, {"name": "Shield Block", "type": "reaction", "traits": [], "text": "If she Raised a Shield since her last turn, the priestess can spend her reaction to block a Strike. Reduce the Strike's damage by 5, but then she and the shield both take the remaining damage, possibly Breaking or destroying the shield."}]
+  spellcasting: [{"name": "Cleric Spells", "tradition": "divine", "type": "innate", "dc": 21, "attack": 13, "spells": {"0": ["Detect Magic", "Guidance", "Message", "Shield", "Stabilize"], "1": ["Command", "Fear", "Magic Weapon"], "2": ["Dispel Magic", "Heal", "Resist Energy"]}}]
+"Drow Sneak (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "drow", "elf", "evil", "humanoid"]
+  ac: 19
+  hp: 26
+  perception: 6
+  saves: {"fortitude": 6, "reflex": 10, "will": 6}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": 0, "str": 2, "wis": 0}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Deception": 7, "Society": 4, "Stealth": 10, "Thievery": 8}
+  immunities: ["sleep"]
+  strikes: [{"name": "Shortsword", "bonus": 10, "damage": [["1d6+4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Hand Crossbow", "bonus": 10, "damage": [["1d6", "piercing", null]], "traits": ["reload-1"], "range": 60}]
+  actions: [{"name": "Light Blindness", "type": "passive", "traits": [], "text": "When first exposed to bright light, the drow Can't See until the end of their next turn. All squares are difficult terrain for them, and they take a -4 status penalty to Perception. If they try to attack a creature, the attack fails unless they succeed at a DC 11 Flat. Light doesn't blind them again for 1 hour."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The drow rogue draws a weapon using the Interact action, then Strikes with that weapon."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The drow sneak deals an extra 1d6 damage to creatures that have the Off-Guard condition."}]
+"Drow Warrior (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "drow", "elf", "evil", "humanoid"]
+  ac: 18
+  hp: 18
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 9, "will": 4}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 0, "str": 2, "wis": 1}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 5, "Intimidation": 3, "Stealth": 7}
+  immunities: ["sleep"]
+  strikes: [{"name": "Rapier", "bonus": 9, "damage": [["1d6+2", "piercing", null]], "traits": ["deadly-d8", "finesse"]}, {"name": "Dagger", "bonus": 9, "damage": [["1d4+2", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Hand Crossbow", "bonus": 9, "damage": [["1d6+1", "piercing", null]], "traits": ["reload-1"], "range": 60}]
+  actions: [{"name": "Light Blindness", "type": "passive", "traits": [], "text": "When first exposed to bright light, the drow Can't See until the end of their next turn. All squares are difficult terrain for them, and they take a -4 status penalty to Perception. If they try to attack a creature, the attack fails unless they succeed at a DC 11 Flat. Light doesn't blind them again for 1 hour."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The drow warrior draws a weapon using the Interact action, then Strikes with that weapon."}, {"name": "Skewer", "type": "action", "traits": [], "cost": 2, "text": "The drow warrior Strikes with their rapier, and they gain a +1 circumstance bonus to the attack roll. If they succeed, the target takes 1d6 bleed."}]
+"Ferrous Butterfly (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "common"
+  traits: ["elemental", "metal"]
+  ac: 15
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 9, "will": 5}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": -4, "str": 2, "wis": 0}
+  speeds: {"land": 5, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9}
+  immunities: ["bleed", "poison", "sleep"]
+  resistances: {"electricity": 3}
+  strikes: [{"name": "Wing", "bonus": 9, "damage": [["1", "bleed", "persistent"], ["1d4+2", "slashing", null]], "traits": ["finesse"], "effects": ["A Thousand Cuts"]}]
+  actions: [{"name": "A Thousand Cuts", "type": "passive", "traits": [], "text": "A ferrous butterfly's knifelike wings cause terrible lacerations that continue to bleed. Any creature with persistent bleed damage from a ferrous butterfly's wing attack has weakness 2 to slashing damage until the bleeding is stopped.%rEffect: A Thousand Cuts"}, {"name": "Swoop", "type": "action", "traits": [], "cost": 2, "text": "The ferrous butterfly Flies up to its Speed and makes a wing Strike at any point during that movement."}]
+"Forest Troll (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 5
+  size: "large"
+  rarity: "common"
+  traits: ["giant", "humanoid", "troll", "wood"]
+  ac: 20
+  hp: 125
+  perception: 11
+  saves: {"fortitude": 17, "reflex": 11, "will": 7}
+  abilities: {"cha": -2, "con": 6, "dex": 2, "int": -2, "str": 5, "wis": 0}
+  speeds: {"land": 30}
+  hp_details: "regeneration 20 (deactivated by electricity or fire)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 12}
+  weaknesses: {"fire": 10, "electricity": 10}
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["2d10+5", "piercing", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Claw", "bonus": 14, "damage": [["2d8+5", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"]}]
+  actions: [{"name": "Regeneration 20 (Deactivated by Electricity or Fire)", "type": "passive", "traits": [], "text": "The troll regains 20 Hit Points at the start of their turn unless they've taken electricity or fire damage since their last turn. The troll can't die unless their regeneration is deactivated when they're reduced to 0 HP."}, {"name": "Easily Misled", "type": "passive", "traits": [], "text": "The forest troll gets a –4 circumstance penalty to their Perception DC against deception checks."}, {"name": "Rend", "type": "action", "traits": [], "cost": 1, "text": "If the troll succeeds at two claw Strikes against the same creature in the same turn, they can use this ability to automatically deal claw Strike damage to that creature."}]
+"Gargoyle (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["beast", "earth"]
+  ac: 21
+  hp: 40
+  perception: 10
+  saves: {"fortitude": 13, "reflex": 10, "will": 10}
+  abilities: {"cha": -2, "con": 3, "dex": 2, "int": -2, "str": 3, "wis": 2}
+  speeds: {"land": 25, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Athletics": 9, "Stealth": 12}
+  immunities: ["bleed"]
+  resistances: {"bludgeoning": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Jaws", "bonus": 13, "damage": [["2d8+3", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 13, "damage": [["2d6+3", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Clawed Feet", "type": "reaction", "traits": [], "text": "If the gargoyle is flying and a creature moves into an adjacent square below them, the gargoyle can use their reaction to make a claw Strike against that creature."}, {"name": "Statue", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time they use an action, the gargoyle appears to be a statue. A creature must succeed at a DC 32 Perception check to figure out that the statue is really a creature."}]
+"Ghost Commoner (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["ghost", "incorporeal", "spirit", "undead", "unholy"]
+  ac: 20
+  hp: 30
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 11, "will": 8}
+  abilities: {"cha": 2, "con": 0, "dex": 3, "int": 0, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "rejuvenation"
+  senses: ["darkvision"]
+  skills: {"Stealth": 12}
+  immunities: ["poison", "unconscious", "bleed", "void"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Ghostly Hand", "bonus": 13, "damage": [["2d6+2", "void", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "A ghost can stray no more than 120 feet from where it was killed or the place it haunts. Some are bound to items or creatures that were special to them rather than a location."}, {"name": "Incorporeal", "type": "passive", "traits": [], "text": "A ghost has no body and can pass through physical objects, though it can't end its turn inside one. Most checks that use Strength and require a body, such as Grapple, don't work against a ghost, and a ghost can't attempt such checks."}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "Setting right the injustice that led to the ghost's death allows it to move on to the afterlife. Otherwise, when destroyed, the ghost re-forms after 2d4 days within the location it's bound to, fully healed."}, {"name": "Frightful Moan", "type": "action", "traits": ["divine", "emotion", "fear", "mental"], "cost": 2, "text": "Each living creature within 30 feet who hears the ghost must attempt a DC 21 Will save. On a failure, a creature gains the Frightened 2 condition (or Frightened 3 on a critical failure).%rOn a success, a creature can't be affected by this ghost's Frightful Moan for 1 minute."}]
+"Ghoul Stalker (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["ghoul", "undead", "unholy"]
+  ac: 17
+  hp: 16
+  perception: 7
+  saves: {"fortitude": 4, "reflex": 9, "will": 5}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": 1, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 8, "Stealth": 7, "Survival": 5}
+  immunities: ["poison", "unconscious", "bleed", "void"]
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d8+1", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Claw", "bonus": 9, "damage": [["1d6+1", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": [], "text": "A creature that comes within 10 feet of the ghoul and can smell the ghoul must attempt a DC 14 Fortitude save. On a failure, the creature takes a –1 status penalty to all checks and DCs until it uses an action to retch (Sickened 1). A creature that succeeds at its save isn't affected by any ghoul's stench for 1 minute."}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "The ghoul devours a chunk of a creature that died within the last hour and regains 1d6 healing Hit Points.%rThe ghoul can regain Hit Points from a given body only once."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The ghoul stalker deals an extra 1d4 damage to creatures that have the Off-Guard condition."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}]
+"Giant Ant (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 18
+  hp: 30
+  perception: 7
+  saves: {"fortitude": 10, "reflex": 7, "will": 5}
+  abilities: {"cha": -4, "con": 4, "dex": 1, "int": -5, "str": 4, "wis": -1}
+  speeds: {"land": 40, "climb": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8, "Survival": 7}
+  strikes: [{"name": "Mandible", "bonus": 9, "damage": [["1d8+4", "slashing", null]], "traits": [], "effects": ["Grab"]}, {"name": "Stinger", "bonus": 9, "damage": [["1d6+4", "piercing", null]], "traits": ["agile"], "effects": ["Giant Ant Venom"]}]
+  actions: [{"name": "Giant Ant Venom", "type": "passive", "traits": ["poison"], "text": "A target that takes piercing damage from the giant ant's stinger Strike must succeed at a DC 18 Fortitude save or take 1d10 poison damage."}, {"name": "Haul Away", "type": "action", "traits": [], "cost": 1, "text": "If the giant ant has a creature Grabbed or Restrained with its mandibles, it can spend this action to Stride up to its speed, carrying the creature with it. At the end of the Stride, place the creature in any open square adjacent to the giant ant."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "When the ant succeeds at its mandibles Strike, it can use this action immediately after to attempt to grapple the target. This Grapple doesn't apply or count toward the ant's multiple attack penalty."}]
+"Giant Centipede (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 8
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 6, "will": 2}
+  abilities: {"cha": -4, "con": 1, "dex": 3, "int": -5, "str": -1, "wis": 1}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 6, "Athletics": 2, "Stealth": 6}
+  strikes: [{"name": "Mandibles", "bonus": 6, "damage": [["1d4-1", "piercing", null]], "traits": ["finesse"], "effects": ["Giant Centipede Venom"]}]
+  actions: [{"name": "Giant Centipede Venom", "type": "passive", "traits": ["poison"], "text": "A target that takes piercing damage from the centipede's mandibles Strike must succeed at a DC 14 Fortitude save or take 1d6 poison damage."}]
+"Giant Fly (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 16
+  hp: 20
+  perception: 8
+  saves: {"fortitude": 6, "reflex": 9, "will": 6}
+  abilities: {"cha": -5, "con": 3, "dex": 4, "int": -5, "str": 3, "wis": 3}
+  speeds: {"land": 20, "climb": 20, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 6}
+  strikes: [{"name": "Mandibles", "bonus": 8, "damage": [["1d6+3", "piercing", null]], "traits": [], "effects": ["Fly Pox"]}]
+  actions: [{"name": "Avoid the Swat", "type": "reaction", "traits": [], "text": "Trigger The giant fly is targeted with a melee or ranged attack by an attacker it can see%rEffect The giant fly gains a +2 circumstance bonus to AC against the triggering attack. If the attack misses, the giant insect can Fly up to its fly Speed."}, {"name": "Fly Pox", "type": "passive", "traits": ["disease"], "text": "A giant fly could carry any disease, but most transmit an infection called fly pox with their bite. A character who is critically hit by a giant fly's mandibles must succeed at a DC 16 Fortitude saving throw or be Enfeebled 1 for 1 day."}]
+"Giant Rat (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 8
+  perception: 5
+  saves: {"fortitude": 6, "reflex": 7, "will": 3}
+  abilities: {"cha": -3, "con": 2, "dex": 3, "int": -4, "str": 1, "wis": 1}
+  speeds: {"land": 30, "climb": 10}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 5, "Athletics": 2, "Stealth": 5}
+  strikes: [{"name": "Jaws", "bonus": 7, "damage": [["1d6+1", "piercing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+"Giant Spider (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 17
+  hp: 16
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 9, "will": 5}
+  abilities: {"cha": -4, "con": 1, "dex": 4, "int": -5, "str": 2, "wis": 2}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 5, "Stealth": 7}
+  strikes: [{"name": "Fangs", "bonus": 9, "damage": [["1d6+2", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Giant Spider Venom"]}, {"name": "Web", "bonus": 7, "damage": [], "traits": [], "range": 30, "effects": ["Web Trap"]}]
+  actions: [{"name": "Descend on a Web", "type": "action", "traits": ["move"], "cost": 1, "text": "The giant spider moves straight down up to 40 feet, suspended by a web line. It can hang from the web or drop off. The distance it Descends on a Web doesn't count for falling damage. A creature can Strike the web, which has AC 20 and 8 HP. If the web is reduced to 0 HP, the spider falls."}, {"name": "Giant Spider Venom", "type": "passive", "traits": ["poison"], "text": "A target damaged by the spider's fangs must succeed at a DC 16 Fortitude save or take 1d10 poison damage and gain the Off-Guard condition for 1 round."}, {"name": "Web Trap", "type": "passive", "traits": [], "text": "A creature hit by the giant spider's web Strike gets stuck to the nearest surface. It can't move until it successfully Escapes."}]
+"Giant Viper (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 17
+  hp: 26
+  perception: 7
+  saves: {"fortitude": 8, "reflex": 11, "will": 6}
+  abilities: {"cha": -2, "con": 3, "dex": 4, "int": -4, "str": 3, "wis": 1}
+  speeds: {"land": 20, "climb": 20, "swim": 20}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 9, "Athletics": 8, "Stealth": 8, "Survival": 6}
+  strikes: [{"name": "Fangs", "bonus": 11, "damage": [["1d8+3", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Giant Viper Venom"]}]
+  actions: [{"name": "Coiled Opportunity", "type": "reaction", "traits": [], "text": "If the giant viper is Coiled and a creature moves into or through a square adjacent to it, the giant viper can use its reaction to make a fangs Strike against that creature."}, {"name": "Coil", "type": "action", "traits": [], "cost": 1, "text": "The giant viper uses an action to coil itself. While coiled, it can target a creature up to 10 feet away with its fangs Strike. After the giant viper Strikes with its fangs, it becomes uncoiled"}, {"name": "Giant Viper Venom", "type": "passive", "traits": ["poison"], "text": "A target damaged by the snake's fangs must succeed at a DC 17 Fortitude save or take 1d8 poison damage."}]
+"Goblin Commando (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["goblin", "humanoid"]
+  ac: 17
+  hp: 18
+  perception: 5
+  saves: {"fortitude": 7, "reflex": 8, "will": 5}
+  abilities: {"cha": 2, "con": 2, "dex": 3, "int": -1, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 6, "Athletics": 6, "Intimidation": 5, "Nature": 5, "Stealth": 6}
+  strikes: [{"name": "Greatsword", "bonus": 8, "damage": [["1d12+3", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Shortbow", "bonus": 8, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10"], "range": 60}]
+  actions: [{"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "If a goblin ally ends a move action adjacent to the goblin commando, the commando can use their reaction to Step."}]
+"Goblin Igniter (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["goblin", "humanoid"]
+  ac: 17
+  hp: 15
+  perception: 4
+  saves: {"fortitude": 5, "reflex": 9, "will": 4}
+  abilities: {"cha": 3, "con": 2, "dex": 4, "int": 0, "str": 0, "wis": -1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Stealth": 7, "Fire Lore": 7}
+  strikes: [{"name": "Torch", "bonus": 7, "damage": [["1d4", "bludgeoning", null], ["1", "fire", null]], "traits": ["fire"]}]
+  actions: [{"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "If a goblin ally ends a move action adjacent to the goblin igniter, the igniter can use their reaction to Step."}]
+  spellcasting: [{"name": "Spells", "tradition": "arcane", "type": "innate", "dc": 16, "attack": 6, "spells": {"0": ["Caustic Blast", "Electric Arc", "Light"], "1": ["Breathe Fire"]}}]
+"Goblin Warrior (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "small"
+  rarity: "common"
+  traits: ["goblin", "humanoid"]
+  ac: 16
+  hp: 6
+  perception: 2
+  saves: {"fortitude": 5, "reflex": 7, "will": 3}
+  abilities: {"cha": 1, "con": 1, "dex": 3, "int": 0, "str": 0, "wis": -1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 5, "Athletics": 2, "Nature": 1, "Stealth": 5}
+  strikes: [{"name": "Shortsword", "bonus": 7, "damage": [["1d6", "slashing", null]], "traits": ["agile", "finesse", "versatile-p"]}, {"name": "Shortbow", "bonus": 7, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10"], "range": 60}]
+  actions: [{"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "If a goblin ally ends a move action adjacent to the goblin warrior, the warrior can use their reaction to Step."}]
+"Harpy (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["air", "beast", "humanoid"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 9, "reflex": 15, "will": 12}
+  abilities: {"cha": 4, "con": 0, "dex": 4, "int": -1, "str": 1, "wis": 1}
+  speeds: {"land": 20, "fly": 60}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Deception": 11, "Intimidation": 13, "Performance": 11, "Stealth": 11, "Thievery": 13}
+  strikes: [{"name": "Talon", "bonus": 15, "damage": [["2d6+4", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Jaws", "bonus": 15, "damage": [["2d8+4", "piercing", null]], "traits": ["finesse", "unarmed"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": [], "text": "A creature that comes within 30 feet of the harpy and can smell the harpy must attempt a DC 21 Fortitude save. On a failure, the creature takes a –1 status penalty to all checks and DCs until it uses an action to retch (Sickened 1). A creature that succeeds at its save isn't affected by any harpy's stenches for 1 minute."}, {"name": "Hungry Winds", "type": "action", "traits": ["air", "concentrate"], "cost": 2, "text": "The harpy uses the wind to pull its prey closer. A target within 20 feet must succeed at a DC 21 Fortitude save or be pulled adjacent to the harpy. The harpy then makes a jaws strike against the target. If the target is pulled into the air and cannot fly, it falls as normal."}]
+"Hell Hound (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["beast", "fiend", "fire", "unholy"]
+  ac: 17
+  hp: 40
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 10, "will": 7}
+  abilities: {"cha": -2, "con": 2, "dex": 3, "int": -2, "str": 4, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 9, "Stealth": 8, "Survival": 9}
+  immunities: ["fire"]
+  weaknesses: {"cold": 5}
+  strikes: [{"name": "Jaws", "bonus": 13, "damage": [["1d8+4", "piercing", null], ["1d6", "fire", null]], "traits": ["magical", "unarmed", "unholy"]}]
+  actions: [{"name": "Hellfire Breath", "type": "action", "traits": ["divine", "fire"], "cost": 1, "text": "The hell hound breathes flames that deal 4d6 fire|options:area-damage damage to all creatures in a 15-foot cone. Each affected creature must attempt a DC 19 Reflex save.%rThe hell hound can't use Hellfire Breath again for 1d4 rounds. If the hell hound would take fire damage or is the target of a fire effect, its Hellfire Breath recharges."}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "The hell hound's jaws Strike deals 1d4 extra damage to creatures within reach of two of the hell hounds' allies."}]
+"Hobgoblin Archer (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["hobgoblin", "humanoid"]
+  ac: 23
+  hp: 50
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 12, "will": 8}
+  abilities: {"cha": -1, "con": 2, "dex": 4, "int": 0, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 8, "Stealth": 10}
+  strikes: [{"name": "Shortsword", "bonus": 12, "damage": [["1d6+4", "piercing", null]], "traits": ["agile", "versatile-s"]}, {"name": "Crossbow", "bonus": 14, "damage": [["1d8+2", "piercing", null]], "traits": ["reload-1"], "range": 120, "effects": ["Crossbow Precision"]}]
+  actions: [{"name": "Formation", "type": "passive", "traits": [], "text": "When they're adjacent to at least two other allies, the hobgoblin archer gains a +1 circumstance bonus to AC and saving throws."}, {"name": "Crossbow Precision", "type": "passive", "traits": [], "text": "The first time the archer hits with a crossbow attack in a round, they deal 1d8 extra precision damage."}, {"name": "Running Reload", "type": "action", "traits": [], "cost": 1, "text": "The archer Strides, Steps, or Sneaks, then Interacts to reload."}]
+"Hobgoblin Soldier (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["hobgoblin", "humanoid"]
+  ac: 18
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 5, "reflex": 6, "will": 5}
+  abilities: {"cha": -1, "con": 2, "dex": 3, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Stealth": 6}
+  strikes: [{"name": "Longsword", "bonus": 8, "damage": [["1d8+3", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Shortbow", "bonus": 8, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
+  actions: [{"name": "Formation", "type": "passive", "traits": [], "text": "When they're adjacent to at least two other allies, the hobgoblin soldier gains a +1 circumstance bonus to AC and saving throws."}, {"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "The hobgoblin soldier lifts up their shield to get a +2 circumstance bonus to AC until the start of their next turn"}, {"name": "Shield Block", "type": "reaction", "traits": [], "text": "If they Raised a Shield since their last turn, the hobgoblin can spend their reaction to block a Strike. Reduce the damage by 5, but the hobgoblin and the shield both take the remaining damage, possibly breaking or destroying the shield."}]
+"Horned Dragon (Juvenile, BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "dragon"]
+  ac: 20
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 11, "will": 9}
+  abilities: {"cha": 3, "con": 3, "dex": 1, "int": 1, "str": 4, "wis": 1}
+  speeds: {"land": 25, "fly": 30, "swim": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Arcana": 11, "Athletics": 12, "Deception": 9, "Diplomacy": 11, "Intimidation": 11, "Nature": 9, "Occultism": 12, "Society": 9, "Stealth": 10}
+  immunities: ["sleep", "poison"]
+  strikes: [{"name": "Jaws", "bonus": 14, "damage": [["2d6+4", "piercing", null], ["1d4", "poison", null]], "traits": ["poison", "unarmed"]}, {"name": "Claw", "bonus": 14, "damage": [["2d6+4", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Tail", "bonus": 12, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["reach-10"]}, {"name": "Horn", "bonus": 12, "damage": [["1d12+4", "bludgeoning", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Twisting Tail", "type": "reaction", "traits": [], "text": "When a creature within 10 feet uses a move action or leaves a square during a move action it's using, the dragon can use their reaction to make a tail Strike at the creature with a –2 penalty. If it hits, the creature stops moving in the square it was in when the dragon used this reaction."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The dragon makes two claw Strikes and one tail Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "When the dragon gets a critical success on a Strike, they recharge their Poison Breath."}, {"name": "Poison Breath", "type": "action", "traits": ["poison", "primal"], "cost": 2, "text": "The dragon breathes a toxic cloud that deals 5d6 poison|options:area-damage damage in a 30-foot cone. Each creature in the area must attempt a DC 21 Reflex save. The dragon can't use Poison Breath again for 1d4 rounds."}]
+"Kobold Boss Zolgran (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["evil", "humanoid", "kobold", "lawful"]
+  ac: 17
+  hp: 25
+  perception: 5
+  saves: {"fortitude": 4, "reflex": 7, "will": 7}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 2, "str": -1, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 6, "Deception": 8, "Diplomacy": 8, "Intimidation": 8, "Stealth": 7, "Dragon Lore": 10}
+  resistances: {"poison": 5}
+  strikes: [{"name": "Claw", "bonus": 7, "damage": [["1d6-1", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 3, "damage": [["1d8-1", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Zolgran deals an extra 1d6 damage to creatures that have the Off-Guard condition."}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "prepared", "dc": 20, "attack": 12, "spells": {"0": ["Detect Magic", "Figment", "Gouging Claw", "Message"], "1": ["Command", "Force Barrage"]}}]
+"Kobold Mage (Black, BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 16
+  hp: 20
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 6, "will": 7}
+  abilities: {"cha": 4, "con": -1, "dex": 2, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 7, "Deception": 8, "Diplomacy": 8, "Intimidation": 8, "Stealth": 6, "Dragon Lore": 10}
+  resistances: {"acid": 5}
+  strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy."}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+"Kobold Mage (Blue, BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 16
+  hp: 20
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 6, "will": 7}
+  abilities: {"cha": 4, "con": -1, "dex": 2, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 7, "Deception": 8, "Diplomacy": 8, "Intimidation": 8, "Stealth": 6, "Dragon Lore": 10}
+  resistances: {"electricity": 5}
+  strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy."}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+"Kobold Mage (Green, BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 16
+  hp: 20
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 6, "will": 7}
+  abilities: {"cha": 4, "con": -1, "dex": 2, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 7, "Deception": 8, "Diplomacy": 8, "Intimidation": 8, "Stealth": 6, "Dragon Lore": 10}
+  resistances: {"poison": 5}
+  strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy."}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+"Kobold Mage (Red, BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 16
+  hp: 20
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 6, "will": 7}
+  abilities: {"cha": 4, "con": -1, "dex": 2, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 7, "Deception": 8, "Diplomacy": 8, "Intimidation": 8, "Stealth": 6, "Dragon Lore": 10}
+  resistances: {"fire": 5}
+  strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy."}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+"Kobold Mage (White, BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 16
+  hp: 20
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 6, "will": 7}
+  abilities: {"cha": 4, "con": -1, "dex": 2, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 7, "Deception": 8, "Diplomacy": 8, "Intimidation": 8, "Stealth": 6, "Dragon Lore": 10}
+  resistances: {"cold": 5}
+  strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy."}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+"Kobold Scout (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 16
+  hp: 16
+  perception: 8
+  saves: {"fortitude": 5, "reflex": 9, "will": 6}
+  abilities: {"cha": 1, "con": 1, "dex": 4, "int": 0, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Crafting": 3, "Nature": 6, "Stealth": 7, "Survival": 6}
+  strikes: [{"name": "Shortsword", "bonus": 9, "damage": [["1d6", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Crossbow", "bonus": 9, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The kobold scout deals an extra 1d6 damage to creatures that have the Off-Guard condition."}]
+"Kobold Trapmaster (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 19
+  hp: 28
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 10, "will": 5}
+  abilities: {"cha": 1, "con": 1, "dex": 4, "int": 4, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Crafting": 8, "Stealth": 7}
+  strikes: [{"name": "Shortsword", "bonus": 8, "damage": [["1d6+2", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Spear", "bonus": 10, "damage": [["1d6+2", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Quick Trap", "type": "action", "traits": [], "cost": 3, "text": "The kobold trapmaster deploys one of their spike traps in an adjacent square.%rOnce this trap is deployed in a square, it deals 2d8 piercing|name:Spike Trap damage to anyone who steps on that square and they must attempt a DC 17 Reflex saving throw. A hero takes no damage on a critical success, half damage on a success, full damage on a failure, and double damage on a critical failure. These traps can be disabled with a successful DC 15 Thievery check."}, {"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The kobold trapmaster deals an extra 1d6 damage to creatures that have the Off-Guard condition."}]
+"Kobold Warrior (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "kobold"]
+  ac: 16
+  hp: 7
+  perception: 3
+  saves: {"fortitude": 4, "reflex": 7, "will": 3}
+  abilities: {"cha": -1, "con": 0, "dex": 3, "int": 0, "str": 1, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 5, "Crafting": 2, "Stealth": 5}
+  strikes: [{"name": "Spear", "bonus": 3, "damage": [["1d6+1", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 5, "damage": [["1d6+1", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The kobold warrior deals an extra 1d4 damage to creatures that have the Off-Guard condition."}]
+"Leopard (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 18
+  hp: 30
+  perception: 7
+  saves: {"fortitude": 8, "reflex": 10, "will": 5}
+  abilities: {"cha": -2, "con": 2, "dex": 4, "int": -4, "str": 3, "wis": 1}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 8, "Athletics": 7, "Stealth": 8}
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d10+3", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 10, "damage": [["1d6+3", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Maul", "type": "action", "traits": [], "cost": 1, "text": "The leopard makes two claw Strikes against a creature it has Grabbed or Restrained. The second attack uses the same multiple attack penalty as the first, but later attacks that turn take a –10 multiple attack penalty (or –8 for its claws)."}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "The leopard Strides and makes a Strike at the end of that movement. If the leopard successfully used hide before this action, the target has the Off-Guard condition against this Strike."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The leopard deals an extra 1d4 damage to creatures that have the Off-Guard condition."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "When the leopard succeeds at its jaws Strike, it can use this action immediately after to attempt to grapple the target. This Grapple doesn't apply or count toward the leopard's multiple attack penalty."}]
+"Lukahn":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["incorporeal", "undead", "unholy"]
+  ac: 20
+  hp: 40
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 14, "will": 12}
+  abilities: {"cha": 3, "con": 0, "dex": 4, "int": -2, "str": -5, "wis": 4}
+  speeds: {"land": 0, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Intimidation": 12, "Religion": 10, "Stealth": 14}
+  immunities: ["bleed", "poison", "precision", "unconscious", "void"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Shadow Hand", "bonus": 10, "damage": [["2d6+3", "void", null]], "traits": ["finesse", "magical"]}, {"name": "Shadow Blast", "bonus": 8, "damage": [["2d6", "void", null]], "traits": ["magical"], "range": 60}]
+  actions: [{"name": "Incorporeal", "type": "passive", "traits": [], "text": "Lukahn has no body and can pass through physical objects, though he can't end his turn inside one. Most checks that use Strength and require a body, such as Grapple and Shove, don't work against Lukahn, and he can't use them."}, {"name": "Light Vulnerability", "type": "passive", "traits": [], "text": "Attacks against Lukahn are treated as magical if he or the weapon being used against him is in light."}, {"name": "Shadow Veil", "type": "reaction", "traits": [], "text": "Trigger Lukahn is targeted by a melee attack%rEffect Lukahn gains a +2 circumstance bonus to AC against the triggering attack."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 21, "attack": 11, "spells": {"0": ["Detect Magic", "Haunting Hymn", "Message", "Telekinetic Projectile"], "1": ["Concordant Choir", "Fear", "Ill Omen"], "2": ["Laughing Fit", "Noise Blast"]}}]
+"Magnetic Skink":
+  pack: "menace-under-otari-bestiary"
+  level: 0
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 10
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 5, "will": 2}
+  abilities: {"cha": -1, "con": 4, "dex": 3, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 30, "climb": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 4, "Athletics": 4, "Stealth": 4}
+  strikes: [{"name": "Jaws", "bonus": 5, "damage": [["1d6", "piercing", null]], "traits": []}]
+  actions: [{"name": "Uncanny Climber", "type": "passive", "traits": [], "text": "A magnetic skink's feet allow it to climb virtually any surface, no matter how slick or sheer. If a skink attempts an Athletics check to climb and critically fails, it gets a failure instead."}, {"name": "Launch Metal", "type": "action", "traits": [], "cost": 2, "text": "The skink repulses the metal attached to its body in all directions, dealing 2d6 bludgeoning|options:area-damage damage (DC 15 Reflex save) to all creatures adjacent to the skink. The skink can't use Launch Metal again for 1d4 rounds."}, {"name": "Unsteadying Magnetism", "type": "action", "traits": [], "cost": 1, "text": "The skink amplifies its magnetic field and tries to pull the metal away from a creature within 20 feet. If that creature is wearing metal armor or holding a metal item, they must attempt a DC 15 Fortitude save. On a failure, that creature is Off-Guard until the start of the skink's next turn."}]
+"Mimic (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["aberration"]
+  ac: 20
+  hp: 75
+  perception: 9
+  saves: {"fortitude": 11, "reflex": 9, "will": 9}
+  abilities: {"cha": 0, "con": 3, "dex": 1, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 10}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Deception": 8}
+  strikes: [{"name": "Pseudopod", "bonus": 14, "damage": [["2d8+4", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Adhesive"]}]
+  actions: [{"name": "Adhesive", "type": "passive", "traits": [], "text": "Any creature that touches the mimic (usually from a fist Strike, the mimic's pseudopod, or a Grapple or Shove) must succeed at a DC 23 Reflex save or gain the Grabbed condition. The DC to escape dc=23 is 23. A melee or thrown weapon that hits the mimic sticks to it. A character can spend an action to attempt a DC 23 Athletics check, removing the weapon on a success. The adhesive dissolves 1 minute after the mimic dies."}, {"name": "Object Lesson", "type": "reaction", "traits": [], "text": "If a creature touches the mimic while the mimic is transformed into an object, the mimic can spend its reaction to use its adhesive with no saving throw. The mimic then makes a pseudopod Strike. Object Lesson can't be used again until the mimic escapes and takes on a new disguise."}, {"name": "Mimic Object", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The mimic assumes the shape of any Medium object. This alters its visual appearance but not its size. It takes a DC 28 Perception check to tell the object is a creature."}]
+"Minotaur Hunter (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "large"
+  rarity: "common"
+  traits: ["beast", "humanoid"]
+  ac: 20
+  hp: 70
+  perception: 12
+  saves: {"fortitude": 13, "reflex": 8, "will": 10}
+  abilities: {"cha": -1, "con": 3, "dex": 0, "int": -2, "str": 6, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 14, "Intimidation": 9, "Survival": 12}
+  strikes: [{"name": "Greataxe", "bonus": 14, "damage": [["1d12+8", "slashing", null]], "traits": ["reach-10", "sweep"]}, {"name": "Horn", "bonus": 14, "damage": [["1d8+8", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Perfect Orienteering", "type": "passive", "traits": [], "text": "A minotaur automatically critically succeeds on Survival checks to sense-direction or track"}, {"name": "Axe Swipe", "type": "action", "traits": [], "cost": 2, "text": "The minotaur makes two Strikes with their greataxe against two adjacent enemies, both of whom are within their reach. The second attack uses the same multiple attack penalty as the first, but attacks they make after this take a –10 multiple attack penalty."}, {"name": "Powerful Charge", "type": "action", "traits": [], "cost": 2, "text": "The minotaur Strides twice, then makes a horn Strike. If they moved at least 20 feet from their starting position, the Strike's damage is increased to 2d8+10."}]
+"Ogre Warrior (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["giant", "humanoid"]
+  ac: 17
+  hp: 50
+  perception: 5
+  saves: {"fortitude": 11, "reflex": 6, "will": 5}
+  abilities: {"cha": -2, "con": 4, "dex": -1, "int": -2, "str": 5, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 9}
+  strikes: [{"name": "Greataxe", "bonus": 12, "damage": [["1d12+7", "piercing", null]], "traits": ["reach-10", "sweep"]}, {"name": "Javelin", "bonus": 6, "damage": [["1d6+7", "piercing", null]], "traits": ["thrown-30"]}]
+"Orc Commander (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 19
+  hp: 32
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 6, "will": 7}
+  abilities: {"cha": 2, "con": 1, "dex": 2, "int": -1, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8, "Intimidation": 6, "Survival": 5}
+  strikes: [{"name": "Maul", "bonus": 10, "damage": [["1d12+4", "bludgeoning", null]], "traits": ["shove"]}, {"name": "Fist", "bonus": 10, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Javelin", "bonus": 8, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": [], "text": "When the orc is reduced to 0 Hit Points, they can use their reaction to remain conscious with 1 Hit Point, but they gain the Wounded 1 condition (or increases the wounded value by 1 if they already have that condition). The orc can't use this ability at wounded 3."}, {"name": "Battle Cry", "type": "action", "traits": ["concentrate", "mental"], "cost": 1, "text": "Bellowing mightily, the commander gives themself and all orc allies within 60 feet who can hear them a +1 status bonus to attack rolls and damage rolls until the start of the orc commander's next turn.%rEffect: Battle Cry"}]
+"Orc Scrapper (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 14
+  hp: 18
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 4, "will": 2}
+  abilities: {"cha": 0, "con": 2, "dex": 2, "int": 0, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 5, "Intimidation": 2}
+  strikes: [{"name": "Battle Axe", "bonus": 7, "damage": [["1d8+3", "piercing", null]], "traits": ["agile", "disarm"]}, {"name": "Fist", "bonus": 7, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Javelin", "bonus": 4, "damage": [["1d6+3", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": [], "text": "When the orc is reduced to 0 Hit Points, they can use their reaction to remain conscious with 1 Hit Point, but they gain the Wounded 1 condition (or increases the wounded value by 1 if they already have that condition). The orc can't use this ability at wounded 3."}]
+"Orc Veteran (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "orc"]
+  ac: 18
+  hp: 23
+  perception: 6
+  saves: {"fortitude": 8, "reflex": 7, "will": 4}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": -1, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7, "Intimidation": 4, "Survival": 4}
+  strikes: [{"name": "Battle Axe", "bonus": 7, "damage": [["1d8+4", "slashing", null]], "traits": ["sweep"]}, {"name": "Shortsword", "bonus": 7, "damage": [["1d6+4", "slashing", null]], "traits": ["agile", "versatile-p"]}, {"name": "Fist", "bonus": 7, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Javelin", "bonus": 5, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": [], "text": "When the orc is reduced to 0 Hit Points, they can use their reaction to remain conscious with 1 Hit Point, but they gain the Wounded 1 condition (or increases the wounded value by 1 if they already have that condition). The orc can't use this ability at wounded 3."}]
+"Owlbear (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 21
+  hp: 70
+  perception: 13
+  saves: {"fortitude": 13, "reflex": 7, "will": 11}
+  abilities: {"cha": 0, "con": 5, "dex": 1, "int": -4, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 7, "Athletics": 14, "Intimidation": 10}
+  strikes: [{"name": "Talon", "bonus": 14, "damage": [["1d10+6", "piercing", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}, {"name": "Beak", "bonus": 14, "damage": [["1d12+6", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Bloodcurdling Screech", "type": "action", "traits": ["fear", "mental"], "cost": 1, "text": "Each creature within 80 feet who can hear the owlbear's screech must attempt a DC 20 Will save. The creatures can't be affected by another screech for 1 minute. On a critical success, the creature is unaffected; on a success, the creature gains the Frightened 1 condition; on a failure, the creature gains the Frightened 2 condition; on a critical failure, the creature gains the Frightened 3 condition and must spend its next turn running away from the owlbear."}, {"name": "Screeching Advance", "type": "action", "traits": ["auditory", "fear", "mental"], "cost": 2, "text": "The owlbear makes a Bloodcurdling Screech and Strides twice. All creatures within 80 feet of the owlbear at any point during this movement are subjected to the effects of Bloodcurdling Screech."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "When the owlbear succeeds at its talon Strike, it can use this action immediately after to automatically give the target the Grabbed condition until the end of its next turn."}]
+"Pugwampi (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 0
+  size: "tiny"
+  rarity: "common"
+  traits: ["fey", "gremlin"]
+  ac: 14
+  hp: 17
+  perception: 6
+  saves: {"fortitude": 5, "reflex": 8, "will": 6}
+  abilities: {"cha": -2, "con": 0, "dex": 3, "int": 0, "str": -3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Crafting": 2, "Deception": 2, "Nature": 4, "Stealth": 5, "Thievery": 5}
+  weaknesses: {"cold-iron": 2}
+  strikes: [{"name": "Shortsword", "bonus": 8, "damage": [["1d6-1", "slashing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Shortbow", "bonus": 8, "damage": [["1d6-1", "piercing", null]], "traits": ["deadly-d10", "magical", "reload-0"], "range": 60}]
+  actions: [{"name": "-2 Penalty on Perception to Hear things", "type": "passive", "traits": []}, {"name": "Animal Talker", "type": "passive", "traits": [], "text": "Pugwampis can talk to and understand animals."}, {"name": "Unluck Aura", "type": "passive", "traits": ["mental", "primal"], "text": "Creatures other than animals, gremlins, and kholo within 20 feet become extremely unlucky. They must attempt a DC 16 Will save, rolling this Will save twice and using the worse result.%rOn a successful save, the creature can't be affected by pugwampi unluck auras for 24 hours. On a failure, the creature must roll twice and use the worse result on all checks as long as it's within 20 feet of the pugwampi.%rMultiple pugwampis don't create any increased effect."}]
+"Reefclaw (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["aberration", "aquatic"]
+  ac: 20
+  hp: 17
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 9, "will": 4}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": -3, "str": 1, "wis": 1}
+  speeds: {"land": 5, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 4}
+  strikes: [{"name": "Claw", "bonus": 9, "damage": [["1d6+1", "slashing", null]], "traits": ["finesse", "unarmed"], "effects": ["Grab", "Reefclaw Venom"]}]
+  actions: [{"name": "Death Frenzy", "type": "reaction", "traits": [], "text": "When the reefclaw is reduced to 0 hit points it can spend this reaction to make a claw Strike before dying."}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "If the reefclaw has a creature Grabbed or Restrained, it can spend one action to crush them in its coils. The creature takes 1d6 bludgeoning damage depending on its DC 17 Fortitude save."}, {"name": "Reefclaw Venom", "type": "passive", "traits": ["poison"], "text": "A target that takes slashing damage from the reefclaw's claw Strike must succeed at a DC 17 Fortitude save or take 1d6 poison damage."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "When the reeflclaw succeeds at its claw Strike, it can use this action immediately after to attempt to Grapple the target. This Grapple doesn't apply or count toward the reefclaw's multiple attack penalty."}]
+"Sea Hag (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "hag", "humanoid"]
+  ac: 19
+  hp: 45
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 8, "will": 10}
+  abilities: {"cha": 3, "con": 4, "dex": 3, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 11, "Deception": 10, "Occultism": 8, "Stealth": 8}
+  strikes: [{"name": "Claw", "bonus": 12, "damage": [["1d10+4", "slashing", null]], "traits": ["agile", "magical", "unarmed"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Dread Gaze", "type": "action", "traits": ["emotion", "fear", "mental", "occult"], "cost": 2, "text": "The hag gazes upon a creature, afflicting it with a gnawing sense of impending doom, with a result depending on its DC 20 Will save. The target doesn't need to be able to see the sea hag.%rCritical Success The creature is unaffected.%rSuccess The creature is Frightened 1.%rFailure The creature is frightened 1 and is Slowed 1 for 1 round.%rCritical Failure As failure, but the creature is Frightened 2 and slowed 1 for 1 minute."}]
+"Severed Head (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "tiny"
+  rarity: "common"
+  traits: ["mindless", "undead", "unholy"]
+  ac: 15
+  hp: 7
+  perception: 6
+  saves: {"fortitude": 4, "reflex": 6, "will": 4}
+  abilities: {"cha": 0, "con": 0, "dex": 2, "int": -5, "str": 1, "wis": 2}
+  speeds: {"land": 15, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 6}
+  immunities: ["bleed", "poison", "unconscious", "void"]
+  weaknesses: {"vitality": 1}
+  strikes: [{"name": "Jaws", "bonus": 6, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Gnash", "type": "action", "traits": [], "cost": 1, "text": "When the severed head succeeds at its jaws Strike, it can use this action immediately after to make a second jaws Strike at the same target as it violently shakes itself, trying to rip away a mouthful of flesh. On a success, the target takes an additional 1d4 slashing damage and 1 persistent bleed damage."}]
+"Sewer Ooze (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["mindless", "ooze"]
+  ac: 8
+  hp: 40
+  perception: 3
+  saves: {"fortitude": 9, "reflex": 1, "will": 3}
+  abilities: {"cha": -5, "con": 4, "dex": -5, "int": -5, "str": 2, "wis": 0}
+  speeds: {"land": 10}
+  senses: ["motion-sense"]
+  skills: {"Stealth": 1}
+  immunities: ["acid", "critical-hits", "unconscious"]
+  strikes: [{"name": "Pseudopod", "bonus": 9, "damage": [["1d6+1", "bludgeoning", null], ["1d4", "acid", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Motion Sense 60 feet", "type": "passive", "traits": [], "text": "A sewer ooze can sense nearby motion through vibration and air movement, allowing it to fight as well as if it could see. However, a sewer ooze can't see, so effects that depend on vision or seeing don't work on it."}, {"name": "Filth Wave", "type": "action", "traits": [], "cost": 1, "text": "The sewer ooze unleashes a wave of filth, covering all creatures within 20 feet of itself. Each creature in the area must succeed at a DC 17 Reflex save or take 1d4 acid|options:area-damage damage and a –10-foot penalty to its Speeds for 1 minute (on a critical failure, the creature also falls over and gains the Prone condition). A creature can Interact to clean someone off. This decreases the Speed penalty to -5 feet after 1 action, or to no penalty after 2 actions. After using Filth Wave, the…"}]
+"Shadow (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["incorporeal", "undead", "unholy"]
+  ac: 20
+  hp: 40
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 14, "will": 12}
+  abilities: {"cha": 3, "con": 0, "dex": 4, "int": -2, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Stealth": 14}
+  immunities: ["poison", "unconscious", "bleed", "void", "precision"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Shadow Hand", "bonus": 15, "damage": [["2d6+3", "void", null]], "traits": ["finesse", "magical"]}]
+  actions: [{"name": "Incorporeal", "type": "passive", "traits": [], "text": "A shadow has no body and can pass through physical objects, though it can't end its turn inside one. Most checks that use Strength and require a body, such as Grapple and Shove, don't work against a shadow, and a shadow can't use them."}, {"name": "Light Vulnerability", "type": "passive", "traits": [], "text": "Attacks against the shadow are treated as magical if the shadow or the weapon being used is in light."}, {"name": "Slink in Shadows", "type": "passive", "traits": [], "text": "The shadow can Hide or end its Sneak in a creature's or object's shadow."}, {"name": "Steal Shadow", "type": "action", "traits": ["divine"], "cost": 1, "text": "If the shadow hits a living creature with a Strike on its previous action, it can use this action to pull at the target's shadow, imposing a –1 status penalty to Athletics and to attack rolls and damage rolls that use Strength (Enfeebled 1). The penalty increases each time a shadow uses this ability to a maximum of –4. The penalty decreases by 1 every hour."}]
+"Shadow Bat":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "large"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 18
+  hp: 40
+  perception: 11
+  saves: {"fortitude": 9, "reflex": 8, "will": 7}
+  abilities: {"cha": 0, "con": 1, "dex": 4, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 15, "fly": 30}
+  senses: ["echolocation"]
+  skills: {"Acrobatics": 8, "Stealth": 8}
+  strikes: [{"name": "Fangs", "bonus": 9, "damage": [["1d10+4", "piercing", null]], "traits": ["unarmed"]}, {"name": "Wing", "bonus": 9, "damage": [["1d6+4", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Echolocation", "type": "passive", "traits": [], "text": "The bat can \"see\" using its hearing at the listed range, allowing it to function just as well in darkness."}, {"name": "Screeching Gust", "type": "action", "traits": [], "cost": 2, "text": "The shadow bat flaps its wings and lets out a mighty screech, creating a cone of tearing winds and piercing sound. All creatures in a 15-foot cone take 3d6 sonic|options:area-damage damage, with a DC 16 Reflex saving throw. Creatures that fail are pushed backwards 10 feet by the wind.%rUsing its wings in this way exhausts the shadow bat, causing it to fall harmlessly to the ground immediately after using this ability and preventing it from taking flight or using Screeching Gust again for 1d4…"}]
+"Shadow Gargoyle":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["beast", "earth"]
+  ac: 19
+  hp: 25
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 8, "will": 8}
+  abilities: {"cha": -2, "con": 3, "dex": 2, "int": -2, "str": 3, "wis": 2}
+  speeds: {"land": 25, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Athletics": 7, "Stealth": 10}
+  immunities: ["bleed"]
+  resistances: {"bludgeoning": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["2d8", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 11, "damage": [["2d6", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Clawed Feet", "type": "reaction", "traits": [], "text": "If the gargoyle is flying and a creature moves into an adjacent square below them, the gargoyle can use their reaction to make a claw Strike against that creature."}]
+"Shadow Priest":
+  pack: "menace-under-otari-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["incorporeal", "undead", "unholy"]
+  ac: 20
+  hp: 40
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 14, "will": 12}
+  abilities: {"cha": 3, "con": 0, "dex": 4, "int": -2, "str": -5, "wis": 4}
+  speeds: {"land": 0, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Intimidation": 12, "Religion": 10, "Stealth": 14}
+  immunities: ["bleed", "poison", "precision", "unconscious", "void"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Shadow Hand", "bonus": 10, "damage": [["2d6+3", "void", null]], "traits": ["finesse", "magical"]}, {"name": "Shadow Blast", "bonus": 8, "damage": [["2d6", "void", null]], "traits": ["magical"], "range": 60}]
+  actions: [{"name": "Incorporeal", "type": "passive", "traits": [], "text": "The shadow priest has no body and can pass through physical objects, though they can't end their turn inside one. Most checks that use Strength and require a body, such as Grapple and Shove, don't work against the shadow priest, and the shadow priest can't use them."}, {"name": "Light Vulnerability", "type": "passive", "traits": [], "text": "Attacks against the shadow priest are treated as magical if the shadow priest or the weapon being used against them is in light."}, {"name": "Shadow Veil", "type": "reaction", "traits": [], "text": "If the shadow priest is targeted by a melee attack, they can use their reaction to gain a +2 circumstance bonus to AC against the triggering attack."}]
+"Shadow Twigjack":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "tiny"
+  rarity: "common"
+  traits: ["fey", "plant", "wood"]
+  ac: 17
+  hp: 35
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 9, "will": 5}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": 0, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 7, "Nature": 5, "Stealth": 9}
+  weaknesses: {"fire": 5}
+  strikes: [{"name": "Claw", "bonus": 9, "damage": [["1d10+2", "slashing", null]], "traits": ["agile", "finesse", "reach-0", "unarmed"]}, {"name": "Splinter", "bonus": 9, "damage": [["1d6+2", "piercing", null]], "traits": ["deadly-d6"], "range": 30}]
+  actions: [{"name": "Bramble Jump", "type": "action", "traits": ["plant", "primal", "teleportation", "wood"], "cost": 3, "text": "When the twigjack is in undergrowth, it can instantly teleport to a square of undergrowth within 60 feet. This movement doesn't trigger reactions."}, {"name": "Splinter Spray", "type": "action", "traits": [], "cost": 2, "text": "The twigjack sprays a barrage of splinters and brambles from its body that deals 3d6 piercing|options:area-damage damage in a 15-foot cone. Each creature in the area must attempt a DC 18 Reflex save. The twigjack can't use Splinter Spray again for 1d4 rounds."}]
+"Shulzara":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "hag", "humanoid"]
+  ac: 17
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 6, "will": 8}
+  abilities: {"cha": 3, "con": 4, "dex": 3, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25, "swim": 25}
+  senses: ["darkvision"]
+  weaknesses: {"cold-iron": 3}
+  strikes: [{"name": "Claw", "bonus": 10, "damage": [["1d10+2", "slashing", null]], "traits": ["agile", "magical", "unarmed"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Slithering Steps", "type": "passive", "traits": [], "text": "Shulzara is not affected by difficult terrain due to water."}]
+  spellcasting: [{"name": "Arcane Spontaneous Spells", "tradition": "arcane", "type": "spontaneous", "dc": 18, "attack": 8, "spells": {"0": ["Frostbite", "Light", "Message", "Shield"], "1": ["Fear", "Hydraulic Push", "Mud Pit"]}}]
+"Skeletal Giant (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["mindless", "skeleton", "undead", "unholy"]
+  ac: 17
+  hp: 50
+  perception: 7
+  saves: {"fortitude": 10, "reflex": 8, "will": 7}
+  abilities: {"cha": 2, "con": 3, "dex": 1, "int": -5, "str": 5, "wis": 0}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 9}
+  immunities: ["poison", "unconscious", "bleed", "void"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Greataxe", "bonus": 12, "damage": [["1d12+5", "slashing", null]], "traits": ["reach-10"]}, {"name": "Horns", "bonus": 12, "damage": [["1d10+5", "piercing", null]], "traits": ["agile"]}]
+  actions: [{"name": "Broad Swipe", "type": "action", "traits": [], "cost": 2, "text": "The skeletal giant makes two Strikes with its greataxe against two adjacent foes, both of whom are within its reach. The second attack uses the same multiple attack penalty as the first, but attacks it makes after this take a -10 multiple attack penalty (or a -8 multiple attack penalty for its horns)."}, {"name": "Terrifying Charge", "type": "action", "traits": [], "cost": 2, "text": "The giant Strides and makes a horns Strike with a +4 circumstance bonus to damage.%rIf the strike hits, the giant attempts to demoralize the target."}]
+"Skeleton Guard (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "common"
+  traits: ["mindless", "skeleton", "undead", "unholy"]
+  ac: 16
+  hp: 4
+  perception: 2
+  saves: {"fortitude": 2, "reflex": 8, "will": 2}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": -5, "str": 2, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 6, "Athletics": 3}
+  immunities: ["poison", "unconscious", "bleed", "void"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Scimitar", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["forceful", "sweep"]}, {"name": "Claw", "bonus": 6, "damage": [["1d4+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Shortbow", "bonus": 6, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10"], "range": 60}]
+"Sod Hound (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "small"
+  rarity: "common"
+  traits: ["earth", "elemental"]
+  ac: 19
+  hp: 44
+  perception: 9
+  saves: {"fortitude": 12, "reflex": 6, "will": 7}
+  abilities: {"cha": -1, "con": 3, "dex": -1, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 11, "Survival": 9}
+  immunities: ["bleed", "poison", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d10+6", "piercing", null]], "traits": ["unarmed"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Crystal Sense 60 feet", "type": "passive", "traits": [], "text": "A sod hound can sense crystals or gems within 60 feet."}, {"name": "Earth Glide", "type": "action", "traits": [], "cost": 1, "text": "The sod hound burrows through any earthen matter, including rock. It moves up to 20 feet, leaving no tunnels or signs of its passing."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1, "text": "When the sod hound succeeds at its jaws Strike, it can use this action immediately after to attempt to Trip the target. This Trip doesn't apply or count toward the sod hound's multiple attack penalty."}]
+"String Slime (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["mindless", "ooze"]
+  ac: 10
+  hp: 90
+  perception: 5
+  saves: {"fortitude": 12, "reflex": 0, "will": 5}
+  abilities: {"cha": -5, "con": 5, "dex": -5, "int": -5, "str": 4, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["motion-sense"]
+  skills: {"Athletics": 11}
+  immunities: ["acid", "critical-hits", "precision", "slashing", "unconscious", "visual", "bleed"]
+  strikes: [{"name": "Pseudopod", "bonus": 11, "damage": [["1d8+4", "bludgeoning", null], ["1d6", "acid", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Motion Sense", "type": "passive", "traits": [], "text": "A string slime can feel nearby motion through vibration and air movement."}, {"name": "Split", "type": "passive", "traits": [], "text": "Whenever a string slime would take slashing damage (if it weren't immune) and has at least 10 Hit Points, it splits into two identical slimes with half the original's Hit Points. One string slime is in the same space as the original, and the other appears in an adjacent unoccupied space. If no adjacent space is unoccupied, move smaller creatures and objects out of the way to make a space or the split is canceled at the GM's discretion."}, {"name": "Tag Team", "type": "action", "traits": [], "cost": 2, "text": "The slime arcs acidic protoplasm to another string slime within 30 feet along a straight line. Each creature in that line takes 3d6 acid damage with a DC 16 Reflex save. A creature that fails its save is also knocked Prone."}]
+"Twigjack (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "tiny"
+  rarity: "common"
+  traits: ["fey", "plant", "wood"]
+  ac: 19
+  hp: 50
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 11, "will": 7}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": 0, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Athletics": 9, "Nature": 7, "Stealth": 11}
+  weaknesses: {"fire": 5, "axe-vulnerability": 5}
+  strikes: [{"name": "Claw", "bonus": 11, "damage": [["1d10+4", "slashing", null]], "traits": ["agile", "finesse", "reach-0", "unarmed"]}, {"name": "Splinter", "bonus": 11, "damage": [["1d6+4", "piercing", null]], "traits": ["deadly-d6"], "range": 30}]
+  actions: [{"name": "Bramble Jump", "type": "action", "traits": ["plant", "primal", "teleportation", "wood"], "cost": 3, "text": "When the twigjack is in undergrowth, it can instantly teleport to a square of undergrowth within 60 feet. This movement doesn't trigger reactions."}, {"name": "Splinter Spray", "type": "action", "traits": [], "cost": 2, "text": "The twigjack sprays a barrage of splinters and brambles from its body that deals 4d6 piercing|options:area-damage damage in a 15-foot cone. Each creature in the area must attempt a DC 20 Reflex save. The twigjack can't use Splinter Spray again for 1d4 rounds."}]
+"Umbral Gnome Rockwarden (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 5
+  size: "small"
+  rarity: "common"
+  traits: ["gnome", "humanoid"]
+  ac: 22
+  hp: 63
+  perception: 14
+  saves: {"fortitude": 12, "reflex": 9, "will": 14}
+  abilities: {"cha": 2, "con": 3, "dex": 2, "int": 0, "str": 1, "wis": 5}
+  speeds: {"land": 15}
+  senses: ["darkvision"]
+  skills: {"Crafting": 9, "Diplomacy": 11, "Nature": 14, "Stealth": 9}
+  strikes: [{"name": "Sling", "bonus": 11, "damage": [["1d6", "bludgeoning", null]], "traits": ["propulsive", "reload-1"], "range": 50}, {"name": "Scythe", "bonus": 7, "damage": [["1d10", "slashing", null]], "traits": ["deadly-d10", "trip"]}]
+  spellcasting: [{"name": "Spells", "tradition": "primal", "type": "prepared", "dc": 24, "attack": 14, "spells": {"0": ["Caustic Blast", "Detect Magic", "Frostbite", "Message", "Shield"], "1": ["Fear", "Mud Pit", "Thunderstrike"], "2": ["Acid Grip", "Blazing Bolt", "Resist Energy"], "3": ["Blindness", "One with Stone"]}}]
+"Umbral Gnome Scout (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["gnome", "humanoid"]
+  ac: 17
+  hp: 18
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 9, "will": 5}
+  abilities: {"cha": -1, "con": 2, "dex": 4, "int": 0, "str": 2, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Nature": 5, "Stealth": 7, "Survival": 5}
+  strikes: [{"name": "Sling", "bonus": 9, "damage": [["1d6+1", "bludgeoning", null]], "traits": ["propulsive", "reload-1"], "range": 50}, {"name": "Sickle", "bonus": 7, "damage": [["1d4+2", "slashing", null]], "traits": ["agile", "finesse", "trip"]}]
+  actions: [{"name": "Hidden Movement", "type": "passive", "traits": [], "text": "If the umbral gnome scout starts their turn Undetected or Hidden to a creature, that creature is Off-Guard against the umbral gnome scout's attacks until the end of the turn."}]
+  spellcasting: [{"name": "Spells", "tradition": "primal", "type": "innate", "dc": 14, "attack": 6, "spells": {"1": ["Ill Omen"]}}]
+"Umbral Gnome Warrior (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["gnome", "humanoid"]
+  ac: 18
+  hp: 34
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 8, "will": 5}
+  abilities: {"cha": -1, "con": 3, "dex": 2, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8, "Intimidation": 5, "Stealth": 5}
+  strikes: [{"name": "Spear", "bonus": 10, "damage": [["1d6+4", "piercing", null]], "traits": []}, {"name": "Heavy Crossbow", "bonus": 8, "damage": [["1d10", "piercing", null]], "traits": ["reload-2"], "range": 120}]
+  actions: [{"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "The umbral gnome warrior lifts up their shield to get a +2 circumstance bonus to AC until the start of their next turn."}, {"name": "Shield Block", "type": "reaction", "traits": [], "text": "If the umbral gnome warrior has their shield raised, they can spend your reaction to block a physical attack. Reduce the amount of damage by 5, but then the umbral gnome warrior and their shield both take any damage leftover. This might break or destroy the shield. The shield has a maximum of 20 Hit Points."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 15, "attack": 7, "spells": {"1": ["Illusory Disguise"]}}]
+"Viper (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "tiny"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 14
+  hp: 8
+  perception: 5
+  saves: {"fortitude": 2, "reflex": 7, "will": 5}
+  abilities: {"cha": -2, "con": 0, "dex": 4, "int": -4, "str": -3, "wis": 1}
+  speeds: {"land": 20, "climb": 20, "swim": 20}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 5, "Athletics": 1, "Stealth": 5, "Survival": 3}
+  strikes: [{"name": "Fangs", "bonus": 6, "damage": [["1d8-3", "piercing", null]], "traits": ["agile", "finesse"], "effects": ["Viper Venom"]}]
+  actions: [{"name": "Slink", "type": "reaction", "traits": [], "text": "If a creature ends its movement adjacent to the viper or within the viper's space, the viper can use its reaction to Stride, Climb, or Swim up to 10 feet. It must end its movement in a location that isn't within 5 feet of a foe. This movement doesn't trigger reactions."}, {"name": "Viper Venom", "type": "passive", "traits": ["poison"], "text": "A target damaged by the viper's fangs must succeed at a DC 16 Fortitude save or take 1d10 poison damage."}]
+"Warg (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 17
+  hp: 36
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 9, "will": 6}
+  abilities: {"cha": 2, "con": 3, "dex": 3, "int": -1, "str": 4, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 8, "Deception": 6, "Intimidation": 6, "Stealth": 7, "Survival": 8}
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d8+4", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Avenging Bite", "type": "reaction", "traits": [], "text": "When a creature within the reach of the warg's bite attacks one of its allies, the warg can spend its reaction to make a jaws Strike against that creature."}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "The warg's jaws Strike deals 1d4 extra damage to creatures within reach of two of the warg's allies."}, {"name": "Shred", "type": "action", "traits": [], "cost": 1, "text": "If the warg has a creature Grabbed, they can spend one action to shred it with their teeth. The creature takes 1d6 slashing damage and can attempt a DC 18 Fortitude save."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "When the warg succeeds at its jaws Strike, it can use this action immediately after to attempt to grapple the target. This Grapple doesn't apply or count toward the warg's multiple attack penalty."}]
+"Water Scamp (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "small"
+  rarity: "common"
+  traits: ["elemental", "water"]
+  ac: 16
+  hp: 20
+  perception: 3
+  saves: {"fortitude": 7, "reflex": 11, "will": 4}
+  abilities: {"cha": 0, "con": 1, "dex": 3, "int": -2, "str": 1, "wis": 0}
+  speeds: {"land": 20, "fly": 25, "swim": 25}
+  hp_details: "fast healing 2 (while underwater)"
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Stealth": 6}
+  immunities: ["bleed", "poison", "sleep"]
+  resistances: {"acid": 3, "fire": 3}
+  strikes: [{"name": "Claw", "bonus": 8, "damage": [["1d6+1", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Fast Healing 2 (While Underwater)", "type": "passive", "traits": []}, {"name": "Acid Breath", "type": "action", "traits": ["acid", "arcane"], "cost": 2, "text": "The water scamp breathes acid that deals 2d6 acid|options:area-damage damage in a 15-foot cone. Each creature in the area must attempt a DC 17 Reflex save. The water scamp can't use Acid Breath again for 1d4 rounds."}, {"name": "Drench", "type": "action", "traits": ["arcane", "water"], "cost": 1, "text": "The water scamp shakes out a seemingly endless supply of water from its fur to put out all non-magical fires within 5 feet."}]
+  spellcasting: [{"name": "Spells", "tradition": "arcane", "type": "innate", "dc": 17, "attack": 9, "spells": {"2": ["Acid Grip"]}}]
+"Web Lurker (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["aberration", "evil"]
+  ac: 19
+  hp: 45
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 11, "will": 8}
+  abilities: {"cha": -1, "con": 3, "dex": 4, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 9, "Crafting": 8, "Stealth": 11}
+  strikes: [{"name": "Fangs", "bonus": 11, "damage": [["1d8+6", "piercing", null]], "traits": ["poison"], "effects": ["Web Lurker Venom"]}, {"name": "Claw", "bonus": 11, "damage": [["1d8+6", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Web", "bonus": 11, "damage": [], "traits": [], "effects": ["Web Trap"]}]
+  actions: [{"name": "Spider Speak", "type": "passive", "traits": [], "text": "The web lurker can speak with and understand spiders."}, {"name": "Web Lurker Venom", "type": "passive", "traits": ["poison"], "text": "A target damaged by the web lurker's fangs must succeed at a DC 19 Fortitude save or take 1d12 poison damage and gain the Off-Guard condition for 1 round."}, {"name": "Web Trap", "type": "passive", "traits": [], "text": "A creature hit by the web lurker's web attack gets stuck to the nearest surface. It can't move until it successfully Escapes."}]
+"Wight (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["undead", "unholy", "wight"]
+  ac: 18
+  hp: 40
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 6, "will": 10}
+  abilities: {"cha": 2, "con": 4, "dex": 1, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 10, "Intimidation": 9, "Stealth": 8}
+  immunities: ["poison", "unconscious", "bleed", "void"]
+  strikes: [{"name": "Claw", "bonus": 12, "damage": [["1d6+6", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Corrupting Spite"]}, {"name": "Dagger", "bonus": 12, "damage": [["1d4+6", "piercing", null]], "traits": ["agile", "versatile-s"], "effects": ["Corrupting Spite"]}]
+  actions: [{"name": "Final Spite", "type": "reaction", "traits": [], "text": "When the wight is reduced to 0 Hit Points, they can use their reaction to make a Strike before being destroyed. They don't gain any Hit Points from corrupting spite on this Strike."}, {"name": "Corrupting Spite", "type": "passive", "traits": ["divine", "void"], "text": "When the wight deals damage to a living creature with their claw or dagger Strike, the wight regains 2 healing Hit Points and the target must succeed at a DC 17 Fortitude save or take 2 damage that can't be healed. The wight can use corrupting spite multiple times, but a single creature can't take more than 8 unhealable damage. Each full night of rest heals 2 of the unhealable damage, and a full day of bed rest increases the recovery of the unhealable damage to 4."}]
+"Wolf (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 24
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 9, "will": 5}
+  abilities: {"cha": -2, "con": 1, "dex": 4, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 35}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 7, "Athletics": 6, "Stealth": 7, "Survival": 7}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d6+2", "piercing", null]], "traits": ["unarmed"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Pack Attack", "type": "passive", "traits": [], "text": "The wolf's jaws Strike deals 1d4 extra damage to creatures within reach of two of the wolf's allies."}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1, "text": "When the wolf succeeds at its jaws Strike, it can use this action immediately after to attempt to trip the target. This Trip doesn't apply or count toward the wolf's multiple attack penalty."}]
+"Xulgath Leader (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "xulgath"]
+  ac: 18
+  hp: 44
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 6, "will": 9}
+  abilities: {"cha": 1, "con": 2, "dex": 1, "int": -1, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 11, "Intimidation": 6, "Stealth": 6}
+  strikes: [{"name": "Greataxe", "bonus": 11, "damage": [["1d10+6", "slashing", null]], "traits": ["sweep"]}, {"name": "Jaws", "bonus": 11, "damage": [["1d6+6", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 11, "damage": [["1d4+6", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Javelin", "bonus": 8, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": [], "text": "A creature that comes within 30 feet of the xulgath and can smell the xulgath must attempt a DC 19 Fortitude save. On a failure, the creature takes a –1 status penalty to all checks and DCs until it uses an action to retch (Sickened 1). A creature that succeeds at its save isn't affected by any xulgaths' stenches for 1 minute."}, {"name": "Swipe", "type": "action", "traits": [], "cost": 2, "text": "The xulgath leader makes two Strikes with their greataxe against two adjacent foes, both of whom are within their reach, with a +1 circumstance bonus. The second attack uses the same multiple attack penalty as the first, but attacks the xulgath boss makes after this take a –10 multiple attack penalty (or a –8 multiple attack penalty for its claw)."}]
+"Xulgath Warrior (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "xulgath"]
+  ac: 14
+  hp: 21
+  perception: 6
+  saves: {"fortitude": 8, "reflex": 7, "will": 4}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": -1, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7, "Stealth": 5}
+  strikes: [{"name": "Club", "bonus": 9, "damage": [["1d6+4", "bludgeoning", null]], "traits": []}, {"name": "Jaws", "bonus": 9, "damage": [["1d6+4", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 9, "damage": [["1d4+4", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Javelin", "bonus": 7, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Stench", "type": "passive", "traits": [], "text": "A creature that comes within 30 feet of the xulgath and can smell the xulgath must attempt a DC 16 Fortitude save. On a failure, the creature takes a –1 status penalty to all checks and DCs until it uses an action to retch (Sickened 1). A creature that succeeds at its save isn't affected by any xulgaths' stenches for 1 minute."}]
+"Zephyr Hawk (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: 3
+  size: "small"
+  rarity: "common"
+  traits: ["air", "elemental"]
+  ac: 18
+  hp: 36
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 13, "will": 7}
+  abilities: {"cha": 0, "con": 1, "dex": 4, "int": -4, "str": 2, "wis": 0}
+  speeds: {"land": 0, "fly": 50}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Stealth": 11}
+  immunities: ["bleed", "poison", "sleep"]
+  strikes: [{"name": "Wing", "bonus": 11, "damage": [["1d8+4", "slashing", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Circling Attack", "type": "action", "traits": [], "cost": 2, "text": "The zephyr hawk flies up to half its Speed, makes two wing Strikes, then flies up to half its Speed again to return to its original location. The second half of this movement doesn't trigger reactions like Reactive Strike. The second attack uses the same multiple attack penalty as the first, but attacks it makes after this take a -8 multiple attack penalty."}]
+"Zombie Shambler (BB)":
+  pack: "menace-under-otari-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "common"
+  traits: ["mindless", "undead", "unholy", "zombie"]
+  ac: 12
+  hp: 20
+  perception: 0
+  saves: {"fortitude": 6, "reflex": 0, "will": 2}
+  abilities: {"cha": -2, "con": 2, "dex": -2, "int": -5, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7}
+  immunities: ["poison", "unconscious", "bleed", "void"]
+  weaknesses: {"vitality": 5, "slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Jaws", "bonus": 7, "damage": [["1d8+3", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Slow", "type": "passive", "traits": [], "text": "A zombie has only 2 actions on its turn, and it can't use reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "When the zombie succeeds at its fist Strike, it can use this action immediately after to attempt to grapple the target. This Grapple doesn't apply or count toward the zombie's multiple attack penalty."}]

@@ -20,7 +20,7 @@ These commands will only work in the context of a scene, unless you are a game a
 
 These commands will only work if you are running an encounter inside a scene, or are a DM or game admin. A DM can use these only within context of a scene.
 
-`damage[/ndc] <player list> = <amount>`: Damages each character in `<player list>` for `<amount>`. The optional `/ndc` is for Plotmasters and admins only, and disables the check to see if a character is dead. It has no effect for organizers without admin or Plotmaster roles.
+`damage[/ndc] <player list> = <amount> [<kind>]`: Damages each character in `<player list>` for `<amount>`. Naming the kind - `fire`, `cold`, `persistent-damage` - lets anything the character is immune to, weak to, or resistant to apply before the damage lands; without one, nothing resists it. The optional `/ndc` is for Plotmasters and admins only, and disables the check to see if a character is dead. It has no effect for organizers without admin or Plotmaster roles.
 `damage/reset`: Usable in encounter mode only, and only by the organizer. Clears all damage for all participants in the encounter.
 `condition/set <player>=<condition>[/<value>]`: Sets <condition> on <player>.
 `condition/unset <player>=<condition>`: Removes <condition> from <player>.

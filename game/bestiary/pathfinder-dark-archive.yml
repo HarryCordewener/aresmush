@@ -1,0 +1,151 @@
+---
+"Cocoon of Lucid Potential":
+  pack: "pathfinder-dark-archive"
+  level: 13
+  size: "gargantuan"
+  rarity: "unique"
+  traits: ["aberration"]
+  ac: 33
+  hp: 290
+  perception: 26
+  saves: {"fortitude": 26, "reflex": 20, "will": 29}
+  abilities: {"cha": 8, "con": 5, "dex": 1, "int": 1, "str": 5, "wis": 1}
+  speeds: {"land": 0}
+  skills: {"Acrobatics": 30, "Athletics": 30}
+  strikes: [{"name": "Psychic Scream", "bonus": 27, "damage": [["4d6", "sonic", null], ["4d6", "mental", null]], "traits": ["mental", "occult", "sonic"]}]
+  actions: [{"name": "Anchored in Silk", "type": "passive", "traits": [], "text": "The cocoon is incapable of movement beyond slight wriggling in place. It has no Speed and can't move or be moved, even through means such as teleportation, as the Weaver's threads tether it in place physically and astrally. The cocoon casts any spells psychically, substituting verbal and somatic components for expressions of pure unbridled will and removing the manipulate trait from its Cast a Spell action."}, {"name": "Give of Oneself", "type": "free", "traits": [], "text": "Trigger The Weaver would be reduced to 0 Hit Points%rEffect The cocoon's vitality is linked to the Weaver's. It loses 30 untyped Hit Points, restoring 15 healing Hit Points to the Weaver. It can use this ability even if it would otherwise be unable to act."}, {"name": "In There Somewhere", "type": "passive", "traits": [], "text": "Killia's individuality still rests within the cocoon, yet trying to resist assimilation. If a PC succeeds at a DC 32 Diplomacy check on the cocoon, the cocoon takes 5d6 mental damage and is Stunned 1 as Killia's consciousness fights the Weaver. The cocoon can't be affected in this way more than once per turn."}, {"name": "Of Same Essence", "type": "passive", "traits": [], "text": "The cocoon and the Weaver share the same essence. Its spells never affect the Weaver if they would harm him, and the Weaver can ignore the any of the cocoon's active spell effects if he desires (such as Sea of Thought)."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 33, "attack": 27, "spells": {"0": ["Daze", "Phase Bolt", "Shield", "Telekinetic Hand", "Telekinetic Projectile"], "5": ["Darkness", "Etheric Shards", "Sea of Thought", "Synaptic Pulse"], "6": ["Collective Transposition", "Dispel Magic", "Never Mind", "Soothe"], "7": ["Invisibility Curtain", "Spirit Blast", "Telekinetic Bombardment"]}}]
+"K. H. W.'s Echo":
+  pack: "pathfinder-dark-archive"
+  level: 14
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 36
+  hp: 280
+  perception: 30
+  saves: {"fortitude": 23, "reflex": 24, "will": 28}
+  abilities: {"cha": 8, "con": 4, "dex": 5, "int": 5, "str": 4, "wis": 5}
+  speeds: {"land": 25}
+  hp_details: "destabilized form"
+  skills: {"Acrobatics": 28, "Arcana": 25, "Athletics": 25, "Nature": 25, "Occultism": 25, "Religion": 25, "Esoteric Lore": 30}
+  strikes: [{"name": "Rope Dart", "bonus": 29, "damage": [["4d4 + 13", "piercing", null], ["2d6", "mental", null]], "traits": ["disarm", "finesse", "magical", "sweep", "tethered", "trip"]}, {"name": "Rope Dart", "bonus": 29, "damage": [["4d4 + 13", "piercing", null], ["2d6", "mental", null]], "traits": ["disarm", "finesse", "magical", "sweep", "tethered", "thrown-80", "trip"]}]
+  actions: [{"name": "Destabilized Form", "type": "passive", "traits": [], "text": "When the Echo has fewer than 140 Hit Points, his form destabilizes, large chunks disintegrating from his face, limbs, and torso. White moths constantly stream from the missing spaces, creating a 10-foot that deals 6d6 mental|options:area-damage damage with a DC 34 Will.%rAs long as the aura persists, he can dissolve into moths and re-form at another location within 15 feet as a free action at the beginning of each of his turns; this has the occult and teleportation traits."}, {"name": "Reactive Strike (Special)", "type": "reaction", "traits": [], "text": "The Echo has reach 15 for the purpose of determining when Reactive Strike triggers and when making Reactive Strikes."}, {"name": "Astral Spindel Implement", "type": "passive", "traits": [], "text": "The Echo carries a drop spindle that constantly spins red astral thread, which is both his thaumaturgic implement and weapon. If his rope dart is lost or broken, he can re-form it with an Interact action. If he critically succeeds at a rope dart Strike, overwhelming thoughts and figments flow down the thread into the target's mind. The target becomes Confused for 1 round."}, {"name": "Astral Thread Control", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rRequirements The Echo's previous action was a successful thrown rope dart Strike%rEffect The Echo flicks his wrist and makes a follow-up thrown rope dart Strike at a different target within 30 feet of the first target, using the same multiple attack penalty as his previous Strike. Regardless of whether his attack hits, he then retrieves the weapon."}, {"name": "Contingency Oathday-Nine-Rova", "type": "free", "traits": [], "text": "Frequency once per day%rTrigger The Echo's turn begins and he's stunned, slowed, Confused, Controlled, Immobilized, Grabbed, Paralyzed, Restrained, or otherwise can't act%rEffect The Echo has set up numerous contingencies in the event he's compromised. Talismans on his body shatter, counteracting the triggering effect. The Echo can use this free action even if he can't act."}, {"name": "Reconstitute from Thought", "type": "action", "traits": ["healing"], "cost": 1, "text": "Requirements The Echo is standing on one of the eight large islands of the map, and the island hasn't darkened%rEffect The Echo throws his rope dart into the island and uses it to absorb mental essence from the mindscape, repairing himself. He regains 45 healing Hit Points and the island turns a desaturated gray for 1 day, preventing future absorption and disabling the Call of the Void hazard on that island."}, {"name": "Spindle's Web", "type": "action", "traits": [], "cost": 2, "text": "The Echo's spindle revolves faster and faster until it's a blur, lashing red threads in every direction. The threads deal 7d6 slashing damage and 7d6 mental damage to all creatures in a 30-foot, with a DC 34 Reflex. If a creature fails its save, the threads awaken the mindscape anchor within it, affecting it differently based on which anchor that creature used to gain access to the center of the mindscape. (If there is a PC who didn't absorb a mindscape anchor, for instance because there are…"}]
+"Mother Mitera":
+  pack: "pathfinder-dark-archive"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["human"]
+  ac: 25
+  hp: 140
+  perception: 18
+  saves: {"fortitude": 14, "reflex": 17, "will": 18}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 2, "str": 1, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "crystal vitality link"
+  skills: {"Deception": 20, "Diplomacy": 18, "Nature": 18, "Religion": 18, "Society": 16, "Ludovica Lore": 16}
+  strikes: [{"name": "Dagger", "bonus": 18, "damage": [["2d4+7", "piercing", null], ["1d6", "mental", null], ["1d6", "bleed", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Dagger", "bonus": 18, "damage": [["2d4+7", "piercing", null], ["1d6", "mental", null], ["1d6", "bleed", null]], "traits": ["agile", "magical", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Crystal Vitality Link", "type": "passive", "traits": [], "text": "The power of the island links Mitera's vitality to her followers. As long as any of the three quartz formations are intact, whenever Mitera takes damage, any of her followers within 10 miles lose the same amount of HP."}, {"name": "Ascension is Near", "type": "action", "traits": ["auditory", "concentrate", "emotion", "incapacitation", "mental"], "cost": 1, "text": "Frequency once per ascension ritual%rEffect Mitera activates the moonflower link with her followers. Any followers within 30 feet who failed their saving throw against the moonflower tea become Sickened 1. Anyone who critically failed and did not receive an antidote explodes (this is about half of Mitera's congregation if the PCs didn't successfully administer the antidote). If anyone's body explodes, Mitera gains 30 temporary HP and is Quickened for 3 rounds; she can use this additional action…"}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 26, "attack": 18, "spells": {"0": ["Frostbite", "Guidance", "Light", "Message", "Tangle Vine"], "1": ["Heal"], "2": ["Entangling Flora", "One with Plants", "Revealing Light"], "3": ["Lightning Bolt", "Tempest Cloak"], "4": ["Grasping Earth", "Life-Draining Roots", "Unfettered Movement"]}}]
+"Quartz-Spawned Shadow":
+  pack: "pathfinder-dark-archive"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["incorporeal", "undead", "unholy"]
+  ac: 20
+  hp: 40
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 14, "will": 12}
+  abilities: {"cha": 3, "con": 0, "dex": 4, "int": -2, "str": -5, "wis": 2}
+  speeds: {"land": 0, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 10, "Stealth": 14}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 5}
+  strikes: [{"name": "Shadow Hand", "bonus": 15, "damage": [["2d6+3", "void", null]], "traits": ["finesse", "magical"]}]
+  actions: [{"name": "Light Vulnerability", "type": "passive", "traits": [], "text": "An object shedding magical light (such as from the Light spell) is treated as magical when used to attack the shadow."}, {"name": "Crystal Siphon", "type": "action", "traits": ["death", "divine", "void"], "cost": 2, "text": "Requirements The shadow and the target are both within 40 feet of the crystal that spawned the shadow, and the crystal isn't covered or obstructed%rEffect Shadows in the shape of tendrils curl around the target, drawing out a portion of the target's vitality and siphoning it into the crystal. The target takes 4d6 void damage (DC 21 Fortitude). On a failure, they are also Enfeebled 1. This enfeebled condition is cumulative with other enfeebled conditions from quartz-spawned shadows, to a maximum…"}, {"name": "Slink in Shadows", "type": "passive", "traits": [], "text": "The shadow can Hide or end its Sneak in a creature's or object's shadow."}]
+"Reflection":
+  pack: "pathfinder-dark-archive"
+  level: 6
+  size: "medium"
+  rarity: "common"
+  traits: []
+  ac: 24
+  hp: 30
+  perception: 0
+  saves: {"fortitude": 11, "reflex": 17, "will": 0}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 50}
+  immunities: ["object-immunities"]
+  strikes: [{"name": "Reflected Weapon", "bonus": 17, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["versatile-p", "versatile-s"]}]
+  actions: [{"name": "Reflection Routine", "type": "passive", "traits": ["magical", "trap"], "text": "Each reflection has 2 actions which it uses to Step, Stride, or Strike (in any combination). Reflections can act on the same turn they're created."}]
+"Spectral Fang Paleohemoth":
+  pack: "pathfinder-dark-archive"
+  level: 12
+  size: "large"
+  rarity: "rare"
+  traits: ["construct", "mindless"]
+  ac: 33
+  hp: 195
+  perception: 20
+  saves: {"fortitude": 26, "reflex": 20, "will": 18}
+  abilities: {"cha": -5, "con": 6, "dex": 2, "int": -5, "str": 7, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 20}
+  weaknesses: {"cold": 10, "earth": 10, "water": 10}
+  resistances: {"physical": 10, "spells": 10}
+  strikes: [{"name": "Jaws", "bonus": 26, "damage": [["3d10 + 13", "piercing", null]], "traits": ["deadly-d10", "magical", "reach-10", "unarmed"]}, {"name": "Spectral Flame", "bonus": 24, "damage": [["1d6", "void", null], ["3d8+13", "fire", null]], "traits": ["fire", "occult", "void"], "range": 60, "effects": ["Fossilization"]}]
+  actions: [{"name": "Fossilization", "type": "passive", "traits": ["arcane", "incapacitation"], "text": "The first time each round a creature takes damage from the paleohemoth's jaws, the target must attempt a DC 32 Fortitude save. If it fails and has not already been slowed by this ability, it becomes Slowed 1 for 1 minute.%rIf the creature was already slowed by this ability, a failed save causes it to be Petrified permanently."}, {"name": "Incomplete", "type": "passive", "traits": [], "text": "The spectral fang paleohemoth is missing part of its body, making it Large instead of Huge and reducing the reach of its jaws Strike to 10 feet."}, {"name": "Reassemble", "type": "action", "traits": [], "cost": 1, "text": "The paleohemoth reorganizes its bones, increasing its reach to 25 feet and reducing its Speed to 15 feet. It can revert to its original form by taking this action again."}]
+"The Morrowkin":
+  pack: "pathfinder-dark-archive"
+  level: 14
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "time"]
+  ac: 34
+  hp: 320
+  perception: 24
+  saves: {"fortitude": 28, "reflex": 25, "will": 25}
+  abilities: {"cha": 4, "con": 7, "dex": 7, "int": 5, "str": 8, "wis": 4}
+  speeds: {"land": 35}
+  skills: {"Athletics": 26, "Deception": 24, "Intimidation": 28, "Occultism": 25, "Stealth": 25}
+  strikes: [{"name": "Claw", "bonus": 29, "damage": [["3d8 + 14", "slashing", null]], "traits": ["agile", "finesse", "reach-10", "unarmed"], "effects": ["Drain Potential"]}]
+  actions: [{"name": "Disgusted by Food", "type": "passive", "traits": [], "text": "The morrowkin eats dreams and potential, not food. A creature that spends an action to brandish food at the morrowkin automatically makes the creature Sickened 1 (or increases its sickened value by 1, to a maximum of sickened 6), decreasing the morrowkin's AC, attack rolls, saves, skills, and ability DCs accordingly, as normal for the sickened condition. The morrowkin can't retch to reduce its sickened condition."}, {"name": "Endless", "type": "passive", "traits": [], "text": "If reduced to 0 Hit Points or incapacitated for more than a few rounds, the morrowkin vanishes. In 1 minute, it reappears refreshed completely as if the previous battle never happened, with full HP, with all effects on it cleared, and with its Swallow Future ability ready to use again."}, {"name": "Drain Potential", "type": "passive", "traits": ["misfortune", "void"], "text": "The morrowkin tries to drain the motivation from its target, who must attempt a DC 31 Fortitude save. If the target fails, it is Doomed 1 (Doomed 2 on a critical failure) and must roll twice and use the worse result on all checks for 1 minute. Creatures wearing a hope talisman are unaffected."}, {"name": "Swallow Future", "type": "action", "traits": ["mental", "void"], "cost": 2, "text": "Frequency once per minute%rEffect The morrowkin inhales and draws forth the future deeds of all creatures around it. All creatures within a 30-foot emanation of the morrowkin take (6d8+18) mental|options:area-damage damage depending on their DC 39 Will save. Creatures wearing hope talismans can choose to let their hope talisman break in order to ignore the effect after seeing the result of their Will save.%rCritical Success The creature takes no damage.%rSuccess The creature takes half damage…"}, {"name": "Tomorrow's Fury", "type": "action", "traits": [], "cost": 2, "text": "The morrowkin makes claw attacks against any number of targets within reach. The claw attacks count against the morrowkin's multiple attack penalty, but don't apply the penalty until after all attacks have been made."}]
+"The Weaver in Dreams":
+  pack: "pathfinder-dark-archive"
+  level: 15
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "human", "humanoid"]
+  ac: 39
+  hp: 310
+  perception: 33
+  saves: {"fortitude": 28, "reflex": 29, "will": 32}
+  abilities: {"cha": 8, "con": 4, "dex": 7, "int": 5, "str": 4, "wis": 5}
+  speeds: {"land": 25, "fly": 25}
+  skills: {"Acrobatics": 30, "Athletics": 29, "Intimidation": 33, "Occultism": 33, "Stealth": 31}
+  strikes: [{"name": "Claw", "bonus": 32, "damage": [["5d6+14", "slashing", null]], "traits": ["agile", "finesse", "magical", "unarmed", "versatile-p"]}, {"name": "Astral Silk", "bonus": 32, "damage": [["5d4+14", "slashing", null], ["3d6", "mental", null]], "traits": ["disarm", "finesse", "magical", "reach-20", "sweep"], "effects": ["Separate Astral Body"]}]
+  actions: [{"name": "Dreams Unraveling", "type": "passive", "traits": ["aura", "emotion", "fear", "mental", "visual"], "text": "When the Weaver has fewer than 155 Hit Points, his form partially unravels, revealing patches of pure horror acute enough to leave physical wounds. This creates a 10-foot emanation that deals 3d6 mental damage and 3d6 slashing damage, with a DC 36 Will. A creature Averting its Gaze is immune to the aura."}, {"name": "Nameless Nightmare", "type": "passive", "traits": [], "text": "The Weaver has torn off his own name to become a being of fear. He is immune to linguistic effects and any effect that would impose the Frightened condition. Without a name, he is difficult for phenomena to affect; the Weaver recovers from the Paralyzed, Slowed, and Stunned conditions at the end of his turn, and his flat check to clear persistent damage is 5. If anyone utters, writes, or otherwise attempts to record his name, that creature automatically takes 10 mental damage and the attempt…"}, {"name": "Stitch Into the Web", "type": "reaction", "traits": [], "text": "Trigger The Weaver is moved against his will, or a creature attempts to leave a square within 20 feet of him by any means, including teleportation%rEffect The Weaver's silk stitches a body in place to prevent movement. The creature stops moving and the action is disrupted. The disruption doesn't affect astral bodies."}, {"name": "Separate Astral Body", "type": "action", "traits": [], "cost": 1, "text": "The Weaver buries a silk thread in the target's psyche and tugs, wrenching the target's astral form out of their body. Unless the target succeeds at a DC 36 Will save, their astral form is pulled out, causing a ghostly image of them to appear in an adjacent space of the Weaver's choosing. An astral body is immune to physical damage but affected normally by mental effects, force effects, and effects that directly target the spirit. The target remains connected to their physical body by a silver…"}, {"name": "Sever Astral Threads", "type": "action", "traits": [], "cost": 2, "text": "The Weaver uses a claw to cut the silver cord connecting a creature's astral and physical bodies. This deals 16d6 mental damage to any target affected by Separate Astral Body whose physical or astral body is within 10 feet of the Weaver (DC 37 Will). After being targeted by this ability, the astral body slams violently back into the target's physical body, causing the target's vision to swim and blinding them until the start of their next turn unless they critically succeeded at their saving…"}, {"name": "Stalker in Dreams", "type": "free", "traits": ["teleportation"], "text": "Trigger The Weaver becomes Concealed to all creatures within 60 feet or is not observed by any creatures within 60 feet%rEffect The Weaver's presence in the Universe is connected to others' perception of him, and when that perception falters, he can skitter to a new location. The Weaver teleports to an unoccupied space within 60 feet not within line of sight of any creatures within 60 feet. If the Weaver became concealed or unobserved as part of a movement action he was taking, he can resume…"}, {"name": "String Astral Body", "type": "action", "traits": [], "cost": 1, "text": "The Weaver attaches strings to a creature's astral body to move it. He forcefully moves an exposed astral body within reach of his astral silk Strike up to 20 feet, with no saving throw."}]
+"Verdure's Moonflower":
+  pack: "pathfinder-dark-archive"
+  level: 8
+  size: "huge"
+  rarity: "rare"
+  traits: ["plant"]
+  ac: 24
+  hp: 120
+  perception: 16
+  saves: {"fortitude": 18, "reflex": 10, "will": 16}
+  abilities: {"cha": 3, "con": 4, "dex": 0, "int": -2, "str": 7, "wis": 4}
+  speeds: {"land": 20}
+  hp_details: "fast healing 10"
+  senses: ["darkvision"]
+  skills: {"Athletics": 19, "Stealth": 14}
+  immunities: ["electricity"]
+  weaknesses: {"fire": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Bite", "bonus": 20, "damage": [["2d10+10", "piercing", null]], "traits": ["reach-15"], "effects": ["Grab"]}, {"name": "Root", "bonus": 20, "damage": [["2d8+10", "bludgeoning", null]], "traits": ["agile", "reach-15"]}]
+  actions: [{"name": "Fast Healing 10", "type": "passive", "traits": []}, {"name": "Pod Prison", "type": "free", "traits": [], "text": "Requirements A creature is swallowed by the moonflower%rEffect The moonflower wraps the swallowed creature in a cocoon and extrudes it into an adjacent square. The creature continues to be Swallowed Whole and takes half damage from any damage dealt to the cocoon. Once the cocoon is Ruptured, it deflates and decays."}, {"name": "Pod Spawn", "type": "passive", "traits": [], "text": "If a Small or larger creature dies within a pod prison, the pod transforms into an adult moonflower with full Hit Points after 1d4 hours of growth. The dead creature's equipment remains inside the new moonflower and can be retrieved if the moonflower is slain."}, {"name": "Spray Blossoms", "type": "action", "traits": ["mental", "plant", "poison"], "cost": 2, "text": "The moonflower expels mind-warping petals in a 30-foot cone. Creatures in the area take 4d6 mental,4d6 poison|options:area-damage damage (DC 26 Will save). A creature that fails is Stupefied 2 for 1 minute, and Confused for 1 round if it got a critical failure. The moonflower can't Spray Blossoms again for 1d4 rounds."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Large, (2d10+10) bludgeoning,2d6 acid, Rupture 21"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]

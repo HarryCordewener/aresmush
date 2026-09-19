@@ -56,7 +56,7 @@ module AresMUSH
 
         # If the current initiative is a PC, shoot them a global notifier.
 
-        current_is_char = Character.named("#{this_name}")
+        current_is_char = Character.named(initlist[this_init][1])
 
         if current_is_char
           @init_msg = t('pf2e.your_init', :id => encounter.id)

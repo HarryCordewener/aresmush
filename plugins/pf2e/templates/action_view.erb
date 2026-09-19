@@ -1,0 +1,22 @@
+<%= header %>
+<%= center("#{title_color}#{name}", 78) %>%xn
+<%= divider %>
+<%= "%b%b#{item_color}Cost:%xn #{cost}" %>
+<% if traits %>
+<%= "%b%b#{item_color}Traits:%xn #{traits}" %>
+<% end %>
+<% if frequency %>
+<%= "%b%b#{item_color}Frequency:%xn #{frequency}" %>
+<% end %>
+<%= divider %>
+<%= description %>
+<% if effect %>
+<%= divider %>
+<%= "%b%b#{item_color}Effect:%xn #{effect} (#{lasts})" %>
+<% if usable? %>
+<%= "%b%bTake it on: %xh%xcaction/use #{name}%xn" %>
+<% else %>
+<%= "%b%bYou do not have this action." %>
+<% end %>
+<% end %>
+<%= footer %>

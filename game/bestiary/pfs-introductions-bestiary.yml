@@ -1,0 +1,71 @@
+---
+"Ghoul (PFS Intro 2)":
+  pack: "pfs-introductions-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "evil", "ghoul", "undead", "unholy"]
+  ac: 16
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 4, "reflex": 9, "will": 5}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": 1, "str": 1, "wis": 2}
+  speeds: {"land": 30, "burrow": 5}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 4, "Stealth": 7, "Survival": 5}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d6+1", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Ghoul Ghoul Fever", "Ghoul Paralysis"]}, {"name": "Claw", "bonus": 9, "damage": [["1d4+1", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Ghoul Paralysis"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Consume Flesh", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The ghoul is adjacent to the corpse of a creature that died within the last hour.%rEffect The ghoul devours a chunk of the corpse and regains 1d6 healing Hit Points.%rIt can regain Hit Points from any given corpse only once."}, {"name": "Ghoul Fever", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 15 Fortitude%rStage 1 carrier with no ill effect (1 day)%rStage 2 3d8 void damage and regains half as many Hit Points from all healing (1 day)%rStage 3 as stage 2 (1 day)%rStage 4 3d8 void damage and gains no benefit from healing (1 day)%rStage 5 as stage 4 (1 day)%rStage 6 dead, and rises as a Ghoul the next midnight."}, {"name": "Paralysis", "type": "passive", "traits": ["incapacitation", "occult"], "text": "Any living, non-elf creature hit by a ghoul's attack must succeed at a DC 15 Fortitude save or become Paralyzed. It can attempt a new save at the end of each of its turns, and the DC cumulatively decreases by 1 on each such save."}, {"name": "Swift Leap", "type": "action", "traits": ["move"], "cost": 1, "text": "The ghoul jumps up to half its Speed. This movement doesn't trigger reactions."}]
+"Rain In Cloudy Day":
+  pack: "pfs-introductions-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["fungus", "good", "leshy"]
+  ac: 18
+  hp: 25
+  perception: 6
+  saves: {"fortitude": 6, "reflex": 8, "will": 8}
+  abilities: {"cha": 4, "con": 0, "dex": 2, "int": 2, "str": 1, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Diplomacy": 8, "Nature": 6, "Performance": 8, "Society": 6, "Stealth": 6, "Pathfinder Society Lore": 8}
+  strikes: [{"name": "Fist", "bonus": 8, "damage": [["1d6+1", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Spore Pod", "bonus": 8, "damage": [["1d6+1", "bludgeoning", null]], "traits": [], "range": 30, "effects": ["Spores"]}]
+  actions: [{"name": "Verdant Burst", "type": "passive", "traits": ["healing"], "text": "When Rain in Cloudy Day dies, a burst of primal energy explodes from his body, restoring 2d8 healing Hit Points to each plant creature in a 30-foot. This area is filled with fungi, becoming difficult terrain. If the terrain is not a viable environment for this fungus, it withers after 24 hours."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Rain in Cloudy Day transforms into a Small giant mushroom or patch of fungi. This ability otherwise uses the effects of One with Plants."}, {"name": "Spore Cloud", "type": "action", "traits": ["poison"], "cost": 2, "text": "Rain in Cloudy Day can unleash a cloud of spores that irritates the eyes and throats of nonfungi creatures in a 15-foot. Each creature must succeed at a DC 16 Fortitude save or take 1 persistent poison|options:area-damage damage. A creature has its vision reduced as long as the persistent damage continues and can see only within 20 feet (10 feet on a critical failure)."}, {"name": "Spores", "type": "passive", "traits": [], "text": "A creature that takes damage from Rain in Cloudy Day's spore pod Strike must attempt a saving throw with the same DC and effect as his Spore Cloud ability."}]
+  spellcasting: [{"name": "Focus Occult Spells", "tradition": "occult", "type": "focus", "dc": 17, "attack": 7, "spells": {"0": ["Inspire Courage"], "1": ["Counter Performance"]}}, {"name": "Innate Primal Spells", "tradition": "primal", "type": "innate", "dc": 17, "attack": 7, "spells": {"4": ["Speak with Plants"]}}]
+"Sun-Scorched Shadow Drake":
+  pack: "pfs-introductions-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["chaotic", "dragon", "evil", "shadow"]
+  ac: 15
+  hp: 18
+  perception: 4
+  saves: {"fortitude": 5, "reflex": 8, "will": 4}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": -1, "str": 1, "wis": 0}
+  speeds: {"land": 15, "fly": 60}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 6, "Stealth": 6, "Thievery": 6}
+  immunities: ["paralyzed", "sleep"]
+  weaknesses: {"fire": 5}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d10+1", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Tail", "bonus": 9, "damage": [["1d8+1", "bludgeoning", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Light Blindness", "type": "passive", "traits": []}, {"name": "Shadow Blend", "type": "passive", "traits": [], "text": "The shadow drake's form shifts and blends reflexively with surrounding shadows. A shadow drake gains an additional reaction each round, but it can use this reaction only for Shadow Evade."}, {"name": "Shadow Evade", "type": "reaction", "traits": [], "text": "Trigger A creature attacks the shadow drake while it is in an area of dim light%rEffect The shadow drake further obscures its position. The attacker must succeed at a DC 11 Flat check in order to affect the shadow drake, as if the drake were Hidden for the triggering attack."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The shadow drake makes one jaws Strike and two tail Strikes in any order."}, {"name": "Shadow Breath", "type": "action", "traits": ["arcane", "cold", "shadow"], "cost": 2, "text": "A shadow drake spits a ball of black liquid that explodes into a cloud of frigid black shadow. This attack has a range of 40 feet and explodes in a 5-foot-radius burst. Creatures within the burst take 2d6 cold|options:area-damage damage (DC 16 Reflex save). The explosion of shadow also snuffs out mundane light sources the size of a torch, lantern, or smaller, and attempts to counteract magical light with a +8 counteract modifier.%rThe shadow drake can't use Shadow Breath again for 1d6 #Recharge…"}, {"name": "Speed Surge", "type": "action", "traits": [], "cost": 1, "text": "Frequency three times per day%rEffect The shadow drake Strides or Flies twice."}]
+"Swamp Ooze":
+  pack: "pfs-introductions-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["mindless", "ooze"]
+  ac: 8
+  hp: 40
+  perception: 3
+  saves: {"fortitude": 9, "reflex": 1, "will": 3}
+  abilities: {"cha": -5, "con": 4, "dex": -5, "int": -5, "str": 2, "wis": 0}
+  speeds: {"land": 10}
+  senses: ["motion-sense"]
+  skills: {"Stealth": 1}
+  immunities: ["acid", "critical-hits", "precision", "unconscious", "visual"]
+  strikes: [{"name": "Pseudopod", "bonus": 9, "damage": [["1d6+1", "bludgeoning", null], ["1d4", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Motion Sense 60 feet", "type": "passive", "traits": [], "text": "A swamp ooze can sense nearby motion through vibration and air movement."}, {"name": "Swamp Wave", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per minute%rEffect The swamp ooze unleashes a wave of swamp muck filled with sharp debris, covering all creatures within a 20-foot. Each creature in the area must succeed at a DC 17 Reflex save or take 1d4 piercing|options:area-damage damage and take a –10-foot penalty to its Speeds for 1 minute (on a critical failure, the creature also falls Prone).%rA creature can spend an Interact action to clean someone off, decreasing the Speed penalty by 5 feet with each action."}]

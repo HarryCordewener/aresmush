@@ -1,0 +1,346 @@
+---
+"Alchemical Drudge":
+  pack: "fall-of-plaguestone"
+  level: 2
+  size: "small"
+  rarity: "rare"
+  traits: ["construct"]
+  ac: 18
+  hp: 30
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 10, "will": 6}
+  abilities: {"cha": -2, "con": 1, "dex": 4, "int": 2, "str": 2, "wis": 0}
+  speeds: {"land": 20, "climb": 10}
+  senses: ["darkvision"]
+  skills: {"Athletics": 8, "Crafting": 8, "Stealth": 7}
+  immunities: ["acid"]
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d8+2", "bludgeoning", null]], "traits": ["finesse", "unarmed"], "effects": ["Alchemical Strike"]}]
+  actions: [{"name": "Empathy Link", "type": "passive", "traits": ["arcane", "mental"], "text": "An alchemical drudge can't speak, but its mind is linked to its creator. It can share basic emotional information with its creator, such as fear, happiness, or anger. If the drudge is destroyed, its master automatically knows this. The range of this link is 1,500 feet."}, {"name": "Alchemical Strike", "type": "passive", "traits": [], "text": "An alchemical drudge contains a special reservoir that can be loaded with the contents of one alchemical bomb that deals acid, cold, electricity, or fire damage, allowing the drudge to imbue its fist attacks with this damage. Each hit deals 1d6 points of damage of the same type as that of the bomb loaded into it. Each bomb has enough fluid in it for 10 successful strikes.%rEffect: Alchemical Strike"}, {"name": "Vomit Alchemy", "type": "action", "traits": [], "cost": 2, "text": "An alchemical drudge can vomit forth a pool of caustic alchemical reagents, filling the ground in one square adjacent to the drudge. Creatures in that square when the pool is created take 2d6 acid damage (DC 17 Reflex). Any creature that ends its turn in a square containing a pool takes 2d6 acid damage. The pool remains for 1 minute before becoming inert."}]
+"Bee Swarm":
+  pack: "fall-of-plaguestone"
+  level: 1
+  size: "large"
+  rarity: "common"
+  traits: ["animal", "swarm"]
+  ac: 17
+  hp: 18
+  perception: 5
+  saves: {"fortitude": 4, "reflex": 9, "will": 4}
+  abilities: {"cha": -4, "con": 1, "dex": 4, "int": -5, "str": -1, "wis": 1}
+  speeds: {"land": 0, "fly": 20}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Stealth": 7}
+  immunities: ["precision", "swarm-mind"]
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  resistances: {"bludgeoning": 2, "piercing": 5, "slashing": 5}
+  actions: [{"name": "Beestings", "type": "passive", "traits": ["poison"], "text": "The creature must attempt a DC 16 Fortitude save. Those who fail take 1d4 poison damage and are Clumsy 1 for 1 minute."}, {"name": "Swarming Stings", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 1d4 piercing damage (DC 16 Reflex save). The first time each round a creature fails the save and takes piercing damage, it also suffers the effect of beestings.%rWhenever the bee swarm uses this ability, the swarm takes 1 damage."}]
+"Blood Ooze":
+  pack: "fall-of-plaguestone"
+  level: 4
+  size: "large"
+  rarity: "common"
+  traits: ["mindless", "ooze"]
+  ac: 12
+  hp: 90
+  perception: 8
+  saves: {"fortitude": 15, "reflex": 6, "will": 6}
+  abilities: {"cha": -5, "con": 5, "dex": -4, "int": -5, "str": 5, "wis": 0}
+  speeds: {"land": 10, "climb": 10}
+  senses: ["motion-sense"]
+  skills: {"Athletics": 13, "Stealth": 4}
+  immunities: ["critical-hits", "precision", "unconscious", "visual"]
+  strikes: [{"name": "Pseudopod", "bonus": 15, "damage": [["1d12+8", "bludgeoning", null], ["1d6", "bleed", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Infuse Corpse", "type": "action", "traits": [], "cost": 1, "text": "A blood ooze can seep into a corpse's wounds, displacing its natural blood. It can burst out of the corpse as a free action."}, {"name": "Motion Sense 60 feet", "type": "passive", "traits": [], "text": "A blood ooze can sense nearby motion through vibration and air movement."}, {"name": "Blood Pool", "type": "passive", "traits": [], "text": "Whenever a creature adjacent to a blood ooze takes bleed damage, the blood ooze regains an amount of Hit Points equal to the damage dealt."}, {"name": "Clot", "type": "reaction", "traits": [], "text": "Trigger The blood ooze is damaged by a piercing or slashing attack.%rEffect The blood ooze forms a clot around the wound, reducing the damage taken by 5 (to a minimum of 0)."}, {"name": "Siphon Vitality", "type": "action", "traits": [], "cost": 2, "text": "The blood ooze draws forth blood from nearby creatures, causing their flesh to break open and blood to spill out which replenishes the blood ooze. Each living creature within 15 feet takes 3d6 slashing|options:area-damage damage (DC 21 Fortitude save).%rThe blood ooze regains an amount of Hit Points equal to half the damage Siphon Vitality dealt to the single creature that took the most damage."}]
+"Bloodlash Bush":
+  pack: "fall-of-plaguestone"
+  level: 2
+  size: "small"
+  rarity: "common"
+  traits: ["plant"]
+  ac: 16
+  hp: 35
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 8, "will": 6}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -4, "str": 4, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 8, "Stealth": 6}
+  weaknesses: {"fire": 5}
+  resistances: {"bludgeoning": 5, "piercing": 5}
+  strikes: [{"name": "Vine", "bonus": 11, "damage": [["1d8+4", "slashing", null]], "traits": ["agile", "reach-10"], "effects": ["Weeping Wounds"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Blood Siphon", "type": "action", "traits": [], "cost": 2, "text": "The tendrils of the bush reach out to siphon the blood from a victim up to 20 feet away with persistent bleed damage, causing the victim to immediately take that amount of bleed damage (DC 17 Reflex).%rThe bush regains an amount of Hit Points equal to double the damage dealt."}, {"name": "Spinning Strike", "type": "action", "traits": [], "cost": 3, "text": "The bush spins in a circle, lashing out in all directions at once. It makes one attack roll and compares the result to the AC of each creature within its melee reach, rolling damage only once and applying it to each creature hit."}, {"name": "Weeping Wounds", "type": "passive", "traits": [], "text": "A bloodlash bush's vines cause terrible lacerations that continue to bleed. A creature hit with a vine attack takes 1 bleed damage (2 bleed damage on a critical hit).%rUnlike other forms of persistent damage, this damage is cumulative, to a maximum of 5 persistent bleed damage but it can be stopped like any other persistent bleed damage."}]
+"Caustic Wolf":
+  pack: "fall-of-plaguestone"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["animal"]
+  ac: 18
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 10, "will": 6}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": -4, "str": 2, "wis": 2}
+  speeds: {"land": 35}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 8, "Intimidation": 8, "Stealth": 8, "Survival": 8}
+  immunities: ["acid"]
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d6+2", "piercing", null], ["1d4", "acid", null]], "traits": ["unarmed"], "effects": ["Knockdown"]}]
+  actions: [{"name": "Acid Breath", "type": "action", "traits": [], "cost": 2, "text": "The wolf unleashes a stream of bright green acid from its mouth, coating all creatures in a 30-foot. All creatures in the line take 3d6 acid|options:area-damage damage (DC 16 Reflex save).%rThe caustic wolf cannot use this ability again for 1 minute."}, {"name": "Howl", "type": "action", "traits": [], "cost": 2, "text": "The wolf unleashes a terrifying howl, allowing it to Demoralize all enemies within 30 feet. Wolves within 100 feet can spend a reaction to join the howl, causing the effect to emanate from them as well. This affects additional enemies within 30 feet of them and uses the caustic wolf's Intimidation check with a -4 circumstance penalty.%rEnemies cannot be affected by the howl more than once, even if they are near more than one howling wolf. All creatures targeted by this effect are temporarily…"}, {"name": "Knockdown", "type": "action", "traits": [], "cost": 1}]
+"Drunken Farmer":
+  pack: "fall-of-plaguestone"
+  level: -1
+  size: "medium"
+  rarity: "common"
+  traits: ["good", "human", "humanoid"]
+  ac: 13
+  hp: 16
+  perception: 2
+  saves: {"fortitude": 5, "reflex": 3, "will": 2}
+  abilities: {"cha": 1, "con": 1, "dex": 1, "int": 1, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Athletics": 5, "Farming Lore": 5}
+  strikes: [{"name": "Fist", "bonus": 5, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Chair", "bonus": 3, "damage": [["1d6+3", "bludgeoning", null]], "traits": []}, {"name": "Mug", "bonus": 1, "damage": [["1d4+3", "bludgeoning", null]], "traits": [], "range": 10}]
+"Fiery Leopard":
+  pack: "fall-of-plaguestone"
+  level: 1
+  size: "medium"
+  rarity: "unique"
+  traits: ["animal"]
+  ac: 17
+  hp: 20
+  perception: 6
+  saves: {"fortitude": 6, "reflex": 8, "will": 4}
+  abilities: {"cha": -2, "con": 1, "dex": 3, "int": -4, "str": 1, "wis": 1}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 8, "Athletics": 6, "Stealth": 8}
+  immunities: ["fire"]
+  weaknesses: {"cold": 5}
+  strikes: [{"name": "Jaws", "bonus": 8, "damage": [["1d8+1", "piercing", null], ["1", "fire", null]], "traits": ["finesse", "unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 8, "damage": [["1d4+1", "slashing", null], ["1", "fire", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Fiery Pelt", "type": "passive", "traits": [], "text": "Creatures that start their turn grabbed by a fiery leopard take 1d4 fire damage. Anyone attempting to grapple a fiery leopard takes 1d4 fire damage for each attempt."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Giant Lightning Serpent":
+  pack: "fall-of-plaguestone"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["animal"]
+  ac: 19
+  hp: 27
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 10, "will": 7}
+  abilities: {"cha": -2, "con": 3, "dex": 4, "int": -4, "str": 2, "wis": 1}
+  speeds: {"land": 20, "climb": 20, "swim": 20}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 9, "Athletics": 8, "Stealth": 8, "Survival": 6}
+  strikes: [{"name": "Fangs", "bonus": 11, "damage": [["1d8+2", "piercing", null], ["1d4", "electricity", null]], "traits": ["finesse"]}]
+  actions: [{"name": "Coiled Opportunity (Special)", "type": "reaction", "traits": [], "text": "As Attack of Opportunity, but the serpent can use this reaction only if it's coiled."}, {"name": "Coil", "type": "action", "traits": [], "cost": 1, "text": "The serpent uses an action to coil itself; increasing its reach with its fangs from 5 feet to 10 feet. After the serpent strikes with its fangs, it becomes uncoiled."}, {"name": "Lightning Rattle", "type": "action", "traits": [], "cost": 2, "text": "The serpent rattles its strange metal tail and unleashes a bolt of lightning in a 60-foot. The bolt deals 2d10 electricity|options:area-damage damage (DC 17 Reflex save).%rOnce the giant lightning serpent uses this ability, it must wait 1d4 rounds before doing so again."}]
+"Graytusk":
+  pack: "fall-of-plaguestone"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "humanoid", "orc"]
+  ac: 21
+  hp: 47
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 11, "will": 7}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 1, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 11, "Athletics": 8, "Nature": 7, "Survival": 7}
+  strikes: [{"name": "Shortsword", "bonus": 11, "damage": [["1d6+5", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Fist", "bonus": 11, "damage": [["1d4+5", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Composite Longbow", "bonus": 11, "damage": [["1d8+3", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0", "volley-30"], "range": 100}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Double Shot", "type": "action", "traits": [], "cost": 2, "text": "Graytusk can make two ranged Strikes against two different targets, each at a -2 penalty, Graytusk's multiple attack penalty increases only after both attacks are made."}]
+"Hallod":
+  pack: "fall-of-plaguestone"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 19
+  hp: 44
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 10, "will": 7}
+  abilities: {"cha": 0, "con": 1, "dex": 3, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 8, "Athletics": 11, "Nature": 7, "Stealth": 8, "Survival": 7}
+  strikes: [{"name": "Kukri", "bonus": 12, "damage": [["1d6+6", "slashing", null]], "traits": ["agile", "trip"]}, {"name": "Fist", "bonus": 11, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Heavy Crossbow", "bonus": 10, "damage": [["1d10+2", "piercing", null]], "traits": ["reload-2"], "range": 120}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Dirty Trick", "type": "free", "traits": [], "text": "Trigger Hallod scores a critical hit with a melee attack.%rEffect Hallod can attempt an Athletics check to Shove or Trip the target of his attack. This uses the same multiple attack penalty as the attack, but it does not count as an additional attack for that penalty"}, {"name": "One-Two Move", "type": "action", "traits": [], "cost": 2, "text": "Hallod makes two Strikes, one with each hand; he usually attacks first with his kukri. If this first attack hits, the target is Off-Guard to the second attack (which for Hallod is usually a fist Strike). The multiple attack penalty applies to these attacks as normal"}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Hallod deals 1d6 extra precision damage precision damage to Off-Guard creatures."}]
+"Icy Rat":
+  pack: "fall-of-plaguestone"
+  level: 0
+  size: "small"
+  rarity: "rare"
+  traits: ["animal"]
+  ac: 16
+  hp: 15
+  perception: 5
+  saves: {"fortitude": 6, "reflex": 7, "will": 3}
+  abilities: {"cha": -3, "con": 2, "dex": 3, "int": -4, "str": 1, "wis": 1}
+  speeds: {"land": 30, "climb": 10}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 5, "Athletics": 3, "Stealth": 7}
+  immunities: ["cold"]
+  weaknesses: {"fire": 5}
+  strikes: [{"name": "Jaws", "bonus": 7, "damage": [["1d6+1", "piercing", null], ["1", "cold", null]], "traits": ["agile", "finesse", "unarmed"]}]
+  actions: [{"name": "Icy Death", "type": "passive", "traits": [], "text": "When an icy rat is slain, its body explodes in a burst of frozen fur and bone, dealing 2d4 cold damage to all adjacent creatures (DC 14 Reflex save)."}]
+"Lord Nar":
+  pack: "fall-of-plaguestone"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "humanoid", "orc"]
+  ac: 21
+  hp: 68
+  perception: 9
+  saves: {"fortitude": 11, "reflex": 8, "will": 9}
+  abilities: {"cha": 0, "con": 3, "dex": 2, "int": -1, "str": 5, "wis": 1}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Diplomacy": 8, "Intimidation": 8}
+  strikes: [{"name": "+1 Greatclub", "bonus": 14, "damage": [["1d10+5", "bludgeoning", null]], "traits": ["backswing", "shove"]}, {"name": "Fist", "bonus": 11, "damage": [["1d4+5", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Hatchet", "bonus": 10, "damage": [["1d6+5", "slashing", null]], "traits": ["agile", "sweep", "thrown-10"]}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "No Escape", "type": "reaction", "traits": [], "text": "Trigger An adjacent foe moves away.%rEffect Lord Nar may move up to his speed but must end his move as close to the triggering creature as possible without entering the triggering creature's square."}, {"name": "Rage", "type": "action", "traits": [], "cost": 1, "text": "Lord Nar flies into a rage that lasts 1 minute and grants him 8 temporary Hit Points, 4 additional damage with his listed attacks, and a -1 penalty to AC.%rHe cannot use actions that have the concentrate trait while raging, unless they also have the rage trait.%rOnce his rage ends, Nar cannot Rage again for 1 minute."}]
+"Mangy Wolf":
+  pack: "fall-of-plaguestone"
+  level: -1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 8
+  perception: 5
+  saves: {"fortitude": 4, "reflex": 6, "will": 3}
+  abilities: {"cha": -2, "con": 0, "dex": 2, "int": -4, "str": 1, "wis": 1}
+  speeds: {"land": 35}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 4, "Stealth": 4}
+  strikes: [{"name": "Jaws", "bonus": 6, "damage": [["1d6+1", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Fleas"]}]
+  actions: [{"name": "Fleas", "type": "passive", "traits": [], "text": "Anyone bitten by a mangy wolf is Sickened 1 for 1 minute unless they succeed at a DC 14 Fortitude save, but they can spend an Interact action to scratch away the fleas and remove the condition."}]
+"Mutant Wolf":
+  pack: "fall-of-plaguestone"
+  level: 3
+  size: "medium"
+  rarity: "rare"
+  traits: ["animal"]
+  ac: 19
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 11, "will": 7}
+  abilities: {"cha": -2, "con": 2, "dex": 4, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 35}
+  senses: ["motion-sense"]
+  skills: {"Acrobatics": 9, "Athletics": 11, "Stealth": 9}
+  immunities: ["acid", "visual"]
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d8+4", "piercing", null], ["1d6", "acid", null]], "traits": ["unarmed"], "effects": ["Tear"]}]
+  actions: [{"name": "Motion Sense (Precise) 30 feet", "type": "passive", "traits": [], "text": "A mutant wolf can sense nearby motion through vibration and air movement."}, {"name": "Gore Spray", "type": "reaction", "traits": ["acid"], "text": "Trigger A creature critically hits a mutant wolf while adjacent to it.%rEffect The wound causes gore to spray from a ruptured pustule. The triggering creature takes 3d6 acid damage (DC 19 Reflex save). This occurs even if the attack kills the wolf."}, {"name": "Tear", "type": "action", "traits": [], "cost": 1, "text": "Trigger The wolf dealt damage to a creature with its jaws during the previous action.%rEffect The wolf tears at the creature's flesh, dealing 1d6+2 slashing damage and 1 persistent acid damage."}]
+"Orc Alchemist":
+  pack: "fall-of-plaguestone"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "evil", "humanoid", "orc"]
+  ac: 17
+  hp: 30
+  perception: 6
+  saves: {"fortitude": 9, "reflex": 9, "will": 4}
+  abilities: {"cha": -1, "con": 3, "dex": 3, "int": 3, "str": 2, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 7, "Athletics": 6, "Crafting": 9, "Stealth": 7}
+  strikes: [{"name": "Orc Knuckle Dagger", "bonus": 8, "damage": [["1d6+2", "piercing", null]], "traits": ["agile", "disarm"]}, {"name": "Fist", "bonus": 7, "damage": [["1d4+2", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Acid Flask", "bonus": 9, "damage": [["1", "acid", null], ["1d6", "acid", "persistent"], ["1", "acid", "splash"]], "traits": ["splash"], "range": 20}, {"name": "Alchemist's Fire", "bonus": 9, "damage": [["1d8", "fire", null], ["1", "fire", "persistent"], ["1", "fire", "splash"]], "traits": ["splash"], "range": 20}, {"name": "Bottled Lightning", "bonus": 9, "damage": [["1d6", "electricity", null], ["1", "electricity", "splash"]], "traits": ["splash"], "range": 20}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}]
+"Stone Horse":
+  pack: "fall-of-plaguestone"
+  level: 2
+  size: "large"
+  rarity: "unique"
+  traits: ["animal"]
+  ac: 16
+  hp: 30
+  perception: 6
+  saves: {"fortitude": 11, "reflex": 5, "will": 8}
+  abilities: {"cha": -1, "con": 5, "dex": 1, "int": -4, "str": 4, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Acrobatics": 5, "Athletics": 10}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Hoof", "bonus": 10, "damage": [["1d8+4", "bludgeoning", null]], "traits": []}]
+  actions: [{"name": "Shattering Hooves", "type": "passive", "traits": [], "text": "The hooves of the stone horse are as hard as iron; if the horse makes a Hoof Strike and gets a critical hit, the target's armor is damaged as well, the attack dealing as much damage to the armor as it dealt to the target (Hardness applies as normal). If the target uses shield block against the stone horse's critical hit with a hoof attack, treat the shield's Hardness as 5 points lower (minimum 0)."}]
+"The Amalgam":
+  pack: "fall-of-plaguestone"
+  level: 4
+  size: "large"
+  rarity: "unique"
+  traits: ["aberration", "chaotic", "evil"]
+  ac: 20
+  hp: 65
+  perception: 11
+  saves: {"fortitude": 12, "reflex": 10, "will": 9}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": 2, "str": 5, "wis": 1}
+  speeds: {"land": 20, "climb": 10, "swim": 10}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 15, "Intimidation": 10}
+  strikes: [{"name": "Fist", "bonus": 14, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "unarmed"]}, {"name": "Claw", "bonus": 14, "damage": [["1d8+5", "slashing", null]], "traits": ["unarmed"]}, {"name": "Jaws", "bonus": 12, "damage": [["1d10+5", "piercing", null]], "traits": ["unarmed"]}, {"name": "Tail", "bonus": 12, "damage": [["1d8+5", "bludgeoning", null]], "traits": [], "effects": ["Trip"]}]
+  actions: [{"name": "Many Minds", "type": "passive", "traits": [], "text": "The Amalgam has many consciousnesses floating inside its mind, and they are not equally affected by mental magic. The Amalgam always treats its saving throws against mental effects as one degree better."}, {"name": "Too Many Limbs", "type": "action", "traits": [], "cost": 2, "text": "The amalgam can make up to four Strikes, one with each of its listed melee attacks, but no more than two at any one target. It takes a -2 penalty to each attack, but the multiple attack penalty does not increase until all the attacks are made."}, {"name": "Trip", "type": "action", "traits": ["attack", "skill"], "cost": 1, "text": "Requirements You have at least one hand free. Your target can't be more than one size larger than you%rYou try to knock a creature to the ground. Attempt an Athletics check against the target's Reflex DC.%rCritical Success The target falls and lands Prone and takes 1d6 bludgeoning damage.%rSuccess The target falls and lands prone.%rCritical Failure You lose your balance and fall and land prone."}]
+"The Behemoth":
+  pack: "fall-of-plaguestone"
+  level: 3
+  size: "large"
+  rarity: "unique"
+  traits: ["construct"]
+  ac: 17
+  hp: 60
+  perception: 7
+  saves: {"fortitude": 11, "reflex": 6, "will": 7}
+  abilities: {"cha": -2, "con": 4, "dex": 1, "int": 0, "str": 5, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 7}
+  strikes: [{"name": "Fist", "bonus": 12, "damage": [["2d6+5", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Empathy Link", "type": "passive", "traits": ["arcane", "mental"], "text": "The behemoth can't speak, but its mind is linked to its creator. It can share basic emotional information with its creator, such as fear, happiness, or anger. If the behemoth is destroyed, its master automatically knows this. The range of this link is 1,500 feet."}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Massive Strike", "type": "action", "traits": [], "cost": 2, "text": "The behemoth makes a melee Strike and, if the attack hits, it can push the creature back 10 feet (20 feet on a critical hit). The target must succeed at a DC 19 Fortitude save or be knocked Prone by this attack."}, {"name": "Stomp", "type": "action", "traits": [], "cost": 2, "text": "The behemoth can stomp on the ground, causing all creatures within 10 feet to fall Prone (DC 19 Reflex save negates)."}]
+"The Sculptor":
+  pack: "fall-of-plaguestone"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "humanoid", "orc"]
+  ac: 21
+  hp: 54
+  perception: 9
+  saves: {"fortitude": 11, "reflex": 11, "will": 7}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": 4, "str": 1, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 9, "Crafting": 13, "Diplomacy": 8, "Medicine": 9, "Stealth": 9}
+  strikes: [{"name": "Orc Knuckle Dagger", "bonus": 7, "damage": [["1d6+1", "piercing", null]], "traits": ["agile", "disarm"]}, {"name": "Fist", "bonus": 9, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Alchemist's Fire", "bonus": 12, "damage": [["2d8", "fire", null], ["2", "fire", "persistent"], ["2", "fire", "splash"]], "traits": ["splash"], "range": 20}, {"name": "Frost Vial", "bonus": 12, "damage": [["2d6", "cold", null], ["2", "cold", "splash"]], "traits": ["splash"]}, {"name": "Acid Flask", "bonus": 12, "damage": [["1", "acid", null], ["1d6", "acid", "persistent"], ["1", "acid", "splash"]], "traits": ["splash"], "range": 20}, {"name": "Bottled Lightning", "bonus": 12, "damage": [["1d6", "electricity", null], ["1", "electricity", "splash"]], "traits": ["splash"], "range": 20}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Alchemy", "type": "passive", "traits": [], "text": "The Sculptor has used his alchemy ability to create 4 Alchemist's Fire (Moderate), 2 Elixir of Life (Lesser), and 4 Frost Vial (Moderate). These are infusions. He can spend an action to create an additional vial of any one of those, Bottled Lightning (Lesser), or a Acid Flask (Lesser)"}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "The Sculptor can use Interact to draw a bomb and then Strike with it."}]
+"Vilree":
+  pack: "fall-of-plaguestone"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["elf", "evil", "human", "humanoid", "lawful"]
+  ac: 22
+  hp: 68
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 13, "will": 8}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 4, "str": 1, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 11, "Arcana": 11, "Crafting": 13, "Diplomacy": 7, "Intimidation": 7, "Stealth": 11}
+  strikes: [{"name": "Dagger", "bonus": 14, "damage": [["2d4+1", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}, {"name": "Fist", "bonus": 13, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Acid Flask", "bonus": 13, "damage": [["1", "acid", null], ["2d6", "acid", "persistent"], ["2", "acid", "splash"]], "traits": ["thrown-30"]}, {"name": "Alchemist's Fire", "bonus": 13, "damage": [["2d8", "fire", null], ["2", "fire", "persistent"], ["2", "fire", "splash"]], "traits": ["thrown-30"]}, {"name": "Bottled Lightning", "bonus": 13, "damage": [["2d6", "electricity", null], ["2", "electricity", "splash"]], "traits": ["thrown-30"]}, {"name": "Tanglefoot Bag", "bonus": 13, "damage": [], "traits": ["thrown-30"]}, {"name": "Alchemical Crossbow", "bonus": 13, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 30}]
+  actions: [{"name": "Alchemy", "type": "passive", "traits": [], "text": "Vilree has used her alchemy ability to create 4 Acid Flask (Moderate), 6 Alchemist's Fire (Moderate), 2 Bottled Lightning (Moderate), 3 lesser elixirs of life Elixir of Life (Lesser), and 2 lesser tanglefoot bags Tanglefoot Bag (Lesser). These are infusions. She can spend an action to create an additional vial of any one of these items, or any of the items listed as formulas in her book."}, {"name": "Far Lob", "type": "passive", "traits": [], "text": "Vilree's bombs have a range increment of 30 feet."}, {"name": "Alchemical Crossbow", "type": "passive", "traits": [], "text": "Vilree's crossbow can deliver bolts that are alchemically infused. As an action, she can slot an alchemical bomb into the crossbow, and the next 3 attacks she makes with it deal 1d6 damage of the type dealt by the bomb. These attacks never deal splash damage.%rEffect: Alchemical Crossbow"}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "Vilree can interact to draw a bomb and then make a Strike with it."}]
+"Vine Lasher":
+  pack: "fall-of-plaguestone"
+  level: 0
+  size: "small"
+  rarity: "common"
+  traits: ["plant"]
+  ac: 16
+  hp: 15
+  perception: 4
+  saves: {"fortitude": 6, "reflex": 7, "will": 4}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": -4, "str": 2, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 6, "Stealth": 5}
+  strikes: [{"name": "Vine", "bonus": 7, "damage": [["1d8+2", "bludgeoning", null]], "traits": ["agile", "finesse", "reach-10"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Light Hold", "type": "passive", "traits": [], "text": "A creature Grabbed by a vine lasher is not immobilized, but the grabbed creature's space and every adjacent square use the rules for difficult terrain. If the creature moves, the vine lasher moves with it, always keeping the grabbed creature within 10 feet of itself.%rIf two or more vine lashers have a creature grabbed in this way, then the target's space and adjacent square instead use the rules for greater difficult terrain."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]

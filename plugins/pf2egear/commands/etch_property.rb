@@ -42,27 +42,57 @@ module AresMUSH
         nil
       end
 
-      def handle
-        # All validation checks have passed
-        # Property Runes are a toggle, essentially. The list will have it or not.
-        runes = @item.runes || {}
-        runes["property"] ||= { "list" => [] }
-        list = runes["property"]["list"] || []
-        
-        # Remove it if it's there, add it if it's not
-        if list.include? self.rune_name
-          # Has it, so remove it
-          list.delete(self.rune_name)
-          operation = "unset"
-        else
-          # Doesn't have it, add it and sort the list
-          list << self.rune_name
-          list.sort!
-          operation = "set"
+      # A rune the catalogue does not have is a rune that does nothing: what a rune is worth lives in
+      # `pf2e_runes.yml`, and a name nothing matches would etch a word onto the item and no mechanics.
+      def check_rune_exists
+        @rune = Pf2egear.rune_named(self.rune_name)
+
+        return nil if @rune
+
+        t('pf2egear.rune_property_unknown', :rune_name => self.rune_name)
+      end
+
+      # A rune fits the kind of thing it is for, and an item holds as many as its potency rune is worth.
+      # Taking one off is always allowed, which is what lets an over-runed item be put right.
+      def check_rune_fits
+        return nil if etched?
+
+        wanted = Pf2egear.rune_entry(@rune)['kind'].to_s
+        kind = Pf2egear::Inventory.canonical(self.category).to_s
+
+        unless kind.start_with?(wanted)
+          return t('pf2egear.rune_property_wrong_kind', :rune_name => @rune, :kind => wanted)
         end
-        runes["property"]["list"] = list
+
+        return nil if held_runes.size < Pf2egear.rune_slots(@item)
+
+        t('pf2egear.rune_property_no_slot', :slots => Pf2egear.rune_slots(@item))
+      end
+
+      def held_runes
+        Array((@item.runes || {}).dig('property', 'list'))
+      end
+
+      def etched?
+        held_runes.any? { |one| Pf2e::Domains.slug(one) == Pf2e::Domains.slug(@rune) }
+      end
+
+      def handle
+        # A property rune is a toggle: the list has it or it does not.
+        runes = @item.runes || {}
+        runes['property'] ||= { 'list' => [] }
+        list = held_runes
+        operation = etched? ? 'unset' : 'set'
+
+        if etched?
+          list = list.reject { |one| Pf2e::Domains.slug(one) == Pf2e::Domains.slug(@rune) }
+        else
+          list = (list + [ @rune ]).sort
+        end
+
+        runes['property']['list'] = list
         @item.update(runes: runes)
-        client.emit_success t('pf2egear.rune_property_set', :rune_name => self.rune_name.titlecase, :operation => operation, :char => self.target.titlecase, :item_name => @item.nickname.nil? ? @item.name : @item.nickname)
+        client.emit_success t('pf2egear.rune_property_set', :rune_name => @rune, :operation => operation, :char => self.target.titlecase, :item_name => @item.nickname.nil? ? @item.name : @item.nickname)
       end
     end
   end

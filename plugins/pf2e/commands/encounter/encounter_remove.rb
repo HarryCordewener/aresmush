@@ -49,6 +49,9 @@ module AresMUSH
 
         PF2Encounter.remove_from_initiative(encounter, index)
 
+        # A creature removed from the fight is gone, with whatever it was under.
+        encounter.npcs.to_a.select { |npc| npc.name == initlist[index][1] }.each(&:delete)
+
         client.emit_success t('pf2e.encounter_remove_ok',
           :encounter => encounter.id,
           :name => initlist[index][1]

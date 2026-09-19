@@ -1,0 +1,790 @@
+# Every distinct arithmetic expression in the Foundry VTT pf2e system's shipped packs.
+#
+# Extracted from foundryvtt/pf2e (packs/), one expression per line, most-used first, with
+# its use count. These are game mechanics: the items carrying them declare OGL 1.0a or ORC.
+# Regenerate with scripts/extract_foundry_formulas.py.
+#
+# Pf2e::Formula must parse every line. A line it cannot parse is a construct we have not
+# read correctly - which is the whole reason this file is checked in rather than sampled.
+210	@actor.level
+93	(@spell.level*2)-1
+90	@actor.system.movement.speeds.land.value
+88	max(1,floor(@actor.level/2))
+68	18 + @actor.level
+54	floor(@actor.level/2)
+45	1
+42	@weapon.system.damage.dice
+40	@item.badge.value
+40	22 + @actor.level
+40	@actor.system.proficiencies.attacks.unarmed.rank
+39	2
+37	ternary(gte(@actor.level,17),3,2)
+34	@item.level
+24	21 + @actor.level
+23	3
+22	@item.origin.level
+20	4
+19	-@item.badge.value
+19	@actor.flags.system.sneakAttackDamage.number
+19	@actor.flags.system.ragingResistance
+18	max(20,@actor.system.movement.speeds.land.value)
+18	ternary(gte(@actor.level,5),2,1)
+18	@actor.abilities.con.mod+3
+17	ternary(lt(@actor.level, 5), 1, ternary(lt(@actor.level, 11), 2, ternary(lt(@actor.level, 17), 3, 4)))
+16	@item.flags.system.rulesSelections.penalty
+15	@spell.rank
+15	@actor.flags.system.champion.aura
+15	20 + @actor.level
+15	16 + @actor.level
+15	ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,10),2,1))
+15	@item.flags.system.rulesSelections.bonus
+15	floor(@actor.level / 2)
+14	@spell.level
+14	19 + @actor.level
+14	17 + @actor.level
+14	@actor.flags.system.kineticist.auraRadius
+12	match(when(btwn(@actor.system.skills.thievery.rank, 0, 2), 1), when(btwn(@actor.system.skills.thievery.rank, 3, 4), 2))
+11	match(when(btwn(@actor.system.skills.crafting.rank, 3, 4), 2), when(btwn(@actor.system.skills.crafting.rank, 1, 2), 1))
+10	ternary(gte(@actor.level,13),2,1)
+10	2 + @armor.system.runes.potency
+9	ternary(gte(@item.level,8),3,ternary(gte(@item.level,5),2,1))
+9	floor(@item.level/2)
+9	match(when(btwn(@actor.system.skills.thievery.rank, 1, 2), 1), when(btwn(@actor.system.skills.thievery.rank, 3, 4), 2))
+9	ternary(eq(@actor.system.skills.society.rank, 4), 2, ternary(eq(@actor.system.skills.society.rank, 3), 1, 0))
+9	@spell.rank - 1
+9	2*@weapon.system.damage.dice
+9	@actor.flags.system.swashbuckler.preciseStrike
+9	1 + @armor.system.runes.potency
+9	2*@actor.level
+8	ternary(gte(@actor.level,20),3,2)
+8	5
+8	floor(@actor.system.movement.speeds.land.value/2)
+8	25 + @actor.level
+8	@weapon.system.damage.dice * 2
+8	0
+8	@item.system.badge.value - 1
+8	@item.system.badge.value * 3
+8	@actor.flags.system.scalyHideBonus
+8	max(1,floor(@actor.level/3))
+8	match(when(lte(@actor.level, 4), @actor.level - 2), when(btwn(@actor.level, 5, 6), @actor.level - 1), when(gte(@actor.level, 7), @actor.level))
+8	ternary(gte(@actor.level,17), 3, ternary(gte(@actor.level,10), 2, 1))
+8	@actor.flags.system.thaumaturge.lantern
+8	ternary(gte(@item.level,18),4,ternary(gte(@item.level,12),3,ternary(gte(@item.level,4),2,1)))
+7	2*@item.level
+7	15
+7	@item.system.runes.potency
+7	3 + floor(@actor.level / 2)
+6	6
+6	ternary(gte(@item.level,7),3,ternary(gte(@item.level,4),2,1))
+6	ceil(@item.level/2)
+6	@actor.abilities.con.mod
+6	floor(@item.origin.level/2)
+6	ternary(gte(@actor.level,15),15,ternary(gte(@actor.level,10),10,5))
+6	ternary(lte(@actor.hitPoints.value, 125), 60, 30)
+5	ternary(gte(@item.level,9),3,ternary(gte(@item.level,6),2,1))
+5	ceil(@actor.level/4) + 1
+5	ternary(gte(@actor.system.skills.performance.rank,3),2,1)
+5	@item.flags.system.rulesSelections.rank
+5	@actor.abilities.int.mod
+5	@blast.flags.system.attackItemBonus
+5	@actor.system.proficiencies.attacks.martial-firearms-crossbows.rank
+5	ternary(gte(@actor.conditions.cursebound.value,3),5+@actor.level,2)
+5	ternary(gte(@actor.system.skills.crafting.rank,3),2,1)
+5	ternary(gte(@actor.level,15),4,ternary(gte(@actor.level,7),3,2))
+5	@weapon.system.damage.dice * -1
+5	@actor.level + 3
+4	@item.system.badge.value * 5
+4	match(when(lte(@item.level, 3), 5), when(lte(@item.level, 4), 7), when(lte(@item.level, 7), 10), 12)
+4	7 + @actor.level
+4	ternary(gte(@item.level, 5), 2, 1)
+4	@item.level * 2
+4	@item.flags.system.rulesSelections.degreeOfSuccess
+4	5*floor(@item.level/3)
+4	@item.flags.system.rulesSelections.outcome
+4	10
+4	match(when(lte(@item.level, 5), 1), when(btwn(@item.level, 6, 9), 2), when(gte(@item.level, 10), 3))
+4	match(when(btwn(@item.level, 4, 7), 1), when(btwn(@item.level, 8, 9), 2), when(gte(@item.level, 10), 3))
+4	ternary(gte(@actor.level,17),15,ternary(gte(@actor.level,9),10,5))
+4	7
+4	ternary(gte(@actor.system.skills.thievery.rank,3),2,1)
+4	match(when(lte(@actor.level, 5), 1), when(btwn(@actor.level, 6, 11), 2), when(btwn(@actor.level, 12, 17), 3), when(gte(@actor.level, 18), 4))
+4	min(1,@actor.system.proficiencies.attacks.simple.rank)
+4	match(when(btwn(@actor.level, 3, 6), 10), when(btwn(@actor.level, 7, 10), 15), when(btwn(@actor.level, 11, 14), 20), when(btwn(@actor.level, 15, 18), 25), when(gte(@actor.level, 19), 30))
+4	@item.flags.system.rulesSelections.cover.bonus
+4	ternary(lt(@actor.level,11),1,ternary(lt(@actor.level,19),2,3))
+4	max(1 + floor((@actor.level - 1) / 4), 1)
+4	ternary(gte(@actor.level,17),3,ternary(gte(@actor.level,9),2,1))
+4	floor((@actor.level+3)/4)
+4	@actor.system.proficiencies.attacks.advanced-firearms-crossbows.rank
+4	@actor.system.proficiencies.attacks.simple-firearms-crossbows.rank
+4	2*@actor.flags.system.thaumaturge.lantern
+4	1 + floor(@actor.level / 2)
+4	ternary(gte(@item.level,18),3,ternary(gte(@item.level,12),2,1))
+4	2 + @actor.system.abilities.int.mod
+4	4 + @actor.system.abilities.int.mod
+4	ceil(@spell.rank/2)
+4	@actor.flags.system.animalSkinBonus
+4	3 + @armor.system.runes.potency
+4	max(@actor.system.proficiencies.defenses.medium.rank,ternary(gte(@actor.level,13),min(@actor.system.proficiencies.defenses.unarmored.rank,2),1))
+4	max(@actor.system.proficiencies.defenses.light.rank,ternary(gte(@actor.level,13),min(@actor.system.proficiencies.defenses.unarmored.rank,2),1))
+4	max(@actor.system.proficiencies.defenses.light.rank,@actor.system.proficiencies.defenses.medium.rank,ternary(gte(@actor.level,13),min(@actor.system.proficiencies.defenses.unarmored.rank,2),1))
+4	@item.flags.system.rulesSelections.auraRadius
+4	max(30,@actor.system.movement.speeds.land.value)
+4	floor(@actor.system.movement.speeds.land.value / 2)
+4	-@actor.conditions.cursebound.value
+4	@item.flags.system.rulesSelections.bonusValue
+4	-@weapon.system.damage.dice
+3	@item.level -1
+3	@actor.system.proficiencies.attacks.simple.rank
+3	ternary(gte(@item.level,8),2,1)
+3	@item.flags.system.rulesSelections.speedPenalty
+3	ternary(gte(@item.level,5),2,1)
+3	@item.origin.system.attributes.shield.ac
+3	ternary(gte(@item.level,9),10,5)
+3	floor(@item.level/3)
+3	match(when(lte(@item.level, 6), 1), when(btwn(@item.level, 7, 9), 2), when(gte(@item.level, 10), 3))
+3	8
+3	5+5*floor((@item.level - 4) / 3)
+3	20
+3	30
+3	match(when(btwn(@actor.level, 1, 16), 2), when(gte(@actor.level, 17), 3))
+3	3 + @actor.abilities.con.mod
+3	8 + @actor.abilities.con.mod
+3	2*@item.origin.level
+3	match(when(btwn(@actor.level, 1, 8), -2), when(btwn(@actor.level, 9, 14), -1), when(gte(@actor.level, 15), 0))
+3	@actor.level + @actor.abilities.int.mod
+3	-1 * @item.badge.value
+3	@actor.abilities.str.mod
+3	5*(floor((@actor.level + 5)/4))
+3	5*(floor((@actor.level + 5)/8))
+3	max(floor(@spell.level/2), 1)
+3	@actor.system.attributes.shield.ac
+3	ternary(gte(@actor.level,18),2,1)
+3	ternary(gte(@actor.level,20),3,ternary(gte(@actor.level,14),2,1))
+3	5 + @armor.system.runes.potency
+3	4 + @armor.system.runes.potency
+3	6 + @armor.system.runes.potency
+3	@actor.system.proficiencies.defenses.light.rank
+3	@actor.system.attributes.classDC.totalModifier
+3	ternary(gte(@actor.level,18),3,2)
+3	max(floor(@actor.level/2),1)
+3	max(1,@actor.level)
+3	max(5,floor(@actor.level/2))
+3	@item.origin.abilities.int.mod
+3	ternary(gte(@actor.level,19),2,1)
+3	@item.flags.system.rulesSelections.modifier
+3	2 + floor(@actor.level / 2)
+3	@actor.level + 2
+3	@actor.conditions.cursebound.value
+3	ternary(gte(@actor.conditions.cursebound.value,4),-2,-1)
+2	(@item.system.badge.value - 1) * 2
+2	60
+2	ternary(gte(@item.level,9),3,ternary(gte(@item.level,7),2,ternary(gte(@item.level,3),1,0)))
+2	ternary(gte(@item.level,9),3,ternary(gte(@item.level,5),2,1))
+2	ceil(@item.level/2)+1
+2	match(when(lte(@item.level, 5), 0), when(btwn(@item.level, 6, 9), 2), when(gte(@item.level, 10), 4))
+2	ternary(gte(@item.level,9),4,ternary(gte(@item.level,5),3,ternary(gte(@item.level,3),2,1)))
+2	@item.level*2
+2	ternary(gte(@item.level,7),15,ternary(gte(@item.level,4),10,5))
+2	max((floor(@item.level/2)-1)*5,5)
+2	5*ceil(@item.level/2)
+2	ternary(gte(@item.level, 10), 20, ternary(gte(@item.level, 6), 10, 5))
+2	ternary(gte(@item.level, 10), 20, ternary(gte(@item.level, 6), 15, 5))
+2	ternary(gte(@item.level, 10), 4, ternary(gte(@item.level, 6), 3, 2))
+2	1+@item.level
+2	ternary(gte(@item.level,4),2,1)
+2	ceil(@item.level / 2)
+2	5*floor((@item.level -2)/2)
+2	ternary(gte(@item.level,6),2,1)
+2	ternary(gte(@item.level,7),3,2)
+2	5 + 5*floor((@item.level -4)/2)
+2	match(when(eq(@item.level, 10), 70), when(gte(@item.level, 8), 60), when(gte(@item.level, 6), 50), 40)
+2	ternary(gte(@item.level,9),15,10)
+2	5 * floor((@item.level - 2) / 2)
+2	ternary(gte(@item.level, 7), 2, 1)
+2	-1
+2	-2
+2	2*@item.flags.system.rulesSelections.rank
+2	5 + @item.badge.value * 10
+2	ternary(gte(@item.level,8),20,ternary(gte(@item.level,6),15,10))
+2	10+ 5*floor((@item.level -7)/2)
+2	@item.flags.system.rulesSelections.oneMillimeterPunch
+2	50
+2	ternary(gte(@actor.level,10),2,1)
+2	match(when(lte(@actor.level, 4), 2), when(btwn(@actor.level, 5, 8), 3), when(btwn(@actor.level, 9, 12), 4), when(btwn(@actor.level, 13, 16), 5), when(gte(@actor.level, 17), 6))
+2	2+floor(@actor.level/2)
+2	match(when(lte(@actor.level, 5), 2), when(btwn(@actor.level, 6, 11), 3), when(btwn(@actor.level, 12, 17), 4), when(gte(@actor.level, 18), 5))
+2	@actor.abilities.con.mod + 3
+2	ceil(@actor.hitPoints.max / 4)
+2	match(when(btwn(@actor.level, 1, 8), 1), when(btwn(@actor.level, 9, 16), 2), when(gte(@actor.level, 17), 3))
+2	match(when(btwn(@actor.system.skills.intimidation.rank, 3, 4), round(@actor.abilities.str.mod / 3)), when(btwn(@actor.system.skills.intimidation.rank, 2, 2), 1))
+2	-1 * @actor.level * @item.badge.value
+2	@actor.level * @item.badge.value
+2	@item.system.runes.striking
+2	match(when(lte(@actor.level, 13), 2), when(gte(@actor.level, 14), 3))
+2	@actor.level + clamp(-2,floor((@actor.level - 7) / 2),0)
+2	max(floor(@weapon.level/4), 1)
+2	@item.system.badge.value * 4
+2	@actor.flags.system.multilingualTaken
+2	100
+2	@actor.system.abilities.con.mod
+2	ternary(gte(@actor.level,12),2,1)
+2	@actor.attributes.shield.ac
+2	ceil(@actor.level / 2)
+2	max(4,2*@actor.system.skills.crafting.rank)
+2	2 * ceil(@spell.rank / 2) - 1
+2	ternary(gte(@actor.level, 18), 3, ternary(gte(@actor.level, 10), 2, 1))
+2	9
+2	@actor.level*2
+2	@actor.system.abilities.int.mod
+2	4 + @item.timesTaken
+2	4 + (2 * @item.timesTaken)
+2	ternary(gte(@actor.level,20),4,ternary(gte(@actor.level,14),3,2))
+2	@actor.flags.system.livingMonolith.archetypeFeatCount
+2	@actor.flags.system.ascendedCelestial.aura
+2	600
+2	@weapon.flags.system.attackItemBonus
+2	ternary(gte(@weapon.system.runes.potency,3),2,1)
+2	ternary(lt(@actor.level,20),3,4)
+2	1 + ceil(@item.level/2)
+2	@item.origin.abilities.cha.mod
+2	@actor.level + @actor.abilities.con.mod
+2	ternary(gte(@item.origin.skills.occultism.rank,4),8,ternary(gte(@item.origin.skills.occultism.rank,3),4,2))
+2	ternary(gte(@actor.level,15),2,1)
+2	@item.origin.flags.system.inventor.overdriveAlly.damage
+2	ceil(@actor.level/2)
+2	@actor.heldShield.acBonus
+2	ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,4),6,ternary(gte(@actor.skills.{item|flags.system.rulesSelections.skill}.rank,3),4,2))
+2	3 + floor(@actor.level/2)
+2	5 + floor(@actor.level / 2)
+2	36
+2	@item.origin.level +1
+2	@item.flags.system.rulesSelections.weakness
+2	ternary(lte(@actor.level,2),2,1)
+2	-@spell.rank
+2	min(20,@actor.system.movement.speeds.swim.value)
+2	@actor.system.movement.speeds.land.value*0.5
+2	floor(@actor.system.movement.speeds.land.value*0.5)
+2	@item.origin.conditions.cursebound.value
+2	@item.origin.level*2
+2	min(30,@actor.system.movement.speeds.land.value)
+2	9*@item.flags.pf2e.rulesSelections.soulheartTemp
+1	(@item.flags.system.rulesSelections.stalkNumber)-1
+1	2*@item.flags.system.rulesSelections.toxicTeamwork
+1	@item.flags.system.rulesSelections.predictiveBlows
+1	@item.flags.system.rulesSelections.sporecloudRadius
+1	@spell.level -1
+1	ternary(gte(@item.level,9),3,2)
+1	ternary(gte(@item.level,9),18,12)
+1	ceil(@item.level/2)*3
+1	5*floor(@item.level / 2)
+1	@item.system.badge.value*3
+1	(@item.origin.level / 2)
+1	ceil(@item.level/2)*5 -5
+1	5*@item.level
+1	ternary(gte(@item.level,8),15,ternary(gte(@item.level,6),10,5))
+1	match(when(btwn(@item.level, 2, 3), 1), when(btwn(@item.level, 4, 5), 2), when(btwn(@item.level, 6, 7), 3), when(gte(@item.level, 8), 4))
+1	2 + 2*floor(@item.level/2)
+1	ternary(gte(@item.level,7),5,ternary(gte(@item.level,4),3,2))
+1	max(10,5*floor(@item.level/2) -5)
+1	@item.flags.system.rulesSelections.swampcallSpeed
+1	ceil(@item.level/2)*8 -4
+1	ceil(1+(@item.level / 2))
+1	ternary(gte(@item.level,5),3,2)
+1	ternary(gte(@item.level,10),4,ternary(gte(@item.level,7),3,2))
+1	10*ceil(@item.level/2)
+1	floor(7.5*ceil(@item.level/2))
+1	4 + @item.level
+1	ternary(gte(@item.level,7),15,ternary(gte(@item.level,5),10,5))
+1	ternary(gte(@item.level,8),15,ternary(gte(@item.level,5),10,5))
+1	ternary(gte(@item.level, 8), 4, 3)
+1	-1+@item.level
+1	@actor.flags.system.revelInRetribution
+1	4*@item.level
+1	ternary(gte(@item.level,9),20,15)
+1	floor(( @item.level ) / 2 )
+1	ternary(gte(@item.badge.value,2),30,5)
+1	max(@item.level -1,0)
+1	max(@item.level*2,8)+2
+1	1+floor(@item.level/3)
+1	2*(@item.level)+3
+1	15 + @actor.level
+1	ternary(gte(@item.level,8),4,ternary(gte(@item.level,6),3,ternary(gte(@item.level,4),2,1)))
+1	@item.flags.system.rulesSelections.pactBroker
+1	@item.flags.system.rulesSelections.overstuff.badge
+1	1 + @item.level
+1	ternary(lt(@item.level, 6), 1, 2)
+1	2*floor(@item.level/2)
+1	3*floor(@item.level/2)
+1	ternary(gte(@item.level,10),3,ternary(gte(@item.level,6),2,1))
+1	ternary(gte(@item.level,10),3,ternary(gte(@item.level,8),2,1))
+1	@item.level*10
+1	ternary(gte(@item.level,10),20,ternary(gte(@item.level,8),15,ternary(gte(@item.level,6),10,5)))
+1	ternary(gte(@item.level, 9), 3, 2)
+1	@item.level * 2 - 1
+1	@item.flags.system.rulesSelections.magicsVesselRank
+1	max(2,floor(@item.level/2) -1)*5
+1	ternary(gte(@item.level,4),120,40)
+1	ternary(gte(@item.level,4),60,20)
+1	@item.level -6
+1	2+@item.level
+1	@item.level + 1
+1	max(5*floor(floor(@actor.system.movement.speeds.land.base/2)/5),5)
+1	ceil(@item.level/4)
+1	ternary(gte(@item.level,5),3,ternary(gte(@item.level,3),2,1))
+1	ceil(@item.level/2)*5+5
+1	ceil((@item.level - 1) / 3 )
+1	1 + 3*@item.level
+1	3*@item.level - 4
+1	2 + 3*floor(@item.level/2)
+1	2 * @item.level
+1	ternary(gte(@item.level,9),12,ternary(gte(@item.level,7),10,ternary(gte(@item.level,5),7,ternary(gte(@item.level,3),4,2))))
+1	floor(@item.level/2)*{item|flags.system.rulesSelections.fungalInfestation}
+1	@item.flags.system.rulesSelections.fortissimoBonus
+1	@item.level*4
+1	5 + 3*floor((@item.level -4)/2)
+1	5 + 5*floor(@item.level/2)
+1	ternary(gte(@item.level, 9),2,1)
+1	ternary(gte(@item.level,9), 60, 40)
+1	10 + (@item.level - 2) * 3
+1	@item.flags.system.rulesSelections.level
+1	min(@actor.system.movement.speeds.land.value, 30)
+1	match(when(btwn(@item.level, 3, 5), 1), when(btwn(@item.level, 6, 8), 2), when(gte(@item.level, 9), 3))
+1	5*(max(0,floor((@item.level -5)/2))+1)
+1	ternary(gte(@item.level,8),3,ternary(gte(@item.level,4),2,1))
+1	5*(@item.level - 1)
+1	2*@item.level + @actor.abilities.str.mod
+1	@item.level*5
+1	5 + 5*floor((@item.level -3)/2)
+1	1 + 2*floor((@item.level -3)/2)
+1	ternary(gte(@item.level,9),20,ternary(gte(@item.level,6),10,0))
+1	5*ceil((@item.level)/3)
+1	-floor((@item.level - 1)/3)
+1	max(60,@actor.system.movement.speeds.land.value)
+1	match(when(gte(@item.level, 8), 20))
+1	ternary(gte(@item.level, 9), 3, ternary(gte(@item.level, 5), 2, 1))
+1	ternary(gte(@item.level, 9), 15, ternary(gte(@item.level, 5), 10, 5))
+1	2 + 2*@item.level
+1	@item.flags.system.rulesSelections.spellEffectDancingShield
+1	ternary(gte(@item.level,9),2,1)
+1	max(5,floor(@item.level/3)*5)
+1	max(1,floor(@item.level/3))
+1	5*floor(@item.level / 3)
+1	5*floor(@item.level / 3) + 1
+1	5*floor(@item.level / 3) + 2
+1	5*floor(@item.level / 3) + 3
+1	ternary(gte(@item.level,7),2,1)
+1	ternary(gte(@item.level,7),4,3)
+1	ceil(@item.level/2)*2
+1	2*(@item.level + 2)
+1	floor((@item.level - 5) / 2)
+1	ternary(gte(@item.level,9),4,ternary(gte(@item.level,6),3,2))
+1	3 + 2*floor((@item.level - 4) / 2)
+1	10 + 5*floor((@item.level -4)/3)
+1	ceil((@item.level - 2)/2)
+1	@item.level*3
+1	ternary(gte(@item.level,9),3,ternary(gte(@item.level,5),2,ternary(gte(@item.level,3),1,0)))
+1	ternary(gte(@item.level,8),4,ternary(gte(@item.level,6),3,2))
+1	clamped(ceil(@item.level / 2), 1, 4)
+1	@spell.rank * 2
+1	ternary(gte(@item.level,8),-3,ternary(gte(@item.level,5),-2,-1))
+1	10 + 5*floor((@item.level -6)/2)
+1	ternary(gte(@item.level, 6), 2, 1)
+1	match(when(btwn(@item.level, 5, 5), 10), when(gte(@item.level, 6), 15))
+1	round(@actor.system.movement.speeds.land.value/2)
+1	6 + 4*(floor((@item.level - 3)/2))
+1	(floor((@item.level - 1)/2))
+1	5 * @item.badge.value
+1	ternary(lte(@actor.hitPoints.value, 170), 60, 30)
+1	@item.flags.system.rulesSelections.selfruinousAura
+1	ternary(gte(@actor.system.pfs.reputation.VS,120), 2, 1)
+1	@actor.conditions.frightened.badge.value
+1	40
+1	@item.flags.system.rulesSelections.mesmerizingTale
+1	@item.flags.system.rulesSelections.openingStatement
+1	1 + @item.flags.system.rulesSelections.danceOfRuin + (@item.flags.system.rulesSelections.danceOfRuin * @item.flags.system.rulesSelections.danceOfRuinRounds)
+1	@item.flags.system.rulesSelections.danceOfRuin -1
+1	3*@item.flags.system.rulesSelections.shockingBurst
+1	@item.flags.system.rulesSelections.shockingBurst -1
+1	match(when(lte(@actor.level, 2), 5), when(btwn(@actor.level, 3, 6), 10), when(btwn(@actor.level, 7, 10), 15), when(btwn(@actor.level, 11, 14), 20), when(btwn(@actor.level, 15, 18), 25), when(gte(@actor.level, 19), 30))
+1	match(when(btwn(@actor.level, 3, 10), 5), when(btwn(@actor.level, 11, 18), 10), when(gte(@actor.level, 19), 15))
+1	max(min(1,@actor.system.proficiencies.defenses.light.rank)*min(1,@actor.system.proficiencies.defenses.medium.rank))
+1	min(1,@actor.system.proficiencies.defenses.light.rank)
+1	match(when(lte(@actor.level, 8), 1), when(gte(@actor.level, 9), 2))
+1	match(when(lte(@actor.level, 4), 1), when(btwn(@actor.level, 5, 8), 2), when(btwn(@actor.level, 9, 12), 3), when(btwn(@actor.level, 13, 16), 4), when(gte(@actor.level, 17), 5))
+1	match(when(lte(@actor.level, 8), 1), when(btwn(@actor.level, 9, 14), 2), when(gte(@actor.level, 15), 3))
+1	match(when(btwn(@actor.system.skills.crafting.rank, 1, 2), 4), when(btwn(@actor.system.skills.crafting.rank, 3, 3), 6), when(gte(@actor.system.skills.crafting.rank, 4), 8))
+1	5 + floor(@actor.abilities.con.mod)
+1	@actor.flags.system.remainingAir.rounds
+1	@item.flags.system.rulesSelections.followTheExpertProficiency
+1	ternary(gte(@item.origin.level,12),15,ternary(gte(@item.origin.level,7),10,5))
+1	@item.flags.system.rulesSelections.aidBonus
+1	match(when(lte(@actor.level, 9), 1), when(gte(@actor.level, 10), 2))
+1	match(when(lte(@actor.level, 9), 1), when(btwn(@actor.level, 10, 17), 2), when(gte(@actor.level, 18), 3))
+1	(@actor.level - 1) * 30
+1	@actor.level * 3
+1	@actor.level - 4
+1	match(when(btwn(@actor.system.skills.performance.rank, 3, 4), 2), when(btwn(@actor.system.skills.performance.rank, 1, 2), 1))
+1	match(when(lte(@actor.level, 6), floor(@actor.level / 2)), when(gte(@actor.level, 7), @actor.level))
+1	@actor.flags.system.bioluminescentMaelstrom.radius
+1	ternary(gte(@actor.system.skills.deception.rank,3),2,1)
+1	@actor.conditions.dying.badge.value
+1	@spell.level * 2
+1	@item.flags.system.rulesSelections.objectsDamage
+1	37
+1	ternary(gte(@actor.system.skills.medicine.rank,3),2,1)
+1	ternary(gte(@actor.system.skills.medicine.rank,4),3,ternary(gte(@actor.system.skills.medicine.rank,3),2,1))
+1	max(@actor.system.skills.stealth.rank - 1, 0)
+1	ternary(gte(@actor.system.skills.diplomacy.rank,4),3,ternary(gte(@actor.system.skills.diplomacy.rank,3),2,ternary(gte(@actor.system.skills.diplomacy.rank,2),1,0)))
+1	@actor.flags.system.followTheExpertProficiency+1
+1	25 * (5 + @actor.abilities.con.mod)
+1	ternary(eq(@actor.system.proficiencies.spellcasting.rank,4),3,ternary(eq(@actor.system.proficiencies.spellcasting.rank,3),2,1))
+1	2*(@item.timesTaken + 1)
+1	@actor.classDCs.thaumaturge.mod
+1	ternary(gte(@actor.system.abilities.cha.mod,7),20,ternary(gte(@actor.system.abilities.cha.mod,6),18,ternary(gte(@actor.system.abilities.cha.mod,5),16,ternary(gte(@actor.system.abilities.cha.mod,4),14,12))))
+1	@item.flags.system.rulesSelections.unitedAssault
+1	ternary(gte(@actor.level,14),ternary(gte(@actor.flags.system.sneakAttackDamage.number,3),2,1),1)
+1	match(when(lte(@actor.level, 10), 2), when(btwn(@actor.level, 11, 16), 3), when(gte(@actor.level, 17), 4))
+1	@actor.classDCs.ranger.mod
+1	match(when(btwn(@actor.level, 8, 10), 4), when(btwn(@actor.level, 11, 14), 6), when(gte(@actor.level, 15), 8))
+1	-@actor.level
+1	clamp(2+@actor.conditions.cursebound.value,4,5)
+1	@item.flags.system.rulesSelections.drainingStrike
+1	ternary(gte(@actor.level, 18), 6, ternary(gte(@actor.level, 10), 4, 2))
+1	@actor.level + @actor.abilities.dex.mod
+1	@actor.system.skills.crafting.rank - 1
+1	floor((@actor.level + 3)/4)
+1	floor(@actor.system.abilities.int.mod/2)
+1	max(2,@actor.system.skills.crafting.rank)
+1	4 + ceil(@actor.level / 2)
+1	max(1,((@actor.heldShield.system.level.value + 2)/ 6))
+1	@actor.wornArmor.system.runes.potency
+1	6 + floor(@actor.level / 2)
+1	2 * @target.conditions.frightened.badge.value
+1	@actor.system.proficiencies.defenses.medium.rank
+1	10*ceil(@actor.level/2)
+1	ternary(gte(@actor.level,14),3,ternary(gte(@actor.level,7),2,1))
+1	ternary(gte(@actor.level,19),6,ternary(gte(@actor.level,16),5,ternary(gte(@actor.level,12),4,ternary(gte(@actor.level,9),3,ternary(gte(@actor.level,5),2,1)))))
+1	ternary(gte(@actor.level,19),3,ternary(gte(@actor.level,13),2,1))
+1	floor(@actor.level/2)+@actor.abilities.con.mod
+1	ternary(gte(@actor.level,20),4,ternary(gte(@actor.level,12),3,2))
+1	@weapon.system.splashDamage.value
+1	6 + @actor.system.abilities.int.mod
+1	ternary(gte(@actor.level,16),10,8) + @actor.system.abilities.int.mod
+1	@actor.conditions.doomed.badge.value
+1	ternary(gte(@actor.system.skills.athletics.rank,4),3,ternary(gte(@actor.system.skills.athletics.rank,3),2,1))
+1	2*@actor.flags.system.tattooedHistorian.archetypeFeatCount
+1	@actor.flags.system.stoneboundArchetype.featCount
+1	@actor.flags.system.stoneBrawlerArchetype.featCount
+1	2 + @spell.rank
+1	2*(@spell.rank - 3)
+1	ternary(gte(@actor.flags.system.soulWarden.featCount,3),20,10)
+1	ternary(gte(@actor.flags.system.soulWarden.featCount,3),10,0)
+1	max(4,2*@actor.system.skills.survival.rank)
+1	match(when(gte(@actor.level, 1), 3), when(gte(@actor.level, 15), 4))
+1	ternary(gte(@weapon.system.damage.dice,4),3,2)
+1	ternary(lt(@actor.level, 6), 4, 6)
+1	3 * @actor.flags.system.rangerDedicationCount
+1	max(5,floor(@actor.system.movement.speeds.land.value/2))
+1	2+@actor.flags.system.oozemorphDedicationCount
+1	2*(2+@actor.flags.system.oozemorphDedicationCount)
+1	max(-1 * @actor.flags.system.oozemorphDedicationCount, -4)
+1	@actor.flags.system.oozemorphDedicationCount+2
+1	@actor.flags.system.oozemorphDedicationCount+7
+1	ternary(gte(@actor.level,14),2,1)
+1	ternary(gte(@actor.level,18),5,ternary(gte(@actor.level,15),4,3))
+1	3*@actor.flags.system.monkDedicationCount
+1	match(when(btwn(@actor.level, 8, 13), 1), when(btwn(@actor.level, 14, 19), 2), when(gte(@actor.level, 20), 3))
+1	min(2,@actor.flags.system.vigilantBenedition.count)
+1	min(3,@actor.flags.system.reclaimantPlea.count)
+1	ternary(gte(@actor.level,17), 4, ternary(gte(@actor.level,10), 3, 2))
+1	1 + min(3,@item.timesTaken)
+1	@actor.flags.system.hellknightArchetype.featCount + 5
+1	@actor.flags.system.hellknightArchetype.featCount
+1	@actor.flags.system.hellknightArchetype.featCount + 1
+1	max(1 + @weapon.system.runes.striking, @weapon.system.damage.dice)
+1	3 * @actor.flags.system.guardianDedicationCount
+1	@actor.flags.system.golemGrafter.featCount
+1	-1 * @actor.level
+1	ternary(lt(@actor.level, 10), 1, 2)
+1	3 * @actor.flags.system.fighterDedicationCount
+1	3 * @actor.flags.system.exemplar.archetypeFeatCount
+1	max(2,@weapon.system.damage.dice)
+1	3*@weapon.system.damage.dice
+1	3+floor(@actor.level/2)
+1	ternary(gte(@actor.level, 17), 20, ternary(gte(@actor.level, 9), 15, 10))
+1	-1*(@weapon.system.damage.dice)
+1	ternary(gte(@actor.system.skills.crafting.rank,3),3,1)
+1	3 * @actor.flags.system.championDedicationCount
+1	max(@actor.system.proficiencies.defenses.unarmored.rank,@actor.system.proficiencies.defenses.light.rank,@actor.system.proficiencies.defenses.medium.rank)
+1	3 * @actor.flags.system.barbarian.archetypeFeatCount
+1	2*@actor.flags.system.ascendedCelestial.aura
+1	@actor.conditions.wounded.value
+1	2*@actor.conditions.wounded.value
+1	@item.flags.system.rulesSelections.skill.rank
+1	ternary(gte(@actor.system.skills.acrobatics.rank,4),2,1)
+1	@actor.conditions.doomed.badge.value + @actor.conditions.wounded.badge.value
+1	ternary(gte(ceil(@actor.level / 2),4),120,40)
+1	ternary(gte(ceil(@actor.level / 2),4),60,20)
+1	clamp(floor((@actor.level - 1) / 4),2,4)
+1	match(when(lte(@actor.level, 11), 2), when(btwn(@actor.level, 12, 18), 3), when(gte(@actor.level, 19), 4))
+1	1 + floor((@actor.level -1)/4)
+1	floor((@actor.level -1)/4)
+1	1 + @actor.system.skills.crafting.rank
+1	@actor.flags.system.crystalLuminescence.brightRadius
+1	@actor.flags.system.crystalLuminescence.dimRadius
+1	max(1,floor(@actor.level / 2))
+1	5+(max(1,floor(@actor.level/2)))
+1	ternary(gte(@actor.level,17),3,ternary(gte(@actor.level,13),2,1))
+1	max(6,@actor.level - 3)
+1	ceil(@actor.level/2)*8
+1	@actor.level*8
+1	1+floor(@actor.level/2)
+1	@item.flags.system.rulesSelections.acBonus
+1	ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,12),5,2))
+1	min(floor(@actor.level/4),5)
+1	ternary(gte(@actor.flags.system.prepareElementalMedicine.skillRank,4),2,1)
+1	5*@item.badge.value
+1	floor(@actor.level/2) - 2
+1	max(floor(@actor.level / 2), 1)
+1	-@actor.conditions.doomed.badge.value
+1	@actor.level + @actor.abilities.cha.mod
+1	3+@item.origin.abilities.cha.mod
+1	2*@spell.level
+1	@item.flags.system.rulesSelections.unbreakingCastle
+1	5*@actor.conditions.cursebound.value
+1	floor(@actor.system.attributes.hp.max / 2)
+1	(@actor.level/2)
+1	@actor.level + @item.level
+1	4*@item.badge.value
+1	@item.flags.system.rulesSelections.speed
+1	4*(@item.level)
+1	ternary(gte(@actor.level,15),3,ternary(gte(@actor.level,8),2,1))
+1	ternary(gte(@actor.level,17),10,7)
+1	3*@item.flags.system.rulesSelections.spiritRemnant
+1	max(4,(floor(@item.origin.level/2)*2)-4)
+1	floor(@actor.level/@item.flags.system.rulesSelections.value)
+1	ternary(gte(@item.origin.level,20),15,10)
+1	ternary(gte(@actor.level,19),3,2)
+1	floor(@actor.level/2)+2
+1	floor(@actor.level/2)+max(2,@actor.system.abilities.cha.mod)
+1	ternary(gte(@item.badge.value,6),2,ternary(gte(@item.badge.value,3),1,ternary(eq(@item.badge.value,2),0,-1)))
+1	ternary(gte(@item.badge.value,3),ceil(@item.badge.value/2),-1)
+1	ceil(@item.flags.system.rulesSelections.dc*@item.flags.system.rulesSelections.degree)*5
+1	ternary(eq(@item.origin.skills.occultism.rank,4),3,ternary(gt(@item.origin.skills.occultism.rank,1),2,1))
+1	floor(@item.origin.level*@item.flags.system.rulesSelections.roaringHeart)
+1	max(5,@actor.level)
+1	2*(ceil(@item.origin.level/2))
+1	floor((@item.flags.system.rulesSelections.bonus * @actor.level) / 2)
+1	floor(@actor.level/4) * 4
+1	max(floor(@item.origin.level/@item.flags.system.rulesSelections.outcome),1)
+1	floor(@actor.level/@item.flags.system.rulesSelections.outcome) + @actor.abilities.con.mod
+1	ternary(gte(@item.origin.level,17),4,ternary(gte(@item.origin.level,11),3,2))
+1	ternary(lt(@actor.level,20),40,50)
+1	@actor.flags.system.rageTempHP
+1	floor(@item.origin.abilities.cha.mod/2)
+1	max(@actor.system.movement.speeds.land.value,20)
+1	@item.origin.abilities.wis.mod
+1	@item.flags.system.rulesSelections.value
+1	@item.origin.skills.{item|flags.system.rulesSelections.skill}.rank
+1	@item.flags.system.rulesSelections.predictable
+1	@actor.flags.system.predictable
+1	@item.flags.system.rulesSelections.pointedQuestion
+1	4 * (1 + floor(@item.origin.level / 4))
+1	@item.origin.system.skills.deception.rank
+1	@item.origin.system.skills.intimidation.rank
+1	max({item|flags.system.rulesSelections.pistolerosChallengeSkill},2)
+1	ternary(gte(@item.origin.system.skills.crafting.rank,3),10,5)
+1	floor(@item.origin.system.abilities.int.mod/2)
+1	@item.origin.system.abilities.int.mod
+1	@actor.flags.system.overdriveBaseDamage+ternary(gte(@item.origin.level,15), 3, ternary(gte(@item.origin.level,7), 2, ternary(gte(@item.origin.level,3),1,0)))
+1	ternary(gte(@actor.level,16),3,ternary(gte(@actor.level,10),2,1))
+1	ternary(gte(@actor.level,19),3,ternary(gte(@actor.level,12),2,1))
+1	ternary(gte(@item.origin.level,18),7,5)
+1	max(floor(@item.origin.level/2),1)
+1	(floor(@actor.level/2)+2)/2
+1	(floor(@actor.level/2)+max(2,@actor.system.abilities.cha.mod))/2
+1	ternary(gte(@item.origin.system.skills.religion.rank,4),3,ternary(gte(@item.origin.system.skills.religion.rank,3),2,1))
+1	ternary(gte(@item.origin.system.skills.religion.rank,4),6,ternary(gte(@item.origin.system.skills.religion.rank,3),4,2))
+1	floor((max(1,@item.origin.level)-1)/2)+2
+1	2 + floor((@item.origin.level - 2)/5)
+1	7 + @item.origin.level
+1	max(0,@actor.system.abilities.int.mod) + floor(@actor.level / 2)
+1	ternary(gte(@actor.conditions.cursebound.value,3),6,2)
+1	ternary(gte(@actor.conditions.cursebound.value,3),2,1)
+1	@spell.level + ternary(gte(@actor.conditions.cursebound.value,3),3,0)
+1	ternary(gte(@actor.conditions.cursebound.value,3),20,10)
+1	@item.flags.system.rulesSelections.crowdSizeBonus
+1	@item.flags.system.rulesSelections.number
+1	ternary(gte(@item.origin.level,12), 2, 1)
+1	ternary(gte(@actor.level,20),3,ternary(gte(@actor.level,12),2,1))
+1	ternary(gte(@actor.level,15),30,20)
+1	3 + floor(@item.origin.level/2)
+1	@actor.system.skills.performance.rank
+1	1+floor(@actor.flags.system.tattooedHistorian.archetypeFeatCount/2)
+1	2 + @item.level
+1	min(6,1 + floor(@actor.level / 4))
+1	@item.flags.system.rulesSelections.hamstringingStrike
+1	max(20,(@actor.system.movement.speeds.land.value))
+1	ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,12),2,1))
+1	2 * (1+floor((@item.origin.level -1)/2))
+1	ternary(gte(@actor.level,14),3,2)
+1	2 + (@item.origin.level/2)
+1	@item.flags.system.rulesSelections.familiarOfBalancedLuck
+1	ternary(gte(@item.origin.level,8),120,40)
+1	ternary(gte(@item.origin.level,8),60,20)
+1	@actor.level+@actor.system.abilities.{actor|system.details.keyability.value}.mod
+1	@actor.system.abilities.con.mod + @actor.level
+1	4+@item.flags.system.rulesSelections.rank
+1	@item.flags.system.rulesSelections.energyAblationRank
+1	floor(@actor.level/3)
+1	@item.flags.system.rulesSelections.endemicHerbs.bonus
+1	-2*(@origin.system.skills.diplomacy.rank)
+1	ternary(gte(@item.origin.skills.crafting.rank,4),3,ternary(gte(@item.origin.skills.crafting.rank,3),2,1))
+1	max(3,@item.origin.level)
+1	@item.origin.flags.system.highestWeaponDamageDice
+1	10 + (ceil((@actor.level - 6)/2) * 5)
+1	ternary(gte(@target.level,18),5,4)
+1	-@item.flags.system.rulesSelections.deepFreezeSpeedPenalty
+1	2*@item.flags.pf2e.rulesSelections.rank
+1	ternary(gte(@actor.skills.occultism.rank,4),3,2)
+1	ternary(gt(@item.badge.value, 2), 3, 2)
+1	ternary(gt(@item.badge.value, 2), 4, 2)
+1	min(@item.badge.value*5, 15)
+1	-max(floor(@actor.level/2),1)
+1	ternary(gte(@item.origin.conditions.cursebound.value,4),-2,-1)
+1	5+(5*@item.badge.value)
+1	-(2 + @item.origin.level)
+1	floor(@actor.level/2 )
+1	@item.flags.system.rulesSelections.comeAndGetMe*@actor.system.abilities.con.mod
+1	(floor(@actor.level/2)*5) - 10
+1	@item.origin.level+2
+1	ternary(gte(@actor.level,16),3,ternary(gte(@actor.level,9),2,1))
+1	ternary(gte(@actor.level,15),15,10)
+1	@item.flags.system.rulesSelections.bounceBoostBonus
+1	floor(@item.origin.level / 2)
+1	@item.origin.heldShield.system.acBonus
+1	ternary(gte(@item.level,15), 3, ternary(gte(@item.level,10), 2, 1))
+1	max(1, floor(@item.level/2))
+1	2*@actor.system.movement.speeds.land.value
+1	@item.flags.system.rulesSelections.artCollector
+1	ternary(gte(@actor.level, 12), 2, 1)
+1	2 + @item.origin.level
+1	ternary(gte(@item.origin.level,15),10,5)
+1	ternary(gte(@item.origin.level,16),15,10)
+1	@item.flags.system.rulesSelections.tempHP
+1	@item.flags.system.rulesSelections.acupuncturist
+1	2 * @actor.level
+1	@actor.masterAttributeModifier
+1	ternary(gte(@actor.level,17),10,ternary(gte(@actor.level,13),8,ternary(gte(@actor.level,9),6,ternary(gte(@actor.level,5),4,2))))
+1	ternary(gte(@actor.level,17),2,1)
+1	max(6,2*@spell.rank - 4)
+1	@actor.abilities.cha.mod
+1	@actor.classDCs.alchemist.mod
+1	ternary(gte(@actor.level,15),3,ternary(gte(@actor.level,7),2,1))
+1	ternary(gte(@actor.level,3),2,1)
+1	5*floor((@actor.level + 5) / 4)
+1	ternary(gte(@actor.level,16),3,ternary(gte(@actor.level,8),2,1))
+1	2* @weapon.system.damage.dice
+1	@actor.wornArmor.system.acBonus
+1	2 + min(3,floor(@actor.level / 6))
+1	ternary(gte(@actor.conditions.cursebound.value,3),@actor.level,2)
+1	-@actor.level*@actor.conditions.cursebound.value
+1	ternary(gte(@actor.conditions.cursebound.value,3),(2*@actor.level),2)
+1	ternary(gte(@actor.conditions.cursebound.value,3),(5 + @actor.level),2)
+1	ternary(gte(@actor.level,15),4,ternary(gte(@actor.level,7),2,1))
+1	ternary(gte(@actor.level,15),8,ternary(gte(@actor.level,7),4,2))
+1	ternary(gte(@actor.level,17),3, ternary(gte(@actor.level,10),2,1))
+1	min(1+@weapon.system.runes.striking,4)
+1	@item.flags.system.rulesSelections.season
+1	ternary(gte(@item.origin.system.pfs.reputation.VS,120), 3, ternary(gte(@item.origin.system.pfs.reputation.VS, 60), 2, ternary(gte(@item.origin.system.pfs.reputation.VS,20), 1, 0)))
+1	3 * ternary(gte(@item.origin.system.pfs.reputation.RO,120), 3, ternary(gte(@item.origin.system.pfs.reputation.RO, 60), 2, ternary(gte(@item.origin.system.pfs.reputation.RO,20), 1, 0)))
+1	ternary(gte(@actor.level,13),3,2)
+1	max(3,ceil(@actor.level/2))
+1	max(3,@actor.level)
+1	max(6,@actor.level*2)
+1	@item.flags.system.rulesSelections.solidarity
+1	match(when(lte(@actor.level, 8), 1), when(btwn(@actor.level, 9, 14), 2), when(btwn(@actor.level, 5, 17), 3), when(gte(@actor.level, 18), 4))
+1	2+@actor.level
+1	@item.flags.system.rulesSelections.damage
+1	@item.origin.flags.system.wordOfHeroismBonus
+1	@item.origin.flags.system.wordOfCautionResistance
+1	@item.origin.flags.system.wordOfAdviceDiceNumber
+1	@item.flags.system.rulesSelections.witchflame
+1	@item.badge.value * -2
+1	-10*@item.badge.value
+1	@item.flags.system.rulesSelections.pain
+1	-10
+1	-20
+1	max(-@item.badge.value,-6)
+1	@item.origin.flags.system.rimeShieldTempHP
+1	(@item.badge.value -1)*-5
+1	@actor.flags.system.proteanResistance
+1	max(10,floor(@actor.system.attributes.hp.max/10))
+1	@item.flags.system.rulesSelections.pallidCurse
+1	@item.flags.system.rulesSelections.healing
+1	2*@item.badge.value
+1	@item.flags.system.rulesSelections.medicalMalpractice
+1	@item.badge.value*-1
+1	@item.origin.flags.system.liquefyResistance
+1	min(@item.badge.value*2,10)
+1	@item.flags.system.rulesSelections.leadersCommand.value
+1	@item.flags.system.rulesSelections.critique
+1	@item.origin.flags.system.hearteningAuraAttackDamage
+1	@item.origin.flags.system.hearteningAuraFastHealing
+1	@actor.flags.system.gleamingArmorMod
+1	@actor.flags.system.resistanceMod
+1	-5*@item.badge.value
+1	@item.origin.flags.pf2e.fieldOfUndeathFastHealing
+1	@item.origin.flags.system.fieldOfUndeathFastHealing
+1	@item.origin.flags.system.fedByWaterTempHP
+1	@item.origin.flags.system.fedByMetalAC
+1	-@item.flags.system.rulesSelections.feastOnFear
+1	@item.flags.system.rulesSelections.feastOnFear
+1	@actor.flags.system.ectoplasmicFormAC
+1	@actor.flags.system.ectoplasmicFormTempHP
+1	-1*min(4,@item.system.badge.value)
+1	@item.origin.flags.system.drainLifeTempHP
+1	ternary(gte(@actor.level,15),5,ternary(gte(@actor.level,7),4,3))
+1	@item.flags.system.rulesSelections.bosunsCommand.modifier
+1	@actor.level + @actor.abilities.con.mod + @actor.flags.system.frenzyMod
+1	@item.system.badge.value * 2
+1	@item.origin.flags.system.archonsProtection
+1	3 * @target.conditions.frightened.badge.value
+1	min(@item.system.hp.value,1)-1
+1	match(when(lte(@actor.level, 5), 1), when(btwn(@actor.level, 6, 9), 2), when(btwn(@actor.level, 10, 13), 3), when(btwn(@actor.level, 14, 17), 4), when(gte(@actor.level, 18), 5))
+1	match(when(lte(@actor.level, 5), 2), when(btwn(@actor.level, 6, 9), 4), when(btwn(@actor.level, 10, 13), 6), when(btwn(@actor.level, 14, 17), 8), when(gte(@actor.level, 18), 10))
+1	ternary(gte(@actor.level,17),3,ternary(gte(@actor.level, 9),2,1))
+1	ternary(gte(@actor.level,15),3,ternary(gte(@actor.level,9),2,1))
+1	clamp(floor((@actor.level + 3)/6),1,3)
+1	ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,10),6,4))
+1	2*@item.flags.system.rulesSelections.cryHavoc
+1	@actor.abilities.cha.mod + 2*@actor.level
+1	2 + ceil(@actor.level/2)
+1	ternary(gte(@actor.level,16),2,1)
+1	ternary(gte(@actor.level,6),2,1)
+1	-@item.system.quantity
+1	ternary(gte(@actor.level,19),20,10)
+1	ternary(gte(@actor.level,17),3,ternary(gte(@actor.level,14),2,1))
+1	ternary(gte(@actor.level,10),-2, -1)
+1	ternary(gte(@actor.level,20),4,ternary(gte(@actor.level,14),3, ternary(gte(@actor.level,8),2,1)))
+1	min(max(1,-1+@item.system.potencyRune.value),2)
+1	3*@actor.level
+1	min(25, @actor.system.movement.speeds.land.value)
+1	@item.origin.flags.system.shiningSymbolPenalty
+1	@item.origin.flags.system.shiningSymbolWeakness
+1	10 + @actor.system.attributes.hp.temp
+1	@actor.abilities.con.mod + 8
+1	floor((@actor.abilities.con.mod + 3)/2)
+1	floor((@actor.abilities.con.mod + 8)/2)
+1	@actor.level+@item.flags.pf2e.rulesSelections.rank
+1	@item.system.badge.value*5
+1	@item.origin.flags.system.assassinsBracersBonus
+1	-@item.origin.flags.system.assassinsBracersBonus
+1	@item.origin.flags.system.cloisterRobeResistance
+1	@item.origin.flags.system.bombersEyeElixir
+1	3*@item.flags.pf2e.rulesSelections.soulheartTemp
+1	6*@item.flags.pf2e.rulesSelections.soulheartTemp
+1	max(25,@actor.system.movement.speeds.land.value)
+1	min(-1 * @actor.level,-1) * @item.badge.value
+1	max(1,@actor.level) * @item.badge.value

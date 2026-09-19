@@ -239,20 +239,12 @@ module AresMUSH
         @char.pf2_special.sort.join(", ")
       end
 
+      # Including the ones another brought with it, and saying which: a grabbed character is off-guard,
+      # and the sheet should say why.
       def conditions
-        cond = @char.pf2_conditions
-        if cond.empty?
-          value = "None active."
-        else
-          list = []
-          cond.each do |c,v|
-            list << format_condition(c,v)
-          end
+        labels = Pf2e.condition_labels(@char)
 
-          value = list.sort.join(", ")
-        end
-
-        value
+        labels.empty? ? "None active." : labels.join(", ")
       end
 
       def feats
@@ -451,13 +443,6 @@ module AresMUSH
         "#{linebreak}#{left(name, 13)}: #{left(score, 2)} #{left(mod, 9)}"
       end
 
-      def format_condition(condition, value)
-        colors = Global.read_config('pf2e', 'condition_colors')
-        cond_color = colors[condition.to_s]
-        name = "#{cond_color}#{condition}"
-        cv = value['value'] ? "/#{value['value']}" : ""
-        "#{name}#{cv}%xn"
-      end
 
       def format_known_for(string, i)
         linebreak = i % 2 == 0 ? "%r" : ""

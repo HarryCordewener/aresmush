@@ -1,0 +1,1016 @@
+---
+"Adiutor":
+  pack: "hellbreakers-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["devil", "fiend", "human", "humanoid", "unholy"]
+  ac: 21
+  hp: 72
+  perception: 13
+  saves: {"fortitude": 12, "reflex": 14, "will": 10}
+  abilities: {"cha": 4, "con": 2, "dex": 5, "int": 1, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 14, "Society": 12, "Stealth": 15, "Survival": 12}
+  weaknesses: {"holy": 4}
+  resistances: {"fire": 8}
+  strikes: [{"name": "Flintlock Musket", "bonus": 14, "damage": [["1d6+3", "piercing", null]], "traits": ["concussive", "fatal-d10", "reload-1", "unholy"], "range": 70}, {"name": "Bayonet", "bonus": 14, "damage": [["1d4+5", "piercing", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Avernian Armskote", "type": "passive", "traits": [], "text": "An adiutor reloads by magically conjuring hellfire rounds crafted in the Fools' Citadels of Avernus. Their Strikes with their flintlock muskets are magical and deal an additional 2d6 fire damage."}, {"name": "Fiendish Reload", "type": "passive", "traits": [], "text": "When the adiutor reloads their musket, they can cast Shield as part of the same action."}, {"name": "Punish the Wayward", "type": "action", "traits": ["concentrate", "divine", "emotion", "fear", "flourish", "mental"], "cost": 2, "text": "The adiutor makes a melee or ranged Strike. If this Strike succeeds, the targeted creature takes the normal damage and must additionally attempt a DC 22 Will save.%rCritical Success The creature suffers no additional effects.%rSuccess The creature is Frightened 1.%rFailure The creature is frightened 1. While it can see the adiutor, it can't reduce its frightened condition.%rCritical Failure As failure, but the creature is also Off-Guard to the adiutor while frightened."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Message", "Shield"], "1": ["Bane"], "2": ["Dispel Magic", "Revealing Light"], "3": ["Alarm", "Crisis of Faith"]}}]
+"Adjutant Hellknight Armiger":
+  pack: "hellbreakers-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 17
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 5, "will": 8}
+  abilities: {"cha": 1, "con": 3, "dex": 0, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 20}
+  skills: {"Athletics": 8, "Intimidation": 7, "Society": 5, "Survival": 7, "Hell Lore": 5}
+  resistances: {"mental": 3}
+  strikes: [{"name": "Halberd", "bonus": 9, "damage": [["1d10+4", "piercing", null]], "traits": ["reach-10", "versatile-s"]}, {"name": "Crossbow", "bonus": 6, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}, {"name": "Fist", "bonus": 9, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Pinning Strike", "type": "action", "traits": [], "cost": 1, "text": "The adjutant Hellknight armiger makes a halberd Strike. On a success, the target is also Immobilized until the beginning of the adjutant's next turn, until the adjutant moves more than 10 feet away from the target, or the adjutant makes another halberd Strike, whichever comes first. The target can also attempt to escape dc=18."}]
+"Alceo Demetrias":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["aiuvarin", "elf", "human", "humanoid"]
+  ac: 24
+  hp: 100
+  perception: 18
+  saves: {"fortitude": 12, "reflex": 15, "will": 18}
+  abilities: {"cha": 4, "con": 2, "dex": 4, "int": 2, "str": 2, "wis": 6}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Deception": 15, "Diplomacy": 17, "Religion": 18, "Society": 15, "Thievery": 17}
+  strikes: [{"name": "Morningstar", "bonus": 15, "damage": [["1d6+6", "bludgeoning", null]], "traits": ["magical", "versatile-p"]}]
+  actions: [{"name": "Defy Devils!", "type": "reaction", "traits": ["auditory", "concentrate", "emotion", "fortune", "linguistic", "mental"], "text": "Trigger A creature within 30 feet critically fails a saving throw or skill check against a devil, or a creature that worships devils or has a magical contract with a devil%rEffect The triggering creature rerolls the check and must take the new result. It then becomes temporarily immune to Defy Devils! for 24 hours."}, {"name": "Divine Weapon of Milani", "type": "free", "traits": [], "text": "Frequency once per turn%rTrigger Alceo finishes Casting a Spell using one of his spell slots on his turn%rEffect Milani blesses Alceo's morningstar. Until the end of his turn, his morningstar Strikes deal an additional 2d4 spirit damage or 2d6 spirit damage if the target is unholy."}, {"name": "Sense Heartbond", "type": "action", "traits": ["concentrate"], "cost": 2, "text": "Frequency once per day%rEffect Alceo learns Phoebe's present state. He knows her direction and distance, and any conditions affecting her."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Bullhorn", "Divine Lance", "Guidance", "Shield", "Stabilize"], "1": ["Alarm", "Heal", "Sanctuary", "Sure Strike"], "2": ["Clear Mind", "Share Life", "Spiritual Armament"], "3": ["Anointed Ground", "Crisis of Faith", "Enthrall"], "4": ["Fire Shield", "Unfettered Movement"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Message (Can only target Phoebe)"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 25, "attack": 17, "spells": {"1": ["Unimpeded Stride"]}}]
+"Aurocan":
+  pack: "hellbreakers-bestiary"
+  level: 8
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 25
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 19, "reflex": 15, "will": 13}
+  abilities: {"cha": -4, "con": 4, "dex": 3, "int": -5, "str": 6, "wis": 1}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18}
+  immunities: ["fire"]
+  weaknesses: {"orichalcum": 10, "electricity": 10}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Hoof", "bonus": 18, "damage": [["2d8+10", "bludgeoning", null]], "traits": ["forceful", "magical"]}, {"name": "Horn", "bonus": 18, "damage": [["2d10+10", "piercing", null]], "traits": ["magical"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, disable-device dc=24, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Explosive End", "type": "reaction", "traits": ["fire"], "text": "Trigger The aurocan drops to 0 HP%rEffect The aurocan detonates. Every creature in a 30-foot emanation takes 3d12 bludgeoning,3d8 fire|options:area-damage damage (DC 23 Reflex save). On a critical failure, a creature is also knocked Prone."}, {"name": "Blistering Touch", "type": "action", "traits": ["fire"], "cost": 1, "text": "The aurocan funnels some of the steam powering it into its body, heating up its metal frame. For the next minute, its melee Strikes deal an additional 1d6 fire damage."}, {"name": "Head of Steam", "type": "action", "traits": ["fire", "magical"], "cost": 2, "text": "Requirements The aurocan has used Blistering Touch within the past 2 rounds, and its head is attached%rEffect The aurocan expels a cloud of steam as its head detaches. The head occupies a 5-foot square and has a fly Speed of 15 feet. As part of this action, and every time the aurocan Sustains it on a subsequent round, the head can Fly up to its Speed, blasting steam directly downward as it moves. Each creature whose space it passes no more than 5 feet above during its flight takes 4d6 fire…"}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Large or smaller, hoof, DC 26 Reflex"}]
+"Besunas":
+  pack: "hellbreakers-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 26
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 14, "reflex": 15, "will": 18}
+  abilities: {"cha": 6, "con": 2, "dex": 3, "int": 4, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Arcana": 16, "Deception": 18, "Diplomacy": 18, "Occultism": 16, "Performance": 18, "Religion": 18, "Society": 18}
+  immunities: ["fire"]
+  weaknesses: {"holy": 8}
+  resistances: {"physical": 8}
+  strikes: [{"name": "Light Mace", "bonus": 19, "damage": [["3d4+5", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "shove"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Correcting Veil", "type": "passive", "traits": ["aura", "linguistic", "mental", "subtle"], "text": "100 feet. The instillo's telepathic presence constantly monitors perspectives and molds thought toward an infernal clarity. Creatures within the aura gain the Dubious Knowledge skill feat but are unaware of this effect. The instillo is instantly aware when any creature within the aura fails a Recall Knowledge check and influences the erroneous information that the creature gains."}, {"name": "Nod of the Tongue", "type": "passive", "traits": [], "text": "Creatures who can understand Diabolic take a –2 status penalty to their Will saves against the instillo's effects with the auditory or mental trait."}, {"name": "Quiet Confidence", "type": "action", "traits": ["concentrate", "spellshape"], "cost": 1, "text": "The instillo can hide the source of their magic. If the next action the instillo uses is to Cast a Spell, that spell gains the subtle trait. The trait hides only the spell's spellcasting actions and manifestations, not its effects."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The instillo's Strikes deal an additional 2d6 precision damage to Off-Guard creatures."}, {"name": "Superlative Rhetoric", "type": "action", "traits": ["arcane"], "cost": 1, "text": "Frequency once per round%rRequirements The instillo's most recent action was to cast a spell with the auditory trait%rEffect The instillo immediately casts Daze at a creature that can hear them."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 26, "attack": 18, "spells": {"0": ["Bullhorn", "Daze", "Live Wire", "Message", "Telekinetic Hand"], "1": ["Charm", "Enfeeble", "Force Barrage"], "2": ["Deafness", "Entangling Flora", "Stupefy"], "3": ["Enthrall", "Paralyze"], "4": ["Containment", "Countless Eyes", "Translocate"], "5": ["Cloak of Colors", "Mind Probe"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 23, "attack": 15, "spells": {"2": ["Status (At Will)"], "4": ["Dispelling Globe", "Dull Ambition"]}}]
+"Brakknap":
+  pack: "hellbreakers-bestiary"
+  level: 4
+  size: "small"
+  rarity: "unique"
+  traits: ["goblin", "humanoid"]
+  ac: 20
+  hp: 55
+  perception: 11
+  saves: {"fortitude": 8, "reflex": 11, "will": 14}
+  abilities: {"cha": 5, "con": 1, "dex": 3, "int": 1, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Diplomacy": 12, "Medicine": 10, "Nature": 10, "Occultism": 10, "Religion": 12, "Society": 12, "Chitterwood Lore": 10}
+  strikes: [{"name": "Light Mace", "bonus": 12, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "finesse", "shove"]}, {"name": "Hand Crossbow", "bonus": 12, "damage": [["1d6+4", "piercing", null]], "traits": ["reload-1"], "range": 60}]
+  actions: [{"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "Trigger A goblin ally ends a move action adjacent to Brakknap%rEffect Brakknap Steps."}, {"name": "Evoke Fault", "type": "action", "traits": ["concentrate", "divine"], "cost": 1, "text": "The spirits of his ancestors tell Brakknap of a weakness of a foe within 30 feet. Until the end of his turn, Brakknap gains a +1 status bonus to the attack roll of his next Strike against that target, and that Strike deals an extra 1d6 precision damage. At the end of his turn, Brakknap becomes Clumsy 1 for 1 minute. If Brakknap uses Evoke Fault while clumsy, he increases the value of his clumsy condition by 1, to a maximum of Clumsy 3."}, {"name": "Vision of Goblins' Fall", "type": "action", "traits": ["concentrate", "divine", "emotion", "fear", "mental"], "cost": 1, "text": "Frequency once per 10 minutes%rEffect Brakknap touches a foe, making them experience the pain suffered by Chitterwood goblins during the Goblinblood Wars. The target takes 3d6 mental damage (DC 21 Will save). A creature that fails the save is also Frightened 1 (Frightened 2 on a critical failure)."}]
+  spellcasting: [{"name": "Divine Spontaneous Spells", "tradition": "divine", "type": "spontaneous", "dc": 21, "attack": 13, "spells": {"0": ["Daze", "Guidance", "Shield", "Stabilize", "Vitality Lash"], "1": ["Heal", "Ill Omen", "Protection", "Spirit Link"], "2": ["Augury", "Ghostly Carrier", "Noise Blast", "Share Life"]}}]
+"Caeto Vulaunex":
+  pack: "hellbreakers-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 30
+  hp: 200
+  perception: 21
+  saves: {"fortitude": 21, "reflex": 18, "will": 24}
+  abilities: {"cha": 7, "con": 3, "dex": 0, "int": 2, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Athletics": 23, "Diplomacy": 25, "Intimidation": 25, "Medicine": 21, "Religion": 21, "Society": 19, "Hell Lore": 21, "Warfare Lore": 20}
+  resistances: {"slashing": 10}
+  actions: [{"name": "+2 Status to Will Saves vs. Mental", "type": "passive", "traits": []}, {"name": "Godclaw Aura", "type": "passive", "traits": ["aura", "divine"], "text": "15 feet. Followers of any deities on the Godclaw pantheon or of the pantheon itself within the aura immediately know Caeto is a champion of the Godclaw."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Steel Command", "type": "reaction", "traits": ["divine", "emotion", "mental"], "text": "Trigger A creature in Caeto's aura damages him%rEffect Caeto commands his enemy to kneel in supplication. The triggering creature must attempt a DC 30 Will save. They then become immune to Steel Command for 1 minute.%rSuccess The creature must choose to drop Prone as a free action or take 3d6 mental,1d8 persistent spirit damage.%rFailure The creature must choose to drop prone as a free action and be Slowed 1 or take 6d6 mental,2d8 persistent spirit damage.%rCritical Failure The creature drops…"}, {"name": "Hand of the Avenger", "type": "free", "traits": ["divine", "manipulate", "spirit"], "text": "Caeto evokes his oath to bring justice to those he deems a threat to Isger. Until the end of his turn, Caeto can use his lay on hands to damage an enemy in his aura as if they were undead, dealing spirit damage instead of vitality damage."}, {"name": "Lawbreaker's Bane", "type": "passive", "traits": [], "text": "Caeto gains a +4 status bonus on damage to Strikes against targets that he knows have broken the law. The bonus increases to +6 if the target is a known member of the Hellbreakers League."}, {"name": "Oppressive Might", "type": "action", "traits": ["concentrate", "divine", "emotion", "fear", "mental", "visual"], "cost": 1, "text": "Caeto uses his posture to assert dominance over the masses. He attempts an Intimidation check to demoralize all non-allied creatures within 60 feet. He doesn't take a penalty against targets who don't understand his language. On a critical success, that target doesn't become temporarily immune to Caeto's other attempts to Demoralize them."}, {"name": "Subdue Fugitive", "type": "action", "traits": [], "cost": 2, "text": "Frequency once per minute%rRequirements Caeto is wielding his longsword%rEffect Caeto uses his shifting rune's Shift Weapon to transform his sword into a flail and makes a melee Strike with it. If the Strike hits and deals damage, he can attempt an Athletics check as a free action to Disarm or Trip the target of the Strike. This attempt neither applies nor counts toward Caeto's multiple attack penalty."}]
+  spellcasting: [{"name": "Champion Devotion Spells", "tradition": "divine", "type": "focus", "dc": 30, "attack": 22, "spells": {"1": ["Lay on Hands", "Touch of Obedience"], "4": ["Commanding Lash"]}}]
+"Captain Lamperia Bane":
+  pack: "hellbreakers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "unholy"]
+  ac: 18
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 6, "reflex": 12, "will": 9}
+  abilities: {"cha": 2, "con": 1, "dex": 4, "int": 1, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 9, "Athletics": 7, "Deception": 7, "Diplomacy": 7, "Intimidation": 10, "Society": 7, "Hell Lore": 9, "Sailing Lore": 9}
+  weaknesses: {"holy": 3}
+  resistances: {"fire": 3}
+  strikes: [{"name": "Rapier", "bonus": 12, "damage": [["1d6+4", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse"], "effects": ["Captains Edge"]}, {"name": "Heavy Crossbow", "bonus": 12, "damage": [["1d10+2", "piercing", null]], "traits": ["reload-2"], "range": 120, "effects": ["Captains Edge"]}, {"name": "Fist", "bonus": 12, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"], "effects": ["Captains Edge"]}]
+  actions: [{"name": "Captain's Edge", "type": "passive", "traits": [], "text": "Lamperia deals an additional 1d8 precision damage with Strikes when aboard her ship."}, {"name": "Hell's Glare", "type": "action", "traits": ["emotion", "fear", "mental"], "cost": 2, "text": "Lamperia's eyes glow like the fires of Hell as she swings her blade. Lamperia makes a rapier Strike. If she hits and deals damage, the target is Frightened 1 (Frightened 2 on a critical hit)."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Ignition"]}}]
+"Chelaxian Loyalist":
+  pack: "hellbreakers-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 14
+  hp: 10
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 4, "will": 3}
+  abilities: {"cha": 0, "con": 1, "dex": 2, "int": 0, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 5, "Intimidation": 4, "Society": 3}
+  strikes: [{"name": "Crossbow", "bonus": 4, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}, {"name": "Light Mace", "bonus": 5, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "finesse", "shove"]}, {"name": "Fist", "bonus": 5, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Gang Determination", "type": "passive", "traits": [], "text": "When a Chelaxian loyalist is adjacent to at least one other ally, they gain a +1 circumstance bonus to Will saves."}]
+"Chelaxian Loyalist Leader":
+  pack: "hellbreakers-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 15
+  hp: 25
+  perception: 7
+  saves: {"fortitude": 6, "reflex": 5, "will": 9}
+  abilities: {"cha": 3, "con": 1, "dex": 1, "int": 1, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 7, "Diplomacy": 6, "Intimidation": 6, "Society": 4}
+  strikes: [{"name": "Morningstar", "bonus": 7, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["versatile-p"]}, {"name": "Heavy Crossbow", "bonus": 5, "damage": [["1d10", "piercing", null]], "traits": ["reload-2"], "range": 120}, {"name": "Fist", "bonus": 7, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Gang Determination", "type": "passive", "traits": [], "text": "When a Chelaxian loyalist is adjacent to at least one other ally, they gain a +1 circumstance bonus to Will saves."}, {"name": "For Cheliax!", "type": "action", "traits": ["auditory", "linguistic", "visual"], "cost": 2, "text": "The Chelaxian loyalist leader Strides, shouting a Chelaxian slogan of loyalty. If they end the movement adjacent to a foe, they make a morningstar Strike against that foe. Each ally who hears and sees the loyalist leader attack can spend their reaction to Stride toward that foe."}]
+"Chelaxian Recruit":
+  pack: "hellbreakers-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 16
+  hp: 15
+  perception: 6
+  saves: {"fortitude": 9, "reflex": 6, "will": 4}
+  abilities: {"cha": 0, "con": 1, "dex": 2, "int": 0, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 6, "Intimidation": 5, "Survival": 3}
+  strikes: [{"name": "Guisarme", "bonus": 8, "damage": [["1d10+3", "slashing", null]], "traits": ["reach-10", "trip"]}, {"name": "Shortbow", "bonus": 6, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}, {"name": "Fist", "bonus": 8, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Punish the Fallen", "type": "action", "traits": [], "cost": 1, "text": "Requirements The Chelaxian recruit's last action was a successful Trip against a foe%rEffect The Chelaxian recruit makes a guisarme Strike against the Prone foe. This attack is at the same multiple attack penalty as the Trip, but they increase their multiple attack penalty as usual after the Strike has been resolved."}]
+"Coarti Spy":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 24
+  hp: 110
+  perception: 17
+  saves: {"fortitude": 13, "reflex": 17, "will": 15}
+  abilities: {"cha": 4, "con": 2, "dex": 6, "int": 3, "str": 4, "wis": 4}
+  speeds: {"land": 25, "fly": 40}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 15, "Athletics": 15, "Deception": 17, "Religion": 17, "Legal Lore": 14}
+  immunities: ["fire"]
+  weaknesses: {"holy": 5}
+  resistances: {"physical": 5, "poison": 5}
+  strikes: [{"name": "Wing", "bonus": 17, "damage": [["1d6", "fire", null], ["1d6+7", "bludgeoning", null]], "traits": ["agile", "unholy", "versatile-p"]}, {"name": "Dagger", "bonus": 18, "damage": [["1d6+10", "slashing", null], ["1d6", "spirit", null]], "traits": ["magical", "unholy", "versatile-p"]}, {"name": "Dagger", "bonus": 18, "damage": [["1d6", "spirit", null], ["1d10+6", "slashing", null]], "traits": ["magical", "thrown-10", "unholy", "versatile-p"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Blood Contract", "type": "passive", "traits": [], "text": "When the coarti takes damage from their holy weakness, blood flows freely from their eyes and the contract carved into their skin. They take 1d6 persistent bleed damage and are Dazzled as long as the persistent damage continues, but their Despairing Shriek recharges."}, {"name": "Despairing Shriek", "type": "action", "traits": ["divine", "sonic", "unholy"], "cost": 2, "text": "The coarti lets out a terrible cry, dealing 4d6 sonic|options:area-damage damage to all creatures in a 30-foot with a DC 25 Will save. Holy creatures that fail this save are also Frightened 2; this added effect has the emotion, fear, and mental traits.%rThe coarti can't use Despairing Shriek again for 1d4 rounds."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The coarti spy deals an extra 2d6 precision damage to Off-Guard creatures."}, {"name": "Wing Snap", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per turn%rEffect The coarti makes two wing Strikes, then falls if it's flying. It can't Fly until the end of its turn."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 25, "attack": 17, "spells": {"4": ["Darkness", "Translocate (At Will)"], "5": ["Truespeech (Constant)"]}}]
+"Deathless Acolyte of Urgathoa":
+  pack: "hellbreakers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["evil", "undead", "unholy"]
+  ac: 17
+  hp: 36
+  perception: 9
+  saves: {"fortitude": 7, "reflex": 7, "will": 11}
+  abilities: {"cha": 2, "con": 0, "dex": 2, "int": 1, "str": 1, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Intimidation": 9, "Occultism": 8, "Religion": 11, "Stealth": 7}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Scythe", "bonus": 10, "damage": [["1d10+4", "slashing", null]], "traits": ["deadly-d10", "trip"]}]
+  actions: [{"name": "Denounce Heretic", "type": "reaction", "traits": ["divine"], "text": "Trigger A creature within 60 feet who the deathless acolyte can see and who doesn't worship Urgathoa casts a divine spell%rEffect The deathless acolyte attempts to counteract the triggering spell using their spell attack modifier and a counteract rank of 2. If the deathless acolyte fails to counteract the spell, the caster is temporarily immune to further uses of Denounce Heretic for 24 hours."}, {"name": "Field of Undeath", "type": "passive", "traits": ["aura", "divine"], "text": "20 feet. Allies within the aura who have void healing gain fast healing 2. When a creature within the aura would receive vitality healing, it must succeed at a DC 5 Flat or receive no healing from the effect."}, {"name": "Void Healing", "type": "passive", "traits": []}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 19, "attack": 11, "spells": {"0": ["Detect Magic", "Divine Lance", "Forbidding Ward", "Shield", "Void Warp"], "1": ["Bane", "Enfeeble", "Fear", "Harm", "Summon Undead"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 19, "attack": 11, "spells": {"1": ["Touch of Undeath"]}}]
+"Draconic Fumecrux":
+  pack: "hellbreakers-bestiary"
+  level: 9
+  size: "large"
+  rarity: "uncommon"
+  traits: ["undead", "unholy"]
+  ac: 27
+  hp: 140
+  perception: 18
+  saves: {"fortitude": 21, "reflex": 15, "will": 17}
+  abilities: {"cha": 6, "con": 1, "dex": 4, "int": 1, "str": -5, "wis": 3}
+  speeds: {"land": 25, "fly": 90}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Intimidation": 18}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Jaws", "bonus": 21, "damage": [["2d12+9", "piercing", null]], "traits": ["magical", "reach-10"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 18, "damage": [["4d8+4", "void", null]], "traits": ["agile", "finesse", "magical", "void"]}, {"name": "Tail", "bonus": 18, "damage": [["4d6+4", "void", null]], "traits": ["agile", "finesse", "magical", "reach-15", "void"]}]
+  actions: [{"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 26 Will"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Desiccated Boulder Breath", "type": "action", "traits": ["void"], "cost": 2, "text": "The draconic fumecrux belches forth a mass of stones that are partially solid and partially void energy. These stones deal 4d8 bludgeoning,4d8 void|options:area-damage damage in a 30-foot cone (DC 25 Reflex save).%rIt can't use Desiccated Boulder Breath again for 1d4 rounds."}, {"name": "Hellfume Body", "type": "passive", "traits": [], "text": "A fumecrux's body consists of hellish fumes infused with void energy. When a creature that's holding its breath while it has been Swallowed Whole by a fumecrux attacks or casts a spell on a turn, the creature loses 3 rounds of air instead of 2."}, {"name": "Spit Up", "type": "action", "traits": [], "cost": 2, "text": "Requirements The draconic fumecrux has a creature Swallowed Whole%rEffect The draconic fumecrux spits out the swallowed creature, flinging it through the air up to 40 feet away. The creature takes bludgeoning damage equal to the distance it traveled and lands Prone. If it lands in the same space as another creature, the other creature is pushed 5 feet and takes (3d8+4) bludgeoning damage (DC 25 Reflex save). The fumecrux can't Spit Up more than one creature at a time no matter their size, and…"}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Medium, (1d10+4) void,(1d10) fire, Rupture 12"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Drude":
+  pack: "hellbreakers-bestiary"
+  level: 2
+  size: "small"
+  rarity: "uncommon"
+  traits: ["fey"]
+  ac: 18
+  hp: 25
+  perception: 10
+  saves: {"fortitude": 5, "reflex": 11, "will": 8}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 2, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Deception": 8, "Society": 7, "Stealth": 8}
+  weaknesses: {"cold-iron": 3}
+  strikes: [{"name": "Jaws", "bonus": 8, "damage": [["1d6+3", "piercing", null]], "traits": ["agile", "finesse", "magical"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Lay Bare", "type": "passive", "traits": [], "text": "When a drude using Change Shape is reduced to fewer than half their Hit Points, they revert to their true form."}, {"name": "Nightmare Herald", "type": "passive", "traits": ["aura"], "text": "90 feet. A creature that sleeps within the drude's aura is tormented with horrific nightmares and must attempt a DC 18 Will save. On a failure, it's Enfeebled 1 for 24 hours when it awakens. On a critical failure, it's also Fatigued."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph"], "cost": 1, "text": "The drude takes on the appearance of a Small animal or inanimate object. This doesn't affect their statistics, but it could change the damage type of their Strikes while in animal form."}, {"name": "Haunting Echoes", "type": "action", "traits": ["concentrate", "emotion", "fear", "illusion", "mental", "primal"], "cost": 1, "text": "The drude targets a creature they can see within 30 feet and assaults it with illusions of ghosts and nightly terrors. The creature must attempt a DC 18 Will save.%rCritical Success The creature is unaffected and temporarily immune for 24 hours.%rSuccess The creature takes 1d6 mental damage.%rFailure The creature takes 1d6 mental damage and is Frightened 1.%rCritical Failure The creature takes 2d6 mental damage and is Frightened 2."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 16, "attack": 8, "spells": {"1": ["Vanishing Tracks (Constant)"]}}]
+"Drunken Isgeri Slayer":
+  pack: "hellbreakers-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid"]
+  ac: 15
+  hp: 24
+  perception: 5
+  saves: {"fortitude": 9, "reflex": 4, "will": 7}
+  abilities: {"cha": 0, "con": 1, "dex": 1, "int": 0, "str": 3, "wis": 4}
+  speeds: {"land": 20}
+  skills: {"Acrobatics": 5, "Athletics": 6, "Intimidation": 4, "Nature": 6, "Survival": 7}
+  strikes: [{"name": "Shortbow", "bonus": 6, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}, {"name": "Longsword", "bonus": 8, "damage": [["1d8+3", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Shortsword", "bonus": 8, "damage": [["1d6+3", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Fist", "bonus": 8, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Drunken Stumble", "type": "reaction", "traits": [], "text": "Trigger The drunken Isgeri Slayer is hit with an attack that deals physical damage%rEffect The drunken slayer stumbles away from the blow. They gain resistance 2 to the damage of the triggering attack and they can Step. They also take a –1 circumstance penalty to AC for 1 round.%rEffect: Drunken Stumble"}, {"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The Isgeri Slayer designates a single creature they can see and hear, or one they're Tracking, as their prey.%rThe slayer gains a +2 circumstance bonus to Perception checks to seek the prey and to Survival checks to track the prey.%rThe first time the slayer hits the designated prey in a round, they deal an additional 1d6 precision damage. The slayer also ignores the penalty for making ranged attacks within their second range increment. These effects last until the poacher uses Hunt Prey again."}]
+"Elite Ort":
+  pack: "hellbreakers-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "common"
+  traits: ["devil", "fiend", "mindless", "unholy"]
+  ac: 13
+  hp: 20
+  perception: 0
+  saves: {"fortitude": 9, "reflex": 6, "will": 2}
+  abilities: {"cha": -3, "con": 3, "dex": 0, "int": -5, "str": 2, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["greater-darkvision"]
+  skills: {"Athletics": 6}
+  immunities: ["fire"]
+  weaknesses: {"holy": 3}
+  resistances: {"physical": 3, "poison": 5}
+  strikes: [{"name": "Claw", "bonus": 8, "damage": [["1d4+2", "slashing", null]], "traits": ["agile", "magical", "unarmed", "unholy"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Fiendish Order", "type": "passive", "traits": ["aura", "divine", "unholy"], "text": "30 feet. An elite ort is ripe enough to be shaped into another, more powerful devil and gives off an aura of superiority. Each allied ort in the aura gains a +1 circumstance bonus to attack and damage rolls."}, {"name": "Subservience", "type": "passive", "traits": [], "text": "Orts have little drive of their own, but other devils can take command of them. A non-ort devil can issue a command to all orts within 60 feet of it with a single action, which has the auditory and concentrate traits. The devil picks one of the following orders orts can understand, and the orts follow that order. The command and its effects end once the commander is out of the ort's sight, when a new command is issued by the same or another devil, or when the ort dies.%rKill The ort attacks one…"}]
+"Erinys Sister Wight":
+  pack: "hellbreakers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["undead", "unholy", "wight"]
+  ac: 18
+  hp: 40
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 6, "will": 10}
+  abilities: {"cha": 2, "con": 4, "dex": 1, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "fueled by spite, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 10, "Intimidation": 9, "Stealth": 8}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious", "bleed"]
+  strikes: [{"name": "Claw", "bonus": 12, "damage": [["1d4+6", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Corrupting Spite"]}, {"name": "Dart", "bonus": 10, "damage": [["1d4+6", "piercing", null]], "traits": ["agile", "thrown-20"]}]
+  actions: [{"name": "Grave Weapon", "type": "passive", "traits": ["divine"], "text": "The wight is bound to the darts she was buried with."}, {"name": "Final Spite", "type": "reaction", "traits": [], "text": "Trigger The wight is reduced to 0 Hit Points%rEffect The wight makes a Strike before being destroyed. This Strike can inflict corrupting spite, but fueled by spite doesn't apply."}, {"name": "Fueled by Spite", "type": "passive", "traits": [], "text": "Each time a creature loses Hit Points due to a corrupting spite curse the wight inflicted, the wight gains 3 temporary Hit Points."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Claw of Pain", "type": "passive", "traits": [], "text": "When the sister wight targets the same creature with two Strikes from her Flurry of Blows, she can cause lingering pain. If either Strike hits and deals damage, the target must succeed at a DC 18 Fortitude save or take 1d4 persistent mental damage (and become Sickened 1 on a critical failure)."}, {"name": "Corrupting Spite", "type": "passive", "traits": ["curse", "divine", "void"], "text": "The wight's unarmed attacks and bound weapons inflict a curse that makes a creature grow weak and spiteful. If a wight inflicts corrupting spite on a creature already afflicted by it, the victim attempts a new save, ignoring the result if it's better than a failure.%rA living humanoid that dies while under the curse rises as a wight after 1d4 rounds, controlled by the wight that killed it. The wight spawn can't inflict corrupting spite and is Clumsy 2. If its creator dies or after roughly a…"}, {"name": "Flurry of Blows", "type": "action", "traits": ["flourish"], "cost": 1, "text": "The sister wight makes two fist Strikes, applying her multiple attack penalty as normal. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses."}]
+"Ezio Gaeta":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy", "vampire"]
+  ac: 25
+  hp: 90
+  perception: 16
+  saves: {"fortitude": 14, "reflex": 13, "will": 18}
+  abilities: {"cha": 3, "con": 4, "dex": 2, "int": 1, "str": 2, "wis": 6}
+  speeds: {"land": 25, "climb": 25}
+  hp_details: "coffin restoration, fast healing 7, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 15, "Deception": 17, "Diplomacy": 17, "Religion": 15, "Society": 15, "Stealth": 13, "Thievery": 13}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "sleep"]
+  resistances: {"physical": 7}
+  strikes: [{"name": "Claw", "bonus": 18, "damage": [["2d8+5", "slashing", null]], "traits": ["agile"], "effects": ["Grab"]}]
+  actions: [{"name": "Children of the Night", "type": "passive", "traits": ["divine", "mental"], "text": "Ezio's presence brings forth creatures of the night to do his bidding. Ezio can give telepathic orders to these creatures as long as they're within 100 feet, but they can't communicate back. Ezio prefers to keep the company of rat swarms."}, {"name": "Fast Healing 7", "type": "passive", "traits": []}, {"name": "Cloud of Plague", "type": "free", "traits": ["disease"], "text": "Trigger Ezio is reduced to 0 HP%rEffect Ezio's body explodes in a bloody mist that carries a deadly plague. Each living creature in a 15-foot emanation must succeed at a DC 22 Fortitude save or contract choking death at stage 1 (stage 2 on a critical failure). Ezio bursts forth from the corpse of the first creature to die of this affliction, fully healed, but if all affected creatures are cured of the disease, Ezio is permanently destroyed."}, {"name": "Coffin Restoration", "type": "passive", "traits": ["divine", "void"], "text": "Unlike other undead, a vampire isn't destroyed at 0 HP. Instead, it falls Unconscious. If its body rests in its coffin for 1 hour, the vampire gains 1 HP, after which its fast healing begins to function normally."}, {"name": "Hypnotic Gaze", "type": "passive", "traits": ["aura", "divine", "mental", "visual"], "text": "30 feet. Even when he's not attempting to Dominate a creature, Ezio uses his power over others' minds to subtly befuddle them, helping enable his plots. Creatures in the aura take a –1 status penalty to Perception checks to Sense Motive and Perception DCs against Ezio. When a creature ends its turn in Ezio's aura, it must attempt a DC 22 Will save. On a failure, it becomes Stupefied 1 for 1 round (Stupefied 2 for 1 round on a critical failure)."}, {"name": "Vampire Vulnerabilities", "type": "passive", "traits": [], "text": "All vampires possess the following vulnerabilities.%rCompulsions Vampires are creatures with strange and unknowable compulsions. A typical vampire can't voluntarily cross running water unless they're transported while they hide within their coffin, nor can they enter a private dwelling unless invited in by someone with the authority to do so. At your discretion, vampires might have different compulsions—a pirate vampire might not be able to set foot on solid ground without being invited, for…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Biting Flies", "type": "action", "traits": [], "cost": 1, "text": "Each creature that shares a space with Ezio takes 3d8 piercing damage with a DC 25 Reflex save. On a critical failure, Ezio also gains the benefits of Drinking that creature's Blood."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "Ezio transforms into a swarm of Tiny flies. While in this form, he has the swarm trait and gains weakness 7 to area and splash damage. He has a land Speed of 20 feet and a fly Speed of 30 feet, and can fit into spaces only a few inches wide, moving his constituent creatures through the gap. He can't make any of his normal Strikes but gains the Biting Flies action.%rBiting Flies 1 Each creature that shares a space with Ezio takes 3d8 piercing damage with a DC 25 Reflex save. On a critical…"}, {"name": "Create Servitor", "type": "passive", "traits": ["divine", "downtime"], "text": "If a creature dies after being reduced to 0 HP by Drink Blood, Ezio can turn this victim into a vampire servitor by donating some of their own blood to the victim and burying the victim in earth for 3 nights.%rA vampiric servitor is compelled to obey its creator, but if Ezio controls too many vampiric servitors at once (as determined by the GM), or if the servitor is a higher level than Ezio that created it, strong-willed servitors can free themselves by succeeding at a DC 25 Will saving throw."}, {"name": "Dominate", "type": "action", "traits": ["divine", "incapacitation", "mental", "visual"], "cost": 2, "text": "Ezio can cast Dominate at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait (DC 23 Will). A creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours.%rFully destroying Ezio ends the domination, but merely reducing Ezio to 0 HP is insufficient to break the spell."}, {"name": "Drink Blood", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirement A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within Ezio's reach.%rEffect Ezio sinks its fangs into that creature to drink its blood. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions.%rThe victim is Drained 2 and Ezio regains HP equal to 10% of its maximum HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't…"}, {"name": "Turn to Mist", "type": "action", "traits": ["air", "concentrate", "divine", "polymorph"], "cost": 1, "text": "Ezio turns into a cloud of vapor, as the Vapor Form spell, or back to its normal form. Ezio loses fast healing while in gaseous form.%rEzio can remain in this form indefinitely."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"False Hellbreaker":
+  pack: "hellbreakers-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 16
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 5, "will": 5}
+  abilities: {"cha": -1, "con": 2, "dex": 2, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 7, "Intimidation": 5, "Legal Lore": 3}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Sap", "bonus": 7, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["agile", "nonlethal"]}, {"name": "Crossbow", "bonus": 6, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  actions: [{"name": "+1 Bonus on Perception to Find concealed objects", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Block the Path", "type": "action", "traits": [], "cost": 1, "text": "The false Hellbreaker prepares to harry anyone who tries to move past them. If it hits a creature with a Reactive Strike triggered by a move action, the triggering creature treats any squares within the steward's guard's reach as difficult terrain until the start of the false Hellbreaker's next turn."}]
+"Fiendish Viro Ahala":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["fiend", "unholy"]
+  ac: 24
+  hp: 115
+  perception: 14
+  saves: {"fortitude": 17, "reflex": 13, "will": 14}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 1, "str": 6, "wis": 2}
+  speeds: {"land": 20, "fly": 30}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 16, "Intimidation": 14, "Religion": 16, "Survival": 16, "Hell Lore": 14}
+  immunities: ["acid", "fire"]
+  weaknesses: {"holy": 7}
+  resistances: {"poison": 7}
+  strikes: [{"name": "Longsword", "bonus": 18, "damage": [["1d8+9", "slashing", null], ["1d6", "fire", null]], "traits": ["magical", "versatile-p"]}, {"name": "Gauntlet", "bonus": 17, "damage": [["1d4+9", "bludgeoning", null]], "traits": ["agile", "free-hand"]}, {"name": "Flaming Gaze", "bonus": 16, "damage": [["2d10+3", "fire", null]], "traits": ["fire", "magical", "unholy"]}]
+  actions: [{"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "+3 Status to Reflex Saves vs. Area Effects", "type": "passive", "traits": []}, {"name": "Retributive Glare", "type": "reaction", "traits": [], "text": "Trigger A creature within 60 feet damages Viro%rEffect Viro burns the one that hurt them with his gaze. He makes a flaming gaze Strike against the triggering creature. This ranged attack doesn't trigger reactions, and if it's a critical hit, the target also takes 1d8 persistent fire damage."}, {"name": "Furious Viper Cut", "type": "action", "traits": ["magical", "poison", "unholy"], "cost": 1, "text": "Requirements Viro's last action was a longsword Strike that dealt damage%rEffect The sword transforms into a snake and bites at the target of the required Strike. The target takes 2d6 poison damage (DC 24 Fortitude save). On a failure, the target is also racked with terrible pain, becoming Sickened 1 (Sickened 2 on a critical failure)."}, {"name": "Wrathful Strike", "type": "action", "traits": [], "cost": 2, "text": "Viro makes a longsword Strike. This counts as two attacks for his multiple attack penalty. If the Strike hits, it deals an additional die of weapon damage and 1d4 persistent bleed damage."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 22, "attack": 14, "spells": {"2": ["Invisibility (Self Only, At Will)"], "3": ["Fear (At Will)"], "4": ["Divine Wrath", "Translocate (At Will)"]}}]
+"Gliding River Snake":
+  pack: "hellbreakers-bestiary"
+  level: 0
+  size: "small"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 15
+  perception: 6
+  saves: {"fortitude": 6, "reflex": 9, "will": 3}
+  abilities: {"cha": -2, "con": 1, "dex": 3, "int": -4, "str": 0, "wis": 1}
+  speeds: {"land": 20, "climb": 15, "swim": 20}
+  senses: ["low-light-vision", "scent"]
+  skills: {"Athletics": 2, "Stealth": 5, "Survival": 5}
+  strikes: [{"name": "Jaws", "bonus": 6, "damage": [["1d6+2", "piercing", null]], "traits": [], "effects": ["Gliding River Snake Venom"]}]
+  actions: [{"name": "Deep Breath", "type": "passive", "traits": [], "text": "The gliding river snake can hold its breath for about an hour."}, {"name": "Aerial Ambush", "type": "action", "traits": ["move"], "cost": 1, "text": "Requirements The gliding river snake is higher than a creature%rEffect The gliding river snake launches up to 20 feet down toward a creature and makes a jaws Strike against it. If the snake hits, it doesn't take damage from the fall. If it misses, it takes only half the regular damage from the distance it fell."}, {"name": "Aquatic Ambush", "type": "action", "traits": [], "cost": 1, "text": "Requirements The gliding river snake is in water and a creature that hasn't detected it is within 20 feet%rEffect The gliding river snake moves up to its swim Speed + 10 feet toward the triggering creature, traveling on water and on land. Once the creature is in reach, the snake makes a jaws Strike against it. The creature is Off-Guard against this Strike."}, {"name": "Gliding River Snake Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 18 Fortitude%rMaximum Duration 4 rounds%rStage 1 1d8 poison damage (1 round)"}, {"name": "Weaving Glide", "type": "action", "traits": ["move"], "cost": 1, "text": "The snake glides toward the ground, 5 feet down and up to 20 feet forward through the air. As long as it spends at least 1 action gliding each round and hasn't yet reached the ground, it remains in the air at the end of its turn."}]
+"Godclaw Hellcrown":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "tiny"
+  rarity: "uncommon"
+  traits: ["undead", "unholy"]
+  ac: 24
+  hp: 115
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 18, "will": 15}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 0, "str": -1, "wis": 2}
+  speeds: {"land": 0, "fly": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Intimidation": 17, "Stealth": 15}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Spectral Lash", "bonus": 17, "damage": [["2d12+3", "void", null]], "traits": ["magical", "void"], "effects": ["Agony Lash"]}]
+  actions: [{"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Agony Lash", "type": "passive", "traits": ["divine"], "text": "A creature damaged by the godclaw hellcrown's spectral lash Strike must attempt a DC 23 Fortitude save. On a failure, the tip of the lash is embedded in the creature, dealing 1d6 persistent bleed damage and imparting a –5-foot status penalty to the target's Speeds for 1 minute. Each additional embedded tip increases the bleed damage by 1 and the penalty to Speed by 5 feet. A creature can remove a tip with an Interact action to reduce the amount of bleed damage and the penalty to Speed. Pulling…"}, {"name": "Forbidding Stare", "type": "action", "traits": ["concentrate", "emotion", "fear", "mental", "visual"], "cost": 1, "text": "All creatures that can see the hellcrown and are affected by agony lash must attempt a DC 25 Will saving throw. A creature that fails is Frightened 1, and on a critical failure, it becomes Fleeing for as long as it's frightened. Regardless of the result, the creature is then temporarily immune to Forbidding Stare for 10 minutes."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 23, "attack": 15, "spells": {"0": ["Telekinetic Projectile"], "1": ["Command (At Will)"], "3": ["Crisis of Faith"], "4": ["Divine Wrath"]}}]
+"Gredress Tilnanos":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "unholy"]
+  ac: 22
+  hp: 100
+  perception: 15
+  saves: {"fortitude": 13, "reflex": 12, "will": 15}
+  abilities: {"cha": 0, "con": 2, "dex": 1, "int": 4, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Arcana": 16, "Diplomacy": 11, "Religion": 15, "Academia Lore": 14, "Demon Lore": 18}
+  strikes: [{"name": "Longspear", "bonus": 17, "damage": [["1d8+9", "piercing", null]], "traits": ["magical", "reach"]}, {"name": "Fist", "bonus": 16, "damage": [["1d4+9", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Diabolic Certitude", "type": "passive", "traits": ["divine", "mental"], "text": "Some signifers are so assured of their power to control devils that they sometimes reach too far. When Gredress publicly espouses the superiority of Hell, she gains a +1 status bonus to skill checks, AC, and saves for 1 day. These bonuses don't apply against devils. At the end of the day, Gredress must attempt a DC 20 Will save or take a –1 status penalty to skill checks, AC, and saves against devils for 1 day (or –2 on a critical failure).%rEffect: Diabolic Certitude"}, {"name": "Breach the Pit", "type": "free", "traits": [], "text": "Requirements Gredress's last action was to cast a non-cantrip spell%rEffect Gredress siphons energy drawn from Hell into her weapon. Until the end of the turn, the weapon deals an extra 2d6 damage.%rRoll 1d20 to determine the type:%r1–4 cold%r5–12 fire%r13–16 poison%r17–20 void."}, {"name": "Devil Summoning", "type": "passive", "traits": [], "text": "Gredress can cast a 5th-rank Summon Fiend arcane spell to summon a devil. To do so, she must sacrifice two 4th-rank prepared spells and voluntarily take 4d12 mental damage that can't be reduced or prevented. If Gredress is unable to Sustain the Spell, including if she's knocked out or killed, the spell continues, but the GM rolls a DC 10 Flat each round, ending the spell on a failure."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Caustic Blast", "Daze", "Detect Magic", "Light", "Read Aura"], "1": ["Fear", "Fleet Step", "Hydraulic Push"], "2": ["Blur", "Floating Flame", "Noise Blast", "Telekinetic Maneuver"], "3": ["Crashing Wave", "Fireball", "Gravity Well", "Paralyze"], "4": ["Containment", "Translocate", "Vision of Death"]}}]
+"Hecatinia":
+  pack: "hellbreakers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 19
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 6, "will": 8}
+  abilities: {"cha": 1, "con": 3, "dex": 1, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 11, "Diplomacy": 6, "Intimidation": 9, "Society": 5, "Legal Lore": 7}
+  strikes: [{"name": "Warhammer", "bonus": 13, "damage": [["1d8+7", "bludgeoning", null]], "traits": ["shove"]}, {"name": "Fist", "bonus": 13, "damage": [["1d4+7", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Crossbow", "bonus": 10, "damage": [["1d8+3", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  actions: [{"name": "+1 to Sense Motive", "type": "passive", "traits": []}, {"name": "Air of Authority", "type": "passive", "traits": ["aura", "emotion", "mental"], "text": "10 feet. Creatures in the aura who are the same or lower level than the watch officer take a -2 status penalty to their Will DC against the watch officer's attempts to coerce or demoralize them."}, {"name": "Bravery", "type": "passive", "traits": [], "text": "When the watch officer rolls a success on a Will save against a fear effect, they get a critical success instead. In addition, any time they gain the Frightened condition, reduce its value by 1."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Hunter's Fatigue", "type": "passive", "traits": [], "text": "Having fought undead nonstop for the entire day, both Hellknights have the Fatigued condition. The condition goes away as usual with a full night's rest."}, {"name": "Sudden Charge", "type": "action", "traits": [], "cost": 2, "text": "Frequency once per round%rEffect The watch officer Strides twice. If they end their movement within melee reach of at least one enemy, they can make a melee Strike against that enemy."}]
+"Hedvend VI":
+  pack: "hellbreakers-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["undead", "unholy", "vampire"]
+  ac: 21
+  hp: 70
+  perception: 12
+  saves: {"fortitude": 15, "reflex": 9, "will": 12}
+  abilities: {"cha": 2, "con": 2, "dex": 3, "int": 5, "str": 4, "wis": 0}
+  speeds: {"land": 25, "climb": 25}
+  hp_details: "fast healing 5, void healing"
+  senses: ["darkvision"]
+  skills: {"Arcana": 13, "Athletics": 13, "Deception": 12, "Diplomacy": 13, "Intimidation": 11, "Religion": 11, "Society": 13}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "sleep"]
+  resistances: {"physical": 5}
+  strikes: [{"name": "Claw", "bonus": 14, "damage": [["2d4+6", "slashing", null]], "traits": ["agile"], "effects": ["Grab"]}]
+  actions: [{"name": "Fast Healing 5", "type": "passive", "traits": []}, {"name": "Vampire Vulnerabilities", "type": "passive", "traits": [], "text": "All vampires possess the following vulnerabilities.%rCompulsions Vampires are creatures with strange and unknowable compulsions. A typical vampire can't voluntarily cross running water unless they're transported while they hide within their coffin, nor can they enter a private dwelling unless invited in by someone with the authority to do so. At your discretion, vampires might have different compulsions—a pirate vampire might not be able to set foot on solid ground without being invited, for…"}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Dominate", "type": "action", "traits": ["divine", "incapacitation", "mental", "visual"], "cost": 2, "text": "The vampire can cast Dominate at will as a divine innate spell. Casting it requires staring into the target's eyes, giving the spell the visual trait (DC 22 Will). A creature that succeeds is temporarily immune to that vampire's Dominate for 24 hours.%rFully destroying the vampire ends the domination, but merely reducing the vampire to 0 HP is insufficient to break the spell."}, {"name": "Drink Blood", "type": "action", "traits": ["divine"], "cost": 1, "text": "Requirement A Grabbed, Paralyzed, Restrained, Unconscious, or willing creature is within the vampire's reach.%rEffect The vampire sinks its fangs into that creature to drink its blood. This requires an Athletics check against the victim's Fortitude DC if the victim is grabbed and is automatic for any of the other conditions.%rThe victim is Drained 1 and the vampire regains 10 healing HP, gaining any excess HP as temporary Hit Points. Drinking Blood from a creature that's already drained doesn't…"}, {"name": "Spellstrike", "type": "action", "traits": [], "cost": 2, "text": "Frequency until recharged%rEffect Hedvend VI channels a spell into his claw Strike to deliver a combined attack. He Casts a Spell that requires a spell attack roll. The effects of the spell don't occur immediately but are imbued into his attack instead. He attempts a claw melee Strike, with the attack roll determining the effects of both the Strike and the spell. This counts as two attacks for his multiple attack penalty, but he doesn't apply the penalty until after he's completed the…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 22, "attack": 14, "spells": {"0": ["Gouging Claw", "Live Wire", "Shield", "Telekinetic Hand", "Telekinetic Projectile"], "2": ["Revealing Light", "Telekinetic Maneuver"], "3": ["Paralyze", "Vampiric Feast"]}}]
+"Hellknight Field-Maralictor":
+  pack: "hellbreakers-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 27
+  hp: 130
+  perception: 15
+  saves: {"fortitude": 16, "reflex": 16, "will": 15}
+  abilities: {"cha": 1, "con": 3, "dex": 3, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 19, "Diplomacy": 14, "Intimidation": 18, "Society": 15, "Warfare Lore": 17}
+  strikes: [{"name": "Bastard Sword", "bonus": 20, "damage": [["1d8+12", "slashing", null]], "traits": ["magical", "two-hand-d12"]}, {"name": "Spear", "bonus": 19, "damage": [["1d6+12", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 19, "damage": [["1d6+12", "piercing", null]], "traits": ["thrown-20"]}, {"name": "Gauntlet", "bonus": 19, "damage": [["1d4+12", "bludgeoning", null]], "traits": ["agile", "free-hand"]}]
+  actions: [{"name": "Hellknight's Rigor", "type": "passive", "traits": [], "text": "Any time the Hellknight field-maralictor gains the Frightened condition, they reduce its value by 1."}, {"name": "Quick Shield Block", "type": "reaction", "traits": [], "text": "The Hellknight field-maralictor has an additional reaction they can use only to Shield Block.%rThey can Shield Block for an adjacent ally, preventing that ally from taking damage instead of protecting themself."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Intimidating Strike", "type": "action", "traits": ["emotion", "fear", "fighter", "mental"], "cost": 2, "text": "The Hellknight field-maralictor makes a melee Strike. If it hits and deals damage, the target is Frightened 1, or Frightened 2 on a critical hit."}, {"name": "Maralictor's Command", "type": "action", "traits": ["auditory", "concentrate", "linguistic", "mental"], "cost": 1, "text": "The Hellknight field-maralictor shouts a command to an ally of their choice. That ally can spend a reaction to Stride and Strike. The ally becomes immune to Maralictor's Command for 24 hours."}, {"name": "Warding Shift", "type": "action", "traits": [], "cost": 1, "text": "Requirements The Hellknight fieldmaralictor is adjacent to a willing ally%rEffect The Hellknight field-maralictor moves an adjacent willing ally 5 feet in any direction and can Step into the space the ally vacated."}]
+"Hestlebeth":
+  pack: "hellbreakers-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 18
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 10, "will": 7}
+  abilities: {"cha": 0, "con": 1, "dex": 3, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 11, "Diplomacy": 5, "Intimidation": 7}
+  strikes: [{"name": "Club", "bonus": 11, "damage": [["1d6+8", "bludgeoning", null]], "traits": []}, {"name": "Club", "bonus": 10, "damage": [["1d6+8", "bludgeoning", null]], "traits": ["thrown-10"]}, {"name": "Fist", "bonus": 11, "damage": [["1d4+8", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Crossbow", "bonus": 10, "damage": [["1d8+4", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  actions: [{"name": "+1 Bonus on Perception to Find Concealed Objects", "type": "passive", "traits": []}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Efficient Capture", "type": "action", "traits": ["attack", "manipulate"], "cost": 3, "text": "Requirements The jailer has manacles in hand and is adjacent to a creature%rEffect The jailer attempts to bind the creature's wrists or ankles with the manacles. If the jailer succeeds at an attack roll with a +9 modifier against the target's AC, they apply the manacles."}, {"name": "Hunter's Fatigue", "type": "passive", "traits": [], "text": "Having fought undead nonstop for the entire day, both Hellknights have the Fatigued condition. The condition goes away as usual with a full night's rest."}, {"name": "Intimidating Strike", "type": "action", "traits": ["emotion", "fear", "mental"], "cost": 2, "text": "The jailer makes a melee Strike. If it hits and deals damage, the target is Frightened 1, or Frightened 2 on a critical hit."}, {"name": "Subdue Prisoners", "type": "passive", "traits": [], "text": "The jailer doesn't take the normal penalty for making a nonlethal attack when attacking with their club."}]
+"Illcayna Alonnor":
+  pack: "hellbreakers-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["undead", "unholy"]
+  ac: 27
+  hp: 160
+  perception: 21
+  saves: {"fortitude": 18, "reflex": 15, "will": 21}
+  abilities: {"cha": 6, "con": 5, "dex": 4, "int": 3, "str": 7, "wis": 5}
+  speeds: {"land": 0, "fly": 40}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 20, "Deception": 17, "Intimidation": 17, "Religion": 20, "Stealth": 14, "Urgathoa Lore": 22}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"holy": 7, "vitality": 7}
+  strikes: [{"name": "Reaper's Sigh", "bonus": 21, "damage": [["2d10+13", "slashing", null], ["1d4", "void", null]], "traits": ["deadly-d10", "magical", "reach-10", "trip", "unholy"]}, {"name": "Pallid Touch", "bonus": 21, "damage": [["2d10+7", "void", null]], "traits": ["agile", "disease", "magical"], "effects": ["Pallid Plague"]}, {"name": "Warshard-Tipped Entrail", "bonus": 21, "damage": [["1d4", "poison", null], ["2d4+7", "piercing", null]], "traits": ["disease", "magical", "reach-20", "sweep", "trip"], "effects": ["Pallid Plague"]}]
+  actions: [{"name": "Bleeding Heart of Urgathoa", "type": "passive", "traits": [], "text": "Red ichor drips from the heart-shaped warshard embedded in Illcayna's chest. This warshard functions as a Symbol of Conflict (Greater), except it's attuned only to Urgathoa. As long as Illcayna exists, non-Urgathoans can't use the warshard even if it's removed. If Illcayna dies, the warshard acts as a regular greater symbol of conflict ."}, {"name": "Reaper's Sigh", "type": "passive", "traits": [], "text": "Illcayna is fused with Reaper's Sigh, granting her a +4 circumstance bonus to her Reflex DC against attempts to Disarm the scythe. This bonus is reduced to +2 for 1 round after she's critically hit with a slashing weapon."}, {"name": "+1 Status to All Saves vs. Holy Effects", "type": "passive", "traits": []}, {"name": "Field of Unholy Undeath", "type": "passive", "traits": ["aura", "divine", "unholy"], "text": "40 feet. Undead allies within the aura gain a +1 status bonus to attack rolls and saving throws. If the ally has void healing, they also gain fast healing 5. A living creature who doesn't worship Urgathoa takes 6d6 void damage (DC 26 Fortitude save) when they enter or start their turn in the aura. Regardless of the result of the saving throw, that creature becomes temporarily immune to the aura for 1 day."}, {"name": "Life to Unlife", "type": "reaction", "traits": ["divine", "unholy", "void"], "text": "Frequency once per minute%rTrigger A creature within 30 feet that Illcayna can observe Casts a divine Spell with the healing trait%rEffect Illcayna sadistically twists the healing magic against the living. She expends a prepared spell of the same rank as the triggering spell and then attempts to counteract the triggering spell using Religion. If she successfully counteracts the spell, Illcayna consumes the magic and regurgitates it as a 3-action harm spell of the rank of the countered spell."}, {"name": "Share Blessings", "type": "passive", "traits": ["disease", "divine", "unholy"], "text": "When Illcayna is destroyed, she explodes in a blast of infectious rot. All creatures in a 10-foot emanation are exposed to pallid plague."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Pallid Plague", "type": "passive", "traits": ["disease", "divine", "virulent"], "text": "Saving Throw DC 27 Fortitude%rStage 1 carrier (3 days)%rStage 2 3d8 void damage and Doomed 1 (1 day)%rStage 3 3d8 void damage, doomed 1, and Drained 1 (1 day)%rStage 4 4d8 void damage, Doomed 2, and drained 1 (1 day)%rStage 5 4d8 void damage, Doomed 3, and Drained 2 (1 day)%rStage 6 dead.%rA creature that dies while infected with pallid plague rises as a Wight."}, {"name": "Reap", "type": "action", "traits": [], "cost": 2, "text": "Illcayna makes a Reaper's Sigh Strike and compares the attack roll result to the ACs of two foes who must both be within her melee reach. Roll damage only once, and apply it to each creature hit. Reap counts as two attacks for Illcayna's multiple attack penalty."}, {"name": "Wake the Dead", "type": "action", "traits": ["divine"], "cost": 2, "text": "Frequency once per minute%rRequirements Illcayna is adjacent to a creature that died within the last minute%rEffect Illcayna animates the dead with a touch of her hand. The creature must succeed at a DC 29 Will save or arise as a Wight. These wights automatically become loyal to Illcayna and independently act in her interest and follow her command until destroyed."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 27, "attack": 19, "spells": {"0": ["Detect Magic", "Divine Lance", "Guidance", "Haunting Hymn", "Void Warp"], "1": ["Command", "Enfeeble", "Summon Undead"], "2": ["Dispel Magic", "Silence", "Sound Body"], "3": ["Chilling Darkness", "Crisis of Faith", "Rouse Skeletons", "Vampiric Feast"], "4": ["Divine Wrath", "Whispers of the Void"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 27, "attack": 19, "spells": {"4": ["Bind Undead"], "6": ["Harm", "Sudden Blight"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 27, "attack": 19, "spells": {"1": ["Touch of Undeath"], "4": ["Malignant Sustenance"]}}]
+"Insidiator":
+  pack: "hellbreakers-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 15
+  hp: 20
+  perception: 10
+  saves: {"fortitude": 4, "reflex": 7, "will": 9}
+  abilities: {"cha": 4, "con": 1, "dex": 2, "int": 3, "str": 1, "wis": 1}
+  speeds: {"land": 25, "fly": 20}
+  senses: ["greater-darkvision"]
+  skills: {"Deception": 7, "Religion": 6, "Society": 6, "Stealth": 6, "Legal Lore": 6}
+  immunities: ["fire"]
+  weaknesses: {"holy": 3}
+  resistances: {"physical": 3, "poison": 3}
+  strikes: [{"name": "Claw", "bonus": 7, "damage": [["1d4+3", "slashing", null]], "traits": ["agile", "magical", "unholy"]}, {"name": "Wing", "bonus": 7, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["agile", "magical", "unholy"]}, {"name": "Web", "bonus": 9, "damage": [], "traits": [], "range": 30, "effects": ["Web Trap"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Chameleon Skin", "type": "action", "traits": ["concentrate", "divine", "illusion"], "cost": 1, "text": "The insidiator changes the coloration of their skin to match their surrounding environment. Doing so allows them to Hide even if they don't have cover. When the insidiator moves to a different environment, they must use this action again or lose its effects."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "divine", "polymorph"], "cost": 1, "text": "The insidiator can take on the appearance of any Medium humanoid. This doesn't change their Speed or their attack and damage bonuses with their Strikes but might change the damage type their Strikes deal (typically to bludgeoning)."}, {"name": "Hidden Movement", "type": "passive", "traits": [], "text": "If the insidiator starts their turn undetected or Hidden to a creature, that creature is Off-Guard against the insidiator's attacks until the end of the turn."}, {"name": "Web Trap", "type": "passive", "traits": [], "text": "A creature hit by the insidiator's web Strike is Immobilized and stuck to the nearest surface until it Escapes."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 17, "attack": 9, "spells": {"0": ["Daze"], "1": ["Bane (At Will)", "Ventriloquism"]}}]
+"Instillo":
+  pack: "hellbreakers-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 26
+  hp: 135
+  perception: 16
+  saves: {"fortitude": 14, "reflex": 15, "will": 18}
+  abilities: {"cha": 6, "con": 2, "dex": 3, "int": 4, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Arcana": 16, "Deception": 18, "Diplomacy": 18, "Occultism": 16, "Performance": 18, "Religion": 18, "Society": 18}
+  immunities: ["fire"]
+  weaknesses: {"holy": 8}
+  resistances: {"physical": 8}
+  strikes: [{"name": "Light Mace", "bonus": 19, "damage": [["3d4+5", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "shove"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Correcting Veil", "type": "passive", "traits": ["aura", "linguistic", "mental", "subtle"], "text": "100 feet. The instillo's telepathic presence constantly monitors perspectives and molds thought toward an infernal clarity. Creatures within the aura gain the Dubious Knowledge skill feat but are unaware of this effect. The instillo is instantly aware when any creature within the aura fails a Recall Knowledge check and influences the erroneous information that the creature gains."}, {"name": "Nod of the Tongue", "type": "passive", "traits": [], "text": "Creatures who can understand Diabolic take a –2 status penalty to their Will saves against the instillo's effects with the auditory or mental trait."}, {"name": "Quiet Confidence", "type": "action", "traits": ["concentrate", "spellshape"], "cost": 1, "text": "The instillo can hide the source of their magic. If the next action the instillo uses is to Cast a Spell, that spell gains the subtle trait. The trait hides only the spell's spellcasting actions and manifestations, not its effects."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The instillo's Strikes deal an additional 2d6 precision damage to Off-Guard creatures."}, {"name": "Superlative Rhetoric", "type": "action", "traits": ["arcane"], "cost": 1, "text": "Frequency once per round%rRequirements The instillo's most recent action was to cast a spell with the auditory trait%rEffect The instillo immediately casts Daze at a creature that can hear them."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 26, "attack": 18, "spells": {"0": ["Bullhorn", "Daze", "Live Wire", "Message", "Telekinetic Hand"], "1": ["Charm", "Command", "Fleet Step"], "2": ["Deafness", "Laughing Fit", "Stupefy"], "3": ["Enthrall", "Paralyze"], "4": ["Containment", "Suggestion", "Translocate"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 23, "attack": 15, "spells": {"2": ["Status (At Will)"], "4": ["Dispelling Globe", "Dull Ambition"]}}]
+"Isgeri Slayer":
+  pack: "hellbreakers-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid"]
+  ac: 17
+  hp: 36
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 5, "will": 8}
+  abilities: {"cha": 0, "con": 1, "dex": 1, "int": 0, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 6, "Athletics": 7, "Intimidation": 5, "Nature": 7, "Survival": 8}
+  strikes: [{"name": "Longsword", "bonus": 10, "damage": [["1d8+5", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Shortbow", "bonus": 8, "damage": [["1d6+2", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}, {"name": "Shortsword", "bonus": 10, "damage": [["1d6+5", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Fist", "bonus": 10, "damage": [["1d4+5", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Hunt Prey", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "The Isgeri Slayer designates a single creature they can see and hear, or one they're Tracking, as their prey.%rThe slayer gains a +2 circumstance bonus to Perception checks to seek the prey and to Survival checks to track the prey.%rThe first time the slayer hits the designated prey in a round, they deal an additional 1d8 precision damage. The slayer also ignores the penalty for making ranged attacks within their second range increment. These effects last until the poacher uses Hunt Prey again."}, {"name": "Twin Takedown", "type": "action", "traits": ["flourish"], "cost": 1, "text": "Requirements The Isgeri Slayer is wielding two melee weapons, each in a different hand%rEffect The Isgeri Slayer swiftly attacks their hunted prey with each of their weapons, potentially combining their damage into a single devastating attack. They make two Strikes against their hunted prey, one with each of the required weapons. If both hit the same hunted prey, combine their damage for the purpose of its resistances and weaknesses. The Isgeri Slayer applies their multiple attack penalty to…"}]
+"Jordis Serelli":
+  pack: "hellbreakers-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 24
+  hp: 90
+  perception: 15
+  saves: {"fortitude": 14, "reflex": 12, "will": 15}
+  abilities: {"cha": 3, "con": 2, "dex": 0, "int": 0, "str": 5, "wis": 3}
+  speeds: {"land": 20}
+  skills: {"Athletics": 15, "Diplomacy": 11, "Intimidation": 13, "Society": 10, "Legal Lore": 12, "Warfare Lore": 8}
+  strikes: [{"name": "Longsword", "bonus": 18, "damage": [["1d8+11", "slashing", null]], "traits": ["magical", "versatile-p"]}, {"name": "Crossbow", "bonus": 12, "damage": [["1d8+6", "piercing", null]], "traits": ["reload-1"], "range": 120}, {"name": "Fist", "bonus": 17, "damage": [["1d4+11", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Bravery", "type": "passive", "traits": [], "text": "When Jordis rolls a success on a Will save against a fear effect, they get a critical success instead. Any time they gain the frightened condition, reduce its value by 1."}, {"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Shield Warden", "type": "passive", "traits": [], "text": "When Jordis has their shield raised, they can Shield Block when an attack is made against an adjacent ally. If they do, the shield prevents that ally from taking damage instead of Jordis."}, {"name": "Shielded Advance", "type": "action", "traits": [], "cost": 1, "text": "Requirements Jordis has their shield raised%rEffect Jordis presses forward, using their shield to push back foes. Jordis Strides and Shoves, in either order. The multiple attack penalty doesn't apply to this Shove, though the Shove does count toward Jordis's multiple attack penalty."}]
+"Kylix":
+  pack: "hellbreakers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 20
+  hp: 57
+  perception: 11
+  saves: {"fortitude": 9, "reflex": 12, "will": 10}
+  abilities: {"cha": 3, "con": 2, "dex": 2, "int": 5, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Deception": 12, "Diplomacy": 12, "Performance": 12, "Religion": 10, "Society": 12, "Alcohol Lore": 12, "Politics Lore": 12}
+  immunities: ["fire"]
+  weaknesses: {"holy": 5}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Fist", "bonus": 12, "damage": [["2d6+2", "bludgeoning", null], ["2", "bludgeoning", "precision"]], "traits": ["agile", "finesse", "nonlethal", "unarmed", "unholy"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "False Friend", "type": "passive", "traits": [], "text": "The kylix's non-damaging spells gain the subtle trait."}, {"name": "Raise a Glass", "type": "passive", "traits": [], "text": "When a kylix is holding a drink and not wielding weapons or wearing armor, they're continually protected by a Sanctuary spell (DC 21 Will). If the kylix breaks the sanctuary spell, the effect returns if the devil doesn't take any hostile actions for 10 minutes. Additionally, while protected by a sanctuary spell, the kylix can roll Diplomacy for initiative."}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Courteous Causerie", "type": "action", "traits": ["concentrate", "magical"], "cost": 1, "text": "The kylix attempts a Deception, Diplomacy, Performance, or Society check, and compares their result against the Will DCs of up to four creatures within 60 feet. On a success, these creatures are Fascinated for 1 round. The kylix can Sustain this effect, increasing the duration of this fascination by 1 round for up to 1 minute. When the fascination ends, the affected creatures are then temporarily immune to Courteous Causerie for 1 hour."}, {"name": "Hand in Glove", "type": "passive", "traits": [], "text": "The kylix can flank an enemy if it's within reach of both an ally and themself; the kylix and their ally don't have to be on opposite sides. This benefits the kylix's allies as well, but only if they're flanking with the kylix, not each other. Other requirements for flanking must still be met."}, {"name": "Sparkling Wit", "type": "passive", "traits": [], "text": "A creature Fascinated by a kylix is Off-Guard to the kylix."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 21, "attack": 13, "spells": {"0": ["Bullhorn", "Message", "Prestidigitation", "Shield"], "1": ["Bane", "Charm (At Will)"], "2": ["Invisibility", "Silence"]}}]
+"Lefranek Meyal":
+  pack: "hellbreakers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 21
+  hp: 68
+  perception: 11
+  saves: {"fortitude": 10, "reflex": 13, "will": 9}
+  abilities: {"cha": 3, "con": 2, "dex": 4, "int": 1, "str": 1, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Athletics": 10, "Deception": 12, "Diplomacy": 10, "Religion": 12}
+  strikes: [{"name": "Sickle", "bonus": 14, "damage": [["1d4+4", "slashing", null]], "traits": ["agile", "finesse", "trip"]}, {"name": "Lance", "bonus": 14, "damage": [["1d8+4", "piercing", null]], "traits": ["deadly-d8", "jousting-d6", "reach-10"]}]
+  actions: [{"name": "Denounce", "type": "action", "traits": ["auditory", "concentrate"], "cost": 1, "text": "Lefranek condemns an enemy within 30 feet as a Chelaxian dog and enemy of Isger. Until the start of Lefranek's next turn, any Strikes she or her allies make against the creature do an additional 1d4 precision damage.%rEffect: Denounce"}, {"name": "False Flag", "type": "passive", "traits": ["aura", "emotion", "mental", "visual"], "text": "60 feet. Lefranek's false flag creates panic and confusion. Hellbreakers in the area take a –1 circumstance penalty to saving throws and DCs vs. effects that give the Frightened or Confused condition. Add 1d8 to the Gala Crowd hazard's check to determine its action during its routine."}]
+"Nayren Allurajix":
+  pack: "hellbreakers-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "nephilim"]
+  ac: 28
+  hp: 175
+  perception: 18
+  saves: {"fortitude": 20, "reflex": 16, "will": 19}
+  abilities: {"cha": 3, "con": 5, "dex": 1, "int": 2, "str": 7, "wis": 2}
+  speeds: {"land": 20}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 21, "Intimidation": 19, "Religion": 17, "Hell Lore": 17, "Warfare Lore": 18}
+  strikes: [{"name": "Whip", "bonus": 21, "damage": [["2d4+13", "slashing", null]], "traits": ["disarm", "finesse", "magical", "nonlethal", "reach-10", "trip"]}, {"name": "Longsword", "bonus": 21, "damage": [["2d8+13", "slashing", null]], "traits": ["magical", "versatile-p"]}, {"name": "Fist", "bonus": 20, "damage": [["1d4+13", "bludgeoning", null]], "traits": ["agile", "free-hand"]}]
+  actions: [{"name": "+3 Status to Reflex Saves vs. Area Effects", "type": "passive", "traits": []}, {"name": "Disillusionment", "type": "passive", "traits": [], "text": "Whenever Nayren succeeds on a save against an illusion effect, they get a critical success instead."}, {"name": "Return to Battle", "type": "reaction", "traits": [], "text": "Trigger Nayren reaches 0 Hit Points or fewer%rEffect The battle within the nephilim's blood runs on. Nayren automatically stabilizes and gains 1 Hit Point. They Stand. This movement doesn't trigger reactions."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Rack the Dissidents", "type": "action", "traits": ["divine"], "cost": 1, "text": "Frequency once per day%rEffect Nayren's strikes keeps them empowered to continue to take down rebels. For 1 minute or until they critically miss, the first time each round Nayren successfully Strikes a creature, they gain 5 temporary Hit Points that last for 1 round."}, {"name": "Silence, Heretic!", "type": "action", "traits": ["divine"], "cost": 2, "text": "Nayren makes a longsword Strike. If the attack hits, the target must succeed at a DC 29 Fortitude save or be unable to use auditory actions for 1 round. This also prevents the target from casting spells, with the exception of subtle spells or spells that don't require the use of magical words in casting. On a critical failure, the duration is instead 1 minute. Regardless of the outcome of the save, the target becomes temporarily immune to this ability for 10 minutes."}]
+"Novice Hellknight Armiger":
+  pack: "hellbreakers-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 15
+  hp: 20
+  perception: 7
+  saves: {"fortitude": 10, "reflex": 4, "will": 7}
+  abilities: {"cha": 1, "con": 3, "dex": 0, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 20}
+  skills: {"Athletics": 7, "Intimidation": 6, "Society": 4, "Survival": 6, "Hell Lore": 4}
+  resistances: {"mental": 2}
+  strikes: [{"name": "Morningstar", "bonus": 8, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["versatile-p"]}, {"name": "Crossbow", "bonus": 5, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}, {"name": "Fist", "bonus": 8, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Shield Block", "type": "reaction", "traits": []}]
+"Novitiate of the Golden Erinys":
+  pack: "hellbreakers-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid", "unholy"]
+  ac: 15
+  hp: 20
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 7, "will": 8}
+  abilities: {"cha": 0, "con": 1, "dex": 1, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 5, "Athletics": 6, "Deception": 5, "Diplomacy": 5, "Intimidation": 6, "Religion": 7, "Society": 5, "Hell Lore": 7}
+  weaknesses: {"holy": 3}
+  resistances: {"fire": 3}
+  strikes: [{"name": "Fist", "bonus": 9, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Dart", "bonus": 6, "damage": [["1d4", "piercing", null]], "traits": ["agile", "thrown-20"]}]
+  actions: [{"name": "Flurry of Blows", "type": "action", "traits": ["flourish"], "cost": 1, "text": "The novitiate makes two fist Strikes, applying her multiple attack penalty as normal. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses."}]
+"Odvolos":
+  pack: "hellbreakers-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 13, "reflex": 12, "will": 11}
+  abilities: {"cha": 5, "con": 3, "dex": 2, "int": 1, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["scent"]
+  skills: {"Athletics": 12, "Deception": 13, "Intimidation": 13, "Religion": 12, "Society": 12, "Survival": 12}
+  immunities: ["fire"]
+  weaknesses: {"holy": 5}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Longspear", "bonus": 14, "damage": [["1d8+7", "piercing", null]], "traits": ["fire", "reach-10", "unholy"]}, {"name": "Torch", "bonus": 14, "damage": [["2d8+7", "fire", null]], "traits": ["fire", "unholy"]}]
+  actions: [{"name": "Telepathy 30 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "Fevered Consciousness", "type": "passive", "traits": [], "text": "An odvolos ignores Concealment or penalties to Perception from ash, fire, and smoke."}, {"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "-1 Status to All Saves vs. Emotion Effects", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Purge Records", "type": "reaction", "traits": [], "text": "Trigger A creature the odvolos can see or hear within 15 feet Casts a Spell from a scroll or Activates a grimoire%rEffect The odvolos Steps toward the creature and makes a longspear Strike. If the attack is a critical hit, the triggering action is disrupted."}, {"name": "Shroud of Burning Pages", "type": "passive", "traits": ["aura", "fire"], "text": "15 feet. The odvolos is surrounded by an aura of burning paper and scorched parchment, which provides Concealment as if it was smoke. A creature within the aura takes a –2 circumstance penalty to Perception checks, and a creature that ends its turn in the aura must succeed at a DC 22 Reflex save or any items with written information held or carried by the creature takes 1d4 persistent fire damage. Magical items and religious texts are immune to this effect."}, {"name": "Pyre's Mercy", "type": "action", "traits": ["concentrate", "emotion", "fear", "fire", "mental"], "cost": 1, "text": "The odvolos attempts to demoralize a creature within 30 feet. If the odvolos succeeds, the creature also gains fire weakness 5 while frightened.%rEffect: Pyre's Mercy"}, {"name": "Torchbearer", "type": "passive", "traits": [], "text": "Piercing weapons wielded by an odvolos gain the magical trait and deal an additional 1d4 fire damage on a successful Strike and 1d8 persistent fire damage on a critical hit."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 19, "attack": 11, "spells": {"0": ["Ignition"], "3": ["Locate (At Will, Books, Scrolls, Ink, Writing Materials, and Other Written or Inscribed Materials Only)"]}}]
+"Phoebe Demetrias":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 25
+  hp: 120
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 12, "will": 15}
+  abilities: {"cha": 4, "con": 4, "dex": 2, "int": 4, "str": 6, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 17, "Intimidation": 17, "Medicine": 13, "Stealth": 13, "Warfare Lore": 17}
+  strikes: [{"name": "Meteor Hammer", "bonus": 19, "damage": [["1d8+12", "bludgeoning", null]], "traits": ["backswing", "disarm", "magical", "reach-10", "trip"]}]
+  actions: [{"name": "Warfare Expertise", "type": "passive", "traits": [], "text": "Phoebe can use Warfare Lore to Recall Knowledge about most creatures regardless of type, but typically only to determine whether they can be reasoned with, their most notable offensive abilities, and whether one of their saving throws is particularly weak."}, {"name": "Banner Bearer", "type": "passive", "traits": ["aura", "emotion", "mental", "visual"], "text": "30 feet. As Phoebe displays the Hellbreakers League banner, all allies in the area gain a +1 status bonus to saves and DCs against devils and Hellknights."}, {"name": "Commander's Orders", "type": "action", "traits": ["auditory"], "cost": 1, "text": "Frequency once per round%rEffect Phoebe calls out one of the following orders to all her allies in her Hellbreakers League banner aura, letting them immediately take the associated action as a reaction.%rOn Guard! The ally can Raise a Shield, defensively position a weapon with the parry trait, or Take Cover. If the ally isn't benefiting from cover or near a feature that allows them to Take Cover, they can fall Prone as part of the reaction. Send Them Back to Hell An ally who's flanking a devil,…"}, {"name": "Sense Heartbond", "type": "action", "traits": ["concentrate"], "cost": 2, "text": "Frequency once per day%rEffect Phoebe learns Alceo's present state. She knows his direction and distance, and any conditions affecting him."}, {"name": "Trained Reaction", "type": "free", "traits": ["auditory"], "text": "Requirements Phoebe uses Commander's Orders%rEffect Phoebe grants one ally in her Hellbreakers League banner aura an extra reaction that they can use only to follow her Commander's Orders. If they don't use the reaction, it's lost."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Message (Can Only Target Alceo)"]}}]
+"Redcap":
+  pack: "hellbreakers-bestiary"
+  level: 5
+  size: "small"
+  rarity: "common"
+  traits: ["fey"]
+  ac: 21
+  hp: 60
+  perception: 12
+  saves: {"fortitude": 11, "reflex": 15, "will": 10}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 1, "str": 4, "wis": 1}
+  speeds: {"land": 50}
+  hp_details: "fast healing 10"
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 13, "Athletics": 15, "Deception": 11, "Intimidation": 13, "Nature": 10, "Stealth": 13}
+  weaknesses: {"cold-iron": 5}
+  strikes: [{"name": "Iron Boot", "bonus": 13, "damage": [["1d6+8", "piercing", null]], "traits": ["agile", "versatile-b"], "effects": ["Red Drip"]}, {"name": "Halberd", "bonus": 15, "damage": [["1d10+10", "piercing", null]], "traits": ["reach-10", "versatile-s"], "effects": ["Red Drip"]}]
+  actions: [{"name": "Red Cap", "type": "passive", "traits": ["primal"], "text": "A redcap's woolen hat is dyed with the blood of their victims. If the redcap loses their cap, they no longer benefit from fast healing and take a –4 status penalty to their damage rolls. They can create a new cap in 10 minutes, but that cap doesn't grant them powers until the redcap has turned it red with Blood Soak. A cap has no benefit for creatures other than the redcap who made it.%rEffect: Lost Red Cap"}, {"name": "Fast Healing 10", "type": "passive", "traits": []}, {"name": "Divine Revulsion", "type": "passive", "traits": ["emotion", "fear", "mental"], "text": "If a redcap sees a creature brandish a religious symbol of a deity (which requires an Interact action by that creature) or cast a divine spell while wearing a religious symbol, the redcap must attempt a DC 19 Will save. They then become temporarily immune to all brandished religious symbols for 10 minutes.%rCritical Success The redcap is unaffected.%rSuccess The redcap is Frightened 2.%rFailure The redcap gains the Fleeing condition for 1 round and is Frightened 4."}, {"name": "Blood Soak", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "The redcap dips their cap in the blood of a slain foe. The foe must have died in the last minute, and the redcap must have helped kill it. The redcap gains a +4 status bonus to damage rolls for 1 minute.%rEffect: Blood Soak"}, {"name": "Deadly Cleave", "type": "reaction", "traits": [], "text": "Trigger The redcap reduces a creature to 0 Hit Points with a halberd Strike%rEffect The redcap makes another halberd Strike against a different creature, using the same multiple attack penalty as the halberd Strike that triggered this reaction. This counts toward their multiple attack penalty as normal."}, {"name": "Red Drip", "type": "passive", "traits": ["disease", "virulent"], "text": "Whenever the redcap successfully Strikes a creature, that creature must attempt a Fortitude save against this debilitating fungal infection that slowly consumes a limb%rSaving Throw DC 22 Fortitude%rStage 1 Clumsy 1 (1 day)%rStage 2 Clumsy 2, and using the infected limb deals 3d6 persistent bleed damage (1 day)%rStage 3 clumsy 2, Stupefied 2, and the infected limb is unusable (1 day)%rStage 4 Clumsy 3, Stupefied 3, and infected limb is permanently unusable (1 day)%rStage 5 Confused, and damage…"}, {"name": "Stomp", "type": "action", "traits": [], "cost": 1, "text": "The redcap Strides up to half its Speed and makes a boot Strike at any point during that movement. If the boot Strike hits a Prone creature, it deals an extra 2d6 bleed."}]
+"Sarcovalt":
+  pack: "hellbreakers-bestiary"
+  level: 5
+  size: "tiny"
+  rarity: "common"
+  traits: ["fiend", "unholy"]
+  ac: 21
+  hp: 75
+  perception: 13
+  saves: {"fortitude": 11, "reflex": 15, "will": 10}
+  abilities: {"cha": -1, "con": 4, "dex": 5, "int": 0, "str": 1, "wis": 2}
+  speeds: {"land": 20, "climb": 20, "fly": 40}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 13, "Athletics": 12, "Intimidation": 12, "Stealth": 13}
+  immunities: ["disease", "poison", "sickened"]
+  weaknesses: {"holy": 5}
+  resistances: {"acid": 5, "cold": 5}
+  strikes: [{"name": "Beak", "bonus": 15, "damage": [["2d8+4", "piercing", null], ["3", "bleed", "persistent"]], "traits": ["finesse", "magical", "reach"], "effects": ["Grab"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Death Effects", "type": "passive", "traits": []}, {"name": "Aura of Blight", "type": "passive", "traits": ["aura", "disease"], "text": "15 feet. The sarcovalt is surrounded by a miasma of infection. An enemy that enters or ends their turn in the aura must attempt a DC 19 Fortitude save.%rSuccess The creature is unaffected and becomes temporarily immune to the aura for 1 minute.%rFailure Until the end of its next turn, the creature takes a –1 circumstance penalty to saves against disease effects.%rCritical Failure Until the end of its next turn, the creature takes a –2 circumstance bonus against disease effects and is Enfeebled…"}, {"name": "Befouled Body", "type": "passive", "traits": [], "text": "Any water the sarcovalt touches becomes diseased with filth fever.%rFilth Fever (disease)%rSaving Throw DC 23 Fortitude%rOnset 1d4 days%rStage 1 Sickened 1 (1 day)%rStage 2 Drained 1 (1 day)%rStage 3 Drained 2 (1 day)"}, {"name": "Reactive Detach", "type": "reaction", "traits": [], "text": "Trigger The sarcovalt takes slashing damage from a creature while they have another creature Grabbed or Restrained%rEffect The sarcovalt uses Detach Head. Their head keeps the other creature grabbed or restrained, and their body Steps. The sarcovalt gains resistance 5 to the triggering slashing damage.%rEffect: Reactive Detach"}, {"name": "Return to Sender", "type": "reaction", "traits": [], "text": "Trigger A creature escapes from being Grabbed or Restrained by the sarcovalt's detached head%rEffect The sarcovalt's head returns to their body via the shortest possible path. Any creature in a straight line between the head and the body must succeed at a DC 21 Reflex save or become Clumsy 1 for 1 round (Clumsy 2 on a critical failure). The sarcovalt Dismisses Detach Head."}, {"name": "Detach Head", "type": "free", "traits": ["occult"], "text": "Trigger The sarcovalt takes damage from a critical hit with a slashing weapon or has their head removed (such as by a vorpal weapon)%rEffect The sarcovalt can survive decapitation and isn't killed if an effect that removes their head would kill them. Instead, the sarcovalt's head becomes detached from their body. The detached head has the same statistics as the body (except for the aura of blight) and gains the minion trait. The sarcovalt's body can issue a verbal command to the detached head…"}, {"name": "Malodorous Shriek", "type": "action", "traits": ["occult", "olfactory", "poison", "sonic"], "cost": 2, "text": "The sarcovalt screeches through their skull (detached or not), spraying whatever festering viscera remains in their head in a 20-foot cone. Each creature in the area takes 3d6 sonic,3d6 poison|options:area-damage damage (DC 21 Reflex save). The sarcovalt can't use this ability again for 1d4 rounds."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 21, "attack": 13, "spells": {"0": ["Daze"], "1": ["Enfeeble", "Goblin Pox"], "2": ["Acid Grip"], "3": ["Vomit Swarm"]}}]
+"Sarcovalt Swarm":
+  pack: "hellbreakers-bestiary"
+  level: 9
+  size: "large"
+  rarity: "common"
+  traits: ["fiend", "swarm", "unholy"]
+  ac: 27
+  hp: 155
+  perception: 19
+  saves: {"fortitude": 17, "reflex": 21, "will": 16}
+  abilities: {"cha": -1, "con": 4, "dex": 6, "int": 0, "str": 2, "wis": 3}
+  speeds: {"land": 20, "climb": 20, "fly": 40}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Acrobatics": 20, "Athletics": 18, "Intimidation": 18, "Stealth": 20}
+  immunities: ["disease", "poison", "precision", "swarm-mind", "sickened"]
+  weaknesses: {"area-damage": 10, "holy": 10, "splash-damage": 10}
+  resistances: {"bludgeoning": 5, "piercing": 10, "slashing": 10}
+  actions: [{"name": "Telepathy 30 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "+1 Status to All Saves vs. Death Effects", "type": "passive", "traits": []}, {"name": "Swarm Mind", "type": "passive", "traits": []}, {"name": "Aura of Blight", "type": "passive", "traits": ["aura", "disease"], "text": "15 feet. The sarcovalt is surrounded by a miasma of infection. An enemy that enters or ends their turn in the aura must attempt a DC 25 Fortitude save.%rSuccess The creature is unaffected and becomes temporarily immune to the aura for 1 minute.%rFailure Until the end of its next turn, the creature takes a –1 circumstance penalty to saves against disease effects.%rCritical Failure Until the end of its next turn, the creature takes a –2 circumstance bonus against disease effects and is Enfeebled…"}, {"name": "Droning Waste", "type": "action", "traits": ["auditory", "mental"], "cost": 1, "text": "The buzzing of the swarm's wings hit an unholy pitch, making those who hear it feel dizzy and lightheaded. Each creature within a 15-foot emanation must attempt a DC 27 Will save. On a failure, it is Stupefied 1 and takes a –1 circumstance penalty to attack rolls until the start of its next turn (Stupefied 2 on a critical failure)."}, {"name": "Heads Will Roll", "type": "action", "traits": [], "cost": 3, "text": "The swarm detaches its heads from its bodies and rains them down on its enemies in a 10-foot burst radius within 30 feet. Each head deals falling damage, as if falling from 20 feet up, on any creature it lands on and otherwise takes the damage itself. If a head has a creature within its reach after it falls, it attempts to bite that creature. If any of these bites are critical successes, the head can immediately attempt to Grapple the creature."}, {"name": "Swarming Bites", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 4d6 piercing,2d4 persistent bleed|options:area-damage damage (DC 27 Fortitude save)."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 27, "attack": 19, "spells": {"0": ["Daze"], "3": ["Grim Tendrils"], "4": ["Acid Grip"]}}]
+"Sephone Haugini":
+  pack: "hellbreakers-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 26
+  hp: 117
+  perception: 15
+  saves: {"fortitude": 14, "reflex": 17, "will": 15}
+  abilities: {"cha": 3, "con": 1, "dex": 4, "int": 4, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Arcana": 18, "Deception": 14, "Diplomacy": 16, "Intimidation": 14, "Occultism": 15, "Religion": 15, "Society": 15, "Fiend Lore": 17, "Scribing Lore": 15}
+  strikes: [{"name": "Staff", "bonus": 17, "damage": [["2d4+4", "bludgeoning", null]], "traits": ["magical", "monk", "two-hand-d8"]}]
+  actions: [{"name": "Counterspell", "type": "reaction", "traits": ["arcane"], "text": "Trigger A creature Casts a Spell Sephone has prepared%rEffect Sephone expends a prepared spell, losing the spell slot as if she had cast the triggering spell. She then attempts to counteract the triggering spell."}, {"name": "Channel Hellfire", "type": "action", "traits": ["arcane", "unholy"], "cost": 1, "text": "Frequency three times per day%rEffect Sephone fuels her spell with the essence of Hell. The next spell she casts deals fire damage instead of its usual damage type. Any creature that takes damage from the spell and doesn't have the unholy trait also takes an additional 2d8 spirit damage (DC 25 Fortitude save)."}, {"name": "Drain Religious Symbol", "type": "free", "traits": ["arcane"], "text": "Frequency once per minute%rEffect Sephone drains her religious symbol and regains a spell she has cast. During her current turn, she can cast one spell she prepared today and already cast."}, {"name": "Widen Spell", "type": "action", "traits": ["manipulate", "spellshape"], "cost": 1, "text": "If the next action Sephone uses is to Cast a Spell that has an area of a cone or line and does not have a duration, increase the area of that spell. Add 5 feet to the length of a cone or line that is normally 15 feet long or smaller, and add 10 feet to the length of a larger cone or line."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Daze", "Detect Magic", "Shield", "Telekinetic Projectile"], "1": ["Alarm", "Breathe Fire", "Enfeeble", "Fear", "Force Barrage", "Grim Tendrils", "Mystic Armor", "Pummeling Rubble", "Runic Body", "Thunderstrike"], "2": ["Darkvision", "Invisibility", "See the Unseen", "Telekinetic Maneuver", "Translate"], "3": ["Paralyze"], "4": ["Fly", "Wall of Fire"], "5": ["Summon Dragon"]}}, {"name": "Wizard School Spells", "tradition": "arcane", "type": "focus", "dc": 25, "attack": 17, "spells": {"1": ["Force Bolt"], "4": ["Energy Absorption"]}}, {"name": "Mage's Hat", "tradition": "arcane", "type": "innate", "dc": 25, "attack": 17, "spells": {"0": ["Prestidigitation"]}}]
+"Sister Endreah":
+  pack: "hellbreakers-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "unholy"]
+  ac: 20
+  hp: 60
+  perception: 12
+  saves: {"fortitude": 13, "reflex": 10, "will": 11}
+  abilities: {"cha": 1, "con": 2, "dex": 2, "int": 1, "str": 5, "wis": 3}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 9, "Athletics": 11, "Deception": 9, "Diplomacy": 10, "Intimidation": 10, "Religion": 12, "Society": 10, "Hell Lore": 12}
+  weaknesses: {"holy": 5}
+  resistances: {"fire": 5}
+  strikes: [{"name": "Asp Coil", "bonus": 14, "damage": [["1d6+8", "slashing", null]], "traits": ["reach-10", "versatile-p"]}, {"name": "Dart", "bonus": 11, "damage": [["1d4+3", "piercing", null]], "traits": ["agile", "thrown-20"]}, {"name": "Fist", "bonus": 14, "damage": [["1d4+8", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Bite of the Asp Stance", "type": "action", "traits": ["concentrate", "stance"], "cost": 1, "text": "Requirements Sister Endreah is wielding an asp coil%rEffect Sister Endreah is an expert at using her sword in close quarters. Her asp coil loses the reach weapon property, but she can make asp coil Strikes instead of fist Strikes when she uses Flurry of Blows. Claw of pain also applies to these asp coil Strikes when in this stance."}, {"name": "Claw of Pain", "type": "passive", "traits": [], "text": "When Sister Endreah targets the same creature with two Strikes from her Flurry of Blows, she can cause lingering pain. If either Strike hits and deals damage, the target must succeed at a DC 21 Fortitude save or take 1d4 persistent mental damage (and become Sickened 1 on a critical failure)."}, {"name": "Flurry of Blows", "type": "action", "traits": ["flourish"], "cost": 1, "text": "Sister Endreah makes two fist Strikes, applying her multiple attack penalty as normal. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses."}]
+"Sister of the Golden Erinys":
+  pack: "hellbreakers-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["human", "humanoid", "unholy"]
+  ac: 17
+  hp: 30
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 8, "will": 9}
+  abilities: {"cha": 0, "con": 1, "dex": 1, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 6, "Athletics": 7, "Deception": 6, "Diplomacy": 6, "Intimidation": 7, "Religion": 8, "Society": 6, "Hell Lore": 8}
+  weaknesses: {"holy": 4}
+  resistances: {"fire": 4}
+  strikes: [{"name": "Dart", "bonus": 8, "damage": [["1d4+2", "piercing", null]], "traits": ["agile", "thrown-20"]}, {"name": "Fist", "bonus": 11, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Claw of Pain", "type": "passive", "traits": [], "text": "When the sister targets the same creature with two Strikes from her Flurry of Blows, she can cause lingering pain. If either Strike hits and deals damage, the target must succeed at a DC 18 Fortitude save or take 1d4 persistent mental damage (and become Sickened 1 on a critical failure)."}, {"name": "Flurry of Blows", "type": "action", "traits": ["flourish"], "cost": 1, "text": "The sister makes two fist Strikes, applying her multiple attack penalty as normal. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses."}]
+"Skeletal Hellknight Bonesinger":
+  pack: "hellbreakers-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["skeleton", "undead", "unholy"]
+  ac: 26
+  hp: 130
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 13, "will": 16}
+  abilities: {"cha": 2, "con": 4, "dex": 1, "int": 1, "str": 6, "wis": 3}
+  speeds: {"land": 25, "climb": 15}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 18, "Intimidation": 16}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"holy": 10, "vitality": 10}
+  resistances: {"cold": 10, "electricity": 10, "fire": 10, "piercing": 10, "slashing": 10}
+  strikes: [{"name": "Warhammer", "bonus": 20, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["magical", "shove"]}, {"name": "Claw", "bonus": 19, "damage": [["2d6+9", "slashing", null]], "traits": ["agile", "magical"]}]
+  actions: [{"name": "Reactive Strike", "type": "reaction", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Call to Arms", "type": "action", "traits": ["concentrate", "manipulate", "occult"], "cost": 1, "text": "The skeletal Hellknight bonesinger strikes its rib cage three times, creating a loud, ominous clatter. All mindless skeletons in a 30-foot emanation must use their reaction to Stride closer to the bonesinger."}, {"name": "For the Cause", "type": "action", "traits": ["concentrate", "manipulate", "occult", "void"], "cost": 3, "text": "Frequency once per day%rRequirements The skeletal Hellknight bonesinger has fewer than half their Hit Points remaining%rEffect The bonesinger reaches out through the necromantic magic that animates the dead around them and pulls it into themself. The bonesinger chooses up to three mindless skeletons with the minion trait that they control within a 10-foot emanation and destroys them. The bonesinger regains 2d6 healing void|shortLabel Hit Points for each skeleton destroyed."}, {"name": "Invoke Reckoning", "type": "action", "traits": ["manipulate", "occult", "void"], "cost": 1, "text": "Frequency once per round%rRequirements The skeletal Hellknight bonesinger's last action was to damage an enemy with a melee Strike%rEffect The bonesinger pulls at the bones of the creature they just damaged, releasing a pulse of void energy. That creature takes 4d8 void damage and must attempt a DC 23 Fortitude save.%rCritical Success The creature takes no damage.%rSuccess The creature takes half damage.%rFailure The creature takes full damage.%rCritical Failure The creature takes full damage…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 26, "attack": 18, "spells": {"4": ["Bind Undead (Skeleton Only)", "Rouse Skeletons", "Summon Undead (Skeleton Only)"]}}]
+"Skirmancer Mage":
+  pack: "hellbreakers-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 21
+  hp: 70
+  perception: 15
+  saves: {"fortitude": 9, "reflex": 12, "will": 14}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 4, "str": 1, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Arcana": 13, "Athletics": 10, "Intimidation": 9, "Society": 11, "Legal Lore": 13}
+  strikes: [{"name": "Fist", "bonus": 15, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Shortbow", "bonus": 15, "damage": [["1d6+4", "piercing", null]], "traits": ["deadly-d10", "magical", "reload-0"], "range": 60}]
+  actions: [{"name": "Arcane Watch", "type": "passive", "traits": [], "text": "The watchmage can either Investigate or Search while using the Detect Magic exploration activity."}, {"name": "Counter Escape", "type": "reaction", "traits": ["arcane"], "text": "Trigger A creature Casts a Spell with the teleportation trait or as a reaction%rEffect The watchmage expends a spell slot of the same rank or higher as the trigger creature's spell and attempts to counteract the triggering spell (counteract modifier +11)."}, {"name": "Eldritch Arms", "type": "passive", "traits": ["concentrate"], "text": "In a brief ritual that takes 10 minutes, the watchmage chooses a single weapon or unarmed attack through which they can focus their magic. Strikes the watchmage makes with that weapon are magical and deal 1d6 additional force damage."}, {"name": "Spellbound Strike", "type": "action", "traits": [], "cost": 3, "text": "Requirements The watchmage is wielding the weapon chosen with Eldritch Arms%rEffect The watchmage Casts a Spell that takes 1 or 2 actions to cast, imbuing that spell into the weapon. The watchmage Strikes with the required weapon. This counts as two attacks for the watchmage's multiple attack penalty. On a hit, the target is also affected by the spell, though the target gets any normal defenses allowed by the spell.%rIf the spell is targeted, it targets the creature that was hit and no one…"}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 20, "attack": 12, "spells": {"0": ["Ignition", "Live Wire", "Prestidigitation", "Shield", "Telekinetic Projectile"], "1": ["Force Barrage", "Runic Weapon", "Sure Strike"], "2": ["Blood Vendetta", "Telekinetic Maneuver"], "3": ["Haste", "Paralyze"]}}]
+"Spring's Crown":
+  pack: "hellbreakers-bestiary"
+  level: 8
+  size: "small"
+  rarity: "unique"
+  traits: ["beast", "fey"]
+  ac: 26
+  hp: 100
+  perception: 13
+  saves: {"fortitude": 14, "reflex": 18, "will": 13}
+  abilities: {"cha": 3, "con": 2, "dex": 6, "int": 4, "str": 2, "wis": 3}
+  speeds: {"land": 25, "climb": 20, "fly": 25}
+  hp_details: "regeneration 10 (deactivated by cold iron)"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 18, "Arcana": 15, "Athletics": 12, "Nature": 17, "Stealth": 18, "Isger Lore": 17}
+  weaknesses: {"cold-iron": 10}
+  strikes: [{"name": "Tail", "bonus": 16, "damage": [["2d8+6", "bludgeoning", null]], "traits": ["agile", "finesse", "reach-10", "versatile-s"]}, {"name": "Web", "bonus": 20, "damage": [], "traits": [], "effects": ["Enveloping Web"]}]
+  actions: [{"name": "At-Will Spells", "type": "passive", "traits": []}, {"name": "Regeneration 10 (Deactivated by Cold Iron)", "type": "passive", "traits": []}, {"name": "Pacify Fey", "type": "passive", "traits": ["aura", "emotion", "mental", "primal"], "text": "40 feet. All creatures with the fey trait who enter or begin their turn in the aura must attempt a DC 26 Will save. Regardless of the result of the saving throw, the creature becomes immune to the aura for 1 day. On a failure, the creature can't take hostile actions against the katroome."}, {"name": "Enveloping Web", "type": "passive", "traits": [], "text": "The web of the empress katroome wraps creatures into a cocoon. The target becomes Immobilized and Slowed 1 while it's enveloped in a cocoon (escape dc=26). The web has Hardness 10 and 20 Hit Points. It has resistance 5 to bludgeoning and piercing and weakness 5 to slashing. At the end of the target's turn, if it has yet to Escape from enveloping web, the web grows, increasing the slowed value by 1, to a maximum of Slowed 3. The katroome can envelop up to three creatures at a time."}, {"name": "Glittering Scales", "type": "action", "traits": [], "cost": 2, "text": "Frequency once per minute%rEffect The katroome flaps its wings of prismatic scales. All creatures within a 30-foot cone takes 9d6 piercing|options:area-damage damage with a DC 26 Reflex save. On a failure, the creature is also Dazzled for 1 minute, or Blinded on a critical failure."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Detect Magic"], "1": ["Charm", "Command (Once per Hour)", "Dizzying Colors"], "2": ["Calm", "Charitable Urge", "Web"], "3": ["One with Stone", "Summon Fey"], "4": ["Invisibility (Self Only)", "Sleep", "Translocate (At Will)"]}}]
+"Stumpfield War Chanter Choir":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["goblin", "humanoid", "troop"]
+  ac: 24
+  hp: 120
+  perception: 14
+  saves: {"fortitude": 12, "reflex": 16, "will": 14}
+  abilities: {"cha": 6, "con": 2, "dex": 4, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Deception": 17, "Occultism": 15, "Performance": 17, "Stealth": 13}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "In Our Wake, Hell Will Break!", "type": "passive", "traits": ["auditory", "aura", "emotion", "mental"], "text": "30 feet. The war chanters constantly sing and cheer to spur their Hellbreaker allies. Each allied creature in the aura gains a +1 circumstance bonus to saving throws against mental effects."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Goblins Slice and Goblins Dice!", "type": "action", "traits": [], "cost": 1, "text": "1 to 3%rFrequency once per round%rEffect The war chanters swing their dogslicers, attacking each enemy in a 5-foot emanation, with a DC 22 Reflex save. The damage dealt depends on the number of actions.%r1 (1d6+2) slashing damage%r2 (2d6+8) slashing damage%r3 (3d6+11) slashing damage"}, {"name": "Hark! The Goblins Chanters Sing!", "type": "action", "traits": ["auditory", "concentrate", "mental"], "cost": 2, "text": "The war chanters break out into a familiar song with unfamiliar rhyme. A number of enemies equal to the troop's current number of segments within 30 feet must attempt a DC 25 Will save. Regardless of the outcome, a target becomes temporarily immune to this ability for 1 minute. On a failure, the target is Stupefied 1 for 1 round as they get distracted by the war chanters' rhymes (Stupefied 2 on a critical failure)."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 25, "attack": 17, "spells": {"0": ["Eat Fire", "Figment", "Message", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Bless", "Signal Skyrocket", "Soothe"], "2": ["Dispel Magic", "Laughing Fit", "Shatter"], "3": ["Haste", "Shatter", "Slow"], "4": ["Confusion", "Whispers of the Void"]}}]
+"Stumpfield War Saboteurs":
+  pack: "hellbreakers-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["goblin", "humanoid", "troop"]
+  ac: 23
+  hp: 99
+  perception: 13
+  saves: {"fortitude": 14, "reflex": 15, "will": 12}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 2, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 14, "Athletics": 12, "Crafting": 12, "Deception": 8, "Stealth": 14, "Thievery": 14}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Duck, Duck, Loose!", "type": "reaction", "traits": [], "text": "Trigger The saboteurs are targeted by a Strike or an effect that requires a Reflex save%rEffect The saboteurs scramble for the nearest cover. They become Slowed 1 but gain Standard Cover until the beginning of their next turn."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Rush and Steal", "type": "action", "traits": [], "cost": 2, "text": "Quickly moving in with grasping hands, the Stumpfield war saboteurs take what they can. The saboteurs Stride up to twice their Speed. During this movement, the saboteurs Interact to pick up an unattended object no larger than 2 Bulk or attempt to Steal an item from a creature they're adjacent to; the goblins can pick up or Steal as many objects as they have remaining segments in any combination."}, {"name": "Slapstick Traps", "type": "action", "traits": [], "cost": 2, "text": "Requirements The saboteurs' last action was to successfully Hide%rEffect The saboteurs laid down falling obstacles as they move unseen. The saboteurs Sneak twice. Until the beginning of the saboteurs' next turn, any non-ally creature that moves into a square that the saboteurs snuck through takes 5d8 bludgeoning damage (DC 24 Reflex save). On a critical failure, the creature also falls Prone. Once this trap has been triggered, the rest of the squares the saboteurs snuck through become difficult…"}, {"name": "Slice and Dice!", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The saboteurs engage in a coordinated melee attack against each enemy in a 5-foot emanation, with a DC 21 Reflex save. The damage dealt depends on the number of actions.%r1 1d8 slashing|options:area-damage damage%r2 (2d8+5) slashing|options:area-damage damage%r3 (2d8+9) slashing|options:area-damage damage"}]
+"Swiftrun Clergy":
+  pack: "hellbreakers-bestiary"
+  level: 6
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["holy", "human", "humanoid", "troop"]
+  ac: 24
+  hp: 96
+  perception: 16
+  saves: {"fortitude": 12, "reflex": 14, "will": 16}
+  abilities: {"cha": 2, "con": 3, "dex": 2, "int": 1, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Diplomacy": 12, "Medicine": 14, "Religion": 13, "Society": 11, "Survival": 12}
+  weaknesses: {"area-damage": 5, "splash-damage": 5}
+  actions: [{"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Longbow Volley", "type": "action", "traits": [], "cost": 2, "text": "The Swiftrun clergy draw their longbows, then launch a ranged attack in the form of a volley. This volley is a 10-foot burst within 60 feet that deals 3d6 piercing|options:area-damage damage with a DC 21 Reflex save. When the regiment is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Swift Daggers", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Swiftrun's clergy swiftly strike with their daggers against each enemy in a 5-foot emanation, with a DC 21 Reflex save. The damage dealt depends on the number of actions.%r1 (1d4+1) piercing|options:area-damage damage%r2 (2d4+7) piercing|options:area-damage damage%r3 (2d4+10) piercing|options:area-damage damage"}, {"name": "Troop Spellcasting", "type": "passive", "traits": [], "text": "When the Swiftrun clergy Casts a Spell, their constituent members combine their efforts into casting a more powerful version of the spell than any one member could achieve alone. When Casting a Spell that has an area of a burst, cone, or line and doesn't have a duration, increase the area of that spell. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet (a burst with a smaller radius is not affected). Add 5 feet to the length of a cone or line that is normally 15…"}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 24, "attack": 16, "spells": {"0": ["Light", "Shield", "Vitality Lash"], "1": ["Heal", "Infuse Vitality", "Protection", "Sure Strike"], "2": ["Cleanse Affliction", "Clear Mind"], "3": ["Holy Light", "Wall of Thorns"]}}]
+"Umok Beastspeaker Circle":
+  pack: "hellbreakers-bestiary"
+  level: 7
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["gnome", "humanoid", "troop"]
+  ac: 24
+  hp: 120
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 12, "will": 18}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": 0, "str": 1, "wis": 6}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Diplomacy": 15, "Medicine": 17, "Nature": 17, "Stealth": 15, "Survival": 17}
+  weaknesses: {"area-damage": 10, "splash-damage": 10}
+  actions: [{"name": "Animal Empathy", "type": "passive", "traits": [], "text": "The beastspeaker circle can ask questions of, receive answers from, and use the Diplomacy skill with animals."}, {"name": "Troop Defenses", "type": "passive", "traits": []}, {"name": "Troop Movement", "type": "passive", "traits": []}, {"name": "Muster Animals", "type": "action", "traits": ["primal"], "cost": 2, "text": "The beastspeakers summon a group of wild animals to attack all creatures in a 10-foot burst within 60 feet. The animals deal 3d8 slashing|options:area-damage damage (DC 22 Reflex save). When the beastspeaker circle is reduced to 2 segments, this area decreases to a 5-foot burst."}, {"name": "Staff Assault", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The beastspeakers grip their staves with two hands and attack all enemies in a 5-foot emanation, with a DC 22 Reflex save. The amount of damage depends on the number of actions used.%r1 (1d8+1) bludgeoning damage%r2 (2d8+6) bludgeoning damage%r3 (2d8+10) bludgeoning damage"}, {"name": "Troop Spellcasting", "type": "passive", "traits": [], "text": "When the beastspeaker circle Casts a Spell, the individual members combine their efforts into casting a more powerful version than any one member could achieve alone. When Casting a Spell that has an area of a burst, cone, or line and doesn't have a duration, increase the area of that spell. Add 5 feet to the radius of a burst that normally has a radius of at least 10 feet (a burst with a smaller radius is not affected). Add 5 feet to the length of a cone or line that is normally 15 feet long…"}]
+  spellcasting: [{"name": "Primal Prepared Spells", "tradition": "primal", "type": "prepared", "dc": 25, "attack": 17, "spells": {"0": ["Gouging Claw", "Light", "Vitality Lash"], "1": ["Gust of Wind", "Pummeling Rubble", "Thunderstrike"], "2": ["Animal Messenger", "Speak with Animals"], "3": ["Mad Monkeys", "Wall of Wind"], "4": ["Hydraulic Torrent", "Weapon Storm"]}}]
+"Varlario Demicci":
+  pack: "hellbreakers-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["dhampir", "fetchling", "humanoid"]
+  ac: 25
+  hp: 110
+  perception: 13
+  saves: {"fortitude": 19, "reflex": 16, "will": 13}
+  abilities: {"cha": 5, "con": 4, "dex": 4, "int": 6, "str": 2, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Deception": 16, "Intimidation": 13, "Occultism": 18, "Religion": 13, "Stealth": 13, "Undead Lore": 16}
+  strikes: [{"name": "Dagger", "bonus": 19, "damage": [["2d6+10", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Dagger", "bonus": 19, "damage": [["2d6+10", "piercing", null]], "traits": ["agile", "magical", "thrown-10", "versatile-s"]}, {"name": "Hand Crossbow", "bonus": 18, "damage": [["2d8+10", "piercing", null]], "traits": ["reload-1"], "range": 60}, {"name": "Fist", "bonus": 18, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["agile", "nonlethal"]}]
+  actions: [{"name": "Shadow Blending", "type": "reaction", "traits": ["illusion", "occult", "shadow"], "text": "Frequency once per minute%rTrigger A creature attempts a flat check to target Varlario while they are Concealed or Hidden due to dim light or darkness%rEffect Shadows wrap around Varlario's form. The DC of the flat check increases by 2."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Hidden Familiar", "type": "passive", "traits": [], "text": "Varlario has Hidden their bat familiar through the Pet Cache spell. They keep the bat contained except when they use shred spirit."}, {"name": "Shred Spirit", "type": "action", "traits": ["concentrate", "spirit"], "cost": 2, "text": "Frequency once per minute%rEffect Varlario sends forth their bat familiar as a phantasmal conduit to rip at the soul of a creature within 30 feet. The targeted creature must succeed at a DC 26 Will save or take 9d6 spirit damage. Varlario then recovers Hit Points equal to half the damage dealt."}]
+  spellcasting: [{"name": "Occult Prepared Spells", "tradition": "occult", "type": "prepared", "dc": 26, "attack": 18, "spells": {"0": ["Daze", "Detect Magic", "Read Aura", "Shield"], "1": ["Command", "Fear", "Grim Tendrils", "Mystic Armor", "Pet Cache", "Summon Undead"], "2": ["Blur", "Darkness", "Invisibility", "See the Unseen"], "3": ["Paralyze", "Vampiric Feast"], "4": ["Confusion", "Fly", "Translocate"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 26, "attack": 18, "spells": {"0": ["Void Warp"], "1": ["Undeath's Blessing"], "2": ["Harm"]}}, {"name": "Witch Hex Spells", "tradition": "occult", "type": "focus", "dc": 26, "attack": 18, "spells": {"1": ["Needle of Vengeance", "Phase Familiar"], "3": ["Malicious Shadow"]}}]
+"Velavi":
+  pack: "hellbreakers-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["devil", "fiend", "unholy"]
+  ac: 17
+  hp: 28
+  perception: 11
+  saves: {"fortitude": 5, "reflex": 8, "will": 10}
+  abilities: {"cha": 2, "con": 1, "dex": 2, "int": 4, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["greater-darkvision"]
+  skills: {"Arcana": 7, "Crafting": 7, "Intimidation": 7, "Occultism": 8, "Religion": 8, "Society": 7, "Hell Lore": 8, "Library Lore": 8}
+  immunities: ["fire"]
+  weaknesses: {"holy": 3}
+  resistances: {"physical": 3}
+  strikes: [{"name": "Claw", "bonus": 7, "damage": [["1d6+3", "slashing", null]], "traits": ["agile", "magical", "unholy"]}, {"name": "Quill", "bonus": 9, "damage": [["1d4+3", "slashing", null], ["1d4", "bleed", "persistent"]], "traits": ["agile", "finesse", "magical", "unholy"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical", "mental"]}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Frightening Shush", "type": "action", "traits": ["emotion", "fear", "manipulate", "mental", "visual"], "cost": 2, "text": "The velavi makes an intimidating shushing motion. Creatures within 30 feet must attempt a DC 18 Will save. The velavi can't use Frightening Shush again for 1d4 rounds.%rCritical Success The creature is unaffected.%rSuccess The creature is Frightened 1.%rFailure The creature is Frightened 2. While a creature is frightened by this ability, it's Off-Guard to the velavi.%rCritical Failure As failure, and the creature also can't make any sounds while it's frightened, as if under the effect of the…"}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 18, "attack": 10, "spells": {"0": ["Daze", "Shield", "Tangle Vine", "Telekinetic Hand", "Telekinetic Projectile"], "1": ["Command", "Enfeeble", "Sleep"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 18, "attack": 10, "spells": {"1": ["Lock"]}}]
+"Viro Ahala":
+  pack: "hellbreakers-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 21
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 15, "reflex": 9, "will": 12}
+  abilities: {"cha": 2, "con": 4, "dex": 0, "int": 0, "str": 5, "wis": 2}
+  speeds: {"land": 20}
+  skills: {"Athletics": 13, "Intimidation": 12, "Society": 10, "Survival": 12, "Hell Lore": 10}
+  resistances: {"mental": 4, "piercing": 4}
+  strikes: [{"name": "Longsword", "bonus": 15, "damage": [["1d8+7", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Crossbow", "bonus": 11, "damage": [["1d8+2", "piercing", null]], "traits": ["reload-1"], "range": 120}, {"name": "Gauntlet", "bonus": 15, "damage": [["1d4+7", "bludgeoning", null]], "traits": ["agile", "free-hand"]}]
+  actions: [{"name": "+3 to Reflex Saves vs. Area Effects", "type": "passive", "traits": []}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Punishing Cut", "type": "action", "traits": [], "cost": 2, "text": "Viro makes a longsword Strike. This counts as two attacks for his multiple attack penalty. If the Strike hits, it deals an additional die of weapon damage and 1d4 persistent bleed damage."}, {"name": "Shielded Charge", "type": "action", "traits": [], "cost": 2, "text": "Requirements Viro is wielding a shield%rEffect Viro Raises his Shield and then Strides twice. If he ends his movement adjacent to a foe, that foe is Off-Guard to Viro's Strikes until the end of Viro's current turn."}]
+"Warshard Wight":
+  pack: "hellbreakers-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["undead", "unholy", "wight"]
+  ac: 22
+  hp: 82
+  perception: 13
+  saves: {"fortitude": 14, "reflex": 12, "will": 13}
+  abilities: {"cha": 3, "con": 4, "dex": 2, "int": 1, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  hp_details: "fueled by spite, void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 14, "Intimidation": 13, "Religion": 11, "Stealth": 14}
+  immunities: ["death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Claw", "bonus": 16, "damage": [["1d8+9", "slashing", null]], "traits": ["agile", "unarmed"], "effects": ["Drain Life"]}, {"name": "Scything Blade", "bonus": 16, "damage": [["1d8+9", "slashing", null]], "traits": ["deadly-d10", "magical", "reach-10", "trip"], "effects": ["Drain Life"]}]
+  actions: [{"name": "Urgathoa's Weapon", "type": "passive", "traits": ["divine"], "text": "The warshard wight has a scythe arm resembling a Child of Urgathoa."}, {"name": "Final Spite", "type": "reaction", "traits": [], "text": "Trigger The warshward wight is reduced to 0 Hit Points%rEffect The warshard wight makes a Strike before being destroyed. It doesn't gain any temporary Hit Points from drain life on this Strike."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Bloody Wail", "type": "action", "traits": ["auditory", "divine"], "cost": 2, "text": "The warshard wight cries out in an unearthly shriek. Living creatures within 50 feet must attempt a DC 23 Fortitude save. The warshard wight can't make another bloody wail for 1d4 rounds.%rCritical Success The creature is unaffected and becomes temporarily immune for 1 minute.%rSuccess The creature bleeds from their ears and becomes Stupefied 1 for 1 round.%rFailure The creature bleeds from their ears and becomes Stupefied 2 for 1 round.%rCritical Failure As failure, and the creature takes a –2…"}, {"name": "Drain Life", "type": "passive", "traits": ["divine"], "text": "When the warshard wight damages a living creature with a melee Strike using an unarmed attack or its bound weapon, the warshard wight gains 5 temporary Hit Points and the creature must succeed at a DC 20 Fortitude save or become Drained 1. Further damage dealt by the warshard wight increases the drained condition value by 1 on a failed save, to a maximum of drained 4.%rEffect: Drain Life"}, {"name": "Warshard Wight Spawn", "type": "passive", "traits": ["divine"], "text": "A living humanoid slain by a warshard wight's scything blade or claw Strike rises as a spawned wight after 1d4 rounds. This spawned wight is under the command of the warshard wight that killed it. It doesn't have drain life or warshard wight spawn and is Clumsy 2 for as long as it's a spawned wight. If its creator dies, the spawned wight becomes a full-fledged, autonomous warshard wight; it regains its free will, gains drain life and warshard wight spawn, and is no longer clumsy."}]
+"Zombie Giant Bat":
+  pack: "hellbreakers-bestiary"
+  level: 2
+  size: "large"
+  rarity: "uncommon"
+  traits: ["mindless", "undead", "unholy", "zombie"]
+  ac: 15
+  hp: 70
+  perception: 5
+  saves: {"fortitude": 9, "reflex": 4, "will": 6}
+  abilities: {"cha": -2, "con": 3, "dex": -2, "int": -5, "str": 4, "wis": 0}
+  speeds: {"land": 20, "fly": 20}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 4, "Athletics": 8}
+  immunities: ["bleed", "death-effects", "disease", "mental", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"slashing": 10, "vitality": 10}
+  strikes: [{"name": "Fangs", "bonus": 10, "damage": [["1d6+4", "piercing", null]], "traits": []}, {"name": "Rotting Wing", "bonus": 10, "damage": [["1d4+4", "slashing", null]], "traits": ["agile"]}]
+  actions: [{"name": "Slow", "type": "passive", "traits": [], "text": "A zombie is permanently Slowed 1 and can't use reactions."}, {"name": "Clumsy Flier", "type": "passive", "traits": [], "text": "While a zombie giant bat can fly, its wings are barely able to keep it aloft. If it's airborne when it takes a critical hit or any amount of slashing damage, it falls and it can't Fly on its next turn."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Rotting Aura", "type": "passive", "traits": ["aura", "disease", "void"], "text": "10 feet. The zombie giant bat emits an aura of rot and disease that cause wounds to fester. Any living creature that starts its turn within the aura and isn't at full Hit Points takes 1d6 void damage."}]

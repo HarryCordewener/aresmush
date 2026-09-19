@@ -1,0 +1,536 @@
+---
+"Ailuran":
+  pack: "blog-bestiary"
+  level: 5
+  size: "small"
+  rarity: "uncommon"
+  traits: ["chaotic", "fey"]
+  ac: 20
+  hp: 80
+  perception: 14
+  saves: {"fortitude": 9, "reflex": 12, "will": 15}
+  abilities: {"cha": 4, "con": 4, "dex": 5, "int": 4, "str": 4, "wis": 3}
+  speeds: {"land": 20}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 12, "Diplomacy": 10, "Nature": 12, "Stealth": 10, "Survival": 10, "Silver Lore": 13}
+  weaknesses: {"cold-iron": 5}
+  resistances: {"silver": 5}
+  strikes: [{"name": "Club", "bonus": 13, "damage": [["1d6+6", "bludgeoning", null]], "traits": []}, {"name": "Claw", "bonus": 13, "damage": [["1d6+6", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Boomerang", "bonus": 13, "damage": [["1d6+6", "bludgeoning", null]], "traits": [], "range": 20}]
+  actions: [{"name": "Silversense", "type": "passive", "traits": [], "text": "Silversense allows the ailurian to sense the presence of silver objects."}, {"name": "+1 Status to All Saves vs. Poison", "type": "passive", "traits": []}, {"name": "Silver Sustenance", "type": "action", "traits": [], "cost": 1, "text": "The ailuran eats an amount of silver equal to 10 sp and regains 1d6 healing Hit Points. An ailuran can subsist by consuming silver instead of normal food."}, {"name": "Returning Throw", "type": "action", "traits": [], "cost": 2, "text": "The ailuran makes a boomerang Strike, after which the boomerang returns to the ailuran's hand."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The ailuran deals 1d6 extra precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Dancing Lights"], "2": ["Glitterdust", "Illusory Object (At Will) (Silver Objects only)", "Speak with Animals (Constant)"], "5": ["Passwall"]}}]
+"Blarghest":
+  pack: "blog-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "evil", "fiend", "unholy"]
+  ac: 18
+  hp: 30
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 10, "will": 7}
+  abilities: {"cha": 3, "con": 2, "dex": 2, "int": 1, "str": 4, "wis": 1}
+  speeds: {"land": 15}
+  senses: ["darkvision", "scent"]
+  skills: {"Deception": 9, "Diplomacy": 7, "Intimidation": 9, "Stealth": 8, "Survival": 7}
+  immunities: ["emotion"]
+  resistances: {"fire": 3, "physical": 3}
+  strikes: [{"name": "Jaws", "bonus": 11, "damage": [["1d8+4", "piercing", null]], "traits": ["unarmed", "unholy"]}, {"name": "Claw", "bonus": 11, "damage": [["1d6+4", "slashing", null]], "traits": ["agile", "unarmed", "unholy"]}]
+  actions: [{"name": "Slack of Opportunity", "type": "reaction", "traits": [], "text": "Trigger A creature targets the blarghest with a hostile action%rEffect The blarghest rolls its eyes and sighs, imposing a deep sense of... blargh... upon the attacker. The attacker must attempt a DC 18 Will save; on a failure, it decides its action is too much work and the triggering action is lost. On a critical failure, the creature is also overcome with lethargy, becoming Stunned until the start of its next turn"}, {"name": "Consider Shape", "type": "action", "traits": ["concentrate", "mental"], "cost": 1, "text": "The blarghest thinks about taking on the shape of a goblinoid (a goblin, hobgoblin, or bugbear) or a wolf, but it ultimately decides that actually doing so is too much work."}, {"name": "Placeholder", "type": "action", "traits": [], "cost": 2, "text": "The blarghest shouts \"Blargh!\" to produce the effects of any cantrip that has a verbal component. This action gains the traits of that spell"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 18, "attack": 10, "spells": {"0": ["Message", "Prestidigitation"], "1": ["Charm", "Command"]}}]
+"Cacaodaemon":
+  pack: "blog-bestiary"
+  level: 1
+  size: "tiny"
+  rarity: "common"
+  traits: ["daemon", "evil", "fiend", "unholy"]
+  ac: 16
+  hp: 22
+  perception: 2
+  saves: {"fortitude": 10, "reflex": 7, "will": 4}
+  abilities: {"cha": 1, "con": 4, "dex": 1, "int": -2, "str": 3, "wis": 0}
+  speeds: {"land": 5, "fly": 40}
+  skills: {"Deception": 7, "Nature": 3, "Religion": 4, "Stealth": 5}
+  immunities: ["death-effects"]
+  resistances: {"bludgeoning": 2}
+  strikes: [{"name": "Nib Teeth", "bonus": 9, "damage": [["1d6+3", "piercing", null]], "traits": ["unholy"], "effects": ["Bitter Heart"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Aromatic", "type": "passive", "traits": [], "text": "When a cacaodaemon is reduced to half its HP, the ruptures to its rind exude a fragrant tropical scent. Creatures within 10 feet of the cacaodaemon take a -1 circumstance penalty to Will saving throws until the cacaodaemon dies or is healed above half its HP."}, {"name": "Bitter Heart", "type": "passive", "traits": ["poison"], "text": "The dissonance between the cacaodaemon's sweet scent and bitter inside drains the victim's spirit%rSaving Throw DC 17 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d8 mental damage and Off-Guard (1 round).%rStage 2 1d8 mental damage and Stupefied 1 (1 round)%rStage 3 1d12 mental damage and Stupefied 2 (1 round)"}]
+"Chea":
+  pack: "blog-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["beast", "beastkin", "human", "humanoid"]
+  ac: 27
+  hp: 155
+  perception: 18
+  saves: {"fortitude": 18, "reflex": 21, "will": 15}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 0, "str": 3, "wis": 2}
+  speeds: {"land": 40}
+  skills: {"Acrobatics": 20, "Athletics": 18, "Occultism": 13, "Religion": 16, "Stealth": 18, "Lore": 13}
+  strikes: [{"name": "Fist", "bonus": 19, "damage": [["2d6+11", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "nonlethal", "unarmed"]}, {"name": "Jaws", "bonus": 19, "damage": [["2d4+11", "piercing", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}, {"name": "Wind Crash", "bonus": 19, "damage": [["2d6+11", "bludgeoning", null]], "traits": ["agile", "nonlethal", "propulsive", "unarmed"]}]
+  actions: [{"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "Chea changes between her humanoid shape or hybrid shape. She gains a jaws unarmed Strike while in her hybrid shape."}, {"name": "Quick Change", "type": "free", "traits": [], "text": "Trigger Chea rolls initiative%rEffect Chea's instincts kick in and she takes on an aggressive stance. Chea uses Change Shape to enter her hybrid form."}, {"name": "Animalistic Resistance", "type": "passive", "traits": [], "text": "Chea gains a +2 circumstance bonus to saves to resist diseases and poisons."}, {"name": "Flurry of Blows", "type": "action", "traits": ["flourish"], "cost": 1, "text": "Chea makes two unarmed Strikes. If both hit the same creature, combine their damage for the purpose of resistances and weaknesses."}, {"name": "Flying Kick", "type": "action", "traits": [], "cost": 2, "text": "Chea launches herself at a foe. She makes a Leap or attempts a High Jump or Long Jump. At the end of the jump, if she's adjacent to a foe, she can immediately Strike that foe with an unarmed attack, even if the foe is in midair. She falls to the ground after the Strike. If the distance she falls is no more than the height of her jump, Chea lands upright and takes no damage."}, {"name": "Pack Tactics", "type": "passive", "traits": [], "text": "If an enemy is within reach of Chea and at least two of her allies, that enemy is Off-Guard against Chea."}, {"name": "Powerful Fists", "type": "passive", "traits": [], "text": "Chea's fist Strikes are treated as cold iron and silver and don't take penalties when making lethal attacks."}]
+  spellcasting: [{"name": "Monk Focus Spells", "tradition": "arcane", "type": "focus", "dc": 25, "attack": 17, "spells": {"5": ["Ki Rush (Focus)", "Ki Strike (Focus)", "Unfolding Wind Rush"]}}]
+"Demom":
+  pack: "blog-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "demon", "evil", "fiend", "unholy"]
+  ac: 19
+  hp: 50
+  perception: 15
+  saves: {"fortitude": 12, "reflex": 9, "will": 7}
+  abilities: {"cha": 1, "con": 0, "dex": 1, "int": 0, "str": 3, "wis": 4}
+  speeds: {"land": 30}
+  senses: ["darkvision", "truesight"]
+  skills: {"Diplomacy": 7, "Intimidation": 8, "Medicine": 10, "Stealth": 8}
+  immunities: ["disease", "mental", "sleep"]
+  resistances: {"cold": 10, "electricity": 10, "fire": 10}
+  strikes: [{"name": "Hug", "bonus": 10, "damage": [["2d4+4", "bludgeoning", null]], "traits": ["unholy"]}, {"name": "Stern Look", "bonus": 10, "damage": [["1d10+3", "fire", null]], "traits": ["unholy"], "range": 30}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Maternal Aura", "type": "passive", "traits": ["aura"], "text": "50 feet. All creatures who have a tragic backstory in which they've lost their parents take a -4 penalty to all Will saves as they are suddenly overcome with feelings of maternal love."}, {"name": "Shut It", "type": "reaction", "traits": [], "text": "Trigger A creature targets the demom with a hostile spell that has a verbal component.%rEffect The demom says, \"Don't talk back to me!\" The caster must attempt a DC 18 Will save; on a failure, it promptly shuts its mouth and stares at the ground contemplating how it doesn't deserve this."}, {"name": "Ground Target", "type": "action", "traits": [], "cost": 3, "text": "The demom narrows its eyes at a target and declares \"You're grounded!\" The target creature must attempt a DC 18 Will save; on a failure, it must lay down its weapons, set up camp, and sit in its tent."}, {"name": "There, There", "type": "action", "traits": ["emotion", "healing", "mental"], "cost": 1, "text": "Requirements The demom has a creature Grabbed.%rEffect The demom embraces the creature and pats its back soothingly as it whispers reassurances, restoring 10 healing Hit Points to the creature."}]
+"Divine Warden of Brigh":
+  pack: "blog-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "divine", "mindless"]
+  ac: 28
+  hp: 135
+  perception: 18
+  saves: {"fortitude": 18, "reflex": 20, "will": 18}
+  abilities: {"cha": -5, "con": 4, "dex": 6, "int": -5, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 18}
+  weaknesses: {"electricity": 10, "orichalcum": 10}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Fist", "bonus": 20, "damage": [["2d10+6", "bludgeoning", null]], "traits": ["agile", "finesse"]}, {"name": "Light Hammer", "bonus": 20, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Light Hammer", "bonus": 20, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["agile", "thrown-20"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, disable-device dc=27, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Clockwork Wand", "type": "passive", "traits": [], "text": "The divine warden uses a mechanical wand as a focus to channel magical energy. This wand is built into the divine warden's chest, with only the crystal at the end exposed. The warden can Interact to remove the wand, or someone else can remove it with a Thievery check to disable-device skill=thievery dc=32. The divine warden becomes unable to cast any spells except cantrips while the wand is removed.%rWhen removed, the clockwork wand is a magic wand containing the last 2nd-rank innate spell the…"}, {"name": "Divine Destruction", "type": "passive", "traits": ["divine"], "text": "When the divine warden is reduced to 0 HP, it erupts with divine energy in a 30-foot, dealing 10d6 vitality|options:area-damage damage. Each creature in the area must attempt a DC 29 Will save with the following outcomes.%rCritical Success The creature takes half damage.%rSuccess The creature takes full damage.%rFailure The creature takes full damage and becomes temporarily cursed by Brigh. The creature becomes Enfeebled 1 and Stupefied 1 for 1 day; this is a curse effect with a counteract DC…"}, {"name": "Faith Bound", "type": "passive", "traits": ["divine"], "text": "The divine warden can't attack a creature that openly wears or displays Brigh's religious symbol unless that creature uses a hostile action against the divine warden first."}, {"name": "Energize Clockwork Wand", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Frequency once per 10 minutes%rEffect The divine warden regains a spell it has already cast that day. It must spend 1 hour of its operational time, or 2 hours if the spell is 3rd level or higher."}, {"name": "Faithful Weapon", "type": "passive", "traits": [], "text": "light hammer, striking rune%rA divine warden always wields its patron deity's favored weapon. If the weapon is a ranged weapon, the divine warden automatically generates new ammunition with each attack. For a divine warden of 4th level or higher, the deity's favored weapon gains the effects of a Striking rune while the divine warden wields it; at 12th level, these effects are of a Greater Striking rune, and at 19th level, they're instead of a Major Striking rune."}, {"name": "Instrument of Faith", "type": "passive", "traits": [], "text": "The divine warden is a beacon for Brigh's faith. A cleric of Brigh can channel a Heal spell through a divine warden of Brigh they can see within 60 feet. The cleric determines any targets or area for the spell as if they were standing in the divine warden's space."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 29, "attack": 21, "spells": {"0": ["Daze", "Detect Magic", "Ray of Frost", "Shield", "Tangle Vine"], "1": ["Carryall", "Gentle Landing", "Grease"], "2": ["Mist", "Revealing Light", "Web"], "3": ["Haste", "Invisibility", "Stinking Cloud"], "4": ["Fly", "Planar Tether", "Wall of Fire"], "5": ["Cone of Cold", "Toxic Cloud"]}}, {"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 29, "attack": 21, "spells": {"0": ["Daze"]}}, {"name": "Divine Domain Spells", "tradition": "divine", "type": "focus", "dc": 29, "attack": 21, "spells": {"1": ["Hurtling Stone"], "4": ["Localized Quake"]}}]
+"Duhgik":
+  pack: "blog-bestiary"
+  level: 6
+  size: "small"
+  rarity: "unique"
+  traits: ["good", "humanoid", "kobold"]
+  ac: 24
+  hp: 66
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 17, "will": 14}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 5, "str": 2, "wis": 4}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Crafting": 15, "Deception": 12, "Medicine": 10, "Stealth": 14, "Survival": 12, "Lore": 13}
+  strikes: [{"name": "Dagger", "bonus": 12, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Sling", "bonus": 13, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["reload-1"], "range": 50}]
+  actions: [{"name": "Cringe", "type": "reaction", "traits": ["emotion", "kobold", "mental", "visual"], "text": "Trigger A creature Duhgik is aware of critically succeeds on a Strike against her and would deal damage to her%rEffect With pitiful posturing, she causes her foe to pull back a deadly attack. The attacking creature takes a -8 circumstance penalty to the damage of the triggering Strike. This penalty applies after doubling the damage for a critical hit. The attacker is then immune to Duhgik's for 24 hours."}, {"name": "Remote Trigger", "type": "passive", "traits": [], "text": "Duhgik has learned how to trigger snares from afar, creating ranged hazards to assail her opponents and allowing her to disarm enemies' snares harmlessly. She can Strike a snare to trigger it prematurely. If she crafted the snare, she automatically hits. If someone else crafted it, she must attempt a ranged Strike against the Crafting DC, triggering the snare only if she hits."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Duhgik deals an extra 1d6 precision damage to Off-Guard creatures."}, {"name": "Surprise Snare", "type": "action", "traits": ["manipulate"], "cost": 2, "text": "Duhgik installs one of her snares prepared for quick deployment in a space that's occupied by an opponent. It must be a snare that normally takes 1 minute or less to Craft. The snare automatically triggers, but it takes a -2 circumstance penalty to any applicable save DC, as well as any attack rolls or other checks the snare attempts."}]
+"Dust Bunny Swarm":
+  pack: "blog-bestiary"
+  level: 1
+  size: "large"
+  rarity: "rare"
+  traits: ["construct", "swarm"]
+  ac: 13
+  hp: 16
+  perception: 7
+  saves: {"fortitude": 7, "reflex": 5, "will": 3}
+  abilities: {"cha": 2, "con": 7, "dex": 2, "int": -4, "str": 0, "wis": 0}
+  speeds: {"land": 30}
+  skills: {"Arcana": 3, "Athletics": 3, "Stealth": 7}
+  weaknesses: {"area-damage": 4, "splash-damage": 4}
+  resistances: {"physical": 6}
+  actions: [{"name": "Cloud of Allergens", "type": "reaction", "traits": [], "text": "Trigger The swarm rolls initiative%rEffect The dust bunnies stir, kicking up a cloud in a 15-foot burst centered on the swarm that lasts for 1 minute. Creatures who enter or start their turn in this cloud must attempt a DC 16 Fortitude save or take a –1 circumstance penalty to skill checks that have the concentration trait and all Perception checks as their sensory organs become impaired.%rEffect: Cloud of Allergens"}, {"name": "Dust to Dust", "type": "passive", "traits": [], "text": "When a dust bunny swarm is destroyed, it re-forms after 2d4 days in the area in which it was destroyed unless the location has been significantly cleaned of all dust and debris."}, {"name": "Pummeling Dust", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 1d6 bludgeoning damage with a DC 16 Reflex save. A creature that fails its save cannot use reactions for 1 round as they sneeze uncontrollably."}]
+"Edolpho Phinelli":
+  pack: "blog-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["aiuvarin", "elf", "evil", "human", "humanoid"]
+  ac: 18
+  hp: 40
+  perception: 6
+  saves: {"fortitude": 5, "reflex": 8, "will": 10}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 2, "str": 0, "wis": 1}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 8, "Deception": 11, "Diplomacy": 9, "Occultism": 7, "Performance": 11, "Society": 7, "Stealth": 8, "Thievery": 8, "Lore": 9}
+  strikes: [{"name": "Shortsword", "bonus": 10, "damage": [["1d6+2", "piercing", null]], "traits": ["agile", "versatile-s"]}, {"name": "Sap", "bonus": 7, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["agile", "nonlethal"]}]
+  actions: [{"name": "Versatile Performance", "type": "passive", "traits": [], "text": "Edolpho can use Performance instead of Diplomacy to make-an-impression statistic=performance and instead of Intimidation to demoralize statistic=performance. He can also use an acting Performance instead of Deception to impersonate statistic=performance."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Edolpho deals an extra 1d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 20, "attack": 10, "spells": {"0": ["Daze", "Ghost Sound", "Mage Hand", "Message", "Prestidigitation"], "1": ["Illusory Disguise", "Magic Aura", "Unseen Servant", "Ventriloquism"], "2": ["Charm", "Illusory Disguise", "Invisibility"]}}, {"name": "Bard Composition Spells", "tradition": "arcane", "type": "focus", "dc": 19, "attack": 9, "spells": {"0": ["Inspire Courage"], "1": ["Counter Performance"]}}]
+"Eleukas":
+  pack: "blog-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["good", "human", "humanoid", "lawful"]
+  ac: 19
+  hp: 32
+  perception: 10
+  saves: {"fortitude": 11, "reflex": 9, "will": 6}
+  abilities: {"cha": 2, "con": 3, "dex": 1, "int": 0, "str": 4, "wis": 0}
+  speeds: {"land": 20}
+  skills: {"Athletics": 8, "Diplomacy": 8, "Society": 6, "Survival": 6}
+  strikes: [{"name": "Visperath", "bonus": 11, "damage": [["1d8+4", "slashing", null], ["1", "acid", null]], "traits": ["sweep"], "effects": ["Power Attack"]}, {"name": "Dagger", "bonus": 10, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "versatile-s"]}, {"name": "Dagger", "bonus": 7, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Lunge", "type": "action", "traits": [], "cost": 1, "text": "Eleukas makes a Strike with a melee weapon, increasing the reach of the Strike by 5 feet."}, {"name": "Power Attack", "type": "action", "traits": [], "cost": 2}]
+"Firebrand Brass Dragon (Ancient)":
+  pack: "blog-bestiary"
+  level: 17
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["chaotic", "dragon", "fire", "good"]
+  ac: 41
+  hp: 345
+  perception: 30
+  saves: {"fortitude": 32, "reflex": 31, "will": 32}
+  abilities: {"cha": 5, "con": 6, "dex": 5, "int": 4, "str": 7, "wis": 4}
+  speeds: {"land": 50, "burrow": 40, "fly": 150}
+  senses: ["darkvision", "scent", "tremorsense"]
+  skills: {"Acrobatics": 29, "Athletics": 33, "Deception": 29, "Diplomacy": 31, "Intimidation": 29, "Society": 30}
+  immunities: ["fire", "paralyzed", "sleep"]
+  strikes: [{"name": "Jaws", "bonus": 34, "damage": [["3d10+17", "piercing", null], ["3d6", "fire", null]], "traits": ["fire", "magical", "reach-15", "unarmed"]}, {"name": "Claw", "bonus": 34, "damage": [["3d10+17", "slashing", null]], "traits": ["agile", "magical", "reach-10", "unarmed"]}, {"name": "Wing", "bonus": 32, "damage": [["2d12+15", "slashing", null]], "traits": ["magical", "reach-15"]}]
+  actions: [{"name": "Battle Cry", "type": "free", "traits": [], "text": "Trigger The Brass Dragon rolls initiative.%rEffect The Brass Dragon roars out a mighty challenge and attempts to demoralize a creature it can see."}, {"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": []}, {"name": "Bravo's Determination", "type": "reaction", "traits": [], "text": "Trigger A foe's Strike reduces you to 0 Hit Points; you were not at 1 Hit Point and you would not be killed.%rYour confidence borders on self-delusion, but it keeps you going against overwhelming odds. Attempt a Deception check against the attack DC of the triggering Strike. You take a penalty to this check equal to twice your wounded value, if any. If the triggering attack was a critical hit, use the result one degree of success worse than what you rolled.%rCritical Success You avoid being…"}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "90 feet. DC 37 Will"}, {"name": "Wing Deflection", "type": "reaction", "traits": [], "text": "Trigger The dragon is targeted with an attack.%rEffect The dragon raises its wing, gaining a +2 circumstance bonus to AC against the triggering attack. If the dragon is flying, it descends 10 feet after the attack is complete."}, {"name": "Breath Weapon", "type": "action", "traits": ["arcane", "fire", "incapacitation", "sleep"], "cost": 2, "text": "The brass dragon breathes in one of two ways.%rThe dragon can't use Breath Weapon again for 1d4 rounds.%rFlame The dragon breathes fire in a 100-foot that deals 16d6 fire|options:area-damage damage (DC 41 Reflex save). Sleep Gas The dragon breathes an 80-foot of sleep gas. Each creature within the cone must succeed at a DC 41 Fortitude save or fall Unconscious for 1d6 rounds, or 1 minute on a critical failure."}, {"name": "Desert Wind", "type": "action", "traits": ["air", "arcane", "concentrate"], "cost": 2, "text": "Frequency three times per day.%rEffect The dragon calls upon the desert wind. This has the same effect as Gust of Wind (DC 39 Fortitude) but in a 60-foot. A creature that fails its save is also Blinded until the end of its next turn (or for 1 minute on a critical failure)."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The dragon makes two claw Strikes and one jaws Strike in any order."}, {"name": "Draconic Momentum", "type": "passive", "traits": [], "text": "When the dragon scores a critical hit with a strike, it recharges Breath Weapon."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 39, "attack": 29, "spells": {"2": ["Speak with Animals (Constant)"]}}]
+"Floolf":
+  pack: "blog-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 19
+  hp: 50
+  perception: 11
+  saves: {"fortitude": 8, "reflex": 10, "will": 20}
+  abilities: {"cha": -1, "con": 1, "dex": 4, "int": 1, "str": 3, "wis": 4}
+  speeds: {"land": 35}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 9, "Athletics": 9, "Stealth": 11, "Survival": 10}
+  immunities: ["cold"]
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d8+3", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Cute Aggression", "type": "passive", "traits": [], "text": "Floolf pups are so adorable that any creature that is either a mammal, or has an Intelligence above 3 that sees or touches a floolf pup must succeed at a DC 27 Will save or it will defend the floolf pup with its life. This effect ends when the creature is no longer able to perceive the pup.%rIf the creature can speak, anytime it remembers the floolf pup, it feels a compulsion (DC 15 Will save) to tell their story of the encounter, invariably ending with the phrase, \"I would die for that floolf.\""}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "The floolf's attack deals 1d8 extra damage to creatures within the reach of at least two of floolf's allies."}]
+"Goblin Zombie":
+  pack: "blog-bestiary"
+  level: 1
+  size: "small"
+  rarity: "uncommon"
+  traits: ["evil", "mindless", "undead", "unholy", "zombie"]
+  ac: 12
+  hp: 20
+  perception: 0
+  saves: {"fortitude": 5, "reflex": 3, "will": 3}
+  abilities: {"cha": -2, "con": 0, "dex": 2, "int": -5, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 3, "Athletics": 4}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"vitality": 5, "slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Jaws", "bonus": 7, "damage": [["1d8+3", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Alchemical Rupture", "type": "passive", "traits": [], "text": "When the goblin zombie is reduced to 0 Hit Points, an alchemical device jammed in its belly ruptures. Roll 1d4 and consult the following for the effect:%r1d4 #Alchemical Rupture Alchemical Effect 1 creatures in a 5-foot take 1d3 persistent acid|options:area-damage damage 2 creatures in a 5-foot emanation take 1d4 fire|options:area-damage damage (DC 16 Reflex save) 3 creatures in a 5-foot emanation take 1d4 poison|options:area-damage damage (DC 16 Fortitude save) 4 smoke billows out in a 5-foot…"}, {"name": "Slow", "type": "passive", "traits": [], "text": "A goblin zombie is permanently Slowed 1 and can't use reactions."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Gristleburst":
+  pack: "blog-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "goblin", "humanoid"]
+  ac: 18
+  hp: 30
+  perception: 7
+  saves: {"fortitude": 10, "reflex": 8, "will": 6}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 7, "Crafting": 8, "Intimidation": 6, "Nature": 7, "Stealth": 7, "Survival": 7}
+  resistances: {"fire": 1}
+  strikes: [{"name": "Dagger", "bonus": 9, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "versatile-s"]}, {"name": "Dagger", "bonus": 11, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}, {"name": "Lesser Alchemist's Fire", "bonus": 11, "damage": [["1d8", "fire", null], ["1", "fire", "persistent"], ["1", "fire", "splash"]], "traits": ["alchemical", "bomb", "splash"], "range": 20}, {"name": "Lesser Acid Flask", "bonus": 11, "damage": [["1", "acid", null], ["1d6", "acid", "persistent"], ["1", "acid", "splash"]], "traits": ["alchemical", "bomb", "splash"], "range": 20}]
+  actions: [{"name": "Infused Items", "type": "passive", "traits": [], "text": "Gristleburst carries the following infused items, which last for 24 hours or until the next time he makes his daily preparations:%rAcid Flask (Lesser) (2)%rAlchemist's Fire (Lesser) (4)%rEagle Eye Elixir (Lesser) (2)"}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "Gristleburst draws an alchemical bomb with an Interact action and throws it as a ranged Strike."}, {"name": "Quick Smoke Bomb", "type": "free", "traits": [], "text": "Cost 1 batch of infused reagents%rEffect Gristleburst mixes up a short-lived lesser acid flask or lesser alchemist's fire without attempting a Crafting check. It remains potent only until the end of his next turn. When he throws this bomb, in addition to its normal effects, it creates a cloud of smoke in a 10-foot radius burst. Creatures in that area have the Concealed condition, and other creatures are concealed to them. This smoke lasts for 1 minute or until dissipated by a strong wind."}]
+"Hellknight Centaur":
+  pack: "blog-bestiary"
+  level: 4
+  size: "large"
+  rarity: "unique"
+  traits: ["beast", "lawful"]
+  ac: 23
+  hp: 55
+  perception: 11
+  saves: {"fortitude": 10, "reflex": 11, "will": 11}
+  abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
+  speeds: {"land": 35}
+  senses: ["darkvision"]
+  skills: {"Athletics": 13, "Diplomacy": 8, "Intimidation": 8, "Nature": 9, "Survival": 9}
+  resistances: {"mental": 2, "slashing": 2}
+  strikes: [{"name": "Hoof", "bonus": 11, "damage": [["1d10+6", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Halberd", "bonus": 13, "damage": [["1d8+6", "slashing", null]], "traits": ["reach", "versatile-p"]}, {"name": "Spear", "bonus": 11, "damage": [["1d6+6", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, hoof, DC 20 Reflex"}]
+"Kobold Tunnelrunner":
+  pack: "blog-bestiary"
+  level: 0
+  size: "small"
+  rarity: "uncommon"
+  traits: ["evil", "humanoid", "kobold", "lawful"]
+  ac: 16
+  hp: 16
+  perception: 6
+  saves: {"fortitude": 6, "reflex": 9, "will": 4}
+  abilities: {"cha": 0, "con": 2, "dex": 3, "int": 0, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 5, "Athletics": 5, "Crafting": 2, "Stealth": 5, "Lore": 4}
+  strikes: [{"name": "Light Pick", "bonus": 6, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "fatal-d8"]}]
+  actions: [{"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The kobold tunnelrunner deals an extra 1d4 precision damage to Off-Guard creatures."}]
+"Lisavet":
+  pack: "blog-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["good", "human", "humanoid"]
+  ac: 17
+  hp: 30
+  perception: 10
+  saves: {"fortitude": 7, "reflex": 9, "will": 11}
+  abilities: {"cha": 1, "con": 0, "dex": 1, "int": 3, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Diplomacy": 7, "Medicine": 8, "Religion": 8, "Society": 7, "Lore": 7}
+  strikes: [{"name": "Staff", "bonus": 8, "damage": [["1d4", "bludgeoning", null]], "traits": ["two-hand-d8"]}]
+  actions: [{"name": "Healing Hands", "type": "passive", "traits": [], "text": "When Lisavet casts Heal, she rolls d10s instead of d8s."}, {"name": "Turn Undead", "type": "passive", "traits": [], "text": "When Lisavet uses heal to damage undead, each level 2 or lower undead that critically fails its save gains the fleeing condition for 1 round."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 18, "attack": 10, "spells": {"0": ["Detect Magic", "Divine Lance", "Light", "Shield", "Stabilize"], "1": ["Bless", "Burning Hands", "Heal", "Sanctuary"]}}, {"name": "Cleric Domain Spells", "tradition": "arcane", "type": "focus", "dc": 18, "attack": 8, "spells": {"1": ["Dazzling Flash"]}}]
+"Mari Lwyd":
+  pack: "blog-bestiary"
+  level: 11
+  size: "large"
+  rarity: "uncommon"
+  traits: ["chaotic", "fey"]
+  ac: 30
+  hp: 190
+  perception: 21
+  saves: {"fortitude": 24, "reflex": 21, "will": 18}
+  abilities: {"cha": 6, "con": 5, "dex": 3, "int": 4, "str": 7, "wis": 2}
+  speeds: {"land": 50, "swim": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 23, "Diplomacy": 19, "Intimidation": 21, "Performance": 21, "Thievery": 20}
+  strikes: [{"name": "Jaws", "bonus": 24, "damage": [["3d10+10", "piercing", null]], "traits": ["magical", "reach-10", "unarmed"]}, {"name": "Hoof", "bonus": 24, "damage": [["3d8+10", "bludgeoning", null]], "traits": ["agile", "magical", "reach-10"]}]
+  actions: [{"name": "Mostly Harmless", "type": "passive", "traits": [], "text": "The Mari Lwyd is out simply to enjoy the season. The Mari Lwyd's attacks have the nonlethal trait when attacking creatures, unless those creatures attempt a hostile action on the Mari Lwyd first."}, {"name": "Persistent Wassailing", "type": "passive", "traits": [], "text": "The Mari Lwyd cannot be disrupted by common means. It always knows if a building is truly unoccupied or if the occupants can speak and hear and are merely refusing to sing back, and it is immune to Silence and similar effects of up to 5th level."}, {"name": "Festive Rampage", "type": "free", "traits": [], "text": "Requirements The Mari Lwyd enters a building after winning the Pwnco, and was not both told to behave itself and offered alcohol or cheese%rEffect The Mari Lwyd flies into a destructive celebratory rampage. As long as the Mari Lwyd remains in the building, it gains resistance 10 to all damage and its strikes ignore 10 Hardness. The Mari Lwyd loses the benefits of this ability if it attacks a living creature, and typically smashes furniture instead."}, {"name": "Pwnco", "type": "action", "traits": [], "cost": 3, "text": "The Mari Lwyd begins a rhyming contest, requesting entrance to a closed home, tavern, or other building that has occupants who can respond in it. It rolls a Performance check. Before the Mari Lwyd's next turn, one occupant must respond to the Mari Lwyd's request by spending three actions to Perform a song of their own. The DC for the respondent's song is equal to the result of the Mari Lwyd's Performance check. If the building is occupied and no one responds, this has the effects of a critical…"}]
+"Morlibint":
+  pack: "blog-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid", "lawful"]
+  ac: 21
+  hp: 60
+  perception: 7
+  saves: {"fortitude": 11, "reflex": 9, "will": 9}
+  abilities: {"cha": 2, "con": 1, "dex": 1, "int": 4, "str": 0, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Arcana": 12, "Crafting": 10, "Diplomacy": 8, "Medicine": 7, "Nature": 7, "Occultism": 10, "Performance": 8, "Religion": 7, "Society": 10, "Academia Lore": 8}
+  strikes: [{"name": "Staff", "bonus": 9, "damage": [["1d4", "bludgeoning", null]], "traits": ["two-hand-d8"]}]
+  actions: [{"name": "Call Bonded Item", "type": "action", "traits": ["concentrate", "teleportation"], "cost": 1, "text": "Morlibint teleports his scholarly journal into his hand from up to 1 mile away."}, {"name": "Drain Bonded Item", "type": "free", "traits": ["arcane"], "text": "Frequency twice per day%rRequirements Morlibint hasn't acted yet on his turn%rEffect Morlibint draws some of the power in his scholarly journal. He gains the ability to cast one spell he prepared today and already cast, without spending a spell slot. He must still Cast the Spell and meet the spell's other requirements."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 21, "attack": 13, "spells": {"0": ["Dancing Lights", "Daze", "Detect Magic", "Mage Hand", "Telekinetic Projectile"], "1": ["Color Spray", "Magic Missile", "Unseen Servant"], "2": ["Comprehend Language", "Dispel Magic", "Illusory Creature"]}}, {"name": "Focus Spells", "tradition": "arcane", "type": "focus", "dc": 21, "attack": 13, "spells": {"1": ["Hand of the Apprentice"]}}]
+"Nonsequitaur":
+  pack: "blog-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["beast"]
+  ac: 20
+  hp: 40
+  perception: 9
+  saves: {"fortitude": 8, "reflex": 9, "will": 9}
+  abilities: {"cha": 1, "con": 1, "dex": 2, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 40}
+  skills: {"Athletics": 11, "Diplomacy": 6, "Intimidation": 6, "Nature": 7, "Survival": 7}
+  strikes: [{"name": "Hoof", "bonus": 9, "damage": [["1d10+4", "bludgeoning", null]], "traits": ["agile"]}, {"name": "Spear", "bonus": 11, "damage": [["1d4+6", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 9, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Centaur out of Nowhere", "type": "reaction", "traits": [], "text": "Trigger The PCs round a corner, open a chest or door, unmask a villain, or draw back a particularly plush curtain%rRequirements The PCs are not thinking about centaurs%rEffect A nonsequitaur appears whenever it is least expected. A nonsequitaur comes into being and everyone rolls initiative."}, {"name": "At Least That's Over", "type": "reaction", "traits": [], "text": "Trigger The nonsequitaur is reduced to 0 Hit Points%rEffect It isn't, not yet. The nonsequitaur uses MORE! CENTAURS! as a reaction, then dies."}, {"name": "Forget about Me?", "type": "reaction", "traits": [], "text": "Trigger The nonsequitaur leaves the field of view of all of the PCs%rEffect The nonsequitaur feels ignored. It uses MORE! CENTAURS! as a reaction."}, {"name": "You Should Have Paid Attention to the Centaur", "type": "reaction", "traits": [], "text": "Trigger A creature ends its turn without attacking, casting spells at, using skills on, or otherwise acknowledging the nonsequitaur%rEffect The nonsequitaur dominates all forms of interaction. It uses MORE! CENTAURS! as a reaction."}, {"name": "MORE! CENTAURS!", "type": "action", "traits": [], "cost": 2, "text": "The nonsequitaur decides that this could be improved by more centaurs. It causes another nonsequitaur to spontaneously come into being in an unoccupied space within 60 feet.%rBefore you ask, YES this summoned nonsequitaur can use MORE! CENTAURS! as well, NO this is not a design oversight. I write the blog, them's the breaks."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, Hoof, DC 18 Reflex"}]
+"Nosferotter":
+  pack: "blog-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["humanoid", "undead"]
+  ac: 18
+  hp: 30
+  perception: 11
+  saves: {"fortitude": 4, "reflex": 6, "will": 7}
+  abilities: {"cha": 4, "con": 1, "dex": 3, "int": 2, "str": 1, "wis": 0}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 7, "Diplomacy": 8}
+  immunities: ["bleed"]
+  strikes: [{"name": "Claw", "bonus": 10, "damage": [["1d4+6", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Jaw", "bonus": 10, "damage": [["1d8+6", "piercing", null]], "traits": []}, {"name": "Throw Rock and/or Skull", "bonus": 10, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Aquatic Ambush", "type": "action", "traits": [], "cost": 1, "text": "30 feet"}, {"name": "Dead Gaze", "type": "action", "traits": ["mental", "visual"], "cost": 2, "text": "Look into its beady little eyes. You are now Stunned for 1 round unless you succeeded on a DC 20 Will save."}, {"name": "Squeak of Doom", "type": "action", "traits": ["auditory", "emotion", "mental"], "cost": 3, "text": "The nosferotter lets out an ominous, but cute, squeak. All creatures within 30 feet must attempt a DC 20 Will save.%rThey are then temporarily immune for 1 day.%rCritical Success The creature is unaffected.%rSuccess The creature can do nothing but wonder whether the nosferotter is cute or terrifying for 1 round.%rFailure The creature is so confused that it attacks its allies for 1 round.%rCritical Failure As failure, but permanently. It's that bad."}]
+"Ogre Hurler":
+  pack: "blog-bestiary"
+  level: 4
+  size: "large"
+  rarity: "uncommon"
+  traits: ["evil", "giant", "humanoid"]
+  ac: 19
+  hp: 65
+  perception: 10
+  saves: {"fortitude": 14, "reflex": 11, "will": 8}
+  abilities: {"cha": 0, "con": 4, "dex": 1, "int": -2, "str": 6, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 14, "Intimidation": 9}
+  strikes: [{"name": "Fist", "bonus": 14, "damage": [["2d6+8", "bludgeoning", null]], "traits": ["reach-10", "unarmed"], "effects": ["Grab"]}, {"name": "Spear", "bonus": 14, "damage": [["1d6+8", "piercing", null]], "traits": ["reach-10"]}, {"name": "Spear", "bonus": 9, "damage": [["1d6+8", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Toss Kobold", "type": "action", "traits": [], "cost": 2, "text": "Requirements A kobold is within 10 feet of the ogre%rEffect The ogre picks up the kobold and hurls it at another creature within 30 feet. This ranged Strike has a +14 attack modifier and deals 2d8+6 bludgeoning damage. The kobold takes half the damage dealt to the target and is Prone."}]
+"Pr'rall":
+  pack: "blog-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["catfolk", "chaotic", "humanoid"]
+  ac: 28
+  hp: 138
+  perception: 18
+  saves: {"fortitude": 19, "reflex": 20, "will": 16}
+  abilities: {"cha": 2, "con": 3, "dex": 4, "int": 0, "str": 5, "wis": 2}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 16, "Athletics": 17, "Medicine": 14, "Nature": 14, "Society": 12, "Stealth": 20, "Survival": 18, "Hunting Lore": 12}
+  strikes: [{"name": "+1 Striking Temple Sword", "bonus": 20, "damage": [["2d8+8", "slashing", null]], "traits": ["trip"]}, {"name": "+1 Temple Sword", "bonus": 20, "damage": [["1d8+8", "slashing", null]], "traits": ["trip"]}, {"name": "Bola", "bonus": 18, "damage": [["1d6+7", "bludgeoning", null]], "traits": ["nonlethal", "ranged-trip", "thrown-20"]}]
+  actions: [{"name": "Light Paws", "type": "action", "traits": [], "cost": 2, "text": "Pr'rall can balance on his toes to step carefully over obstructions. He Strides and then Steps, or Steps and then Strides, ignoring difficult terrain during this movement."}, {"name": "Swift Sneak", "type": "passive", "traits": [], "text": "Pr'rall moves full speed while Sneaking."}, {"name": "Double Slice", "type": "action", "traits": [], "cost": 2, "text": "Requirements You are wielding two melee weapons, each in a different hand.%rEffect Pr'rall lashes out at a foe with both weapons. Make two Strikes, one with each of his two melee weapons, each using his current multiple attack penalty. Both Strikes must have the same target. If the second Strike is made with a weapon that doesn't have the agile trait, it takes a -2 penalty. If both attacks hit, combine their damage, and then add any other applicable effects from both weapons. Add any precision…"}, {"name": "Dual-Weapon Blitz", "type": "action", "traits": [], "cost": 2, "text": "Requirements Pr'rall is wielding two one-handed melee weapons, each in a different hand%rEffect Pr'rall attacks as he dashes among foes. He Strides up to his Speed. At any point during this movement, he can Strike once with each of the two required weapons. These Strikes can be against the same or different targets, as he sees fit."}, {"name": "Flensing Slice", "type": "action", "traits": [], "cost": 1, "text": "Requirements Pr'rall's last action was a Double Slice, and both attacks hit the target%rEffect When Pr'rall hits with both attacks with Double Slice, he flenses the target, making it bleed and creating a weak spot. The target takes 2d8 bleed, becomes Off-Guard , and its resistances to any physical damage types are reduced by 5; these two effects last until the beginning of Pr'rall's next turn."}]
+"Psstpsstmitl":
+  pack: "blog-bestiary"
+  level: 21
+  size: "gargantuan"
+  rarity: "common"
+  traits: ["animal", "chaotic"]
+  ac: 46
+  hp: 400
+  perception: 38
+  saves: {"fortitude": 35, "reflex": 38, "will": 32}
+  abilities: {"cha": -2, "con": 7, "dex": 10, "int": -4, "str": 8, "wis": 5}
+  speeds: {"land": 50}
+  skills: {"Acrobatics": 40, "Athletics": 38, "Stealth": 36}
+  strikes: [{"name": "Jaws", "bonus": 38, "damage": [["4d10+24", "piercing", null]], "traits": ["finesse", "unarmed"], "effects": ["Grab"]}, {"name": "Claw", "bonus": 38, "damage": [["4d6+17", "slashing", null]], "traits": ["agile", "finesse", "reach-20", "unarmed"]}]
+  actions: [{"name": "Dander", "type": "passive", "traits": ["aura", "olfactory"], "text": "30 feet. Any time a nonfeline creature within the aura attempts to use an action that has the concentrate trait, it must attempt a DC 5 Flat check. On a failure, the action is lost as the creature is too distracted by sneezing to act."}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "The psstpsstmitl Strides and makes a Strike at the end of that movement. If the psstpsstmitl began this action Hidden, it remains hidden until after this ability's Strike."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The psstpsstmitl deals 2d6 extra precision damage to Off-Guard creatures"}, {"name": "Topple", "type": "action", "traits": [], "cost": 2, "text": "The psstpsstmitl swipes one giant paw across the battlefield in a 30-foot. All creatures in the cone must attempt a Reflex save.%rCritical Success The target is unaffected.%rSuccess The target is pushed 10 feet away from the psstpsstmitl and is knocked Prone%rFailure The target is pushed 20 feet away from the psstpsstmitl and is knocked prone.%rCritical Failure As failure, and the target is Stunned 2"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Rt5rrmn":
+  pack: "blog-bestiary"
+  level: 8
+  size: "small"
+  rarity: "common"
+  traits: ["animal", "fey"]
+  ac: 36
+  hp: 172
+  perception: 20
+  saves: {"fortitude": 15, "reflex": 35, "will": 22}
+  abilities: {"cha": 6, "con": 4, "dex": 3, "int": 1, "str": 5, "wis": 1}
+  speeds: {"land": 35}
+  senses: ["scent"]
+  skills: {"Acrobatics": 22, "Athletics": 20, "Stealth": 17}
+  strikes: [{"name": "b9000", "bonus": 18, "damage": [["3d8+12", "piercing", null]], "traits": ["finesse"], "effects": ["Improved Grab"]}, {"name": "g7ujik", "bonus": 18, "damage": [["3d6+12", "slashing", null]], "traits": ["agile", "finesse"], "effects": ["Rt5rrmn Yyumn"]}]
+  actions: [{"name": "But I'm Adorable", "type": "reaction", "traits": [], "text": "Trigger An enemy targets the rt5rrmn with a melee attack%rEffect The rt5rrmn erkijs, the vibrating sound convincing the enemy to stop hurting it. The target must attempt a DC 26 Will save.%rCritical Success The target is unaffected, ignoring the seduction of the erkij.%rSuccess The target is Fascinated by the rt5rrmn's erkij until the end of the rt5rrmn's next turn.%rFailure As success, and the target is Slowed 1 as it focuses on the rt5rrmn's erkij.%rCritical Failure As failure, but the target…"}, {"name": "Extra Reverberation", "type": "passive", "traits": [], "text": "If the rt5rrmn is targeted with an ability that restores Hit Points, it gains an additional use of But I'm Adorable that lasts until the end of its next turn."}, {"name": "Rt5rrmn Yyumn", "type": "passive", "traits": ["disease"], "text": "Saving Throw DC 24 Fortitude%rMaximum Duration 1 week%rStage 1 Sickened 1 (1 hour)%rStage 2 sickened 1 and the creature can't reduce its sickened value below 1 (1 day)%rStage 3 Sickened 2 and the creature can't reduce its sickened value below 1 (1 day)"}, {"name": "Yidsfh", "type": "action", "traits": [], "cost": 2, "text": "The rt5rrmn Strides and then makes two g7ujik Strikes at a single target. Both count toward its multiple attack penalty, but the penalty increases only after both attacks are made. The rt5rrmn must be able to move at least half its Speed to yidsfh."}]
+"Squirrelwind":
+  pack: "blog-bestiary"
+  level: 10
+  size: "large"
+  rarity: "common"
+  traits: ["air", "animal", "elemental"]
+  ac: 32
+  hp: 130
+  perception: 19
+  saves: {"fortitude": 15, "reflex": 23, "will": 17}
+  abilities: {"cha": 0, "con": 3, "dex": 7, "int": 0, "str": 6, "wis": 3}
+  speeds: {"land": 0, "fly": 75}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 22, "Stealth": 16}
+  immunities: ["paralyzed", "poison", "precision", "sickened", "sleep", "swarm-mind"]
+  resistances: {"physical": 10}
+  strikes: [{"name": "Gust", "bonus": 22, "damage": [["2d12+10", "bludgeoning", null]], "traits": ["finesse", "reach-20"], "effects": ["Push"]}, {"name": "Squirrel", "bonus": 22, "damage": [["2d4+10", "bludgeoning", null]], "traits": ["deadly-d10", "thrown-30", "versatile-s"]}]
+  actions: [{"name": "Swarm Mind", "type": "passive", "traits": []}, {"name": "Chittering", "type": "passive", "traits": ["auditory", "aura"], "text": "60 feet. The chitters of wind-buffeted squirrels disrupts the senses, making air and ground within the emanation difficult terrain for all creatures that hear the sound."}, {"name": "Squirrel Surge", "type": "action", "traits": ["flourish"], "cost": 1, "text": "Each enemy within the squirrelwind's chittering aura takes 1d8 slashing damage."}, {"name": "Swiftness", "type": "passive", "traits": [], "text": "The squirrelwind's movement doesn't trigger reactions."}, {"name": "Push 10 feet", "type": "action", "traits": [], "cost": 1}]
+"Urok":
+  pack: "blog-bestiary"
+  level: 9
+  size: "small"
+  rarity: "unique"
+  traits: ["aphorite", "humanoid", "kobold", "lawful"]
+  ac: 27
+  hp: 140
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 21, "will": 18}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 4, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision", "low-light-vision"]
+  skills: {"Acrobatics": 20, "Arcana": 20, "Athletics": 13, "Deception": 16, "Diplomacy": 16, "Intimidation": 16, "Religion": 16, "Society": 20, "Stealth": 20, "Survival": 16, "Thievery": 20, "Lore": 20}
+  strikes: [{"name": "Dagger", "bonus": 19, "damage": [["2d4+8", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 19, "damage": [["2d4+8", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Draconic Exemplar (Green Dragon)", "type": "passive", "traits": [], "text": "Urok draws minor powers from his green draconic exemplar. This determines his scale color and appearance, and dragons sometimes look more favorably upon those kobolds who resemble them, at the GM's discretion. His exemplar also determines details of other abilities:%rBreath weapon cone Damage type poison Saving throw Fortitude"}, {"name": "Crystalline Dust", "type": "action", "traits": [], "cost": 2, "text": "Frequency once per day%rEffect Urok disperses the crystalline motes coating his body as a haze. He becomes Concealed, though he can't use this concealment to Hide or Sneak. The motes stay within an inch of his skin, move with you, and last for 4 rounds."}, {"name": "Preemptive Reconfiguration", "type": "reaction", "traits": [], "text": "Frequency once per day%rTrigger Urok would take bludgeoning piercing, or slashing damage%rEffect Urok's body anticipates the blow and the impact area briefly reorganizes into a strengthened tissue lattice that blunts the attack. He gains resistance 9 against the triggering damage type, which applies against the triggering damage Urok can expend his daily use of Crystalline Dust when using this reaction. If he does, his daily use of isn't expended and he can use it a second time."}, {"name": "Kobold Breath", "type": "action", "traits": ["arcane", "poison"], "cost": 2, "text": "Urok breathes a poisonous mist that deals 5d4 poison|options:area-damage damage in a 15-foot (DC 25 Fortitude save).%rHe can't use Kobold Breath again for 1d4 rounds."}, {"name": "Mastermind", "type": "passive", "traits": [], "text": "If Urok successfully identifies a creature using Recall Knowledge, that creature is off-guard against his attacks until the start of his next turn; if he critically succeeds, it's off-guard against his attacks for 1 minute."}, {"name": "Skirmish Strike", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Urok either Steps and then Strike, or Strikes and then Steps."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Urok deals an extra 2d6 precision damage to Off-Guard creatures."}]
+"Wendlyn":
+  pack: "blog-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["aiuvarin", "chaotic", "elf", "good", "human", "humanoid"]
+  ac: 17
+  hp: 30
+  perception: 10
+  saves: {"fortitude": 7, "reflex": 9, "will": 11}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": 1, "str": 2, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 10, "Deception": 6, "Society": 7, "Stealth": 8, "Thievery": 10, "Otari Lore": 7}
+  strikes: [{"name": "Shortsword", "bonus": 10, "damage": [["1d6+4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Shortbow", "bonus": 10, "damage": [["1d6+1", "piercing", null]], "traits": ["deadly-d10", "propulsive", "reload-0"], "range": 60}, {"name": "Lesser Alchemist's Fire", "bonus": 10, "damage": [["1d8", "fire", null], ["1", "fire", "persistent"], ["1", "fire", "splash"]], "traits": ["alchemical", "bomb", "splash"], "range": 20}]
+  actions: [{"name": "Mobility", "type": "passive", "traits": [], "text": "Wendlyn doesn't trigger reactions from movement when she Strides half her Speed or less."}, {"name": "Nimble Dodge", "type": "reaction", "traits": [], "text": "Trigger Wendlyn is targeted with an attack by an attacker she can see%rEffect Wendlyn gains a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Wendlyn deals an extra 1d6 precision damage to Off-Guard creatures."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "On the first round of combat, if Wendlyn rolls Deception or Stealth for initiative, creatures that haven't acted yet are Off-Guard to her."}]
+"Weredigo":
+  pack: "blog-bestiary"
+  level: 15
+  size: "large"
+  rarity: "uncommon"
+  traits: ["beast", "chaotic"]
+  ac: 37
+  hp: 280
+  perception: 29
+  saves: {"fortitude": 29, "reflex": 28, "will": 31}
+  abilities: {"cha": 7, "con": 8, "dex": 7, "int": 6, "str": 6, "wis": 8}
+  speeds: {"land": 0, "fly": 100}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 30, "Intimidation": 30, "Society": 31, "Restaurant Lore": 31}
+  strikes: [{"name": "Jaws", "bonus": 29, "damage": [["3d10+14", "piercing", null]], "traits": ["magical", "reach-10", "unarmed"], "effects": ["Weredigo Torment"]}, {"name": "Fork", "bonus": 29, "damage": [["3d6+14", "piercing", null]], "traits": ["agile", "reach-10"], "effects": ["Grab"]}, {"name": "Knife", "bonus": 29, "damage": [["3d6+14", "slashing", null]], "traits": ["agile", "reach-10"]}]
+  actions: [{"name": "Telepathy (1 mile)", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Coven", "type": "passive", "traits": ["mental", "occult"], "text": "A weredigo adds Create Food, Enhance Victuals, and Ghoulish Cravings to its coven's spells.%rIn addition, a weredigo, wendigo, and hoodigo coven can perform a unique ritual to enter the dreams of a creature responsible for hosting an upcoming party and curse them incurable planning indecision."}, {"name": "Hungersight", "type": "passive", "traits": ["primal"], "text": "A weredigo can precisely sense peckish creatures."}, {"name": "Reduce Options", "type": "action", "traits": ["curse", "mental", "primal"], "cost": 2, "text": "Requirements The weredigo is adjacent to two creatures that can't decide where to get brunch.%rEffect The weredigo makes two fork Strikes and two knife Strikes against one of the adjacent creatures. These attacks don't count toward the weredigo's multiple attack penalty."}, {"name": "Weredigo Torment", "type": "passive", "traits": ["curse", "mental", "primal"], "text": "A creature affected by weredigo torment can't recover beyond stage 1 until it has been restored to full HP.%rSaving Throw DC 35 Will%rStage 1 Stupefied 4 (1 day)%rStage 2 As stage 1 (1 day)%rStage 3 The creature becomes permanently afflicted with analysis paralysis, unable to make even the simplest of dining decisions, absentmindedly sipping their water whenever asked for their order."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Whispering Way Medusa":
+  pack: "blog-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "humanoid", "lawful"]
+  ac: 27
+  hp: 125
+  perception: 16
+  saves: {"fortitude": 17, "reflex": 18, "will": 16}
+  abilities: {"cha": 2, "con": 4, "dex": 5, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Deception": 18, "Diplomacy": 16, "Stealth": 18, "Undead Lore": 16}
+  strikes: [{"name": "Shortsword", "bonus": 20, "damage": [["1d6+10", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"], "effects": ["Serpent Venom"]}, {"name": "Snake Fangs", "bonus": 18, "damage": [["1d4+8", "piercing", null]], "traits": ["agile", "finesse"], "effects": ["Serpent Venom"]}, {"name": "Composite Shortbow", "bonus": 21, "damage": [["1d6+9", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0"], "range": 60, "effects": ["Serpent Venom"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Biting Snakes", "type": "reaction", "traits": [], "text": "Trigger A creature ends its turn adjacent to the medusa.%rEffect The medusa makes a snake fangs Strike against the creature."}, {"name": "Petrifying Gaze", "type": "passive", "traits": ["arcane", "aura", "visual"], "text": "30 feet. When a creature ends its turn in the aura, it must attempt a DC 27 Fortitude save. If the creature fails, it becomes Slowed 1 for 1 minute. The medusa can deactivate or activate this aura by using a single action, which has the concentrate trait."}, {"name": "Focus Gaze", "type": "action", "traits": ["arcane", "concentrate", "incapacitation", "visual"], "cost": 1, "text": "The medusa fixes their glare at a creature they can see within 30 feet. The target must immediately attempt a DC 27 Fortitude save against the medusa's petrifying gaze. If the creature was already Slowed by petrifying gaze before attempting its save, a failed save causes it to be Petrified permanently. After attempting its save, the creature is then temporarily immune until the start of the medusa's next turn."}, {"name": "Serpent Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 27 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage and Enfeebled 1 (1 round)%rStage 2 2d6 poison damage and Enfeebled 2 (1 round)"}]
+"Wordsmith":
+  pack: "blog-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["dwarf", "humanoid"]
+  ac: 19
+  hp: 70
+  perception: 10
+  saves: {"fortitude": 13, "reflex": 8, "will": 11}
+  abilities: {"cha": 2, "con": 4, "dex": 3, "int": 6, "str": 4, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 10, "Crafting": 14, "Occultism": 10, "Scribing Lore": 12}
+  resistances: {"sonic": 7}
+  strikes: [{"name": "Hammer", "bonus": 14, "damage": [["1d6", "sonic", null], ["2d6+4", "bludgeoning", null]], "traits": ["forceful", "occult", "sonic"], "effects": ["Forge Onomatopoeia"]}, {"name": "TWANG!", "bonus": 13, "damage": [["2d4+4", "sonic", null]], "traits": ["occult", "sonic"]}]
+  actions: [{"name": "Word Warp", "type": "reaction", "traits": ["auditory", "occult"], "text": "Trigger The wordsmith is the target of a linguistic effect%rEffect The wordsmith twists the words and attempts to counter their foe's utterances with their hammer (counteract +16, 3rd rank)."}, {"name": "Forge Onomatopoeia", "type": "passive", "traits": ["occult", "visual"], "text": "The wordsmith slams their hammer against a creature, creating a visual onomatopoeia like CRACK! or SMASH! that flies off at the site of impact. The target of the strike must attempt a DC 24 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature is Stupefied 1 for 1 round.%rFailure The creature is stupefied 1 for 1 minute.%rCritical Failure The creature is Stupefied 2 and gains weakness 1 to sonic damage for 1 minute."}, {"name": "Mightier than the Sword", "type": "passive", "traits": ["occult"], "text": "Any hammer gains the forceful trait, can't be disarmed, and becomes a +1 striking hammer while the Wordsmith wields it."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 24, "attack": 14, "spells": {"0": ["Figment", "Message"], "1": ["Command"], "2": ["Noise Blast", "Ventriloquism (At Will)"], "5": ["Truespeech (Constant)"]}}]
+"Zhang Yong":
+  pack: "blog-bestiary"
+  level: 14
+  size: "medium"
+  rarity: "unique"
+  traits: ["dromaar", "human", "humanoid", "lawful", "orc"]
+  ac: 37
+  hp: 251
+  perception: 23
+  saves: {"fortitude": 25, "reflex": 29, "will": 22}
+  abilities: {"cha": 2, "con": 5, "dex": 8, "int": 3, "str": 4, "wis": 5}
+  speeds: {"land": 45}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 28, "Athletics": 23, "Diplomacy": 20, "Medicine": 23, "Occultism": 23, "Religion": 25, "Society": 19, "Haunt Lore": 23}
+  weaknesses: {"mental": 10}
+  strikes: [{"name": "Soul Strike", "bonus": 23, "damage": [["2d8+14", "bludgeoning", null], ["1d6", "spirit", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Greater Ghost Charge", "bonus": 23, "damage": [["3d8", "vitality", null], ["3", "vitality", "splash"]], "traits": ["splash", "thrown-10"]}]
+  actions: [{"name": "Grit Teeth", "type": "reaction", "traits": ["emotion", "mental"], "text": "Zhang Yong fails or critically fails a saving throw against an enchantment or fear effect Effect Zhang Yong succeeds on the saving throw instead and takes 2d6 mental damage. If he critically failed on the triggering saving throw, he also takes 2d6 persistent mental and cannot use this ability again while taking persistent mental damage."}, {"name": "Disrupting Strikes", "type": "action", "traits": [], "cost": 1, "text": "Zhang Yong calls forth vitality energy from within to help him destroy undead. His weapons and unarmed Strikes gain the effects of a greater disrupting property rune until the start of his next turn.%rA Greater Disrupting weapon pulses with vitality energy, dealing an extra 2d6 vitality damage to undead On a critical hit, instead of being enfeebled 1, the undead creature must attempt a Fortitude save with the following effects. This is an incapacitation effect.%rCritical Success It's Enfeebled…"}, {"name": "Reach Beyond", "type": "passive", "traits": [], "text": "Zhang Yong has learned to move his spiritual energy past himself to attack spirits where others can't. He can make melee Strikes against incorporeal creatures that are inside solid objects as long as the object is within his reach. An incorporeal creature inside of a solid object is hidden, requiring him to succeed at a DC 11 Flat check when he targets it. He can spend an action, which has the concentrate trait, to focus on a creature inside of a solid object. If he does, the next melee Strike…"}, {"name": "Soul Dance Stance", "type": "action", "traits": [], "cost": 1, "text": "Zhang Yong begins a stance that aligns him with the River of Souls and he can make soul strike attacks that seem almost incorporeal. These deal 1d8 bludgeoning damage; are in the brawling group; and have the agile, finesse, nonlethal, and unarmed traits. Soul Strikes treat cover against living and incorporeal undead targets as degree less severe (greater cover becomes standard cover, standard cover becomes lesser cover, and lesser cover is ignored)."}]

@@ -32,7 +32,11 @@ module AresMUSH
 
         template = Pf2eSheetTemplate.new(char, outcome.state, client, char.pf2_base_info, char.pf2_faith)
 
-        client.emit template.render
+        # A figure asks which feats, items and conditions carry effects, and a sheet shows a great
+        # many figures. Rendering inside a read block asks once.
+        rendered = Pf2e::SheetReads.holding(char) { template.render }
+
+        client.emit rendered
       end
 
     end

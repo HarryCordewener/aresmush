@@ -38,4 +38,10 @@
 
 <%= section_line("Conditions") %>
 <%= conditions %>
+<% unless effects.empty? %>
+<%= section_line("Effects") %>
+<% effects.each do |line| %>
+<%= line %>
+<% end %>
+<% end %>
 <%= footer %>

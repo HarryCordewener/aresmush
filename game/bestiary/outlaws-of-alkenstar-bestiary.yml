@@ -1,0 +1,1393 @@
+---
+"\"Lucky\" Lanks":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 5
+  size: "small"
+  rarity: "unique"
+  traits: ["evil", "halfling", "humanoid", "lawful"]
+  ac: 20
+  hp: 70
+  perception: 11
+  saves: {"fortitude": 9, "reflex": 15, "will": 12}
+  abilities: {"cha": 4, "con": 0, "dex": 4, "int": 2, "str": 2, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 13, "Deception": 13, "Diplomacy": 13, "Intimidation": 13, "Stealth": 13, "Thievery": 13}
+  strikes: [{"name": "Shortsword", "bonus": 16, "damage": [["2d6+4", "piercing", null]], "traits": ["agile", "finesse", "magical", "versatile-s"]}, {"name": "Dagger", "bonus": 15, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 15, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}, {"name": "Coat Pistol", "bonus": 15, "damage": [["1d4+4", "piercing", null]], "traits": ["concealable", "concussive", "fatal-d8", "reload-1"], "range": 30}]
+  actions: [{"name": "Scoundrel's Feint", "type": "passive", "traits": [], "text": "When Lanks successfully Feints, his target is Off-Guard against his attacks until the end of his next turn. On a critical success, the target is off-guard against all attacks until the end of Lanks's next turn."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Lanks deals an additional 2d6 precision damage to Off-Guard creatures."}]
+"Akrida":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "small"
+  rarity: "unique"
+  traits: ["animal", "chaotic", "evil", "mutant"]
+  ac: 21
+  hp: 60
+  perception: 10
+  saves: {"fortitude": 12, "reflex": 11, "will": 11}
+  abilities: {"cha": 0, "con": 4, "dex": 3, "int": 0, "str": 5, "wis": 3}
+  speeds: {"land": 20, "burrow": 10}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 11, "Athletics": 13}
+  resistances: {"acid": 5}
+  strikes: [{"name": "Light Pick", "bonus": 13, "damage": [["2d4+7", "piercing", null]], "traits": ["agile", "fatal-d8", "magical"]}, {"name": "Mandibles", "bonus": 13, "damage": [["1d6+7", "slashing", null], ["1d6", "acid", null]], "traits": []}, {"name": "Claw", "bonus": 13, "damage": [["1d6+7", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Breath Weapon", "type": "action", "traits": ["acid", "primal"], "cost": 2, "text": "Akrida spits a gout of slimy green acid in a 30-foot that deals 5d6 acid|options:area-damage damage (DC 20 Reflex).%rAkrida can't use Breath Weapon again for 1d4 rounds."}, {"name": "Frantic Scramble", "type": "action", "traits": [], "cost": 2, "text": "Akrida makes three claw Strikes against a single creature within reach. His multiple attack penalty doesn't increase until after he makes all three Strikes."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 19, "attack": 11, "spells": {"0": ["Acid Splash"], "1": ["Acidic Burst"]}}]
+"Alethsia":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["evil", "humanoid", "lawful"]
+  ac: 25
+  hp: 105
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 16, "will": 14}
+  abilities: {"cha": 2, "con": 4, "dex": 5, "int": 2, "str": 2, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Deception": 16, "Diplomacy": 14, "Stealth": 16}
+  strikes: [{"name": "Shortsword", "bonus": 18, "damage": [["1d6+8", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"], "effects": ["Serpent Venom"]}, {"name": "Snake Fangs", "bonus": 16, "damage": [["1d4+8", "piercing", null]], "traits": ["agile", "finesse"], "effects": ["Serpent Venom"]}, {"name": "Composite Shortbow", "bonus": 19, "damage": [["1d6+7", "piercing", null]], "traits": ["deadly-d10", "magical", "propulsive", "reload-0"], "range": 60, "effects": ["Serpent Venom"]}]
+  actions: [{"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Biting Snakes", "type": "reaction", "traits": [], "text": "Trigger A creature ends its turn adjacent to the medusa.%rEffect The medusa makes a snake fangs Strike against the creature."}, {"name": "Glass Gaze", "type": "passive", "traits": ["arcane", "aura", "visual"], "text": "30 feet. When a creature ends its turn in the aura, it must attempt a DC 25 Fortitude save. If the creature fails, it becomes Slowed 1 for 1 minute. The medusa can deactivate or activate this aura by using a single action, which has the concentrate trait."}, {"name": "Focus Gaze", "type": "action", "traits": ["arcane", "concentrate", "incapacitation", "visual"], "cost": 1, "text": "The medusa fixes their glare at a creature they can see within 30 feet. The target must immediately attempt a DC 25 Fortitude save against the medusa's glass gaze. If the creature was already Slowed by glass gaze before attempting its save, a failed save causes it to be Petrified permanently.%rAfter attempting its save, the creature is then temporarily immune until the start of the medusa's next turn."}, {"name": "Serpent Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage and Enfeebled 1 (1 round)%rStage 2 2d6 poison damage and Enfeebled 2 (1 round)"}]
+"Ambrost Mugland":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 8
+  size: "small"
+  rarity: "unique"
+  traits: ["evil", "halfling", "humanoid"]
+  ac: 26
+  hp: 140
+  perception: 14
+  saves: {"fortitude": 15, "reflex": 19, "will": 17}
+  abilities: {"cha": 4, "con": 3, "dex": 4, "int": 2, "str": 1, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 16, "Athletics": 14, "Deception": 18, "Intimidation": 18, "Society": 18, "Stealth": 18, "Thievery": 18, "Alkenstar Lore": 16, "Underworld Lore": 16}
+  strikes: [{"name": "Cane Pistol", "bonus": 15, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["critical-fusion", "thrown-10"]}, {"name": "Dueling Pistol", "bonus": 19, "damage": [["2d6+6", "piercing", null]], "traits": ["concealable", "concussive", "fatal-d10", "magical", "reload-1"], "range": 60}, {"name": "Cane Pistol", "bonus": 18, "damage": [["1d4+6", "piercing", null]], "traits": ["combination", "concussive", "fatal-d8", "reload-1"], "range": 30}]
+  actions: [{"name": "Deny Advantage", "type": "passive", "traits": [], "text": "Mugland isn't Off-Guard to creatures of 8th level or lower that are Hidden, Undetected, flanking, or using Surprise Attack."}, {"name": "Evasion", "type": "passive", "traits": [], "text": "When Mugland rolls a success on a Reflex save, he gets a critical success instead."}, {"name": "Exploit Blunder", "type": "reaction", "traits": [], "text": "Trigger A creature within 30 feet rolls a critical failure to Strike Mugland%rEffect With a sneer, Mugland takes advantage of the opening. He makes a ranged dueling pistol or cane pistol Strike against the triggering creature. The creature is Off-Guard to Mugland's attacks (including this one) until the beginning of its next turn. This attack doesn't count toward Mugland's multiple attack penalty, and his multiple attack penalty doesn't apply to this attack."}, {"name": "Slippery Dodge", "type": "reaction", "traits": [], "text": "Trigger Mugland is hit by a Strike, but wouldn't be hit with a +2 circumstance bonus to AC%rEffect Mugland gains a +2 circumstance bonus to AC against the triggering attack and the attack misses."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "Mugland Interacts to draw a weapon, then Strikes with that weapon."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Mugland deals an extra 2d6 precision damage to Off-Guard creatures."}]
+"Anjelique Loveless":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 11
+  size: "medium"
+  rarity: "unique"
+  traits: ["changeling", "elf", "evil", "humanoid", "lawful"]
+  ac: 30
+  hp: 200
+  perception: 24
+  saves: {"fortitude": 24, "reflex": 26, "will": 21}
+  abilities: {"cha": 3, "con": 3, "dex": 7, "int": 0, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 26, "Crafting": 21, "Intimidation": 23, "Thievery": 21, "Legal Lore": 19}
+  strikes: [{"name": "Reinforced Stock", "bonus": 24, "damage": [["2d4+6", "bludgeoning", null]], "traits": ["finesse", "magical", "two-hand-d6"], "effects": ["Plant Pyronite Charge"]}, {"name": "Redeemer's Pistol", "bonus": 24, "damage": [["2d6+6", "piercing", null]], "traits": ["concealable", "concussive", "fatal-d10", "magical", "reload-1"], "range": 60}, {"name": "Hex Blaster", "bonus": 24, "damage": [["2d8+6", "piercing", null]], "traits": ["concussive", "fatal-d12", "kickback", "magical", "reload-1"], "range": 150}]
+  actions: [{"name": "Stubborn Resolve", "type": "reaction", "traits": [], "text": "Frequency once per day%rTrigger Anjelique fails or critically fails a saving throw%rEffect Anjelique treats a critical failure as a failure, or a failure as a success."}, {"name": "Firearms Critical Specialization", "type": "passive", "traits": [], "text": "When Anjelique makes a critical hit with a firearm, the target must succeed a DC 34 Fortitude save or be Stunned 1."}, {"name": "Lawbringer's Pursuit", "type": "action", "traits": [], "cost": 1, "text": "Anjelique Strides and then either Interacts to reload her gun or makes an Intimidation check to Demoralize a foe."}, {"name": "Mentor's Curse", "type": "passive", "traits": [], "text": "The grace of Anjelique's champion mentor inhabits the redeemer's pistol she carries, passing judgment on her actions. If she attempts to make a redeemer's pistol Strike against a good-aligned creature, she must succeed at a DC 5 Flat or the gun misfires."}, {"name": "Parting Shot", "type": "reaction", "traits": [], "text": "Trigger Anjelique would die or gain the dying condition%rEffect Anjelique reloads her currently wielded firearm if necessary and makes a ranged Strike against an enemy, treating a successful attack as a critical hit. Whether successful or not, after making this attack, Anjelique dies."}, {"name": "Plant Pyronite Charge", "type": "passive", "traits": [], "text": "After making a successful melee Strike against a creature, Anjelique makes a Thievery check against the target's Perception DC. On a success, she activates and secretly plants a specially formulated sticky pyronite charge on the creature. This charge detonates after 3 rounds, dealing 4d8 fire|options:area-damage damage to all creatures within a 10-foot radius (DC 34 Reflex) and detonating any other pyronite charges within the area. After making a successful ranged Strike against a creature…"}, {"name": "Tormenting Shot", "type": "action", "traits": [], "cost": 2, "text": "Anjelique makes a ranged Strike and deals an additional 2d8 piercing damage on a hit. If the target is frightened, it also takes 2d6 bleed on a hit."}]
+"Atticus":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 25
+  hp: 120
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 18, "will": 12}
+  abilities: {"cha": 2, "con": 2, "dex": 5, "int": 0, "str": 4, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 17, "Crafting": 15, "Intimidation": 15, "Legal Lore": 13}
+  strikes: [{"name": "Longsword", "bonus": 17, "damage": [["1d8+7", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Jezail", "bonus": 19, "damage": [["1d8+3", "piercing", null]], "traits": ["concussive", "fatal-aim-d12", "magical", "reload-1"], "range": 90}]
+  actions: [{"name": "+2 Bonus on Perception to Find concealed objects", "type": "passive", "traits": []}, {"name": "+2 Bonus on Perception to Sense motive", "type": "passive", "traits": []}, {"name": "Firearms Critical Specialization", "type": "passive", "traits": [], "text": "When the shieldmarshal makes a critical hit with a firearm weapon, the target must succeed at a DC 25 Fortitude save or be Stunned 1."}, {"name": "Lawbringer", "type": "action", "traits": [], "cost": 1, "text": "The shieldmarshal marks a foe for judgment, granting the shieldmarshal a +10-foot circumstance bonus to Speed whenever it Strides toward that creature. The shieldmarshal's Strikes against that creature deal an additional 2d8 precision damage."}, {"name": "Reloading Strike", "type": "action", "traits": [], "cost": 1, "text": "The shieldmarshal makes a melee Strike against an opponent within reach and Interacts to reload a firearm in their other hand."}]
+"Brighite Herexen":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "undead", "unholy"]
+  ac: 17
+  hp: 30
+  perception: 8
+  saves: {"fortitude": 5, "reflex": 8, "will": 10}
+  abilities: {"cha": 3, "con": 1, "dex": 2, "int": 0, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 6, "Deception": 7, "Religion": 10, "Stealth": 6}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  strikes: [{"name": "Light Hammer", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile"], "effects": ["Heretics Smite"]}, {"name": "Light Hammer", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "thrown-20"], "effects": ["Heretics Smite"]}]
+  actions: [{"name": "Final Blasphemy", "type": "passive", "traits": ["divine", "void"], "text": "When the herexen is destroyed, it explodes in a wave of void energy with the effects of a 3-action Harm spell (DC 20 Fortitude).%rThe herexen is destroyed, so it doesn't gain any Hit Points from this use of harm , and it doesn't need to have any harm spells remaining to use this ability."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Heretic's Smite", "type": "passive", "traits": ["divine"], "text": "While wielding the favored weapon of its former deity (such as a light hammer for an ex-Brigh herexen), the herexen's Strikes deal an additional 1d6 spirit damage against creatures that can cast divine spells."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 20, "attack": 12, "spells": {"1": ["Harm"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 20, "attack": 12, "spells": {"1": ["Delay Consequence"]}}]
+"Bristlebane":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "evil", "humanoid", "kholo"]
+  ac: 16
+  hp: 40
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 5, "will": 6}
+  abilities: {"cha": 3, "con": 3, "dex": 1, "int": 1, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 9, "Intimidation": 9, "Society": 5, "Stealth": 5, "Survival": 8, "Thievery": 7, "Mana Wastes Lore": 5}
+  strikes: [{"name": "Fist", "bonus": 9, "damage": [["1d4+5", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Jaws", "bonus": 9, "damage": [["1d6+5", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Whip", "bonus": 10, "damage": [["1d4+5", "slashing", null]], "traits": ["disarm", "finesse", "magical", "nonlethal", "reach", "trip"]}, {"name": "Bola", "bonus": 7, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["nonlethal", "ranged-trip", "thrown"]}]
+  actions: [{"name": "Weeping Wounds", "type": "passive", "traits": [], "text": "The fluid in Bristlebane's pustules is harmful to other creatures. Whenever a creature hits Bristlebane with a melee attack, the attacker must succeed at a DC 14 Reflex save or take 1 acid damage (2 acid damage on a critical failure)."}, {"name": "Express Meal", "type": "action", "traits": [], "cost": 2, "text": "Bristlebane makes a whip Strike against one creature within reach, on a success she pulls the target into an adjacent square. This is forced movement. She then Strikes the pulled target with her jaws. Both attacks count against her multiple attack penalty but don't apply until after both attacks."}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "A gnoll deals 1d4 extra damage to any creature that's within reach of at least two of the gnoll's allies."}, {"name": "Whip Whirlwind", "type": "action", "traits": [], "cost": 3, "text": "Bristlebane uses her whip to Disarm, Strike, or Trip each creature within her reach. She can select a different action for each target. She takes a -2 circumstance penalty on the check for each action, and each action counts against her multiple attack penalty, but her multiple attack penalty doesn't increase until after all the actions."}]
+"Broken Centurion":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "common"
+  traits: ["construct", "mindless"]
+  ac: 31
+  hp: 170
+  perception: 20
+  saves: {"fortitude": 22, "reflex": 25, "will": 16}
+  abilities: {"cha": -5, "con": 5, "dex": 6, "int": -5, "str": 6, "wis": 2}
+  speeds: {"land": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 23, "Athletics": 23}
+  strikes: [{"name": "Dulled Blade", "bonus": 23, "damage": [["2d10+5", "slashing", null]], "traits": ["agile", "sweep"]}, {"name": "Cannon", "bonus": 23, "damage": [["3d6+6", "piercing", null]], "traits": ["concussive", "fatal-d8"], "range": 60}]
+  actions: [{"name": "Misaligned Gears", "type": "passive", "traits": [], "text": "The spiral centurion loses access to its Rev Up ability, and if it Strides more than once per round, it takes 1d10 untyped damage per Stride after the first."}, {"name": "Top-Heavy", "type": "passive", "traits": [], "text": "A spiral centurion's top-like design makes it susceptible to effects that would cause it to fall prone. The DC of any attempt to knock the spiral centurion Prone is reduced by 5. If the spiral centurion attempts a check or saving throw to resist being knocked prone, it takes a -5 status penalty. A spiral centurion that has been knocked prone can't use any actions other than to attempt to Stand, but it must succeed at a DC 30 Acrobatics check to do so."}, {"name": "Hurl Blade", "type": "action", "traits": [], "cost": 2, "text": "The spiral centurion hurls one of its blades with an angled spin to ensure a swooping flight path. The blade deals 6d6 slashing|options:area-damage damage to each creature in a 40-foot (DC 30 Reflex save).%rAt the start of the spiral centurion's next turn, the blade swoops around and returns along the same flight path, again dealing 6d6 slashing damage (DC 30 basic Reflex save) to each creature along the same line."}, {"name": "Reload Guns", "type": "action", "traits": [], "cost": 1, "text": "The spiral centurion loads ammo into its many guns."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Medium or smaller, blade, DC 30 Reflex"}, {"name": "Whirling Death", "type": "action", "traits": [], "cost": 3, "text": "The spiral centurion spins furiously in place, its blades extended to slice through nearby creatures. It makes up to five melee blade Strikes. No single creature can be targeted by more than one blade Strike during one use of this ability. These attacks count toward the spiral centurion's multiple attack penalty, but the multiple attack penalty doesn't increase until after all the attacks are made."}, {"name": "Whirling Fire", "type": "action", "traits": [], "cost": 3, "text": "Requirements The spiral centurion has used Reload Guns three times since the last time it used Whirling Fire%rEffect The spiral centurion spins furiously in place, firing its guns wildly and dealing 8d6 piercing|options:area-damage damage to creatures in a 60-foot radius (DC 28 Reflex). Creatures further than 30 feet away gain a +4 circumstance bonus on their save against this attack."}]
+"Captured Dezullon":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "common"
+  traits: ["plant"]
+  ac: 30
+  hp: 130
+  perception: 18
+  saves: {"fortitude": 17, "reflex": 21, "will": 16}
+  abilities: {"cha": -1, "con": 3, "dex": 7, "int": -4, "str": 5, "wis": 2}
+  speeds: {"land": 25, "climb": 30}
+  hp_details: "regeneration 15 (deactivated by fire)"
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 21, "Athletics": 19, "Stealth": 21}
+  resistances: {"acid": 20}
+  strikes: [{"name": "Vine", "bonus": 21, "damage": [["3d6+8", "bludgeoning", null], ["3d6", "acid", null]], "traits": ["acid", "agile"], "effects": ["Grab"]}, {"name": "Acid Glob", "bonus": 23, "damage": [["4d8", "acid", null]], "traits": ["acid"], "effects": ["Amnesia Venom"]}]
+  actions: [{"name": "Regeneration 15 (Deactivated by Fire)", "type": "passive", "traits": []}, {"name": "Stench", "type": "passive", "traits": ["aura", "olfactory"], "text": "30 feet. A creature entering the emanation must attempt a DC 27 Fortitude save. On a failure, the creature is Sickened 1, and on a critical failure is also Slowed 1. While within the aura, the creature takes a -2 circumstance penalty to saves to recover from the sickened condition. A creature that succeeds at the save is temporarily immune to this effect for 1 minute."}, {"name": "Amnesia Venom", "type": "passive", "traits": ["mental", "poison"], "text": "Saving Throw DC 29 Fortitude%rMaximum Duration 6 rounds%rStage 1 Off-Guard (1 round)%rStage 2 off-guard and Clumsy 1 (1 round)%rStage 3 Confused, off-guard, and Clumsy 2 (1 round)"}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(2d6+2) bludgeoning damage, DC 27 Fortitude%rNote: A DC was not provided for this ability by Paizo. The DC present here is a moderate DC for the creature level according to the Gamemastery Guide creature building Tables."}, {"name": "Root", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the dezullon appears to be a normal pitcher plant. It has an automatic result of 41 (44 in forests or swamps) on Deception checks and DCs to pass as a non-creature plant."}, {"name": "Vomit", "type": "reaction", "traits": [], "text": "Trigger The dezullon is damaged by an attack%rEffect The dezullon vomits the contents of its stomach into an adjacent unoccupied space, filling the space with either a dead body or still-moving zombie (a body is in one of the dezullons, a zombie is in the other). Creatures adjacent to the dezullon must succeed at a DC 28 Reflex save or be splashed with a dose of the dezullon's amnesia venom."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Chemical Zombie":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "common"
+  traits: ["evil", "fire", "mindless", "undead", "unholy", "zombie"]
+  ac: 23
+  hp: 125
+  perception: 12
+  saves: {"fortitude": 16, "reflex": 12, "will": 10}
+  abilities: {"cha": -2, "con": 4, "dex": 2, "int": -5, "str": 5, "wis": 2}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 15, "Stealth": 12}
+  immunities: ["bleed", "death-effects", "disease", "fire", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"vitality": 5, "slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 17, "damage": [["2d6+5", "bludgeoning", null], ["1d6", "fire", "persistent"]], "traits": ["unarmed"], "effects": ["Blinding Sulfur"]}]
+  actions: [{"name": "Quenchable Death Throes", "type": "passive", "traits": [], "text": "When a chemical zombie dies, its body explodes in a 30-foot of fire and debris that deals 2d10 bludgeoning and 2d10 fire damage to each creature in the area (DC 21 Reflex). If the chemical zombie is soaked with water before it dies (such as by dousing it with a bucket of water or hitting it with a water spell like Hydraulic Push), the chemicals are neutralized and this ability doesn't trigger."}, {"name": "Slow", "type": "passive", "traits": [], "text": "A sulfur zombie is permanently Slowed 1 and can't use reactions."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Blinding Sulfur", "type": "passive", "traits": ["incapacitation"], "text": "A sulfur zombie burns with putrid inner fire. A creature hit by a sulfur zombie's fist Strike must attempt a DC 22 Fortitude save. On a failure, the creature is Blinded for 1 round, or for 1 minute on a critical failure."}]
+"Chimeric Manticore":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "large"
+  rarity: "rare"
+  traits: ["beast", "chaotic", "evil"]
+  ac: 25
+  hp: 120
+  perception: 15
+  saves: {"fortitude": 18, "reflex": 15, "will": 12}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -3, "str": 6, "wis": 2}
+  speeds: {"land": 25, "fly": 40}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 13, "Athletics": 17, "Intimidation": 11, "Stealth": 13, "Survival": 15}
+  strikes: [{"name": "Dragon Jaws", "bonus": 18, "damage": [["2d6+8", "piercing", null], ["2d6", "electricity", null]], "traits": []}, {"name": "Lion Jaws", "bonus": 18, "damage": [["2d10+8", "piercing", null]], "traits": []}, {"name": "Goat Horns", "bonus": 18, "damage": [["2d10+8", "piercing", null]], "traits": []}, {"name": "Claw", "bonus": 18, "damage": [["2d6+8", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Spike", "bonus": 16, "damage": [["1d10+8", "piercing", null]], "traits": [], "range": 40}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Three-Headed", "type": "passive", "traits": [], "text": "Any ability that would sever a chimera's head (such as a critical hit with a Vorpal Weapon) severs one head at random. Losing a head doesn't kill a chimera (as long as it has one head left), but it does prevent it from making Strikes with the lost head or using the head's Breath Weapon."}, {"name": "Breath Weapon", "type": "action", "traits": ["arcane"], "cost": 2, "text": "The chimeric manticore's blue-dragon head breathes a 60-foot of electricity that deals 8d6 electricity|options:area-damage damage to all creatures in the area (DC 25 Reflex).%rThe chimeric manticore can't use Breath Weapon again for 1d4 rounds."}, {"name": "Spike Volley", "type": "action", "traits": [], "cost": 1, "text": "The manticore flings up to two spikes from its tail, targeting either two different creatures or a single creature. If the manticore targets two different creatures, these creatures must be within 20 feet of one another, and the manticore makes a separate Strike against each; this counts as only one Strike for the manticore's multiple attack penalty, and the penalty doesn't increase until after both attacks. If the manticore fires both spikes at the same creature, it makes a single Strike. If…"}, {"name": "Three-Headed Strike", "type": "action", "traits": [], "cost": 2, "text": "The chimera makes a Strike with its dragon jaws, lion jaws, and goat horns, each at a -2 penalty and targeting a different creature. These Strikes count as only one attack for the chimera's multiple attack penalty, and the penalty doesn't increase until after it has made all three attacks."}, {"name": "Triple Opportunity", "type": "passive", "traits": [], "text": "A chimera gains 2 extra reactions each round that it can use only to make Attacks of Opportunity. It must use a different head for each reaction, and it can't use more than one on the same triggering action. If it loses one of its heads, it also loses one of these extra reactions."}]
+"Clearwater Cleaner":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 0
+  size: "small"
+  rarity: "common"
+  traits: ["evil", "lawful", "leshy", "plant"]
+  ac: 15
+  hp: 13
+  perception: 6
+  saves: {"fortitude": 3, "reflex": 5, "will": 8}
+  abilities: {"cha": 3, "con": 1, "dex": 1, "int": -1, "str": 2, "wis": 2}
+  speeds: {"land": 20, "climb": 20}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 4, "Diplomacy": 5, "Nature": 4, "Performance": 5, "Society": 1, "Survival": 4}
+  strikes: [{"name": "Spear", "bonus": 6, "damage": [["1d6+2", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 5, "damage": [["1d6+2", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Verdant Burst", "type": "passive", "traits": [], "text": "When a vine leshy dies, a burst of primal energy explodes from its body, restoring 1d4 healing Hit Points to each plant creature in a 30-foot. This area fills with tangling vines, becoming difficult terrain. If the terrain is not a viable environment for the vines, they wither after 24 hours."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The vine leshy transforms into a Small plant with vines. This ability otherwise uses the effects of One with Plants."}, {"name": "Extend Vines", "type": "action", "traits": [], "cost": 1, "text": "The vine leshy Interacts to extend or shorten their arms. With limbs extended, the vine leshy has a 10-foot reach. The leshy can't use weapons that already have reach in this way, because they would be unable to keep their balance."}, {"name": "Heft Crate", "type": "action", "traits": ["manipulate"], "cost": 2, "text": "Requirements The Clearwater Cleaner is adjacent to a crate%rEffect The Clearwater Cleaner picks up a crate and heaves it up to 15 feet. Upon landing, the crate breaks open in a 5-foot. Each creature within the area takes 2d6 bludgeoning|options:area-damage damage (DC 13 Reflex), and the area becomes difficult terrain until cleared."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "divine", "type": "innate", "dc": 15, "attack": 5, "spells": {"4": ["Speak with Plants"]}}]
+"Clockwork Brewer":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 18
+  hp: 40
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 10, "will": 8}
+  abilities: {"cha": 1, "con": 1, "dex": 3, "int": -5, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 9, "Brewing Lore": 8}
+  weaknesses: {"electricity": 3, "orichalcum": 3}
+  resistances: {"physical": 3}
+  strikes: [{"name": "Leg", "bonus": 9, "damage": [["2d4+4", "bludgeoning", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}]
+  actions: [{"name": "Mini-Keg", "type": "passive", "traits": [], "text": "A clockwork brewer can hold up to 5 gallons of liquid in a built-in tank. By default, this tank contains the clockwork brewer's beer."}, {"name": "Standard Greeting", "type": "passive", "traits": [], "text": "Clockwork brewers have a limited set of pre-recorded phrases they can use to interact with clientele, based on their instructions. The audio is recorded on an embedded gemstone worth 5 gp. Removing a gemstone from or installing a gemstone into a clockwork brewer requires a successful DC 18 Thievery check to Disable a Device; on a failure, the gemstone is undamaged, but any recorded sounds are erased."}, {"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 18 Thievery check, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Bottoms Up", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork brewer has a creature Grabbed%rEffect The clockwork brewer force- feeds the grabbed creature 1 serving of whatever liquid is in the clockwork brewer's tank (typically beer such as Smokeside Sour). The creature is exposed to the liquid's effects, and it can't breathe or speak until the start of its turn."}, {"name": "Pre-Programmed Greeting", "type": "action", "traits": ["auditory", "mental"], "cost": 1, "text": "The clockwork brewer clearly delivers a disarmingly friendly greeting to a creature within 30 feet. The creature attempts a DC 17 Will save. On a failure, the creature is Off-Guard against the clockwork brewer's next attack before the end of the brewer's next turn. The target is then immune to Pre-Programmed Greeting for 1 day."}, {"name": "Smokeside Sour", "type": "passive", "traits": ["ingested", "poison"], "text": "Saving Throw DC 12 Fortitude%rMaximum Duration 1 hour%rStage 1 Clumsy 1 (10 minutes)%rStage 2 clumsy 1 and Stupefied 1 (10 minutes)%rStage 3 Clumsy 2, Stupefied 2, and sickened (40 minutes)"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Clockwork Buccaneer":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 28
+  hp: 140
+  perception: 18
+  saves: {"fortitude": 17, "reflex": 21, "will": 15}
+  abilities: {"cha": -5, "con": 3, "dex": 6, "int": -5, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18, "Deception": 12, "Stealth": 20}
+  weaknesses: {"electricity": 10, "orichalcum": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Scimitar", "bonus": 21, "damage": [["2d6+11", "slashing", null]], "traits": ["forceful", "magical", "sweep"]}, {"name": "Arm Gun", "bonus": 21, "damage": [["2d8+6", "piercing", null]], "traits": ["concussive", "magical", "reload-1", "scatter-10"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 26 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Firearms Critical Specialization", "type": "passive", "traits": [], "text": "When the buccaneer makes a critical hit with a firearm, the target must succeed at a DC 28 Fortitude save or be Stunned 1."}, {"name": "Pirate's Feint", "type": "action", "traits": ["mental"], "cost": 1, "text": "The clockwork buccaneer Feints. If the target becomes Off-Guard to the buccaneer's melee attacks, it becomes off-guard to the buccaneer's ranged attacks as well."}, {"name": "Refill Tank", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork buccaneer is within 15 feet of a water source containing at least 100 gallons of water%rEffect The clockwork buccaneer extends a clockwork tube and sucks up water to refill its water tank."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The clockwork buccaneer deals an extra 2d6 precision damage to Off-Guard creatures."}, {"name": "Water Jet", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork buccaneer has a full water tank%rEffect The clockwork buccaneer fires a narrow but highly pressurized blast of water in a 60-foot, dealing 10d6 bludgeoning|options:area-damage damage to creatures and unattended objects in the area (DC 28 Fortitude; unattended objects automatically fail). Creatures and objects that fail the save are also knocked back 5 feet (10 feet on a critical failure). This empties the buccaneer's water tank."}, {"name": "Water Jump", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork buccaneer has a full water tank%rEffect The clockwork buccaneer jumps 60 feet, propelling itself through the air with a jet of water. This empties the buccaneer's water tank."}]
+"Clockwork Disposer":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 5
+  size: "small"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 21
+  hp: 70
+  perception: 13
+  saves: {"fortitude": 12, "reflex": 15, "will": 9}
+  abilities: {"cha": -5, "con": 1, "dex": 4, "int": -5, "str": 2, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Stealth": 12}
+  weaknesses: {"electricity": 5, "orichalcum": 5}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Gripper", "bonus": 15, "damage": [["2d8+4", "bludgeoning", null]], "traits": ["agile", "finesse"]}, {"name": "Spike", "bonus": 15, "damage": [["2d8+4", "piercing", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 20 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Furnace Belch", "type": "action", "traits": ["fire"], "cost": 2, "text": "The clockwork disposer coughs up a cloud of hot ash and embers that deals 6d6 fire|options:area-damage damage in a 15-foot (DC 22 Reflex). The clockwork disposer can't use Furnace Belch again for 1d4 rounds."}]
+"Clockwork Door Warden":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "rare"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 20
+  hp: 50
+  perception: 12
+  saves: {"fortitude": 10, "reflex": 8, "will": 14}
+  abilities: {"cha": -5, "con": 2, "dex": 2, "int": -5, "str": 4, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 10}
+  weaknesses: {"electricity": 5, "orichalcum": 5}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Fist", "bonus": 14, "damage": [["2d6+7", "bludgeoning", null]], "traits": ["reach-10", "unarmed"], "effects": ["Push"]}, {"name": "Repeating Hand Crossbow", "bonus": 12, "damage": [["1d6+3", "piercing", null]], "traits": ["reload-0", "repeating"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 19 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "+2 Status to Fortitude Saves vs. Disarm", "type": "passive", "traits": []}, {"name": "Brace Door", "type": "action", "traits": [], "cost": 1, "text": "The door warden holds shut an adjacent door. This ends the door warden's turn. Until the start of its next turn, as long as it remains functional and in the same square, other creatures trying to get through must succeed at a DC 21 Athletics check to Force Open the door."}, {"name": "Slam Door", "type": "reaction", "traits": [], "text": "Trigger The door warden Pushes a creature through an open doorway%rEffect The door warden slams the door shut on the creature"}, {"name": "Push", "type": "action", "traits": [], "cost": 1}]
+"Clockwork Fabricator":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 19
+  hp: 50
+  perception: 8
+  saves: {"fortitude": 10, "reflex": 11, "will": 9}
+  abilities: {"cha": -5, "con": 2, "dex": 3, "int": -5, "str": 6, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Crafting": 9}
+  weaknesses: {"electricity": 4, "orichalcum": 4}
+  resistances: {"physical": 4}
+  strikes: [{"name": "Buzz-Saw Blade", "bonus": 16, "damage": [["1d4+6", "slashing", null], ["1d6", "bleed", null]], "traits": ["forceful", "sweep"]}, {"name": "Crushing Vise", "bonus": 14, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["grapple"], "effects": ["Grab"]}, {"name": "Sledgehammer", "bonus": 12, "damage": [["2d10+6", "bludgeoning", null]], "traits": []}, {"name": "Pneumatic Chisel", "bonus": 14, "damage": [["2d8+6", "piercing", null]], "traits": []}, {"name": "Arm", "bonus": 14, "damage": [["2d4+6", "bludgeoning", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}, {"name": "Towing Anchor", "bonus": 11, "damage": [["1d4+6", "piercing", null]], "traits": ["thrown-30"]}, {"name": "Nail Gun", "bonus": 11, "damage": [["2d8", "piercing", null]], "traits": ["agile"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 19 Thievery check, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork fabricator has a creature Grabbed or Restrained%rEffect (2d4+4) bludgeoning, DC 21 Fortitude"}, {"name": "Modular Arms", "type": "passive", "traits": [], "text": "A clockwork fabricator is built to perform a specific type of task repeatedly, and it comes with built-in artisan's tools and two detachable \"arms.\" An adjacent creature can forcibly remove a clockwork fabricator's arm with a successful DC 18 Thievery check to Disable a Device. A creature can Interact to install a new arm with a successful DC 18 Engineering Lore Lore check. A fabricator has two of any of the following types of arms.%rMelee 1 buzz-saw blade +16 (forceful, sweep), Damage 1d4+6…"}, {"name": "Pull", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork fabricator's last action was a successful towing anchor Strike%rEffect The clockwork fabricator reels in the anchor and attempts an Athletics check against the target's Fortitude DC. On a success, the clockwork fabricator pulls the target into a free square adjacent to it. This movement is forced movement."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Clockwork Gunner":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 26
+  hp: 100
+  perception: 16
+  saves: {"fortitude": 14, "reflex": 18, "will": 16}
+  abilities: {"cha": -5, "con": 2, "dex": 6, "int": -5, "str": 4, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 16}
+  weaknesses: {"electricity": 10, "orichalcum": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Mace Multipistol", "bonus": 19, "damage": [["2d6+7", "bludgeoning", null]], "traits": ["critical-fusion", "magical", "shove"]}, {"name": "Dragon Mouth Pistol", "bonus": 20, "damage": [["1d6+3", "piercing", null]], "traits": ["concussive", "reload-1", "scatter-5"], "range": 20}, {"name": "Mace Multipistol", "bonus": 21, "damage": [["2d4+3", "piercing", null]], "traits": ["capacity-3", "concussive", "fatal-d8", "magical", "reload-1"], "range": 20}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 24 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Integrated Weapons", "type": "passive", "traits": [], "text": "An integrated weapon is built into the limb of the clockwork gunner. They can't be disarmed, and they take 10 minutes to attach or remove. Each of a clockwork gunner's firearms can be loaded with 10 shots before they must be reloaded. Reloading a single round into either of these firearms takes 3 actions, or 10 minutes to fully reload a weapon. A clockwork gunner can't reload its own weapons."}]
+"Clockwork Handler":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 16
+  hp: 16
+  perception: 8
+  saves: {"fortitude": 10, "reflex": 7, "will": 6}
+  abilities: {"cha": -5, "con": 3, "dex": 2, "int": -5, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7}
+  weaknesses: {"electricity": 2, "orichalcum": 2}
+  resistances: {"physical": 2}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"], "effects": ["Grab"]}, {"name": "Javelin", "bonus": 5, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Spotlight", "type": "passive", "traits": [], "text": "The clockwork handler can use the Everburning Torch built into its helmet to illuminate areas it's examining. Whenever it Seeks in a 30-foot and rolls a successful Perception check, the clockwork handler gets a critical success instead."}, {"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 15 Thievery check, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Hog-tie", "type": "action", "traits": [], "cost": 2, "text": "Requirements The clockwork handler has a creature Restrained%rEffect The clockwork handler cuts a length of rope from the supply in its chassis to tie up the restrained creature. The creature is restrained until it Escapes or Forces Open the rope with a successful DC 15 check (typically an attack roll or Thievery check to Escape, or an Athletics check to Force Open the ropes; restrained creatures don't take a -2 penalty on this check for not using a crowbar). The rope has Hardness 2 and 8 Hit…"}, {"name": "Siren", "type": "action", "traits": [], "cost": 2, "text": "The clockwork handler emits a loud noise (such as a bell or high- pitched mechanical scream) that can be easily heard by anyone within 500 feet. Creatures within 100 feet take a -2 circumstance penalty to Perception checks that are hearing-based. Creatures within 30 feet who fail a DC 14 Fortitude save can't hear anything but the siren, critically fail Perception checks that require hearing, and are immune to auditory effects. This effect lasts until the creature leaves the area and for 1 round…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Clockwork Hunter":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 0
+  size: "small"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 18
+  hp: 12
+  perception: 7
+  saves: {"fortitude": 2, "reflex": 8, "will": 5}
+  abilities: {"cha": -5, "con": 0, "dex": 4, "int": -5, "str": 0, "wis": 3}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 4, "Stealth": 8}
+  weaknesses: {"electricity": 2, "orichalcum": 2}
+  strikes: [{"name": "Leg", "bonus": 8, "damage": [["1d4", "bludgeoning", null]], "traits": ["agile", "finesse"]}, {"name": "Crossbow Bolt Launcher", "bonus": 8, "damage": [["1d6", "piercing", null]], "traits": ["reload-1"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "48 hours, DC 14 Thievery check, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Salvage Ammunition", "type": "action", "traits": [], "cost": 2, "text": "The clockwork hunter gathers up any unattended crossbow bolts within reach and reloads its bolt launcher. The hunter restocks its supply of bolts, up to 10 bolts maximum."}, {"name": "Skirmish Strike", "type": "action", "traits": [], "cost": 1, "text": "The clockwork hunter shuffles its feet and its weapon in tandem. It either Steps and then Strikes, or Strikes and then Steps."}, {"name": "Target Weakness", "type": "action", "traits": [], "cost": 2, "text": "The clockwork hunter takes a moment to scan a creature for weaknesses, then Strikes with a +1 circumstance bonus to its attack roll. The hunter's Strike gains the deadly d4 trait for this attack."}]
+"Clockwork Puppeteer":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 12
+  size: "large"
+  rarity: "rare"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 33
+  hp: 205
+  perception: 20
+  saves: {"fortitude": 22, "reflex": 25, "will": 19}
+  abilities: {"cha": -5, "con": 2, "dex": 6, "int": -5, "str": 6, "wis": 2}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision"]
+  skills: {"Stealth": 25}
+  weaknesses: {"electricity": 10, "orichalcum": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Claw", "bonus": 24, "damage": [["3d10+9", "slashing", null]], "traits": ["unarmed"]}, {"name": "String", "bonus": 24, "damage": [["3d8+9", "slashing", null]], "traits": [], "effects": ["Clockwork String"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 22 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Clockwork Swarm", "type": "passive", "traits": ["aura"], "text": "30 feet. A cloud of flying, spiderlike clockworks surrounds the clockwork puppeteer. A creature that ends its turn in the cloud takes 4d8 piercing damage (DC 29 Reflex)."}, {"name": "Clockwork String", "type": "passive", "traits": [], "text": "Any creature hit by the puppeteer's string is Grabbed. The puppeteer can move while it has a creature grabbed with its string, but it automatically releases the creature if the puppeteer moves beyond the string's 60-foot length. The puppeteer can use up to six strings at a time. It can release any creature grabbed by a string as a free action. Each string has AC 30, and its Escape DC is 32. A string can be severed by a Strike that deals at least 20 slashing damage to it. This doesn't deal any…"}, {"name": "Create Puppet", "type": "reaction", "traits": ["arcane"], "text": "Trigger A creature Grabbed by the puppeteer's clockwork string dies%rEffect The triggering creature's body becomes infested with tiny clockworks. This puppet is fully under the clockwork puppeteer's control and has statistics identical to a zombie of its size with the following exceptions: It loses the undead trait, loses void healing, loses its weakness to vitality damage, and gains the construct trait."}, {"name": "Pull String", "type": "action", "traits": [], "cost": 1, "text": "The puppeteer reins in a creature Grabbed by its string. The puppeteer attempts an Athletics check against the creature's Fortitude DC. On a success, the puppeteer pulls the creature 15 feet closer to it (30 feet closer on a critical success)."}]
+"Clockwork Shambler":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["construct", "evil", "mindless", "zombie"]
+  ac: 12
+  hp: 20
+  perception: 0
+  saves: {"fortitude": 6, "reflex": 0, "will": 2}
+  abilities: {"cha": -2, "con": 2, "dex": -2, "int": -5, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 5}
+  weaknesses: {"slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Jaws", "bonus": 7, "damage": [["1d8+3", "piercing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Slow", "type": "passive", "traits": [], "text": "A zombie is permanently Slowed 1 and can't use reactions."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Clockwork Shambler Horde":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 9
+  size: "gargantuan"
+  rarity: "uncommon"
+  traits: ["construct", "evil", "mindless", "troop", "zombie"]
+  ac: 25
+  hp: 240
+  perception: 14
+  saves: {"fortitude": 21, "reflex": 16, "will": 17}
+  abilities: {"cha": -2, "con": 4, "dex": 0, "int": -5, "str": 6, "wis": 2}
+  speeds: {"land": 20}
+  hp_details: "troop defenses"
+  senses: ["darkvision"]
+  weaknesses: {"area-damage": 10, "slashing": 10, "splash-damage": 5}
+  actions: [{"name": "Form Up", "type": "action", "traits": [], "cost": 1}, {"name": "Slow", "type": "passive", "traits": [], "text": "A shambler troop is permanently Slowed 1 and can't use reactions."}, {"name": "Troop Defenses", "type": "passive", "traits": [], "text": "Thresholds 160 (3 segments), 80 (2 segments)"}, {"name": "Grave Tide", "type": "passive", "traits": [], "text": "The shambler troop is less organized than most troops. It can move into other creatures' spaces, and other creatures can move into its spaces. Its spaces are difficult terrain to other creatures."}, {"name": "Shambling Onslaught", "type": "action", "traits": [], "cost": 1, "text": "1 to 2%rFrequency once per round%rEffect The shamblers lash out at any enemies in their squares or within 5 feet (DC 25 Reflex save). The damage depends on the number of actions.%r1 (3d6+9) bludgeoning|options:area-damage damage%r2 (3d8+13) bludgeoning|options:area-damage damage"}, {"name": "Troop Movement", "type": "passive", "traits": [], "text": "Whenever a troop Strides, it first Forms Up as a free action to condense into a 20-foot-by-20-foot area (minus any missing squares), then moves up to its Speed. This works just like a Gargantuan creature moving; for instance, if any square of the troop enters difficult terrain, the extra movement cost applies to the whole troop."}]
+"Clockwork Sphinx":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 8
+  size: "large"
+  rarity: "rare"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 26
+  hp: 130
+  perception: 19
+  saves: {"fortitude": 18, "reflex": 16, "will": 13}
+  abilities: {"cha": -5, "con": 4, "dex": 4, "int": -5, "str": 6, "wis": 3}
+  speeds: {"land": 25, "fly": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 16, "Athletics": 18}
+  weaknesses: {"electricity": 10, "orichalcum": 10}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Claw", "bonus": 20, "damage": [["2d12+9", "slashing", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 24 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Self-Destruct", "type": "passive", "traits": ["arcane", "aura"], "text": "When a clockwork sphinx is reduced to 0 Hit Points, it collapses and emits a steady ticking sound. At the beginning of what would've been its next turn, the sphinx explodes into a 20-foot of shrapnel, dealing 6d10 piercing|options:area-damage damage (DC 26 Reflex). An adjacent creature can cancel the self-destruct sequence by succeeding at a DC 26 Thievery check to Disable a Device at any point before the sphinx explodes, but on a critical failure, it explodes immediately."}, {"name": "Pounce", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The sphinx Strides and makes a Strike at the end of that movement. If the sphinx began this action Hidden, it remains hidden until after the attack."}]
+"Compromised Door Warden":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "rare"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 20
+  hp: 50
+  perception: 12
+  saves: {"fortitude": 10, "reflex": 8, "will": 14}
+  abilities: {"cha": -5, "con": 2, "dex": 2, "int": -5, "str": 4, "wis": 4}
+  speeds: {"land": 10}
+  senses: ["darkvision"]
+  skills: {"Athletics": 10}
+  weaknesses: {"electricity": 5, "orichalcum": 5}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Fist", "bonus": 14, "damage": [["2d6+7", "bludgeoning", null]], "traits": ["reach-10", "unarmed"], "effects": ["Push"]}, {"name": "Repeating Crossbow", "bonus": 12, "damage": [["1d8", "piercing", null]], "traits": ["reload-0", "repeating"], "range": 120}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 19 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "+2 Status to Fortitude Saves vs. Disarm", "type": "passive", "traits": []}, {"name": "Brace Door", "type": "action", "traits": [], "cost": 1, "text": "The door warden holds shut an adjacent door. This ends the door warden's turn. Until the start of its next turn, as long as it remains functional and in the same square, other creatures trying to get through must succeed at a DC 21 Athletics check to Force Open the door."}, {"name": "Slam Door", "type": "reaction", "traits": [], "text": "Trigger The door warden Pushes a creature through an open doorway%rEffect The door warden slams the door shut on the creature"}, {"name": "Uncertain Operation", "type": "passive", "traits": [], "text": "At the beginning of its turn, the compromised door warden rolls 1d4 #Uncertain Operation to determine how many actions it has for that turn (to a maximum of 3 actions per turn). The door warden's Speed each turn is 10 feet times the result of that same die roll, to a maximum of 25 feet per turn (that is, a roll of 3 or 4 indicates a Speed of 25 feet)."}, {"name": "Push", "type": "action", "traits": [], "cost": 1}]
+"Corrupt Shieldmarshal (Clan Pistol)":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "humanoid", "lawful"]
+  ac: 25
+  hp: 120
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 18, "will": 12}
+  abilities: {"cha": 2, "con": 2, "dex": 5, "int": 0, "str": 4, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 17, "Crafting": 15, "Diplomacy": 15, "Legal Lore": 13}
+  strikes: [{"name": "Longsword", "bonus": 17, "damage": [["1d8+7", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Clan Pistol", "bonus": 19, "damage": [["1d6+3", "piercing", null]], "traits": ["concussive", "fatal-d10", "magical", "reload-1"], "range": 80}]
+  actions: [{"name": "Firearms Critical Specialization", "type": "passive", "traits": [], "text": "When the shieldmarshal makes a critical hit with a firearm weapon, the target must succeed at a DC 25 Fortitude save or be Stunned 1."}, {"name": "Lawbringer", "type": "action", "traits": [], "cost": 1, "text": "The shieldmarshal marks a foe for judgment, granting the shieldmarshal a +10-foot circumstance bonus to Speed whenever it Strides toward that creature. The shieldmarshal's Strikes against that creature deal an additional 2d8 precision damage."}, {"name": "Reloading Strike", "type": "action", "traits": [], "cost": 1, "text": "The shieldmarshal makes a melee Strike against an opponent within reach and Interacts to reload a firearm in their other hand."}]
+"Corrupt Shieldmarshal (Jezail)":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "humanoid", "lawful"]
+  ac: 25
+  hp: 120
+  perception: 18
+  saves: {"fortitude": 15, "reflex": 18, "will": 12}
+  abilities: {"cha": 2, "con": 2, "dex": 5, "int": 0, "str": 4, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 17, "Crafting": 15, "Diplomacy": 15, "Legal Lore": 13}
+  strikes: [{"name": "Longsword", "bonus": 17, "damage": [["1d8+7", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Jezail", "bonus": 19, "damage": [["1d8+3", "piercing", null]], "traits": ["concussive", "fatal-aim-d12", "magical", "reload-1"], "range": 90}]
+  actions: [{"name": "Firearms Critical Specialization", "type": "passive", "traits": [], "text": "When the shieldmarshal makes a critical hit with a firearm weapon, the target must succeed at a DC 25 Fortitude save or be Stunned 1."}, {"name": "Lawbringer", "type": "action", "traits": [], "cost": 1, "text": "The shieldmarshal marks a foe for judgment, granting the shieldmarshal a +10-foot circumstance bonus to Speed whenever it Strides toward that creature. The shieldmarshal's Strikes against that creature deal an additional 2d8 precision damage."}, {"name": "Reloading Strike", "type": "action", "traits": [], "cost": 1, "text": "The shieldmarshal makes a melee Strike against an opponent within reach and Interacts to reload a firearm in their other hand."}]
+"Cranium Preserver":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 10
+  size: "large"
+  rarity: "rare"
+  traits: ["construct", "evil"]
+  ac: 28
+  hp: 220
+  perception: 19
+  saves: {"fortitude": 22, "reflex": 16, "will": 19}
+  abilities: {"cha": 0, "con": 3, "dex": 0, "int": 5, "str": 7, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Occultism": 22, "Religion": 22, "Lore (any known by its preserved heads)": 19}
+  weaknesses: {"electricity": 10, "vitality": 10}
+  strikes: [{"name": "Cranium Remover", "bonus": 23, "damage": [["3d8+9", "slashing", null]], "traits": ["deadly-d12", "sweep"]}, {"name": "Embalming Fluid", "bonus": 21, "damage": [["2d8+3", "mental", null], ["2d8+3", "void", null]], "traits": []}]
+  actions: [{"name": "Undead Crafter", "type": "passive", "traits": [], "text": "The cranium preserver knows one version of the Create Undead ritual for every four heads it has preserved (a typical cranium preserver has 12 preserved heads). The cranium preserver can use its heads to make separate rolls as both the primary and secondary casters of the ritual."}, {"name": "Jettison Cranium", "type": "action", "traits": ["incapacitation", "mental", "void"], "cost": 2, "text": "The cranium preserver ejects one of its preserved-head jars at a point within 100 feet. The jar explodes, and all creatures in a 10-foot must attempt a DC 28 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 2d8 mental damage and 2d8 void damage.%rFailure The creature takes 4d8 mental damage and 4d8 void damage. The discharged mental anguish released from the preserved head causes the creature to become Confused for 1 round.%rCritical Failure The creature…"}, {"name": "Slosh", "type": "passive", "traits": [], "text": "Whenever the cranium preserver ends a Stride, the movement causes necrotic embalming fluid and preserved body parts to slosh about and spill from its central vat. Each creature adjacent to the cranium preserver when it finishes its Stride must attempt a DC 26 Will save.%rCritical Success The creature is unaffected.%rSuccess The creature takes 1d8 mental damage and 1d8 void damage.%rFailure The creature takes 2d8 mental damage and 2d8 void damage.%rCritical Failure The creature takes 4d8 mental…"}]
+"Daelum":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "large"
+  rarity: "rare"
+  traits: ["construct"]
+  ac: 21
+  hp: 76
+  perception: 11
+  saves: {"fortitude": 13, "reflex": 11, "will": 9}
+  abilities: {"cha": 0, "con": 5, "dex": 3, "int": 2, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 11, "Survival": 11, "Mining Lore": 10}
+  immunities: ["mental"]
+  strikes: [{"name": "Hoof", "bonus": 13, "damage": [["2d6+7", "bludgeoning", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Belly Hatch", "type": "passive", "traits": [], "text": "The daelum can Interact to stow or remove an item from their belly hatch, which can hold up to 10 Bulk."}, {"name": "Gallop", "type": "action", "traits": [], "cost": 2, "text": "Requirements The daelum is in quadruped form%rEffect The daelum Strides twice. They have a +10-foot circumstance bonus to their Speed during these Strides."}, {"name": "Shift Form", "type": "action", "traits": [], "cost": 1, "text": "The daelum transforms into a quadruped. While in this form, their Speed increases by 10 feet and they don't count the contents of their belly hatch against the total amount they can carry. The daelum can make hoof Strikes in quadruped form, but not pick or claw Strikes. Using this ability again returns the daelum to their bipedal form."}, {"name": "Smog Cloud", "type": "action", "traits": ["arcane", "poison"], "cost": 2, "text": "The daelum unleashes a cloud of smog in a 10-foot. The cloud persists for 3 rounds, but doesn't move with the daelum. All creatures within the cloud are Concealed. A creature that begins its turn in the smog cloud must attempt a DC 18 Fortitude save (creatures that must breathe and don't hold their breath take a -2 circumstance penalty on their save).%rCritical Success No effect and temporarily immune for 1 hour.%rSuccess The creature is Sickened 1.%rFailure The creature is Sickened…"}]
+"Dewey Daystar":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "small"
+  rarity: "unique"
+  traits: ["lawful", "leshy", "plant"]
+  ac: 16
+  hp: 40
+  perception: 10
+  saves: {"fortitude": 7, "reflex": 6, "will": 10}
+  abilities: {"cha": 4, "con": 3, "dex": 2, "int": 1, "str": 0, "wis": 4}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 6, "Intimidation": 8, "Medicine": 8, "Nature": 8, "Survival": 8, "Alkenstar Lore": 5}
+  strikes: [{"name": "Spine", "bonus": 8, "damage": [["1d8+3", "piercing", null]], "traits": ["finesse", "unarmed"]}, {"name": "Spine", "bonus": 8, "damage": [["1d6+3", "piercing", null]], "traits": ["unarmed"], "range": 20}]
+  actions: [{"name": "Spiny Body", "type": "passive", "traits": [], "text": "A cactus leshy is covered in spines. A creature that Grabs the cactus leshy takes (1d8+3) piercing damage."}, {"name": "Verdant Burst", "type": "passive", "traits": [], "text": "When Dewey Daystar dies, a burst of primal energy explodes from his body, restoring 2d8 healing to each plant creature in a 30-foot. This area fills with cacti, becoming difficult terrain. If the terrain is not a viable environment for the cacti, they wither after 24 hours."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 18, "attack": 10, "spells": {"0": ["Acid Splash", "Dancing Lights", "Guidance", "Stabilize", "Tanglefoot"], "1": ["Heal", "Hydraulic Push", "Magic Fang"]}}]
+"Disgorged Zombie":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["electricity", "evil", "mindless", "undead", "unholy", "zombie"]
+  ac: 21
+  hp: 52
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 17, "will": 11}
+  abilities: {"cha": -2, "con": 2, "dex": 4, "int": -5, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "lightning powered, void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 15}
+  immunities: ["bleed", "death-effects", "disease", "electricity", "paralyzed", "poison"]
+  weaknesses: {"vitality": 5, "slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 16, "damage": [["1d12+7", "bludgeoning", null], ["1d12", "electricity", null]], "traits": ["unarmed"], "effects": ["Amnesia Venom"]}]
+  actions: [{"name": "Electricity Absorption", "type": "passive", "traits": [], "text": "For 1 minute after taking electricity damage, a shock zombie loses its usual Slowed 1 condition, gains the ability to use reactions, and gains a +10-foot status bonus to its Speed.%rEffect: Electricity Absorption"}, {"name": "Lightning Powered", "type": "passive", "traits": [], "text": "Arcs of restorative electricity jolt between shock zombies. For each shock zombie within 30 feet, the shock zombie gains fast healing 2 (to a maximum of fast healing 10).%rEffect: Lightning Powered"}, {"name": "Slow", "type": "passive", "traits": [], "text": "A shock zombie is typically Slowed 1 and can't use reactions (but see electricity absorption)."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Amnesia Venom", "type": "passive", "traits": ["mental", "poison"], "text": "Saving Throw DC 29 Fortitude%rMaximum Duration 6 rounds%rStage 1 Off-Guard (1 round)%rStage 2 off-guard and Clumsy 1 (1 round)%rStage 3 Confused, off-guard, and Clumsy 2 (1 round)."}]
+"Drela":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 26
+  hp: 104
+  perception: 14
+  saves: {"fortitude": 13, "reflex": 17, "will": 10}
+  abilities: {"cha": 4, "con": 2, "dex": 4, "int": 2, "str": 4, "wis": -1}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 13, "Athletics": 13, "Deception": 15, "Intimidation": 17, "Society": 11, "Stealth": 13, "Thievery": 15, "Underworld Lore": 15}
+  strikes: [{"name": "Shortsword", "bonus": 18, "damage": [["1d6+10", "piercing", null]], "traits": ["agile", "magical", "versatile-s"]}, {"name": "Flintlock Musket", "bonus": 19, "damage": [["1d6+4", "piercing", null]], "traits": ["concussive", "fatal-d10", "magical", "reload-1"], "range": 70}]
+  actions: [{"name": "Deny Advantage", "type": "passive", "traits": [], "text": "The gang leader isn't Off-Guard to creatures of 7th level or lower that are Hidden, Undetected, flanking, or using surprise attack."}, {"name": "Evasion", "type": "passive", "traits": [], "text": "When the gang leader rolls a success on a Reflex save, they get a critical success instead."}, {"name": "Nimble Dodge", "type": "reaction", "traits": [], "text": "Trigger The gang leader is targeted with an attack by an attacker they can see%rEffect The gang leader gains a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "On the first round of combat, if the gang leader rolls Deception or Stealth for initiative, creatures who haven't acted are Off-Guard to the gang leader."}, {"name": "Brutal Rally", "type": "reaction", "traits": ["auditory", "emotion", "linguistic", "mental"], "text": "Trigger The gang leader rolls a critical hit against a creature%rEffect All allies that can see the gang leader gain a +1 circumstance bonus to attack rolls until the start of the gang leader's next turn.%rEffect: Brutal Rally"}, {"name": "Gang Up", "type": "passive", "traits": [], "text": "Any enemy is Off-Guard against the gang leader's melee attacks due to flanking as long as the enemy is within melee reach of both the gang leader and one of the gang leader's allies."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The gang leader Interacts to draw a weapon, then Strikes with that weapon."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The gang leader deals an extra 2d6 precision damage to Off-Guard creatures."}]
+"Follower of Shumfallow":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: -1
+  size: "small"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "fungus", "leshy"]
+  ac: 15
+  hp: 8
+  perception: 6
+  saves: {"fortitude": 5, "reflex": 7, "will": 2}
+  abilities: {"cha": -1, "con": 1, "dex": 3, "int": -1, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 2, "Nature": 4, "Stealth": 5}
+  strikes: [{"name": "Fist", "bonus": 6, "damage": [["1d6", "bludgeoning", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Spore Pod", "bonus": 7, "damage": [["1d4", "bludgeoning", null]], "traits": [], "range": 30, "effects": ["Spores"]}]
+  actions: [{"name": "Verdant Burst", "type": "passive", "traits": ["healing"], "text": "When a follower of Shumfallow dies, a burst of primal energy explodes from its body, restoring 1d8 healing Hit Points to each fungus creature in a 30-foot. This area is filled with fungi, becoming difficult terrain. If the terrain is not a viable environment for this fungi, they wither after 24 hours."}, {"name": "Change Shape", "type": "action", "traits": ["concentrate", "polymorph", "primal"], "cost": 1, "text": "The follower of Shumfallow transforms into a Small giant mushroom or patch of fungi. This ability otherwise uses the effects of One with Plants."}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "A follower of Shumfallow's Strikes deal an additional 1d4 damage to creatures that are within the reach of at least two of the follower's allies."}, {"name": "Spores", "type": "passive", "traits": [], "text": "A creature that takes damage from a follower of Shumfallow's spore pod Strike must succeed at a DC 15 Fortitude save or take 1 persistent poison damage. A creature has its vision reduced as long as the persistent damage continues and can see only within 20 feet (or 10 feet, on a critical failure)."}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 14, "attack": 6, "spells": {"4": ["Speak with Plants"]}}]
+"Gilded Gunner Assassin":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "humanoid"]
+  ac: 22
+  hp: 75
+  perception: 15
+  saves: {"fortitude": 13, "reflex": 15, "will": 12}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": 1, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 13, "Athletics": 12, "Deception": 12, "Intimidation": 10, "Stealth": 13}
+  strikes: [{"name": "Knuckle Duster", "bonus": 15, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "free-hand"]}, {"name": "Thunderstone", "bonus": 15, "damage": [["2d4", "sonic", null], ["2", "sonic", "splash"]], "traits": ["alchemical", "bomb", "sonic", "splash", "thrown-20"]}, {"name": "Dueling Pistol", "bonus": 15, "damage": [["1d6+6", "piercing", null]], "traits": ["concealable", "concussive", "fatal-d10", "reload-1"], "range": 60}]
+  actions: [{"name": "Shot of Opportunity", "type": "reaction", "traits": [], "text": "Requirements The Gilded Gunner has a loaded firearm in hand%rTrigger A creature within 30 feet uses a manipulate action, uses a move action, or makes a ranged attack%rEffect The Gilded Gunner makes a ranged Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the Gilded Gunner disrupts that action. This Strike doesn't count toward the Gilded Gunner's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Gilded Gunner assassin deals an additional 2d6 precision damage to Off-Guard creatures."}]
+"Gilded Gunner Goon":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 20
+  hp: 60
+  perception: 8
+  saves: {"fortitude": 11, "reflex": 14, "will": 8}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 1, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 11, "Athletics": 12, "Deception": 10, "Stealth": 12}
+  strikes: [{"name": "Dagger", "bonus": 14, "damage": [["1d4+4", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}, {"name": "Fist", "bonus": 13, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Flintlock Pistol", "bonus": 14, "damage": [["1d4+4", "piercing", null]], "traits": ["concussive", "fatal-d8", "reload-1"]}]
+  actions: [{"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A Gilded Gunner goon's Strikes deal 1d6 additional precision damage to Off-Guard creatures."}]
+"Gilded Gunner Safecracker":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "rare"
+  traits: ["evil", "humanoid"]
+  ac: 20
+  hp: 65
+  perception: 12
+  saves: {"fortitude": 10, "reflex": 14, "will": 10}
+  abilities: {"cha": 0, "con": 0, "dex": 4, "int": 3, "str": 2, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 12, "Athletics": 8, "Stealth": 12, "Thievery": 14}
+  strikes: [{"name": "Dagger", "bonus": 14, "damage": [["1d4+5", "piercing", null]], "traits": ["agile", "finesse", "thrown-10", "versatile-s"]}, {"name": "Dueling Pistol", "bonus": 14, "damage": [["1d6+4", "piercing", null]], "traits": ["concealable", "concussive", "fatal-d10", "reload-1"], "range": 60}]
+  actions: [{"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The safecracker deals an additional 1d6 precision damage to Off-Guard creatures."}]
+"Glass Buccaneer":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 28
+  hp: 154
+  perception: 18
+  saves: {"fortitude": 17, "reflex": 21, "will": 15}
+  abilities: {"cha": -5, "con": 3, "dex": 6, "int": -5, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 18, "Deception": 12, "Stealth": 20}
+  weaknesses: {"sonic": 10}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Scimitar", "bonus": 21, "damage": [["2d6+11", "slashing", null]], "traits": ["forceful", "magical", "sweep"]}, {"name": "Arm Gun", "bonus": 21, "damage": [["2d8+6", "piercing", null]], "traits": ["concussive", "magical", "reload-1", "scatter-10"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 26 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Spell Reflection", "type": "reaction", "traits": ["arcane"], "text": "Trigger The glass buccaneer is targeted by a spell%rEffect The buccaneer positions its reflective magical surfaces to turn the spell back on the caster. It tries to counteract the spell, making an Athletics check for its counteract check. If it successfully counteracts the spell, the effect is turned back on the caster."}, {"name": "Vulnerable to Shatter", "type": "passive", "traits": [], "text": "The glass buccaneer is affected by the Shatter spell as though it were an unattended object."}, {"name": "Firearms Critical Specialization", "type": "passive", "traits": [], "text": "When the buccaneer makes a critical hit with a firearm, the target must succeed at a DC 28 Fortitude save or be Stunned 1."}, {"name": "Pirate's Feint", "type": "action", "traits": ["mental"], "cost": 1, "text": "The clockwork buccaneer Feints. If the target becomes Off-Guard to the buccaneer's melee attacks, it becomes off-guard to the buccaneer's ranged attacks as well."}, {"name": "Refill Tank", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork buccaneer is within 15 feet of a water source containing at least 100 gallons of water%rEffect The clockwork buccaneer extends a clockwork tube and sucks up water to refill its water tank."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The clockwork buccaneer deals an extra 2d6 precision damage to Off-Guard creatures."}, {"name": "Water Jet", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork buccaneer has a full water tank%rEffect The clockwork buccaneer fires a narrow but highly pressurized blast of water in a 60-foot, dealing 10d6 bludgeoning|options:area-damage damage to creatures and unattended objects in the area (DC 28 Fortitude; unattended objects automatically fail). Creatures and objects that fail the save are also knocked back 5 feet (10 feet on a critical failure). This empties the buccaneer's water tank."}, {"name": "Water Jump", "type": "action", "traits": [], "cost": 1, "text": "Requirements The clockwork buccaneer has a full water tank%rEffect The clockwork buccaneer jumps 60 feet, propelling itself through the air with a jet of water. This empties the buccaneer's water tank."}]
+"Glass Elephant":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 12
+  size: "huge"
+  rarity: "unique"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 32
+  hp: 245
+  perception: 22
+  saves: {"fortitude": 25, "reflex": 19, "will": 17}
+  abilities: {"cha": -5, "con": 5, "dex": 0, "int": -5, "str": 8, "wis": 3}
+  speeds: {"land": 45}
+  senses: ["darkvision"]
+  skills: {"Athletics": 25}
+  weaknesses: {"sonic": 15}
+  resistances: {"physical": 10}
+  strikes: [{"name": "Tusk", "bonus": 21, "damage": [["3d8+15", "piercing", null]], "traits": ["reach-15", "unarmed"]}, {"name": "Trunk", "bonus": 21, "damage": [], "traits": ["reach-15"], "effects": ["Grabbing Trunk"]}, {"name": "Foot", "bonus": 21, "damage": [["3d10+15", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}]
+  actions: [{"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 19 Thievery, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Spell Reflection", "type": "reaction", "traits": ["arcane"], "text": "Trigger The glass elephant is targeted by a spell%rEffect The elephant positions its reflective magical surfaces to turn the spell back on the caster. It tries to counteract the spell, making an Athletics check for its counteract check. If it successfully counteracts the spell, the effect is turned back on the caster."}, {"name": "Vulnerable to Shatter", "type": "passive", "traits": [], "text": "The glass elephant is affected by the Shatter spell as though it were an unattended object."}, {"name": "Dual Tusks", "type": "action", "traits": [], "cost": 1, "text": "The glass elephant makes two tusk Strikes, each against a different creature. This counts as one attack for the elephant's multiple attack penalty, and the penalty doesn't increase until after both attacks."}, {"name": "Trample", "type": "action", "traits": [], "cost": 3, "text": "Large or smaller, foot, DC 32 Reflex"}, {"name": "Grabbing Trunk", "type": "passive", "traits": [], "text": "A Medium or smaller creature hit by the glass elephant's trunk is Grabbed. If the elephant moves, it can bring the grabbed creature along with it."}]
+"Glass Sentry":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "common"
+  traits: ["earth", "elemental"]
+  ac: 24
+  hp: 94
+  perception: 14
+  saves: {"fortitude": 16, "reflex": 12, "will": 14}
+  abilities: {"cha": 1, "con": 4, "dex": 2, "int": 0, "str": 5, "wis": 2}
+  speeds: {"land": 25, "burrow": 50}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Acrobatics": 14, "Stealth": 14}
+  immunities: ["bleed", "paralyzed", "poison", "sleep"]
+  strikes: [{"name": "Fist", "bonus": 17, "damage": [["2d8+8", "slashing", null]], "traits": ["unarmed"], "effects": ["Blinding Sand"]}]
+  actions: [{"name": "Tremorsense 60 feet", "type": "passive", "traits": []}, {"name": "Glass Armor", "type": "passive", "traits": [], "text": "When the sand sentry takes fire or lightning damage, its outer layer of sand fuses into sheets of hardened glass for 1 minute. This increases the sand sentry's AC to 26 and grants it resistance 5 to acid, cold, electricity, fire, force, piercing, and slashing damage. A sand sentry can't use earth glide while glass armor is active."}, {"name": "Blinding Sand", "type": "passive", "traits": [], "text": "When the sand sentry critically hits with a fist Strike, the target is Blinded for 1 round."}, {"name": "Earth Glide", "type": "passive", "traits": [], "text": "A sand sentry can Burrow through earthen matter, including rock. When it does so, it moves at its full burrow Speed, leaving no tunnels or signs of its passing."}]
+"Glaz Nixbrix":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "small"
+  rarity: "unique"
+  traits: ["chaotic", "goblin", "humanoid"]
+  ac: 24
+  hp: 60
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 14, "will": 9}
+  abilities: {"cha": 2, "con": 4, "dex": 6, "int": 3, "str": 3, "wis": 1}
+  speeds: {"land": 20, "climb": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 14, "Athletics": 11, "Crafting": 9, "Intimidation": 10, "Underworld Lore": 9}
+  weaknesses: {"electricity": 5}
+  resistances: {"physical": 5}
+  strikes: [{"name": "Buzz-Saw Knuckles", "bonus": 14, "damage": [["2d6+5", "slashing", null], ["1d6", "bleed", null]], "traits": ["finesse", "free-hand"]}, {"name": "Really Big Gun", "bonus": 12, "damage": [["2d12", "piercing", null]], "traits": ["deadly-d12", "free-hand", "volley-30"], "effects": ["Really Big Gun"]}]
+  actions: [{"name": "Custom Armor", "type": "passive", "traits": [], "text": "Nixbrix's custom armor, which only he knows how to operate, grants him physical resistance. Once Nixbrix is reduced to fewer than half his Hit Points, or immediately upon being damaged by a critical hit, his custom armor breaks, causing the following effects: his Armor Class is reduced to 20, he loses his physical resistance, he can't use his really big gun, and his buzz-saw knuckles no longer cause persistent bleed damage."}, {"name": "Leap Away", "type": "reaction", "traits": ["move"], "text": "Trigger Nixbrix is targeted with a ranged attack%rNixbrix Leaps up to 10 feet vertically and 30 feet horizontally, and he gains a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Buzz-Saw Knuckles", "type": "passive", "traits": [], "text": "Nixbrix has custom-built knuckle-dusters called buzz-saw knuckles. Only he knows how to operate them."}, {"name": "Escape Route", "type": "action", "traits": [], "cost": 3, "text": "Nixbrix flees the scene. He moves four times, each time using one of the following actions: Climb, Leap, Stand, Step, or Stride."}, {"name": "Knuckle Knock", "type": "action", "traits": [], "cost": 2, "text": "Nixbrix Strides, Climbs, or Leaps once, then Strikes with his buzz-saw knuckles. As long as this Strike is a success, he unleashes a devastating black powder explosion afterward that deals 1d6 fire damage to both him and the target of the Strike. He then Strides or Leaps once more, propelled by the blast."}, {"name": "Really Big Gun", "type": "passive", "traits": [], "text": "Nixbrix has a custom-built, extra-large firearm mounted to the shoulder of his custom armor. Only he knows how to fire the contraption, which is inscrutable in the hands of anyone else. Whenever Nixbrix fires his Really Big Gun, the armor automatically reloads the weapon, but it doesn't finish reloading until the end of his next turn. He can only fire it, at most, every other round. He can take 6 shots with this weapon before all the ammunition is spent."}]
+"Gold Tank Broker":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["clockwork", "construct", "mindless"]
+  ac: 16
+  hp: 16
+  perception: 8
+  saves: {"fortitude": 10, "reflex": 7, "will": 6}
+  abilities: {"cha": -5, "con": 3, "dex": 2, "int": -5, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 7}
+  weaknesses: {"electricity": 2, "orichalcum": 2}
+  resistances: {"physical": 2}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "unarmed"], "effects": ["Grab"]}, {"name": "Javelin", "bonus": 5, "damage": [["1d6+4", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Spotlight", "type": "passive", "traits": [], "text": "The clockwork handler can use the Everburning Torch built into its helmet to illuminate areas it's examining. Whenever it Seeks in a 30-foot and rolls a successful Perception check, the clockwork handler gets a critical success instead."}, {"name": "Wind-Up", "type": "passive", "traits": [], "text": "24 hours, DC 15 Thievery check, standby%rFor a clockwork to act, it must be wound with a unique key by another creature. This takes 1 minute. Once wound, it remains operational for the listed amount of time, usually 24 hours, after which time it becomes unaware of its surroundings and can't act until it's wound again. Some clockworks' abilities require them to spend some of their remaining operational time. They can't spend more than they have and shut down immediately once they have 0 time…"}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Gloves Off", "type": "passive", "traits": [], "text": "Unlike most clockwork handlers, the brokers' Strikes lack the nonlethal trait."}, {"name": "Hog-tie", "type": "action", "traits": [], "cost": 2, "text": "Requirements The clockwork handler has a creature Restrained%rEffect The clockwork handler cuts a length of rope from the supply in its chassis to tie up the restrained creature. The creature is restrained until it Escapes or Forces Open the rope with a successful DC 15 check (typically an attack roll or Thievery check to Escape, or an Athletics check to Force Open the ropes; restrained creatures don't take a -2 penalty on this check for not using a crowbar). The rope has Hardness 2 and 8 Hit…"}, {"name": "Siren", "type": "action", "traits": [], "cost": 2, "text": "The clockwork handler emits a loud noise (such as a bell or high- pitched mechanical scream) that can be easily heard by anyone within 500 feet. Creatures within 100 feet take a -2 circumstance penalty to Perception checks that are hearing-based. Creatures within 30 feet who fail a DC 14 Fortitude save can't hear anything but the siren, critically fail Perception checks that require hearing, and are immune to auditory effects. This effect lasts until the creature leaves the area and for 1 round…"}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Gold Tank Investor":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "human", "humanoid", "lawful"]
+  ac: 14
+  hp: 8
+  perception: 3
+  saves: {"fortitude": 3, "reflex": 4, "will": 2}
+  abilities: {"cha": 1, "con": 2, "dex": 3, "int": 0, "str": 2, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Athletics": 3, "Intimidation": 4, "Society": 1}
+  strikes: [{"name": "Club", "bonus": 4, "damage": [["1d4+2", "bludgeoning", null]], "traits": []}, {"name": "Club", "bonus": 4, "damage": [["1d4", "bludgeoning", null]], "traits": ["thrown-10"]}]
+"Gunmarshal":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["humanoid", "lawful"]
+  ac: 18
+  hp: 30
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 10, "will": 4}
+  abilities: {"cha": 1, "con": 2, "dex": 4, "int": 0, "str": 3, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 6, "Athletics": 9, "Intimidation": 7}
+  strikes: [{"name": "Shortsword", "bonus": 11, "damage": [["1d6+4", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Flintlock Musket", "bonus": 11, "damage": [["1d6+4", "piercing", null]], "traits": ["concussive", "fatal-d10", "reload-1"], "range": 70}]
+  actions: [{"name": "Firearms Critical Specialization", "type": "passive", "traits": [], "text": "When the gunmarshal makes a critical hit with a firearm, the target must succeed at a DC 18 Fortitude save or be Stunned 1."}, {"name": "Lawbringer", "type": "action", "traits": [], "cost": 1, "text": "The gunmarshal marks a foe for judgment, granting the gunmarshal a +10-foot circumstance bonus to Speed when moving toward that creature."}]
+"Hansin":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 26
+  hp: 104
+  perception: 14
+  saves: {"fortitude": 13, "reflex": 17, "will": 10}
+  abilities: {"cha": 4, "con": 2, "dex": 4, "int": 2, "str": 4, "wis": -1}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 13, "Athletics": 13, "Deception": 15, "Intimidation": 17, "Society": 11, "Stealth": 13, "Thievery": 15, "Underworld Lore": 15}
+  strikes: [{"name": "Shortsword", "bonus": 18, "damage": [["1d6+10", "piercing", null]], "traits": ["agile", "magical", "versatile-s"]}, {"name": "Flintlock Pistol", "bonus": 19, "damage": [["1d4+4", "piercing", null]], "traits": ["concussive", "fatal-d8", "magical", "reload-1"], "range": 40}]
+  actions: [{"name": "Deny Advantage", "type": "passive", "traits": [], "text": "The gang leader isn't Off-Guard to creatures of 7th level or lower that are Hidden, Undetected, flanking, or using surprise attack."}, {"name": "Evasion", "type": "passive", "traits": [], "text": "When the gang leader rolls a success on a Reflex save, they get a critical success instead."}, {"name": "Nimble Dodge", "type": "reaction", "traits": [], "text": "Trigger The gang leader is targeted with an attack by an attacker they can see%rEffect The gang leader gains a +2 circumstance bonus to AC against the triggering attack."}, {"name": "Surprise Attack", "type": "passive", "traits": [], "text": "On the first round of combat, if the gang leader rolls Deception or Stealth for initiative, creatures who haven't acted are Off-Guard to the gang leader."}, {"name": "Brutal Rally", "type": "reaction", "traits": ["auditory", "emotion", "linguistic", "mental"], "text": "Trigger The gang leader rolls a critical hit against a creature%rEffect All allies that can see the gang leader gain a +1 circumstance bonus to attack rolls until the start of the gang leader's next turn.%rEffect: Brutal Rally"}, {"name": "Gang Up", "type": "passive", "traits": [], "text": "Any enemy is Off-Guard against the gang leader's melee attacks due to flanking as long as the enemy is within melee reach of both the gang leader and one of the gang leader's allies."}, {"name": "Quick Draw", "type": "action", "traits": [], "cost": 1, "text": "The gang leader Interacts to draw a weapon, then Strikes with that weapon."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The gang leader deals an extra 2d6 precision damage to Off-Guard creatures."}]
+"Headless Rustler":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "lawful", "undead", "unholy"]
+  ac: 28
+  hp: 95
+  perception: 14
+  saves: {"fortitude": 13, "reflex": 15, "will": 17}
+  abilities: {"cha": 4, "con": 2, "dex": 2, "int": 2, "str": 6, "wis": 3}
+  speeds: {"land": 20}
+  hp_details: "fast healing 5"
+  senses: ["lifesense"]
+  skills: {"Acrobatics": 15, "Intimidation": 17, "Stealth": 13, "Survival": 15}
+  immunities: ["bleed", "death-effects", "disease", "fear-effects", "paralyzed", "poison", "unconscious"]
+  weaknesses: {"holy": 5}
+  strikes: [{"name": "Keen Longsword", "bonus": 18, "damage": [["1d8+10", "slashing", null]], "traits": ["magical", "versatile-p"], "effects": ["Head Hunter"]}, {"name": "Fist", "bonus": 18, "damage": [["1d4+10", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Keen Striking Arquebus", "bonus": 18, "damage": [["2d8+10", "piercing", null]], "traits": ["concussive", "fatal-d12", "kickback", "magical"], "range": 150}]
+  actions: [{"name": "Lifesense 60 feet", "type": "passive", "traits": []}, {"name": "Fast Healing 5", "type": "passive", "traits": []}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Frightful Presence", "type": "passive", "traits": ["aura", "emotion", "fear", "mental"], "text": "30 feet. DC 23 Will"}, {"name": "Head Hunter", "type": "passive", "traits": [], "text": "Any slashing weapon a dullahan wields becomes Keen , and any hatchet it wields becomes Returning . If the dullahan kills a creature with a critical hit using a slashing weapon, the target is decapitated as though the dullahan had used Reap on the target. These effects remain only while the dullahan holds the weapon."}, {"name": "Headshot Hunter", "type": "passive", "traits": [], "text": "Any firearm wielded by the headless rustler becomes keen (even if it's not a slashing weapon) and striking . If the headless rustler kills a creature with a critical hit using a firearm, the target is treated as if they were decapitated by the headless rustler's Reap ability. These effects remain only while the headless rustler holds the firearm."}, {"name": "Reap", "type": "action", "traits": [], "cost": 2, "text": "The dullahan removes the head of a dead creature within reach. Each creature within the area of the dullahan's frightful presence must attempt a new save, even if they are temporarily immune."}, {"name": "Summon Steed", "type": "action", "traits": ["occult"], "cost": 2, "text": "The dullahan summons a War Horse with elite adjustments and the fiend trait. This steed remains until it is slain, the dullahan Dismisses it, or the dullahan summons another steed."}, {"name": "Throw Skull", "type": "action", "traits": ["manipulate"], "cost": 2, "text": "Frequency once (until a new clockwork skull is crafted)%rEffect The headless rustler throws its clockwork skull at a target within 30 feet. The skull explodes, dealing 8d6 fire|options:area-damage damage to creatures in a 15-foot radius (DC 23 Reflex)."}]
+"I":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "chaotic"]
+  ac: 25
+  hp: 110
+  perception: 19
+  saves: {"fortitude": 14, "reflex": 12, "will": 14}
+  abilities: {"cha": 1, "con": 2, "dex": 1, "int": 4, "str": 4, "wis": 2}
+  speeds: {"land": 25, "burrow": 25}
+  senses: ["darkvision", "tremorsense"]
+  skills: {"Arcana": 16, "Athletics": 16, "Diplomacy": 14, "Thievery": 16, "Spellscar Lore": 19}
+  resistances: {"bludgeoning": 10}
+  strikes: [{"name": "Arm", "bonus": 16, "damage": [["2d8+6", "bludgeoning", null]], "traits": ["agile", "reach-10"], "effects": ["Grab"]}, {"name": "Beak", "bonus": 16, "damage": [["2d8+6", "piercing", null]], "traits": ["unarmed"], "effects": ["I Venom"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Telepathy 100 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "(1d8+8) bludgeoning, DC 22 Fortitude%rNote: A DC was not provided for this ability by Paizo. The DC present here is a moderate DC for the creature level according to the Gamemastery Guide creature building Tables."}, {"name": "I Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 25 Fortitude%rMaximum Duration 6 rounds%rStage 1 2d6 poison damage and Enfeebled 1 (1 round)%rStage 2 2d6 poison damage, enfeebled 1, and Off-Guard (1 round)%rStage 3 2d6 poison damage, Enfeebled 2, and off-guard (1 round)"}, {"name": "Writhing Arms", "type": "action", "traits": [], "cost": 2, "text": "I makes up to four Strikes with different arms, each against a different target. Each attack counts separately for their multiple attack penalty, but the penalty doesn't increase until all attacks have been made. If I subsequently uses the Grab action, they can Grab any number of creatures they hit with Writhing Arms."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 25, "attack": 17, "spells": {"1": ["Shockwave (At Will)"], "3": ["Noxious Vapors", "Shifting Sand"]}}]
+"Ibrium":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["evil", "human", "humanoid"]
+  ac: 28
+  hp: 145
+  perception: 20
+  saves: {"fortitude": 16, "reflex": 19, "will": 22}
+  abilities: {"cha": 3, "con": 0, "dex": 4, "int": 5, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Arcana": 24, "Deception": 19, "Diplomacy": 19, "Society": 19, "Elemental Lore": 22, "Nex Lore": 22}
+  strikes: [{"name": "Glass Spike", "bonus": 21, "damage": [["3d10", "piercing", null]], "traits": ["deadly-d12", "earth", "finesse", "magical"]}, {"name": "Glass Spike", "bonus": 21, "damage": [["3d10", "piercing", null]], "traits": ["deadly-d12", "earth", "magical"], "range": 60}]
+  actions: [{"name": "Vitrumantic Stoneskin", "type": "reaction", "traits": [], "text": "Trigger An adjacent creature Strikes Ibrium with a melee weapon or unarmed attack and deals damage%rRequirements Ibrium has a Mountain Resilience spell currently active%rEffect Ibrium's unique stoneskin spell manifests as a protective layer of deadly sharp glass. Glass shards burst out from Ibrium's skin, dealing 3d10 piercing damage to the attacker."}, {"name": "Vitrumancy", "type": "passive", "traits": [], "text": "Ibrium has modified certain spells to incorporate glass into their manifestation. Whenever Ibrium casts Fireball, Hydraulic Push, or Pummeling Rubble, the spell deals slashing damage instead of its normal damage type as the damaging component is replaced with shards of razor-sharp glass."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 33, "attack": 25, "spells": {"0": ["Daze", "Detect Magic", "Message", "Shield", "Sigil"], "1": ["Hydraulic Push", "Pummeling Rubble"], "2": ["Heat Metal"], "3": ["Earthbind", "Fireball"], "4": ["Fly", "Stoneskin", "Wall of Fire"], "5": ["Elemental Form (Earth Only)", "Impaling Spike"]}}]
+"Ioton (F6)":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 0
+  size: "tiny"
+  rarity: "common"
+  traits: ["astral", "incorporeal"]
+  ac: 14
+  hp: 14
+  perception: 3
+  saves: {"fortitude": 7, "reflex": 6, "will": 3}
+  abilities: {"cha": -3, "con": 3, "dex": 2, "int": 0, "str": -5, "wis": -1}
+  speeds: {"land": 0, "fly": 30}
+  senses: ["thoughtsense"]
+  skills: {"Acrobatics": 6, "Stealth": 6}
+  immunities: ["disease", "poison", "precision"]
+  weaknesses: {"mental": 3}
+  resistances: {"all-damage": 2}
+  strikes: [{"name": "Touch", "bonus": 6, "damage": [["1d4", "mental", "persistent"]], "traits": ["agile", "magical", "mental"], "effects": ["Leech Thought"]}]
+  actions: [{"name": "Thoughtsense (Imprecise) 60 feet", "type": "passive", "traits": ["mental", "occult"], "text": "The ioton senses all non-mindless creatures at the listed range."}, {"name": "Absorbed Language", "type": "passive", "traits": [], "text": "While a creature is taking persistent damage from the ioton, the ioton gains the ability to speak and understand one of that creature's languages, selected at random."}, {"name": "Leech Thought", "type": "passive", "traits": ["healing", "occult", "polymorph"], "text": "While a creature is taking persistent mental damage from the ioton, the ioton takes the shape of a creature familiar to the target, such as an acquaintance, pet, or common animal, though the appearance is imperfect and grants no benefit to Impersonate an individual.%rWhile transformed, the ioton loses its incorporeal trait, immunities, and resistances, but it gains an unarmed melee Strike with a +6 attack modifier that deals 1d8+2 bludgeoning damage. The ioton immediately returns to its…"}, {"name": "Seeking Alchemical Knowledge", "type": "passive", "traits": [], "text": "This ioton is seeking alchemical knowledge. The ioton gains a +1 circumstance bonus to attack rolls against any creature with the Alchemical Crafting feat, and they prefer to attack those targets to the exclusion of others."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "divine", "type": "innate", "dc": 14, "attack": 4, "spells": {"0": ["Daze", "Detect Magic"]}}]
+"Irkem Dresh":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["dwarf", "evil", "humanoid", "lawful"]
+  ac: 19
+  hp: 37
+  perception: 8
+  saves: {"fortitude": 8, "reflex": 9, "will": 8}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 1, "str": 1, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 9, "Deception": 7, "Diplomacy": 5, "Intimidation": 9, "Nature": 7, "Society": 6, "Thievery": 6, "Banking Lore": 8}
+  strikes: [{"name": "Fist", "bonus": 8, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Flintlock Pistol", "bonus": 9, "damage": [["1d4", "piercing", null]], "traits": ["concussive", "fatal-d8", "reload-1"]}]
+  actions: [{"name": "Defying Glare", "type": "reaction", "traits": [], "text": "Trigger A creature uses a mental effect against Dresh and fails or critically fails%rEffect Dresh Demoralizes that creature; when she does, Demoralize loses the auditory trait and gains the visual trait and she doesn't take a penalty if the creature doesn't understand her language."}, {"name": "Generous Distraction", "type": "passive", "traits": [], "text": "Dresh can use the promise of wealth to distract her foes. When she succeeds or critically succeeds on a Deception check to Feint against a target within 30 feet, the target is Off-Guard against her ranged attacks as well as her melee Strikes."}, {"name": "Silver Shower Shot", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect Dresh throws 2d6 #Silver pieces silver pieces into the air, potentially distracting her target. Dresh makes a Deception check to Feint against a creature within 30 feet that can see her and which she can see. If her flintlock pistol is loaded, Dresh then makes a ranged flintlock pistol Strike against that target."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Dresh deals an additional 1d6 precision damage to Off-Guard creatures."}]
+"Kreeth-Ni":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 3
+  size: "tiny"
+  rarity: "unique"
+  traits: ["fey", "good", "sprite"]
+  ac: 19
+  hp: 40
+  perception: 11
+  saves: {"fortitude": 7, "reflex": 11, "will": 12}
+  abilities: {"cha": 4, "con": 0, "dex": 4, "int": 0, "str": -3, "wis": 3}
+  speeds: {"land": 10, "fly": 40}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 11, "Deception": 11, "Diplomacy": 11, "Nature": 10, "Occultism": 9, "Stealth": 9}
+  weaknesses: {"cold-iron": 3}
+  strikes: [{"name": "Staff", "bonus": 8, "damage": [["1d4-1", "bludgeoning", null]], "traits": []}, {"name": "Ultrasonic Pulse", "bonus": 11, "damage": [["1d4", "sonic", null]], "traits": ["magical"]}]
+  actions: [{"name": "+2 Status to Seek Creatures Using Hearing", "type": "passive", "traits": []}, {"name": "Speak with Bats", "type": "passive", "traits": [], "text": "Kreeth-Ni can communicate with bats and use Diplomacy to make-an-impression on bats and request things from bats."}, {"name": "Wrath of Spurned Hospitality", "type": "passive", "traits": [], "text": "A nyktera whose hospitality is betrayed becomes enraged at the violation of a fundamental aspect of their fey nature. They must succeed at a DC 20 Will save or begin involuntarily attacking the traitor. At the end of each of their turns, if they choose, they can attempt another Will save to end the effect; otherwise, the effect lasts until the traitor is subdued or leaves the nyktera's presence. As long as their righteous fury lasts, the nyktera gains a +2 status bonus to attack and damage…"}]
+  spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 20, "attack": 12, "spells": {"0": ["Dancing Lights", "Ghost Sound"], "1": ["Anticipate Peril", "Heal", "Mending"], "2": ["Heal", "Remove Fear"]}}]
+"Leadsmith":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["dwarf", "evil", "humanoid"]
+  ac: 22
+  hp: 75
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 15, "will": 10}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 2, "str": 4, "wis": 0}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 17, "Crafting": 12, "Intimidation": 15, "Society": 15, "Stealth": 12}
+  strikes: [{"name": "Club", "bonus": 15, "damage": [["1d6+6", "bludgeoning", null]], "traits": []}, {"name": "Club", "bonus": 15, "damage": [["1d6+6", "bludgeoning", null]], "traits": ["thrown-10"]}, {"name": "Dwarven Scattergun", "bonus": 15, "damage": [["1d8", "piercing", null]], "traits": ["concussive", "dwarf", "kickback", "reload-2", "scatter-10"], "range": 50}]
+  actions: [{"name": "Bully Effect", "type": "passive", "traits": [], "text": "The Leadsmith's melee and ranged Strikes deal an additional 2d6 bludgeoning damage to creatures that were Shoved within the past round."}, {"name": "Clear A Path", "type": "action", "traits": [], "cost": 1, "text": "Requirements The Leadsmith is wielding a firearm or crossbow in one hand, and their other hand either wields a one-handed melee weapon or is empty%rEffect The Leadsmith makes a melee attack and then reloads their gun in one fluid movement. The Leadsmith makes a one-handed melee weapon Strike or unarmed Strike against an opponent within reach, then Interacts to reload. The Leadsmith doesn't need a free hand to reload in this way."}, {"name": "Private Detective", "type": "passive", "traits": [], "text": "Frequency once per hour%rEffect The Leadsmith spends 1 minute examining a subject for clues. For the next 24 hours, whenever the Leadsmith makes a Perception check or a skill check using Intelligence, Wisdom, or Charisma to Recall Knowledge about this subject, the Leadsmith gains a +2 circumstance bonus to the check."}]
+"Masu":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: -1
+  size: "tiny"
+  rarity: "unique"
+  traits: ["animal"]
+  ac: 14
+  hp: 6
+  perception: 8
+  saves: {"fortitude": 3, "reflex": 8, "will": 6}
+  abilities: {"cha": 1, "con": -2, "dex": 2, "int": -4, "str": -4, "wis": 1}
+  speeds: {"land": 20}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 6, "Stealth": 6}
+  strikes: [{"name": "Bite", "bonus": 6, "damage": [["1", "piercing", null]], "traits": ["finesse", "nonlethal"]}, {"name": "Claw", "bonus": 6, "damage": [["1", "slashing", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Get Underfoot", "type": "action", "traits": [], "cost": 1, "text": "Masu Strides up to half her Speed, moving through one or more space occupied by allied creatures, rubbing against and around legs and feet. Each creature whose space Masu moves through is Clumsy 1 for 1 round."}]
+"Mutant Bat":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 5
+  size: "huge"
+  rarity: "uncommon"
+  traits: ["animal"]
+  ac: 22
+  hp: 75
+  perception: 16
+  saves: {"fortitude": 13, "reflex": 12, "will": 11}
+  abilities: {"cha": -2, "con": 4, "dex": 2, "int": -4, "str": 5, "wis": 4}
+  speeds: {"land": 15, "fly": 30}
+  senses: ["echolocation", "low-light-vision"]
+  skills: {"Acrobatics": 13, "Athletics": 13, "Stealth": 13}
+  strikes: [{"name": "Fangs", "bonus": 14, "damage": [["2d10+7", "slashing", null]], "traits": []}, {"name": "Wing", "bonus": 14, "damage": [["2d8+7", "piercing", null]], "traits": ["agile"]}]
+  actions: [{"name": "Echolocation (Precise) 40 feet", "type": "passive", "traits": [], "text": "A bat can use its hearing as a precise sense at the listed range."}, {"name": "Wing Thrash", "type": "reaction", "traits": [], "text": "Trigger An adjacent enemy damages the mutant bat%rEffect The bat makes one or two wing Strikes - one against the triggering creature and one against another adjacent creature."}]
+"Mutant Desert Drake":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 9
+  size: "large"
+  rarity: "rare"
+  traits: ["dragon", "earth", "evil", "mutant"]
+  ac: 28
+  hp: 150
+  perception: 17
+  saves: {"fortitude": 18, "reflex": 16, "will": 15}
+  abilities: {"cha": 1, "con": 5, "dex": 3, "int": -1, "str": 6, "wis": 3}
+  speeds: {"land": 20, "burrow": 40, "fly": 50}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 18, "Athletics": 19, "Intimidation": 14, "Stealth": 16, "Survival": 16}
+  immunities: ["disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"electricity": 18}
+  strikes: [{"name": "Fangs", "bonus": 21, "damage": [["2d12+9", "piercing", null], ["1d6", "electricity", null]], "traits": []}, {"name": "Tail", "bonus": 21, "damage": [["2d10+9", "bludgeoning", null]], "traits": ["reach-10"], "effects": ["Push"]}]
+  actions: [{"name": "Sensitive Eyes", "type": "passive", "traits": [], "text": "The mutant desert drake's cluster of extra eyes are connected to a gland that, when punctured, causes the drake to rush into a fury. When a desert drake takes damage from a critical hit, it becomes Dazzled and Quickened for 1 round."}, {"name": "Wing Deflection", "type": "reaction", "traits": [], "text": "Trigger The desert drake is targeted with an attack.%rEffect The desert drake raises its wing, gaining a +2 circumstance bonus to AC against the triggering attack. If the desert drake is flying at the time it is attacked, it descends 10 feet after the attack is complete."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The desert drake makes two Fangs Strikes and one Tail Strike in any order."}, {"name": "Sandstorm Breath", "type": "action", "traits": ["arcane", "electricity"], "cost": 2, "text": "The desert drake spits a ball of electrically charged sand to a range of 60 feet that explodes into a cloud with a 15-foot. Creatures in the area take 9d6 electricity|options:area-damage damage (DC 28 Reflex save). The cloud remains for 1d4 rounds, granting Concealment to everything within. The desert drake can't use Sandstorm Breath again for 1d6 rounds."}, {"name": "Speed Surge", "type": "action", "traits": ["move"], "cost": 1, "text": "The desert drake moves up to twice its Speed. It can do this three times per day."}, {"name": "Surprise Attacker", "type": "passive", "traits": [], "text": "On the first round of combat, creatures that haven't acted yet are Off-Guard to the desert drake."}, {"name": "Push 5 feet", "type": "action", "traits": [], "cost": 1}]
+"Mutant Giant Toad":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 3
+  size: "large"
+  rarity: "rare"
+  traits: ["animal", "mutant"]
+  ac: 18
+  hp: 44
+  perception: 9
+  saves: {"fortitude": 10, "reflex": 9, "will": 7}
+  abilities: {"cha": -2, "con": 3, "dex": 3, "int": -4, "str": 5, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision", "scent"]
+  skills: {"Athletics": 10, "Stealth": 7}
+  resistances: {"acid": 5}
+  strikes: [{"name": "Jaws", "bonus": 12, "damage": [["1d8+7", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Tongue", "bonus": 12, "damage": [], "traits": ["reach-10"], "effects": ["Tongue Grab"]}]
+  actions: [{"name": "Poisonous Warts", "type": "passive", "traits": [], "text": "Any creature that hits the giant toad with an unarmed Strike or otherwise touches the toad is exposed to giant toad poison."}, {"name": "Giant Toad Poison", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 20 Fortitude%rMaximum Duration 6 rounds%rStage 1 Stupefied1 (1 round)%rStage 2 Stupefied 1 and Confused (1 round)"}, {"name": "Squirt Acid", "type": "action", "traits": ["acid", "primal"], "cost": 2, "text": "The mutant giant toad squirts a 60-foot of acid from the pustules on its back. Creatures in the area take 3d6 acid|options:area-damage damage (DC 20 Reflex). The mutant giant toad can't Squirt Acid for 1d4 rounds."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Medium, (1d8+3) bludgeoning damage, Rupture 8"}, {"name": "Tongue Grab", "type": "passive", "traits": [], "text": "A creature hit by the giant toad's tongue becomes Grabbed by the giant toad. The creature isn't Immobilized, but it can't move beyond the reach of the toad's tongue. A creature can sever the tongue with a successful Strike against AC 15 that deals at least 6 slashing damage.%rThis deals no damage to the toad but prevents it from using its tongue Strike until it regrows its tongue, which takes a week."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Ogre Slug":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "large"
+  rarity: "common"
+  traits: ["chaotic", "evil", "giant", "humanoid"]
+  ac: 18
+  hp: 70
+  perception: 6
+  saves: {"fortitude": 14, "reflex": 7, "will": 6}
+  abilities: {"cha": -2, "con": 4, "dex": -1, "int": -2, "str": 6, "wis": 0}
+  speeds: {"land": 30}
+  senses: ["darkvision"]
+  skills: {"Athletics": 12, "Intimidation": 10, "Survival": 6}
+  strikes: [{"name": "Greataxe", "bonus": 14, "damage": [["1d12+8", "slashing", null]], "traits": ["reach-10", "sweep"]}, {"name": "Jaws", "bonus": 14, "damage": [["1d8+8", "piercing", null]], "traits": ["unarmed"], "effects": ["Gluttons Feast", "Grab"]}]
+  actions: [{"name": "Glutton's Feast", "type": "passive", "traits": [], "text": "If the ogre glutton damages a living creature with their jaws Strike, they gain 1d4 temporary Hit Points for 1 minute."}, {"name": "Glutton's Rush", "type": "action", "traits": [], "cost": 2, "text": "The ogre glutton Strides twice and makes a jaws Strike. If they damage a living creature with this Strike, the temporary Hit Points they receive from Glutton's Feast is increased to 2d4."}, {"name": "Swallow Whole", "type": "action", "traits": ["attack"], "cost": 1, "text": "Small, (2d4+4) bludgeoning damage, Rupture 14"}, {"name": "Throw Powder Keg", "type": "action", "traits": [], "cost": 2, "text": "Frequency once (until the ogre acquires another powder keg)%rEffect The ogre lights and hurls a powder keg of gunpowder at a point within 40 feet. The fuse continues to burn for 1 round, during which time an adjacent creature can use an Interact action to remove the lit fuse, rendering the keg harmless. At the start of the ogre's next turn, if the fuse is still lit, the keg explodes, dealing 3d8 fire damage and 3d8 bludgeoning damage to creatures in a 15-foot (DC 20 Reflex)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Palzu":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 8
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "humanoid", "kholo"]
+  ac: 25
+  hp: 135
+  perception: 17
+  saves: {"fortitude": 17, "reflex": 18, "will": 13}
+  abilities: {"cha": 2, "con": 3, "dex": 4, "int": -1, "str": 3, "wis": 3}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 18, "Athletics": 15, "Intimidation": 16, "Stealth": 18, "Survival": 17}
+  strikes: [{"name": "Jax", "bonus": 18, "damage": [["2d4+7", "slashing", null]], "traits": ["critical-fusion", "finesse", "forceful", "magical", "sweep"]}, {"name": "Jaws", "bonus": 15, "damage": [["1d8+7", "piercing", null]], "traits": ["agile", "unarmed"]}, {"name": "Jax", "bonus": 18, "damage": [["2d6+4", "piercing", null]], "traits": ["concussive", "fatal-aim-d10", "magical", "reload-1"], "range": 40, "effects": ["Crack Shot"]}]
+  actions: [{"name": "Crack Shot", "type": "passive", "traits": [], "text": "When Palzu critically hits a creature with a ranged Strike, the target must succeed at a DC 26 Fortitude save or be Stunned 1."}, {"name": "Howling Bullet", "type": "action", "traits": ["fear"], "cost": 1, "text": "Requirements Palzu has rolled initiative but hasn't acted yet in combat%rEffect Palzu lets loose a blood-curdling howl while firing his rifle, making the report sound unearthly and disturbing. Palzu makes a Jax Strike against a foe within 40 feet. On a hit, creatures in a 10-foot centered on the target hit must attempt a DC 26 Will save or become Frightened 1."}, {"name": "Rugged Travel", "type": "passive", "traits": [], "text": "Palzu ignores the first square of difficult terrain he moves into each time he Steps or Strides."}]
+"Parsus":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["dhampir", "evil", "human", "humanoid"]
+  ac: 29
+  hp: 160
+  perception: 20
+  saves: {"fortitude": 18, "reflex": 18, "will": 20}
+  abilities: {"cha": 0, "con": 3, "dex": 3, "int": 5, "str": 4, "wis": 0}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  skills: {"Arcana": 24, "Deception": 19, "Intimidation": 19, "Society": 19, "Geb Lore": 22, "Undead Lore": 22}
+  strikes: [{"name": "Claw", "bonus": 21, "damage": [["3d8+7", "slashing", null]], "traits": ["agile", "unarmed"]}, {"name": "Necromechanical Innovation", "bonus": 21, "damage": [["2d10+7", "bludgeoning", null]], "traits": []}, {"name": "Slide Pistol", "bonus": 20, "damage": [["2d6+3", "piercing", null]], "traits": ["capacity-5", "concussive", "fatal-d10", "magical", "reload-1"], "range": 30}]
+  actions: [{"name": "+2 Status to All Saves vs. Disease and Mental", "type": "passive", "traits": []}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Clockwork Necromancy", "type": "action", "traits": ["evil", "unstable"], "cost": 2, "text": "Parsus winds their necromechanical innovation (see below) to infuse a corpse-riddled area with necromantic energy. The innovation casts Black Tentacles on a point within 100 feet, causing the dead body parts in a 10-foot to briefly animate and scrabble at creatures within the area for 1 round."}, {"name": "Explode", "type": "action", "traits": ["manipulate", "unstable"], "cost": 2, "text": "Parsus pushes their necromechanical innovation beyond its normal limits, dealing 10d6 void|options:area-damage damage in a 10-foot (DC 31 Reflex). Parsus can choose to include themself in this effect."}, {"name": "Necromantic Winding", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Parsus winds up their necromechanical innovation. They choose an active effect with the necromancy trait that originated from one of their spells or abilities (such as Clockwork Necromancy). The effect's duration extends to the end of Parsus's next turn."}, {"name": "Necromechanical Innovation", "type": "passive", "traits": [], "text": "Although a necromancer by training, Parsus recently developed a complex device called a necromechanical innovation. This device allows Parsus to use their Clockwork Necromancy, Explode, and Necromatic Winding abilities. It otherwise functions as an inventor weapon innovation with no modifications."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 31, "attack": 23, "spells": {"0": ["Acid Splash", "Chill Touch", "Detect Magic", "Message", "Ray of Frost"], "1": ["Grim Tendrils", "Unseen Servant"], "2": ["False Life", "Mirror Image", "Spectral Hand"], "3": ["Bind Undead", "Vampiric Touch"], "4": ["Enervation", "Fly", "Seal Fate", "Vampiric Maiden"], "5": ["Cloudkill"]}}]
+"Powderkeg Punk Bombardier":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "humanoid"]
+  ac: 17
+  hp: 16
+  perception: 5
+  saves: {"fortitude": 6, "reflex": 7, "will": 4}
+  abilities: {"cha": 3, "con": 3, "dex": 4, "int": 2, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 7, "Athletics": 3, "Crafting": 5, "Intimidation": 8, "Stealth": 7, "Gunpowder Lore": 7}
+  weaknesses: {"fire": 3}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Alchemist's Fire", "bonus": 9, "damage": [["1d8", "fire", null], ["1", "fire", "persistent"], ["1", "fire", "splash"]], "traits": ["bomb", "splash"], "range": 20}]
+  actions: [{"name": "Blaze of Glory", "type": "reaction", "traits": ["concentrate", "emotion", "fear", "mental", "visual"], "text": "Trigger The Powderkeg Punk takes fire damage%rThe Powderkeg Punk Demoralizes the creature that dealt the fire damage. Demoralize loses the auditory trait and gains the visual trait, and the Powderkeg Punk doesn't take a penalty if the creature doesn't understand their language. The Powderkeg Punk can use this reaction even if the triggering damage reduced the Punk to 0 Hit Points."}, {"name": "Bombing Run", "type": "action", "traits": [], "cost": 2, "text": "The bombardier draws two bombs, and then Strides and makes two Strikes with a bomb before, after, or during the movement."}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "The bombardier can Interact to draw a bomb and then make a Strike with it."}, {"name": "Shake It Up", "type": "action", "traits": [], "cost": 2, "text": "The bombardier shakes a bottle of alchemist's fire, and then Strikes with it. The radius of the splash damage for this Strike increases to 10 feet."}]
+"Powderkeg Punk Gunner":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 0
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "humanoid"]
+  ac: 16
+  hp: 13
+  perception: 4
+  saves: {"fortitude": 5, "reflex": 6, "will": 2}
+  abilities: {"cha": 2, "con": 2, "dex": 3, "int": 1, "str": 0, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 5, "Athletics": 2, "Crafting": 3, "Intimidation": 6, "Stealth": 5, "Gunpowder Lore": 5}
+  strikes: [{"name": "Fist", "bonus": 4, "damage": [["1d4", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Flintlock Pistol", "bonus": 7, "damage": [["1d4", "piercing", null]], "traits": ["concussive", "fatal-d8", "reload-1"], "range": 40}]
+  actions: [{"name": "Blaze of Glory", "type": "reaction", "traits": ["concentrate", "emotion", "fear", "mental", "visual"], "text": "Trigger The Powderkeg Punk takes fire damage%rThe Powderkeg Punk Demoralizes the creature that dealt the fire damage. Demoralize loses the auditory trait and gains the visual trait, and the Powderkeg Punk doesn't take a penalty if the creature doesn't understand their language. The Powderkeg Punk can use this reaction even if the triggering damage reduced the Punk to 0 Hit Points."}, {"name": "Gut Shot", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rRequirements The gunner is flanked by two or more creatures and the gunner's pistol is loaded%rEffect The gunner turns their pistol on themself and pulls the trigger, firing through their own gut to catch the foe behind them unawares. The gunner makes a flintlock pistol Strike against an adjacent creature, who becomes Off-Guard against this Strike. The gunner takes 1d4 piercing damage."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The gunner deals an additional 1d6 precision damage to Off-Guard creatures."}, {"name": "Toss and Shoot", "type": "action", "traits": [], "cost": 3, "text": "Requirements The gunner is holding a loaded firearm%rEffect The gunner Interacts to draw an alchemist's fire, throws it at a point within 30 feet, and then shoots the bomb in midair. Creatures within a 10-foot radius of the shot bomb must succeed at a DC 15 Reflex save or take the splash and persistent damage from the alchemist's fire."}]
+"Prairie Drake":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "small"
+  rarity: "uncommon"
+  traits: ["dragon", "earth", "evil"]
+  ac: 18
+  hp: 36
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 6, "will": 6}
+  abilities: {"cha": 1, "con": 4, "dex": 2, "int": -2, "str": 3, "wis": 2}
+  speeds: {"land": 25, "burrow": 20, "fly": 10}
+  senses: ["tremorsense"]
+  skills: {"Acrobatics": 6, "Athletics": 9, "Intimidation": 5, "Survival": 6}
+  immunities: ["paralyzed", "sleep"]
+  resistances: {"electricity": 4}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d6+6", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Wing", "bonus": 9, "damage": [["1d6+3", "slashing", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Dirt Breath", "type": "action", "traits": ["arcane", "earth"], "cost": 2, "text": "The prairie drake spits a ball of dirt that explodes into a shower of rocks and mud. The attack has a range of 30 feet and explodes in a 5-foot. Creatures within the burst take 3d6 bludgeoning|options:area-damage damage (DC 16 Reflex). Plant creatures in the area take no damage on a successful save; regardless, once per day, plant creatures can spend 10 minutes in the area to absorb the nutrients and heal 1d8 healing Hit Points. The prairie drake can't use Dirt Breath again for 1d6 rounds."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The prairie drake makes one jaws Strike and two wing Strikes in any order."}, {"name": "Speed Surge", "type": "action", "traits": [], "cost": 1, "text": "Frequency three times per day%rEffect The prairie drake Strides or Burrows twice."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Pyronite Ooze":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 10
+  size: "large"
+  rarity: "rare"
+  traits: ["mindless", "ooze"]
+  ac: 19
+  hp: 350
+  perception: 14
+  saves: {"fortitude": 24, "reflex": 14, "will": 19}
+  abilities: {"cha": -5, "con": 7, "dex": -5, "int": -5, "str": 7, "wis": 0}
+  speeds: {"land": 20, "climb": 20}
+  senses: ["tremorsense"]
+  skills: {"Athletics": 22}
+  immunities: ["bludgeoning", "critical-hits", "fire", "precision", "unconscious", "visual"]
+  weaknesses: {"cold": 15}
+  strikes: [{"name": "Pseudopod", "bonus": 23, "damage": [["3d10+10", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Blast", "bonus": 21, "damage": [["3d8+3", "fire", null]], "traits": ["fire"], "range": 40}]
+  actions: [{"name": "Tremorsense (Imprecise) 60 feet", "type": "passive", "traits": []}, {"name": "Constant Explosions", "type": "passive", "traits": ["aura", "fire"], "text": "5 feet. 4d6 fire|options:area-damage, DC 29 Reflex. This aura can't cause other pyronite oozes to split."}, {"name": "Rejoin", "type": "passive", "traits": [], "text": "If two or more Medium pyronite oozes end their turn in adjacent spaces, they merge into a Large pyronite ooze, combining their current Hit Points."}, {"name": "Split", "type": "passive", "traits": [], "text": "When a Large pyronite ooze is hit by an attack that would deal bludgeoning or fire damage and it has 10 or more HP, it explodes, dealing 6d6 fire|options:area-damage damage to creatures in a 10-foot radius (DC 29 Reflex). This explosion can't cause other pyronite oozes to split. After exploding, the ooze splits into two Medium pyronite oozes, each with half the original's HP, which each fly through the air and land 15 feet from the original ooze in a random direction. If no space is unoccupied…"}, {"name": "Exploding Split", "type": "action", "traits": [], "cost": 2, "text": "Requirements The pyronite ooze is Large%rEffect The pyronite ooze explodes in a violent conflagration, dealing 3d6 fire and 3d6 bludgeoning damage to all creatures in a 30-foot radius (DC 29 Reflex). This explosion can't cause other pyronite oozes to split. After exploding, the ooze splits into two Medium pyronite oozes (see above), but this splitting doesn't deal additional damage."}]
+"Roxy":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "small"
+  rarity: "uncommon"
+  traits: ["dragon", "earth", "evil"]
+  ac: 18
+  hp: 36
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 6, "will": 6}
+  abilities: {"cha": 1, "con": 4, "dex": 2, "int": -2, "str": 3, "wis": 2}
+  speeds: {"land": 25, "burrow": 20, "fly": 10}
+  senses: ["tremorsense"]
+  skills: {"Acrobatics": 6, "Athletics": 9, "Intimidation": 5, "Survival": 6}
+  immunities: ["paralyzed", "sleep"]
+  resistances: {"electricity": 4}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d6+6", "piercing", null]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Wing", "bonus": 9, "damage": [["1d6+3", "slashing", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Tremorsense (Imprecise) 30 feet", "type": "passive", "traits": []}, {"name": "Dirt Breath", "type": "action", "traits": ["arcane", "earth"], "cost": 2, "text": "The prairie drake spits a ball of dirt that explodes into a shower of rocks and mud. The attack has a range of 30 feet and explodes in a 5-foot. Creatures within the burst take 3d6 bludgeoning|options:area-damage damage (DC 16 Reflex). Plant creatures in the area take no damage on a successful save; regardless, once per day, plant creatures can spend 10 minutes in the area to absorb the nutrients and heal 1d8 healing Hit Points. The prairie drake can't use Dirt Breath again for 1d6 rounds."}, {"name": "Draconic Frenzy", "type": "action", "traits": [], "cost": 2, "text": "The prairie drake makes one jaws Strike and two wing Strikes in any order."}, {"name": "Speed Surge", "type": "action", "traits": [], "cost": 1, "text": "Frequency three times per day%rEffect The prairie drake Strides or Burrows twice."}, {"name": "Whipping Wing", "type": "action", "traits": [], "cost": 2, "text": "Roxy makes a wing Strike against a target within reach. On a critical hit, the target is Blinded until the end of its next turn."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Rust Ooze":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["mindless", "ooze"]
+  ac: 11
+  hp: 80
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 3, "will": 6}
+  abilities: {"cha": -5, "con": 3, "dex": -4, "int": -5, "str": 4, "wis": 1}
+  speeds: {"land": 15, "swim": 30}
+  senses: ["motion-sense"]
+  skills: {"Athletics": 9, "Stealth": 5}
+  immunities: ["critical-hits", "precision", "unconscious", "visual"]
+  weaknesses: {"electricity": 5}
+  resistances: {"metal": 5}
+  strikes: [{"name": "Pseudopod", "bonus": 11, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Rust", "Tetanus"]}]
+  actions: [{"name": "Motion Sense 60 feet", "type": "passive", "traits": [], "text": "A rust ooze can sense nearby creatures through vibration and air or water movement."}, {"name": "Corrode Weapon", "type": "reaction", "traits": [], "text": "Trigger The rust ooze is hit with a metal weapon%rEffect The rust ooze deals 2d6 acid damage to the item, ignoring its Hardness."}, {"name": "Metal Resistance", "type": "passive", "traits": [], "text": "A rust ooze has resistance 5 to metal weapons."}, {"name": "Rust", "type": "passive", "traits": [], "text": "When a rust ooze critically succeeds at a pseudopod Strike, it deals 2d6 acid damage to a metal item the target is wearing or holding, ignoring the item's Hardness. If a creature uses the Shield Block reaction with a metal shield against a rust ooze's pseudopod attack, the shield is automatically broken, but no other item is rusted."}, {"name": "Tetanus", "type": "passive", "traits": ["disease"], "text": "An infection introduced through open wounds, tetanus can produce stiffness, muscle spasms strong enough to break bones, and ultimately death.%rSaving Throw DC 14 Fortitude%rOnset 10 days%rStage 1 Clumsy 1 (1 week)%rStage 2 Clumsy 2 and can't speak (1 day)%rStage 3 Paralyzed with spasms (1 day)%rStage 4 death"}]
+"Sabora Sharkosa":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "unique"
+  traits: ["aiuvarin", "elf", "evil", "human", "humanoid", "lawful"]
+  ac: 25
+  hp: 120
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 17, "will": 13}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 17, "Athletics": 17, "Deception": 15, "Diplomacy": 15, "Society": 11, "Stealth": 17, "Thievery": 17, "Alkenstar Lore": 11}
+  strikes: [{"name": "Knuckle Duster", "bonus": 16, "damage": [["2d4+10", "bludgeoning", null]], "traits": ["agile", "free-hand", "magical"], "effects": ["Concussive Fist"]}, {"name": "Dueling Pistol", "bonus": 16, "damage": [["2d6+6", "piercing", null]], "traits": ["concealable", "concussive", "fatal-d10", "magical", "reload-1"], "range": 60}]
+  actions: [{"name": "Quickest Draw", "type": "reaction", "traits": [], "text": "Requirements Sharkosa is aware of at least one of her enemies and not Off-Guard%rTrigger Sharkosa rolls for initiative%rEffect Sharkosa makes two melee Strikes, or draws her pistol and makes a ranged Strike, against an enemy she is aware of."}, {"name": "Concussive Fist", "type": "passive", "traits": ["incapacitation"], "text": "A living creature hit by Sharkosa's knuckle duster must attempt a DC 23 Fortitude save.%rCritical Success The creature is immune to this ability for the next 24 hours.%rSuccess The creature is unaffected.%rFailure The creature is Confused for 1 round.%rCritical Failure The creature is confused for 1 round and falls Prone."}, {"name": "Golden Bullets", "type": "passive", "traits": [], "text": "Sharkosa's supernatural connection to gold allows her to alter the trajectory of her gold-cased bullets in flight. As long as her target is within 120 feet, Sharkosa gains a +1 circumstance bonus to ranged Strikes against targets with lesser cover and a +2 circumstance bonus to ranged Strikes against targets with standard or greater cover."}, {"name": "One-Two Punch", "type": "action", "traits": [], "cost": 2, "text": "Sharkosa makes three melee Strikes with her knuckle duster . Each Strike counts against her multiple attack penalty as usual."}, {"name": "Reload Trick", "type": "action", "traits": [], "cost": 3, "text": "Requirements No enemies are within 60 feet of Sharkosa and her dueling pistol is loaded%rFrequency once per minute%rEffect Sharkosa makes two dueling pistol Strikes, reloading after each shot."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Sharkosa deals an extra 2d6 precision damage to Off-Guard creatures."}]
+"Scarecophagus":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 6
+  size: "large"
+  rarity: "rare"
+  traits: ["construct", "evil", "lawful"]
+  ac: 24
+  hp: 100
+  perception: 14
+  saves: {"fortitude": 14, "reflex": 10, "will": 16}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": -2, "str": 5, "wis": 4}
+  speeds: {"land": 25, "climb": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 15}
+  immunities: ["mental"]
+  strikes: [{"name": "Tentacle", "bonus": 15, "damage": [["2d6+7", "bludgeoning", null]], "traits": ["agile", "magical", "reach-10", "unarmed"]}]
+  actions: [{"name": "Magic Sense (Imprecise) 30 feet", "type": "passive", "traits": ["magical"], "text": "The scarecophagus detects the presence of magic items and spell effects within 30 feet as an imprecise sense."}, {"name": "Despair", "type": "passive", "traits": ["aura", "divine", "emotion", "fear", "incapacitation", "mental"], "text": "30 feet. Living creatures are Frightened 1 while in a scarecophagus' despair aura. They can't naturally recover from this fear while in the emanation but recover instantly once they leave it. When a creature first enters the emanation, it must succeed at a DC 22 Will save (after taking the penalty from being frightened 1) or be Paralyzed for 1 round. The creature is then temporarily immune to this paralysis for 24 hours.%rEffect: Despair"}, {"name": "Disgorge Mummy", "type": "passive", "traits": [], "text": "If a scarecophagus is reduced to 0 Hit Points by any damage other than vitality energy, it cracks open as it's destroyed, allowing the undead mummy trapped for eons within its core to rise. This is a weak Mummy Guardian; if the mummy guardian survives on its own for a month, it loses the weak adjustment. If the scarecophagus is reduced to 0 Hit Points by vitality energy, it cracks open as it's destroyed and the mummy within turns to dust, destroyed as well."}, {"name": "Vulnerable to Vitality Energy", "type": "passive", "traits": [], "text": "A scarecophagus takes damage from vitality energy as if it were an undead creature."}, {"name": "Sarcophagus", "type": "action", "traits": ["concentrate"], "cost": 1, "text": "Until the next time it acts, the scarecophagus appears to be a normal stone sarcophagus. It has an automatic result of 34 on Deception checks and DCs to pass as a sarcophagus."}, {"name": "Shifting Scuttle", "type": "free", "traits": [], "text": "Frequency once per turn%rEffect The scarecophagus Steps up to 10 feet."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 24, "attack": 16, "spells": {"0": ["Daze", "Detect Magic", "Electric Arc", "Shield", "Tanglefoot"], "1": ["Magic Missile", "Ray of Enfeeblement"], "2": ["Acid Arrow", "Dispel Magic"], "3": ["Fireball", "Lightning Bolt", "Wall of Wind"]}}]
+"Shock Zombie":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["electricity", "evil", "mindless", "undead", "unholy", "zombie"]
+  ac: 21
+  hp: 140
+  perception: 12
+  saves: {"fortitude": 14, "reflex": 17, "will": 11}
+  abilities: {"cha": -2, "con": 2, "dex": 4, "int": -5, "str": 5, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "lightning powered, void healing"
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 14, "Athletics": 15}
+  immunities: ["bleed", "death-effects", "disease", "electricity", "paralyzed", "poison"]
+  weaknesses: {"vitality": 5, "slashing": 5}
+  strikes: [{"name": "Fist", "bonus": 17, "damage": [["2d6+7", "bludgeoning", null], ["1d12", "electricity", null]], "traits": ["unarmed"]}]
+  actions: [{"name": "Electricity Absorption", "type": "passive", "traits": [], "text": "For 1 minute after taking electricity damage, a shock zombie loses its usual Slowed 1 condition, gains the ability to use reactions, and gains a +10-foot status bonus to its Speed.%rEffect: Electricity Absorption"}, {"name": "Lightning Powered", "type": "passive", "traits": [], "text": "Arcs of restorative electricity jolt between shock zombies. For each shock zombie within 30 feet, the shock zombie gains fast healing 2 (to a maximum of fast healing 10).%rEffect: Lightning Powered"}, {"name": "Slow", "type": "passive", "traits": [], "text": "A shock zombie is typically Slowed 1 and can't use reactions (but see electricity absorption)."}, {"name": "Void Healing", "type": "passive", "traits": []}]
+"Shoma Lyzerius":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 3
+  size: "medium"
+  rarity: "unique"
+  traits: ["chaotic", "human", "humanoid", "naari"]
+  ac: 18
+  hp: 44
+  perception: 9
+  saves: {"fortitude": 6, "reflex": 10, "will": 8}
+  abilities: {"cha": 4, "con": 1, "dex": 3, "int": 4, "str": 1, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 8, "Arcana": 9, "Crafting": 12, "Deception": 9, "Diplomacy": 9, "Society": 9, "Stealth": 10, "Thievery": 10, "Underworld Lore": 9}
+  resistances: {"fire": 3}
+  strikes: [{"name": "Fist", "bonus": 8, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "finesse", "nonlethal", "unarmed"]}, {"name": "Bottled Lightning", "bonus": 10, "damage": [["2d6", "electricity", null], ["2", "electricity", "splash"]], "traits": ["alchemical", "bomb", "consumable", "electricity", "splash", "thrown-30"]}, {"name": "Tanglefoot Bag", "bonus": 10, "damage": [], "traits": ["alchemical", "bomb", "consumable", "thrown-30"]}, {"name": "Acid Flask", "bonus": 10, "damage": [["1", "acid", null], ["2d6", "acid", "persistent"], ["2", "acid", "splash"]], "traits": ["acid", "alchemical", "bomb", "consumable", "splash", "thrown-30"]}, {"name": "Lyzerium", "bonus": 10, "damage": [["2d8", "fire", null], ["2", "fire", "persistent"], ["2", "fire", "splash"]], "traits": ["alchemical", "bomb", "consumable", "fire", "splash", "thrown-30"]}]
+  actions: [{"name": "Infused Items", "type": "passive", "traits": [], "text": "Shoma Lyzerius carries 2 Acid Flask (Moderate), 2 Bottled Lightning (Moderate), 2 Elixir of Life (Lesser), 6 moderate lyzerium vials, and 2 Tanglefoot Bag (Lesser). These items last for 24 hours, or until the next time he makes his daily preparations. He can spend an action to create an additional dose of any one of these items, or any of the items listed as formulas in his book."}, {"name": "Far Lob", "type": "passive", "traits": [], "text": "Lyzerius's bombs have a range increment of 30 feet (instead of 20 feet)."}, {"name": "Firebug", "type": "passive", "traits": [], "text": "Lyzerius's alchemical items deal an additional 1 fire damage on a successful Strike."}, {"name": "Natural-Born Burner", "type": "passive", "traits": [], "text": "Any melee weapon Lyzerius uses deals an additional 1d6 fire damage."}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "Lyzerius can Interact to draw a bomb and then make a Strike with it."}]
+"Skeletal Crocodile":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "huge"
+  rarity: "common"
+  traits: ["evil", "mindless", "skeleton", "undead", "unholy"]
+  ac: 25
+  hp: 105
+  perception: 16
+  saves: {"fortitude": 15, "reflex": 15, "will": 13}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": -5, "str": 7, "wis": 2}
+  speeds: {"land": 30}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Athletics": 20, "Intimidation": 15}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "unconscious"]
+  resistances: {"cold": 5, "electricity": 5, "fire": 5, "piercing": 5, "slashing": 5}
+  strikes: [{"name": "Claw", "bonus": 18, "damage": [["2d6+11", "slashing", null]], "traits": ["agile", "reach-10", "unarmed"]}, {"name": "Bite", "bonus": 18, "damage": [["2d6+11", "piercing", null]], "traits": ["reach-15"], "effects": ["Grab"]}, {"name": "Tail", "bonus": 18, "damage": [["2d6+11", "bludgeoning", null]], "traits": ["agile", "reach-10"]}]
+  actions: [{"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Broad Swipe", "type": "action", "traits": [], "cost": 2, "text": "The crocodile makes two Strikes with its tail against two adjacent foes, both of whom are within its reach. The multiple attack penalty does not increase until after both attacks are resolved."}, {"name": "Reconfigure", "type": "action", "traits": [], "cost": 3, "text": "Part machine and part skeleton, the crocodile reconfigures its mechanical components, either reducing its size to Large or returning its size to Huge if it is currently Large."}, {"name": "Skull Shot", "type": "action", "traits": [], "cost": 2, "text": "The skeletal crocodile detaches its skull and fires it at a target within 30 feet, making a bite Strike. If the Strike is successful and the target is Large or smaller, the crocodile uses a heavy chain to retract its skull back to its body, dragging the targeted creature 30 feet."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Slick":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 3
+  size: "large"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 18
+  hp: 60
+  perception: 10
+  saves: {"fortitude": 8, "reflex": 12, "will": 8}
+  abilities: {"cha": -2, "con": 1, "dex": 3, "int": -4, "str": 5, "wis": 3}
+  speeds: {"land": 30, "climb": 20}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 10, "Stealth": 10}
+  strikes: [{"name": "Jaws", "bonus": 12, "damage": [["1d10+7", "piercing", null]], "traits": ["reach-10", "unarmed"]}, {"name": "Tongue", "bonus": 12, "damage": [], "traits": ["agile", "reach-15"], "effects": ["Tongue Grab"]}, {"name": "Tail", "bonus": 12, "damage": [["1d8+5", "bludgeoning", null]], "traits": ["reach-10"]}]
+  actions: [{"name": "Camouflage", "type": "passive", "traits": [], "text": "The giant chameleon can change its coloration to match its surroundings. It doesn't need cover to attempt to hide with a Stealth check."}, {"name": "All-Around Vision", "type": "passive", "traits": []}, {"name": "Tongue Grab", "type": "passive", "traits": [], "text": "If the giant chameleon hits a creature with a tongue Strike, that creature becomes Grabbed by the giant chameleon. The target isn't Immobilized, but it can't move beyond the reach of the giant chameleon's tongue. A creature can sever the tongue with an attack that hits AC 15 and deals at least 4 slashing damage. Though this doesn't deal any damage to the giant chameleon, it prevents it from using its tongue Strike until it regrows its tongue, which takes a week."}]
+"Sludgespine Killer":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: -1
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["chaotic", "evil", "humanoid", "kholo"]
+  ac: 14
+  hp: 8
+  perception: 5
+  saves: {"fortitude": 6, "reflex": 5, "will": 5}
+  abilities: {"cha": -1, "con": 3, "dex": 1, "int": -1, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Athletics": 5, "Intimidation": 4, "Stealth": 4, "Thievery": 4}
+  strikes: [{"name": "Jaws", "bonus": 6, "damage": [["1d6", "piercing", null]], "traits": ["unarmed"]}, {"name": "Sap", "bonus": 6, "damage": [["1d6", "bludgeoning", null]], "traits": ["agile", "nonlethal"]}, {"name": "Bola", "bonus": 5, "damage": [["1d6", "bludgeoning", null]], "traits": ["nonlethal", "ranged-trip", "thrown"]}]
+  actions: [{"name": "Weeping Wounds", "type": "passive", "traits": [], "text": "The fluid in a Sludgespine's pustules is harmful to other creatures. Whenever a creature hits a Sludgespine killer with a melee attack, the attacker must succeed at a DC 14 Reflex save or take 1 acid damage (2 acid damage on a critical failure)."}, {"name": "Pack Attack", "type": "passive", "traits": [], "text": "A gnoll deals 1d4 extra damage to any creature that's within reach of at least two of the gnoll's allies."}, {"name": "Stealthy Abduction", "type": "passive", "traits": [], "text": "When a Sludgespine killer successfully Grapples a creature, that creature makes no sound; other creatures can't notice the grapple by hearing alone. As long as it's grabbed, the creature can't use actions with the auditory trait or cast spells with a verbal component."}]
+"Smog Giant":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 7
+  size: "large"
+  rarity: "rare"
+  traits: ["chaotic", "evil", "giant", "humanoid"]
+  ac: 23
+  hp: 145
+  perception: 13
+  saves: {"fortitude": 17, "reflex": 15, "will": 13}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": -2, "str": 6, "wis": 2}
+  speeds: {"land": 35}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 17, "Intimidation": 15, "Survival": 13}
+  resistances: {"fire": 10, "poison": 10}
+  strikes: [{"name": "Headbutt", "bonus": 18, "damage": [["2d10+8", "bludgeoning", null]], "traits": []}, {"name": "Fist", "bonus": 18, "damage": [["2d8+8", "bludgeoning", null]], "traits": ["agile", "reach-10", "unarmed"]}, {"name": "Shrapnel", "bonus": 16, "damage": [["2d4+8", "bludgeoning", null]], "traits": ["versatile-p"]}]
+  actions: [{"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Catch Rock", "type": "reaction", "traits": []}, {"name": "Explosive Headbutt", "type": "action", "traits": [], "cost": 2, "text": "The smog giant cracks their neck, triggering pockets of black powder at the base of their skull to impart additional power to their attack. The giant then attempts a headbutt Strike. This counts as two attacks when calculating the giant's attack penalty. If this Strike hits, it deals (2d10+8) bludgeoning damage and the creature struck must attempt a DC 25 Fortitude save.%rCritical Success The creature suffers no additional effect.%rSuccess The creature takes an additional 1d10 bludgeoning…"}, {"name": "Shrapnel", "type": "passive", "traits": [], "text": "A smog giant has a dozen implanted knives, rocks, chunks of metal, spikes, and other adornments that they can fire from their body with great force to make ranged shrapnel Strikes. Once a smog giant has used all 12 shots, they must replace them one at a time using a 1-minute Interact activity."}]
+"Smog Wraith":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["evil", "incorporeal", "undead", "unholy", "wraith"]
+  ac: 27
+  hp: 110
+  perception: 19
+  saves: {"fortitude": 17, "reflex": 17, "will": 21}
+  abilities: {"cha": 4, "con": 6, "dex": 4, "int": 3, "str": -5, "wis": 6}
+  speeds: {"land": 0, "fly": 60}
+  senses: ["darkvision", "lifesense"]
+  skills: {"Deception": 20, "Nature": 19, "Stealth": 19}
+  immunities: ["bleed", "death-effects", "disease", "paralyzed", "poison", "precision", "unconscious"]
+  resistances: {"all-damage": 10}
+  strikes: [{"name": "Noxious Hand", "bonus": 21, "damage": [["3d6+9", "poison", null]], "traits": ["finesse"]}]
+  actions: [{"name": "Floating Corpses", "type": "passive", "traits": [], "text": "A smog wraith's victims are imbued with an eerie buoyancy; corpses of such creatures float up to 30 feet in the air while inside the wraith's noxious smog aura, though the wraith has no control over the corpse's movement."}, {"name": "Lifesense 60 feet", "type": "passive", "traits": []}, {"name": "+1 Status to All Saves vs. Vitality", "type": "passive", "traits": []}, {"name": "Noxious Smog", "type": "passive", "traits": ["aura", "poison"], "text": "30 feet. Creatures within the aura are Concealed, and creatures outside the aura are concealed to creatures within it. A creature that ends its turn within the aura must attempt a DC 25 Fortitude save.%rCritical Success The creature is unaffected.%rSuccess The creature is Sickened 1.%rFailure The creature is sickened 1 and Slowed 1 while within the cloud.%rCritical Failure The creature is Sickened 2 and slowed 1 while within the cloud."}, {"name": "Sunlight Powerlessness", "type": "passive", "traits": [], "text": "A smog wraith caught in sunlight is Stunned 2 and Clumsy 2."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Smog Wraith Spawn", "type": "passive", "traits": [], "text": "A living humanoid slain by a smog wraith's noxious hand Strike rises as a smog wraith spawn after 1d4 rounds. This spawn is under the command of the smog wraith that killed it. It doesn't have noxious smog or smog wraith spawn and becomes Clumsy 2 for as long as it's a smog wraith spawn. If the creator of the spawn dies, the spawn becomes a full-fledged, autonomous smog wraith; it regains its free will, gains smog wraith spawn and noxious smog, and is no longer clumsy."}]
+"Spellscar Sky Marauder":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["chaotic", "evil", "humanoid", "mutant"]
+  ac: 22
+  hp: 85
+  perception: 12
+  saves: {"fortitude": 12, "reflex": 13, "will": 10}
+  abilities: {"cha": -1, "con": 5, "dex": 4, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 30, "fly": 40}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 13, "Arcana": 11, "Athletics": 13, "Intimidation": 10, "Stealth": 13, "Spellscar Desert Lore": 13}
+  immunities: ["disease"]
+  resistances: {"acid": 5}
+  strikes: [{"name": "Scimitar", "bonus": 15, "damage": [["2d6+6", "slashing", null]], "traits": ["forceful", "magical", "sweep"]}, {"name": "Talon", "bonus": 15, "damage": [["2d4+6", "slashing", null]], "traits": ["agile", "finesse", "unarmed"], "effects": ["Mana Fever"]}]
+  actions: [{"name": "Acidic Pustules", "type": "passive", "traits": [], "text": "The marauder's skin is covered with necrotic boils that burst when struck. Whenever a creature deals slashing or piercing damage to the marauder, each creature within 5 feet takes 2d6 acid damage (DC 22 Reflex). On a critically failed save, a creature also takes 1d4 persistent acid damage."}, {"name": "Runic Resistance", "type": "reaction", "traits": ["arcane"], "text": "Trigger The marauder takes damage from a Strike or spell effect%rEffect The marauder's protective runic tattoos glow, granting them resistance 5 to one damage type dealt by the triggering attack.%rThis resistance applies against the triggering effect and lasts for 1 minute or until the marauder uses this ability again, whichever comes first. If the triggering effect deals multiple damage types, the marauder chooses which type to resist.%rEffect: Runic Resistance"}, {"name": "Mana Fever", "type": "passive", "traits": ["disease"], "text": "A creature can't remove the fatigued condition while infected%rSaving Throw DC 22 Fortitude%rOnset 1 day%rStage 1 Fatigued and Stupefied 1 (1 day)%rStage 2 fatigued and Stupefied 2 (1 day)%rStage 3 fatigued and Stupefied 3 (1 day)%rStage 4 gain immunity to mana fever and become a Mana Wastes mutant"}, {"name": "Paired Strike", "type": "action", "traits": [], "cost": 2, "text": "Requirements The maftet is wielding two scimitars%rEffect The maftet makes two Strikes against the same target, one with each of their scimitars. The maftet combines the damage of any attacks that hit and applies resistances and weaknesses only once. This counts as one attack when calculating the maftet's multiple attack penalty."}, {"name": "Powerful Scimitars", "type": "passive", "traits": ["arcane"], "text": "Any non-magical scimitar becomes a +1 striking scimitar while a spellscar sky marauder wields it."}, {"name": "Raptor Dive", "type": "action", "traits": [], "cost": 3, "text": "Requirements The marauder is flying at least 10 feet above the target%rEffect The marauder Flies up to twice their fly Speed and makes a Paired Strike at the end of the movement. If both Strikes hit, the target is also knocked Prone."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 22, "attack": 14, "spells": {"0": ["Sigil"], "1": ["Sanctuary", "True Strike"]}}]
+"Steaming Kingdom Bartender":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["dwarf", "evil", "humanoid", "lawful"]
+  ac: 16
+  hp: 35
+  perception: 8
+  saves: {"fortitude": 9, "reflex": 5, "will": 8}
+  abilities: {"cha": 3, "con": 2, "dex": 0, "int": 0, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 9, "Deception": 6, "Diplomacy": 6, "Performance": 8, "Society": 6, "Thievery": 5, "Alcohol Lore": 11}
+  strikes: [{"name": "Sap", "bonus": 8, "damage": [["1d6+5", "bludgeoning", null]], "traits": ["agile", "nonlethal"]}, {"name": "Fist", "bonus": 8, "damage": [["1d4+5", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Pewter Mug", "bonus": 5, "damage": [["1d4+5", "bludgeoning", null]], "traits": ["thrown-10"]}, {"name": "Dwarven Scattergun", "bonus": 7, "damage": [["1d8", "piercing", null]], "traits": ["concussive", "kickback", "reload-1", "scatter-10"], "range": 50}]
+  actions: [{"name": "Bar Brawler", "type": "passive", "traits": [], "text": "The barkeep has been in enough bar fights to know how to throw a few punches. When fighting in their bar and making a nonlethal attack, the barkeep gains a +1 circumstance bonus to attack rolls and deals an additional 1d4 damage."}, {"name": "Barkeep's Advice", "type": "action", "traits": ["auditory", "fortune", "linguistic", "mental"], "cost": 3, "text": "Frequency once per day%rEffect The barkeep gives some pertinent advice to a single creature other than themself. For 24 hours, when that creature fails a skill check or saving throw, they can recall this advice and reroll the check, using the second result instead. Once that creature uses this ability, its effect ends.%rA creature that receives the Barkeep's Advice is temporarily immune to the ability for 1 month."}]
+"Swee Pup":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "tiny"
+  rarity: "unique"
+  traits: ["construct", "lawful", "soulbound"]
+  ac: 20
+  hp: 23
+  perception: 8
+  saves: {"fortitude": 7, "reflex": 10, "will": 6}
+  abilities: {"cha": 0, "con": 3, "dex": 4, "int": 0, "str": -2, "wis": 2}
+  speeds: {"land": 0}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Occultism": 4, "Stealth": 8}
+  immunities: ["mental"]
+  strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["agile", "finesse", "magical", "unarmed"]}]
+  actions: [{"name": "Broken Legs", "type": "passive", "traits": [], "text": "Swee Pup's lower half doesn't function as a result of damage sustained, reducing its Speed to 0 feet. Repairing such a complex and rare prototype is beyond the ability of anyone but Kosowana without months of research."}, {"name": "Personality Fragments", "type": "passive", "traits": [], "text": "A soulbound doll shares fragments of its donor soul's personality, though none of that creature's memories. This causes a soulbound doll to match the donor soul's alignment and gain the corresponding alignment traits."}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Light", "Mage Hand", "Prestidigitation"], "3": ["Levitate", "Nondetection"]}}]
+"The Claws of Time":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 10
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration", "evil", "time"]
+  ac: 30
+  hp: 150
+  perception: 21
+  saves: {"fortitude": 17, "reflex": 21, "will": 19}
+  abilities: {"cha": 3, "con": 3, "dex": 7, "int": 7, "str": 5, "wis": 5}
+  speeds: {"land": 30, "fly": 30}
+  senses: ["greater-darkvision"]
+  skills: {"Acrobatics": 22, "Athletics": 19, "Occultism": 22, "Stealth": 22, "Survival": 17}
+  immunities: ["controlled", "emotion"]
+  resistances: {"mental": 10, "poison": 10}
+  strikes: [{"name": "Jaws", "bonus": 22, "damage": [["2d10+11", "piercing", null]], "traits": ["unarmed"]}, {"name": "Claw", "bonus": 22, "damage": [["2d8+11", "slashing", null]], "traits": ["agile", "unarmed"]}]
+  actions: [{"name": "Greater Darkvision", "type": "passive", "traits": []}, {"name": "Telepathy 300 feet", "type": "passive", "traits": ["aura", "magical"]}, {"name": "Lamp Vision 30 feet", "type": "passive", "traits": [], "text": "The Claws of Time is specially attuned to the crystal lamps in the Cradle of Quartz. It can sense creatures within 30 feet of any crystal lamp in the Cradle of Quartz. These lamps are marked as glowing blue dots on the map. This is a precise sense."}, {"name": "Otherworldly Mind", "type": "passive", "traits": ["mental"], "text": "Whenever a creature targets the hound with a mental effect, that creature takes 4d6 mental damage (DC 29 Will save). On a critical failure, it also becomes Confused for 1d4 rounds."}, {"name": "Ripping Gaze", "type": "passive", "traits": ["aura", "occult", "visual"], "text": "30 feet. The Claws of Time's eyes glow balefully, causing painful but bloodless wounds to rip open in the body of a creature that meets its awful gaze. When a creature ends its turn in the aura's emanation, it takes 6d6 slashing damage (DC 29 Fortitude save).%rA creature that critically succeeds at its save is temporarily immune for 24 hours."}, {"name": "Vulnerable to Curved Space", "type": "passive", "traits": [], "text": "When a hound of Tindalos is not adjacent to a structural angle of 90º (or more acute), its resistance to physical damage is suppressed and it becomes Sickened 1. It can't recover from this sickened condition, but the condition ends automatically once the hound is again adjacent to a suitable angle.%rEffect: Vulnerable to Curved Space"}, {"name": "Angled Entry", "type": "action", "traits": [], "cost": 1, "text": "The Claws of Time casts a 4th-rank Translocate spell, but it must transport itself into a space adjacent to an angle of 90º (or more acute) in the structure or environment around it. This means the hound can use dimension door to appear adjacent to any wall or corner in the Cradle of Quartz except for the central geode (area D16 ).%rOnce per day, the hound can use this ability to Interplanar Teleport to or from the Dimension of Time, with the same restrictions on what angles next to which it…"}]
+  spellcasting: [{"name": "Occult Innate Spells", "tradition": "occult", "type": "innate", "dc": 28, "attack": 20, "spells": {"2": ["Invisibility (At Will) (Self Only)"], "3": ["Agonizing Despair", "Haste", "Slow"], "4": ["Dimensional Anchor"], "8": ["Discern Location"]}}]
+"Trapjaw Tangle":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 5
+  size: "large"
+  rarity: "rare"
+  traits: ["construct", "evil", "swarm"]
+  ac: 22
+  hp: 58
+  perception: 11
+  saves: {"fortitude": 11, "reflex": 14, "will": 9}
+  abilities: {"cha": -2, "con": 4, "dex": 5, "int": -4, "str": -1, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 12, "Athletics": 6, "Stealth": 13}
+  immunities: ["mental", "precision", "swarm-mind"]
+  weaknesses: {"area-damage": 4, "electricity": 8, "splash-damage": 4}
+  resistances: {"bludgeoning": 4, "piercing": 8, "slashing": 8}
+  actions: [{"name": "Swarm Mind", "type": "passive", "traits": []}, {"name": "Cling", "type": "reaction", "traits": [], "text": "Trigger A creature leaves the trapjaw tangle's space%rEffect The swarm takes 1d6 untyped damage as individual traps cling to the creature and continue chewing, dealing 2d10 persistent slashing damage. High winds or electricity damage reduces the DC of the flat check to end this persistent damage by 5. Any area damage dealt to the creature destroys these clinging trapjaws."}, {"name": "Snapping Jaws", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 2d10 slashing damage (DC 22 Reflex). Creatures that fail this save become Sickened 1 from the numerous painful wounds caused by the swarm."}, {"name": "Trip and Tangle", "type": "action", "traits": [], "cost": 1, "text": "Requirements A creature in the trapjaw tangle's space took damage from the swarm during this round%rEffect The trapjaw tangle attempts an Athletics check with a +10 modifier against the creature's Fortitude DC. On a success, the creature is Off-Guard until the start of the trapjaw tangle's next turn. On a critical success, the creature also falls Prone."}]
+"Vewslog":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 9
+  size: "large"
+  rarity: "unique"
+  traits: ["evil", "giant", "humanoid", "lawful"]
+  ac: 28
+  hp: 161
+  perception: 18
+  saves: {"fortitude": 21, "reflex": 18, "will": 15}
+  abilities: {"cha": -1, "con": 3, "dex": 6, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 30}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 20, "Intimidation": 16, "Survival": 18, "Fortune-Telling Lore": 19}
+  strikes: [{"name": "Greataxe", "bonus": 19, "damage": [["1d12+10", "slashing", null]], "traits": ["reach-10", "sweep"]}, {"name": "Dueling Pistol", "bonus": 21, "damage": [["2d6+3", "piercing", null]], "traits": ["concealable", "concussive", "fatal-d10", "magical", "reload-1"], "range": 60}]
+  actions: [{"name": "Ferocity", "type": "reaction", "traits": []}, {"name": "Flash of Insight", "type": "free", "traits": ["divine", "fortune", "occult"], "text": "Trigger Vewslog is about to roll a d20%rFrequency once per day%rEffect The cyclops peers into an occluded spectrum of possible futures. He gets a success (but not a critical success) on the roll instead of rolling."}, {"name": "Pistolero's Retort", "type": "reaction", "traits": [], "text": "Trigger A foe within 60 feet critically fails an attack roll against Vewslog%rEffect Vewslog makes a dueling pistol Strike against the triggering foe."}, {"name": "Deadeye", "type": "passive", "traits": [], "text": "Vewslog's ranged attacks deal an additional 4d6 precision damage."}, {"name": "Firearms Critical Specialization", "type": "passive", "traits": [], "text": "When Vewslog makes a critical hit with a firearm, the target must succeed at a DC 25 Fortitude save or become Stunned 1."}, {"name": "Ricochet", "type": "action", "traits": [], "cost": 2, "text": "Frequency once per round%rEffect Vewslog makes a ranged Strike and compares the attack roll result to the AC of up to two foes, each of whom must be within 60 feet of Vewslog. Roll damage only once and apply it to each creature hit. A ricochet counts as two attacks for Vewslog's multiple attack penalty."}]
+"Vivielle Ramslay":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["evil", "human", "humanoid"]
+  ac: 21
+  hp: 54
+  perception: 10
+  saves: {"fortitude": 6, "reflex": 11, "will": 16}
+  abilities: {"cha": 4, "con": 0, "dex": 3, "int": 4, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  skills: {"Arcana": 13, "Deception": 15, "Diplomacy": 15, "Intimidation": 15, "Occultism": 15, "Performance": 17, "Religion": 11, "Society": 17, "Stealth": 9, "Thievery": 9, "Underworld Lore": 17}
+  strikes: [{"name": "Shortsword", "bonus": 13, "damage": [["1d6+6", "slashing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Hand Crossbow", "bonus": 13, "damage": [["1d6+3", "piercing", null]], "traits": ["reload-1"], "range": 60}]
+  actions: [{"name": "Versatile Performance", "type": "passive", "traits": [], "text": "The mastermind can use Performance instead of Diplomacy to make-an-impression statistic=performance and instead of Intimidation to demoralize statistic=performance.%rThe mastermind can also use an acting Performance instead of Deception to impersonate statistic=performance."}, {"name": "Scoundrel's Feint", "type": "action", "traits": [], "cost": 1, "text": "When the mastermind successfully Feints, the target is Off-Guard against the mastermind's melee attacks until the end of the mastermind's next turn. On a critical success, the target is off-guard against all melee attacks for that time, not just the mastermind's."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The mastermind deals an extra 1d6 precision damage to Off-Guard creatures."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 22, "attack": 14, "spells": {"0": ["Daze", "Detect Magic", "Message", "Prestidigitation", "Sigil"], "1": ["Charm", "Illusory Disguise", "Illusory Object"], "2": ["Blur", "Invisibility", "Paranoia"], "3": ["Clairaudience"]}}, {"name": "Occult Focus Spells", "tradition": "occult", "type": "focus", "dc": 22, "attack": 14, "spells": {"0": ["Inspire Competence", "Inspire Courage"]}}]
+"Yeast Ooze":
+  pack: "outlaws-of-alkenstar-bestiary"
+  level: 2
+  size: "large"
+  rarity: "rare"
+  traits: ["mindless", "ooze"]
+  ac: 12
+  hp: 60
+  perception: 6
+  saves: {"fortitude": 10, "reflex": 3, "will": 6}
+  abilities: {"cha": -5, "con": 2, "dex": -2, "int": -5, "str": 3, "wis": -1}
+  speeds: {"land": 20, "swim": 20}
+  senses: ["motion-sense"]
+  skills: {"Athletics": 7}
+  immunities: ["acid", "critical-hits", "precision", "unconscious", "visual"]
+  weaknesses: {"bludgeoning": 5, "cold": 5}
+  resistances: {"slashing": 5, "piercing": 5}
+  strikes: [{"name": "Pseudopod", "bonus": 9, "damage": [["1d8+3", "bludgeoning", null]], "traits": ["unarmed"], "effects": ["Monstrous Yeast"]}]
+  actions: [{"name": "Motion Sense 60 feet", "type": "passive", "traits": [], "text": "A yeast ooze can sense nearby creatures through vibration and air or water movement."}, {"name": "Monstrous Yeast", "type": "passive", "traits": ["contact", "disease"], "text": "Whenever a creature infected with monstrous yeast takes cold damage, they can make a new saving throw with a +2 circumstance bonus. Failure doesn't advance the disease%rSaving Throw DC 16 Fortitude%rOnset 1 round%rStage 1 Off-Guard (1 hour)%rStage 2 Enfeebled 1 and off-guard (1 hour)%rStage 3 Enfeebled 2 and off-guard (1 day)"}]

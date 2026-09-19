@@ -25,6 +25,9 @@ module AresMUSH
       healing = get_daily_healing(char)
       Pf2eHP.modify_damage(char, healing, true)
 
+      # A night has passed: anything shorter than a day is over, and a day-long effect counts it.
+      ActiveEffects.rested(char)
+
       # Focus Pool
       daily_refresh_focus_pool(magic) if magic
 
@@ -47,12 +50,17 @@ module AresMUSH
       return nil
     end
 
+    # A full night's rest recovers Constitution modifier times level, doubled by Fast Recovery and its
+    # like. Foundry keeps that as a multiplier their rules add to, so what an effect wrote is one less
+    # than the multiplier it means (`system.attributes.hp.recoveryMultiplier`).
     def self.get_daily_healing(char)
       con_mod = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Constitution")).clamp(0,99)
 
-      bonuses = 0
+      ((con_mod * char.pf2_level) * recovery_multiplier(char)).to_i.clamp(1,999)
+    end
 
-      ((con_mod * char.pf2_level) + bonuses).clamp(1,999)
+    def self.recovery_multiplier(char)
+      1 + Pf2e::Paths.held(char, 'recovery_multiplier').to_i
     end
 
     def self.do_refresh(char)

@@ -8,6 +8,7 @@ module AresMUSH
     # command too, so `weapon` worked where `weapons` did not, or the other way about.
     #
     #   names      - every spelling a player may type, the first being the canonical one
+    #   config     - the catalogue the item's stats and effects are read from
     #   collection - the character collection the items live in
     #   in_bag     - the same items inside a bag, which the bag model spells differently
     #   model      - the Ohm class, which config also names under item_classes
@@ -20,36 +21,36 @@ module AresMUSH
 
       CATEGORIES = [
         {
-          'names' => %w{weapons weapon}, 'collection' => :weapons, 'in_bag' => :weapons, 'model' => 'PF2Weapon',
+          'names' => %w{weapons weapon}, 'config' => 'pf2e_weapons', 'collection' => :weapons, 'in_bag' => :weapons, 'model' => 'PF2Weapon',
           'single' => false, 'stackable' => false, 'investable' => true, 'in_bags' => true,
           'use_needs' => :equipped
         },
         {
-          'names' => %w{armor}, 'collection' => :armor, 'in_bag' => :armor, 'model' => 'PF2Armor',
+          'names' => %w{armor}, 'config' => 'pf2e_armor', 'collection' => :armor, 'in_bag' => :armor, 'model' => 'PF2Armor',
           'single' => true, 'stackable' => false, 'investable' => true, 'in_bags' => true,
           'use_needs' => :equipped
         },
         {
-          'names' => %w{shields shield}, 'collection' => :shields, 'in_bag' => :shields, 'model' => 'PF2Shield',
+          'names' => %w{shields shield}, 'config' => 'pf2e_shields', 'collection' => :shields, 'in_bag' => :shields, 'model' => 'PF2Shield',
           'single' => true, 'stackable' => false, 'investable' => false, 'in_bags' => true
         },
         {
           # The character keeps these in `magic_items` and a bag keeps them in `magicitem`. A command
           # that guessed wrong raised NoMethodError, which is what bag/store did.
-          'names' => %w{magicitem magicitems}, 'collection' => :magic_items, 'in_bag' => :magicitem, 'model' => 'PF2MagicItem',
+          'names' => %w{magicitem magicitems}, 'config' => 'pf2e_magicitem', 'collection' => :magic_items, 'in_bag' => :magicitem, 'model' => 'PF2MagicItem',
           'single' => false, 'stackable' => false, 'investable' => true, 'in_bags' => true,
           'use_needs' => :invested
         },
         {
-          'names' => %w{bags bag}, 'collection' => :bags, 'in_bag' => nil, 'model' => 'PF2Bag',
+          'names' => %w{bags bag}, 'config' => 'pf2e_bags', 'collection' => :bags, 'in_bag' => nil, 'model' => 'PF2Bag',
           'single' => false, 'stackable' => false, 'investable' => false, 'in_bags' => false
         },
         {
-          'names' => %w{gear}, 'collection' => :gear, 'in_bag' => :gear, 'model' => 'PF2Gear',
+          'names' => %w{gear}, 'config' => 'pf2e_gear', 'collection' => :gear, 'in_bag' => :gear, 'model' => 'PF2Gear',
           'single' => false, 'stackable' => true, 'investable' => false, 'in_bags' => true
         },
         {
-          'names' => %w{consumables consumable}, 'collection' => :consumables, 'in_bag' => :consumables, 'model' => 'PF2Consumable',
+          'names' => %w{consumables consumable}, 'config' => 'pf2e_consumables', 'collection' => :consumables, 'in_bag' => :consumables, 'model' => 'PF2Consumable',
           'single' => false, 'stackable' => true, 'investable' => false, 'in_bags' => true
         }
       ].freeze
@@ -121,6 +122,10 @@ module AresMUSH
 
       # What has to be true of the item before it can be used: worn for armour and a weapon,
       # invested for a magic item, nothing for a consumable.
+      def self.config(category)
+        (row(category) || {})['config']
+      end
+
       def self.use_needs(category)
         (row(category) || {})['use_needs']
       end

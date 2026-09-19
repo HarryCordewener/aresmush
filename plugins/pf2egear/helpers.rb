@@ -76,6 +76,18 @@ module AresMUSH
       list.filter { |item| !(item.bag) }
     end
 
+    # What a character can carry, and the point at which it tells.
+    #
+    # PF2e sets these at 10 + Strength and 5 + Strength, and a feat raises them - Hefty Hauler by two
+    # each. The feat says so itself, as an `inventory.bulk` write, so nothing here names the feat.
+    def self.max_bulk(char)
+      10 + Pf2e.ability_mod(char, 'Strength') + Pf2e::Paths.held(char, 'maxaddend').to_i
+    end
+
+    def self.encumbered_at(char)
+      5 + Pf2e.ability_mod(char, 'Strength') + Pf2e::Paths.held(char, 'encumberedafteraddend').to_i
+    end
+
     def self.bag_effective_bulk(bag, load)
       capacity_bonus = bag.bulk_bonus ? bag.bulk_bonus : 0
       bag_bulk = bag.bulk
@@ -111,10 +123,20 @@ module AresMUSH
       build_item(char, category, name, item_info)
     end
 
+    # Copies the catalogue's per-item facts onto the item: its bulk, its price, its runes.
+    #
+    # Only the keys the model actually has. A catalogue row also carries things that belong to the
+    # kind of item rather than to this one - what it modifies, what it says about itself - and those
+    # are read from the catalogue when wanted, so writing them onto every copy would both waste the
+    # space and freeze a catalogue we edit constantly.
     def self.build_item(char, category, name, item_info)
-      item = Inventory.model(category).create(:character => char, :name => name)
+      model = Inventory.model(category)
+      item = model.create(:character => char, :name => name)
+      known = model.attributes.map(&:to_s)
 
-      (item_info || {}).each_pair { |key, value| item.update("#{key}": value) }
+      (item_info || {}).each_pair do |key, value|
+        item.update("#{key}": value) if known.include?(key.to_s)
+      end
 
       item
     end
@@ -139,18 +161,77 @@ module AresMUSH
                .select { |item| item.invested }
     end
 
-    def self.bonus_from_item(char, roll)
-      invested_items = get_invested_items(char)
+    # Every item the character has actually got working, each paired with the category it came from.
+    #
+    # `use_needs` already says what has to be true before an item does anything: armour and weapons
+    # have to be worn, a magic item has to be invested. A category with no `use_needs` - gear, a
+    # consumable, a shield - has nothing worn about it, so nothing there modifies a figure passively;
+    # a potion in a backpack is not a bonus, and a shield's AC comes from raising it.
+    def self.effective_items(char)
+      Inventory.categories.map { |c| Inventory.canonical(c) }.uniq.flat_map do |category|
+        needs = Inventory.use_needs(category)
 
-      blist = [ 0 ]
+        next [] unless needs
 
-      invested_items.each do |i|
-        bonus = i.bonus[roll]
-
-        blist << bonus if bonus
+        Inventory.held(char, category).select { |item| item.send(needs) }
+                 .map { |item| [ category, item ] }
       end
+    end
 
-      blist.sort.pop
+    # Everything the character has on them, worn or not.
+    #
+    # Most of what an item does needs it worn, and `effective_items` is the list for that. Some rules say
+    # outright that they do not - a compass points north in your pack, a religious symbol is held rather
+    # than worn - and those rules are marked, so the item has to be reachable to read the mark.
+    def self.carried_items(char)
+      Inventory.categories.map { |c| Inventory.canonical(c) }.uniq.flat_map do |category|
+        Inventory.held(char, category).map { |item| [ category, item ] }
+      end
+    end
+
+    # The catalogue row an item was made from, which is where its effects live - the same way a feat's
+    # effects live in the feat catalogue rather than on the character.
+    # The property runes etched on an item, as slugs. `etch/property` keeps them as a list on the item,
+    # which is where Foundry keeps them too.
+    def self.property_runes(item)
+      Array(item.runes&.dig('property', 'list')).map { |one| Pf2e::Domains.slug(one) }
+    end
+
+    # The catalogue of property runes, keyed by the slug a rule names. Foundry keeps what a rune does in
+    # their code rather than their packs, so `scripts/import_foundry_runes.py` reads that table and
+    # writes it here as `rules:` like every other catalogue.
+    def self.runes
+      (Global.read_config('pf2e_runes') || {})
+    end
+
+    # A rune answers to its name as a player types it and to the slug their data calls it, which are not
+    # the same word: `giantKilling` slugs to one word and "Giant Killing" to two.
+    def self.rune_row(name)
+      wanted = Pf2e::Domains.slug(name)
+
+      runes.find do |held, info|
+        [ held, info['slug'] ].compact.any? { |one| Pf2e::Domains.slug(one) == wanted }
+      end
+    end
+
+    def self.rune_entry(name)
+      rune_row(name)&.last
+    end
+
+    def self.rune_named(name)
+      rune_row(name)&.first
+    end
+
+    # How many property runes an item can hold: as many as its potency rune is worth, which is the
+    # rule as written.
+    def self.rune_slots(item)
+      get_rune_value(item, 'fundamental', 'potency').to_i
+    end
+
+    def self.catalogue_entry(category, item)
+      catalogue = Inventory.config(category)
+
+      catalogue && Global.read_config(catalogue, item.name)
     end
 
     def self.destroy_item(item, client, enactor)

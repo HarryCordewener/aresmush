@@ -1,0 +1,135 @@
+---
+"Ahvothian":
+  pack: "the-slithering-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["chaotic", "evil", "fiend", "unholy"]
+  ac: 25
+  hp: 160
+  perception: 18
+  saves: {"fortitude": 18, "reflex": 12, "will": 15}
+  abilities: {"cha": 2, "con": 4, "dex": 2, "int": 0, "str": 6, "wis": 4}
+  speeds: {"land": 30, "Freedom Of Movement": 25}
+  senses: ["darkvision"]
+  skills: {"Athletics": 19, "Crafting": 11, "Intimidation": 15, "Religion": 11, "Survival": 17}
+  weaknesses: {"cold": 5, "holy": 5}
+  resistances: {"fire": 10}
+  strikes: [{"name": "Jaws", "bonus": 18, "damage": [["2d10+8", "piercing", null]], "traits": ["unarmed", "unholy"]}, {"name": "Longspear", "bonus": 18, "damage": [["1d8+8", "piercing", null]], "traits": ["reach-10", "unholy"], "effects": ["Wicked Trophies"]}, {"name": "Javelin", "bonus": 14, "damage": [["1d6+8", "piercing", null]], "traits": ["thrown-30", "unholy"], "effects": ["Wicked Trophies"]}]
+  actions: [{"name": "Constant Spells", "type": "passive", "traits": []}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Reptile Master", "type": "passive", "traits": [], "text": "When an ahvothian uses an innate spell against a reptile, the DC is 27 rather than 23."}, {"name": "Wicked Trophies", "type": "passive", "traits": [], "text": "An ahvothian chooses a creature type (such as animal, celestial, or humanoid) from which they currently carry a trophy from a past kill.%rTheir weapon Strikes against creatures of that type deal an additional 1d10 damage and they gain a +2 status bonus on Intimidation checks against creatures of that type.%rThe ahvothian doesn't lose these bonuses if they lose the trophies. Once per day, an ahvothian can change the creature type of their wicked trophies in a ritual that takes 1 hour.%rNearly…"}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 23, "attack": 15, "spells": {"1": ["Charm (At Will)"], "2": ["Death Knell (At Will)"], "3": ["Earthbind (At Will)", "Fear (At Will)"], "4": ["Creation", "Freedom of Movement (Constant)", "Speak with Animals (Constant)"]}}]
+"Angazhani Cultist":
+  pack: "the-slithering-bestiary"
+  level: 4
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 21
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 13, "reflex": 9, "will": 11}
+  abilities: {"cha": 2, "con": 1, "dex": 1, "int": 0, "str": 4, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Athletics": 12, "Diplomacy": 8, "Intimidation": 10, "Religion": 8, "Stealth": 9, "Survival": 11, "Demon Lore": 8}
+  strikes: [{"name": "Spear", "bonus": 14, "damage": [["1d6+6", "piercing", null]], "traits": []}, {"name": "Spear", "bonus": 11, "damage": [["1d6+6", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Bloody Fanaticism", "type": "reaction", "traits": [], "text": "Trigger The cultist rolls a failure (but not a critical failure) on a Will save against an effect with the mental or fear trait%rEffect The cultist takes 2d8 mental damage, and the saving throw is a success."}, {"name": "Shield Block", "type": "reaction", "traits": []}, {"name": "Demonic Strength", "type": "passive", "traits": [], "text": "Angazhani cultists inflict an extra 1d6 damage with their spears, and any spear gains the fatal d10 trait while the cultist is using it (both the extra weapon damage die and the fatal trait have already been included in the cultist's spear Strikes above)."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 21, "attack": 13, "spells": {"0": ["Daze", "Forbidding Ward", "Light", "Stabilize"], "1": ["Bane", "Command", "Harm", "Heal", "Ray of Enfeeblement"], "2": ["Dispel Magic", "Sound Burst"]}}]
+"Aspis Technician":
+  pack: "the-slithering-bestiary"
+  level: 7
+  size: "small"
+  rarity: "common"
+  traits: ["chaotic", "evil", "gnome", "humanoid"]
+  ac: 25
+  hp: 115
+  perception: 15
+  saves: {"fortitude": 13, "reflex": 17, "will": 15}
+  abilities: {"cha": 0, "con": 2, "dex": 4, "int": 4, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 15, "Arcana": 15, "Crafting": 17, "Stealth": 15, "Thievery": 15, "Aspis Consortium Lore": 15}
+  resistances: {"poison": 5}
+  strikes: [{"name": "Rapier", "bonus": 18, "damage": [["2d6+8", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse"], "effects": ["Hunting Spider Venom"]}, {"name": "Acid Flask", "bonus": 18, "damage": [["5", "acid", null], ["2d6+2", "acid", "persistent"], ["4", "acid", "splash"]], "traits": ["splash"], "range": 20}, {"name": "Alchemist's Fire", "bonus": 18, "damage": [["2d8+2", "fire", null], ["4", "fire", "persistent"], ["4", "fire", "splash"]], "traits": ["splash"], "range": 20}]
+  actions: [{"name": "Infused Items", "type": "passive", "traits": [], "text": "An Aspis technician carries the following infused items:%r2 - Lesser Antidotes 2 - Moderate Acid Flasks 2 - Moderate Alchemist's Fires 2 - Lesser Elixirs of Life These items last for 24 hours or until the next time the technician makes their daily preparations."}, {"name": "Hunting Spider Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 21 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d10 poison and Off-Guard (1 round)%rStage 2 1d12 poison, Clumsy 1, and off-guard (1 round)%rStage 3 2d6 poison, Clumsy 2, and off-guard (1 round)"}, {"name": "Poison Weapon", "type": "action", "traits": ["manipulate"], "cost": 1, "text": "Requirements The Aspis technician is wielding a piercing or slashing weapon and has a free hand%rEffect The Aspis technician applies a poison to the weapon."}, {"name": "Quick Bomber", "type": "action", "traits": [], "cost": 1, "text": "The Aspis technician Interacts to draw a bomb, then Strikes with it."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "The Aspis technician deals an extra 2d6 precision precision damage to Off-Guard creatures."}]
+"Croakchief Globblit Skink-eater":
+  pack: "the-slithering-bestiary"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["amphibious", "boggard", "evil", "humanoid"]
+  ac: 21
+  hp: 85
+  perception: 13
+  saves: {"fortitude": 14, "reflex": 9, "will": 13}
+  abilities: {"cha": 2, "con": 3, "dex": 2, "int": -1, "str": 5, "wis": 2}
+  speeds: {"land": 20, "swim": 25}
+  skills: {"Athletics": 14, "Intimidation": 13, "Survival": 11, "Swamp Lore": 8}
+  strikes: [{"name": "Greatclub", "bonus": 15, "damage": [["2d10+5", "bludgeoning", null]], "traits": ["backswing", "magical", "shove"]}, {"name": "Tongue", "bonus": 14, "damage": [], "traits": ["reach-10"], "effects": ["Tongue Grab"]}, {"name": "Javelin", "bonus": 12, "damage": [["1d6+5", "piercing", null]], "traits": ["thrown-20"]}]
+  actions: [{"name": "Bounding Leap", "type": "action", "traits": [], "cost": 2, "text": "Globblit Leaps twice; this movement doesn't provoke reactions. If he ends his movement within melee reach of at least one enemy, he can make a melee Strike against that enemy."}, {"name": "Commanding Croak", "type": "action", "traits": ["auditory"], "cost": 1, "text": "Globblit gives a loud, belching croak to compel his allies to action. Each boggard within 30 feet can use a reaction to Step, Stride, or Strike."}, {"name": "Smash and Slurp", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per turn%rEffect Globblit makes a greatclub Strike and a tongue Strike against the same target. If the greatclub Strike hits, the target is Off-Guard against his tongue Strike.%rThis counts as two attacks for Globblit's multiple attack penalty, but the penalty doesn't increase until after his Smash and Slurp."}, {"name": "Swamp Stride", "type": "passive", "traits": [], "text": "Globblit ignores difficult terrain caused by swamp terrain features."}, {"name": "Tongue Grab", "type": "passive", "traits": [], "text": "If Globblit hits a creature with his tongue, that creature becomes Grabbed by him. Unlike a normal grab, the creature isn't Immobilized, but it can't move beyond the reach of Globblit's tongue.%rA creature can sever the tongue by succeeding at an AC 18 Strike and dealing at least 6 slashing damage. Though this doesn't deal any damage to Globblit, it prevents him from using his tongue Strike until it regrows, which takes a week."}]
+"Cursebreaker":
+  pack: "the-slithering-bestiary"
+  level: 9
+  size: "medium"
+  rarity: "unique"
+  traits: ["construct", "golem", "mindless"]
+  ac: 27
+  hp: 140
+  perception: 18
+  saves: {"fortitude": 21, "reflex": 17, "will": 20}
+  abilities: {"cha": -5, "con": 4, "dex": 0, "int": -5, "str": 6, "wis": 3}
+  speeds: {"land": 20}
+  senses: ["darkvision"]
+  skills: {"Athletics": 23, "Kibwe Lore": 12}
+  immunities: ["acid", "magic"]
+  strikes: [{"name": "Fist", "bonus": 21, "damage": [["2d10+10", "bludgeoning", null]], "traits": ["magical", "reach-10", "unarmed"]}]
+  actions: [{"name": "Golem Antimagic", "type": "passive", "traits": [], "text": "Harmed by cold and water (5d8 untyped, 2d6 untyped from areas or persistent damage); healed by acid (area 2d6 healing HP); slowed by earth"}, {"name": "Vulnerable to Stone to Flesh", "type": "passive", "traits": [], "text": "A Stone to Flesh spell negates Cursebreaker's golem antimagic and its resistance to physical damage for 1 round.%rA Petrify spell reverses this effect immediately."}, {"name": "Impose Paralysis", "type": "reaction", "traits": ["incapacitation"], "text": "Trigger Cursebreaker hits a Slowed creature%rEffect The creature must succeed at a DC 27 Fortitude save or become Paralyzed for 1 round."}, {"name": "Inexorable March", "type": "action", "traits": [], "cost": 1, "text": "DC 32 Fortitude%rOn a critical success, the resisting creature takes no damage; otherwise it is damaged as if hit by Cursebreaker's fist.%rThe golem Strides up to its Speed, pushing back each creature whose space it moves into and damaging them if they try to stop its movement. A creature can attempt to bar the way by succeeding at a Fortitude save."}, {"name": "Slowing Pulse", "type": "action", "traits": ["arcane", "concentrate"], "cost": 1, "text": "Each creature in a 10-foot must succeed at a DC 27 Fortitude save or be Slowed 1 for 1 minute.%rCursebreaker can't use Slowing Pulse again for 1d4 rounds."}, {"name": "Undo Curse", "type": "passive", "traits": [], "text": "Cursebreaker can cast a 10th-rank Cleanse Affliction spell at will, targeting every resident of the city of Kibwe. Cursebreaker must be stationed in the upper level of the Archive of the Sun with its sun symbols activated to use this ability."}]
+  spellcasting: [{"name": "Arcane Innate Spells", "tradition": "arcane", "type": "innate", "dc": 0, "attack": 0, "spells": {"10": ["Remove Curse (At Will) (See Undo Curse)"]}}]
+"Fuming Sludge":
+  pack: "the-slithering-bestiary"
+  level: 7
+  size: "medium"
+  rarity: "uncommon"
+  traits: ["mindless", "ooze"]
+  ac: 16
+  hp: 160
+  perception: 11
+  saves: {"fortitude": 18, "reflex": 8, "will": 11}
+  abilities: {"cha": -5, "con": 5, "dex": -3, "int": -5, "str": 6, "wis": 0}
+  speeds: {"land": 20, "climb": 20}
+  skills: {"Athletics": 19}
+  immunities: ["critical-hits", "fire", "piercing", "precision", "slashing", "unconscious", "visual"]
+  weaknesses: {"cold": 5}
+  strikes: [{"name": "Pseudopod", "bonus": 17, "damage": [["2d10+6", "bludgeoning", null], ["1d8", "fire", "persistent"]], "traits": ["unarmed"], "effects": ["Grab"]}, {"name": "Ejected Glob", "bonus": 17, "damage": [["3d6+6", "bludgeoning", null], ["1d8", "fire", "persistent"]], "traits": ["brutal"], "range": 20, "effects": ["Cooling Glob"]}]
+  actions: [{"name": "Chemical Sense 60 feet", "type": "passive", "traits": [], "text": "A fuming sludge detects nearby living and undead creatures by their complex chemical compositions, but it can't detect elementals or other creatures composed of a single element."}, {"name": "Smoldering Haze", "type": "passive", "traits": ["aura", "fire"], "text": "15 feet. The fuming sludge constantly emits incendiary smoke that creates Concealment around it. The smoke doesn't impair the fuming sludge's chemical sense. A creature that enters the aura or begins its turn in the aura becomes Sickened 1 (DC 25 Fortitude negates) and cannot recover from persistent fire damage for 1 round. It is then temporarily immune to the sickening effect of the smoldering haze for 1 minute.%rA creature that is currently holding its breath, that doesn't need to breathe, or…"}, {"name": "Attack of Opportunity", "type": "reaction", "traits": []}, {"name": "Constrict", "type": "action", "traits": [], "cost": 1, "text": "1d8+6 bludgeoning plus 1d8 persistent fire, DC 24 Fortitude"}, {"name": "Cooling Glob", "type": "passive", "traits": [], "text": "A fuming sludge's ejected globs cling to targets.%rA creature hit by an ejected glob Strike is Encumbered for 1 round.%rIf the attack was a critical hit, the creature is instead Restrained for 1 round (escape dc=24)."}, {"name": "Grab", "type": "action", "traits": [], "cost": 1}]
+"Nyamat Mshwe":
+  pack: "the-slithering-bestiary"
+  level: 6
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "evil", "human", "humanoid"]
+  ac: 23
+  hp: 90
+  perception: 16
+  saves: {"fortitude": 13, "reflex": 11, "will": 16}
+  abilities: {"cha": 3, "con": 1, "dex": 1, "int": 1, "str": 2, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Athletics": 12, "Diplomacy": 13, "Intimidation": 15, "Religion": 16, "Society": 9, "Survival": 12, "Demon Lore": 13}
+  strikes: [{"name": "Spear", "bonus": 17, "damage": [["2d6+4", "piercing", null]], "traits": ["magical"]}, {"name": "Spear", "bonus": 16, "damage": [["2d6+4", "piercing", null]], "traits": ["magical", "thrown-20"]}]
+  actions: [{"name": "+2 to Sense Motive", "type": "passive", "traits": []}, {"name": "Protect the Master", "type": "reaction", "traits": ["auditory", "emotion", "linguistic", "move"], "text": "Trigger Nyamat is targeted with an attack and a lower-ranking cultist is adjacent to him%rEffect Nyamat orders their cultist to leap in front of the attack. The cultist and Nyamat swap places, and the cultist becomes the target of the attack."}, {"name": "Demonic Strength", "type": "passive", "traits": [], "text": "Nyamat inflicts an extra 1d6 damage with his spear, and any spear gains the fatal d10 trait while Nyamat is using it (both the extra weapon damage die and the fatal trait have already been included in Nyamat's spear Strikes above)."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If a reaction would disrupt Nyamat's spellcasting action, on a successful DC 15 Flat, the action isn't disrupted."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 24, "attack": 16, "spells": {"0": ["Daze", "Forbidding Ward", "Light", "Stabilize"], "1": ["Bane", "Bless", "Command", "Fear", "Harm", "Heal", "Ray of Enfeeblement"], "2": ["Death Knell", "See Invisibility", "Spiritual Weapon"], "3": ["Chilling Darkness"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 24, "attack": 16, "spells": {"1": ["Glare of Obedience"]}}]
+"Paga Nikohian":
+  pack: "the-slithering-bestiary"
+  level: 9
+  size: "small"
+  rarity: "unique"
+  traits: ["evil", "halfling", "humanoid"]
+  ac: 28
+  hp: 155
+  perception: 19
+  saves: {"fortitude": 16, "reflex": 21, "will": 18}
+  abilities: {"cha": 5, "con": 1, "dex": 4, "int": 1, "str": 0, "wis": 3}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 19, "Arcana": 16, "Crafting": 16, "Deception": 22, "Diplomacy": 20, "Intimidation": 20, "Occultism": 16, "Society": 18, "Stealth": 21, "Thievery": 19, "Aspis Consortium Lore": 16}
+  strikes: [{"name": "Slime Whip", "bonus": 21, "damage": [["2d4+10", "slashing", null]], "traits": ["disarm", "finesse", "reach-10", "trip"]}, {"name": "Dagger", "bonus": 20, "damage": [["1d4+10", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}, {"name": "Dagger", "bonus": 20, "damage": [["1d4+10", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Keen Eyes", "type": "passive", "traits": [], "text": "Paga gains a +2 circumstance bonus when using the Seek action to find Hidden or Undetected creatures within 30 feet of her.%rWhen she targets an opponent that is Concealed from her or hidden, she reduces the DC of the flat check to DC 3 Flat for a concealed target or DC 9 Flat for a hidden one."}, {"name": "Halfling Luck", "type": "reaction", "traits": [], "text": "Trigger Paga fails or critically fails a skill check or a saving throw%rFrequency once per day%rEffect Paga rerolls the saving throw and must take the new result."}, {"name": "Feign Harmlessness", "type": "action", "traits": ["emotion", "occult", "visual"], "cost": 1, "text": "Paga cringes and cowers before a creature within 10 feet that can see her. The target must attempt a DC 28 Will save.%rThe target is then temporarily immune for 1 hour.%rCritical Success No effect.%rSuccess The creature is Fascinated by Paga until the end of its next turn.%rFailure The creature is fascinated by Paga and can't use hostile actions against her until the end of its next turn.%rCritical Failure As failure, and the creature isn't temporarily immune to Feign Harmlessness."}, {"name": "Unbreakable Concentration", "type": "passive", "traits": [], "text": "Paga's spells are disrupted by reactions only if she is critically hit."}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 28, "attack": 21, "spells": {"0": ["Daze", "Detect Magic", "Guidance", "Light", "Prestidigitation"], "1": ["Alarm", "Charm", "Unseen Servant"], "2": ["Hideous Laughter", "See Invisibility", "Touch of Idiocy"], "3": ["Fear", "Magic Missile", "Paralyze"], "4": ["Phantasmal Killer", "Soothe", "Vampiric Touch"], "5": ["Command", "Illusory Scene"]}}, {"name": "Bard Composition Spells", "tradition": "occult", "type": "focus", "dc": 28, "attack": 21, "spells": {"0": ["Dirge of Doom", "Inspire Courage"], "1": ["Counter Performance"]}}]

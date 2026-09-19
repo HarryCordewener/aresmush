@@ -32,6 +32,13 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "nature"
+        type: "circumstance"
+        value: 2
+        label: "Animal Staff (identify animals)"
+        predicate: ["target:trait:animal", {"or": ["action:recall-knowledge", "action:identify"]}]
   Animal Staff (Greater):
     wp_type: melee
     category: simple
@@ -49,6 +56,13 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "nature"
+        type: "circumstance"
+        value: 2
+        label: "Animal Staff (identify animals)"
+        predicate: ["target:trait:animal", {"or": ["action:recall-knowledge", "action:identify"]}]
   Animal Staff (Major):
     wp_type: melee
     category: simple
@@ -66,6 +80,13 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "nature"
+        type: "circumstance"
+        value: 2
+        label: "Animal Staff (identify animals)"
+        predicate: ["target:trait:animal", {"or": ["action:recall-knowledge", "action:identify"]}]
   Arbalest:
     wp_type: ranged
     category: martial
@@ -147,6 +168,19 @@ pf2e_weapons:
       fundamental:
         potency: 1
         power: 1
+    rules:
+      - key: "DamageDice"
+        selector: "{item|_id}-damage"
+        diceNumber: 1
+        dieSize: "d8"
+        damageType: "bleed"
+        critical: true
+      - key: "Note"
+        selector: "{item|_id}-damage"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "If the target didn't already have persistent bleed damage when you scored the critical hit, you also gain [[/r 1d8]] temporary Hit Points."
+        predicate: [{"not": "target:condition:persistent-damage:bleed"}]
   Blowgun:
     wp_type: ranged
     category: simple
@@ -266,6 +300,17 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Sword
+    rules:
+      - key: "AdjustStrike"
+        property: "materials"
+        mode: "add"
+        definition: ["item:id:{item|id}"]
+        value: "silver"
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Drained"
+        inMemoryOnly: true
+        alterations: [{"mode": "override", "property": "badge-value", "value": 2}]
+        predicate: ["self:trait:unholy"]
   Chaplain's Cudgel:
     wp_type: melee
     category: simple
@@ -285,6 +330,36 @@ pf2e_weapons:
       fundamental:
         potency: 1
         power: 1
+    rules:
+      - key: "RollOption"
+        option: "chaplains-cudgel:bow-to-a-higher-power"
+        toggleable: true
+        disabledIf: [{"not": "deity"}]
+        disabledValue: false
+        label: "Chaplain's Cudgel \u2014 Bow to a Higher Power"
+      - key: "RollOption"
+        option: "chaplains-cudgel:two-action-spell"
+        domain: "damage"
+        toggleable: true
+        label: "Cast a divine spell that takes two or more actions"
+        predicate: ["chaplains-cudgel:bow-to-a-higher-power"]
+      - key: "AdjustStrike"
+        property: "traits"
+        mode: "add"
+        definition: ["item:id:{item|_id}"]
+        value: "holy"
+        predicate: ["chaplains-cudgel:bow-to-a-higher-power", "self:trait:holy"]
+      - key: "AdjustStrike"
+        property: "traits"
+        mode: "add"
+        definition: ["item:id:{item|_id}"]
+        value: "unholy"
+        predicate: ["chaplains-cudgel:bow-to-a-higher-power", "self:trait:unholy"]
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        type: "status"
+        value: "@weapon.system.damage.dice"
+        predicate: ["chaplains-cudgel:two-action-spell", "item:id:{item|_id}"]
   Claw Blade:
     wp_type: melee
     category: martial
@@ -514,6 +589,23 @@ pf2e_weapons:
     runes:
       fundamental:
         potency: 1
+    rules:
+      - key: "RollOption"
+        option: "fighters-fork:fluid-length"
+        toggleable: true
+        label: "Fighter's Fork \u2014 Fluid Length"
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "reach"
+        predicate: ["fighters-fork:fluid-length"]
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "remove"
+        value: "thrown-20"
+        predicate: ["fighters-fork:fluid-length"]
   Filcher's Fork:
     wp_type: melee
     category: martial
@@ -567,6 +659,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        predicate: ["action:identify-magic", {"or": ["item:trait:morph", "item:trait:polymorph"]}]
   Fluid Form Staff (Greater):
     wp_type: melee
     category: simple
@@ -584,6 +682,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        predicate: ["action:identify-magic", {"or": ["item:trait:morph", "item:trait:polymorph"]}]
   Fluid Form Staff (Major):
     wp_type: melee
     category: simple
@@ -601,6 +705,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        predicate: ["action:identify-magic", {"or": ["item:trait:morph", "item:trait:polymorph"]}]
   Flying Talon:
     wp_type: melee
     category: advanced
@@ -643,6 +753,38 @@ pf2e_weapons:
     reload: 0
     bulk: 0.1
     group: Sword
+    rules:
+      - key: "RollOption"
+        option: "gem-twist"
+        toggleable: true
+        suboptions: [{"label": "Flaming", "value": "flaming"}, {"label": "Frost", "value": "frost"}, {"label": "Shock", "value": "shock"}]
+      - key: "AdjustStrike"
+        property: "property-runes"
+        mode: "add"
+        definition: ["item:id:{item|id}"]
+        value: "{item|flags.system.rulesSelections.gemTwist}"
+        predicate: ["gem-twist"]
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["{item|id}-inline-damage"]
+        value: "fire"
+        requiresEquipped: false
+        predicate: ["gem-twist:flaming"]
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["{item|id}-inline-damage"]
+        value: "cold"
+        requiresEquipped: false
+        predicate: ["gem-twist:frost"]
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["{item|id}-inline-damage"]
+        value: "electricity"
+        requiresEquipped: false
+        predicate: ["gem-twist:shock"]
   Gauntlet:
     wp_type: melee
     category: simple
@@ -694,6 +836,29 @@ pf2e_weapons:
     runes:
       fundamental:
         potency: 1
+    rules:
+      - key: "RollOption"
+        option: "lighting:dim-light"
+        toggleable: true
+        label: "In Dim Light or Darkness"
+      - key: "ItemAlteration"
+        itemId: "{item|_id}"
+        property: "runes-potency"
+        mode: "upgrade"
+        value: 2
+        predicate: [{"or": ["lighting:dim-light", "lighting:darkness"]}]
+      - key: "ItemAlteration"
+        itemId: "{item|_id}"
+        property: "runes-striking"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"or": ["lighting:dim-light", "lighting:darkness"]}]
+      - key: "DamageDice"
+        category: "precision"
+        selector: "{item|_id}-damage"
+        diceNumber: 1
+        dieSize: "d6"
+        predicate: ["self:condition:undetected"]
   Gnome Flickmace:
     wp_type: melee
     category: advanced
@@ -1024,6 +1189,13 @@ pf2e_weapons:
       fundamental:
         potency: 2
         power: 1
+    rules:
+      - key: "AdjustStrike"
+        property: "property-runes"
+        mode: "add"
+        definition: ["item:id:{item|_id}"]
+        value: "thundering"
+        predicate: [{"or": ["feat:ranger-dedication", "feat:bounty-hunter-dedication", "feat:game-hunter-dedication", "feature:avenger", "feature:hunt-prey"]}, "target:mark:hunted-prey"]
   Icicle:
     wp_type: melee
     category: simple
@@ -1045,6 +1217,10 @@ pf2e_weapons:
         power: 2
       property:
         - Frost (Greater)
+    rules:
+      - key: "Resistance"
+        type: "fire"
+        value: 5
   Infiltrator's Accessory:
     wp_type: melee
     category: martial
@@ -1400,6 +1576,13 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        label: "Mentalist's Staff (identifying mental magic)"
+        predicate: ["action:identify-magic", "mental"]
   Mentalist's Staff (Greater):
     wp_type: melee
     category: simple
@@ -1417,6 +1600,13 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        label: "Mentalist's Staff (identifying mental magic)"
+        predicate: ["action:identify-magic", "mental"]
   Mentalist's Staff (Major):
     wp_type: melee
     category: simple
@@ -1434,6 +1624,13 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        label: "Mentalist's Staff (identifying mental magic)"
+        predicate: ["action:identify-magic", "mental"]
   Morningstar:
     wp_type: melee
     category: simple
@@ -1563,6 +1760,17 @@ pf2e_weapons:
     runes:
       fundamental:
         potency: 1
+    rules:
+      - key: "RollOption"
+        option: "retribution-axe"
+        domain: "damage"
+        toggleable: true
+        label: "Target was last creature to damage you"
+      - key: "FlatModifier"
+        selector: "{item|_id}-damage"
+        type: "circumstance"
+        value: 2
+        predicate: ["retribution-axe"]
   Sai:
     wp_type: melee
     category: martial
@@ -1711,6 +1919,12 @@ pf2e_weapons:
       fundamental:
         potency: 1
         power: 1
+    rules:
+      - key: "Note"
+        selector: "{item|id}-attack"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "When you critically succeed at an attack roll with the serpent dagger , the target becomes Sickened 1 unless it succeeds at a save."
   Shield Boss:
     wp_type: melee
     category: martial
@@ -2058,6 +2272,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "status"
+        value: 1
+        predicate: ["action:request"]
   Staff of Control (Greater):
     wp_type: melee
     category: simple
@@ -2075,6 +2295,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "status"
+        value: 1
+        predicate: ["action:request"]
   Staff of Control (Major):
     wp_type: melee
     category: simple
@@ -2093,6 +2319,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "diplomacy"
+        type: "status"
+        value: 1
+        predicate: ["action:request"]
   Staff of Elemental Power:
     wp_type: melee
     category: simple
@@ -2110,6 +2342,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        predicate: ["target:trait:elemental", {"or": ["action:recall-knowledge", "action:identify"]}]
   Staff of Elemental Power (Greater):
     wp_type: melee
     category: simple
@@ -2127,6 +2365,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        predicate: ["target:trait:elemental", {"or": ["action:recall-knowledge", "action:identify"]}]
   Staff of Elemental Power (Major):
     wp_type: melee
     category: simple
@@ -2144,6 +2388,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        predicate: ["target:trait:elemental", {"or": ["action:recall-knowledge", "action:identify"]}]
   Staff of Fire:
     wp_type: melee
     category: simple
@@ -2369,6 +2619,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: ["perception", "will"]
+        type: "status"
+        value: 2
+        predicate: ["item:trait:illusion"]
   Staff of Phantasms (Greater):
     wp_type: melee
     category: simple
@@ -2386,6 +2642,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: ["perception", "will"]
+        type: "status"
+        value: 2
+        predicate: ["item:trait:illusion"]
   Staff of Phantasms (Major):
     wp_type: melee
     category: simple
@@ -2403,6 +2665,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: ["perception", "will"]
+        type: "status"
+        value: 2
+        predicate: ["item:trait:illusion"]
   Staff of Protection:
     wp_type: melee
     category: simple
@@ -2420,6 +2688,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: ["reflex", "fortitude"]
+        type: "circumstance"
+        value: 1
+        predicate: [{"or": ["action:trip", "action:shove"]}]
   Staff of Protection (Greater):
     wp_type: melee
     category: simple
@@ -2437,6 +2711,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: ["reflex", "fortitude"]
+        type: "circumstance"
+        value: 1
+        predicate: [{"or": ["action:trip", "action:shove"]}]
   Staff of Protection (Major):
     wp_type: melee
     category: simple
@@ -2454,6 +2734,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: ["reflex", "fortitude"]
+        type: "circumstance"
+        value: 1
+        predicate: [{"or": ["action:trip", "action:shove"]}]
   Staff of Providence:
     wp_type: melee
     category: simple
@@ -2471,6 +2757,17 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+        predicate: [{"or": ["action:sense-direction", "action:subsist"]}]
+      - key: "FlatModifier"
+        selector: "religion"
+        type: "item"
+        value: 1
+        predicate: ["action:recall-knowledge"]
   Staff of Providence (Greater):
     wp_type: melee
     category: simple
@@ -2488,6 +2785,17 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+        predicate: [{"or": ["action:sense-direction", "action:subsist"]}]
+      - key: "FlatModifier"
+        selector: "religion"
+        type: "item"
+        value: 1
+        predicate: ["action:recall-knowledge"]
   Staff of Providence (Major):
     wp_type: melee
     category: simple
@@ -2505,6 +2813,17 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+        predicate: [{"or": ["action:sense-direction", "action:subsist"]}]
+      - key: "FlatModifier"
+        selector: "religion"
+        type: "item"
+        value: 1
+        predicate: ["action:recall-knowledge"]
   Staff of Providence (True):
     wp_type: melee
     category: simple
@@ -2522,6 +2841,17 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "item"
+        value: 1
+        predicate: [{"or": ["action:sense-direction", "action:subsist"]}]
+      - key: "FlatModifier"
+        selector: "religion"
+        type: "item"
+        value: 1
+        predicate: ["action:recall-knowledge"]
   Staff of Summoning:
     wp_type: melee
     category: simple
@@ -2693,6 +3023,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "status"
+        value: 1
+        predicate: ["check:type:initiative"]
   Staff of the Unblinking Eye (Greater):
     wp_type: melee
     category: simple
@@ -2711,6 +3047,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "status"
+        value: 1
+        predicate: ["check:type:initiative"]
   Staff of the Unblinking Eye (Major):
     wp_type: melee
     category: simple
@@ -2729,6 +3071,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "status"
+        value: 1
+        predicate: ["check:type:initiative"]
   Starknife:
     wp_type: melee
     category: martial
@@ -2927,6 +3275,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        predicate: [{"or": ["target:trait:plant", "target:trait:fungus"]}, {"or": ["action:recall-knowledge", "action:identify"]}]
   Verdant Staff (Greater):
     wp_type: melee
     category: simple
@@ -2944,6 +3298,12 @@ pf2e_weapons:
     reload: 0
     bulk: 1
     group: Club
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        predicate: [{"or": ["target:trait:plant", "target:trait:fungus"]}, {"or": ["action:recall-knowledge", "action:identify"]}]
   Wakizashi:
     wp_type: melee
     category: martial

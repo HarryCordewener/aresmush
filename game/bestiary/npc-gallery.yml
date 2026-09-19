@@ -1,0 +1,96 @@
+---
+"Acolyte of Nethys":
+  pack: "npc-gallery"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 15
+  hp: 16
+  perception: 7
+  saves: {"fortitude": 2, "reflex": 5, "will": 9}
+  abilities: {"cha": 1, "con": -1, "dex": 2, "int": 2, "str": 1, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Arcana": 5, "Crafting": 5, "Diplomacy": 4, "Occultism": 5, "Religion": 7}
+  strikes: [{"name": "Staff", "bonus": 4, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["two-hand-d8"]}, {"name": "Crossbow", "bonus": 5, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 17, "attack": 9, "spells": {"0": ["Chill Touch", "Detect Magic", "Light", "Prestidigitation", "Read Aura", "Shield"], "1": ["Harm", "Heal", "Magic Missile"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 17, "attack": 9, "spells": {"1": ["Cry of Destruction"]}}]
+"Antipaladin":
+  pack: "npc-gallery"
+  level: 5
+  size: "medium"
+  rarity: "common"
+  traits: ["chaotic", "evil", "human", "humanoid", "unholy"]
+  ac: 25
+  hp: 75
+  perception: 10
+  saves: {"fortitude": 14, "reflex": 10, "will": 12}
+  abilities: {"cha": 3, "con": 3, "dex": 1, "int": 0, "str": 4, "wis": 1}
+  speeds: {"land": 20}
+  skills: {"Athletics": 13, "Deception": 10, "Intimidation": 12, "Religion": 8, "Survival": 8}
+  strikes: [{"name": "Greataxe", "bonus": 15, "damage": [["1d12+10", "slashing", null]], "traits": ["sweep"]}, {"name": "Javelin", "bonus": 12, "damage": [["1d6+10", "piercing", null]], "traits": ["thrown-30"]}]
+  actions: [{"name": "Destructive Vengeance", "type": "reaction", "traits": ["divine"], "text": "Trigger An enemy within 15 feet damages the antipaladin%rEffect The antipaladin increases the amount of damage they take by 2d6 and deals 2d6 to the triggering enemy, choosing 2d6 spirit or 2d6 void damage. In addition, the antipaladin deals 2 extra damage of the chosen type with their Strikes against the triggering creature until the end of the antipaladin's next turn."}, {"name": "Intimidating Strike", "type": "action", "traits": [], "cost": 2, "text": "The antipaladin makes a melee Strike. If they hit and deal damage, the target is Frightened 1, or Frightened 2 on a critical hit."}]
+  spellcasting: [{"name": "Champion Devotion Spells", "tradition": "divine", "type": "focus", "dc": 20, "attack": 12, "spells": {"1": ["Touch of Corruption"]}}]
+"Barkeep":
+  pack: "npc-gallery"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 14
+  hp: 25
+  perception: 6
+  saves: {"fortitude": 7, "reflex": 3, "will": 6}
+  abilities: {"cha": 3, "con": 2, "dex": 0, "int": 0, "str": 3, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Athletics": 6, "Deception": 6, "Diplomacy": 8, "Performance": 6, "Society": 5, "Thievery": 3, "Alcohol Lore": 9}
+  strikes: [{"name": "Sap", "bonus": 6, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["agile", "nonlethal"]}, {"name": "Fist", "bonus": 6, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Pewter Mug", "bonus": 3, "damage": [["1d4+3", "bludgeoning", null]], "traits": ["thrown-10"]}]
+  actions: [{"name": "Bar Brawler", "type": "passive", "traits": [], "text": "The barkeep has been in enough bar fights to know how to throw a few punches. When fighting in their bar and making a nonlethal attack, the barkeep gains a +1 circumstance bonus to attack rolls and deals an additional 1d4 damage."}, {"name": "Barkeep's Advice", "type": "action", "traits": ["auditory", "fortune", "linguistic", "mental"], "cost": 3, "text": "Frequency once per day%rEffect The barkeep gives some pertinent advice to a single creature other than themself. For 24 hours, when that creature fails a skill check or saving throw, they can recall this advice and reroll the check, using the second result instead. Once that creature uses this ability, its effect ends.%rA creature that receives the Barkeep's Advice is temporarily immune to the ability for 1 month."}]
+"Nyctessa":
+  pack: "npc-gallery"
+  level: 5
+  size: "medium"
+  rarity: "unique"
+  traits: ["dhampir", "evil", "human", "humanoid"]
+  ac: 19
+  hp: 60
+  perception: 11
+  saves: {"fortitude": 10, "reflex": 13, "will": 13}
+  abilities: {"cha": 3, "con": 1, "dex": 2, "int": 4, "str": 0, "wis": 2}
+  speeds: {"land": 25}
+  hp_details: "void healing"
+  senses: ["darkvision"]
+  skills: {"Arcana": 13, "Crafting": 13, "Deception": 12, "Intimidation": 10, "Religion": 11, "Society": 11}
+  strikes: [{"name": "Nyctessa's Staff", "bonus": 11, "damage": [["1d4", "bludgeoning", null]], "traits": ["two-hand-d8"], "effects": ["Sepulchral Drain"]}, {"name": "Fangs", "bonus": 11, "damage": [["1d6", "piercing", null]], "traits": ["grapple", "unarmed"]}]
+  actions: [{"name": "Adept Crafter", "type": "passive", "traits": [], "text": "Nyctessa can use the Craft activity to create alchemical and magical items. In addition to her known spells, her spellbook contains the formulas for Bottled Night, Antiplague (Lesser), Comprehension Elixir (Lesser), Steelscour (Moderate), Oil of Unlife (Lesser), Unholy Water, and Void Salts."}, {"name": "Deathly Inquisition", "type": "passive", "traits": [], "text": "Once per day, Nyctessa can cast Talking Corpse as an innate occult spell on an Immobilized or willing undead creature (DC 21), with a casting time of 1 minute. This provides more detailed answers than speaking with a non-undead corpse."}, {"name": "Void Healing", "type": "passive", "traits": []}, {"name": "Drain Bonded Staff", "type": "free", "traits": ["arcane"], "text": "Frequency once per day%rEffect Nyctessa expends the power stored in her staff. This turn she can cast one spell she prepared today and already cast, without spending a spell slot."}, {"name": "Sepulchral Drain", "type": "passive", "traits": [], "text": "When the Nyctessa's staff deals damage to a living creature with a Strike, that creature gains a weakness 2 to void damage until the end of Nyctessa's next turn.%rEffect: Sepulchral Drain"}, {"name": "Taste Blood", "type": "action", "traits": ["void"], "cost": 1, "text": "Requirements Nyctessa's last action was a fangs Strike that damaged the target%rEffect Nyctessa drinks blood from the target, which must be a living humanoid, gaining 5 temporary Hit Points for 10 minutes. The target must succeed at a DC 21 Fortitude save or become Drained 1. Regardless of the outcome, the target is temporarily immune to Nyctessa's Taste Blood for 1 day."}]
+  spellcasting: [{"name": "Arcane Prepared Spells", "tradition": "arcane", "type": "prepared", "dc": 23, "attack": 15, "spells": {"0": ["Daze", "Detect Magic", "Electric Arc", "Ray of Frost", "Shield", "Void Warp"], "1": ["Fear", "Grim Tendrils", "Runic Weapon"], "2": ["Acid Arrow", "Blood Vendetta", "Dispel Magic"], "3": ["Bind Undead", "Lightning Bolt", "Vampiric Feast"]}}]
+"Priest of Pharasma":
+  pack: "npc-gallery"
+  level: 6
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 21
+  hp: 80
+  perception: 14
+  saves: {"fortitude": 11, "reflex": 11, "will": 14}
+  abilities: {"cha": 2, "con": 1, "dex": 3, "int": 0, "str": 3, "wis": 4}
+  speeds: {"land": 25}
+  skills: {"Diplomacy": 12, "Medicine": 14, "Religion": 14, "Society": 11, "Survival": 12}
+  strikes: [{"name": "Dagger", "bonus": 13, "damage": [["1d6+5", "piercing", null]], "traits": ["agile", "magical", "versatile-s"]}, {"name": "Dagger", "bonus": 13, "damage": [["1d6+5", "piercing", null]], "traits": ["agile", "magical", "thrown-10", "versatile-s"]}]
+  actions: [{"name": "Healing Hands", "type": "passive", "traits": [], "text": "When the priest casts Heal, they roll d10s instead of d8s."}, {"name": "Steady Spellcasting", "type": "passive", "traits": [], "text": "If another creatures reaction would disrupt the priest's spellcasting action, the priest attempts a DC 15 Flat. If the priest succeeds, their action isn't disrupted."}]
+  spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 24, "attack": 16, "spells": {"0": ["Detect Magic", "Disrupt Undead", "Light", "Read Aura", "Shield"], "1": ["Disrupting Weapons", "Heal", "Mindlink", "Spirit Link"], "2": ["Gentle Repose", "Silence", "Spiritual Weapon"], "3": ["Circle of Protection", "Searing Light"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 24, "attack": 16, "spells": {"1": ["Death's Call"]}}]
+"Server":
+  pack: "npc-gallery"
+  level: -1
+  size: "medium"
+  rarity: "common"
+  traits: ["human", "humanoid"]
+  ac: 16
+  hp: 7
+  perception: 3
+  saves: {"fortitude": 2, "reflex": 7, "will": 5}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 0, "str": 1, "wis": 1}
+  speeds: {"land": 25}
+  skills: {"Acrobatics": 6, "Diplomacy": 4, "Thievery": 5}
+  strikes: [{"name": "Fist", "bonus": 6, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Pewter Mug", "bonus": 6, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["thrown-10"]}]
+  actions: [{"name": "Quick Catch", "type": "reaction", "traits": [], "text": "Trigger An object that the server could hold in one hand is dropped within the server's reach%rRequirements The server has at least one hand free%rEffect The server catches the dropped object before it hits the floor or leaves their reach."}]

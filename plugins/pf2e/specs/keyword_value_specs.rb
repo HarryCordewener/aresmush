@@ -42,16 +42,46 @@ module AresMUSH
         expect(Pf2e.get_keyword_value(char, 'strength')).to eq 2
       end
 
-      it "should resolve a save" do
-        allow(Pf2eCombat).to receive(:get_save_bonus).with(anything, 'will').and_return(11)
+      def a_check(total, adjustments = [])
+        instance_double(Pf2e::Check, :total => total, :adjustments => adjustments)
+      end
+
+      # A save, a skill and Perception are checks rather than figures: a roll of one carries what kind
+      # of check it is, which is what a rule about a kind of check is predicated on.
+      it "should resolve a save through a check" do
+        expect(Pf2e::Check).to receive(:of).with(anything, 'save', 'will', anything)
+                                           .and_return(a_check(11))
 
         expect(Pf2e.get_keyword_value(char, 'Will')).to eq 11
       end
 
-      it "should resolve perception" do
-        allow(Pf2eCombat).to receive(:get_perception).and_return(9)
+      # A term saying what the roller is doing reaches the check, so a bonus that applies only then can
+      # be counted.
+      it "should hand the circumstances to the check it makes" do
+        expect(Pf2e::Check).to receive(:of).with(anything, 'save', 'will', [ 'action:brace' ])
+                                           .and_return(a_check(11))
+
+        expect(Pf2e.get_keyword_value(char, 'Will', [ 'action:brace' ])).to eq 11
+      end
+
+      it "should resolve perception through a check" do
+        expect(Pf2e::Check).to receive(:of).with(anything, 'perception', nil, anything)
+                                           .and_return(a_check(9))
 
         expect(Pf2e.get_keyword_value(char, 'perception')).to eq 9
+      end
+
+      # The check itself comes back with the number, so the roll can ask it what the outcome should be
+      # once the die is known: a keen weapon turns a natural 19 into a critical hit, and nothing before
+      # the roll can say whether that happened.
+      it "should collect the check the word resolved to" do
+        held = a_check(9, [ { 'all' => 'one-degree-better' } ])
+        allow(Pf2e::Check).to receive(:of).and_return(held)
+        collected = []
+
+        Pf2e.get_keyword_value(char, 'perception', [], collected)
+
+        expect(collected).to eq [ held ]
       end
 
       it "should give nothing for an attack keyword, which only picks the linked ability" do
