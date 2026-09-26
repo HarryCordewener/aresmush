@@ -889,6 +889,8 @@ pf2e_class:
           - ability
   Cleric:
     use_deity: true
+    # The deity's cleric spells are prepared as if they were on the class's tradition list.
+    deity_spells: true
     key_abil:
       - Wisdom
     HP: 8
@@ -2185,6 +2187,26 @@ pf2e_class:
           - Oracular Senses
           - Weapon Expertise
           - Major Curse
+        # "Choose one deity who grants one of your mystery's granted domains. Add up to three cleric
+        # spells of your choice granted by that deity to your spell list, and to your spell
+        # repertoire as soon as you can cast spells of the appropriate rank."
+        feat_choice:
+          Divine Access:
+            summary: a deity who grants one of your mystery's domains
+            from: mystery_deities
+            deity_spells: true
+            then_choose:
+              summary: a cleric spell of that deity
+              from: deity_cleric_spells
+              skip_if_empty: true
+              then_choose:
+                summary: a cleric spell of that deity
+                from: deity_cleric_spells
+                skip_if_empty: true
+                then_choose:
+                  summary: a cleric spell of that deity
+                  from: deity_cleric_spells
+                  skip_if_empty: true
         combat_stats:
           perception: expert
           weapon_prof:

@@ -91,6 +91,22 @@ pf2e_spells:
     actions: 1
     duration: until the end of the current turn
     effect: The blessings of your god make your feet faster and your movements more fluid. You gain a +5-foot status bonus to your Speed and ignore difficult terrain. As part of casting agile feet, you can Stride, Step, or Tumble Through; you can instead Burrow, Climb, Fly, or Swim if you have the appropriate Speed.
+  Agitate:
+    base_level: 1
+    traits:
+      - concentrate
+      - manipulate
+      - mental
+      - nonlethal
+    tradition:
+      - arcane
+      - occult
+    actions: 2
+    range: 30 feet
+    target: 1 creature
+    duration: varies
+    effect: "You send the target's mind and body into overdrive, forcing it to become restless and hyperactive. During the duration, the target must Stride, Fly, or Swim at least once each turn or take 2d8 mental damage at the end of its turn. The GM might decide to add additional move actions to the list for creatures that possess only a more unusual form of movement. The duration of this effect depends on the target's Will save.%r%r**Critical Success** The spell has no effect.%r**Success** The duration is 1 round.%r**Failure** The duration is 2 rounds.%r**Critical Failure** The duration is 4 rounds."
+    heighten: "**+1:** The damage increases by 2d8."
   Air Bubble:
     base_level: 1
     traits:

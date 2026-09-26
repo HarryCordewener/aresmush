@@ -1379,6 +1379,9 @@ pf2e_feats:
       special:
         - Low-light Vision
       heritage: Dar
+    grants:
+      special:
+        - Darkvision
   Fangs:
     feat_type:
       - Ancestry
@@ -1680,6 +1683,9 @@ pf2e_feats:
       special:
         - Low-light Vision
       heritage: Ashen One
+    grants:
+      special:
+        - Darkvision
   Gray Halls's Call:
     feat_type:
       - Ancestry
@@ -1847,6 +1853,9 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Changeling
+    grants:
+      special:
+        - Darkvision
   Halo:
     feat_type:
       - Ancestry
@@ -2490,6 +2499,9 @@ pf2e_feats:
       orheritage:
         - Aesa
         - Niasa
+    grants:
+      special:
+        - Darkvision
   Nephilim Lore:
     feat_type:
       - Ancestry
@@ -2704,6 +2716,9 @@ pf2e_feats:
       special:
         - Low-light Vision
       heritage: Ghaluch
+    grants:
+      special:
+        - Darkvision
   Oruch Superstition:
     feat_type:
       - Ancestry

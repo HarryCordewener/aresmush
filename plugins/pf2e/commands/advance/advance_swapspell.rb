@@ -67,7 +67,7 @@ module AresMUSH
 
         # The new spell goes through the caster's own check, which knows their tradition and
         # what ranks they can reach.
-        choice = Pf2emagic.check_spell(enactor, charclass, rank, self.new_value, true)
+        choice = Pf2emagic.check_spell(enactor, charclass, rank, self.new_value, true, old_spell)
 
         if choice.is_a?(String)
           client.emit_failure choice

@@ -34,6 +34,12 @@ module AresMUSH
     # class => { 'spell', 'rank', 'as' => signature | repertoire }: the spell picked from a book
     # (Esoteric Polymath, Arcane Evolution) at the last daily preparations. Cleared at the next.
     attribute :daily_pick, :type => DataType::Hash, :default => {}
+    # class => [ { 'feat', 'rank', 'spells', 'cast', 'cast_rank' } ]: two spells prepared in one slot
+    # (Split Slot, Spell Combination). Prepared like spells_prepared, and copied by a rest.
+    attribute :slot_pairs, :type => DataType::Hash, :default => {}
+    # class => { rank => spell }: the spells a feat keeps prepared at every rest, in slots of their
+    # own (Spell Mastery).
+    attribute :mastered_spells, :type => DataType::Hash, :default => {}
     # spell => { 'level', 'at' }: a failed Learn a Spell, which blocks trying that spell again.
     attribute :learn_failures, :type => DataType::Hash, :default => {}
     attribute :divine_font

@@ -2433,6 +2433,10 @@ pf2e_feats:
         - diabolic
         - draconic
         - undead
+    bonus_slot:
+      spells:
+        - Heal
+        - Harm
     shortdesc: The divine might provided by your bloodline flows through you. You gain an additional spell slot of your highest level, which you can use only to cast your choice of *heal* or *harm*. You can cast either of these spells using that spell slot, even if they aren't in your spell repertoire.
     traits:
       - divine
@@ -2922,6 +2926,10 @@ pf2e_feats:
         - draconic
         - elemental
         - fey
+    bonus_slot:
+      spells:
+        - Summon Animal
+        - Summon Plant or Fungus
     shortdesc: You can call upon the creatures of the wild for aid. You gain an additional spell slot of your highest rank, which you can use only to cast *summon animal* or *summon plant or fungus*. You can cast either of these spells using that spell slot, even if it they aren't in your spell repertoire.
     traits:
       - primal
@@ -3877,6 +3885,13 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 6
+    # The mystery's granted spells, and by its Special line the spells Divine Access and Mysterious
+    # Repertoire add.
+    bonus_slot:
+      spells_from:
+        - mystery
+        - divine_access
+        - off_list
     shortdesc: "Your mystery grants you additional magic. You have an extra spell slot of your highest rank, which you can use only to cast one of your mystery's granted spells, heightened to this rank.%r%r**Special** If you have the divine access class feature or Mysterious Repertoire feat, you can cast spells that you learned from those abilities using the additional spell slot from Gifted Power."
     traits:
       - oracle
@@ -4354,6 +4369,11 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 6
+    prepared_slot:
+      switch: splitslot
+      cast: either
+      count: 1
+      below_top: 1
     shortdesc: You can prepare two spells in one slot, giving you the freedom to choose the spell when you cast it. When you prepare your spells for the day, you can choose one spell slot at least 1 rank lower than the highest-rank spell you can cast and prepare two spells in that slot. When you Cast a Spell from that slot, choose which spell to cast. Once you've chosen, the unused spell dissipates as though you hadn't prepared it at all—for example, it isn't available for use with Drain Bonded Item.
     traits:
       - wizard
@@ -8237,6 +8257,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 14
+    # How many repertoire spells may come from off the class's tradition list at a time.
+    off_list_repertoire: 1
     shortdesc: "Your mystery holds unknowable depths of magic not always associated with the divine. You can have one spell in your spell repertoire not on the divine spell list, in addition to spells you've added to your spell list from abilities like divine access.%r%rYou cast that spell as a divine spell. You can swap which spell you add and from which tradition as you could any other oracle spell, but you can't use this feat to have more than one spell from another tradition in your spell repertoire at the same time."
     traits:
       - oracle
@@ -10571,6 +10593,14 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 20
+    # Whether the two spells target one creature and resolve the same way is left to the player
+    # until the spell mechanics data from pull request #2 can check it.
+    prepared_slot:
+      switch: spellcombination
+      cast: both
+      per_rank: 1
+      min_rank: 3
+      components_below: 2
     shortdesc: "You can merge spells, producing multiple effects with a single casting. One slot of each rank of spell you can cast, except 2nd rank and 1st rank, becomes a spell combination slot (this doesn't apply to cantrips). When you prepare your spells, you can fill a combination slot with a combination of two spells. Each spell in the combination must be 2 or more spell ranks below the slot's rank, and both must target only one creature or object or have the option to target only one creature or object. Each spell in the combination must also have the same means of determining whether it has an effect—both spells must require a ranged spell attack, require the same type of saving throw, or automatically affect the target.%r%rWhen you cast a combined spell, it affects only one target, even if the component spells normally affect more than one. If any spell in the combination has further restrictions (such as targeting only living creatures), you must abide by all restrictions. The combined spell uses the shorter of the component spells' ranges. Resolve a combined spell as if were a single spell, but apply the effects of both component spells. For example, if the spell's target succeeded at the save against a combined spell, it would apply the success effect of each spell, and if it critically failed, it would apply the critical failure effect of both spells."
     traits:
       - wizard
@@ -10581,6 +10611,11 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 20
+    # Changing them takes effect at the next rest; the week of downtime is not kept.
+    mastered_spells:
+      switch: spellmastery
+      count: 4
+      max_rank: 9
     shortdesc: You have mastered a handful of spells to such a degree that you can cast them even if you haven't prepared them in advance. Select any four spells of 9th rank or lower that are in your spellbook; each spell you select must be of a different rank. These spells are automatically prepared when you make your daily preparations, and you gain an extra spell slot for each spell. You can select a different combination of spells by spending 1 week of downtime studying your spellbook and retraining your mastered spells.
     traits:
       - wizard

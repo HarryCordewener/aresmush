@@ -23,6 +23,11 @@ Casting a spell in Pathfinder 2e depends on what type of spell it is. Spellcaste
 
 For example, inputting `cast sorcerer/2=Glitterdust/Sandy` will cast a sorcerer's level 2 Glitterdust spell at Sandy.
 
+## Slots for Certain Spells
+Divine Evolution, Primal Evolution and Gifted Power each give you one extra slot a day at your highest rank, which can only cast certain spells, even ones not in your repertoire. `magic` lists the slot and its spells.
+
+Cast one of those spells at your highest rank and the feat's slot is spent first. Leave the level off, and a spell you couldn't otherwise cast uses the feat's slot at your highest rank; a spell in your repertoire is cast at its own rank from an ordinary slot, as usual.
+
 ## Casting Focus Spells and Cantrips
 **Commands**:
 Focus cantrip: `cast/focusc <casting class> = <spell name>/<target>`

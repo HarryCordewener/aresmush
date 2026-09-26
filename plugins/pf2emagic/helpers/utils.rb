@@ -48,6 +48,64 @@ module AresMUSH
       klass.empty? || klass.casecmp?(charclass.to_s)
     end
 
+    # The deity's cleric spells, for a class whose config says its deity adds them to its spell list
+    # (the Cleric). The deity grants them, so an uncommon one needs no other access.
+    def self.deity_list_spells(char, charclass)
+      return [] unless Global.read_config('pf2e_class', charclass.to_s, 'deity_spells')
+
+      deity = (char.pf2_faith || {})['deity']
+      return [] if deity.blank?
+
+      Pf2e.deity_cleric_spells(deity)
+    end
+
+    def self.deity_list_spell?(char, charclass, spell_name)
+      deity_list_spells(char, charclass).any? { |spell| spell.casecmp?(spell_name.to_s) }
+    end
+
+    # Whether one more spell off the class's tradition list may go in its repertoire (Mysterious
+    # Repertoire). `replacing` is the spell a swap gives up, which frees its place.
+    def self.off_list_room?(char, charclass, replacing = nil)
+      allowed = off_list_allowance(char)
+      return false unless allowed.positive?
+
+      held = off_list_picks(char, charclass).reject { |spell| spell.casecmp?(replacing.to_s) }
+
+      held.size < allowed
+    end
+
+    # How many off-list repertoire spells the character's feats allow at a time, counting a feat
+    # the level-up in progress takes.
+    def self.off_list_allowance(char)
+      Pf2e::DraftSheet.of(char).feat_names.map(&:to_s).uniq(&:downcase).sum do |name|
+        found = Pf2e.get_feat_details(name)
+
+        found.is_a?(Array) ? found[1]['off_list_repertoire'].to_i : 0
+      end
+    end
+
+    # The repertoire spells chosen from off the class's tradition list, this level's picks included.
+    # The spells the specialty put there and adapted spells are the class's own, and a spell a
+    # choice adds (Divine Access) is never in the stored repertoire.
+    def self.off_list_picks(char, charclass)
+      tradition = Entries.tradition_of(char.magic, charclass).to_s
+      return [] if tradition.empty?
+
+      specialty = Global.read_config('pf2e_specialty', charclass.to_s, (char.pf2_base_info || {})['specialize'].to_s)
+      granted = Pf2e::Advancement::Repertoire.granted(specialty, char.pf2_level.to_i + 1).map(&:downcase)
+      held = (Pf2e::DraftSheet.of(char).repertoire(charclass)[charclass] || {}).values.flatten.map(&:to_s)
+
+      held.reject { |spell| spell.casecmp?('open') }.uniq(&:downcase).select do |spell|
+        next false if granted.include?(spell.downcase)
+        next false if adapted_spell?(char, charclass, spell)
+
+        found = get_spell_details(spell)
+        traditions = found.is_a?(Array) ? Array(found[1]['tradition']) : []
+
+        !traditions.empty? && traditions.none? { |t| t.to_s.casecmp?(tradition) }
+      end
+    end
+
     def self.is_caster?(char)
       magic = char.magic
       return false unless magic
@@ -77,7 +135,8 @@ module AresMUSH
 
         if caster_type == 'prepared'
           prepared_list = magic.spells_prepared
-          spells_today[cc] = prepared_list[cc] || {}
+          # Spell Mastery's spells are prepared at every rest, in slots of their own.
+          spells_today[cc] = SlotFeats.with_mastered(prepared_list[cc], magic, cc)
         else
           spells_today[cc] = Entries.slots(magic, cc)
         end
@@ -91,6 +150,14 @@ module AresMUSH
       end
 
       spells_today['innate'] = innate_spells_today unless innate_spells_today.empty?
+
+      # Two spells prepared in one slot (Split Slot, Spell Combination).
+      pairs = SlotFeats.today(magic)
+      spells_today[SlotFeats::TODAY] = pairs unless pairs.empty?
+
+      # A slot a feat adds for certain spells (Divine Evolution), one use a day.
+      bonus = BonusSlots.fresh(char)
+      spells_today[BonusSlots::TODAY] = bonus unless bonus.empty?
 
       # A spell picked from a book lasts until the next daily preparations, which is now.
       magic.update(spells_today: spells_today, daily_pick: {})

@@ -192,6 +192,7 @@ module AresMUSH
             'tradition' => Pf2emagic::Entries.tradition_of(enactor.magic, class_for_spell),
             'details' => details,
             'adapted' => Pf2emagic.adapted_spell?(enactor, class_for_spell, spell),
+            'off_list_room' => Pf2emagic.off_list_room?(enactor, class_for_spell),
             'known' => known_for(class_for_spell)
           }
         end

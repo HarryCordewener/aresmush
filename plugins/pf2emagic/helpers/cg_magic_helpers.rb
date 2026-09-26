@@ -94,7 +94,8 @@ module AresMUSH
       t('pf2emagic.no_such_spell_but', :options => near.first(8).join(", "))
     end
 
-    def self.check_spell(char, charclass, level, term, common_only=false)
+    # `replacing` is the spell a swap gives up, which may free the room for an off-list spell.
+    def self.check_spell(char, charclass, level, term, common_only=false, replacing=nil)
 
       hash = common_only ? pickable_spells(char, charclass, level) : Global.read_config('pf2e_spells')
       match = hash.keys.select { |s| s.downcase == term.downcase }
@@ -120,6 +121,7 @@ module AresMUSH
         'tradition' => Entries.tradition_of(magic, charclass),
         'details' => deets,
         'adapted' => adapted_spell?(char, charclass, spell),
+        'off_list_room' => off_list_room?(char, charclass, replacing),
         'fits' => spellbook_addition_fits?(char, charclass, level, spell, nil, :advancement))
 
       return t(failure.key, **Pf2e::CharState.symbolize(failure.args)) if failure
@@ -360,6 +362,7 @@ module AresMUSH
         'tradition' => charclass_trad[0],
         'details' => deets,
         'adapted' => adapted_spell?(char, charclass, to_add),
+        'off_list_room' => off_list_room?(char, charclass, old_spname),
         'picks' => new_spells_for_level,
         'known' => Entries.known(magic, charclass),
         'fits' => sp_list_type != 'spellbook' ||

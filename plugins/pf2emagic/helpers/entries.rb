@@ -72,7 +72,7 @@ module AresMUSH
                 # A spontaneous caster knows a repertoire; a prepared one keeps a spellbook.
                 'known' => Entries.with_ranked(
                   Entries.with_pick(((spontaneous ? magic['repertoire'] : magic['spellbook']) || {})[source], pick, 'repertoire'),
-                  (magic['top_rank'] || {})[source]),
+                  (magic['choice_known'] || {})[source]),
                 'signature' => Entries.with_pick((magic['signature_spells'] || {})[source], pick, 'signature'),
                 'restrictions' => (magic['restricted_spellbook'] || {})[source] || {}
               )
@@ -129,26 +129,61 @@ module AresMUSH
         end
       end
 
-      # source => rank => [ spells ] for spells a choice adds at the highest rank the source casts
-      # (Greater Crossblooded Evolution), a cantrip as a cantrip. Worked out on every read, so a new
-      # rank moves them up and losing the choice takes them away.
-      def self.top_rank_known(magic)
+      # source => rank => [ spells ] for spells a choice adds to a repertoire, a cantrip as a cantrip.
+      # Worked out on every read, so a new rank moves them and losing the choice takes them away.
+      #
+      #   Greater Crossblooded Evolution - at the highest rank the source casts
+      #   Divine Access                  - at the spell's own rank, once the source casts at it
+      def self.choice_known(magic)
         char = magic.respond_to?(:character) ? magic.character : nil
 
         return {} unless char && AresMUSH.const_defined?('Pf2e')
 
-        Pf2e.top_rank_spells(char).each_with_object({}) do |(source, spells), out|
-          ranks = ((magic.spells_per_day || {})[source] || {}).keys.map(&:to_s).reject { |r| r.casecmp?('cantrip') }
-          top = ranks.map(&:to_i).max
+        out = {}
 
-          out[source] = spells.each_with_object({}) do |spell, by_rank|
+        Pf2e.top_rank_spells(char).each_pair do |source, spells|
+          top = top_slot_rank(magic, source)
+
+          spells.each do |spell|
             found = Pf2emagic.get_spell_details(spell)
             cantrip = found.is_a?(Array) && found[1]['base_level'].to_i.zero?
-            rank = cantrip ? 'cantrip' : top.to_s
 
-            by_rank[rank] = Array(by_rank[rank]) + [ found.is_a?(Array) ? found[0] : spell ] if cantrip || top
+            next unless cantrip || top
+
+            add_known(out, source, cantrip ? 'cantrip' : top.to_s, found.is_a?(Array) ? found[0] : spell)
           end
         end
+
+        Pf2e.deity_choice_spells(char).each_pair do |source, spells|
+          top = top_slot_rank(magic, source)
+
+          spells.each do |spell|
+            found = Pf2emagic.get_spell_details(spell)
+            next unless found.is_a?(Array)
+
+            rank = found[1]['base_level'].to_i
+
+            if rank.zero?
+              add_known(out, source, 'cantrip', found[0])
+            elsif top && rank <= top
+              add_known(out, source, rank.to_s, found[0])
+            end
+          end
+        end
+
+        out
+      end
+
+      # The highest rank a source has slots at, or nil.
+      def self.top_slot_rank(magic, source)
+        ranks = ((magic.spells_per_day || {})[source] || {}).keys.map(&:to_s).reject { |r| r.casecmp?('cantrip') }
+
+        ranks.map(&:to_i).max
+      end
+
+      def self.add_known(out, source, rank, spell)
+        by_rank = (out[source] ||= {})
+        by_rank[rank] = (Array(by_rank[rank]) + [ spell ]).uniq
       end
 
       # Entry hashes for everything this character casts from.
@@ -210,7 +245,7 @@ module AresMUSH
         return [] unless magic
 
         attributes = ATTRIBUTES.each_with_object({}) { |attr, h| h[attr] = magic.send(attr) }
-        attributes['top_rank'] = top_rank_known(magic)
+        attributes['choice_known'] = choice_known(magic)
         types = (attributes['tradition'] || {}).keys.each_with_object({}) do |source, h|
           h[source] = Pf2emagic.get_caster_type(source)
         end
@@ -447,10 +482,10 @@ module AresMUSH
           next unless enumerated?(entry['name'])
 
           # The day's pick from a book is not a spell learned, so it is never recorded, and neither
-          # is a spell a choice adds at the highest rank.
+          # is a spell a choice adds (`choice_known`).
           pick = (magic.daily_pick || {})[entry['name']]
           stored = ((entry['category'].to_s == 'spontaneous' ? magic.repertoire : magic.spellbook) || {})[entry['name']] || {}
-          added = top_rank_known(magic)[entry['name']] || {}
+          added = choice_known(magic)[entry['name']] || {}
 
           known = without_pick(entry['known'], pick).each_with_object({}) do |(rank, spells), kept|
             held = Array(stored[rank] || stored[rank.to_i]).map { |s| s.to_s.downcase }

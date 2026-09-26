@@ -287,7 +287,7 @@ module AresMUSH
       names = recorded_choices(char).map(&:first) + (in_flight.is_a?(Hash) ? in_flight.keys : [])
 
       names.map(&:to_s).uniq { |n| n.downcase }.filter_map do |name|
-        block = feat_choice_block_for(name)
+        block = feat_choice_block_for(name) || class_choice_block_for(char, name)
 
         next unless block.is_a?(Hash) && block[flag]
 
@@ -326,6 +326,54 @@ module AresMUSH
       spells = flagged_choices(char, 'known_at').flat_map { |_name, labels| labels }
 
       spells.empty? ? {} : { char.pf2_base_info['charclass'] => spells.uniq }
+    end
+
+    # class => [ spells ] a choice adds to the repertoire at their own rank, once the class casts at
+    # it (Divine Access). The choice's first pick is a deity, and the rest are that deity's cleric
+    # spells.
+    def self.deity_choice_spells(char)
+      spells = flagged_choices(char, 'deity_spells').flat_map do |_name, labels|
+        deity = labels.find { |label| deity_named(label) }
+        offered = deity ? deity_cleric_spells(deity).map(&:downcase) : []
+
+        labels.select { |label| offered.include?(label.to_s.downcase) }
+      end
+
+      spells.empty? ? {} : { char.pf2_base_info['charclass'] => spells.uniq }
+    end
+
+    # The deity's name as config spells it, or nil.
+    def self.deity_named(name)
+      (Global.read_config('pf2e_deities') || {}).keys.find { |d| d.to_s.casecmp?(name.to_s) }
+    end
+
+    # A deity's cleric spells, by the names the spell files use. One that names no spell is left
+    # out and logged, since offering it would record a pick nothing can cast.
+    def self.deity_cleric_spells(deity)
+      key = deity_named(deity)
+      listed = key ? Array(Global.read_config('pf2e_deities', key, 'cleric_spells')) : []
+
+      listed.filter_map do |name|
+        found = Pf2emagic.get_spell_details(name)
+
+        unless found.is_a?(Array)
+          Global.logger.error "#{key}'s cleric spell '#{name}' is not a spell."
+          next nil
+        end
+
+        found[0]
+      end
+    end
+
+    # Deities who grant one of the domains of the character's mystery.
+    def self.mystery_deities(char)
+      base = char.pf2_base_info || {}
+      mystery = Global.read_config('pf2e_specialty', base['charclass'].to_s, base['specialize'].to_s) || {}
+      domains = Array(mystery['domains']).map(&:downcase)
+
+      (Global.read_config('pf2e_deities') || {}).select do |_deity, info|
+        Array((info || {})['domains']).any? { |domain| domains.include?(domain.to_s.downcase) }
+      end.keys.sort
     end
 
     # The 1st-level feat of the character's class that lists a specialty as a prerequisite, or nil
@@ -1097,8 +1145,37 @@ module AresMUSH
 
           [ [ 'pf2e.feat_grants_combat_stats', {} ] ]
         }
+      },
+      # A sense the character keeps: Eyes of Night's darkvision. Written to pf2_special, which the
+      # chargen and level-up syncs record on the ledger, so a rollback takes it back.
+      'special' => {
+        'timing' => 'advance',
+        'apply' => lambda { |ctx|
+          gained = Array(ctx[:value]).map(&:to_s).reject(&:empty?)
+
+          ctx[:char].update(:pf2_special => Pf2e.with_senses(ctx[:char].pf2_special, gained))
+
+          gained.map { |sense| [ 'pf2e.feat_grants_special', { :special => sense } ] }
+        }
       }
     }.freeze
+
+    # A special list with senses added. Darkvision replaces low-light vision, as it does when a
+    # heritage grants it at chargen. Names are compared without case, because the data spells them
+    # both ways.
+    def self.with_senses(held, gained)
+      list = Array(held).dup
+
+      gained.each do |sense|
+        list << sense unless list.any? { |s| s.to_s.casecmp?(sense) }
+      end
+
+      if gained.any? { |s| s.casecmp?('Darkvision') }
+        list.reject! { |s| s.to_s.casecmp?('Low-Light Vision') }
+      end
+
+      list
+    end
 
     def self.grant_keys
       GRANTS.keys
@@ -1576,7 +1653,8 @@ module AresMUSH
         focus = ((info['chargen'] || {})['magic_stats'] || {})['focus_spell']
 
         focus.is_a?(Hash) ? { 'magic_stats' => { 'focus_spell' => focus } } : nil
-      when 'traditions', 'other_traditions'
+      when 'traditions', 'other_traditions', 'mystery_deities', 'deity_cleric_spells'
+        # The deity's spells are worked out from the choice when the repertoire is read.
         nil
       else
         nil
@@ -1842,7 +1920,10 @@ module AresMUSH
 
       return nil if source.to_s == 'feat'
 
-      class_choice_block_for(char, choice_name)
+      # A class's choice can be chained too (Divine Access: a deity, then its spells).
+      class_block = class_choice_block_for(char, choice_name)
+
+      class_block && advance_choice_steps(class_block, feat_choice_step(char, choice_name))
     end
 
     def self.advance_choice_steps(block, steps)
@@ -2591,6 +2672,15 @@ module AresMUSH
         Array(mystery['domains']).select do |domain|
           table[domain] && !held.include?(table[domain]['initial'].to_s.downcase)
         end.sort
+      when 'mystery_deities'
+        # Divine Access: a deity who grants one of the mystery's domains.
+        mystery_deities(char)
+      when 'deity_cleric_spells'
+        # Divine Access's later steps: the cleric spells of the deity its first step picked. The
+        # spells already picked are left out by choice_options, as for any choice.
+        deity = choice_labels_for(char, choice_name).find { |label| deity_named(label) }
+
+        deity ? deity_cleric_spells(deity).sort : []
       when 'lessons'
         lesson_options(char, block)
       when 'other_specialties'

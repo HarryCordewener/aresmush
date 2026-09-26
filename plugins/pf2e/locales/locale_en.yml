@@ -292,6 +292,7 @@ en:
     feat_grants_reagents: "This feat grants reagents."
     feat_grants_attack: "This feat grants an unarmed attack."
     feat_grants_combat_stats: "This feat modifies your combat proficiencies."
+    feat_grants_special: "This feat grants %{special}."
     feat_grants_skill: "This feat grants the skill %{skill}."
     feat_grants_raise: "Your proficiency in %{skill} increases to %{prof}."
     feat_grants_free_skill: "This feat grants a skill of your choice. Your skills have been unlocked. Assign it using '%xwskill/set free=<skill>%xn%xc', then enter '%xwcommit featskills%xn%xc' to lock your skills again. You must do this before you can take another feat."

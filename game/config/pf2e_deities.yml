@@ -477,7 +477,7 @@ pf2e_deities:
       - Perfection
       - Knowledge
     cleric_spells:
-      - Deja Vu
+      - Déjà Vu
       - Translocate
       - Blanket of Stars
     edicts:
@@ -672,8 +672,8 @@ pf2e_deities:
       - Undeath
     cleric_spells:
       - Object Reading
-      - Modify Memory
-      - Artic Rift
+      - Rewrite Memory
+      - Arctic Rift
     edicts:
       - Welcome death and undeath.
       - Gather as much experience as you can.

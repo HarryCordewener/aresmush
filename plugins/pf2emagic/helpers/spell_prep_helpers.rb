@@ -20,8 +20,53 @@ module AresMUSH
     end
 
     def self.prepare_spell(spell, char, castclass, level)
-      # All validations are done in the helper.
+      checked = check_preparable(char, castclass, spell, level)
 
+      return checked if checked.is_a?(String)
+
+      magic = char.magic
+      cc = checked['caster class']
+      spell_name = checked['name']
+      level = checked['level']
+
+      if checked['is_signature']
+        # Recorded under the caster class at the spell's rank, which is where the cast path looks.
+        # A list keyed by the granting feat's own name is one it does not read.
+        Pf2emagic.record_signature_spell(magic, cc, level, spell_name)
+
+        return checked
+      end
+
+      spell_list = magic.spells_prepared
+      spell_list_for_class = spell_list[cc] || {}
+      spell_list_for_level = spell_list_for_class[level] || []
+
+      # Two spells prepared in one slot (Split Slot) take that slot like any other.
+      pairs = SlotFeats.placeholders(magic, cc, level)
+
+      max_spells_per_day = max_spells_per_day(char, cc, level)
+
+      return t('pf2emagic.no_available_slots') unless spell_list_for_level.size + pairs.size < max_spells_per_day
+
+      unless prepared_set_fits?(char, cc, level, spell_list_for_level + pairs + [ spell_name ])
+        return t('pf2emagic.no_unrestricted_slots')
+      end
+
+      # If all checks succeed, prepare the spell and return a hash.
+
+      spell_list_for_level << spell_name
+
+      spell_list_for_class[level] = spell_list_for_level.sort
+      spell_list[cc] = spell_list_for_class
+      magic.update(spells_prepared: spell_list)
+
+      checked
+    end
+
+    # Whether a spell may be prepared through a class at a rank, without preparing it: the
+    # { 'level', 'name', 'caster class', 'is_signature' } it would be prepared as, or why not.
+    # Level can be nil, for the spell's own rank.
+    def self.check_preparable(char, castclass, spell, level)
       return t('pf2emagic.not_caster') unless Pf2emagic.is_caster?(char)
 
       magic = char.magic
@@ -62,8 +107,10 @@ module AresMUSH
       return t('pf2emagic.cant_prepare_level') if (spell_level.to_i > level.to_i)
 
       # An adapted spell (Adapted Cantrip and friends) may be prepared through this class
-      # even though it is off the class's tradition list and not in any spellbook.
-      is_adapted = Pf2emagic.adapted_spell?(char, cc, spell_name)
+      # even though it is off the class's tradition list and not in any spellbook, and so may a
+      # Cleric's deity's cleric spell.
+      is_adapted = Pf2emagic.adapted_spell?(char, cc, spell_name) ||
+                   Pf2emagic.deity_list_spell?(char, cc, spell_name)
 
       needs_spellbook = spell_details['traits'].intersect?(['rare', 'uncommon', 'unique'])
 
@@ -76,47 +123,20 @@ module AresMUSH
         make_signature = is_in_spellbook[1]
       end
 
-      return_msg = {
+      checked = {
         "level" => level,
         "name" => spell_name,
         "caster class" => cc,
         "is_signature" => make_signature
       }
 
-      if make_signature
-        # Recorded under the caster class at the spell's rank, which is where the cast path looks.
-        # A list keyed by the granting feat's own name is one it does not read.
-        Pf2emagic.record_signature_spell(magic, cc, level, spell_name)
-
-        return return_msg
-      end
+      return checked if make_signature
 
       spell_trad = spell_details['tradition']
 
       return t('pf2emagic.cant_prepare_trad', :cc => cc) unless is_adapted || spell_trad.include?(Entries.tradition_of(magic, cc).to_s.downcase)
 
-      spell_list = magic.spells_prepared
-      spell_list_for_class = spell_list[cc] || {}
-      spell_list_for_level = spell_list_for_class[level] || []
-
-      max_spells_per_day = max_spells_per_day(char, cc, level)
-
-      return t('pf2emagic.no_available_slots') unless spell_list_for_level.size < max_spells_per_day
-
-      unless prepared_set_fits?(char, cc, level, spell_list_for_level + [ spell_name ])
-        return t('pf2emagic.no_unrestricted_slots')
-      end
-
-      # If all checks succeed, prepare the spell and return a hash.
-
-      spell_list_for_level << spell_name
-
-      spell_list_for_class[level] = spell_list_for_level.sort
-      spell_list[cc] = spell_list_for_class
-      magic.update(spells_prepared: spell_list)
-
-      return_msg
-
+      checked
     end
 
     def self.unprepare_spell(spell, char, castclass, level)

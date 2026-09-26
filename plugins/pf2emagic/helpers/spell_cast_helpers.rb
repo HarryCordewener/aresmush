@@ -215,6 +215,13 @@ module AresMUSH
       cc_spells = magic.spells_today
       cc_spells_2day = cc_spells[charclass]
 
+      # Not prepared on its own, but in a slot holding two spells (Split Slot, Spell Combination).
+      unless Array((cc_spells_2day || {})[splevel]).include?(spname)
+        pair = SlotFeats.cast_from_pair(magic, charclass, spname, level)
+
+        return cast_from_slot_pair(caster_stats, pair, spname, target_list) if pair
+      end
+
       return t('pf2emagic.no_available_slots') unless cc_spells_2day
 
       splist = cc_spells_2day[splevel]
@@ -244,6 +251,19 @@ module AresMUSH
       caster_stats['spell level'] = splevel
       caster_stats['targets'] = target_list unless target_list.empty?
       caster_stats['spell name'] = spname
+
+      caster_stats
+    end
+
+    # A spell cast from a slot holding two: the one named (Split Slot), or both at once as a
+    # combined spell (Spell Combination), at the rank the pair was prepared to cast at.
+    def self.cast_from_slot_pair(caster_stats, pair, spname, target_list)
+      both = pair['cast'].to_s == 'both'
+
+      caster_stats['spell name'] = both ? Array(pair['spells']).join(' + ') : spname
+      caster_stats['spell level'] = pair['cast_rank'].to_s
+      caster_stats['spell type'] = "#{pair['feat']} (#{Pf2emagic.ordinal_level(pair['rank'])}-rank slot)"
+      caster_stats['targets'] = target_list unless target_list.empty?
 
       caster_stats
     end
@@ -299,6 +319,23 @@ module AresMUSH
                               end
 
       can_cast_at_level = known_at_level || valid_signature_level
+
+      # A feat's slot for certain spells (Divine Evolution) is at the highest rank, and it casts a
+      # spell outside the repertoire too. It is spent first when the cast is at that rank, since it
+      # can be spent on nothing else; with no rank asked for, only when nothing else could cast it.
+      bonus_feat = BonusSlots.usable(char, charclass, spname).first if splevel != 'cantrip'
+
+      if bonus_feat && base <= max_castable_level && (level ? splevel.to_i == max_castable_level : !can_cast_at_level)
+        BonusSlots.spend(magic, bonus_feat)
+
+        caster_stats['spell level'] = max_castable_level.to_s
+        caster_stats['targets'] = target_list unless target_list.empty?
+        caster_stats['spell name'] = spname
+        caster_stats['spell type'] = "#{bonus_feat} slot"
+
+        return caster_stats
+      end
+
       unless can_cast_at_level
         focus_msg = focus_casting_mismatch_msg(char, charclass, spell)
         return focus_msg if focus_msg
