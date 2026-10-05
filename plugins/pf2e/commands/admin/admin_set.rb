@@ -7,13 +7,10 @@ module AresMUSH
 
       attr_accessor :character, :item, :value
 
-      # The two corrections that do not go through the grant ledger, because focus spells and a
-      # divine font are not part of the fold. `AdminSet` asks for them by name.
+      # The correction that does not go through the grant ledger, because a divine font is not part
+      # of the fold. `AdminSet` asks for it by name.
       MAGIC_OPS = {
-        'update' => lambda { |char, client, op| PF2Magic.update_magic(char, op['charclass'], op['info'], client) },
-        'revoke_focus' => lambda { |char, _client, op|
-          Pf2emagic::Entries.revoke_focus!(char, op['focus_type'], op['spell'], :kind => op['kind'])
-        }
+        'update' => lambda { |char, client, op| PF2Magic.update_magic(char, op['charclass'], op['info'], client) }
       }.freeze
 
       def parse_args

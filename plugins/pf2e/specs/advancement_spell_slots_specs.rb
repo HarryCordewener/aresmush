@@ -231,6 +231,71 @@ module AresMUSH
           end
         end
 
+        # A pick at a rank with no list of its own goes straight to the any-rank slot, and is held to
+        # the same limits as one that falls back to it.
+        describe "a pick resolved onto an any-rank slot" do
+          def on_pool(key)
+            resolve({ 'signature' => { key => %w(open open) } }, :type => 'signature', :rank => '2').state
+          end
+
+          def spend(key, rank, max_rank: 9)
+            SpellSlots.spend_from_pool(on_pool(key), :full => false, :rank => rank, :max_rank => max_rank)
+          end
+
+          it "should take a rank the character can cast" do
+            result = spend(Pf2emagic::ANY_RANK, '2')
+
+            expect(result.ok?).to be true
+            expect(result.state['list_key']).to eq Pf2emagic::ANY_RANK
+          end
+
+          it "should refuse a cantrip" do
+            expect(spend(Pf2emagic::ANY_RANK, 'cantrip').code).to eq :any_rank_cantrip
+          end
+
+          it "should refuse a rank past the character's slots" do
+            expect(spend(Pf2emagic::ANY_RANK, '10', :max_rank => 9).code).to eq :any_rank_no_slots
+          end
+        end
+
+        # Signature Spell Expansion: two signature spells, each of base rank 3rd or lower.
+        describe "an any-rank slot with a cap" do
+          def capped
+            { 'signature' => { 'up to 3' => %w(open open) } }
+          end
+
+          it "should read as a rank key, so a pool keyed by it is not taken for a source" do
+            result = resolve(capped, :type => 'signature', :rank => '2')
+
+            expect(result.state['class_key']).to be_nil
+            expect(result.state['list_key']).to eq 'up to 3'
+            expect(result.state['from_pool']).to be true
+          end
+
+          it "should take a spell at its cap" do
+            found = resolve(capped, :type => 'signature', :rank => '3').state
+
+            expect(SpellSlots.spend_from_pool(found, :full => false, :rank => '3', :max_rank => 5).ok?).to be true
+          end
+
+          it "should refuse a spell above its cap" do
+            found = resolve(capped, :type => 'signature', :rank => '4').state
+            result = SpellSlots.spend_from_pool(found, :full => false, :rank => '4', :max_rank => 5)
+
+            expect(result.code).to eq :any_rank_over_cap
+            expect(result.args['level']).to eq '3rd-rank'
+          end
+
+          it "should be found as an open any-rank slot" do
+            expect(SpellSlots.any_rank_key({ '5' => [ 'Fireball' ], 'up to 3' => [ 'open' ] })).to eq 'up to 3'
+          end
+
+          it "should have no cap when keyed plainly" do
+            expect(Pf2emagic.any_rank_cap(Pf2emagic::ANY_RANK)).to be_nil
+            expect(Pf2emagic.any_rank_cap('Up to 3')).to eq 3
+          end
+        end
+
         describe "which entry a pick fills" do
           it "should take the first open one" do
             result = SpellSlots.entry_to_fill([ 'Magic Missile', 'open' ], nil, 'repertoire')

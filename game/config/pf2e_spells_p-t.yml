@@ -31,6 +31,21 @@ pf2e_spells:
     duration: 1 minute
     effect: "You cause the target to see all other creatures as dire threats. The target is stricken by intense paranoia toward all creatures around it and must attempt a Will save.%r%r**Critical Success** The target is unaffected.%r**Success** The target believes everyone it sees is a potential threat. It becomes unfriendly to all creatures to which it wasn't already hostile, even those that were previously allies. It treats no one as an ally. The spell ends after 1 round.%r**Failure** As success, but the effect lasts 1 minute.%r**Critical Failure** As failure, except the target believes that everyone it sees is a mortal enemy. It uses its reactions and free actions against everyone, regardless of whether they were previously its allies, as determined by the GM. It otherwise acts as rationally as it normally does and likely prefers to attack creatures that are actively attacking or hindering it over those leaving it alone."
     heighten: "**6th:** You can target up to 5 creatures."
+  Parch:
+    base_level: 1
+    traits:
+      - air
+      - cleric
+      - concentrate
+      - focus
+      - manipulate
+      - uncommon
+    actions: 2
+    range: 60 feet
+    target: 1 creature
+    duration: varies
+    effect: "Dry winds dehydrate a creature. The target must attempt a Fortitude save; if used on a creature that has the water trait or a creature made primarily of liquid (such as many oozes), the creature uses the outcome for one degree of success worse than the result. Creatures whose bodies contain no significant moisture (such as earth elementals) are immune to *parch*. If a creature affected by *parch* drinks a liquid, such as a swig of water or a potion, the spell ends. Affected creatures that have the water trait or are made primarily of liquid, as well as affected creatures that can't drink, can end the effect as a two-action activity, which has the concentrate trait.%r%r**Critical Success** The target is unaffected.%r**Success** The target takes a –1 status penalty to its checks and DCs for 1 round.%r**Failure** The target takes a –1 status penalty to its checks and DCs for 1 minute.%r**Critical Failure** The target takes a –2 status penalty to its checks and DCs for 1 minute and is dazzled as long as it has this penalty."
+    heighten: "**4th:** You can target up to 4 creatures."
   Patron's Puppet:
     base_level: 1
     traits:
@@ -75,8 +90,8 @@ pf2e_spells:
     base_level: 4
     traits:
       - cleric
+      - concentrate
       - focus
-      - manipulate
       - uncommon
     actions: reaction
     trigger: You fail or critically fail a saving throw against an effect that has the morph, poison, or polymorph trait, or that would make you clumsy, doomed, enfeebled, petrified, or sickened
@@ -482,7 +497,7 @@ pf2e_spells:
       - uncommon
     actions: 2
     area: 15-foot emanation
-    duration: 1 minute
+    duration: sustained up to 1 minute
     effect: A protective aura emanates out from you, safeguarding you and your allies. You gain resistance 3 to all damage. Your allies also gain this resistance while in the area.
     heighten: "**+1:** The resistance increases by 1."
   Puff of Poison:
@@ -603,6 +618,22 @@ pf2e_spells:
     range: 30 feet
     target: 1 creature
     effect: "You transport the target into an extraplanar puzzle room of mysterious origin, locking them there. Once each turn as a single action, the target can attempt an Occultism check, Perception check, or Thievery check against your spell DC to solve the puzzle. Teleportation effects can't carry the target outside the puzzle room unless they can also traverse the planes, such as *interplanar teleport*. When the spell ends, the target returns to the space it occupied when it was banished, or to the nearest space if the original is now filled.%r%r**Critical Success** The target solves the puzzle and escapes.%r**Success** The target is on the right path to the solution. If it was already on the right path, it solves the puzzle and escapes.%r**Failure** The target makes no progress toward a solution.%r**Critical Failure** The target makes no progress and, if it was on the right path, it no longer is."
+  Rainbow Fumarole:
+    base_level: 8
+    traits:
+      - concentrate
+      - fire
+      - incapacitation
+      - light
+      - manipulate
+    tradition:
+      - arcane
+      - primal
+    actions: 3
+    range: 500 feet
+    area: 20-foot radius, 60-foot-tall cylinder
+    duration: 1 minute
+    effect: "Multi-hued flames break through cracks in the ground, reaching high into the sky and giving off dangerous fumes. When you cast the spell, roll 1d8 on the table below to determine the effects of the fumarole.%r%rAny creature caught inside the area of *rainbow fumarole* when you cast it takes the indicated damage with a basic Reflex save and, on a failure, takes any added effect listed. Creatures must also attempt a saving throw when they move through the spell's area or end their turn in it. Squares within the area of the *rainbow fumarole* are difficult terrain.%r%r**1 Red** 50 fire plus 2d6 persistent fire.%r**2 Orange** 50 fire. Knocked prone.%r**3 Yellow** 30 fire plus 20 bludgeoning. Pushed 10 feet.%r**4 Green** 20 fire plus 20 acid. Sickened 2.%r**5 Blue** 30 fire. Paralyzed for 1 round.%r**6 Indigo** 30 fire. Confused for 1 minute.%r**7 Violet** 30 fire. Slowed 1 for 1 minute.%r**8 All** Choose the color for each affected creature and use that color's damage and added effect; if a creature is affected again, you can choose a different color."
   Raise Dead:
     base_level: 6
     traits:
@@ -710,6 +741,7 @@ pf2e_spells:
     base_level: 4
     traits:
       - cleric
+      - concentrate
       - focus
       - healing
       - manipulate
@@ -730,7 +762,7 @@ pf2e_spells:
       - uncommon
     actions: 2
     range: "30 feet"
-    target: "unattended written materials of up to 1 Bulk or less"
+    target: unattended written materials of up to 1 Bulk
     duration: "1 day"
     effect: "You strike mention of a specific name from one or more documents. When you Cast the Spell, give one proper name, be it a creature, location, or object. Any mention of that name within the document becomes blurred, smudged, or otherwise completely illegible. Epithets and unambiguous references to the name are redacted as well; for instance, redacting the name of the goddess Sarenrae from a book would also remove references to her title \"the Dawnflower.\" Attempts to use this reference material to Recall Knowledge about the given proper name automatically fail."
     heighten: "**3rd:** Instead of striking out a given name, you can replace it with a different name you choose. Epithets and references are substituted with similar ones relating to the replacement name. Anyone reading the text can attempt a Perception or Society check against your spell DC to notice the altered text, though that doesn't tell them what the original said.%r**4th:** At your choice, the duration is unlimited."
@@ -764,6 +796,19 @@ pf2e_spells:
     actions: 1 hour
     range: 5 feet
     effect: "You fully re-create an object from nothing, even if the object was destroyed. To do so, you must be able to picture the object in your mind. Additionally, the material component must be a remnant of the item, no matter how small or insignificant (even a speck of dust that remains from *disintegrate* is enough). The spell fails if your imagination relied on too much guesswork; if the object would be too large to fit in a 5-foot cube; if the object still exists and you were simply not aware of it; or if the object is an artifact, has a level over 20, or has similar vast magical power.%r%rThe item reassembles in perfect condition. Even if your mental image was of a damaged or weathered object, the new one is in this perfected form. If the object was magical, this spell typically restores its constant magical properties, but not any temporary ones, such as charges or one-time uses. An item with charges or uses per day has all of its uses expended when remade, but it replenishes them normally thereafter."
+  Remember the Lost:
+    base_level: 4
+    traits:
+      - cleric
+      - concentrate
+      - focus
+      - manipulate
+      - mental
+      - uncommon
+    actions: 2
+    area: 30-foot emanation
+    effect: "You call upon the lost and forgotten, assailing your foes' minds with the memories of those who died with a grievance toward them. Enemies in the area take 6d6 mental damage (basic Will save) and are frightened 1 on a critical failure. If you know the names of anyone murdered or grievously wronged by an enemy in the area, you can chant those victims' names when you Cast the Spell to improve the clarity of the visions, increasing the damage to the corresponding enemy from 6d6 to 6d10; you can do so for multiple enemies if you know specific victims of each enemy. The visions are personal to each foe in the area, and you can't use this spell to discern a murderer by guessing a name. A creature that truly knows no one who died with any sort of grievance to that creature is immune to this effect."
+    heighten: "**+1:** The damage increases by 2d6 (or 2d10 to an enemy when you name a specific victim)."
   Repulsion:
     base_level: 6
     traits:
@@ -927,7 +972,7 @@ pf2e_spells:
     duration: 10 minutes
     effect: "You designate an area in which lies are revealed. Creatures in the area also take a –2 status penalty to Deception checks. Each time a creature in the area speaks a true statement, the soft ring of a bell sounds in the area. Creatures are aware of the magic; therefore, they can avoid answering questions to which they would normally respond with a lie, or they can be evasive as long as they remain within the boundaries of the truth. If a creature is in the area when the spell is cast or later enters the area, that creature attempts a Will save. It uses the results of this initial save if it leaves and reenters the area.%r%r**Critical Success** The target is so convincing that the bell rings even if they lie.%r**Success** If the target lies and succeeds at their Deception check against all targets, the bell still rings.%r**Failure** The bell accurately sees through their deception and will never ring if they lie."
   Roar of the Dragon:
-    base_level: 1
+    base_level: 4
     traits:
       - auditory
       - cleric
@@ -1101,7 +1146,6 @@ pf2e_spells:
     base_level: 1
     traits:
       - cleric
-      - concentrate
       - focus
       - fortune
       - uncommon
@@ -1907,7 +1951,7 @@ pf2e_spells:
     target: 1 dying creature
     effect: Life energy shuts death's door. The target loses the dying condition, though it remains unconscious at 0 Hit Points.
   Stasis:
-    base_level: 1
+    base_level: 4
     traits:
       - cleric
       - concentrate
@@ -2313,7 +2357,7 @@ pf2e_spells:
     effect: Ground in the area turns swampy and fetid. The area is difficult terrain. The sludge at the bottom of the morass animates into diminutive sludge beasts that have a demonic appearance. These don't function as normal creatures, but they swarm over creatures in the swamp and exude a noxious stench. The swamp deals 1d6 poison damage to creatures that end their turn in the area (basic Fortitude save). For each additional action you use when Casting the Spell, increase the burst's radius by 5 feet.
     heighten: "**+2:** The damage increases by 1d6, and the initial radius increases by 5 feet"
   Swarm Form:
-    base_level: 1
+    base_level: 4
     traits:
       - cleric
       - concentrate
@@ -2334,6 +2378,7 @@ pf2e_spells:
       - manipulate
       - uncommon
     actions: 3
+    duration: sustained
     effect: "You extend your senses through a multitude of crawling and flying creatures. You create a crawling swarm in your square. You can hear through the swarm as if using your normal auditory senses. When you Cast this Spell and the first time you Sustain it each round, you can move the swarm 10 feet along the ground in any direction. The swarm has AC 15 and a +0 bonus to its saves. Any damage dealt to the swarm destroys it and ends the spell."
     heighten: "**3rd:** The swarm has a climb Speed of 10 feet.%r**5th:** The swarm has a fly Speed of 10 feet. You can see through the swarm using your visual senses.%r**7th:** The swarm gains a 10-foot status bonus to its Speeds."
   Swear Oath:
@@ -2425,7 +2470,7 @@ pf2e_spells:
       - cleric
       - concentrate
       - focus
-      - manipulate
+      - fortune
       - uncommon
     actions: 2
     range: touch
@@ -2743,7 +2788,7 @@ pf2e_spells:
     target: 1 creature
     effect: You call forth a tremendous wave to move the target either in a body of water or on the ground. You move the target up to 10 feet in any direction along the ground or 20 feet through a body of water. An unwilling target can attempt a Fortitude save, and it avoids being moved if it succeeds.
   Tireless Worker:
-    base_level: 1
+    base_level: 4
     traits:
       - cleric
       - concentrate
@@ -2754,7 +2799,7 @@ pf2e_spells:
     actions: 2
     range: "30 feet"
     target: "1 creature"
-    duration: "1 minute"
+    duration: sustained up to 1 minute
     effect: "You suppress your choice of one of the following conditions that's affecting the target: clumsy, encumbered, enfeebled, or fatigued. The duration of the condition doesn't elapse while it is suppressed, so if you don't remove the effect that caused the condition, the condition returns after the spell's duration expires."
   Touch of Death:
     base_level: 8
@@ -2793,6 +2838,7 @@ pf2e_spells:
     actions: 1
     range: touch
     target: 1 living creature
+    duration: varies
     effect: "You attack the target's life force with undeath, dealing 1d6 void damage. The target must attempt a Fortitude save.%r%r**Critical Success** The target is unaffected.%r**Success** The target takes half damage.%r**Failure** The target takes full damage, and vitality effects heal it only half as much as normal for 1 round.%r**Critical Failure** The target takes double damage, and vitality effects heal it only half as much as normal for 1 minute."
     heighten: "**+1:** The damage increases by 1d6."
   Touch of the Moon:

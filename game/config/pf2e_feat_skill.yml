@@ -1218,6 +1218,26 @@ pf2e_feats:
     prereq:
       level: 2
       skill: Crafting/expert
+  Magical Shorthand:
+    feat_type:
+      - Skill
+      - General
+    assoc_skill:
+      - Arcana
+      - Nature
+      - Occultism
+      - Religion
+    learn_spell:
+      upgrade_success: true
+      retry_after_days: 7
+    shortdesc: "Learning spells comes easily to you. When you succeed at Learning a Spell, it takes 10 minutes regardless of the spell's rank. If you would succeed on the check, you critically succeed instead. If you fail, you can try again after a week or after you gain a level, whichever is first. You can use downtime to learn and inscribe new spells. This works as if you were using Earn Income with the tradition's associated skill, but instead of gaining money, you choose a spell available to you to learn and gain a discount on learning it, learning it for free if your earned income equals or exceeds its cost."
+    prereq:
+      level: 2
+      orskill:
+        - Arcana/expert
+        - Nature/expert
+        - Occultism/expert
+        - Religion/expert
   Nimble Crawl:
     feat_type:
       - Skill
@@ -1690,6 +1710,11 @@ pf2e_feats:
       level: 7
       skill: Survival/master
   Quick Climb:
+    movement:
+      - climb: land
+        prereq:
+          skill:
+            - Athletics/legendary
     feat_type:
       - Skill
       - General
@@ -1729,6 +1754,11 @@ pf2e_feats:
         - Occultism/master
         - Religion/master
   Quick Swim:
+    movement:
+      - swim: land
+        prereq:
+          skill:
+            - Athletics/legendary
     feat_type:
       - Skill
       - General

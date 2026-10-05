@@ -33,7 +33,7 @@ module AresMUSH
       # prepared, and nothing on them.
       def self.fresh(encounter, char)
         state = Pf2eCombatantState.create(:character => char, :encounter => encounter)
-        pool = char.magic ? (char.magic.focus_pool || {})['max'].to_i : 0
+        pool = Pf2emagic.focus_pool_max(char.magic)
 
         state.update(:focus_current => pool, :pf2_reagents => char.pf2_reagents || {})
         Pf2emagic.generate_spells_today(state) if char.magic
@@ -117,7 +117,7 @@ module AresMUSH
         return unless char.magic
 
         char.magic.update(:spells_today => {}, :revelation_locked => false,
-                          :focus_pool => (char.magic.focus_pool || {}).merge('current' => (char.magic.focus_pool || {})['max'].to_i))
+                          :focus_pool => { 'current' => Pf2emagic.focus_pool_max(char.magic) })
       end
     end
   end

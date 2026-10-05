@@ -454,7 +454,7 @@ module AresMUSH
         it "should stage the spellcasting a specialty brings under the archetype's own key" do
           out = pick('Druid Archetype', 'specialty', 'Animal', :to_assign => { 'archetype_specialty' => 'open' })
 
-          expect(out[:advancement]['magic_stats']['Druid Archetype']['focus_pool']).to eq 1
+          expect(out[:advancement]['magic_stats']['Druid Archetype']['focus_spell']).to eq('order' => [ 'Heal Animal' ])
         end
 
         # Merged rather than replaced: the dedication's own magic stats are already under this

@@ -30,7 +30,13 @@ module AresMUSH
         :focus_spells => [],
         :focus_pool => 0,
         :divine_font => nil,
+        :repertoire => {},
+        :features => [],
+        :choices => {},
+        :sanctification => nil,
         :perception => 'untrained',
+        :saves => {},
+        :weapon_prof => {},
         :archetypes => {},
         :advancing => nil
       }.freeze
@@ -51,14 +57,17 @@ module AresMUSH
             'heritage' => opts[:heritage],
             'specialize' => opts[:specialize]
           },
-          :pf2_faith => { 'deity' => opts[:deity], 'alignment' => opts[:alignment] },
+          :pf2_faith => { 'deity' => opts[:deity], 'alignment' => opts[:alignment],
+                          'sanctification' => opts[:sanctification] },
           :pf2_feats => opts[:feats],
+          :pf2_features => { 'charclass_features' => opts[:features], 'archetype_features' => [] },
           :pf2_special => opts[:specials],
           :pf2_archetypeinfo => opts[:archetypes],
           :pf2_to_assign => {},
           :pf2_advancement => {},
-          # Read by adopted_ancestries, which every Ancestry feat goes through.
-          :pf2_level_tracker => {},
+          # Read by adopted_ancestries, which every Ancestry feat goes through, and by the feature
+          # prereq, which counts a resolved feat choice. choice => [ labels ], recorded at level 1.
+          :pf2_level_tracker => opts[:choices].empty? ? {} : { '1' => { 'feat_choices' => opts[:choices] } },
           :skills => opts[:skills].map { |name, prof| matrix_skill(name, prof) },
           :abilities => matrix_abilities(opts[:abilities]),
           :magic => matrix_magic(opts),
@@ -79,24 +88,29 @@ module AresMUSH
       end
 
       # nil when the character has no magic at all, which is what a non-caster looks like.
+      #
+      # The pool's size is its own axis: the game counts it from the focus spells held, and letting
+      # the focus spell axis set it too would make one axis open the other's feats.
       def matrix_magic(opts)
+        allow(Pf2emagic).to receive(:focus_pool_max).and_return(opts[:focus_pool].to_i)
+
         blank = opts[:traditions].empty? && opts[:innate].empty? && opts[:focus_spells].empty? &&
-                opts[:focus_pool].to_i.zero? && opts[:divine_font].nil?
+                opts[:focus_pool].to_i.zero? && opts[:divine_font].nil? && opts[:repertoire].empty?
 
         return nil if blank
 
         double(:tradition => opts[:traditions],
                :innate_spells => opts[:innate],
-               :focus_pool => { 'max' => opts[:focus_pool], 'current' => opts[:focus_pool] },
+               :focus_pool => { 'current' => opts[:focus_pool] },
                :divine_font => opts[:divine_font],
-               :spell_abil => {}, :spells_per_day => {}, :repertoire => {}, :spellbook => {},
-               :signature_spells => {}, :restricted_spellbook => {}, :restricted_slots => {},
+               :spell_abil => {}, :spells_per_day => {}, :repertoire => opts[:repertoire], :spellbook => {},
+               :signature_spells => {}, :restricted_spellbook => {}, :restricted_slots => {}, :daily_pick => {},
                :character => nil)
       end
 
       def matrix_combat(opts)
-        double(:perception => opts[:perception], :class_dc => 'trained', :saves => {},
-               :weapon_prof => {}, :armor_prof => {}, :weapon_group_prof => {},
+        double(:perception => opts[:perception], :class_dc => 'trained', :saves => opts[:saves],
+               :weapon_prof => opts[:weapon_prof], :armor_prof => {}, :weapon_group_prof => {},
                :sneak_attack => nil)
       end
 

@@ -118,7 +118,7 @@ pf2e_spells:
     actions: reaction
     range: 30 feet
     target: each ally targeted by the triggering spell
-    trigger: You and at least 1 ally within 30 feet are targeted by a spell or ability that allows a saving throw
+    trigger: You and 1 or more allies within range are targeted by a spell or ability that allows a saving throw
     effect: "You put up a united defense. Each ally can use your saving throw modifier instead of its own against the triggering spell. Each ally decides individually which modifier to use."
   Unrelenting Observation:
     base_level: 8
@@ -403,7 +403,7 @@ pf2e_spells:
     effect: Vitality radiates outward from you, allowing others to supplicate and receive healing. Once per round, either you or an ally can use an Interact action to supplicate and lay hands upon you to regain Hit Points. Each time the beacon heals someone, it decreases in strength. It restores 4d10 Hit Points to the first creature, 4d8 Hit Points to the second, 4d6 Hit Points to the third, and 4d4 Hit Points to the fourth, after which the spell ends. You can have only one vital beacon active at a time.
     heighten: "**+1:** The beacon restores one additional die of Hit Points each time it heals, using the same die size as the others for that step."
   Vital Luminance:
-    base_level: 1
+    base_level: 4
     traits:
       - aura
       - cleric
@@ -712,6 +712,7 @@ pf2e_spells:
     actions: 1
     range: touch
     target: 1 weapon you're wielding
+    duration: until the start of your next turn
     effect: Holding your weapon aloft, you fill it with divine energy. On your next Strike with that weapon before the start of your next turn, you gain a +1 status bonus to the attack roll and the weapon deals an additional 1d6 spirit damage, and the Strike gains the sanctified trait. *Weapon surge* ends once you complete this Strike or the weapon leaves your possession.
     heighten: "**5th:** The attack deals 2d6 additional spirit damage.%r**9th:** The attack deals 3d6 additional spirit damage."
   Weapon Trance:
@@ -836,6 +837,21 @@ pf2e_spells:
     duration: 1 minute
     effect: You gain a fly Speed equal to your Speed. You must end your turn on solid ground, or you fall.
     heighten: "**6th:** At the end of your turn, you can attempt a DC 30 Acrobatics check to find purchase in midair. If you succeed, you don't fall."
+  Winter Bolt:
+    base_level: 1
+    traits:
+      - attack
+      - cleric
+      - cold
+      - concentrate
+      - focus
+      - manipulate
+      - uncommon
+    actions: 2
+    range: 60 feet
+    target: 1 creature
+    effect: "You fling a hollow icicle filled with winter's wrath. Make a spell attack against the target's AC. The bolt deals 1d8 piercing damage and lodges in the target. At the end of the target's next turn, the bolt shatters, releasing a whirl of snow and ice that deals 1d12 cold damage to the target and all adjacent creatures. The bolt can be removed with an Interact action, which causes it to melt harmlessly without detonating.%r%r**Critical Success** The initial bolt deals full damage and is especially well anchored, taking 2 Interact actions to remove. The bolt's explosion deals double damage.%r**Success** The bolt and its explosion deal full damage."
+    heighten: "**+1:** The bolt's initial damage increases by 1d8 and the explosion damage increases by 1d12."
   Withering Grasp:
     base_level: 1
     traits:
@@ -845,6 +861,7 @@ pf2e_spells:
       - focus
       - manipulate
       - void
+      - uncommon
     actions: 2
     range: "touch"
     target: "1 creature or object"
@@ -871,7 +888,7 @@ pf2e_spells:
       - focus
       - uncommon
     actions: 1
-    duration: 1 minute
+    duration: sustained up to 1 minute
     effect: You speak a statement you believe to be true and that is free of any attempt to deceive through twisting words, omission, and so on. The statement must be 25 words or fewer. A symbol of your deity glows above your head and lasts for the spell's duration, and anyone who sees you and hears you speak knows that you believe what you say is true. This assurance of honesty grants you a +2 status bonus to Diplomacy checks as long as the symbol persists. You can Dismiss the spell, and if you say something that you don't believe is entirely true, the spell ends before you complete your statement.
   Wrathful Storm:
     base_level: 9
@@ -941,3 +958,18 @@ pf2e_spells:
     duration: 10 minutes
     effect: You bypass your targets' rational minds, instilling them with unshakable conviction and zeal. The targets each gain 12 temporary Hit Points and a +2 status bonus to Will saves against mental effects, as their faith overrides the signals from their own bodies and minds. If you tell a target to do something, it must comply with your request, though if it would normally find the task repugnant, it can attempt a Will save at the end of its turn each round due to the cognitive dissonance. On a success, it ends the spell's effects on itself entirely.
     heighten: "**9th:** The temporary Hit Points increase to 18, and the status bonus to Will saves increases to +3."
+  Zenith Star:
+    base_level: 1
+    traits:
+      - cleric
+      - concentrate
+      - focus
+      - light
+      - manipulate
+      - uncommon
+    actions: 2
+    range: 60 feet
+    target: 1 creature
+    duration: 1 day
+    effect: "You call a tiny star to orbit a creature in a sparkling halo before shooting up into the heavens, where it marks the creature's rough location. The target must attempt a Fortitude save.%r%r**Critical Success** The target is unaffected.%r**Success** The target is dazzled for 1 round.%r**Failure** The target is dazzled for 1 round. While the spell persists, as long as you can see the night sky and the target is visible from the same night sky, you can sense the approximate direction and distance to the creature by Sustaining the spell. This is enough to track the creature, but not pinpoint their exact square (for instance, to make an attack). You can set a number of zenith stars equal to your Wisdom modifier; if you exceed this number, your oldest zenith star is automatically Dismissed.%r**Critical Failure** As failure, but the target is blinded for 1 round."
+    heighten: "**+1:** The duration increases by 1 day.%r**4th:** You ignore the concealed condition against targets marked by *zenith star*."

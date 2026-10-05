@@ -41,8 +41,28 @@ module AresMUSH
             "#{heading}%r#{names}"
           end
 
-          format_class_spell_list(charclass, lines)
+          format_class_spell_list(charclass, lines + slot_feat_lines(charclass))
         end
+      end
+
+      # Two spells in one slot (Split Slot, Spell Combination), and Spell Mastery's spells.
+      def slot_feat_lines(charclass)
+        magic = @char.magic
+
+        pairs = Pf2emagic::SlotFeats.pairs(magic, charclass).map do |pair|
+          joined = pair['cast'].to_s == 'both' ? pair['spells'].join(' + ') : pair['spells'].join(' or ')
+          at = pair['cast_rank'].to_s == pair['rank'].to_s ? '' : ", cast at rank #{pair['cast_rank']}"
+
+          "%b%b#{item_color}#{Pf2emagic.rank_label(pair['rank'])} (#{pair['feat']}#{at})%xn%r%b%b%b%b#{joined}"
+        end
+
+        mastered = Pf2emagic::SlotFeats.mastered(magic, charclass)
+        unless mastered.empty?
+          listed = mastered.sort_by { |rank, _spell| rank.to_i }.map { |rank, spell| "#{spell} (#{rank})" }.join(", ")
+          pairs << "%b%b#{item_color}Mastered, prepared at every rest%xn%r%b%b%b%b#{listed}"
+        end
+
+        pairs
       end
 
       def slot_summary(charclass, level)

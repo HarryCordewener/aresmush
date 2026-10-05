@@ -37,6 +37,24 @@ module AresMUSH
       end
     end
 
+    # A paged template's footer: the paginator's "page x of y" bar, and under it the command for
+    # the next page closed off by the footer line. The including template sets @paginator, and @cmd
+    # when it has one; without a command, or on the last page, it is the plain bar.
+    #
+    # The closing line is %lf rather than a drawn rule, so a screen reader is sent nothing for it.
+    #
+    # Here for the same reason as RecordsDraftStep: templates include it while their class body is
+    # being read, and pf2egear's are read after this plugin.
+    module PagedTemplate
+
+      def page_footer
+        footer = @paginator.page_footer
+        hint = Pf2e.next_page_hint(@cmd, @paginator)
+
+        hint ? "#{footer}%r#{hint}%r%lf" : footer
+      end
+    end
+
     def self.plugin_dir
       File.dirname(__FILE__)
     end
@@ -124,6 +142,8 @@ module AresMUSH
           return PF2SkillSetCmd
         when "unset"
           return PF2SkillUnSetCmd
+        when "lore"
+          return PF2LoreGroupListCmd
         when nil
           return PF2SkillListCmd
         end

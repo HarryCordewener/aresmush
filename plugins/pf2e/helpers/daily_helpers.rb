@@ -76,14 +76,9 @@ module AresMUSH
 
     end
 
+    # Daily preparations fill the pool.
     def self.daily_refresh_focus_pool(magic)
-      fp = magic.focus_pool
-
-      current = fp['max']
-
-      fp['current'] = current
-
-      magic.update(focus_pool: fp)
+      magic.update(focus_pool: { 'current' => Pf2emagic.focus_pool_max(magic) })
     end
 
     def self.do_daily_investiture(char)

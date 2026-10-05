@@ -61,6 +61,7 @@ pf2e_feats:
         text: "If have the formula for the item you're identifying, and you roll a critical failure, you get a failure instead."
         predicate: ["action:identify-alchemy"]
   Alchemical Familiar:
+    familiar: true
     assoc_charclass:
       - Alchemist
     feat_type:
@@ -107,6 +108,9 @@ pf2e_feats:
     traits:
       - druid
   Bardic Lore:
+    grants:
+      skill:
+        - Bardic Lore
     assoc_charclass:
       - Bard
     feat_type:
@@ -353,12 +357,14 @@ pf2e_feats:
     shortdesc: "Your deity bestows a special spell related to their powers. Select one domain—a subject of particular interest to you within your religion—from your deity's list. You gain an initial domain spell for that domain, a spell unique to the domain and not available to other clerics.%r%rDomain spells are a type of focus spell. It costs 1 Focus Point to cast a focus spell, and you start with a focus pool of 1 Focus Point. You refill your focus pool during your daily preparations, and you can regain 1 Focus Point by spending 10 minutes using the Refocus activity to pray to your deity or do service toward their causes.%r%rFocus spells are automatically heightened to half your level rounded up, much like cantrips. Focus spells don't require spell slots, and can't be cast using spell slots. Your focus pool can hold one Focus Point for each focus spell you have, up to 3 points.%r%r**Special** You can select this feat multiple times, selecting a different domain each time and gaining its domain spell."
     traits:
       - cleric
-    init_magic: true
     rules:
       - key: "ActiveEffectLike"
         path: "flags.system.soulWarden.featCount"
         mode: "add"
         value: 1
+    feat_choice:
+      summary: one of your deity's domains
+      from: deity_domains
   Double Slice:
     assoc_charclass:
       - Fighter
@@ -476,6 +482,7 @@ pf2e_feats:
     traits:
       - champion
   Familiar:
+    familiar: true
     assoc_charclass:
       - Sorcerer
       - Wizard
@@ -665,6 +672,15 @@ pf2e_feats:
     shortdesc: "You've trained with one of the ranger sects known as wardens, who practice a specialized type of primal magic. You gain your choice of one warden spell from these initial warden spells (or another you have access to): *gravity weapon*, *heal companion*, *magic hide*.%r%r**Special** You can take this feat multiple times, choosing a different initial warden spell each time."
     traits:
       - ranger
+    repeatable: true
+    feat_choice:
+      summary: an initial warden spell
+      from_spells:
+        traits:
+          - ranger
+          - focus
+        base_level: 1
+        focus_type: warden
   Known Weaknesses:
     assoc_charclass:
       - Investigator
@@ -676,6 +692,7 @@ pf2e_feats:
     traits:
       - investigator
   Leshy Familiar:
+    familiar: true
     assoc_charclass:
       - Druid
     feat_type:
@@ -744,6 +761,10 @@ pf2e_feats:
         value: 3
         predicate: ["feature:master-strikes"]
   Monastic Weaponry:
+    grants:
+      combat_stats:
+        weapon_prof:
+          monk: trained
     assoc_charclass:
       - Monk
     feat_type:
@@ -952,8 +973,6 @@ pf2e_feats:
     grants:
       grant_choice_once:
         - Qi Tradition
-    magic_stats:
-      focus_pool: 1
     feat_choice:
       summary: 1st-rank qi spell
       from_spells:
@@ -1215,6 +1234,9 @@ pf2e_feats:
       - flourish
       - ranger
   Underworld Investigator:
+    grants:
+      skill:
+        - Underworld Lore
     assoc_charclass:
       - Investigator
     feat_type:
@@ -1349,6 +1371,23 @@ pf2e_feats:
       - cursebound
       - divine
       - oracle
+  Spellbook Prodigy:
+    assoc_charclass:
+      - Wizard
+    feat_type:
+      - Charclass
+    grants:
+      feat:
+        - name: Magical Shorthand
+          prereqs: ignore
+    learn_spell:
+      soften_critical_failure: true
+    prereq:
+      level: 1
+      skill: Arcana/trained
+    shortdesc: "You are particularly adept at learning spells to add to your spellbook. You gain the Magical Shorthand skill feat without needing to meet its prerequisites. Further, when you roll a critical failure on your check to Learn a Spell, you get a failure instead."
+    traits:
+      - wizard
   Widen Spell:
     assoc_charclass:
       - Druid
@@ -1376,6 +1415,42 @@ pf2e_feats:
         suboptions: [{"label": "{item|name}", "value": "widen-spell"}]
         label: "Spellshape"
   Witch's Armaments:
+    repeatable: true
+    feat_choice:
+      summary: unarmed attack
+      options:
+        Eldritch Nails:
+          grants:
+            attack:
+              Nails:
+                damage: 1d6
+                damage_type: S
+                group: Brawling
+                traits:
+                  - agile
+                  - unarmed
+        Iron Teeth:
+          grants:
+            attack:
+              Jaws:
+                damage: 1d8
+                damage_type: P
+                group: Brawling
+                traits:
+                  - unarmed
+        Living Hair:
+          grants:
+            attack:
+              Hair:
+                damage: 1d4
+                damage_type: B
+                group: Brawling
+                traits:
+                  - agile
+                  - disarm
+                  - finesse
+                  - trip
+                  - unarmed
     assoc_charclass:
       - Witch
     feat_type:
@@ -1588,12 +1663,16 @@ pf2e_feats:
     shortdesc: Your patron grants you a special lesson, revealing a hidden facet of its nature. Choose a basic lesson. You gain its associated hex, and your familiar learns the associated spell.
     traits:
       - witch
-    init_magic: true
     rules:
       - key: "ChoiceSet"
         flag: "lesson"
         prompt: "Select a lesson."
         choices: {"filter": ["item:tag:witch-lesson", "item:level:2"]}
+    feat_choice:
+      summary: a basic lesson
+      from: lessons
+      tiers:
+        - basic
   Blade Brake:
     assoc_charclass:
       - Fighter
@@ -1931,6 +2010,9 @@ pf2e_feats:
     shortdesc: "Every oracle's mystery touches on a divine domain of the deities that fuel it; you can access that power. Choose one of the domains associated with your mystery for which you don't already have an initial domain spell. You gain an initial domain spell from that domain, which you cast as a revelation spell.%r%r**Special** You can select this feat multiple times, selecting a different domain each time and gaining its domain spell as a revelation spell."
     traits:
       - oracle
+    feat_choice:
+      summary: a domain of your mystery
+      from: mystery_domains
   Dueling Parry:
     assoc_charclass:
       - Fighter
@@ -2015,9 +2097,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 2
-      orfeat:
-        - Familiar
-        - Leshy Familiar
+      familiar: true
     shortdesc: "You infuse your familiar with additional magical energy. You can select four familiar or master abilities each day, instead of two.%r%r**Special** [Witch] Add the bonus familiar abilities you gain for being a witch to this amount. [Wizard] If your arcane thesis is improved familiar attunement, your familiar's base number of familiar abilities, before adding any extra abilities from the arcane thesis, is four."
     traits:
       - druid
@@ -2040,6 +2120,12 @@ pf2e_feats:
     traits:
       - swashbuckler
   Esoteric Polymath:
+    spell_book:
+      name: Book of Occult Spells
+      tradition: occult
+      supplements: Bard
+      keeps_repertoire: true
+      switch: esotericpolymath
     assoc_charclass:
       - Bard
     feat_type:
@@ -2233,6 +2319,12 @@ pf2e_feats:
     traits:
       - ranger
   Multifarious Muse:
+    repeatable: true
+    feat_choice:
+      summary: another muse
+      from: other_specialties
+      joins_specialty: true
+      grants_specialty_feat: true
     assoc_charclass:
       - Bard
     feat_type:
@@ -2283,6 +2375,12 @@ pf2e_feats:
         suboptions: [{"label": "{item|name}", "value": "nonlethal-spell"}]
         label: "Spellshape"
   Order Explorer:
+    repeatable: true
+    feat_choice:
+      summary: another druidic order
+      from: other_specialties
+      joins_specialty: true
+      grants_specialty_feat: true
     assoc_charclass:
       - Druid
     feat_type:
@@ -2762,6 +2860,15 @@ pf2e_feats:
     shortdesc: "You unlock more powerful primal spells. You gain your choice of one warden spell from the advanced warden spells.%r%r*animal feature*%r%r*enlarge companion*%r%r*hunter's luck*%r%r*soothing mist*%r%r**Special** You can take this feat multiple times, choosing a different advanced warden spell each time."
     traits:
       - ranger
+    repeatable: true
+    feat_choice:
+      summary: an advanced warden spell
+      from_spells:
+        traits:
+          - ranger
+          - focus
+        base_level: 2
+        focus_type: warden
   Alchemical Discoveries:
     assoc_charclass:
       - Investigator
@@ -2786,6 +2893,14 @@ pf2e_feats:
     traits:
       - druid
   Arcane Evolution:
+    spell_book:
+      name: Arcane Evolution List
+      tradition: arcane
+      supplements: Sorcerer
+      switch: arcaneevolution
+    grants:
+      skill:
+        - open
     assoc_charclass:
       - Sorcerer
     feat_type:
@@ -2908,7 +3023,6 @@ pf2e_feats:
       - bard
       - concentrate
       - spellshape
-    init_magic: true
     rules:
       - key: "RollOption"
         option: "spellshape"
@@ -2996,6 +3110,10 @@ pf2e_feats:
         - diabolic
         - draconic
         - undead
+    bonus_slot:
+      spells:
+        - Heal
+        - Harm
     shortdesc: The divine might provided by your bloodline flows through you. You gain an additional spell slot of your highest level, which you can use only to cast your choice of *heal* or *harm*. You can cast either of these spells using that spell slot, even if they aren't in your spell repertoire.
     traits:
       - divine
@@ -3263,7 +3381,6 @@ pf2e_feats:
       grant_choice_once:
         - Qi Tradition
     magic_stats:
-      focus_pool: 1
       focus_spell:
         qi:
           - Harmonize Self
@@ -3332,7 +3449,6 @@ pf2e_feats:
       - bard
       - concentrate
       - spellshape
-    init_magic: true
     rules:
       - key: "RollOption"
         option: "spellshape"
@@ -3450,7 +3566,7 @@ pf2e_feats:
     prereq:
       level: 4
       feat:
-        - Animal Companion (Druid)
+        - Animal Companion
     shortdesc: "Your animal companion has grown up over the course of your adventures, becoming a mature animal companion and gaining additional capabilities.%r%rYour animal companion has greater independence. During an encounter, even if you don't use the Command an Animal action, your animal companion can still use 1 action that round on your turn to Strike or Stride (or Burrow, Climb, Fly, or Swim if it has that Speed). It can do this at any point during your turn, as long as you aren't currently taking an action. If it does, that's all the actions it gets that round—you can't Command it later."
     traits:
       - druid
@@ -3528,6 +3644,12 @@ pf2e_feats:
     traits:
       - investigator
   Order Magic:
+    repeatable: true
+    feat_choice:
+      summary: an order you explored with Order Explorer
+      from: chosen_specialties
+      from_choice: Order Explorer
+      grants_specialty_focus: true
     assoc_charclass:
       - Druid
     feat_type:
@@ -3605,6 +3727,10 @@ pf2e_feats:
         - draconic
         - elemental
         - fey
+    bonus_slot:
+      spells:
+        - Summon Animal
+        - Summon Plant or Fungus
     shortdesc: You can call upon the creatures of the wild for aid. You gain an additional spell slot of your highest rank, which you can use only to cast *summon animal* or *summon plant or fungus*. You can cast either of these spells using that spell slot, even if it they aren't in your spell repertoire.
     traits:
       - primal
@@ -3992,7 +4118,6 @@ pf2e_feats:
     shortdesc: "**Frequency** once per round%r%rYou collect your patron's magic into one of your witch armaments, causing them to shine with runes, light, or another signifier of your patron.%r%rMake an unarmed Strike with one with your witch's armaments. If you hit, you establish a sympathetic link with the target, making it easier for your patron to affect them. Until the beginning of your next turn, the target takes a –1 circumstance penalty to its saves against your hexes, or a –2 penalty if the triggering Strike was a critical hit."
     traits:
       - witch
-    init_magic: true
     rules:
       - key: "RollOption"
         option: "sympathetic-strike"
@@ -4170,6 +4295,11 @@ pf2e_feats:
     shortdesc: You draw more power from your bloodline. You gain the advanced bloodline spell associated with your bloodline.
     traits:
       - sorcerer
+    feat_choice:
+      summary: your bloodline's advanced spell
+      auto: subclass_spell
+      from: subclass_spell
+      tier: advanced
   Advanced Monastic Weaponry:
     assoc_charclass:
       - Monk
@@ -4192,8 +4322,6 @@ pf2e_feats:
     grants:
       grant_choice_once:
         - Qi Tradition
-    magic_stats:
-      focus_pool: 1
     feat_choice:
       summary: 3rd-rank qi spell
       from_spells:
@@ -4224,8 +4352,17 @@ pf2e_feats:
     shortdesc: Divine power reveals greater mysteries to you. You learn the advanced revelation spell associated with your mystery.
     traits:
       - oracle
-    init_magic: true
+    feat_choice:
+      summary: your mystery's advanced revelation spell
+      auto: subclass_spell
+      from: subclass_spell
+      tier: advanced
   Advanced Weapon Training:
+    feat_choice:
+      summary: a weapon group
+      from_weapon_groups:
+        category: advanced
+      as_category: martial
     assoc_charclass:
       - Fighter
     feat_type:
@@ -4317,6 +4454,10 @@ pf2e_feats:
         dieSize: "d6"
         predicate: ["analyze-weakness"]
   Animal Skin:
+    grants:
+      combat_stats:
+        armor_prof:
+          unarmored: expert
     assoc_charclass:
       - Barbarian
     feat_type:
@@ -4642,6 +4783,7 @@ pf2e_feats:
         text: "{item|description}"
         predicate: ["item:trait:splash", "directional-bombs"]
   Dirge of Doom:
+    init_magic: true
     assoc_charclass:
       - Bard
     feat_type:
@@ -4912,6 +5054,13 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 6
+    # The mystery's granted spells, and by its Special line the spells Divine Access and Mysterious
+    # Repertoire add.
+    bonus_slot:
+      spells_from:
+        - mystery
+        - divine_access
+        - off_list
     shortdesc: "Your mystery grants you additional magic. You have an extra spell slot of your highest rank, which you can use only to cast one of your mystery's granted spells, heightened to this rank.%r%r**Special** If you have the divine access class feature or Mysterious Repertoire feat, you can cast spells that you learned from those abilities using the additional spell slot from Gifted Power."
     traits:
       - oracle
@@ -4925,12 +5074,17 @@ pf2e_feats:
     shortdesc: Your patron grants you greater knowledge. Choose a greater or basic lesson. You gain its associated hex, and your familiar learns the associated spell.
     traits:
       - witch
-    init_magic: true
     rules:
       - key: "ChoiceSet"
         flag: "lesson"
         prompt: "Select a lesson."
         choices: {"filter": ["item:tag:witch-lesson", {"lte": ["item:level", 6]}]}
+    feat_choice:
+      summary: a greater or basic lesson
+      from: lessons
+      tiers:
+        - basic
+        - greater
   Green Empathy:
     assoc_charclass:
       - Druid
@@ -5094,6 +5248,15 @@ pf2e_feats:
     shortdesc: "Your mastery of warden magic increases. You gain your choice of one warden spell from the master warden spells.%r%r*ephemeral tracking*%r%r*ranger's bramble*%r%r**Special** You can take this feat multiple times, choosing a different master warden spell each time."
     traits:
       - ranger
+    repeatable: true
+    feat_choice:
+      summary: a master warden spell
+      from_spells:
+        traits:
+          - ranger
+          - focus
+        base_level: 3
+        focus_type: warden
   Mature Animal Companion (Ranger):
     assoc_charclass:
       - Ranger
@@ -5385,6 +5548,7 @@ pf2e_feats:
     traits:
       - ranger
   Song of Marching:
+    init_magic: true
     assoc_charclass:
       - Bard
     feat_type:
@@ -5442,6 +5606,11 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 6
+    prepared_slot:
+      switch: splitslot
+      cast: either
+      count: 1
+      below_top: 1
     shortdesc: You can prepare two spells in one slot, giving you the freedom to choose the spell when you cast it. When you prepare your spells for the day, you can choose one spell slot at least 1 rank lower than the highest-rank spell you can cast and prepare two spells in that slot. When you Cast a Spell from that slot, choose which spell to cast. Once you've chosen, the unused spell dissipates as though you hadn't prepared it at all—for example, it isn't available for use with Drain Bonded Item.
     traits:
       - wizard
@@ -5713,7 +5882,9 @@ pf2e_feats:
     shortdesc: Through your conviction, you have glimpsed the deeper secrets of your deity's domain. You gain an advanced domain spell from the domain you chose with Deity's Domain as a devotion spell.
     traits:
       - champion
-    init_magic: true
+    feat_choice:
+      summary: the domain you chose with Deity's Domain
+      from: held_domains
   Advanced Domain:
     repeatable: true
     assoc_charclass:
@@ -5727,12 +5898,14 @@ pf2e_feats:
     shortdesc: "Your prayers have unlocked deeper secrets of your deity's domain. You gain an advanced domain spell from one of your domains for which you have an initial domain spell.%r%r**Special** You can select this feat multiple times. Each time, you must select a different advanced domain spell."
     traits:
       - cleric
-    init_magic: true
     rules:
       - key: "ActiveEffectLike"
         path: "flags.system.soulWarden.featCount"
         mode: "add"
         value: 1
+    feat_choice:
+      summary: a domain whose initial spell you have
+      from: held_domains
   Advanced School Spell:
     feat_choice:
       auto: subclass_spell
@@ -5748,7 +5921,6 @@ pf2e_feats:
     shortdesc: You gain access to the advanced teachings of your arcane institution, learning a powerful new school spell. You gain the advanced school spell for your arcane school.
     traits:
       - wizard
-    init_magic: true
   Alter Admixture:
     assoc_charclass:
       - Alchemist
@@ -5896,7 +6068,6 @@ pf2e_feats:
       grant_choice_once:
         - Qi Tradition
     magic_stats:
-      focus_pool: 1
       focus_spell:
         qi:
           - Clinging Shadows Stance
@@ -5938,6 +6109,14 @@ pf2e_feats:
         text: "When you use a heal spell to damage undead, each undead that takes damage also takes ]."
         predicate: ["item:slug:heal"]
   Crossblooded Evolution:
+    feat_choice:
+      summary: another bloodline
+      from: other_specialties
+      shares_blood_magic: true
+      then_choose:
+        summary: the choice that bloodline makes at 1st level
+        from: specialty_options
+        skip_if_empty: true
     assoc_charclass:
       - Sorcerer
     feat_type:
@@ -6214,7 +6393,20 @@ pf2e_feats:
     shortdesc: You have learned some of the tricks the fey use to bend primal magic toward illusions and trickery. Add *illusory disguise*, *illusory object*, and *illusory scene* to your spell list, which you cast as primal spells.
     traits:
       - druid
-    init_magic: true
+    magic_stats:
+      adapted_spell:
+        - name: Illusory Disguise
+          tradition: primal
+          base_level: 1
+          source: Fey Caller
+        - name: Illusory Object
+          tradition: primal
+          base_level: 1
+          source: Fey Caller
+        - name: Illusory Scene
+          tradition: primal
+          base_level: 5
+          source: Fey Caller
   Flashy Roll:
     assoc_charclass:
       - Swashbuckler
@@ -6246,7 +6438,6 @@ pf2e_feats:
       - druid
       - healing
       - vitality
-    init_magic: true
   Follow-Up Assault:
     assoc_charclass:
       - Barbarian
@@ -6387,7 +6578,8 @@ pf2e_feats:
       level: 8
       feat:
         - Faithful Steed
-        - lay on hands
+      focus_spell:
+        - Lay on Hands
     shortdesc: "Your devotion to your mount manifests as a surge of vital energy.%r%rWhen you cast *lay on hands* on your mount, instead of the normal amount, the spell restores 10 Hit Points, plus 10 for each heightened rank."
     traits:
       - champion
@@ -6458,7 +6650,7 @@ pf2e_feats:
     prereq:
       level: 8
       feat:
-        - Mature Animal Companion
+        - Mature Animal Companion (Druid)
     shortdesc: Your animal companion continues to grow and develop. It becomes either a nimble or savage animal companion, gaining additional capabilities determined by the type.
     traits:
       - druid
@@ -6808,8 +7000,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 8
-      feat:
-        - healing font
+      divine_font:
+        - heal
     shortdesc: "You can remove conditions with divine grace. You can sacrifice one *heal* spell you've prepared in your extra slots from your healing font to cast one of the following spells instead: *cleanse affliction*, *clear mind*, *sound body*, or *sure footing*. The spell is heightened to the same rank as the spell you sacrificed."
     traits:
       - cleric
@@ -6831,9 +7023,9 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 8
-      orfeat:
+      sanctification:
         - holy
-        - unholy trait
+        - unholy
     shortdesc: "You touch a weapon and bring it into concordance with your deity. For 1 round, that weapon gains your holy or unholy trait. It also deals an additional 2d6 spirit damage to creatures of the opposed trait. For example, if you are holy, the weapon would deal an extra 2d6 spirit damage to unholy creatures.%r%rIf you use Sanctify Armament again, any previous use of it expires."
     traits:
       - cleric
@@ -6993,7 +7185,6 @@ pf2e_feats:
     shortdesc: "**Frequency** once per day%r%r**Trigger** An ally you can see falls to 0 Hit Points.%r%rWhen an ally you can see falls in battle, your surge of righteous indignation allows you to draw upon untapped reserves of divine power. You instantly regain 1 Focus Point."
     traits:
       - cleric
-    init_magic: true
   Surging Might:
     assoc_charclass:
       - Oracle
@@ -7134,7 +7325,6 @@ pf2e_feats:
       grant_choice_once:
         - Qi Tradition
     magic_stats:
-      focus_pool: 1
       focus_spell:
         qi:
           - Wild Winds Stance
@@ -7150,6 +7340,10 @@ pf2e_feats:
     traits:
       - monk
   Wind Caller:
+    magic_stats:
+      focus_spell:
+        order:
+          - Stormwind Flight
     assoc_charclass:
       - Druid
     feat_type:
@@ -7191,7 +7385,7 @@ pf2e_feats:
     prereq:
       level: 10
       feat:
-        - Efficient Alchemy
+        - Efficient Alchemy (Alchemist)
     shortdesc: You make an even-larger batch of alchemical items each morning. Increase the maximum number of items you can create with advanced alchemy to 8 + your Intelligence modifier, or to 10 + your Intelligence modifier if you're 16th level or higher.
     traits:
       - alchemist
@@ -7393,7 +7587,7 @@ pf2e_feats:
     shortdesc: Your devotion is strong enough to increase your focus to incredible heights. Whenever you Refocus, completely refill your focus pool.
     traits:
       - champion
-    init_magic: true
+    refocus: refill
   Disarming Twist:
     assoc_charclass:
       - Fighter
@@ -7557,7 +7751,11 @@ pf2e_feats:
     shortdesc: You uncover the greater secrets of your bloodline. You gain the greater bloodline spell associated with your bloodline.
     traits:
       - sorcerer
-    init_magic: true
+    feat_choice:
+      summary: your bloodline's greater spell
+      auto: subclass_spell
+      from: subclass_spell
+      tier: greater
   Greater Debilitating Bomb:
     assoc_charclass:
       - Alchemist
@@ -7601,8 +7799,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 10
-      feat:
-        - healing font
+      divine_font:
+        - heal
     shortdesc: "The restorative power of your healing invigorates the recipient. If the next action you use is to cast *heal* targeting a single living creature and the target regains Hit Points from the spell, the target also gains three bonuses until the end of its next turn: a +5-foot status bonus to its Speed, a +1 status bonus to attack rolls, and a +1 status bonus to damage rolls. In addition, if the target is prone, it can immediately Stand as a free action that doesn't trigger reactions."
     traits:
       - cleric
@@ -7615,6 +7813,7 @@ pf2e_feats:
         suboptions: [{"label": "{item|name}", "value": "heroic-recovery"}]
         label: "Spellshape"
   House of Imaginary Walls:
+    init_magic: true
     assoc_charclass:
       - Bard
     feat_type:
@@ -7654,7 +7853,7 @@ pf2e_feats:
     prereq:
       level: 10
       feat:
-        - Mature Animal Companion
+        - Mature Animal Companion (Ranger)
     shortdesc: Your animal companion continues to grow and develop. It becomes a nimble or savage animal companion (your choice), gaining additional capabilities determined by the type of companion.
     traits:
       - ranger
@@ -7714,12 +7913,18 @@ pf2e_feats:
     shortdesc: "Your patron grants you even greater secrets. Choose a major, greater, or basic lesson. You gain its associated hex, and your familiar learns the associated spell.%r%r**Special** You can select this feat a second time if you're 14th level or higher, and a third time if you're 18th level or higher. Choose a different lesson each time."
     traits:
       - witch
-    init_magic: true
     rules:
       - key: "ChoiceSet"
         flag: "lesson"
         prompt: "Select a lesson."
         choices: {"filter": ["item:tag:witch-lesson", {"lte": ["item:level", 10]}]}
+    feat_choice:
+      summary: a major, greater or basic lesson
+      from: lessons
+      tiers:
+        - basic
+        - greater
+        - major
   Master Monster Hunter:
     assoc_charclass:
       - Ranger
@@ -7899,8 +8104,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 10
-      feat:
-        - at least one stance feat
+      stances: 1
     shortdesc: "**Trigger** You are targeted by an attack or attempt a Reflex saving throw against a damaging effect, and you are in a stance.%r%rYour flexibility with stances lets you sacrifice their benefits to better protect yourself. You leave the stance you were in, gaining a +4 circumstance bonus to the triggering saving throw or to your AC against the triggering attack."
     traits:
       - monk
@@ -7978,8 +8182,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 10
-      feat:
-        - blessed armament
+      feature:
+        - Blessed Armament
     shortdesc: "Your blessed armament radiates power, further enhancing your chosen weapon. When you choose the weapon for your blessed armament during your daily preparations, add the *astral* and *brilliant* property runes to the list of effects you can choose from. If you're holy, also add the *holy* rune, and if you're unholy, also add the *unholy* rune.%r%rIn addition, you can change the rune you've selected for the day to a different rune from your list as a 10-minute activity that has the concentrate, divine, and exploration traits. Changing the rune doesn't restore abilities that can be used only a limited number of times, such as Holy Healing for the *holy* rune."
     traits:
       - champion
@@ -7990,7 +8194,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 10
-      feat:
+      feature:
         - Opportune Riposte
     shortdesc: You can riposte almost without a thought. At the start of each of your turns when you regain your actions, you gain an additional reaction that can be used only to perform an Opportune Riposte.
     traits:
@@ -8103,6 +8307,9 @@ pf2e_feats:
         mode: "add"
         value: "animal-companion"
   Signature Spell Expansion:
+    magic_stats:
+      signature_spells:
+        "up to 3": 2
     assoc_charclass:
       - Sorcerer
     feat_type:
@@ -8158,8 +8365,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 10
-      feat:
-        - blessed swiftness
+      feature:
+        - Blessed Swiftness
     shortdesc: You gain the *spectral advance* devotion spell, which lets you move to an enemy, bypassing hindrances.
     traits:
       - champion
@@ -8432,7 +8639,6 @@ pf2e_feats:
       grant_choice_once:
         - Qi Tradition
     magic_stats:
-      focus_pool: 1
       focus_spell:
         qi:
           - Wind Jump
@@ -8489,7 +8695,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 12
-      orfeat:
+      sanctification:
         - holy
         - unholy
     shortdesc: You radiate an aura of belief that imbues your attacks and those of nearby allies with divine power. Each willing ally in your champion's aura adds the holy trait to their Strikes if you're holy or adds the unholy trait to their Strikes if you're unholy.
@@ -8545,7 +8751,7 @@ pf2e_feats:
     shortdesc: By listening to the beating of your heart, your focus recovers faster. Whenever you Refocus, completely refill your focus pool.
     traits:
       - sorcerer
-    init_magic: true
+    refocus: refill
   Bloody Debilitation:
     assoc_charclass:
       - Rogue
@@ -8589,8 +8795,6 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 12
-      feat:
-        - you aren't unholy
     shortdesc: You can suffer so that others might live. You can cast the *champion's sacrifice* devotion spell.
     traits:
       - champion
@@ -8735,7 +8939,9 @@ pf2e_feats:
     shortdesc: You command a deep understanding of the domains related to your mystery. Choose one of the domains associated with your mystery for which you have an initial domain spell. You gain an advanced domain spell from that domain, which you cast as a revelation spell.
     traits:
       - oracle
-    init_magic: true
+    feat_choice:
+      summary: a domain whose initial spell you have
+      from: held_domains
   Domain Focus:
     assoc_charclass:
       - Cleric
@@ -8746,7 +8952,7 @@ pf2e_feats:
     shortdesc: Your devotion to your deity's domains grows greater, and so does the power granted to you. Whenever you Refocus, completely refill your focus pool.
     traits:
       - cleric
-    init_magic: true
+    refocus: refill
   Double Prey:
     assoc_charclass:
       - Ranger
@@ -9035,7 +9241,11 @@ pf2e_feats:
     shortdesc: You unlock deeper revelations hidden within your mystery. You gain your mystery's greater revelation spell.
     traits:
       - oracle
-    init_magic: true
+    feat_choice:
+      summary: your mystery's greater revelation spell
+      auto: subclass_spell
+      from: subclass_spell
+      tier: greater
   Greater Spiritual Evolution:
     assoc_charclass:
       - Sorcerer
@@ -9063,7 +9273,7 @@ pf2e_feats:
     shortdesc: Your patron's teachings have allowed you to achieve a deeper focus. Whenever you Refocus, completely refill your focus pool.
     traits:
       - witch
-    init_magic: true
+    refocus: refill
   Improved Dueling Riposte:
     assoc_charclass:
       - Fighter
@@ -9112,7 +9322,7 @@ pf2e_feats:
     shortdesc: Your connection to your muse has granted you unusual focus. Whenever you Refocus, completely refill your focus pool.
     traits:
       - bard
-    init_magic: true
+    refocus: refill
   Just as Planned:
     assoc_charclass:
       - Investigator
@@ -9194,7 +9404,7 @@ pf2e_feats:
     shortdesc: Your meditation is so effective that you can achieve a deep focus with the world around you. When you Refocus, you regain all your Focus Points instead of 1.
     traits:
       - monk
-    init_magic: true
+    refocus: refill
   Mobile Finisher:
     assoc_charclass:
       - Swashbuckler
@@ -9268,8 +9478,9 @@ pf2e_feats:
     shortdesc: Your connection to nature is particularly strong, and the spirits of nature flock around you, helping you replenish your focus. Whenever you Refocus, completely refill your focus pool.
     traits:
       - druid
-    init_magic: true
+    refocus: refill
   Primal Summons:
+    init_magic: true
     assoc_charclass:
       - Druid
     feat_type:
@@ -9334,7 +9545,7 @@ pf2e_feats:
     prereq:
       level: 12
       feat:
-        - Ricochet Stance
+        - Ricochet Stance (Rogue)
     shortdesc: While in Ricochet Stance, you can bounce a thrown weapon off a foe to distract them. You can attempt a Feint against a creature within the first range increment of a thrown weapon you are wielding, rather than only creatures within your melee reach.
     traits:
       - rogue
@@ -9611,12 +9822,22 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 12
-      feat:
-        - warden spells
+      focus_spell:
+        - Animal Feature
+        - Enlarge Companion
+        - Ephemeral Tracking
+        - Gravity Weapon
+        - Heal Companion
+        - "Hunter's Luck"
+        - "Hunter's Vision"
+        - Magic Hide
+        - "Ranger's Bramble"
+        - Soothing Mist
+        - Terrain Transposition
     shortdesc: Your connection with your surroundings deepens and expands, allowing you to draw in more of nature's primal power as you focus. When you Refocus, you regain all your Focus Points instead of 1.
     traits:
       - ranger
-    init_magic: true
+    refocus: refill
   Witch's Broom:
     assoc_charclass:
       - Witch
@@ -9678,7 +9899,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 14
-      feat:
+      sanctification:
         - holy
     shortdesc: Your righteous aura dampens evil's might and prevents the unholy from escaping you. You and all allies in your champion's aura gain resistance 5 to unholy spells, unholy Strikes, and other unholy effects. If a teleportation spell or effect would teleport an unholy creature out of your champion's aura, your aura attempts to counteract it, using the spell rank and DC of your devotion spells.
     traits:
@@ -9725,7 +9946,7 @@ pf2e_feats:
     shortdesc: Your connection to your bonded item increases your focus pool. Whenever you Refocus while your bonded item is in your possession, you completely refill your focus pool.
     traits:
       - wizard
-    init_magic: true
+    refocus: refill
   Channeling Block:
     assoc_charclass:
       - Cleric
@@ -9844,9 +10065,9 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 14
-      orfeat:
-        - harmful font
-        - healing font
+      divine_font:
+        - heal
+        - harm
     shortdesc: "Divine power is always at your fingertips, swiftly responding to your call. When you cast *harm* or *heal* by spending 2 actions, you can get the effects of the 3-action version instead of the 2-action version.%r%rYou can do this with *harm* if you have harmful font or *heal* if you have healing font (or both if you have Versatile Font)."
     traits:
       - cleric
@@ -9928,7 +10149,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 14
-      feat:
+      feature:
         - Opportune Riposte
     shortdesc: "Your ripostes can deflect attacks back at their source. You can use opportune riposte with a trigger of 'A foe outside of your reach critically fails an attack roll against you' in addition to its usual trigger.%r%rWhen you use opportune riposte with this new trigger against a ranged attack, your Strike deflects some of the triggering effect back toward its source. Compare the result of your attack roll to the AC of the triggering foe.%r%rOn a hit, you deal the normal amount of damage for your Strike, but the damage type changes to that of the triggering attack. For instance, if you used opportune riposte to deflect a *blazing bolt*, your Strike would deal fire damage instead of its normal damage type."
     traits:
@@ -9982,8 +10203,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 14
-      feat:
-        - dispel magic in your spell repertoire
+      repertoire_spell:
+        - Dispel Magic
     shortdesc: You weave dispelling energy into a spell. If your next action is to cast a single-target spell against an enemy, and you either hit the enemy with the spell attack roll or the enemy fails its saving throw, you can cast *dispel magic* on the enemy as a free action, expending a spell slot as normal and targeting one spell effect affecting the enemy.
     traits:
       - sorcerer
@@ -10099,6 +10320,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 14
+    # How many repertoire spells may come from off the class's tradition list at a time.
+    off_list_repertoire: 1
     shortdesc: "Your mystery holds unknowable depths of magic not always associated with the divine. You can have one spell in your spell repertoire not on the divine spell list, in addition to spells you've added to your spell list from abilities like divine access.%r%rYou cast that spell as a divine spell. You can swap which spell you add and from which tradition as you could any other oracle spell, but you can't use this feat to have more than one spell from another tradition in your spell repertoire at the same time."
     traits:
       - oracle
@@ -10251,7 +10474,7 @@ pf2e_feats:
     shortdesc: The further extents of your mystery provide an endless wellspring of magic. When you Refocus, you regain all your Focus Points instead of 1.
     traits:
       - oracle
-    init_magic: true
+    refocus: refill
   Rites of Transfiguration:
     assoc_charclass:
       - Witch
@@ -10310,7 +10533,6 @@ pf2e_feats:
       grant_choice_once:
         - Qi Tradition
     magic_stats:
-      focus_pool: 1
       focus_spell:
         qi:
           - Shadow's Web
@@ -10818,7 +11040,6 @@ pf2e_feats:
     shortdesc: "You have broadened your understanding of the divine and can tap into the wonders of a different mystery. Select one revelation spell from a mystery other than your own. You can choose only an initial revelation spell or an advanced revelation spell.%r%rThis spell gains the cursebound trait for you, and when you cast it, you gain the cursebound 1 effects of its mystery in addition to your normal curse effects. Any ability that lets you use a cursebound ability without increasing the severity of your curse also prevents you from gaining this additional curse effect.%r%rYou can't cast your chosen revelation spell if any of the following conditions are true:%r%rits mystery's curse effects directly conflict with or negate the effects of your own mystery's curse,%r%rthe curse would have no effect on you (for example, removing an ability from your original mystery that you lack),%r%ror if either of these criteria would be met once you finish Casting the Spell"
     traits:
       - oracle
-    init_magic: true
     rules:
       - key: "ChoiceSet"
         flag: "diverseMystery"
@@ -10856,6 +11077,17 @@ pf2e_feats:
         type: "electricity"
         value: 2
         predicate: ["self:condition:cursebound", "diverse-mystery:tempest-touch", "used-diverse-mystery"]
+    feat_choice:
+      summary: an initial or advanced revelation spell from another mystery
+      from_spells:
+        traits:
+          - oracle
+          - focus
+        base_level:
+          - 1
+          - 3
+        subclass: other
+        focus_type: revelation
   Dragon Transformation:
     assoc_charclass:
       - Barbarian
@@ -10897,7 +11129,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 16
-      feat:
+      sanctification:
         - unholy
     shortdesc: Your life has made you a nexus for your deity's vile power. You're continuously surrounded by a *bane* spell, with a spell rank equal to half your level (rounded up). The radius is 15 feet, and you can't increase it. You can Dismiss the spell; if you do, it returns automatically after 1 minute.
     traits:
@@ -10909,7 +11141,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 16
-      feat:
+      sanctification:
         - holy
     shortdesc: Your deeds have brought your deity's grace to you for all of eternity. You're continuously surrounded by a *bless* spell, with a spell rank equal to half your level (rounded up). The radius is 15 feet, and you can't increase it. You can Dismiss the spell; if you do, it returns automatically after 1 minute.
     traits:
@@ -10993,8 +11225,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 16
-      feat:
-        - at least two stances
+      stances: 2
     shortdesc: "You have combined two stances into a single stance all your own. When you take this feat, choose two stances you know and combine them into a single fused stance. Give your new fused stance a unique name. When you enter your fused stance, you gain all the effects of both stances, including the requirements and restrictions.%r%rIf the stances both grant special attacks, you gain all those attacks. If a stance restricts you to one particular attack (such as Crane Stance), you must abide by that restriction. If the fused stances have incompatible restrictions, the GM determines which apply, or determines you can't fuse those stances at all."
     traits:
       - monk
@@ -11024,6 +11255,8 @@ pf2e_feats:
     traits:
       - ranger
   Greater Mental Evolution:
+    magic_stats:
+      repertoire_each_rank: 1
     assoc_charclass:
       - Sorcerer
     feat_type:
@@ -11050,6 +11283,7 @@ pf2e_feats:
     traits:
       - sorcerer
   Impaling Briars:
+    init_magic: true
     assoc_charclass:
       - Druid
     feat_type:
@@ -11068,7 +11302,7 @@ pf2e_feats:
     prereq:
       level: 16
       feat:
-        - Predictive Purchase
+        - Predictive Purchase (Investigator)
     shortdesc: "It seems impossible, but you've analyzed every angle and are able to just keep pulling out exactly the item you need, even in far-flung locations.%r%rYou can use Prescient Planner even if you have already used it after purchasing goods, and you can use it as a single action instead of a 2-action activity, during which you Interact to draw the item.%r%rIn addition, five times per day, you can use Prescient Planner to pull out a common consumable item up to 6 levels lower than your level."
     traits:
       - investigator
@@ -11135,8 +11369,8 @@ pf2e_feats:
     prereq:
       level: 16
       orfeat:
-        - Opening Stance (Fighter)
-        - Reflexive Stance (Monk)
+        - Opening Stance
+        - Reflexive Stance
     shortdesc: "**Trigger** Your turn begins.%r%rYou move fluidly between stances, using your mastery of combat to always adopt the best tactics. You use an action with the stance trait."
     traits:
       - fighter
@@ -11145,8 +11379,6 @@ pf2e_feats:
     grants:
       grant_choice_once:
         - Qi Tradition
-    magic_stats:
-      focus_pool: 1
     feat_choice:
       summary: 8th-rank qi spell
       from_spells:
@@ -11562,6 +11794,8 @@ pf2e_feats:
         critical: true
         predicate: [{"or": ["item:melee", {"and": ["item:trait:thrown", "feat:raging-thrower"]}]}]
   Deep Lore:
+    magic_stats:
+      repertoire_each_rank: 1
     assoc_charclass:
       - Bard
     feat_type:
@@ -11609,7 +11843,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 18
-      feat:
+      focus_spell:
         - Courageous Anthem
     shortdesc: Your *courageous anthem* lets loose a discordant shriek that imbues your allies' attacks with powerful sonic reverberations. While your allies are affected by your *courageous anthem*, their weapon Strikes and unarmed attacks deal an additional 1d6 sonic damage.
     traits:
@@ -11693,8 +11927,6 @@ pf2e_feats:
     grants:
       grant_choice_once:
         - Qi Tradition
-    magic_stats:
-      focus_pool: 1
     feat_choice:
       summary: 9th-rank qi spell
       from_spells:
@@ -11716,6 +11948,21 @@ pf2e_feats:
     traits:
       - monk
   Greater Crossblooded Evolution:
+    feat_choice:
+      summary: a sorcerous gift spell of your secondary bloodline
+      from: secondary_gift_spells
+      from_choice: Crossblooded Evolution
+      known_at: highest_rank
+      then_choose:
+        summary: a sorcerous gift spell of your secondary bloodline
+        from: secondary_gift_spells
+        from_choice: Crossblooded Evolution
+        known_at: highest_rank
+        then_choose:
+          summary: a sorcerous gift spell of your secondary bloodline
+          from: secondary_gift_spells
+          from_choice: Crossblooded Evolution
+          known_at: highest_rank
     assoc_charclass:
       - Sorcerer
     feat_type:
@@ -11750,7 +11997,7 @@ pf2e_feats:
     prereq:
       level: 18
       feat:
-        - Predictive Purchase
+        - Predictive Purchase (Rogue)
     shortdesc: You can use Prescient Planner even if you have already used it after purchasing goods, and you can Interact to draw the item as a single action instead of a 2-action activity. In addition, five times per day, you can use Prescient Planner to pull out a common consumable item up to 6 levels lower than your level.
     traits:
       - rogue
@@ -11861,6 +12108,10 @@ pf2e_feats:
     traits:
       - cleric
   Invoke Disaster:
+    magic_stats:
+      focus_spell:
+        order:
+          - Storm Lord
     assoc_charclass:
       - Druid
     feat_type:
@@ -11959,7 +12210,7 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 18
-      feat:
+      feature:
         - Opportune Riposte
     shortdesc: "Your parries and finishers allow you to riposte with the slightest provocation.%r%rYou can use Opportune Riposte against an enemy who fails at a Strike against you (not just critically fails), provided you have both damaged that creature with a finisher on your last turn and currently have a circumstance bonus to AC from the parry weapon trait or Extravagant Parry."
     traits:
@@ -12021,7 +12272,8 @@ pf2e_feats:
       level: 18
       feat:
         - Form Control
-        - Strength +4
+      ability:
+        - Strength/18
     shortdesc: Thanks to magic and muscle memory, you can stay in your alternate shapes indefinitely. When you use Form Control, instead of lasting 1 hour, *untamed form* duration is unlimited (you can still Dismiss it).
     traits:
       - druid
@@ -12081,8 +12333,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 18
-      feat:
-        - lay on hands
+      focus_spell:
+        - Lay on Hands
     shortdesc: Your healing energies linger after you cast, providing continual benefits. An ally that recovers Hit Points from your *lay on hands* gains 10 temporary Hit Points immediately and at the start of their turn during each of the next 10 rounds. These temporary HP last until the start of the creature's next turn. This effect ends if the ally is knocked unconscious.
     traits:
       - champion
@@ -12304,6 +12556,9 @@ pf2e_feats:
     traits:
       - barbarian
   Archwizard's Might:
+    magic_stats:
+      spells_per_day:
+        "10": "+1"
     assoc_charclass:
       - Wizard
     feat_type:
@@ -12320,8 +12575,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 20
-      feat:
-        - blessed armament
+      feature:
+        - Blessed Armament
     shortdesc: "Add the following property runes to the list you can choose for your blessed armament: *animated*, *greater fearsome*, *grievous*, *keen*, and *greater vitalizing*. If you have the Radiant Armament feat, add *greater astral* and *greater brilliant* to the list as well.%r%rIn addition, you can change the rune you've selected for the day to a different rune from your list as a single action that has the concentrate and divine traits. Changing the rune doesn't restore abilities that can be used only a limited number of times."
     traits:
       - champion
@@ -12432,13 +12687,16 @@ pf2e_feats:
         add: ["{item|flags.system.rulesSelections.traitTwo}"]
         predicate: ["bloodline-mutation-traits:second-trait"]
   Bloodline Perfection:
+    magic_stats:
+      spells_per_day:
+        "10": "+1"
     assoc_charclass:
       - Sorcerer
     feat_type:
       - Charclass
     prereq:
       level: 20
-      feat:
+      feature:
         - Bloodline Paragon
     shortdesc: You command the ultimate powers of your bloodline and tradition. You gain an additional 10th-rank spell slot.
     traits:
@@ -12548,6 +12806,9 @@ pf2e_feats:
     traits:
       - rogue
   Hierophant's Power:
+    magic_stats:
+      spells_per_day:
+        "10": "+1"
     assoc_charclass:
       - Druid
     feat_type:
@@ -12692,6 +12953,9 @@ pf2e_feats:
     traits:
       - monk
   Maker of Miracles:
+    magic_stats:
+      spells_per_day:
+        "10": "+1"
     assoc_charclass:
       - Cleric
     feat_type:
@@ -12732,6 +12996,9 @@ pf2e_feats:
         suboptions: [{"label": "{item|name}", "value": "mystery-conduit"}]
         label: "Spellshape"
   Oracular Providence:
+    magic_stats:
+      spells_per_day:
+        "10": "+1"
     assoc_charclass:
       - Oracle
     feat_type:
@@ -12767,8 +13034,10 @@ pf2e_feats:
     shortdesc: The truest depths of your divine mystery are fathomless and contradictory, granting you changing powers that even you can barely begin to fathom. Each day during your daily preparations, choose one basic or advanced domain spell from any domain from *Player Core*, one of the domains granted by your mystery, another domain to which you have access, or any initial or advanced revelation spell from another mystery. You gain that spell as a revelation spell until your next daily preparations.
     traits:
       - oracle
-    init_magic: true
   Patron's Truth:
+    magic_stats:
+      spells_per_day:
+        "10": "+1"
     assoc_charclass:
       - Witch
     feat_type:
@@ -12779,6 +13048,9 @@ pf2e_feats:
     traits:
       - witch
   Perfect Encore:
+    magic_stats:
+      spells_per_day:
+        "10": "+1"
     assoc_charclass:
       - Bard
     feat_type:
@@ -12861,8 +13133,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 20
-      feat:
-        - blessed shield
+      feature:
+        - Blessed Shield
     shortdesc: "Your shield is a vessel of divine protection. When you're wielding your chosen shield, it is always raised, even without you using the Raise a Shield action.%r%rIf the shield would be destroyed, it vanishes to your deity's realm instead, where a servitor of your deity repairs it. During your next daily preparations, the shield returns to you fully repaired. While the shield is gone, you can spend 1 minute to infuse a different shield with your blessed shield benefit until your true shield returns"
     traits:
       - champion
@@ -12873,6 +13145,14 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 20
+    # Whether the two spells target one creature and resolve the same way is left to the player
+    # until the spell mechanics data from pull request #2 can check it.
+    prepared_slot:
+      switch: spellcombination
+      cast: both
+      per_rank: 1
+      min_rank: 3
+      components_below: 2
     shortdesc: "You can merge spells, producing multiple effects with a single casting. One slot of each rank of spell you can cast, except 2nd rank and 1st rank, becomes a spell combination slot (this doesn't apply to cantrips). When you prepare your spells, you can fill a combination slot with a combination of two spells. Each spell in the combination must be 2 or more spell ranks below the slot's rank, and both must target only one creature or object or have the option to target only one creature or object. Each spell in the combination must also have the same means of determining whether it has an effect—both spells must require a ranged spell attack, require the same type of saving throw, or automatically affect the target.%r%rWhen you cast a combined spell, it affects only one target, even if the component spells normally affect more than one. If any spell in the combination has further restrictions (such as targeting only living creatures), you must abide by all restrictions. The combined spell uses the shorter of the component spells' ranges. Resolve a combined spell as if were a single spell, but apply the effects of both component spells. For example, if the spell's target succeeded at the save against a combined spell, it would apply the success effect of each spell, and if it critically failed, it would apply the critical failure effect of both spells."
     traits:
       - wizard
@@ -12883,6 +13163,11 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 20
+    # Changing them takes effect at the next rest; the week of downtime is not kept.
+    mastered_spells:
+      switch: spellmastery
+      count: 4
+      max_rank: 9
     shortdesc: You have mastered a handful of spells to such a degree that you can cast them even if you haven't prepared them in advance. Select any four spells of 9th rank or lower that are in your spellbook; each spell you select must be of a different rank. These spells are automatically prepared when you make your daily preparations, and you gain an extra spell slot for each spell. You can select a different combination of spells by spending 1 week of downtime studying your spellbook and retraining your mastered spells.
     traits:
       - wizard
@@ -12916,8 +13201,8 @@ pf2e_feats:
       - Charclass
     prereq:
       level: 20
-      feat:
-        - blessed swiftness
+      feature:
+        - Blessed Swiftness
     shortdesc: "The movement of you and your allies is swift and decisive as the judgment of your deity. If your ally starts a move action in your champion's aura, their movement during that action doesn't trigger reactions.%r%rIn addition, you're permanently quickened. You can use your extra action only to Step or Stride. If you have a fly Speed, add Fly to this list. If you have an animal companion and are mounted on it at the start of your turn, you can have your mount be quickened that turn instead of you."
     traits:
       - champion

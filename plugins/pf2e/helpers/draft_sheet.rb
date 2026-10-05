@@ -35,6 +35,16 @@ module AresMUSH
         (held_feats + staged_feats).uniq
       end
 
+      # Class and archetype feature names, counting the ones this level grants. A class option is
+      # "Feature (Option)", which is how the sheet records it.
+      def feature_names
+        held = (@char.pf2_features || {}).values.flatten
+        staged = Array(draft['charclass_feature']) + Array(draft['archetype_features'])
+        options = (draft['charclass_feature option'] || {}).map { |feature, option| "#{feature} (#{option})" }
+
+        (held + staged + options).map(&:to_s).reject(&:blank?).uniq
+      end
+
       # bucket => [ feats ], the sheet's and the draft's together, in the spelling they were
       # recorded in. A feat the rules let you take more than once is held once per taking, so the
       # lists are concatenated rather than merged.
@@ -80,9 +90,23 @@ module AresMUSH
         progression[[ index + raises, progression.size - 1 ].min]
       end
 
-      # rank => [ spells ], for a spontaneous caster's repertoire.
+      # rank => [ spells ], for a spontaneous caster's repertoire. Counts the spells this level adds
+      # outright - a mystery's or a bloodline's - as well as the ones picked.
       def repertoire(class_key = nil)
-        merge_spell_lists(@char.magic&.repertoire, 'repertoire', class_key)
+        target = class_key || @char.pf2_base_info['charclass']
+        lists = merge_spell_lists(@char.magic&.repertoire, 'repertoire', class_key)
+        granted = staged_magic_stats_for(target)['addrepertoire']
+
+        return lists unless granted.is_a?(Hash) && !granted.empty?
+
+        for_class = lists[target] || {}
+
+        granted.each_pair do |rank, spells|
+          for_class[rank.to_s] = (Array(for_class[rank.to_s]) + Array(spells)).uniq
+        end
+
+        lists[target] = for_class
+        lists
       end
 
       # rank => [ spells ], for a prepared caster's spellbook. A pick staged at `any` rank is filed
@@ -139,9 +163,14 @@ module AresMUSH
                               .reject { |f| f.empty? || f == 'OPEN' }
       end
 
-      # Both kinds of skill increase a level can hand out, counted for one skill.
+      # The skill increases this level holds for one skill: both kinds a level hands out, and the
+      # `raise_skill` grants waiting for advance/done - Skill Mastery's, or a feat's level clause.
       def staged_raises_for(name)
         staged = Array(draft['raise skill']) + Array(draft['raise skill choice'])
+
+        (draft['grants'] || {}).each_value do |payload|
+          staged += Array(payload['raise_skill']) if payload.is_a?(Hash)
+        end
 
         staged.reject { |s| s.to_s.strip.empty? || Pf2e.open_skill_token?(s) }
               .count { |s| s.to_s.casecmp?(name.to_s) }
@@ -223,6 +252,24 @@ module AresMUSH
         return {} unless stats.is_a?(Hash)
 
         stats.select { |_source, entry| entry.is_a?(Hash) }
+      end
+
+      # The stats this draft will hand one source at advance/done. A block of plain stats belongs
+      # to the character's own class, and anything else is keyed by source - the same reading
+      # Advancement::Apply makes.
+      def staged_magic_stats_for(source)
+        stats = draft['magic_stats']
+
+        return {} unless stats.is_a?(Hash)
+
+        if PF2Magic.stats_block?(stats)
+          return source.to_s.casecmp?(@char.pf2_base_info['charclass'].to_s) ? stats : {}
+        end
+
+        key = stats.keys.find { |k| k.to_s.casecmp?(source.to_s) }
+        entry = key && stats[key]
+
+        entry.is_a?(Hash) ? entry : {}
       end
 
       def deep_copy(value)

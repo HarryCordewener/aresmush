@@ -118,9 +118,9 @@ pf2e_archetype:
       combat_stats:
         archetype_class_dc: trained
     anathema:
-      - "Character must not teach the Druidic language to a non-druid."
-      - "Character is not permitted to wear metal armor or carry metal shields."
-      - "Character must not take actions that despoil natural places."
+      - Teach the Wildsong to non-druids.
+      - Consume more natural resources than you require to live comfortably.
+      - Despoil natural places.
   Fighter Archetype:
     key_abil:
       - Strength
@@ -225,7 +225,6 @@ pf2e_archetype:
   Swashbuckler Archetype:
     key_abil:
       - Dexterity
-    HP: 10
     initial_dedication:
       archetype_feature:
         - Stylish Combatant

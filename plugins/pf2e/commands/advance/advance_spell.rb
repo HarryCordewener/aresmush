@@ -65,7 +65,7 @@ module AresMUSH
         found = Pf2e::Advancement::SpellSlots.spend_from_pool(found.state,
           :full => self.type == 'spellbook' && rank_full?(found.state, level, charclass),
           :rank => level,
-          :max_rank => Pf2e.preview_max_spell_rank(enactor, charclass))
+          :max_rank => Pf2e.preview_max_spell_rank(enactor, found.state['class_key'] || charclass))
 
         return if Pf2e::CharState.emit_error!(client, found)
 
@@ -85,7 +85,11 @@ module AresMUSH
         class_for_spell = class_key || charclass
 
         choice = with_previewed_tradition(class_for_spell) do
-          Pf2emagic.check_spell(enactor, class_for_spell, level, self.value, true)
+          if self.type == 'signature'
+            known_spell_choice(class_for_spell)
+          else
+            Pf2emagic.check_spell(enactor, class_for_spell, level, self.value, true)
+          end
         end
 
         if choice.is_a? String
@@ -160,6 +164,19 @@ module AresMUSH
         end
       end
 
+      # A signature marks a spell the character already knows, so the name is looked up among every
+      # spell - a granted one may be uncommon - and whether they know it is left to SpellPick.
+      def known_spell_choice(class_for_spell)
+        hash = Global.read_config('pf2e_spells')
+        match = hash.keys.select { |name| name.casecmp?(self.value) }
+
+        return Pf2emagic.no_such_spell_message(self.value, hash) if match.empty?
+        return t('pf2emagic.multiple_matches', :item => 'spell') if match.size > 1
+        return t('pf2emagic.cant_cast_as_class') unless Pf2emagic::Entries.casts_from?(enactor.magic, class_for_spell)
+
+        [ match.first, hash[match.first] ]
+      end
+
       # Everything SpellPick needs about the character, read inside the preview.
       #
       # The tradition used to be read on the line after the preview block, by which time the ensure
@@ -175,6 +192,7 @@ module AresMUSH
             'tradition' => Pf2emagic::Entries.tradition_of(enactor.magic, class_for_spell),
             'details' => details,
             'adapted' => Pf2emagic.adapted_spell?(enactor, class_for_spell, spell),
+            'off_list_room' => Pf2emagic.off_list_room?(enactor, class_for_spell),
             'known' => known_for(class_for_spell)
           }
         end

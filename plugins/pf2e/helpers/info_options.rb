@@ -65,7 +65,7 @@ module AresMUSH
 
     # `filter` narrows the pool by substring before paging. A pool of two hundred lores is six
     # pages, which is barely more use to a player than the refusal that sent them here.
-    def self.info_option_display(title, options, page, filter = nil)
+    def self.info_option_display(title, options, cmd, filter = nil)
       options = Array(options).compact
 
       return { :error => t('pf2e.info_no_options', :element => title) } if options.empty?
@@ -81,11 +81,11 @@ module AresMUSH
         return { :text => t('pf2e.cg_info', :element => title, :options => options.join(", ")) }
       end
 
-      paginator = Paginator.paginate(options, page, INFO_PAGE_SIZE)
+      paginator = Paginator.paginate(options, cmd.page, INFO_PAGE_SIZE)
 
       return { :error => paginator.out_of_bounds_msg } if paginator.out_of_bounds?
 
-      { :text => PF2OptionListTemplate.new(paginator, title).render }
+      { :text => PF2OptionListTemplate.new(paginator, title, 2, cmd).render }
     end
 
   end

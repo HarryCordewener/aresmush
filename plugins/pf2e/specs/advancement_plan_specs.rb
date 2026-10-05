@@ -89,9 +89,9 @@ module AresMUSH
           end
 
           it "should recurse into nested hashes" do
-            merged = Plan.merge({ 'magic_stats' => { 'focus_pool' => 1 } }, { 'magic_stats' => { 'tradition' => 'arcane' } })
+            merged = Plan.merge({ 'magic_stats' => { 'spell_abil' => 'Wisdom' } }, { 'magic_stats' => { 'tradition' => 'arcane' } })
 
-            expect(merged['magic_stats']).to eq('focus_pool' => 1, 'tradition' => 'arcane')
+            expect(merged['magic_stats']).to eq('spell_abil' => 'Wisdom', 'tradition' => 'arcane')
           end
 
           it "should let the specialty win on a plain value" do

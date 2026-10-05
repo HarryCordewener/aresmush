@@ -95,6 +95,46 @@ pf2e:
     Doomed: '%x172'
   hidden_options:
     - Fey Bullshit Lore
+  # The lore groups skills/lore will list. Only these are valid, not every lore_groups tag in
+  # pf2e_skills.yml. A group with sections is shown split by those tags, in the order written,
+  # under the heading given for each. sections_per_page pages a long group by whole sections.
+  # name is how the group is shown; without one, the key is shown capitalized.
+  lore_group_lists:
+    ancestry:
+      aliases: [heritage]
+    city:
+      sections_per_page: 5
+      sections:
+        am'shere: Am'shere
+        bludgun: Bludgun
+        charn: Charn
+        dran: Dran
+        jade islands: Jade Islands
+        khazad duin: Khazad Duin
+        kimitatu: Kimitatu
+        myrddion: Myrddion
+        periantha: Periantha
+        rune: Rune
+        skyhaldborg: Skyhaldborg
+        the desolation: The Desolation
+        the heartlands: The Heartlands
+        tysmycha: Tysmycha
+        veyshan: Veyshan
+    craft:
+      name: Crafting
+      aliases: [crafting]
+    creature: {}
+    deity: {}
+    general:
+      aliases: [profession]
+    planar:
+      aliases: [planes]
+      sections:
+        light plane: Light Planes
+        twilight plane: Twilight Planes
+        shadow plane: Shadow Planes
+    region: {}
+    terrain: {}
   permissions:
     modify_sheet: Modify character sheets.
     view_sheets: View other people's character sheets (if sheets are closed).

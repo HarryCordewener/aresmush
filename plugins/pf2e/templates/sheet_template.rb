@@ -285,25 +285,21 @@ module AresMUSH
         lang.empty? ? "None set." : lang.sort.join(", ")
       end
 
-      def base_speed
-        @char.pf2_movement['base_speed'].to_s + " feet"
+      # The permanent speeds: no armor, and no bonus that depends on the moment. See Pf2e::Movement.
+      def movement_result
+        @movement_result ||= Pf2e::Movement.for(@char)
       end
 
-      def movement
-        list = []
+      def speed
+        Pf2e::Movement.speed_text(movement_result)
+      end
 
-        movelist = @char.pf2_movement
+      def special_movement
+        Pf2e::Movement.special_text(movement_result)
+      end
 
-        movelist.each_pair do |type, value|
-
-          next if type == "Size"
-          next if type == "base_speed"
-
-          fmt_type = type.split("_").each { |word| word.capitalize! }.join(" ")
-          list << "%xh#{fmt_type}%xn: #{value}'"
-        end
-
-        list.sort.join(", ")
+      def conditional_movement?
+        Pf2e::Movement.conditional?(movement_result)
       end
 
       def size

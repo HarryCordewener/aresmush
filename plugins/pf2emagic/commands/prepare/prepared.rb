@@ -17,7 +17,9 @@ module AresMUSH
       def handle
         magic = enactor.magic
 
-        prepared_spells = magic.spells_prepared
+        # A class whose only preparations are through a feat (Split Slot, Spell Mastery) is listed too.
+        prepared_spells = magic.spells_prepared.dup
+        ((magic.slot_pairs || {}).keys + (magic.mastered_spells || {}).keys).each { |cc| prepared_spells[cc] ||= {} }
 
         if prepared_spells.empty?
           client.emit_failure t('pf2emagic.no_prepared_spells')
@@ -27,7 +29,7 @@ module AresMUSH
         if self.caster_class
           class_spells = prepared_spells[self.caster_class] || {}
 
-          if class_spells.empty?
+          if class_spells.empty? && !prepared_spells.key?(self.caster_class)
             client.emit_failure t('pf2emagic.no_prepared_spells_class', :cc => self.caster_class)
             return
           end

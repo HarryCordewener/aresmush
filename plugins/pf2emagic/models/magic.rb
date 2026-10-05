@@ -5,7 +5,10 @@ module AresMUSH
     # The focus pool is shared: PF2e gives a character one pool however many sources feed it. The
     # spells live on Pf2eSpellcastingEntry rows, one per focus type per granting source, because a
     # bucket per type cannot say whose the spells are.
-    attribute :focus_pool, :type => DataType::Hash, :default => { "max"=>0, "current"=>0 }
+    #
+    # Only the points left are stored. The most the pool holds is counted from the spells, by
+    # Pf2emagic.focus_pool_max.
+    attribute :focus_pool, :type => DataType::Hash, :default => { "current"=>0 }
     # A list of grants rather than a map keyed by spell name, because two sources can grant the same
     # innate spell and a map holds only one of them. Charm comes from Enthralling Allure at rank 4
     # divine and Supernatural Charm at rank 1 arcane; Interplanar Teleport is divine from one source
@@ -27,6 +30,17 @@ module AresMUSH
     attribute :adapted_spells, :type => DataType::Hash, :default => {}
     attribute :tradition, :type => DataType::Hash, :default => { "innate"=>["innate", "trained"] }
     attribute :prepared_lists, :type => DataType::Hash, :default => {}
+    # class => { 'spell', 'rank', 'as' => signature | repertoire }: the spell picked from a book
+    # (Esoteric Polymath, Arcane Evolution) at the last daily preparations. Cleared at the next.
+    attribute :daily_pick, :type => DataType::Hash, :default => {}
+    # class => [ { 'feat', 'rank', 'spells', 'cast', 'cast_rank' } ]: two spells prepared in one slot
+    # (Split Slot, Spell Combination). Prepared like spells_prepared, and copied by a rest.
+    attribute :slot_pairs, :type => DataType::Hash, :default => {}
+    # class => { rank => spell }: the spells a feat keeps prepared at every rest, in slots of their
+    # own (Spell Mastery).
+    attribute :mastered_spells, :type => DataType::Hash, :default => {}
+    # spell => { 'level', 'at' }: a failed Learn a Spell, which blocks trying that spell again.
+    attribute :learn_failures, :type => DataType::Hash, :default => {}
     attribute :divine_font
 
     reference :character, "AresMUSH::Character"
@@ -81,6 +95,9 @@ module AresMUSH
           end
 
           magic_options["repertoire"] = assignment_list
+        when "repertoire_each_rank"
+          magic_options["repertoire"] = Pf2e.merge_spell_slots(magic_options["repertoire"],
+            Pf2emagic.each_rank_picks(Pf2emagic.castable_rank(char), value))
         when "spellbook"
           assignment_list = magic_options["spellbook"] || {}
 
@@ -128,7 +145,7 @@ module AresMUSH
     # stat is then dispatched as if it were a class name.
     STAT_KEYS = %w{
       spell_abil tradition spells_per_day restricted_slots restricted_spellbook repertoire
-      focus_pool addrepertoire get_genie_repertoire get_dragon_repertoire focus_spell
+      repertoire_each_rank addrepertoire choice_repertoire focus_spell
       domain_focus_spell focus_cantrip spellbook addspellbook adapted_spell signature_spell
       signature_spells innate_spell divine_font grant_choice gated_spell focus_source
     }.freeze
@@ -210,25 +227,12 @@ module AresMUSH
 
           to_assign["repertoire"] = assignment_list
 
-        when "focus_pool"
-          pool = magic.focus_pool
+        when "repertoire_each_rank"
+          # One pick at each rank the character can cast. A level that opens a new rank later adds
+          # the pick there, through Pf2e.open_each_rank_picks.
+          to_assign["repertoire"] = Pf2e.merge_spell_slots(to_assign["repertoire"],
+            Pf2emagic.each_rank_picks(Pf2emagic.castable_rank(char), value))
 
-          old_max_pool = pool["max"].to_i
-          old_current_pool = pool["current"].to_i
-
-          new_max_pool = Pf2emagic.get_max_focus_pool(char, value)
-          pool["max"] = new_max_pool
-
-          new_current_pool = if old_max_pool.zero? && old_current_pool.zero?
-                               new_max_pool
-                             elsif old_current_pool == old_max_pool
-                               new_max_pool
-                             else
-                               [ old_current_pool, new_max_pool ].min
-                             end
-
-          pool["current"] = new_current_pool
-          magic.focus_pool = pool
         when "addrepertoire"
           # This key is called for spells added to the repertoire by bloodlines, mysteries, etc.
           # Initial/advanced/greater bloodline spells are focus spells and handled by that key.
@@ -245,56 +249,16 @@ module AresMUSH
           repertoire[charclass] = rep_for_class
 
           magic.repertoire = repertoire
-        when "get_genie_repertoire"
-          # Value of this key is an integer that corresponds to the level of the spell.
-          # It works like repertoire, but what this bloodline gets depends on their genie ancestry.
-
-          genie = char.pf2_base_info['specialize_info']
-          spells = Global.read_config('pf2e_subclass', 'get_genie_spell', genie)
-
-          # Do nothing if genie not found.
-          next unless spells
-
-          # Grab the spell corresponding to value.
-          spell = spells[value]
-
-          next unless spell
-
+        when "choice_repertoire"
+          # The gift spells a bloodline's 1st-level choice decides - a dragon exemplar's, an
+          # elemental influence's - at the ranks listed. The bloodline names its table.
+          gifts = Pf2emagic.choice_gift_spells(char, Array(value))
           repertoire = magic.repertoire
-          rep_for_class = repertoire[charclass]
+          rep_for_class = repertoire[charclass] || {}
 
-          rep_at_level = rep_for_class[value] || []
-
-          rep_at_level << spell
-
-          rep_for_class[value] = rep_at_level
-
-          repertoire[charclass] = rep_for_class
-
-          magic.repertoire = repertoire
-        when "get_dragon_repertoire"
-          # Value of this key is an integer that corresponds to the level of the spell.
-          # It works like repertoire, but what this bloodline gets depends on their dragon ancestry.
-
-          draconic = char.pf2_base_info['specialize_info']
-          spells = Global.read_config('pf2e_subclass', 'get_dragon_spell', draconic)
-
-          # Do nothing if draconic not found.
-          next unless spells
-
-          # Grab the spell corresponding to value.
-          spell = spells[value]
-
-          next unless spell
-
-          repertoire = magic.repertoire
-          rep_for_class = repertoire[charclass]
-
-          rep_at_level = rep_for_class[value] || []
-
-          rep_at_level << spell
-
-          rep_for_class[value] = rep_at_level
+          gifts.each_pair do |rank, spells|
+            rep_for_class[rank] = (Array(rep_for_class[rank]) + spells).uniq
+          end
 
           repertoire[charclass] = rep_for_class
 
@@ -303,18 +267,27 @@ module AresMUSH
           # One spellcasting entry per focus type per granting source, so two sources of the same
           # type stay apart - they share PF2e's single focus pool but cast at their own DCs.
           # Cantrips and spells are the same entry under different keys, because they differ only
-          # in how they are cast.
-          kind = key.to_s == 'focus_cantrip' ? 'cantrip' : 'spell'
-
+          # in how they are cast. A spell that is a cantrip is filed as one whichever key granted
+          # it: a composition cantrip has a rank above 0, and costs nothing all the same.
+          #
           # A block may name what granted it - "Domain Healing" for a cleric's domain spell -
           # and otherwise it is the class itself. Recorded with the level, so the sheet can say
           # where a focus spell came from without deriving it.
           source = info['focus_source'].presence || charclass
 
+          # A pool that was full stays full as it grows; one with points spent keeps them spent.
+          was_full = Pf2emagic.focus_points_left(magic) >= Pf2emagic.focus_pool_max(magic)
+
           value.each_pair do |fstype, spell_list|
-            Pf2emagic::Entries.grant_focus!(char, fstype, spell_list,
-              :kind => kind, :granted_by => source, :granted_at => char.pf2_level)
+            Array(spell_list).each do |spell|
+              kind = key.to_s == 'focus_cantrip' || Pf2emagic.focus_cantrip?(spell) ? 'cantrip' : 'spell'
+
+              Pf2emagic::Entries.grant_focus!(char, fstype, [ spell ],
+                :kind => kind, :granted_by => source, :granted_at => char.pf2_level)
+            end
           end
+
+          magic.focus_pool = { 'current' => Pf2emagic.focus_pool_max(magic) } if was_full
         when "spellbook"
           # Spells need to be chosen, redirect to to_assign.
 
@@ -353,23 +326,25 @@ module AresMUSH
           magic.spellbook = spellbook
         when "adapted_spell"
           # Structure: { "name" => spell, "tradition" => trad, "base_level" => n,
-          #                       "source" => feat, "no_heighten" => bool }
-          name = value['name'].to_s
+          #                       "source" => feat, "no_heighten" => bool }, or a list of them
+          # for a feat that adds several spells at once (Fey Caller).
+          adapted_class = Pf2emagic.get_caster_type(charclass) ? charclass : nil
+          adapted = magic.adapted_spells
 
-          unless name.empty?
-            adapted_class = Pf2emagic.get_caster_type(charclass) ? charclass : nil
+          (value.is_a?(Array) ? value : [ value ]).each do |entry|
+            name = entry['name'].to_s
+            next if name.empty?
 
-            adapted = magic.adapted_spells
             adapted[name] = {
-              'tradition'  => value['tradition'].to_s.downcase,
-              'base_level' => value['base_level'].to_i,
-              'source'     => value['source'],
+              'tradition'  => entry['tradition'].to_s.downcase,
+              'base_level' => entry['base_level'].to_i,
+              'source'     => entry['source'],
               'class'      => adapted_class
             }
-            adapted[name]['no_heighten'] = true if value['no_heighten']
-
-            magic.adapted_spells = adapted
+            adapted[name]['no_heighten'] = true if entry['no_heighten']
           end
+
+          magic.adapted_spells = adapted
         when "signature_spell", "signature_spells"
           # This key means that the character needs to pick a spell from their repertoire as a signature spell.
           # Structure of value: { level to pick from => number of spells to add }

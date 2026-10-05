@@ -38,9 +38,12 @@
 <% if has_archetypes? %>
 <%= left("#{item_color}Archetype Class DC(s)%xn: #{archetype_class_dcs}", 78) %>
 <% end %>
-<%= left("#{item_color}Size%xn: #{size}", 39) -%>
-<%= left("#{item_color}Base Speed%xn: #{base_speed}", 39) %>
-<%= "#{item_color}Other Movement%xn: #{movement}"%>
+<%= "#{item_color}Size%xn: #{size}" %>
+<%= "#{item_color}Speed%xn: #{speed}" %>
+<%= "#{item_color}Special Movement%xn: #{special_movement}" %>
+<% if conditional_movement? %>
+<%= "For conditional movement, see '%x172csheet%xn'." %>
+<% end %>
 <%= "#{item_color}Senses and Special Abilities%xn: #{specials}" %>
 <%= section_line("Proficiencies") %>
 <%= "#{item_color}Weapons%xn: #{weapon_prof}" %>

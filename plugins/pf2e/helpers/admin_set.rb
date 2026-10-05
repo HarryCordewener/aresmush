@@ -8,10 +8,10 @@ module AresMUSH
     # effective level: it applies at every level, no rollback reaches it, and `explain_for` can
     # say who made it.
     #
-    # Three kinds of state are not in the fold, and a row says so explicitly. An alignment and a
-    # deity live in `faith`, which the shell persists from the state. Focus spells and a divine
-    # font live on the magic object, and a row asks for them through `magic_ops` - the one place
-    # this module reaches outside the ledger.
+    # Two kinds of state are not in the fold, and a row says so explicitly. An alignment and a
+    # deity live in `faith`, which the shell persists from the state. A divine font lives on the
+    # magic object, and its row asks for it through `magic_ops` - the one place this module reaches
+    # outside the ledger.
     #
     # Each row parses its own value words, because the grammars differ: a rank or a level is the
     # last word so a multi-word name can hold the middle.
@@ -188,13 +188,15 @@ module AresMUSH
 
         focus_type = by_source[source]
         element = "Focus #{kind}"
+        spell = match_spell(name, state)
+
+        return Err.new(:not_unique, 'pf2e.not_unique') unless spell
 
         if instruction == 'add'
-          with_magic(state, element, 'op' => 'update', 'charclass' => source,
-                     'info' => { "focus_#{kind}" => { focus_type => [ name ] } })
+          ok(state, element).with_grant('focus_spell', 'type' => focus_type, 'kind' => kind, 'spell' => spell,
+                                        'granted_by' => source)
         else
-          with_magic(state, element, 'op' => 'revoke_focus', 'focus_type' => focus_type,
-                     'spell' => name, 'kind' => kind)
+          ok(state, element).with_revocation('focus_spell', 'type' => focus_type, 'kind' => kind, 'spell' => spell)
         end
       end
 

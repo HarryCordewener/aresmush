@@ -275,7 +275,122 @@ module AresMUSH
         held << pending unless pending.blank? || pending.to_s.casecmp?('open')
       end
 
+      # A specialty joined through a feat's choice (Order Explorer, Multifarious Muse).
+      flagged_choices(char, 'joins_specialty').each { |_name, labels| held.concat(labels) }
+
       held.compact.map { |s| s.to_s.strip.upcase }.reject(&:empty?)
+    end
+
+    # [ choice name, labels ] for each feat choice resolved or in flight whose block carries `flag`.
+    def self.flagged_choices(char, flag)
+      in_flight = (char.pf2_to_assign || {})['feat_choices']
+      names = recorded_choices(char).map(&:first) + (in_flight.is_a?(Hash) ? in_flight.keys : [])
+
+      names.map(&:to_s).uniq { |n| n.downcase }.filter_map do |name|
+        block = feat_choice_block_for(name) || class_choice_block_for(char, name)
+
+        next unless block.is_a?(Hash) && block[flag]
+
+        [ name, choice_labels_for(char, name) ]
+      end
+    end
+
+    # The character's class's specialties: its orders, muses or bloodlines.
+    def self.class_specialties(char)
+      (Global.read_config('pf2e_specialty', char.pf2_base_info['charclass'].to_s) || {}).keys
+    end
+
+    # A choice's labels read as [ specialty, its own 1st-level option ], for a choice that picked
+    # another bloodline and then that bloodline's choice.
+    def self.specialty_and_option(char, labels)
+      specialties = class_specialties(char)
+      specialty = Array(labels).find { |label| specialties.any? { |s| s.casecmp?(label.to_s) } }
+
+      return nil unless specialty
+
+      info = Global.read_config('pf2e_specialty', char.pf2_base_info['charclass'].to_s, specialty) || {}
+      options = ((info['choose'] || {})['options'] || {}).keys
+      option = Array(labels).find { |label| options.any? { |o| o.casecmp?(label.to_s) } }
+
+      [ specialty, option ]
+    end
+
+    # Bloodlines whose blood magic a choice shares (Crossblooded Evolution), with their option.
+    def self.shared_bloodlines(char)
+      flagged_choices(char, 'shares_blood_magic').filter_map { |_name, labels| specialty_and_option(char, labels) }
+    end
+
+    # class => [ spells ] a choice adds to the repertoire at the highest rank the class casts
+    # (Greater Crossblooded Evolution).
+    def self.top_rank_spells(char)
+      spells = flagged_choices(char, 'known_at').flat_map { |_name, labels| labels }
+
+      spells.empty? ? {} : { char.pf2_base_info['charclass'] => spells.uniq }
+    end
+
+    # class => [ spells ] a choice adds to the repertoire at their own rank, once the class casts at
+    # it (Divine Access). The choice's first pick is a deity, and the rest are that deity's cleric
+    # spells.
+    def self.deity_choice_spells(char)
+      spells = flagged_choices(char, 'deity_spells').flat_map do |_name, labels|
+        deity = labels.find { |label| deity_named(label) }
+        offered = deity ? deity_cleric_spells(deity).map(&:downcase) : []
+
+        labels.select { |label| offered.include?(label.to_s.downcase) }
+      end
+
+      spells.empty? ? {} : { char.pf2_base_info['charclass'] => spells.uniq }
+    end
+
+    # The deity's name as config spells it, or nil.
+    def self.deity_named(name)
+      (Global.read_config('pf2e_deities') || {}).keys.find { |d| d.to_s.casecmp?(name.to_s) }
+    end
+
+    # A deity's cleric spells, by the names the spell files use. One that names no spell is left
+    # out and logged, since offering it would record a pick nothing can cast.
+    def self.deity_cleric_spells(deity)
+      key = deity_named(deity)
+      listed = key ? Array(Global.read_config('pf2e_deities', key, 'cleric_spells')) : []
+
+      listed.filter_map do |name|
+        found = Pf2emagic.get_spell_details(name)
+
+        unless found.is_a?(Array)
+          Global.logger.error "#{key}'s cleric spell '#{name}' is not a spell."
+          next nil
+        end
+
+        found[0]
+      end
+    end
+
+    # Deities who grant one of the domains of the character's mystery.
+    def self.mystery_deities(char)
+      base = char.pf2_base_info || {}
+      mystery = Global.read_config('pf2e_specialty', base['charclass'].to_s, base['specialize'].to_s) || {}
+      domains = Array(mystery['domains']).map(&:downcase)
+
+      (Global.read_config('pf2e_deities') || {}).select do |_deity, info|
+        Array((info || {})['domains']).any? { |domain| domains.include?(domain.to_s.downcase) }
+      end.keys.sort
+    end
+
+    # The 1st-level feat of the character's class that lists a specialty as a prerequisite, or nil
+    # when there is not exactly one.
+    def self.specialty_first_feat(char, specialty)
+      charclass = char.pf2_base_info['charclass']
+
+      found = (Global.read_config('pf2e_feats') || {}).select do |_name, details|
+        prereq = (details.is_a?(Hash) && details['prereq']) || {}
+
+        prereq['level'].to_i == 1 && Array(details['assoc_charclass']).include?(charclass) &&
+          Array(prereq['specialize']).any? { |s| s.to_s.casecmp?(specialty.to_s) }
+      end
+
+      Global.logger.error "#{charclass} #{specialty} has #{found.size} 1st-level feats; one was expected." unless found.size == 1
+
+      found.size == 1 ? found.keys.first : nil
     end
 
     # Every focus spell the character knows, across all focus types, spells and cantrips
@@ -328,6 +443,23 @@ module AresMUSH
 
             msg << "skill#{i}" if char_prof < min_prof
           end
+        when "tradition_skill"
+          # A skill that follows whichever tradition a source casts from - Expert Sorcerer
+          # Spellcasting asks for master in the skill of the bloodline's tradition. Entries are
+          # "source/proficiency"; a source casting from no tradition fails.
+          Array(required).each_with_index do |entry, i|
+            source, minimum_prof = entry.to_s.split("/")
+            skill_name = tradition_skill_for(char, source)
+
+            if skill_name.nil?
+              msg << "tradition_skill#{i}"
+              next
+            end
+
+            skill_prof = DraftSheet.of(char).skill_prof(skill_name)
+
+            msg << "tradition_skill#{i}" if Pf2e.get_prof_bonus(char, skill_prof) < Pf2e.get_prof_bonus(char, minimum_prof)
+          end
         when "specialize"
           held = held_specialties(char)
 
@@ -354,11 +486,26 @@ module AresMUSH
             msg << "divine_font" unless Array(required).any? { |f| f.to_s.casecmp?(font.to_s) }
           end
         when "has_focus_pool"
-          magic = char.magic
-          msg << "focus_pool" && next unless magic
+          msg << "focus_pool" if Pf2emagic.focus_pool_max(char.magic).zero?
+        when "feature"
+          msg << "feature" unless Array(required).all? { |name| holds_feature?(char, name) }
+        when "sanctification"
+          held = char.pf2_faith['sanctification']
 
-          pool = magic.focus_pool['max']
-          msg << "focus_pool" if pool.zero?
+          if char.advancing
+            pending = (char.pf2_advancement || {})['archetype_sanctification']
+            held = pending unless pending.blank?
+          end
+
+          msg << "sanctification" unless Array(required).any? { |s| s.to_s.casecmp?(held.to_s) }
+        when "stances"
+          msg << "stances" if held_stance_count(char) < required.to_i
+        when "repertoire_spell"
+          known = DraftSheet.of(char).repertoire.values.flat_map { |by_rank| (by_rank || {}).values.flatten }
+
+          msg << "repertoire_spell" unless Array(required).all? { |s| known.any? { |k| k.to_s.casecmp?(s.to_s) } }
+        when "familiar"
+          msg << "familiar" unless has_familiar?(char)
         when "feat"
           feats = DraftSheet.of(char).feat_names
           req = required.map { |word| word.upcase }
@@ -406,22 +553,25 @@ module AresMUSH
 
           msg << "innate_tradition" unless has_required_innate_tradition
         when "combat_stats"
-          combat = char.combat
+          # "Perception/expert", "Reflex/expert", or "Weapon/expert" for expert in any kind of
+          # weapon or unarmed attack. A factor nobody reads fails, the way an unknown key does.
           factor, minimum = required.to_s.split("/")
+          held = combat_stat_ranks(char, factor)
 
-          passes_check = true
-
-          case factor
-          when "Perception"
-            prof = Pf2e.get_prof_bonus(char, combat.perception)
-            min = Pf2e.get_prof_bonus(char, minimum)
-
-            passes_check = min > prof ? false : true
-          else
+          if held.nil?
             Global.logger.error "Unhandled combat_stats prereq '#{required}'."
-          end
+            msg << "combat_stats"
+          else
+            min_rank = prof_rank(minimum).to_i
 
-          msg << "combat_stats" unless passes_check
+            msg << "combat_stats" unless held.any? { |prof| prof_rank(prof).to_i >= min_rank }
+          end
+        when "max_class_hp"
+          # Resiliency's "a class granting no more Hit Points per level than 8 + your Constitution
+          # modifier": the base class's Hit Points per level, before Constitution.
+          class_hp = Global.read_config('pf2e_class', char.pf2_base_info['charclass'], 'HP')
+
+          msg << "max_class_hp" if class_hp.nil? || class_hp.to_i > required.to_i
         when "oralign"
           alignment = char.pf2_faith["alignment"]
           
@@ -498,6 +648,80 @@ module AresMUSH
 
       return true if msg.empty?
       return false
+    end
+
+    # The proficiencies a combat_stats prereq factor reads, or nil for a factor it does not know.
+    # Several for Weapon, which any weapon category, group or unarmed attack satisfies.
+    def self.combat_stat_ranks(char, factor)
+      combat = char.combat
+
+      case factor.to_s.downcase
+      when 'perception'
+        [ combat&.perception ]
+      when 'fortitude', 'reflex', 'will'
+        [ (combat&.saves || {})[factor.to_s.downcase] ]
+      when 'weapon'
+        (combat&.weapon_prof || {}).values + (combat&.weapon_group_prof || {}).values
+      end
+    end
+
+    # Whether the character holds a class or archetype feature. A name matches a feature, the option
+    # recorded in "Feature (Option)" - a Champion's Blessed Armament - or a feat choice resolved to
+    # it, which is how the Champion archetype's Devout Blessing records the same blessing.
+    def self.holds_feature?(char, name)
+      wanted = name.to_s.strip
+
+      held = DraftSheet.of(char).feature_names.any? do |feature|
+        option = feature[/\(([^()]+)\)\z/, 1]
+
+        feature.casecmp?(wanted) || option.to_s.strip.casecmp?(wanted)
+      end
+
+      held || choice_labels(char).any? { |label| label.to_s.casecmp?(wanted) }
+    end
+
+    # Every label a feat choice has resolved to, counting the ones this level has picked.
+    def self.choice_labels(char)
+      in_flight = (char.pf2_to_assign || {})['feat_choices']
+
+      recorded_choices(char).map { |_name, label, _level| label } +
+        (in_flight.is_a?(Hash) ? in_flight.values.flatten : [])
+    end
+
+    # The feats with the stance trait the character holds, counting this level's.
+    def self.held_stance_count(char)
+      held_feat_details(char).count { |_name, details| Array(details['traits']).any? { |t| t.to_s.casecmp?('stance') } }
+    end
+
+    # A familiar, from a feat flagged as giving one or from the Witch's Familiar class feature.
+    def self.has_familiar?(char)
+      held_feat_details(char).any? { |_name, details| details['familiar'] == true } || holds_feature?(char, 'Familiar')
+    end
+
+    # [ name, details ] for each feat the character holds, counting this level's.
+    def self.held_feat_details(char)
+      feats = Global.read_config('pf2e_feats') || {}
+      by_upcase = feats.keys.each_with_object({}) { |key, out| out[key.to_s.upcase] = key }
+
+      DraftSheet.of(char).feat_names.filter_map do |name|
+        key = by_upcase[name.to_s.upcase]
+
+        key && feats[key].is_a?(Hash) ? [ key, feats[key] ] : nil
+      end
+    end
+
+    # The skill that goes with the tradition a source casts from, counting one this level grants, or
+    # nil when the source casts from none.
+    def self.tradition_skill_for(char, source)
+      found = DraftSheet.of(char).traditions.find { |held, _| held.to_s.casecmp?(source.to_s) }
+      tradition = found && Array(found[1]).first
+
+      return nil if tradition.blank?
+
+      skills = Global.read_config('pf2e_magic', 'tradition_skills') || {}
+      key = skills.keys.find { |t| t.to_s.casecmp?(tradition.to_s) }
+
+      key && skills[key]
     end
 
     def self.has_feat?(char, feat)
@@ -719,6 +943,18 @@ module AresMUSH
             key_display = 'Innate spell tradition'
           elsif k == 'caster'
             key_display = 'Ability to cast'
+          elsif k == 'max_class_hp'
+            key_display = 'Class Hit Points'
+            v = "no more than #{v} + your Constitution modifier per level"
+          elsif k == 'tradition_skill'
+            # Stored as "source/proficiency", and the skill depends on the character.
+            key_display = 'Skill requirement'
+
+            v = Array(v).map do |entry|
+              source, prof = entry.to_s.split("/")
+
+              "#{prof} in the skill for your #{source}'s tradition"
+            end
           elsif k == 'anyskills'
             # Stored as "rank/count", which is not something to show a player as-is.
             key_display = 'Skill requirement'
@@ -909,8 +1145,37 @@ module AresMUSH
 
           [ [ 'pf2e.feat_grants_combat_stats', {} ] ]
         }
+      },
+      # A sense the character keeps: Eyes of Night's darkvision. Written to pf2_special, which the
+      # chargen and level-up syncs record on the ledger, so a rollback takes it back.
+      'special' => {
+        'timing' => 'advance',
+        'apply' => lambda { |ctx|
+          gained = Array(ctx[:value]).map(&:to_s).reject(&:empty?)
+
+          ctx[:char].update(:pf2_special => Pf2e.with_senses(ctx[:char].pf2_special, gained))
+
+          gained.map { |sense| [ 'pf2e.feat_grants_special', { :special => sense } ] }
+        }
       }
     }.freeze
+
+    # A special list with senses added. Darkvision replaces low-light vision, as it does when a
+    # heritage grants it at chargen. Names are compared without case, because the data spells them
+    # both ways.
+    def self.with_senses(held, gained)
+      list = Array(held).dup
+
+      gained.each do |sense|
+        list << sense unless list.any? { |s| s.to_s.casecmp?(sense) }
+      end
+
+      if gained.any? { |s| s.casecmp?('Darkvision') }
+        list.reject! { |s| s.to_s.casecmp?('Low-Light Vision') }
+      end
+
+      list
+    end
 
     def self.grant_keys
       GRANTS.keys
@@ -1027,7 +1292,8 @@ module AresMUSH
     end
 
     # Feats a feat hands over. Each is bound by the same eligibility and repeat rules as one the
-    # player picks, which is also what ends a chain that closes on itself.
+    # player picks, which is also what ends a chain that closes on itself. A grant that waives the
+    # prerequisites is still bound by the rest: the feat's class or ancestry, and the repeat limit.
     def self.grant_feats(ctx)
       char = ctx[:char]
 
@@ -1036,7 +1302,7 @@ module AresMUSH
 
         next [] unless parsed
 
-        fname, label, source, filter = parsed
+        fname, label, source, filter, waived = parsed
         found = get_feat_details(fname)
 
         if found.is_a?(String)
@@ -1044,7 +1310,9 @@ module AresMUSH
           next []
         end
 
-        unless can_take_feat_details?(char, found[0], found[1])
+        checked = waived ? found[1].merge('prereq' => nil) : found[1]
+
+        unless can_take_feat_details?(char, found[0], checked)
           Global.logger.warn "#{char.name} was granted '#{found[0]}' but does not qualify for it."
           next []
         end
@@ -1149,14 +1417,19 @@ module AresMUSH
     def self.apply_init_magic_feat(char, feat_name, feat_details, client)
       return unless feat_details && feat_details['init_magic']
 
+      # The flag grants the spell that has the feat's own name.
       spell_result = Pf2emagic.get_spell_details(feat_name)
-      return if spell_result.is_a?(String)
 
-      spell_name, spell_details = spell_result
+      if spell_result.is_a?(String)
+        Global.logger.error "Feat '#{feat_name}' carries init_magic, but no single spell has its name."
+        return
+      end
+
+      spell_name, _details = spell_result
       focus_type_by_source = Global.read_config('pf2e_magic', 'focus_type_by_source')
       focus_type = focus_type_by_source[char.pf2_base_info['charclass']] || 'devotion'
 
-      key = spell_details['base_level'].to_i.zero? ? 'focus_cantrip' : 'focus_spell'
+      key = Pf2emagic.focus_cantrip?(spell_name) ? 'focus_cantrip' : 'focus_spell'
       spell_info = { key => { focus_type => [ spell_name ] } }
 
       PF2Magic.update_magic(char, char.pf2_base_info['charclass'], spell_info, client)
@@ -1197,17 +1470,19 @@ module AresMUSH
       options = if block['options'].is_a?(Hash)
         block['options'].keys.select { |label| choice_option_allowed?(char, block['options'][label]) }.sort
       elsif block['from_feats'].is_a?(Hash)
-        choice_feat_pool(char, block['from_feats'])
+        choice_feat_pool(char, resolve_prior_steps(char, choice_name, block['from_feats']))
       elsif block['from_skills'].is_a?(Hash)
         choice_skill_pool(char, block['from_skills'])
       elsif block['from_weapons'].is_a?(Hash)
         choice_weapon_pool(char, block['from_weapons'])
+      elsif block['from_weapon_groups'].is_a?(Hash)
+        choice_weapon_group_pool(char, block['from_weapon_groups'])
       elsif block['from_spells'].is_a?(Hash)
         choice_spell_pool(char, block['from_spells'], choice_name)
       elsif block.key?('from_lores')
         choice_lore_pool(char, block['from_lores'])
       elsif block['from']
-        choice_dynamic_options(char, block['from'], block)
+        choice_dynamic_options(char, block['from'], block, choice_name)
       else
         []
       end
@@ -1220,6 +1495,21 @@ module AresMUSH
       return options if taken.empty?
 
       options.reject { |option| taken.any? { |t| t.to_s.casecmp?(option.to_s) } }
+    end
+
+    PRIOR_STEPS = 'from_prior_steps'.freeze
+
+    # A feat pool's `assoc_skill: from_prior_steps`, read as the skills picked in this choice's
+    # earlier steps - the ones still sitting in its open slot, so a later taking of a repeatable feat
+    # asks about its own picks and not the last one's.
+    def self.resolve_prior_steps(char, choice_name, filter)
+      return filter unless filter['assoc_skill'].to_s == PRIOR_STEPS
+
+      slots = (char.pf2_to_assign || {})['feat choice'] || {}
+      key = slots.keys.find { |k| k.to_s.casecmp?(choice_name.to_s) }
+      picked = Array(key && slots[key]).reject { |slot| slot.to_s.casecmp?('open') }
+
+      filter.merge('assoc_skill' => picked)
     end
 
     def self.match_choice_option(char, choice_name, block, label)
@@ -1262,6 +1552,10 @@ module AresMUSH
     def self.choice_grants(char, block, label, choice_name = nil)
       option = choice_option_def(block, label)
       return option['grants'] if option
+
+      # A pool's own grants, applying to whatever was picked from it: Skill Mastery's raise of the
+      # skill chosen, written `raise_skill: [ chosen ]`.
+      return substitute_choice_label(block['grants'], label) if block.is_a?(Hash) && block['grants'].is_a?(Hash)
 
       return { 'skill' => [ label ] } if block.is_a?(Hash) && block.key?('from_lores')
 
@@ -1336,26 +1630,106 @@ module AresMUSH
         found = archetype_subclass_spell(char, block.is_a?(Hash) ? block['archetype'] : nil, block.is_a?(Hash) ? block['tier'] : nil)
         return nil unless found
 
-        { 'magic_stats' => { 'focus_pool' => 1, 'focus_spell' => { found[0] => [ found[1] ] } } }
-      when 'deity_domains'
-        # Choosing a domain grants that domain's initial spell as a focus spell.
-        domain_info = Global.read_config('pf2e_magic', 'domains', value)
-        return nil unless domain_info && domain_info['initial']
-
-        focus_type_by_source = Global.read_config('pf2e_magic', 'focus_type_by_source') || {}
-        focus_type = focus_type_by_source[char.pf2_base_info['charclass']] || 'devotion'
-
-        # The domain is what granted the spell, so it travels with it - otherwise the sheet has
-        # to work back from the deity's domain list to say where the spell came from.
-        { 'magic_stats' => { 'focus_spell' => { focus_type => [ domain_info['initial'] ] },
-                             'focus_source' => "Domain #{value}" } }
+        { 'magic_stats' => { 'focus_spell' => { found[0] => [ found[1] ] } } }
+      when 'deity_domains', 'mystery_domains'
+        domain_spell_grant(char, value, 'initial')
+      when 'held_domains'
+        domain_spell_grant(char, value, 'advanced')
+      when 'lessons'
+        lesson_grant(char, value)
       when 'devotion_spells'
         { 'magic_stats' => { 'focus_spell' => { 'devotion' => [ value ] } } }
-      when 'traditions', 'other_traditions'
+      when 'other_specialties'
+        # Order Explorer and Multifarious Muse: "you gain a 1st-level feat that lists that order as a
+        # prerequisite", which is the gain itself, so its prerequisites are not asked again.
+        feat = block.is_a?(Hash) && block['grants_specialty_feat'] && specialty_first_feat(char, value)
+
+        feat ? { 'feat' => [ { 'name' => feat, 'prereqs' => 'ignore' } ] } : nil
+      when 'chosen_specialties'
+        # Order Magic: the specialty's initial focus spell, as its chargen block grants it.
+        return nil unless block.is_a?(Hash) && block['grants_specialty_focus']
+
+        info = Global.read_config('pf2e_specialty', char.pf2_base_info['charclass'].to_s, value.to_s) || {}
+        focus = ((info['chargen'] || {})['magic_stats'] || {})['focus_spell']
+
+        focus.is_a?(Hash) ? { 'magic_stats' => { 'focus_spell' => focus } } : nil
+      when 'traditions', 'other_traditions', 'mystery_deities', 'deity_cleric_spells'
+        # The deity's spells are worked out from the choice when the repertoire is read.
         nil
       else
         nil
       end
+    end
+
+    def self.domain_table
+      Global.read_config('pf2e_magic', 'domains') || {}
+    end
+
+    # A domain's spell of one tier, as the focus type the character's class casts it as. The domain
+    # is what granted the spell, so it travels with it - otherwise the sheet has to work back from a
+    # deity's or a mystery's domain list to say where the spell came from.
+    def self.domain_spell_grant(char, domain, tier)
+      table = domain_table
+      key = table.keys.find { |d| d.to_s.casecmp?(domain.to_s) }
+      spell = key && table[key][tier]
+      return nil if spell.blank?
+
+      focus_type_by_source = Global.read_config('pf2e_magic', 'focus_type_by_source') || {}
+      focus_type = focus_type_by_source[char.pf2_base_info['charclass']] || 'devotion'
+
+      { 'magic_stats' => { 'focus_spell' => { focus_type => [ spell ] }, 'focus_source' => "Domain #{key}" } }
+    end
+
+    # A witch's lessons as choice labels, from the tiers the feat's block names. A lesson whose
+    # familiar spell is a choice is listed once per spell, "Lesson of the Elements (Air Bubble)", so
+    # the one pick settles both. A lesson whose hex is already held is left out.
+    def self.lesson_options(char, block)
+      tiers = Array(block.is_a?(Hash) ? block['tiers'] : nil).map { |t| t.to_s.downcase }
+      lessons = Global.read_config('pf2e_magic', 'lessons') || {}
+      held = held_focus_spells(char).map(&:downcase)
+
+      labels = tiers.flat_map do |tier|
+        (lessons[tier] || {}).flat_map do |lesson, info|
+          next [] if held.include?(info['hex'].to_s.downcase)
+
+          spells = Array(info['spell'])
+          spells.size > 1 ? spells.map { |spell| "#{lesson} (#{spell})" } : [ lesson ]
+        end
+      end
+
+      labels.sort
+    end
+
+    # The lesson a label names, and the familiar spell it carries.
+    def self.lesson_for_label(label)
+      lessons = (Global.read_config('pf2e_magic', 'lessons') || {}).values.inject({}) { |all, tier| all.merge(tier || {}) }
+
+      name, spell = label.to_s.match(/\A(.+?)(?: \((.+)\))?\z/).captures
+      key = lessons.keys.find { |l| l.to_s.casecmp?(name) }
+      return nil unless key
+
+      info = lessons[key]
+      spells = Array(info['spell'])
+      spell = spell ? spells.find { |s| s.casecmp?(spell) } : spells.first
+      return nil unless spell && (spells.size == 1 || label.to_s.include?('('))
+
+      [ key, info['hex'], spell ]
+    end
+
+    # A lesson's hex, and its familiar spell written into the witch's spellbook at the spell's rank.
+    def self.lesson_grant(char, label)
+      found = lesson_for_label(label)
+      return nil unless found
+
+      lesson, hex, spell = found
+      rank = ((Global.read_config('pf2e_spells') || {})[spell] || {})['base_level'].to_i
+
+      focus_type_by_source = Global.read_config('pf2e_magic', 'focus_type_by_source') || {}
+      focus_type = focus_type_by_source[char.pf2_base_info['charclass']] || 'hex'
+
+      { 'magic_stats' => { 'focus_spell' => { focus_type => [ hex ] },
+                           'addspellbook' => { rank => [ spell ] },
+                           'focus_source' => lesson } }
     end
 
     THE_TRADITIONS = %w(arcane divine occult primal)
@@ -1546,7 +1920,10 @@ module AresMUSH
 
       return nil if source.to_s == 'feat'
 
-      class_choice_block_for(char, choice_name)
+      # A class's choice can be chained too (Divine Access: a deity, then its spells).
+      class_block = class_choice_block_for(char, choice_name)
+
+      class_block && advance_choice_steps(class_block, feat_choice_step(char, choice_name))
     end
 
     def self.advance_choice_steps(block, steps)
@@ -1925,11 +2302,16 @@ module AresMUSH
       filter = {} unless filter.is_a?(Hash)
 
       min_rank = prof_rank(filter['min_prof'] || 'trained') || 1
+      max_rank = filter['max_prof'] ? prof_rank(filter['max_prof']) : nil
 
-      list = char.skills.select do |skill|
-        rank = prof_rank(skill.prof_level)
-        rank && rank >= min_rank
-      end.map { |skill| skill.name }
+      # Ranks as this level leaves them, so a skill raised earlier in the level - by an earlier
+      # step of the same choice, say - is judged at its new rank.
+      sheet = DraftSheet.of(char)
+
+      list = char.skills.map(&:name).select do |name|
+        rank = prof_rank(sheet.skill_prof(name))
+        rank && rank >= min_rank && (max_rank.nil? || rank <= max_rank)
+      end
 
       if filter['key_abil']
         wanted = Array(filter['key_abil']).compact.map { |a| a.to_s.downcase }
@@ -1957,6 +2339,11 @@ module AresMUSH
 
       allowed_trads = filter.key?('tradition') ? resolve_tradition_spec(char, filter['tradition'], choice_name) : nil
 
+      # `subclass: own` or `other`: spells tagged for the character's own bloodline or mystery, or
+      # for another one. An untagged spell belongs to no subclass and matches neither.
+      subclass = filter['subclass'].to_s.downcase
+      own = subclass.empty? ? '' : (char.pf2_base_info || {})['specialize'].to_s.downcase
+
       list = spells.keys.select do |name|
         details = spells[name]
         next false unless details.is_a?(Hash)
@@ -1968,6 +2355,13 @@ module AresMUSH
 
         traits = Array(details['traits']).compact.map { |t| t.to_s.downcase }
         next false unless wanted.all? { |w| traits.include?(w) }
+
+        unless subclass.empty?
+          tags = (Array(details['bloodline']) + Array(details['mystery'])).map { |t| t.to_s.downcase }
+          next false if tags.empty?
+          next false if subclass == 'own' && !tags.include?(own)
+          next false if subclass == 'other' && tags.include?(own)
+        end
 
         if allowed_trads
           spell_trads = Array(details['tradition']).compact.map { |t| t.to_s.downcase }
@@ -1987,23 +2381,7 @@ module AresMUSH
     def self.choice_lore_pool(char, filter)
       filter = {} unless filter.is_a?(Hash)
 
-      skills = Global.read_config('pf2e_skills') || {}
-
-      list = skills.keys.select do |name|
-        details = skills[name]
-
-        lore_skill?(name, details) && !(details.is_a?(Hash) && details['hidden'])
-      end
-
-      if filter['group']
-        wanted = Array(filter['group']).compact.map { |g| g.to_s.downcase }
-
-        list = list.select do |name|
-          groups = Array(skills[name]['lore_groups']).compact.map { |g| g.to_s.downcase }
-
-          wanted.any? { |w| groups.include?(w) }
-        end
-      end
+      list = lore_skills(filter['group'])
 
       trained = char.skills.reject { |s| s.prof_level.to_s.casecmp?('untrained') }.map { |s| s.name.to_s.downcase }
 
@@ -2015,6 +2393,110 @@ module AresMUSH
       return true if details.is_a?(Hash) && !Array(details['lore_groups']).empty?
 
       name.to_s.strip =~ /\bLore\z/i ? true : false
+    end
+
+    # Lore skills from pf2e_skills.yml, sorted, leaving out any marked hidden. Given groups, only
+    # the lores tagged with at least one of them.
+    def self.lore_skills(groups = nil)
+      skills = Global.read_config('pf2e_skills') || {}
+
+      list = skills.keys.select do |name|
+        details = skills[name]
+
+        lore_skill?(name, details) && !(details.is_a?(Hash) && details['hidden'])
+      end
+
+      unless groups.nil?
+        wanted = Array(groups).compact.map { |g| g.to_s.downcase }
+
+        list = list.select { |name| (lore_groups_of(skills[name]) & wanted).any? }
+      end
+
+      list.sort
+    end
+
+    # A skill entry's lore_groups tags, downcased.
+    def self.lore_groups_of(details)
+      return [] unless details.is_a?(Hash)
+
+      Array(details['lore_groups']).compact.map { |g| g.to_s.downcase }
+    end
+
+    # The lore groups skills/lore lists, from pf2e_options.yml, keyed by group name.
+    def self.lore_group_lists
+      Global.read_config('pf2e', 'lore_group_lists') || {}
+    end
+
+    # The lore group a player typed, by its name or one of its aliases. Nil when it is neither.
+    def self.find_lore_group(input)
+      wanted = input.to_s.strip.downcase
+
+      lore_group_lists.keys.find do |group|
+        details = lore_group_lists[group] || {}
+
+        group.to_s.downcase == wanted || Array(details['aliases']).any? { |a| a.to_s.downcase == wanted }
+      end
+    end
+
+    # How a lore group is shown: its configured name, or its key with each word capitalized.
+    def self.lore_group_display_name(group)
+      name = (lore_group_lists[group] || {})['name']
+      return name.to_s unless name.to_s.strip.empty?
+
+      group.to_s.split(' ').map(&:capitalize).join(' ')
+    end
+
+    # Every lore group's display name, in the order listed, for the skills/lore index.
+    def self.lore_group_index
+      lore_group_lists.keys.map { |group| lore_group_display_name(group) }
+    end
+
+    # One line per alias, for the skills/lore index. An alias that only repeats the group's
+    # display name - crafting, for Crafting - says nothing, so it is left out.
+    def self.lore_group_alias_lines
+      lore_group_lists.flat_map do |group, details|
+        name = lore_group_display_name(group)
+
+        Array((details || {})['aliases']).reject { |a| a.to_s.casecmp?(name) }.map do |a|
+          t('pf2e.lore_group_alias', :alias => a.to_s.split(' ').map(&:capitalize).join(' '), :group => name)
+        end
+      end
+    end
+
+    # A lore group's lores as [heading, lores] pairs. A group without sections is one list with no
+    # heading. A group with sections is split by those tags in the order they are listed, and any
+    # lore that fits none of them trails under "Other" rather than disappearing.
+    def self.lore_group_sections(group)
+      details = lore_group_lists[group] || {}
+      lores = lore_skills(group) - Array(Global.read_config('pf2e', 'hidden_options'))
+      sections = details['sections']
+
+      return [ [ nil, lores ] ] unless sections.is_a?(Hash) && !sections.empty?
+
+      skills = Global.read_config('pf2e_skills') || {}
+      placed = []
+
+      result = sections.map do |tag, heading|
+        in_section = lores.select { |name| lore_groups_of(skills[name]).include?(tag.to_s.downcase) }
+        placed.concat(in_section)
+
+        [ heading, in_section ]
+      end
+
+      leftover = lores - placed
+      result << [ t('pf2e.lore_group_other'), leftover ] unless leftover.empty?
+
+      result.reject { |_, list| list.empty? }
+    end
+
+    # One page of a lore group's sections. A group with sections_per_page is paged by whole
+    # sections, so a region never splits across two pages; any other group is a single page.
+    def self.lore_group_page(group, page)
+      sections = lore_group_sections(group)
+      per_page = (lore_group_lists[group] || {})['sections_per_page'].to_i
+      per_page = sections.size if per_page < 1
+
+      Paginator.paginate(sections, page, [ per_page, 1 ].max)
     end
 
     # Weapons matching a from_weapons filter, drawn from pf2e_weapons.yml.
@@ -2043,6 +2525,19 @@ module AresMUSH
       list.sort
     end
 
+    # Weapon groups holding a weapon of the filter's category, drawn from pf2e_weapons.yml.
+    def self.choice_weapon_group_pool(_char, filter)
+      wanted = Array((filter.is_a?(Hash) ? filter : {})['category']).map { |c| c.to_s.downcase }
+      weapons = Global.read_config('pf2e_weapons') || {}
+
+      weapons.values.filter_map do |details|
+        next unless details.is_a?(Hash) && details['group'].present?
+        next if wanted.any? && !wanted.include?(details['category'].to_s.downcase)
+
+        details['group'].to_s
+      end.uniq.sort
+    end
+
     # Weapon names the character has chosen through any feat whose choice draws from the
     # weapon list, such as Weapon Proficiency.
     def self.chosen_weapons(char)
@@ -2051,6 +2546,22 @@ module AresMUSH
         next unless block.is_a?(Hash) && block['from_weapons']
 
         label
+      end.uniq
+    end
+
+    # The categories a weapon also counts as for this character: Advanced Weapon Training's chosen
+    # group, whose advanced weapons count as martial. Read from any recorded choice whose block draws
+    # from the weapon groups and names an `as_category`.
+    def self.weapon_counts_as(char, category, group)
+      return [] if group.blank?
+
+      recorded_choices(char).filter_map do |name, label, _level|
+        block = find_choice_block(char, name)
+        next unless block.is_a?(Hash) && block['from_weapon_groups'].is_a?(Hash) && block['as_category'].present?
+        next unless block['from_weapon_groups']['category'].to_s.casecmp?(category.to_s)
+        next unless label.to_s.casecmp?(group.to_s)
+
+        block['as_category'].to_s.downcase
       end.uniq
     end
 
@@ -2113,10 +2624,12 @@ module AresMUSH
       spec = Global.read_config('pf2e_specialty', cls.to_s, subclass)
       return nil unless spec.is_a?(Hash)
 
-      focus = if tier.to_s.casecmp?('advanced')
-        spec['advanced_focus_spell']
-      else
+      # The initial spell is the one chargen grants; each later tier has its own key, such as
+      # `advanced_focus_spell` or `greater_focus_spell`.
+      focus = if tier.blank? || tier.to_s.casecmp?('initial')
         spec.dig('chargen', 'magic_stats', 'focus_spell')
+      else
+        spec["#{tier.to_s.downcase}_focus_spell"]
       end
 
       return nil unless focus.is_a?(Hash)
@@ -2127,7 +2640,7 @@ module AresMUSH
       spell.blank? ? nil : [ focus_type, spell ]
     end
 
-    def self.choice_dynamic_options(char, source, block = nil)
+    def self.choice_dynamic_options(char, source, block = nil, choice_name = nil)
       case source.to_s.downcase
       when 'subclass_spell'
         found = archetype_subclass_spell(char, block.is_a?(Hash) ? block['archetype'] : nil, block.is_a?(Hash) ? block['tier'] : nil)
@@ -2141,6 +2654,56 @@ module AresMUSH
         return [] unless deity_info
 
         Array(deity_info['domains']).compact.sort
+      when 'held_domains'
+        # Advanced Domain and its like: a domain whose initial spell is held and whose advanced
+        # spell is not yet.
+        held = held_focus_spells(char).map(&:downcase)
+
+        domain_table.select do |_domain, info|
+          held.include?(info['initial'].to_s.downcase) && !held.include?(info['advanced'].to_s.downcase)
+        end.keys.sort
+      when 'mystery_domains'
+        # Domain Acumen: the domains the oracle's mystery lists, less those already begun.
+        base = char.pf2_base_info || {}
+        mystery = Global.read_config('pf2e_specialty', base['charclass'].to_s, base['specialize'].to_s) || {}
+        held = held_focus_spells(char).map(&:downcase)
+        table = domain_table
+
+        Array(mystery['domains']).select do |domain|
+          table[domain] && !held.include?(table[domain]['initial'].to_s.downcase)
+        end.sort
+      when 'mystery_deities'
+        # Divine Access: a deity who grants one of the mystery's domains.
+        mystery_deities(char)
+      when 'deity_cleric_spells'
+        # Divine Access's later steps: the cleric spells of the deity its first step picked. The
+        # spells already picked are left out by choice_options, as for any choice.
+        deity = choice_labels_for(char, choice_name).find { |label| deity_named(label) }
+
+        deity ? deity_cleric_spells(deity).sort : []
+      when 'lessons'
+        lesson_options(char, block)
+      when 'other_specialties'
+        # Another order, muse or bloodline than the character's own.
+        own = char.pf2_base_info['specialize'].to_s
+
+        class_specialties(char).reject { |s| s.casecmp?(own) }.sort
+      when 'chosen_specialties'
+        # The specialties picked with another choice - Order Magic's orders explored.
+        chosen = choice_labels_for(char, block.is_a?(Hash) ? block['from_choice'] : nil)
+
+        class_specialties(char).select { |s| chosen.any? { |c| c.to_s.casecmp?(s) } }.sort
+      when 'specialty_options'
+        # The 1st-level choice of the specialty picked in this choice's first step, if it has one.
+        specialty = specialty_and_option(char, choice_labels_for(char, choice_name))&.first
+        info = specialty && Global.read_config('pf2e_specialty', char.pf2_base_info['charclass'].to_s, specialty)
+
+        (((info || {})['choose'] || {})['options'] || {}).keys.sort
+      when 'secondary_gift_spells'
+        # The sorcerous gift spells of the bloodline another choice picked, its option's included.
+        found = specialty_and_option(char, choice_labels_for(char, block.is_a?(Hash) ? block['from_choice'] : nil))
+
+        found ? Pf2emagic.all_gift_spells(char.pf2_base_info['charclass'], found[0], found[1]).sort : []
       when 'devotion_spells'
         options = [ 'Shields of the Spirit' ]
 
@@ -2195,13 +2758,16 @@ module AresMUSH
       DEFERRED_CHOICE_SOURCES.include?(source.to_s.downcase)
     end
 
+    # [ name, choice, choice_from, choice_filter, prereqs waived ] for a granted feat, which the data
+    # writes as a bare name or a hash. `prereqs: ignore` hands a feat over without its prerequisites,
+    # as Spellbook Prodigy does Magical Shorthand.
     def self.granted_feat_entry(entry)
-      return [ entry.to_s, nil, nil, nil ] unless entry.is_a?(Hash)
+      return [ entry.to_s, nil, nil, nil, false ] unless entry.is_a?(Hash)
 
       name = entry['name'].to_s
       return nil if name.empty?
 
-      [ name, entry['choice'], entry['choice_from'], entry['choice_filter'] ]
+      [ name, entry['choice'], entry['choice_from'], entry['choice_filter'], entry['prereqs'].to_s.casecmp?('ignore') ]
     end
 
     def self.granted_choice_label(char, source)
@@ -2376,6 +2942,16 @@ module AresMUSH
       msgs
     end
 
+    # A choice resolved to a value, applied at whichever boundary is open. Chargen writes it to the
+    # character now; an open level stages it for advance/done to carry out.
+    def self.resolve_feat_choice(char, choice_name, block, value, client)
+      if DraftSheet.of(char).drafting?
+        stage_feat_choice(char, choice_name, block, value, client)
+      else
+        apply_feat_choice(char, choice_name, block, value, client)
+      end
+    end
+
     def self.apply_feat_choice(char, choice_name, block, value, client)
       msgs = []
 
@@ -2485,6 +3061,10 @@ module AresMUSH
       choices[choice_name] = existing.uniq
       to_assign['feat_choices'] = choices
 
+      # The character holds this pick before the next step asks what it offers, since what a step
+      # offers can depend on the pick before it.
+      char.pf2_to_assign = to_assign
+
       msgs.concat(open_chained_choice(char, choice_name, block, to_assign))
 
       char.pf2_advancement = advancement
@@ -2501,6 +3081,10 @@ module AresMUSH
     def self.open_chained_choice(char, choice_name, block, to_assign = nil)
       nxt = block.is_a?(Hash) && block['then_choose']
       return [] unless nxt.is_a?(Hash)
+
+      # A step that only some picks need - a bloodline's own 1st-level choice, which not every
+      # bloodline has - is not opened when it has nothing to offer.
+      return [] if nxt['skip_if_empty'] && choice_options(char, choice_name, nxt).empty?
 
       if to_assign
         open_feat_choice(to_assign, choice_name)

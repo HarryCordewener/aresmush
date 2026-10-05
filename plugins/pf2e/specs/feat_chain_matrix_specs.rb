@@ -36,6 +36,11 @@ module AresMUSH
           'Demanding' => { 'feat_type' => [ 'General' ], 'grants' => { 'feat' => [ 'Gated' ] } },
           'Gated' => { 'feat_type' => [ 'General' ], 'prereq' => { 'level' => 20 } },
 
+          # "You gain the Magical Shorthand skill feat without needing to meet its prerequisites."
+          'Waiving' => { 'feat_type' => [ 'General' ], 'grants' => { 'feat' => [ { 'name' => 'Gated', 'prereqs' => 'ignore' } ] } },
+          'Waiving Fighter' => { 'feat_type' => [ 'General' ], 'grants' => { 'feat' => [ { 'name' => 'Wizard Only', 'prereqs' => 'ignore' } ] } },
+          'Wizard Only' => { 'feat_type' => [ 'Charclass' ], 'assoc_charclass' => [ 'Wizard' ] },
+
           # A feat that grants itself, which is a shape the shipped data contains.
           'Ouroboros' => { 'feat_type' => [ 'General' ], 'grants' => { 'feat' => [ 'Ouroboros' ] } },
 
@@ -98,6 +103,15 @@ module AresMUSH
       describe "a grant the character does not qualify for" do
         it "should not hand it over" do
           expect(held_feats(grant('Demanding'))).to_not include 'Gated'
+        end
+
+        it "should hand it over when the grant waives its prerequisites" do
+          expect(held_feats(grant('Waiving'))).to include 'Gated'
+        end
+
+        # Only the prerequisites are waived; a feat for another class is still not theirs.
+        it "should still refuse a feat for another class" do
+          expect(held_feats(grant('Waiving Fighter'))).to_not include 'Wizard Only'
         end
       end
 

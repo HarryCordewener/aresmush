@@ -42,7 +42,7 @@ module AresMUSH
       end
 
       def show(title, options)
-        display = Pf2e.info_option_display(title, options, cmd.page, self.filter)
+        display = Pf2e.info_option_display(title, options, cmd, self.filter)
 
         if display[:error]
           client.emit_failure display[:error]

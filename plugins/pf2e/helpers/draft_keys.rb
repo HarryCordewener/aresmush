@@ -60,6 +60,8 @@ module AresMUSH
         'innate' => [ ADVANCEMENT, 'innate spells granted this level' ],
         'archetype_features' => [ ADVANCEMENT, 'features an archetype granted this level' ],
         'archetype_deity' => [ ADVANCEMENT, 'the deity chosen for an archetype' ],
+        'archetype_edicts' => [ ADVANCEMENT, 'edicts an archetype or its specialty binds the character to' ],
+        'archetype_anathema' => [ ADVANCEMENT, 'anathema an archetype or its specialty binds the character to' ],
         'archetype_sanctification' => [ BOTH, 'the sanctification, as an open marker in to_assign and as the choice in advancement - the one archetype pick that uses the same key in both' ],
         'charclass_feature option' => [ ADVANCEMENT, 'the option chosen for a class feature' ]
       }.freeze

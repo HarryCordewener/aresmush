@@ -53,3 +53,4 @@ killares
 
 # Python bytecode from the import scripts
 __pycache__/
+/CLAUDE.md

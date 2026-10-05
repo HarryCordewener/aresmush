@@ -59,6 +59,7 @@ module AresMUSH
             (magic['tradition'] || {}).reject { |key, _v| key.to_s.casecmp?(INNATE) }.map do |source, trad|
               category = caster_types[source] || caster_types[source.to_s]
               spontaneous = category.to_s == 'spontaneous'
+              pick = (magic['daily_pick'] || {})[source]
 
               Entries.entry(
                 'name' => source,
@@ -69,8 +70,10 @@ module AresMUSH
                 'ability' => (magic['spell_abil'] || {})[source],
                 'slots' => (magic['spells_per_day'] || {})[source] || {},
                 # A spontaneous caster knows a repertoire; a prepared one keeps a spellbook.
-                'known' => ((spontaneous ? magic['repertoire'] : magic['spellbook']) || {})[source] || {},
-                'signature' => (magic['signature_spells'] || {})[source] || {},
+                'known' => Entries.with_ranked(
+                  Entries.with_pick(((spontaneous ? magic['repertoire'] : magic['spellbook']) || {})[source], pick, 'repertoire'),
+                  (magic['choice_known'] || {})[source]),
+                'signature' => Entries.with_pick((magic['signature_spells'] || {})[source], pick, 'signature'),
                 'restrictions' => (magic['restricted_spellbook'] || {})[source] || {}
               )
             end
@@ -105,6 +108,83 @@ module AresMUSH
           }
         }
       ].freeze
+
+      # A list by rank with the day's pick from a book added, when the pick is of that kind: a
+      # spell joining the repertoire, or a repertoire spell made a signature spell.
+      def self.with_pick(by_rank, pick, kind)
+        list = (by_rank || {}).each_with_object({}) { |(rank, spells), out| out[rank.to_s] = Array(spells).dup }
+
+        return list unless pick.is_a?(Hash) && pick['as'].to_s == kind
+
+        rank = pick['rank'].to_s
+        list[rank] = (Array(list[rank]) + [ pick['spell'] ]).uniq
+
+        list
+      end
+
+      # A list by rank with more spells added under their ranks.
+      def self.with_ranked(by_rank, extra)
+        (extra || {}).each_with_object((by_rank || {}).dup) do |(rank, spells), out|
+          out[rank.to_s] = (Array(out[rank.to_s]) + Array(spells)).uniq
+        end
+      end
+
+      # source => rank => [ spells ] for spells a choice adds to a repertoire, a cantrip as a cantrip.
+      # Worked out on every read, so a new rank moves them and losing the choice takes them away.
+      #
+      #   Greater Crossblooded Evolution - at the highest rank the source casts
+      #   Divine Access                  - at the spell's own rank, once the source casts at it
+      def self.choice_known(magic)
+        char = magic.respond_to?(:character) ? magic.character : nil
+
+        return {} unless char && AresMUSH.const_defined?('Pf2e')
+
+        out = {}
+
+        Pf2e.top_rank_spells(char).each_pair do |source, spells|
+          top = top_slot_rank(magic, source)
+
+          spells.each do |spell|
+            found = Pf2emagic.get_spell_details(spell)
+            cantrip = found.is_a?(Array) && found[1]['base_level'].to_i.zero?
+
+            next unless cantrip || top
+
+            add_known(out, source, cantrip ? 'cantrip' : top.to_s, found.is_a?(Array) ? found[0] : spell)
+          end
+        end
+
+        Pf2e.deity_choice_spells(char).each_pair do |source, spells|
+          top = top_slot_rank(magic, source)
+
+          spells.each do |spell|
+            found = Pf2emagic.get_spell_details(spell)
+            next unless found.is_a?(Array)
+
+            rank = found[1]['base_level'].to_i
+
+            if rank.zero?
+              add_known(out, source, 'cantrip', found[0])
+            elsif top && rank <= top
+              add_known(out, source, rank.to_s, found[0])
+            end
+          end
+        end
+
+        out
+      end
+
+      # The highest rank a source has slots at, or nil.
+      def self.top_slot_rank(magic, source)
+        ranks = ((magic.spells_per_day || {})[source] || {}).keys.map(&:to_s).reject { |r| r.casecmp?('cantrip') }
+
+        ranks.map(&:to_i).max
+      end
+
+      def self.add_known(out, source, rank, spell)
+        by_rank = (out[source] ||= {})
+        by_rank[rank] = (Array(by_rank[rank]) + [ spell ]).uniq
+      end
 
       # Entry hashes for everything this character casts from.
       #
@@ -165,6 +245,7 @@ module AresMUSH
         return [] unless magic
 
         attributes = ATTRIBUTES.each_with_object({}) { |attr, h| h[attr] = magic.send(attr) }
+        attributes['choice_known'] = choice_known(magic)
         types = (attributes['tradition'] || {}).keys.each_with_object({}) do |source, h|
           h[source] = Pf2emagic.get_caster_type(source)
         end
@@ -214,7 +295,7 @@ module AresMUSH
       # these and nothing else. Focus spells are absent: they are stored as rows, not projected.
       ATTRIBUTES = %w(
         tradition spell_abil spells_per_day spellbook repertoire signature_spells
-        restricted_spellbook innate_spells
+        restricted_spellbook innate_spells daily_pick
       ).freeze
 
       # ------------------------------------------------------------------------------
@@ -396,17 +477,56 @@ module AresMUSH
 
         return {} unless magic
 
-        for_magic(magic).each_with_object({}) do |entry, lists|
+        lists = for_magic(magic).each_with_object({}) do |entry, out|
           next unless [ 'class', 'archetype' ].include?(entry['source_type'])
           next unless enumerated?(entry['name'])
 
-          known = (entry['known'] || {}).each_with_object({}) do |(rank, spells), by_rank|
-            kept = Array(spells).reject { |spell| spell.to_s.casecmp?(OPEN) }
+          # The day's pick from a book is not a spell learned, so it is never recorded, and neither
+          # is a spell a choice adds (`choice_known`).
+          pick = (magic.daily_pick || {})[entry['name']]
+          stored = ((entry['category'].to_s == 'spontaneous' ? magic.repertoire : magic.spellbook) || {})[entry['name']] || {}
+          added = choice_known(magic)[entry['name']] || {}
 
-            by_rank[rank.to_s] = kept unless kept.empty?
+          known = without_pick(entry['known'], pick).each_with_object({}) do |(rank, spells), kept|
+            held = Array(stored[rank] || stored[rank.to_i]).map { |s| s.to_s.downcase }
+            extra = Array(added[rank]).map(&:downcase) - held
+            left = spells.reject { |spell| extra.include?(spell.to_s.downcase) }
+
+            kept[rank] = left unless left.empty?
           end
 
-          lists[entry['name']] = known unless known.empty?
+          out[entry['name']] = known unless known.empty?
+        end
+
+        # A book a feat keeps: the spells learned into it and, for one that keeps the repertoire
+        # (Esoteric Polymath), every spell in the repertoire it supplements.
+        SpellBooks.held(char).each do |book|
+          stored = (magic.spellbook || {})[book['name']] || {}
+          repertoire = book['keeps_repertoire'] ? lists[book['supplements']] || {} : {}
+          contents = without_open(SpellBooks.contents(stored, repertoire))
+
+          lists[book['name']] = contents unless contents.empty?
+        end
+
+        lists
+      end
+
+      def self.without_pick(by_rank, pick)
+        list = without_open(by_rank)
+
+        return list unless pick.is_a?(Hash) && pick['as'].to_s == 'repertoire'
+
+        rank = pick['rank'].to_s
+        kept = Array(list[rank]).reject { |spell| spell.to_s.casecmp?(pick['spell'].to_s) }
+
+        kept.empty? ? list.reject { |r, _| r == rank } : list.merge(rank => kept)
+      end
+
+      def self.without_open(by_rank)
+        (by_rank || {}).each_with_object({}) do |(rank, spells), out|
+          kept = Array(spells).reject { |spell| spell.to_s.casecmp?(OPEN) }
+
+          out[rank.to_s] = kept unless kept.empty?
         end
       end
 
@@ -511,10 +631,25 @@ module AresMUSH
         level.to_i > 0 ? "#{name}, lvl #{level.to_i}" : name
       end
 
-      # Takes a focus spell or cantrip away, wherever it was granted from.
-      def self.revoke_focus!(char, type, spell, kind:)
+      # Every focus spell and cantrip held, one record per spell per granting source, in the shape
+      # the ledger records them.
+      def self.focus_records(magic)
+        return [] unless magic
+
+        focus_entries(magic).flat_map do |entry|
+          (entry['known'] || {}).flat_map do |kind, spells|
+            Array(spells).map do |spell|
+              { 'type' => entry['name'].to_s, 'kind' => kind.to_s, 'spell' => spell.to_s, 'granted_by' => entry['granted_by'].to_s }
+            end
+          end
+        end
+      end
+
+      # Takes a focus spell or cantrip away: from the source named, or wherever it was granted from.
+      def self.revoke_focus!(char, type, spell, kind:, granted_by: nil)
         rows(char, FOCUS).each do |row|
           next unless row.name.to_s.casecmp?(type.to_s)
+          next if granted_by && row.granted_by.to_s != granted_by.to_s
 
           known = row.known || {}
           held = Array(known[kind.to_s])

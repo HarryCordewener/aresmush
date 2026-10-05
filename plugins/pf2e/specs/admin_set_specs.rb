@@ -172,20 +172,27 @@ module AresMUSH
         end
       end
 
-      describe "focus spells, which the fold does not hold" do
-        it "should write an added focus cantrip to the magic object" do
+      # Staff history, so a rollback leaves what staff granted and takes back only what a level did.
+      describe "focus spells" do
+        it "should grant an added focus cantrip, attributed to the class" do
           result = plan('focus', 'Add', 'Cleric', 'Cantrip', 'Heal')
 
-          expect(result.grants).to be_empty
-          expect(result.state['magic_ops']).to eq [ { 'op' => 'update', 'charclass' => 'Cleric',
-                                                     'info' => { 'focus_cantrip' => { 'divine' => [ 'Heal' ] } } } ]
+          expect(result.state['magic_ops']).to be_nil
+          expect(result.grants.map { |g| [ g['kind'], g['payload'] ] }).to eq [
+            [ 'focus_spell', { 'type' => 'divine', 'kind' => 'cantrip', 'spell' => 'Heal', 'granted_by' => 'Cleric' } ]
+          ]
         end
 
-        it "should revoke a deleted focus spell by kind" do
+        it "should revoke a deleted focus spell by kind, from whatever granted it" do
           result = plan('focus', 'Delete', 'Cleric', 'Spell', 'Heal')
 
-          expect(result.state['magic_ops']).to eq [ { 'op' => 'revoke_focus', 'focus_type' => 'divine',
-                                                     'spell' => 'Heal', 'kind' => 'spell' } ]
+          expect(result.revocations.map { |r| [ r['kind'], r['match'] ] }).to eq [
+            [ 'focus_spell', { 'type' => 'divine', 'kind' => 'spell', 'spell' => 'Heal' } ]
+          ]
+        end
+
+        it "should refuse a spell the game does not have" do
+          expect(plan('focus', 'Add', 'Cleric', 'Spell', 'Nothing Like It').code).to eq :not_unique
         end
 
         it "should refuse a class with no focus type" do

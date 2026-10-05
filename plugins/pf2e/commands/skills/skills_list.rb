@@ -10,23 +10,17 @@ module AresMUSH
       end
 
       def handle
-        skills_list = Global.read_config('pf2e_skills').keys - Global.read_config('pf2e', 'hidden_options')
+        skills = Global.read_config('pf2e_skills')
+        skills_list = skills.keys - Global.read_config('pf2e', 'hidden_options')
+        skills_list = skills_list.reject { |skill| Pf2e.lore_skill?(skill, skills[skill]) }
 
         if self.term
           skills_list = skills_list.filter { |skill| skill.downcase.match? self.term }
         end
 
-        paginator = Paginator.paginate(skills_list, cmd.page, 30)
-        if (paginator.out_of_bounds?)
-          client.emit_failure paginator.out_of_bounds_msg
-          return
-        end
-
-        template = PF2SkillsListTemplate.new(paginator)
+        template = PF2SkillsListTemplate.new([ [ nil, skills_list ] ], nil, nil, nil, t('pf2e.skills_list_lore_note'))
 
         client.emit template.render
-
-
       end
     end
   end

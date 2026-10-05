@@ -3,13 +3,15 @@ module AresMUSH
 
     class PF2XPHistoryTemplate < ErbTemplateRenderer
       include CommonTemplateFields
-      
+      include PagedTemplate
+
       attr_accessor :char, :paginator, :client
 
-      def initialize(char, paginator, client)
+      def initialize(char, paginator, client, cmd = nil)
         @char = char
         @paginator = paginator
         @client = client
+        @cmd = cmd
 
         super File.dirname(__FILE__) + "/xp_history.erb"
       end
@@ -24,10 +26,6 @@ module AresMUSH
 
       def page_items
         @paginator.page_items
-      end
-
-      def page_footer
-        @paginator.page_footer
       end
 
       def header_line

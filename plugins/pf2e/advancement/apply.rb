@@ -105,6 +105,13 @@ module AresMUSH
           'archetype_deity' => {
             'apply' => lambda { |ctx| Apply.set_faith(ctx[:char], 'deity', ctx[:value]) }
           },
+          # Joined to what chargen and earlier archetypes left, never replacing it.
+          'archetype_edicts' => {
+            'apply' => lambda { |ctx| Apply.add_faith(ctx[:char], 'edicts', ctx[:value]) }
+          },
+          'archetype_anathema' => {
+            'apply' => lambda { |ctx| Apply.add_faith(ctx[:char], 'anathema', ctx[:value]) }
+          },
           'archetype_sanctification' => {
             'apply' => lambda { |ctx| Apply.sanctify(ctx[:char], ctx[:value]) }
           },
@@ -215,6 +222,14 @@ module AresMUSH
           []
         end
 
+        def self.add_faith(char, key, value)
+          faith = char.pf2_faith
+          faith[key] = (Array(faith[key]) + Array(value)).uniq
+          char.pf2_faith = faith
+
+          []
+        end
+
         # ------------------------------------------------------------------------------
         # A class feature with an option, and what each option is worth
         # ------------------------------------------------------------------------------
@@ -304,12 +319,9 @@ module AresMUSH
           []
         end
 
+        # Through the writer every combat stat goes through, which never lowers a rank.
         def self.weapon_group(ctx, ranks)
-          combat = Pf2eCombat.get_create_combat_obj(ctx[:char])
-          groups = combat.weapon_group_prof || {}
-          groups[ctx[:option]] = ranks
-
-          combat.update(:weapon_group_prof => groups)
+          Pf2eCombat.update_combat_stats(ctx[:char], 'weapon_group_prof' => { ctx[:option] => ranks })
 
           []
         end
@@ -360,7 +372,9 @@ module AresMUSH
             picks.each_pair do |rank, spells|
               chosen = Array(spells).reject { |spell| spell.to_s.strip.empty? || spell.to_s.casecmp?('open') }
 
-              for_source[rank] = chosen unless chosen.empty?
+              # Joined to the signatures already held at that rank: a second one there, from
+              # Signature Spell Expansion, does not replace the first.
+              for_source[rank] = (Array(for_source[rank]) + chosen).uniq { |spell| spell.to_s.downcase } unless chosen.empty?
             end
 
             held[source] = for_source

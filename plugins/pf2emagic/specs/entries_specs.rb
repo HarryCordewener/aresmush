@@ -179,7 +179,7 @@ module AresMUSH
             :repertoire => { 'Sorcerer' => { '3' => [ 'Fireball' ] } },
             :spellbook => {},
             :signature_spells => { 'Sorcerer' => { '3' => [ 'Fireball' ], '5' => [ 'Cone of Cold' ] } },
-            :restricted_spellbook => {}, :focus_spells => {}, :focus_cantrips => {}, :innate_spells => [],
+            :restricted_spellbook => {}, :focus_spells => {}, :focus_cantrips => {}, :innate_spells => [], :daily_pick => {},
             # No character behind it, so nothing is stored and the projection is what answers.
             :character => nil
           )
@@ -222,7 +222,7 @@ module AresMUSH
             :spell_abil => { 'Sorcerer' => 'Charisma' },
             :spells_per_day => {}, :repertoire => { 'Sorcerer' => { '1' => [ 'Bless' ] } },
             :spellbook => {}, :signature_spells => {}, :restricted_spellbook => {},
-            :focus_spells => {}, :focus_cantrips => {}, :innate_spells => [], :character => nil
+            :focus_spells => {}, :focus_cantrips => {}, :innate_spells => [], :daily_pick => {}, :character => nil
           )
 
           allow(Pf2emagic).to receive(:get_caster_type).with('Sorcerer').and_return('spontaneous')

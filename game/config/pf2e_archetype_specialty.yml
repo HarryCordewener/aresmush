@@ -4,9 +4,6 @@ pf2e_archetype_specialty:
   Barbarian Archetype:
     Animal:
       initial_dedication: {}
-      anathema:
-      - Flagrantly disrespect your animal instinct type.
-      - Use weapons while raging.
       choose:
         choice_name: Animal Instinct
         choice_description: Choose the animal this character strives to emulate.
@@ -32,10 +29,6 @@ pf2e_archetype_specialty:
             initial_dedication: {}
     Dragon:
       initial_dedication: {}
-      anathema:
-      - Let a personal insult against you slide.
-      - If you respect your dragon instinct's dragon type, defy its orders.
-      - If you abhor your dragon instinct's dragon type, fail to defeat it.
       choose:
         choice_name: Dragon Instinct
         choice_description: The type of dragon this instinct is derived from.
@@ -72,15 +65,14 @@ pf2e_archetype_specialty:
           Umbral:
             initial_dedication: {}
     Fury:
-      anathema: []
       initial_dedication: {}
     Giant:
-      anathema:
-      - Fail to face a personal challenge of strength.
       initial_dedication: {}
     Spirit:
+      initial_dedication: {}
+    Superstition:
       anathema:
-      - Disrespect corpses or spirits.
+      - "Your deep superstition means it's anathema for you to learn or Cast a Spell, or to wield or use an item that can be activated to Cast a Spell."
       initial_dedication: {}
   Bard Archetype:
     Enigma:
@@ -148,9 +140,8 @@ pf2e_archetype_specialty:
         feat:
         - Animal Companion
         anathema:
-        - Kill an animal needlessly or commit wanton cruelty to one.
+        - "Commit wanton cruelty to animals or kill animals unnecessarily. (This doesn't prevent you from defending yourself against animals or killing them cleanly for food.)"
         magic_stats:
-          focus_pool: 1
           focus_spell:
             order:
             - Heal Animal
@@ -160,21 +151,19 @@ pf2e_archetype_specialty:
         skills:
         - Diplomacy
         anathema:
-        - Kill a plant needlessly or commit wanton cruelty to one.
+        - "Commit wanton cruelty to plants or fungi or kill them unnecessarily. (This doesn't prevent you from defending yourself or harvesting them for survival.)"
     Storm:
       initial_dedication:
         skills:
         - Acrobatics
-        edicts:
-        - Punish those who cause major air pollution or climate shifts.
         anathema:
-        - Pollute the air.
+        - "Pollute the air, allow those who cause major air pollution or climate shifts to go unpunished. (This doesn't force you to take action against merely potential environmental harm or to sacrifice yourself against an obviously superior foe.)"
     Untamed:
       initial_dedication:
         skills:
         - Intimidation
         anathema:
-        - Become reliant on the temptations of civilization.
+        - "Become fully domesticated by the temptations of civilization. (This doesn't prevent you from buying and using processed goods or staying in a city for an adventure, but you can never come to rely on these conveniences or truly call such a place your permanent home.)"
   Fighter Archetype: {}
   Investigator Archetype: {}
   Monk Archetype: {}

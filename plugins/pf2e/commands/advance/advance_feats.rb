@@ -47,7 +47,7 @@ module AresMUSH
 
       def show_one(type)
         display = Pf2e.info_option_display(t('pf2e.info_feat_title', :type => type.capitalize),
-                                           Pf2e.get_feat_options(enactor, type), cmd.page, self.filter)
+                                           Pf2e.get_feat_options(enactor, type), cmd, self.filter)
 
         display[:error] ? client.emit_failure(display[:error]) : client.emit(display[:text])
       end

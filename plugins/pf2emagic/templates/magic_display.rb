@@ -132,6 +132,23 @@ module AresMUSH
         list
       end
 
+      # A sorcerer's blood magic, and any a choice shares from another bloodline.
+      def blood_magic_effects
+        @blood_magic_effects ||= Pf2emagic.blood_magic(@char)
+      end
+
+      def has_blood_magic
+        blood_magic_effects.any?
+      end
+
+      def blood_magic
+        blood_magic_effects.map do |effect|
+          damage = effect['damage'] ? " The damage is #{effect['damage']}." : ''
+
+          "%xh#{effect['name']}%xn (#{effect['bloodline']}): #{effect['text']}#{damage}"
+        end
+      end
+
       def has_adapted_spells
         !(@magic.adapted_spells || {}).empty?
       end
@@ -205,7 +222,7 @@ module AresMUSH
         trad = Pf2e.pretty_string(trad_info[0])
         prof = Pf2e.pretty_string(trad_info[1].slice(0).upcase)
         atk = PF2Magic.get_spell_attack_bonus(char, charclass)
-        divine_font = format_divine_font(charclass)
+        divine_font = format_divine_font(charclass) + format_deity_spells(charclass)
         focus_pool = format_focus_pool(charclass)
         stat_block_break = (divine_font.empty? && focus_pool.empty?) ? "%r%r" : "%r"
 
@@ -220,6 +237,13 @@ module AresMUSH
 
           display_level = spell_level_label(level)
           list << "%b%b#{item_color}#{display_level}:%xn #{splist.sort.join(", ")}"
+        end
+
+        # Two spells in one slot (Split Slot, Spell Combination), still unspent today.
+        Array(((@magic.spells_today || {})[Pf2emagic::SlotFeats::TODAY] || {})[charclass]).each do |pair|
+          joined = pair['cast'].to_s == 'both' ? pair['spells'].join(' + ') : pair['spells'].join(' or ')
+
+          list << "%b%b#{item_color}#{spell_level_label(pair['rank'])} (#{pair['feat']}):%xn #{joined}"
         end
 
         return "#{trad_string}#{divine_font}#{focus_pool}#{prepared_msg} None." if list.empty?
@@ -255,7 +279,21 @@ module AresMUSH
                            "%r#{remaining.join("%r")}"
                          end
 
-        "#{trad_string}#{focus_pool}#{remaining_msg}#{remaining_data}"
+        "#{trad_string}#{focus_pool}#{remaining_msg}#{remaining_data}#{format_bonus_slots(char, charclass)}"
+      end
+
+      # A feat's slot for certain spells, at the highest rank: Divine Evolution's heal or harm.
+      def format_bonus_slots(char, charclass)
+        slots = Pf2emagic::BonusSlots.summary(char, charclass)
+        return '' if slots.empty?
+
+        lines = slots.map do |feat, left, spells|
+          listed = spells.empty? ? 'no spells yet' : spells.join(', ')
+
+          "%b%b%xh#{feat}:%xn #{left} (#{listed})"
+        end
+
+        "%r#{item_color}Highest-Rank Slots For Certain Spells:%xn%r#{lines.join('%r')}"
       end
 
       def format_divine_font(charclass)
@@ -269,6 +307,14 @@ module AresMUSH
         "#{item_color}Divine Font:%xn #{Pf2e.pretty_string(font)}%r"
       end
 
+      # The deity's cleric spells, which the class prepares as if they were on its list.
+      def format_deity_spells(charclass)
+        spells = Pf2emagic.deity_list_spells(@char, charclass)
+        return '' if spells.empty?
+
+        "#{item_color}Deity's Cleric Spells:%xn #{spells.join(', ')}%r"
+      end
+
       def format_focus_pool(charclass)
         focus_type = Global.read_config('pf2e_magic', 'focus_type_by_source', charclass)
         return '' unless focus_type
@@ -278,11 +324,10 @@ module AresMUSH
 
         return '' unless has_focus_magic
 
-        focus_pool = @magic.focus_pool || {}
-        max = focus_pool['max'].to_i
-        current = focus_pool['current'].to_i
+        max = Pf2emagic.focus_pool_max(@magic)
+        current = Pf2emagic.focus_points_left(@magic)
 
-        return '' if max.zero? && current.zero?
+        return '' if max.zero?
 
         "#{item_color}Focus Points:%xn #{max}%r%r#{item_color}Remaining Focus Points:%xn #{current}%r"
       end

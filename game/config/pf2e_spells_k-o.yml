@@ -277,6 +277,7 @@ pf2e_spells:
       - manipulate
       - uncommon
     actions: 2
+    area: 15-foot emanation or 15-foot cone
     effect: You shake the earth, toppling nearby creatures. Choose whether the spell's area is a 15-foot emanation or a 15-foot cone when you cast it. Each creature in the area standing on solid ground takes 4d6 bludgeoning damage with a basic Reflex saving throw. A creature that fails its save also falls prone.
     heighten: "**+1:** Increase the damage by 2d6."
   Locate:
@@ -384,7 +385,7 @@ pf2e_spells:
     actions: 1
     range: touch
     target: 1 creature
-    duration: 1 minute
+    duration: sustained up to 1 minute
     effect: A creature becomes a divine receptacle for pure magical energy. The target gains a +1 status bonus to saving throws. Each time you Cast a Spell from your spell slots, you automatically Sustain this spell and grant its target resistance to damage from spells equal to the spell's rank, until the start of your next turn.
   Malicious Shadow:
     base_level: 3
@@ -725,6 +726,8 @@ pf2e_spells:
     heighten: "**+1:** The ray's damage increases by 1d6."
   Moonlight Bridge:
     base_level: 6
+    mystery:
+      - cosmos
     traits:
       - concentrate
       - focus
@@ -953,6 +956,19 @@ pf2e_spells:
     duration: 10 minutes
     effect: The target's skin becomes tough, with a consistency like bark or wood. The target gains resistance 2 to bludgeoning and piercing damage and weakness 3 to fire. After the target takes fire damage, it can Dismiss the spell as a free action triggered by taking the damage; doing so doesn't reduce the fire damage the target was dealt.
     heighten: "**+2:** The resistances increase by 2, and the weakness increases by 3."
+  Object Memory:
+    base_level: 1
+    traits:
+      - cleric
+      - concentrate
+      - focus
+      - manipulate
+      - uncommon
+    actions: 2
+    target: 1 weapon or tool
+    duration: 1 minute
+    effect: "By touching an object, you draw forth the experience of those who created and used it. If you touch a weapon, your proficiency rank with that weapon temporarily increases to trained (if it is not already trained or better). If you touch a tool, your proficiency rank with the next skill check you attempt with that tool (such as a Crafting check with a blacksmith's hammer) within the spell's duration temporarily increases to trained (if it is not already trained or better). This spell has no benefit for activities that take longer than a minute to complete."
+    heighten: "**6th:** Your proficiency rank increases to expert instead of trained."
   Object Reading:
     base_level: 1
     traits:
@@ -1023,7 +1039,7 @@ pf2e_spells:
     target: 1 creature
     effect: "You afflict the target with a curse that makes its presence abrasive and off-putting. The target must attempt a Will save.%r%r**Critical Success** The target is unaffected.%r**Success** For 10 minutes, the target must roll twice and use the worse result whenever attempting a Deception, Diplomacy, Intimidation, or Performance check, and creatures they encounter have an initial attitude toward them of one step worse (for instance, unfriendly instead of indifferent).%r%r**Failure** As success, but the effect is permanent.%r%r**Critical Failure** As failure, and creatures that the target encounters have an initial attitude toward them of two steps worse."
   Overflowing Sorrow:
-    base_level: 1
+    base_level: 4
     traits:
       - aura
       - cleric
@@ -1036,7 +1052,7 @@ pf2e_spells:
       - uncommon
     actions: 2
     area: 15-foot emanation
-    duration: "1 minute"
+    duration: sustained up to 1 minute
     effect: "Sadness flows out of you into nearby creatures, blotting out any other thoughts they had. The first time a creature begins its turn in the area or enters the area, it must attempt a Will save. If it later leaves and reenters the area, it uses the same effect as before.%r%r**Critical Success** The creature is unaffected.%r**Success** The creature takes a –1 status penalty to skill checks and Perception checks as long as it remains in the area.%r**Failure** While the creature is in the area, any emotion effects of lower counteract rank than overflowing sorrow are suppressed, and whenever the creature attempts to use an emotion action or cast an emotion spell, it must succeed at a flat check (DC 11) or the action or spell is disrupted.%r**Critical Failure** As failure, but the creature can't use emotion actions or spells."
     heighten: "**+2:** When you Cast the Spell, you can choose to increase the area by 5 feet."
   Overstuff:
@@ -1051,6 +1067,22 @@ pf2e_spells:
     range: 30 feet
     target: 1 living creature
     effect: "Huge amounts of food and drink fill the target. It receives a full meal's worth of nourishment and must attempt a Fortitude save. A target sickened by this spell takes a –10-foot status penalty to its Speed until it's no longer Sickened.%r%r**Critical Success** The target is unaffected.%r**Success** The target is sickened 1, but if it spends an action to end the condition, it succeeds automatically.%r**Failure** The target is sickened 1.%r**Critical Failure** The target is sickened 2."
+  Overwhelming Memory:
+    base_level: 3
+    traits:
+      - concentrate
+      - emotion
+      - manipulate
+      - mental
+      - uncommon
+    tradition:
+      - arcane
+      - occult
+    actions: 2
+    range: 30 feet
+    target: 1 creature
+    duration: sustained up to 1 minute
+    effect: "You cause the target to recall a specific type of memory you choose from the list below, bringing it to the forefront of their mind with perfect clarity.%r%r**Gleeful** The memory makes the target laugh uncontrollably. They can't use reactions.%r**Romantic** The creature is consumed with their love for another. They are fascinated by the memory.%r**Terrifying** The creature is filled with terror and is frightened 1.%r**Tragic** The creature is overwhelmed with sorrow. They are dazzled from the tears in their eyes.%r%rThe target must attempt a Will save.%r%r**Critical Success** The target is unaffected.%r**Success** The target is affected by the memory until the beginning of your next turn.%r**Failure** The target is affected by the memory until the beginning of your next turn and stupefied 2 for the spell's duration.%r**Critical Failure** As failure, but the target is stupefied 3 for the spell's duration."
   Overwhelming Presence:
     base_level: 9
     bloodline:

@@ -28,18 +28,22 @@ module AresMUSH
         @char.name
       end
 
-      def speed
-        AresMUSH::Pf2e::Stat.total(@char, 'speed')
+      # The speeds as they stand in a fight: the equipped armor's penalty, and the unarmored bonus
+      # when none is worn. See Pf2e::Movement.
+      def movement_result
+        @movement_result ||= Pf2e::Movement.for(@char, :combat => true)
       end
 
-      def movement
-        movelist = @char.pf2_movement
+      def speed
+        Pf2e::Movement.speed_text(movement_result)
+      end
 
-        if movelist.size > 2
-          return "This character has other forms of movement. Check %x172sheet%xn for details."
-        end
+      def special_movement
+        Pf2e::Movement.special_text(movement_result)
+      end
 
-        return false
+      def conditional_movement
+        Pf2e::Movement.conditional_text(movement_result)
       end
 
       def hp

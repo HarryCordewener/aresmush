@@ -96,26 +96,46 @@ module AresMUSH
         end
 
         # A rank whose own entries are all spoken for can still be paid for out of an any-rank slot,
-        # and the spell lands under the rank it actually is.
+        # and the spell lands under the rank it actually is. A resolution already on an any-rank slot
+        # is held to the same limits.
         #
         # Returns the resolution unchanged when there is nothing to fall back to, so the caller
         # finds the rank has no open entry and says so in the ordinary way.
         def self.spend_from_pool(found, full:, rank:, max_rank:)
-          return Ok.new(:state => found) if !full || found['from_pool']
+          if found['from_pool']
+            refusal = pool_refusal(found['list_key'], rank, max_rank)
+
+            return refusal || Ok.new(:state => found)
+          end
+
+          return Ok.new(:state => found) unless full
 
           key = any_rank_key(found['entries'])
 
           return Ok.new(:state => found) unless key
 
-          # A slot pays for a spell it could cast. No slot casts a cantrip, and none reaches past
-          # the highest rank the character has slots for.
+          refusal = pool_refusal(key, rank, max_rank)
+
+          return refusal if refusal
+
+          Ok.new(:state => found.merge('list' => found['entries'][key], 'list_key' => key, 'from_pool' => true))
+        end
+
+        # Why an any-rank slot cannot pay for a pick at this rank, or nil. A slot pays for a spell it
+        # could cast: no slot casts a cantrip, none reaches past the highest rank the character has
+        # slots for, and a capped one reaches no further than its cap.
+        def self.pool_refusal(key, rank, max_rank)
           return Err.new(:any_rank_cantrip, 'pf2e.adv_any_rank_cantrip') if rank.to_s.casecmp?('cantrip') || rank.to_i.zero?
 
           unless max_rank && rank.to_i <= max_rank.to_i
             return Err.new(:any_rank_no_slots, 'pf2e.adv_any_rank_no_slots', 'level' => Pf2emagic.rank_label(rank))
           end
 
-          Ok.new(:state => found.merge('list' => found['entries'][key], 'list_key' => key, 'from_pool' => true))
+          cap = Pf2emagic.any_rank_cap(key)
+
+          return nil unless cap && rank.to_i > cap
+
+          Err.new(:any_rank_over_cap, 'pf2e.adv_any_rank_over_cap', 'level' => Pf2emagic.rank_label(cap))
         end
 
         # Which entry a pick fills: the first open one, or the spell it replaces.

@@ -23,7 +23,7 @@ module AresMUSH
     def self.level_key?(key)
       key_str = key.to_s.downcase
 
-      key_str == 'cantrip' || key_str == Pf2emagic::ANY_RANK || key_str.match?(/\A-?\d+\z/)
+      key_str == 'cantrip' || Pf2emagic.any_rank?(key_str) || key_str.match?(/\A-?\d+\z/)
     end
 
     def self.wrap_magic_assign(to_assign, key, base_class_key)
@@ -55,11 +55,11 @@ module AresMUSH
           signature
           signature_spells
           signature_spell
-          focus_pool
           focus_spell
           focus_cantrip
           innate_spell
           addrepertoire
+          choice_repertoire
           addspellbook
           divine_font
         )
@@ -242,16 +242,32 @@ module AresMUSH
       advancement.replace(Slots.apply(advancement, delta))
     end
 
+    # Trains each of `skills`, or hands back an open slot where it cannot.
+    #
+    # Three outcomes, counted separately because they are three different things to say:
+    # `assigned` trained outright, `free_count` for a grant that was a player's choice all along
+    # (the literal `open`/`choice` tokens the shipped feats use, such as Natural Skill's two), and
+    # `open_count`/`open_lore_count` for a named skill the character already has or is about to
+    # get, which PF2e turns into a free pick rather than wasting.
     def self.add_training_skills(char, skills, to_assign, advancement)
       cleaned = Array(skills).map { |s| s.to_s.strip }.reject(&:empty?)
-      return { assigned: [], open_count: 0, open_lore_count: 0 } if cleaned.empty?
+      return { assigned: [], free_count: 0, open_count: 0, open_lore_count: 0 } if cleaned.empty?
 
       pending = pending_skill_names(to_assign, advancement)
       assigned = []
+      free_count = 0
       open_count = 0
       open_lore_count = 0
 
       cleaned.each do |skill|
+        # Not a skill name at all: the feat grants a skill of the player's choice. Counted before
+        # the checks below, which would otherwise read it as a skill literally called "open" and
+        # call the second one a duplicate of the first.
+        if OPEN_SKILL_VALUES.include?(skill.to_s.downcase)
+          free_count += 1
+          next
+        end
+
         normalized = skill.to_s.downcase
         already_trained = Pf2eSkills.get_skill_prof(char, skill).to_s.downcase != 'untrained'
         already_pending = pending.include?(normalized)
@@ -274,10 +290,55 @@ module AresMUSH
         advancement['raise skill'] = merge_raise_skill_entries(advancement['raise skill'], assigned)
       end
 
+      # A free pick was never restricted to anything, so it opens an unrestricted slot.
+      free_count.times { add_open_skill_slot(to_assign, advancement, false, false) }
       open_count.times { add_open_skill_slot(to_assign, advancement, false, true) }
       open_lore_count.times { add_open_skill_slot(to_assign, advancement, true, true) }
 
-      { assigned: assigned, open_count: open_count, open_lore_count: open_lore_count }
+      { assigned: assigned, free_count: free_count, open_count: open_count, open_lore_count: open_lore_count }
+    end
+
+    # A feat that adds a repertoire spell of each rank the character can cast (Deep Lore, Greater
+    # Mental Evolution) adds one more at each rank a later level opens. Returns the messages.
+    def self.open_each_rank_picks(char, to_assign, advancement)
+      feats = Global.read_config('pf2e_feats') || {}
+      held = DraftSheet.of(char).feat_names.uniq { |name| name.to_s.downcase }
+
+      givers = held.each_with_object({}) do |name, found|
+        key = feats.keys.find { |k| k.to_s.casecmp?(name.to_s) }
+        count = key ? ((feats[key] || {})['magic_stats'] || {})['repertoire_each_rank'].to_i : 0
+
+        found[key] = count if count.positive?
+      end
+
+      return [] if givers.empty?
+
+      charclass = char.pf2_base_info['charclass']
+      committed = ((char.magic&.spells_per_day || {})[charclass] || {}).keys
+      ranks = new_spell_ranks(committed, (advancement['magic_stats'] || {})['spells_per_day'])
+
+      return [] if ranks.empty?
+
+      per_rank = givers.values.sum
+
+      pool = (to_assign['repertoire'] || {}).each_with_object({}) { |(rank, picks), out| out[rank.to_s] = picks }
+      ranks.each { |rank| pool[rank] = Array(pool[rank]) + Array.new(per_rank, 'open') }
+      to_assign['repertoire'] = pool
+
+      ranks.map do |rank|
+        t('pf2e.adv_each_rank_repertoire', :feats => givers.keys.sort.join(' and '),
+          :rank => Pf2emagic.rank_label(rank))
+      end
+    end
+
+    # The spell ranks a level's slots reach that the character had no slots at before, as strings.
+    def self.new_spell_ranks(committed, staged)
+      return [] unless staged.is_a?(Hash)
+
+      held = Array(committed).map(&:to_s)
+
+      staged.keys.map(&:to_s).reject { |rank| rank.casecmp?('cantrip') || rank.to_i.zero? || held.include?(rank) }
+            .sort_by(&:to_i)
     end
 
     # What advancing to the next level offers, as the messages telling the player what to pick.
@@ -305,6 +366,8 @@ module AresMUSH
         return_msg << t('pf2e.adv_item_feat_choice', :choice => name, :summary => with_article(summary))
       end
 
+      return_msg.concat(open_each_rank_picks(char, to_assign, advancement))
+
       # Fold in anything an earlier feat choice deferred to this level, such as Canny Acumen.
       new_level = char.pf2_level + 1
 
@@ -321,8 +384,15 @@ module AresMUSH
       deferred_feat_grants(char, new_level).each do |feat, lvl, grants|
         next unless grants.is_a?(Hash)
 
-        advancement['grants'] ||= {}
-        advancement['grants']["#{feat} (level #{lvl})"] = grants
+        magic, rest = Advancement::LevelClauses.split(grants)
+
+        unless rest.empty?
+          advancement['grants'] ||= {}
+          advancement['grants']["#{feat} (level #{lvl})"] = rest
+        end
+
+        return_msg.concat(Advancement::FeatGain.render(
+          Advancement::LevelClauses.archetype_magic(char, feat, magic, to_assign, advancement)))
 
         return_msg << t('pf2e.adv_deferred_feat', :feat => feat, :level => lvl)
       end

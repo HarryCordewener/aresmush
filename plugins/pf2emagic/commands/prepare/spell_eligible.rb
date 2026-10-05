@@ -64,7 +64,7 @@ module AresMUSH
         options = traditions.flat_map { |tradition| Pf2emagic.eligible_spells(tradition, self.rank) }.uniq.sort
 
         title = t('pf2emagic.eligible_title', :rank => self.rank, :traditions => traditions.join(", "))
-        display = Pf2e.info_option_display(title, options, cmd.page, self.filter)
+        display = Pf2e.info_option_display(title, options, cmd, self.filter)
 
         display[:error] ? client.emit_failure(display[:error]) : client.emit(display[:text])
       end

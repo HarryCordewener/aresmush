@@ -2,10 +2,9 @@
 <%= center("#{title_color}Pathfinder 2E Combat Sheet: #{name}", 78) %>%xn
 <%= divider %>
 <%= section_line("Offense") %>
-<%= left("#{item_color}Combat Speed%xn: #{speed} feet", 78) %>
-<% if movement %>
-<%= movement %>
-<% end %>
+<%= "#{item_color}Speed%xn: #{speed}" %>
+<%= "#{item_color}Special Movement%xn: #{special_movement}" %>
+<%= "#{item_color}Conditional Movement%xn: #{conditional_movement}" %>
 <%= left("#{item_color}Class DC%xn: #{class_dc}",39) -%>
 <%= left("#{item_color}Perception%xn: #{perception}",39) %>
 <% if has_archetypes? %>

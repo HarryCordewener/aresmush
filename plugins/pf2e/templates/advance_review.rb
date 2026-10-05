@@ -718,7 +718,7 @@ module AresMUSH
       def format_spell_level_heading(key)
         label = key.to_s.strip
 
-        return t('pf2emagic.any_rank_heading') if Pf2emagic.any_rank?(label)
+        return Pf2emagic.any_rank_heading(label) if Pf2emagic.any_rank?(label)
         return "Cantrip" if label.casecmp?("cantrip") || label == "0"
         return "1st-rank" if label == "1"
         return "2nd-rank" if label == "2"

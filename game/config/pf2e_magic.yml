@@ -3,50 +3,46 @@ pf2e_magic:
   lessons:
     basic:
       Lesson of Dreams:
-        cantrip: Veil of Dreams
+        hex: Veil of Dreams
         spell: Sleep
       Lesson of the Elements:
-        cantrip: Elemental Betrayal
+        hex: Elemental Betrayal
         spell:
-          choose:
-            choice_name: Spell - Lesson of the Elements
-            choice_description: Choose which spell your familiar learns from Lesson of the Elements.
-            options:
-              - Breathe Fire
-              - Air Bubble
-              - Hydraulic Push
-              - Pummeling Rubble
+          - Breathe Fire
+          - Air Bubble
+          - Hydraulic Push
+          - Pummeling Rubble
       Lesson of Life:
-        cantrip: Life Boost
+        hex: Life Boost
         spell: Spirit Link
       Lesson of Protection:
-        cantrip: Blood Ward
+        hex: Blood Ward
         spell: Mystic Armor
       Lesson of Vengeance:
-        cantrip: Needle of Vengeance
+        hex: Needle of Vengeance
         spell: Phantom Pain
     greater:
       Lesson of Mischief:
-        cantrip: Deceiver's Cloak
+        hex: Deceiver's Cloak
         spell: Mad Monkeys
       Lesson of Shadow:
-        cantrip: Malicious Shadow
+        hex: Malicious Shadow
         spell: Chilling Darkness
       Lesson of Snow:
-        cantrip: Personal Blizzard
+        hex: Personal Blizzard
         spell: Wall of Wind
     major:
       Lesson of Death:
-        cantrip: Curse of Death
+        hex: Curse of Death
         spell: Raise Dead
       Lesson of Renewal:
-        cantrip: Restorative Moment
+        hex: Restorative Moment
         spell: Field of Life
   domains:
     Air:
       description: You can control winds and the weather.
       initial: Pushing Gust
-      advanced: Disperse Into Air
+      advanced: Disperse into Air
     Ambition:
       description: You strive to keep up with and outpace the competition.
       initial: Ignite Ambition
@@ -59,6 +55,10 @@ pf2e_magic:
       description: You have powers over urban environments and denizens.
       initial: Face in the Crowd
       advanced: Pulse of Civilization
+    Cold:
+      description: You control ice, snow, and freezing temperatures.
+      initial: Winter Bolt
+      advanced: Diamond Dust
     Confidence:
       description: You overcome your fear and project pride.
       initial: Veil of Confidence
@@ -83,6 +83,10 @@ pf2e_magic:
       description: You are a conduit for divine devastation.
       initial: Cry of Destruction
       advanced: Destructive Aura
+    Disorientation:
+      description: You can bewilder and perplex your foes.
+      initial: Clouded Focus
+      advanced: Ephemeral Hazards
     Dragon:
       description: You draw on the power of dragons, linnorms, and other powerful reptilian creatures.
       initial: Draconic Barrage
@@ -91,6 +95,10 @@ pf2e_magic:
       description: You have the power to enter and manipulate dreams.
       initial: Sweet Dream
       advanced: Dreamer's Call
+    Dust:
+      description: You have the power to dry and crumble what opposes you.
+      initial: Parch
+      advanced: Dust Storm
     Duty:
       description: You defend oaths and carry out your divine missions with great dedication.
       initial: Swear Oath
@@ -131,6 +139,10 @@ pf2e_magic:
       description: You receive divine insights.
       initial: Scholarly Recollection
       advanced: Know the Enemy
+    Lightning:
+      description: You control electricity, thunder, and storms.
+      initial: Charged Javelin
+      advanced: Bottle the Storm
     Luck:
       description: You're unnaturally lucky and keep out of harm's way.
       initial: Bit of Luck
@@ -151,10 +163,14 @@ pf2e_magic:
       description: You hold power over animals and plants.
       initial: Vibrant Thorns
       advanced: Nature's Bounty
-    Nightmare:
+    Nightmares:
       description: You fill minds with horror and dread.
       initial: Waking Nightmare
       advanced: Shared Nightmare
+    Nothingness:
+      description: You draw power from emptiness.
+      initial: Empty Inside
+      advanced: Door to Beyond
     Pain:
       description: You punish those who displease you with the sharp sting of pain.
       initial: Savor the Sting
@@ -187,6 +203,10 @@ pf2e_magic:
       description: You wield power over the spiritual.
       initial: Eject Soul
       advanced: Ectoplasmic Interstice
+    Star:
+      description: You command the power of the stars.
+      initial: Zenith Star
+      advanced: Asterism
     Sun:
       description: You harness the power of the sun and other light sources, and punish undead.
       initial: Dazzling Flash
@@ -223,10 +243,10 @@ pf2e_magic:
       description: Your magic carries close ties to the undead.
       initial: Touch of Undeath
       advanced: Malignant Sustenance
-    Void:
-      description: You draw power from emptiness.
-      initial: Empty Inside
-      advanced: Door to Beyond
+    Vigil:
+      description: You watch over those long passed and guard their secrets.
+      initial: Object Memory
+      advanced: Remember the Lost
     Water:
       description: You control water and bodies of water.
       initial: Tidal Surge
@@ -257,6 +277,26 @@ pf2e_magic:
     - Bard Archetype
     - Oracle Archetype
     - Sorcerer Archetype
+  # The skill that goes with each tradition, for a prerequisite that follows whichever tradition a
+  # source casts from (the `tradition_skill` prereq).
+  # Learn a Spell, Player Core p. 230: spell rank => [ price of the materials in gp, typical DC ].
+  learn_spell:
+    cantrip: [ 2, 15 ]
+    1: [ 2, 15 ]
+    2: [ 6, 18 ]
+    3: [ 16, 20 ]
+    4: [ 36, 23 ]
+    5: [ 70, 26 ]
+    6: [ 140, 28 ]
+    7: [ 300, 31 ]
+    8: [ 650, 34 ]
+    9: [ 1500, 36 ]
+    10: [ 7000, 41 ]
+  tradition_skills:
+    arcane: Arcana
+    divine: Religion
+    occult: Occultism
+    primal: Nature
   focus_casting_stat: 
     bloodline: Charisma
     composition: Charisma

@@ -56,7 +56,8 @@ module AresMUSH
         @state.revelation_locked
       end
 
-      # The pool's size is the sheet's; what is left of it is the encounter's.
+      # What is left of the pool is the encounter's; its size is worked out from the focus spells they
+      # know, so there is nothing of it to copy.
       def focus_pool
         (__getobj__.focus_pool || {}).merge('current' => @state.focus_current.to_i)
       end
@@ -71,7 +72,6 @@ module AresMUSH
 
       def focus_pool=(value)
         @state.focus_current = value['current'].to_i
-        __getobj__.focus_pool = (__getobj__.focus_pool || {}).merge('max' => value['max'])
       end
 
       def update(attributes)
@@ -80,10 +80,7 @@ module AresMUSH
         own = attributes.slice('spells_today', 'revelation_locked')
         theirs = attributes.except('spells_today', 'revelation_locked')
 
-        if pool
-          own['focus_current'] = pool['current'].to_i
-          theirs['focus_pool'] = (__getobj__.focus_pool || {}).merge('max' => pool['max'])
-        end
+        own['focus_current'] = pool['current'].to_i if pool
 
         __getobj__.update(theirs) unless theirs.empty?
         @state.update(own) unless own.empty?

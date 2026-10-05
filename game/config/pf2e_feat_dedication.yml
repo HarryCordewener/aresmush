@@ -578,6 +578,10 @@ pf2e_feats:
         prompt: "Select a bloodline."
         choices: {"filter": ["item:tag:sorcerer-bloodline", {"not": "item:tag:class-archetype"}]}
   Swashbuckler Dedication:
+    movement:
+      - status_bonus: 5
+        when: panache
+        source: Stylish Combatant
     assoc_archetype:
       - Swashbuckler Archetype
     assoc_class:
@@ -623,6 +627,7 @@ pf2e_feats:
         mode: "upgrade"
         value: 1
   Witch Dedication:
+    familiar: true
     assoc_archetype:
       - Witch Archetype
     assoc_class:
@@ -727,6 +732,8 @@ pf2e_feats:
     traits:
       - archetype
   Barbarian Resiliency:
+    hp_bonus:
+      per_archetype_feat: 3
     assoc_archetype:
       - Barbarian Archetype
     feat_type:
@@ -736,7 +743,7 @@ pf2e_feats:
       level: 4
       feat:
         - Barbarian Dedication
-        - class granting no more Hit Points per level than 10 + your Constitution modifier
+      max_class_hp: 10
     shortdesc: You gain 3 additional Hit Points for each barbarian archetype class feat you have. As you continue selecting barbarian archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
@@ -775,6 +782,27 @@ pf2e_feats:
         prompt: "Select a 1st or 2nd-level class feat."
         choices: {"filter": ["item:category:class", "item:trait:wizard", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Bard Spellcasting:
+    at_level:
+      4:
+        archetype_magic:
+          spells_per_day:
+            1: 1
+          repertoire:
+            1: 1
+      6:
+        archetype_magic:
+          signature_spells:
+            any: 1
+          spells_per_day:
+            2: 1
+          repertoire:
+            2: 1
+      8:
+        archetype_magic:
+          spells_per_day:
+            3: 1
+          repertoire:
+            3: 1
     assoc_archetype:
       - Bard Archetype
     feat_type:
@@ -832,6 +860,19 @@ pf2e_feats:
     traits:
       - archetype
   Basic Cleric Spellcasting:
+    at_level:
+      4:
+        archetype_magic:
+          spells_per_day:
+            1: 1
+      6:
+        archetype_magic:
+          spells_per_day:
+            2: 1
+      8:
+        archetype_magic:
+          spells_per_day:
+            3: 1
     assoc_archetype:
       - Cleric Archetype
     feat_type:
@@ -953,6 +994,19 @@ pf2e_feats:
         prompt: "Select a 1st or 2nd-level class feat."
         choices: {"filter": ["item:category:class", "item:trait:cleric", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Druid Spellcasting:
+    at_level:
+      4:
+        archetype_magic:
+          spells_per_day:
+            1: 1
+      6:
+        archetype_magic:
+          spells_per_day:
+            2: 1
+      8:
+        archetype_magic:
+          spells_per_day:
+            3: 1
     assoc_archetype:
       - Druid Archetype
     feat_type:
@@ -1164,6 +1218,27 @@ pf2e_feats:
         prompt: "Select a 1st or 2nd-level class feat."
         choices: {"filter": ["item:category:class", "item:trait:oracle", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Oracle Spellcasting:
+    at_level:
+      4:
+        archetype_magic:
+          spells_per_day:
+            1: 1
+          repertoire:
+            1: 1
+      6:
+        archetype_magic:
+          signature_spells:
+            any: 1
+          spells_per_day:
+            2: 1
+          repertoire:
+            2: 1
+      8:
+        archetype_magic:
+          spells_per_day:
+            3: 1
+          repertoire:
+            3: 1
     assoc_archetype:
       - Oracle Archetype
     feat_type:
@@ -1177,6 +1252,27 @@ pf2e_feats:
     traits:
       - archetype
   Basic Sorcerer Spellcasting:
+    at_level:
+      4:
+        archetype_magic:
+          spells_per_day:
+            1: 1
+          repertoire:
+            1: 1
+      6:
+        archetype_magic:
+          signature_spells:
+            any: 1
+          spells_per_day:
+            2: 1
+          repertoire:
+            2: 1
+      8:
+        archetype_magic:
+          spells_per_day:
+            3: 1
+          repertoire:
+            3: 1
     assoc_archetype:
       - Sorcerer Archetype
     feat_type:
@@ -1242,6 +1338,25 @@ pf2e_feats:
         prompt: "Select a 1st or 2nd-level class feat."
         choices: {"filter": ["item:category:class", "item:trait:druid", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Witch Spellcasting:
+    at_level:
+      4:
+        archetype_magic:
+          spells_per_day:
+            1: 1
+          spellbook:
+            1: 2
+      6:
+        archetype_magic:
+          spells_per_day:
+            2: 1
+          spellbook:
+            2: 2
+      8:
+        archetype_magic:
+          spells_per_day:
+            3: 1
+          spellbook:
+            3: 2
     assoc_archetype:
       - Witch Archetype
     feat_type:
@@ -1285,6 +1400,25 @@ pf2e_feats:
         prompt: "Select a 1st or 2nd-level class feat."
         choices: {"filter": ["item:category:class", "item:trait:witch", {"lte": ["item:level", 2]}], "itemType": "feat"}
   Basic Wizard Spellcasting:
+    at_level:
+      4:
+        archetype_magic:
+          spells_per_day:
+            1: 1
+          spellbook:
+            1: 2
+      6:
+        archetype_magic:
+          spells_per_day:
+            2: 1
+          spellbook:
+            2: 2
+      8:
+        archetype_magic:
+          spells_per_day:
+            3: 1
+          spellbook:
+            3: 2
     assoc_archetype:
       - Wizard Archetype
     feat_type:
@@ -1298,6 +1432,8 @@ pf2e_feats:
     traits:
       - archetype
   Champion Resiliency:
+    hp_bonus:
+      per_archetype_feat: 3
     assoc_archetype:
       - Champion Archetype
     feat_type:
@@ -1307,7 +1443,7 @@ pf2e_feats:
       level: 4
       feat:
         - Champion Dedication
-        - class granting no more Hit Points per level than 8 + your Constitution modifier
+      max_class_hp: 8
     shortdesc: You gain 3 additional Hit Points for each champion archetype class feat you have. As you continue selecting champion archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
@@ -1341,6 +1477,8 @@ pf2e_feats:
         mode: "add"
         value: 1
   Fighter Resiliency:
+    hp_bonus:
+      per_archetype_feat: 3
     assoc_archetype:
       - Fighter Archetype
     feat_type:
@@ -1350,7 +1488,7 @@ pf2e_feats:
       level: 4
       feat:
         - Fighter Dedication
-        - class granting no more Hit Points per level than 8 + your Constitution modifier
+      max_class_hp: 8
     shortdesc: You gain 3 additional Hit Points for each fighter archetype class feat you have. As you continue selecting fighter archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
@@ -1412,6 +1550,8 @@ pf2e_feats:
     traits:
       - archetype
   Monk Resiliency:
+    hp_bonus:
+      per_archetype_feat: 3
     assoc_archetype:
       - Monk Archetype
     feat_type:
@@ -1421,7 +1561,7 @@ pf2e_feats:
       level: 4
       feat:
         - Monk Dedication
-        - class granting no more Hit Points per level than 8 + your Constitution modifier
+      max_class_hp: 8
     shortdesc: You gain 3 additional Hit Points for each monk archetype class feat you have. As you continue selecting monk archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
@@ -1452,6 +1592,8 @@ pf2e_feats:
     traits:
       - archetype
   Ranger Resiliency:
+    hp_bonus:
+      per_archetype_feat: 3
     assoc_archetype:
       - Ranger Archetype
     feat_type:
@@ -1461,7 +1603,7 @@ pf2e_feats:
       level: 4
       feat:
         - Ranger Dedication
-        - class granting no more Hit Points per level than 8 + your Constitution modifier
+      max_class_hp: 8
     shortdesc: You gain 3 additional Hit Points for each ranger archetype class feat you have. As you continue selecting ranger archetype class feats, you continue to gain additional Hit Points in this way.
     traits:
       - archetype
@@ -1492,6 +1634,13 @@ pf2e_feats:
         mode: "add"
         value: 1
   Sneak Attacker:
+    grants:
+      combat_stats:
+        sneak_attack: 1d4
+    at_level:
+      6:
+        combat_stats:
+          sneak_attack: 1d6
     assoc_archetype:
       - Rogue Archetype
     feat_type:
@@ -1891,6 +2040,25 @@ pf2e_feats:
     traits:
       - archetype
   Champion's Reaction:
+    feat_choice:
+      summary: the reaction of your cause
+      options:
+        Flash of Grandeur:
+          prereq:
+            specialize:
+              - Beacon
+        Retributive Strike:
+          prereq:
+            specialize:
+              - Justiciar
+        Glimpse of Redemption:
+          prereq:
+            specialize:
+              - Redeemer
+        Liberating Step:
+          prereq:
+            specialize:
+              - Liberator
     assoc_archetype:
       - Champion Archetype
     feat_type:
@@ -1910,7 +2078,6 @@ pf2e_feats:
         value: 1
   Counter Perform:
     magic_stats:
-      focus_pool: 1
       focus_spell:
         composition:
           - Counter Performance
@@ -1927,6 +2094,12 @@ pf2e_feats:
     traits:
       - archetype
   Devout Blessing:
+    feat_choice:
+      summary: a blessing of the devoted
+      options:
+        Blessed Armament: {}
+        Blessed Shield: {}
+        Blessed Swiftness: {}
     assoc_archetype:
       - Champion Archetype
     feat_type:
@@ -2016,6 +2189,10 @@ pf2e_feats:
       - archetype
   # Level 8 Archetype Feats
   Anthemic Performance:
+    magic_stats:
+      focus_cantrip:
+        composition:
+          - Courageous Anthem
     assoc_archetype:
       - Bard Archetype
     feat_type:
@@ -2029,6 +2206,8 @@ pf2e_feats:
     traits:
       - archetype
   Arcane Breadth:
+    archetype_breadth:
+      spells_per_day: 1
     assoc_archetype:
       - Wizard Archetype
     feat_type:
@@ -2042,6 +2221,9 @@ pf2e_feats:
     traits:
       - archetype
   Bloodline Breadth:
+    archetype_breadth:
+      spells_per_day: 1
+      repertoire: 1
     assoc_archetype:
       - Sorcerer Archetype
     feat_type:
@@ -2055,6 +2237,8 @@ pf2e_feats:
     traits:
       - archetype
   Divine Breadth:
+    archetype_breadth:
+      spells_per_day: 1
     assoc_archetype:
       - Cleric Archetype
     feat_type:
@@ -2068,6 +2252,9 @@ pf2e_feats:
     traits:
       - archetype
   Monk Moves:
+    movement:
+      - status_bonus: 10
+        when: unarmored
     assoc_archetype:
       - Monk Archetype
     feat_type:
@@ -2090,6 +2277,9 @@ pf2e_feats:
         type: "status"
         value: 10
   Mysterious Breadth:
+    archetype_breadth:
+      spells_per_day: 1
+      repertoire: 1
     assoc_archetype:
       - Oracle Archetype
     feat_type:
@@ -2103,6 +2293,9 @@ pf2e_feats:
     traits:
       - archetype
   Occult Breadth:
+    archetype_breadth:
+      spells_per_day: 1
+      repertoire: 1
     assoc_archetype:
       - Bard Archetype
     feat_type:
@@ -2116,6 +2309,8 @@ pf2e_feats:
     traits:
       - archetype
   Patron's Breadth:
+    archetype_breadth:
+      spells_per_day: 1
     assoc_archetype:
       - Witch Archetype
     feat_type:
@@ -2129,6 +2324,8 @@ pf2e_feats:
     traits:
       - archetype
   Primal Breadth:
+    archetype_breadth:
+      spells_per_day: 1
     assoc_archetype:
       - Druid Archetype
     feat_type:
@@ -2142,6 +2339,29 @@ pf2e_feats:
     traits:
       - archetype
   Skill Mastery (Investigator):
+    feat_choice:
+      summary: a skill in which you are an expert, to become a master
+      from_skills:
+        min_prof: expert
+        max_prof: expert
+      allow_duplicates: true
+      grants:
+        raise_skill:
+          - chosen
+      then_choose:
+        summary: a skill in which you are trained, to become an expert
+        from_skills:
+          min_prof: trained
+          max_prof: trained
+        allow_duplicates: true
+        grants:
+          raise_skill:
+            - chosen
+        then_choose:
+          summary: a skill feat for either skill you chose
+          from_feats:
+            feat_type: Skill
+            assoc_skill: from_prior_steps
     repeatable: 5
     assoc_archetype:
       - Investigator Archetype
@@ -2159,6 +2379,29 @@ pf2e_feats:
     traits:
       - archetype
   Skill Mastery (Rogue):
+    feat_choice:
+      summary: a skill in which you are an expert, to become a master
+      from_skills:
+        min_prof: expert
+        max_prof: expert
+      allow_duplicates: true
+      grants:
+        raise_skill:
+          - chosen
+      then_choose:
+        summary: a skill in which you are trained, to become an expert
+        from_skills:
+          min_prof: trained
+          max_prof: trained
+        allow_duplicates: true
+        grants:
+          raise_skill:
+            - chosen
+        then_choose:
+          summary: a skill feat for either skill you chose
+          from_feats:
+            feat_type: Skill
+            assoc_skill: from_prior_steps
     repeatable: 5
     assoc_archetype:
       - Rogue Archetype
@@ -2176,6 +2419,11 @@ pf2e_feats:
     traits:
       - archetype
   Swashbuckler's Speed:
+    movement:
+      - status_bonus: 10
+        when: panache
+      - status_bonus: 5
+        when: no_panache
     assoc_archetype:
       - Swashbuckler Archetype
     feat_type:
@@ -2249,6 +2497,12 @@ pf2e_feats:
     traits:
       - archetype
   Diverse Weapon Expert:
+    grants:
+      combat_stats:
+        weapon_prof:
+          simple: expert
+          martial: expert
+          advanced: trained
     assoc_archetype:
       - Fighter Archetype
     feat_type:
@@ -2258,7 +2512,7 @@ pf2e_feats:
       level: 12
       feat:
         - Fighter Dedication
-        - expert in any kind of weapon or unarmed attacks
+      combat_stats: Weapon/expert
     shortdesc: Your proficiency ranks for simple weapons and martial weapons increase to expert, and your proficiency rank for advanced weapons increases to trained.
     traits:
       - archetype
@@ -2268,6 +2522,10 @@ pf2e_feats:
         mode: "add"
         value: 1
   Evasiveness (Rogue):
+    grants:
+      combat_stats:
+        saves:
+          reflex: master
     assoc_archetype:
       - Rogue Archetype
     feat_type:
@@ -2277,11 +2535,15 @@ pf2e_feats:
       level: 12
       feat:
         - Rogue Dedication
-        - expert in Reflex saves
+      combat_stats: Reflex/expert
     shortdesc: Your proficiency rank for Reflex saves increases to master.
     traits:
       - archetype
   Evasiveness (Swashbuckler):
+    grants:
+      combat_stats:
+        saves:
+          reflex: master
     assoc_archetype:
       - Swashbuckler Archetype
     feat_type:
@@ -2291,11 +2553,33 @@ pf2e_feats:
       level: 12
       feat:
         - Swashbuckler Dedication
-        - expert in Reflex saves
+      combat_stats: Reflex/expert
     shortdesc: Your proficiency rank for Reflex saves increases to master.
     traits:
       - archetype
   Expert Bard Spellcasting:
+    at_level:
+      12:
+        archetype_magic:
+          proficiency: expert
+          signature_spells:
+            any: 1
+          spells_per_day:
+            4: 1
+          repertoire:
+            4: 1
+      14:
+        archetype_magic:
+          spells_per_day:
+            5: 1
+          repertoire:
+            5: 1
+      16:
+        archetype_magic:
+          spells_per_day:
+            6: 1
+          repertoire:
+            6: 1
     assoc_archetype:
       - Bard Archetype
     feat_type:
@@ -2310,6 +2594,20 @@ pf2e_feats:
     traits:
       - archetype
   Expert Cleric Spellcasting:
+    at_level:
+      12:
+        archetype_magic:
+          proficiency: expert
+          spells_per_day:
+            4: 1
+      14:
+        archetype_magic:
+          spells_per_day:
+            5: 1
+      16:
+        archetype_magic:
+          spells_per_day:
+            6: 1
     assoc_archetype:
       - Cleric Archetype
     feat_type:
@@ -2324,6 +2622,20 @@ pf2e_feats:
     traits:
       - archetype
   Expert Druid Spellcasting:
+    at_level:
+      12:
+        archetype_magic:
+          proficiency: expert
+          spells_per_day:
+            4: 1
+      14:
+        archetype_magic:
+          spells_per_day:
+            5: 1
+      16:
+        archetype_magic:
+          spells_per_day:
+            6: 1
     assoc_archetype:
       - Druid Archetype
     feat_type:
@@ -2338,6 +2650,28 @@ pf2e_feats:
     traits:
       - archetype
   Expert Oracle Spellcasting:
+    at_level:
+      12:
+        archetype_magic:
+          proficiency: expert
+          signature_spells:
+            any: 1
+          spells_per_day:
+            4: 1
+          repertoire:
+            4: 1
+      14:
+        archetype_magic:
+          spells_per_day:
+            5: 1
+          repertoire:
+            5: 1
+      16:
+        archetype_magic:
+          spells_per_day:
+            6: 1
+          repertoire:
+            6: 1
     assoc_archetype:
       - Oracle Archetype
     feat_type:
@@ -2352,6 +2686,28 @@ pf2e_feats:
     traits:
       - archetype
   Expert Sorcerer Spellcasting:
+    at_level:
+      12:
+        archetype_magic:
+          proficiency: expert
+          signature_spells:
+            any: 1
+          spells_per_day:
+            4: 1
+          repertoire:
+            4: 1
+      14:
+        archetype_magic:
+          spells_per_day:
+            5: 1
+          repertoire:
+            5: 1
+      16:
+        archetype_magic:
+          spells_per_day:
+            6: 1
+          repertoire:
+            6: 1
     assoc_archetype:
       - Sorcerer Archetype
     feat_type:
@@ -2361,11 +2717,32 @@ pf2e_feats:
       level: 12
       feat:
         - Basic Sorcerer Spellcasting
-        - master in Arcana, Nature, Occultism, or Religion, depending on bloodline
+      tradition_skill:
+        - Sorcerer Archetype/master
     shortdesc: You gain the expert spellcasting benefits.
     traits:
       - archetype
   Expert Witch Spellcasting:
+    at_level:
+      12:
+        archetype_magic:
+          proficiency: expert
+          spells_per_day:
+            4: 1
+          spellbook:
+            4: 2
+      14:
+        archetype_magic:
+          spells_per_day:
+            5: 1
+          spellbook:
+            5: 2
+      16:
+        archetype_magic:
+          spells_per_day:
+            6: 1
+          spellbook:
+            6: 2
     assoc_archetype:
       - Witch Archetype
     feat_type:
@@ -2375,11 +2752,32 @@ pf2e_feats:
       level: 12
       feat:
         - Basic Witch Spellcasting
-        - master in the skill associated with your patron's tradition
+      tradition_skill:
+        - Witch Archetype/master
     shortdesc: You gain the expert spellcasting benefits.
     traits:
       - archetype
   Expert Wizard Spellcasting:
+    at_level:
+      12:
+        archetype_magic:
+          proficiency: expert
+          spells_per_day:
+            4: 1
+          spellbook:
+            4: 2
+      14:
+        archetype_magic:
+          spells_per_day:
+            5: 1
+          spellbook:
+            5: 2
+      16:
+        archetype_magic:
+          spells_per_day:
+            6: 1
+          spellbook:
+            6: 2
     assoc_archetype:
       - Wizard Archetype
     feat_type:
@@ -2394,6 +2792,10 @@ pf2e_feats:
     traits:
       - archetype
   Juggernaut's Fortitude:
+    grants:
+      combat_stats:
+        saves:
+          fortitude: master
     assoc_archetype:
       - Barbarian Archetype
     feat_type:
@@ -2403,7 +2805,7 @@ pf2e_feats:
       level: 12
       feat:
         - Barbarian Dedication
-        - expert in Fortitude saves
+      combat_stats: Fortitude/expert
     shortdesc: Your proficiency rank in Fortitude saves increases to master.
     traits:
       - archetype
@@ -2413,6 +2815,9 @@ pf2e_feats:
         mode: "add"
         value: 1
   Master Spotter (Investigator):
+    grants:
+      combat_stats:
+        perception: master
     assoc_archetype:
       - Investigator Archetype
     feat_type:
@@ -2427,6 +2832,9 @@ pf2e_feats:
     traits:
       - archetype
   Master Spotter (Ranger):
+    grants:
+      combat_stats:
+        perception: master
     assoc_archetype:
       - Ranger Archetype
     feat_type:
@@ -2446,6 +2854,30 @@ pf2e_feats:
         mode: "add"
         value: 1
   Perfection's Path:
+    feat_choice:
+      summary: a saving throw in which you are an expert
+      options:
+        Fortitude:
+          prereq:
+            combat_stats: Fortitude/expert
+          grants:
+            combat_stats:
+              saves:
+                fortitude: master
+        Reflex:
+          prereq:
+            combat_stats: Reflex/expert
+          grants:
+            combat_stats:
+              saves:
+                reflex: master
+        Will:
+          prereq:
+            combat_stats: Will/expert
+          grants:
+            combat_stats:
+              saves:
+                will: master
     assoc_archetype:
       - Monk Archetype
     feat_type:
@@ -2468,6 +2900,22 @@ pf2e_feats:
         flag: "save"
         choices: {"config": "saves", "predicate": ["save:{choice|value}:rank:2"]}
   Master Bard Spellcasting:
+    at_level:
+      18:
+        archetype_magic:
+          proficiency: master
+          signature_spells:
+            any: 1
+          spells_per_day:
+            7: 1
+          repertoire:
+            7: 1
+      20:
+        archetype_magic:
+          spells_per_day:
+            8: 1
+          repertoire:
+            8: 1
     assoc_archetype:
       - Bard Archetype
     feat_type:
@@ -2482,6 +2930,16 @@ pf2e_feats:
     traits:
       - archetype
   Master Cleric Spellcasting:
+    at_level:
+      18:
+        archetype_magic:
+          proficiency: master
+          spells_per_day:
+            7: 1
+      20:
+        archetype_magic:
+          spells_per_day:
+            8: 1
     assoc_archetype:
       - Cleric Archetype
     feat_type:
@@ -2496,6 +2954,16 @@ pf2e_feats:
     traits:
       - archetype
   Master Druid Spellcasting:
+    at_level:
+      18:
+        archetype_magic:
+          proficiency: master
+          spells_per_day:
+            7: 1
+      20:
+        archetype_magic:
+          spells_per_day:
+            8: 1
     assoc_archetype:
       - Druid Archetype
     feat_type:
@@ -2510,6 +2978,22 @@ pf2e_feats:
     traits:
       - archetype
   Master Oracle Spellcasting:
+    at_level:
+      18:
+        archetype_magic:
+          proficiency: master
+          signature_spells:
+            any: 1
+          spells_per_day:
+            7: 1
+          repertoire:
+            7: 1
+      20:
+        archetype_magic:
+          spells_per_day:
+            8: 1
+          repertoire:
+            8: 1
     assoc_archetype:
       - Oracle Archetype
     feat_type:
@@ -2524,6 +3008,22 @@ pf2e_feats:
     traits:
       - archetype
   Master Sorcerer Spellcasting:
+    at_level:
+      18:
+        archetype_magic:
+          proficiency: master
+          signature_spells:
+            any: 1
+          spells_per_day:
+            7: 1
+          repertoire:
+            7: 1
+      20:
+        archetype_magic:
+          spells_per_day:
+            8: 1
+          repertoire:
+            8: 1
     assoc_archetype:
       - Sorcerer Archetype
     feat_type:
@@ -2533,11 +3033,26 @@ pf2e_feats:
       level: 18
       feat:
         - Expert Sorcerer Spellcasting
-        - legendary in Arcana, Nature, Occultism, or Religion depending on bloodline
+      tradition_skill:
+        - Sorcerer Archetype/legendary
     shortdesc: You gain the master spellcasting benefits.
     traits:
       - archetype
   Master Witch Spellcasting:
+    at_level:
+      18:
+        archetype_magic:
+          proficiency: master
+          spells_per_day:
+            7: 1
+          spellbook:
+            7: 2
+      20:
+        archetype_magic:
+          spells_per_day:
+            8: 1
+          spellbook:
+            8: 2
     assoc_archetype:
       - Witch Archetype
     feat_type:
@@ -2547,11 +3062,26 @@ pf2e_feats:
       level: 18
       feat:
         - Expert Witch Spellcasting
-        - legendary in the skill associated with your patron's tradition
+      tradition_skill:
+        - Witch Archetype/legendary
     shortdesc: You gain the master spellcasting benefits.
     traits:
       - archetype
   Master Wizard Spellcasting:
+    at_level:
+      18:
+        archetype_magic:
+          proficiency: master
+          spells_per_day:
+            7: 1
+          spellbook:
+            7: 2
+      20:
+        archetype_magic:
+          spells_per_day:
+            8: 1
+          spellbook:
+            8: 2
     assoc_archetype:
       - Wizard Archetype
     feat_type:

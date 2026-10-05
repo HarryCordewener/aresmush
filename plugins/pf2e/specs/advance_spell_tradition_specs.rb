@@ -14,7 +14,7 @@ module AresMUSH
         # Entries reads the character off the magic object to merge its stored rows in.
         magic = double(:tradition => held, :character => nil, :innate_spells => [], :spell_abil => {},
                        :spells_per_day => {}, :repertoire => {}, :spellbook => {},
-                       :signature_spells => {}, :restricted_spellbook => {})
+                       :signature_spells => {}, :restricted_spellbook => {}, :daily_pick => {})
         allow(magic).to receive(:tradition=) { |value| allow(magic).to receive(:tradition).and_return(value) }
 
         enactor = double(:magic => magic, :name => 'Someone')
@@ -78,6 +78,7 @@ module AresMUSH
         handler, _magic = command({ 'Wizard Archetype' => [ 'arcane', 'trained' ] })
         allow(handler).to receive(:known_for).and_return({})
         allow(Pf2emagic).to receive(:adapted_spell?).and_return(false)
+        allow(Pf2emagic).to receive(:off_list_room?).and_return(false)
 
         context = handler.spell_check_context('wizard archetype', 'cantrip', 'Light', { 'traits' => [] })
 
@@ -88,6 +89,7 @@ module AresMUSH
         handler, magic = command({ 'Wizard Archetype' => [ 'arcane', 'trained' ] })
         allow(handler).to receive(:known_for).and_return({})
         allow(Pf2emagic).to receive(:adapted_spell?).and_return(false)
+        allow(Pf2emagic).to receive(:off_list_room?).and_return(false)
 
         handler.spell_check_context('wizard archetype', 'cantrip', 'Light', { 'traits' => [] })
 

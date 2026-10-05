@@ -52,15 +52,17 @@ pf2e_spells:
       - focus
       - manipulate
       - morph
+      - uncommon
     actions: 2
     duration: "1 minute"
     effect: "You make subtle changes to your body to adapt to the situation. Choose one of the following options that applies to you.%r%r%t- If you are in water, you gain a swim Speed equal to half your Speed.%r%t- If you are in water, you become able to breathe water.%r%t- If it's too dark for you to see, you gain darkvision.%r%t- If you are in an environment of severe heat or severe cold, you are protected from the effects of severe heat or severe cold, and the spell lasts 10 minutes."
   Adaptive Ablation:
-    base_level: 1
+    base_level: 4
     traits:
       - cleric
+      - concentrate
       - focus
-      - manipulate
+      - uncommon
     actions: reaction
     trigger: "You take acid, cold, electricity, fire, or sonic damage."
     duration: "1 minute"
@@ -89,6 +91,22 @@ pf2e_spells:
     actions: 1
     duration: until the end of the current turn
     effect: The blessings of your god make your feet faster and your movements more fluid. You gain a +5-foot status bonus to your Speed and ignore difficult terrain. As part of casting agile feet, you can Stride, Step, or Tumble Through; you can instead Burrow, Climb, Fly, or Swim if you have the appropriate Speed.
+  Agitate:
+    base_level: 1
+    traits:
+      - concentrate
+      - manipulate
+      - mental
+      - nonlethal
+    tradition:
+      - arcane
+      - occult
+    actions: 2
+    range: 30 feet
+    target: 1 creature
+    duration: varies
+    effect: "You send the target's mind and body into overdrive, forcing it to become restless and hyperactive. During the duration, the target must Stride, Fly, or Swim at least once each turn or take 2d8 mental damage at the end of its turn. The GM might decide to add additional move actions to the list for creatures that possess only a more unusual form of movement. The duration of this effect depends on the target's Will save.%r%r**Critical Success** The spell has no effect.%r**Success** The duration is 1 round.%r**Failure** The duration is 2 rounds.%r**Critical Failure** The duration is 4 rounds."
+    heighten: "**+1:** The damage increases by 2d8."
   Air Bubble:
     base_level: 1
     traits:
@@ -323,7 +341,7 @@ pf2e_spells:
     actions: 2
     area: 5-foot burst
     range: 30 feet
-    duration: 1 minute
+    duration: sustained up to 1 minute
     effect: "You create a brief vision of immense wealth filling the spell's area. Each creature within 20 feet of the area that could be enticed by material wealth must attempt a Will saving throw. A creature that enters the area automatically disbelieves the illusion, and disbelieving the illusion ends any Fascinated condition imposed by the spell. As long as you Sustain the Spell, other creatures react to the treasure like they would any other illusion, but they are not at risk of becoming Fascinated.%r%r**Critical Success** The creature disbelieves the illusion and is unaffected by it.%r**Success** The creature is Fascinated by the wealth until it has completed its first action on its next turn.%r**Failure** The creature is Fascinated by the illusion."
   Aqueous Orb:
     base_level: 3
@@ -392,6 +410,22 @@ pf2e_spells:
     duration: 10 minutes
     effect: You transform the target into a form that more closes matches your creative vision. It's clearly the same item, but with aesthetic details you choose. The target is a beautiful and impressive piece for its new quality, but the effect is obviously magical and temporary, so its monetary value doesn't change. If you're an expert in Crafting, the item grants a +1 item bonus to attack rolls if it's a weapon or skill checks if it's a skill tool. When you Cast this Spell, any previous casting ends.
     heighten: "**7th:** If you're a master in Crafting, the item grants a +2 item bonus.%r**10th:** If you're legendary in Crafting, the item grants a +3 item bonus."
+  Asterism:
+    base_level: 4
+    traits:
+      - cleric
+      - concentrate
+      - fire
+      - focus
+      - light
+      - manipulate
+      - uncommon
+    actions: 3
+    range: 150 feet
+    area: five 30-foot lines
+    duration: 1 minute
+    effect: "Lines of burning starlight form a constellation around you. Draw five lines, one at a time; each line must anchor at you or a creature or object already connected to a previous line, and it must end at a creature or object within 30 feet of its anchor (possibly allowing the asterism to extend to its full 150-foot range). A creature that begins its turn in one of these lines or enters one of these lines on its turn takes 4d6 fire damage (basic Reflex save). A creature can take this damage only once per turn, even if it moves through several lines. Targets that are part of the asterism do not take damage from it. If the distance between two targets (or you and a target) ever exceeds 30 feet, the line of starlight between the two breaks, and any lines that now no longer have a direct path back to you also break. You can Dismiss the spell."
+    heighten: "**+1:** The damage increases by 1d6."
   Athletic Rush:
     base_level: 1
     traits:
@@ -685,6 +719,18 @@ pf2e_spells:
     target: 1 creature
     duration: 1 minute
     effect: The target's form appears blurry. It becomes concealed. As the nature of this effect still leaves the target's location obvious, the target can't use this concealment to Hide or Sneak.
+  Bottle the Storm:
+    base_level: 4
+    traits:
+      - cleric
+      - electricity
+      - focus
+      - manipulate
+      - uncommon
+    actions: reaction
+    trigger: "You would take electricity damage."
+    effect: "When lightning is turned against you, you store the charge safely within yourself, unleashing it when the time is right. You gain electricity resistance 10 against the triggering effect. If you successfully prevent damage in this way, at any time during the spell's duration, you can spend a single action, which has the attack trait, to expend the charge and make a spell attack against the AC of a target within 60 feet. This attack deals electricity damage equal to the damage prevented by *bottle the storm*. If you Cast *bottle the storm* a second time before the original duration elapses, or if you do not make this attack within 1 minute, the stored charge dissipates harmlessly."
+    heighten: "**7th:** The resistance increases to 15, and you can immediately make the spell attack granted by *bottle the storm* as part of the reaction used to Cast the Spell.%r**10th:** The resistance increases to 20, and you can immediately make the spell attack granted by *bottle the storm* as part of the reaction used to Cast the Spell."
   Brain Drain:
     base_level: 1
     mystery:
@@ -917,6 +963,21 @@ pf2e_spells:
     target: the triggering ally
     trigger: An ally is hit by a Strike, or an ally fails a saving throw against an effect that doesn't affect you
     effect: "You form a link with an ally, allowing you to take harm in their stead. All the effects of the hit or failed save are applied to you instead of the target. For example, if the target critically fails a saving throw against a fireball, you would take double damage. These effects ignore any resistances, immunities, or other abilities you have that might mitigate them in any way, although those of the target apply before you take the effect"
+  Charged Javelin:
+    base_level: 1
+    traits:
+      - attack
+      - cleric
+      - concentrate
+      - electricity
+      - focus
+      - manipulate
+      - uncommon
+    actions: 2
+    range: 60 feet
+    target: 1 creature
+    effect: "You fire a javelin of electricity that leaves a charged field around its target. Make a spell attack against the target's AC. The javelin deals 1d6 electricity damage and 1 persistent electricity damage. As long as the target is taking persistent damage from this spell, creatures gain a +1 status bonus to attack rolls with metal weapons or electricity effects against the target, and the target takes a –1 status penalty to saves against electricity effects.%r%r**Critical Success** The javelin deals double damage, both initial and persistent.%r**Success** The javelin deals full damage."
+    heighten: "**+1:** The initial damage increases by 1d6, and the persistent damage increases by 1."
   Charitable Urge:
     base_level: 2
     traits:
@@ -1181,6 +1242,20 @@ pf2e_spells:
     target: 1 willing creature
     duration: 1 minute
     effect: "You drape the target in a mantle of swirling shadows that make it harder to see. The cloak reduces bright light within a 20-foot emanation to dim light. This is a form of magical darkness and can therefore overcome non-magical light or attempt to counteract magical light.%r%rThe target can use concealed condition gained from the shadows to Hide, though observant creatures can still follow the moving aura of shadow, making it difficult for the target to become completely undetected. The target can use an Interact action to remove the cloak and leave it behind as a decoy, where it remains, reducing light for the rest of the spell's duration. If anyone picks up the cloak after it's been removed by the original target, the cloak evaporates and the spell ends."
+  Clouded Focus:
+    base_level: 1
+    traits:
+      - cleric
+      - concentrate
+      - focus
+      - manipulate
+      - uncommon
+    actions: 2
+    range: 30 feet
+    target: 1 creature
+    duration: varies
+    effect: "You sharpen a creature's senses, though more distant objects become hazy, indistinct, or muted to it. The target gains a +1 status bonus to Perception checks attempted with any of its precise senses. Furthermore, any imprecise senses the target has are sharpened to precise senses (though they don't receive the status bonus). However, the target can't perceive anything beyond a range of 20 feet with any of its senses. The duration is determined by the target's Will save. You can allow allies to choose the outcome instead of attempting a saving throw.%r%r**Critical Success** The target is unaffected.%r**Success** The target is affected for 1 round.%r**Failure** The target is affected for 1 minute.%r**Critical Failure** As failure, but the target can't perceive anything beyond a range of 10 feet."
+    heighten: "**3rd:** You can target up to 2 creatures.%r**6th:** You can target up to 4 creatures."
   Collective Transposition:
     base_level: 6
     traits:
@@ -1226,7 +1301,7 @@ pf2e_spells:
     actions: 1
     range: 100 feet
     target: A creature you dealt damage to on your most recent action.
-    duration: until the end of your target's next turn
+    duration: until the end of the target's next turn
     effect: With the threat of more pain, you compel a creature you've recently harmed. You issue a command to the target, with the effects of the spell *command*.If the target is frightened, stupefied, or taking persistent damage, it takes a –2 circumstance penalty to the save. Regardless of the result, the target is then temporarily immune for 1 hour
   Community Restoration:
     base_level: 4
@@ -1249,7 +1324,7 @@ pf2e_spells:
       - mental
       - uncommon
     actions: 1
-    duration: 1 minute
+    duration: sustained up to 1 minute
     effect: Your competitiveness drives you to prove yourself against the opposition. You gain a +1 status bonus to attack rolls and skill checks. If an enemy within 20 feet critically succeeds at an attack roll or skill check, your status bonus increases to +3 for attack rolls or that specific skill check (whichever the foe critically succeeded at) for 1 round.
     heighten: "**7th:** Increase the base bonus to +2 and the increased bonus after an enemy critically succeeds to +4."
   Concordant Choir:
@@ -1839,6 +1914,21 @@ pf2e_spells:
     target: 1 willing living creature
     duration: 1 round
     effect: You issue a diabolic edict, demanding the target perform a particular task and offering rewards for its fulfillment. It gains a +1 status bonus to attack rolls and skill checks related to performing the task. If it refuses to perform the task you proclaimed, it instead takes a -1 status penalty to all its attack rolls and skill checks.
+  Diamond Dust:
+    base_level: 4
+    traits:
+      - aura
+      - cleric
+      - cold
+      - concentrate
+      - focus
+      - manipulate
+      - uncommon
+    actions: 2
+    area: 15-foot emanation
+    duration: 1 minute
+    effect: "You supercool the nearby air, forming a cloud of dancing ice crystals in an emanation around you. A creature other than you that enters the area or ends its turn within the area takes 2d6 cold damage (basic Fortitude save). A creature can take this damage only once per turn. The crystals scatter and refract light; if a light effect enters *diamond dust*'s area, any creatures targeted by that effect gain a +2 status bonus to AC and saves against it. While the spell persists, you can activate or deactivate this aura by Sustaining the spell. You can Dismiss this spell."
+    heighten: "**+2:** The damage increases by 1d6."
   Dinosaur Form:
     base_level: 4
     traits:
@@ -2099,15 +2189,14 @@ pf2e_spells:
     effect: "You take command of the target, forcing it to obey your orders. If you issue an obviously self-destructive order, the target doesn't act until you issue a new order. The effect depends on its Will save.%r%r**Critical Success** The target is unaffected.%r**Success** The target is stunned 1 as it fights off your commands.%r**Failure** You control the target. It gains the controlled condition, but it can attempt a Will save at the end of each of its turns. On a success, the spell ends.%r**Critical Failure** As a failure, but the target receives a new save only if you give it a new order that is against its nature, such as killing its allies."
     heighten: "**10th:** The duration is unlimited."
   Door to Beyond:
-    base_level: 1
+    base_level: 4
     traits:
       - cleric
       - concentrate
       - focus
-      - manipulate
       - uncommon
     actions: 2
-    area: 20-foot emanation
+    area: 20-foot burst
     range: "5 feet"
     duration: "1 minute"
     effect: "Striking at thin air, you create hairline cracks in an unoccupied adjacent space that lead somewhere outside reality. Air rushes through the cracks, drawing Large or smaller creatures and objects of light Bulk or less toward the center. Large or smaller creatures in the area must attempt a Fortitude save at the start of their turn; creatures that move into the area must attempt the save upon entering.%r%rThe cracks of the door to beyond are too thin for anything to fully slip through, but decompressive effects deal 4d6 slashing damage to any creature or object that ends its turn adjacent to the door. You are unaffected by your own door to beyond. You can Dismiss the spell.%r%r**Success** The creature is unaffected.%r**Failure** The creature is pulled 10 feet toward the door.%r**Critical Failure** The creature is pulled 20 feet toward the door."
@@ -2331,8 +2420,24 @@ pf2e_spells:
     duration: 1 minute
     effect: "You create a temporary duplicate of an enemy to fight on your behalf. The target can attempt a Fortitude save to disrupt the spell. The duplicate appears in an unoccupied space adjacent to the target and has the target's attack modifier, AC, saving throw modifiers, Perception, and skill modifiers, but it has only 70 Hit Points and lacks the target's special abilities, including immunities, resistances, and weaknesses. It has no magic items except weapon potency runes.%r%rThe duplicate gains the minion trait, and it can only Stride and Strike. Its Strikes deal the target's normal damage but don't apply added effects, since it doesn't have special abilities. The spell automatically ends if the duplicate's Hit Points drop to 0.%r%rThe duplicate attacks your enemies to the best of its abilities. You can also try to give it additional instructions; when you Sustain the spell, you can also Command a Minion as part of your action, but the GM determines whether the duplicate follows your command.%r%rThe duplicate is unstable, so each turn after it takes its actions, it loses 4d6 Hit Points. It's not a living creature, and it can never regain its lost Hit Points in any way.%r%r**Critical Success** You fail to create a duplicate.%r**Success** The duplicate deals half damage with its Strikes and the duration is reduced to a maximum of 2 rounds.%r**Failure** The duplicate works as described."
     heighten: "**+1:** The level of creature you can target increases by 2. The duplicate has 10 more HP."
+  Dust Storm:
+    base_level: 4
+    traits:
+      - air
+      - cleric
+      - concentrate
+      - focus
+      - manipulate
+      - nonlethal
+      - uncommon
+    actions: 2
+    range: 120 feet
+    area: 20-foot burst
+    duration: 1 minute
+    effect: "You call forth a swirling storm of dust. The dust storm obscures vision, as the effects of *mist*. The dust also makes the air unbreathable; creatures in the area must hold their breath, though wearing a scarf or similar clothing over the mouth increases the time the creature can hold its breath by 5 rounds. Creatures entering or starting their turn in the dust storm take 1d6 slashing damage. Creatures that have the water trait or that are made primarily of liquid take double damage."
+    heighten: "**+2:** The damage increases by 1d6."
   Dutiful Challenge:
-    base_level: 1
+    base_level: 4
     traits:
       - cleric
       - concentrate
@@ -2423,7 +2528,7 @@ pf2e_spells:
     effect: "A globe of freezing darkness explodes in the area, dealing 8d10 cold damage to creatures in the area, plus an additional 8d4 void damage to living creatures. Each creature in the area must attempt a Reflex save.%r%rIf the globe overlaps with an area of magical light or affects a creature affected by magical light, eclipse burst attempts to counteract the light effect.%r%r**Critical Success** The creature is unaffected.%r**Success** The creature takes half damage.%r**Failure** The creature takes full damage.%r**Critical Failure** The creature takes double damage and becomes blinded by the darkness for an unlimited duration."
     heighten: "**+1:** The cold damage increases by 1d10 and the void damage against the living increases by 1d4."
   Ectoplasmic Interstice:
-    base_level: 1
+    base_level: 4
     traits:
       - cleric
       - concentrate
@@ -2433,7 +2538,7 @@ pf2e_spells:
     actions: 2
     area: 15-foot burst
     range: "30 feet"
-    duration: "1 minute"
+    duration: sustained up to 1 minute
     effect: "You force the mortal Universe and Ethereal Planes to partially merge, creating a zone that causes incorporeal and spiritual entities to take on many of the aspects of corporeal creatures. Within the area of effect, incorporeal creatures can't pass through solid objects or corporeal creatures, and they can manipulate and attempt Strength-based checks against physical creatures and objects. An incorporeal PC or other creature with a normal Strength modifier simply uses that modifier, but if the creature had a Strength modifier of –5, like most incorporeal monsters, it uses a +4 modifier instead, increasing its Athletics modifier by 9 accordingly. Attacks against creatures that are within the area overcome resistances as if they were by ghost touch weapons."
   Eject Soul:
     base_level: 1
@@ -2721,6 +2826,23 @@ pf2e_spells:
     duration: until your next daily preparations
     effect: You shield the target against dangerous temperatures. Choose severe cold or heat. The target is protected from the temperature you chose (but not extreme cold or heat).
     heighten: "**3rd:** The target is protected from severe cold and severe heat.%r**5th:** The target is protected from severe cold, severe heat, extreme cold, and extreme heat."
+  Ephemeral Hazards:
+    base_level: 4
+    traits:
+      - cleric
+      - concentrate
+      - focus
+      - illusion
+      - manipulate
+      - mental
+      - visual
+      - uncommon
+    actions: 3
+    range: 60 feet
+    area: four 10-foot-by-10-foot spaces
+    duration: 1 minute
+    effect: "You create illusory hazards, such as spinning blades or a puddle of acid, in four 10-foot-by-10-foot spaces within range. The hazards are merely a mental projection, and a creature receives a Will save each time it touches a hazard or is occupying one's space at the start of its turn. Depending on the result, the creature takes 4d6 mental damage and might have difficulty moving through the area. A creature can take this damage only once per turn, even if it moves through several hazards. Choose bludgeoning, slashing, piercing, acid, cold, electricity, fire, or sonic damage when you Cast *ephemeral hazards*; resistances and weaknesses to those damage types apply if the target thinks they do, as judged by the GM. You can freely choose the appearance and damage type of each hazard as long as its appearance reflects the type of damage it deals (for instance, a hazard that deals piercing damage might take the form of sharpened spikes).%r%r**Critical Success** The creature is unaffected by the hazards and no longer needs to attempt Will saves against them.%r**Success** The creature realizes the hazards aren't real but still takes half damage from them; on future Will saves against the hazards, the creature continues to use this result unless it rolls a critical success.%r**Failure** The target takes full damage and treats the square as difficult terrain.%r**Critical Failure** The target takes double damage and can't pass through a square containing a hazard."
+    heighten: "**+1:** The damage increases by 1d6."
   Ephemeral Tracking:
     base_level: 3
     traits:
@@ -2792,6 +2914,20 @@ pf2e_spells:
     target: 1 creature
     effect: You point at a creature and invoke the demise of all things. The target takes 70 void damage with a basic Fortitude save. If the target is undead or otherwise has void healing, the spell loses the death and void traits and gains the vitality trait, and the target takes 70 vitality damage with a basic Fortitude save.
     heighten: "**+1:** The damage increases by 10."
+  Expeditious Excavation:
+    base_level: 2
+    traits:
+      - concentrate
+      - earth
+      - manipulate
+    tradition:
+      - arcane
+      - primal
+    actions: 2
+    range: touch
+    area: cube of dirt 5 feet across or smaller
+    effect: "You remove loose dirt, dust, gravel, sand, and the like (though not solid stone) up to the size of a 5-foot cube. Any Medium or smaller creature standing atop the earth when the spell is cast must attempt a Reflex save or Acrobatics check.%r%r**Success** The creature is unaffected and can choose to either descend the pit without damage or move to the nearest available space of its choice.%r**Failure** The creature falls prone in the nearest available space of its choice or falls into the pit if it prefers.%r**Critical Failure** The creature falls into the pit excavated by the spell and lands prone, taking falling damage as normal."
+    heighten: "**+2:** The spell can excavate an additional 5-foot cube of earth. If you excavate all four 5-foot cubes beneath a Large creature, it must attempt a Reflex save or Acrobatics check, as above."
   Extend Blood Magic:
     base_level: 3
     bloodline:

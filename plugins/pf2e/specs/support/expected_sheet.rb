@@ -31,7 +31,7 @@ module AresMUSH
         'known_picks' => {},
         'known_anywhere' => 0,
         'signature' => {},
-        'focus_pool' => 0,
+        'focus_spells' => [],
         'boosts' => 0,
         'skill_increases' => 0,
         'choices' => [],
@@ -176,8 +176,10 @@ module AresMUSH
             end
           when 'signature_spells'
             (sub || {}).each_pair { |rank, count| acc['signature'][rank.to_s] = acc['signature'][rank.to_s].to_i + count.to_i }
-          when 'focus_pool'
-            acc['focus_pool'] = apply_delta(acc['focus_pool'], sub).to_i
+          when 'focus_spell'
+            # The spells themselves: the pool is counted from them, one point per spell that costs
+            # one, so the audit asks that each is held.
+            (sub || {}).each_value { |spells| acc['focus_spells'] |= Array(spells).map(&:to_s) }
           end
         end
       end

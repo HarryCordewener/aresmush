@@ -164,6 +164,8 @@ pf2e_feats:
       ability:
         - Dexterity/14
   Fleet:
+    movement:
+      - increase: 5
     feat_type:
       - General
     shortdesc: You move more quickly on foot. Your Speed increases by 5 feet.
@@ -208,6 +210,8 @@ pf2e_feats:
     prereq:
       level: 1
   Toughness:
+    hp_bonus:
+      per_level: 1
     feat_type:
       - General
     shortdesc: Your body can withstand more punishment than most before succumbing. Increase your maximum Hit Points by your level. You reduce the DC of recovery checks by 1.

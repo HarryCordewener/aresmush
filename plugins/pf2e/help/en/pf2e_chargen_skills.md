@@ -4,6 +4,7 @@ summary: Starting character generation - choosing skills.
 aliases:
 - cg_skill
 - cg_skills
+- skills
 ---
 
 # Pathfinder 2E Chargen - Skills
@@ -15,7 +16,8 @@ In this step, you will choose your free skills. Your choice of ancestry, heritag
 - Lore skills count as skills.
 
 ## Skill commands
-`skills`: Displays all skills in a paginated format. `skills <input>` searches skills for your input. For example, `skills lore` returns all skills with `lore` as part of their name.
+`skills`: Displays the base skills. `skills <input>` searches them for your input. Lore skills are listed by group with `skills/lore`.
+`skills/lore`: Lists the lore groups. `skills/lore <group>` lists the lores in that group. For example, `skills/lore deity` lists every Deity Lore. A long group such as `city` is split into pages; `skills/lore2 city` shows page 2.
 `cg/skill <input>=<skill>` and `cg/unskill <input>=<skill>` are the same two commands under `cg`,
 the way every advancement pick is a switch of `advance`. Both spellings work.
 

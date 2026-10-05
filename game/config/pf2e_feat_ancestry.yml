@@ -238,6 +238,7 @@ pf2e_feats:
         mode: "upgrade"
         value: 1
   Animal Accomplice:
+    familiar: true
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -884,6 +885,8 @@ pf2e_feats:
         - arcane
         - occult
   Cave Climber:
+    movement:
+      - climb: 10
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -1701,6 +1704,9 @@ pf2e_feats:
       special:
         - Low-light Vision
       heritage: Dar
+    grants:
+      special:
+        - Darkvision
   Fangs:
     feat_type:
       - Ancestry
@@ -1893,6 +1899,10 @@ pf2e_feats:
       feat:
         - Bone Magic
   Gecko's Grip:
+    movement:
+      - climb: 15
+        prereq:
+          heritage: Pantli
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -2106,6 +2116,9 @@ pf2e_feats:
       special:
         - Low-light Vision
       heritage: Ashen One
+    grants:
+      special:
+        - Darkvision
   Gray Halls's Call:
     feat_type:
       - Ancestry
@@ -2287,6 +2300,9 @@ pf2e_feats:
     prereq:
       level: 1
       heritage: Changeling
+    grants:
+      special:
+        - Darkvision
   Halo:
     feat_type:
       - Ancestry
@@ -3104,6 +3120,9 @@ pf2e_feats:
       orheritage:
         - Aesa
         - Niasa
+    grants:
+      special:
+        - Darkvision
   Nephilim Lore:
     feat_type:
       - Ancestry
@@ -3221,6 +3240,9 @@ pf2e_feats:
       level: 9
       heritage: Dar
   Nimble Hooves:
+    movement:
+      - increase: 5
+        group: ancestry
     feat_type:
       - Ancestry
     assoc_ancestry: 
@@ -3246,6 +3268,9 @@ pf2e_feats:
         selector: "land-speed"
         value: 5
   Nimble Sil:
+    movement:
+      - increase: 5
+        group: ancestry
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -3343,6 +3368,9 @@ pf2e_feats:
       special:
         - Low-light Vision
       heritage: Ghaluch
+    grants:
+      special:
+        - Darkvision
   Oruch Superstition:
     feat_type:
       - Ancestry
@@ -3674,6 +3702,7 @@ pf2e_feats:
         - Oruch Ferocity
     actions: free
   Rat Familiar:
+    familiar: true
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -4231,6 +4260,8 @@ pf2e_feats:
         value: 20
         predicate: ["soaring-flight"]
   Soaring Form:
+    movement:
+      - fly: 20
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -4605,6 +4636,11 @@ pf2e_feats:
         value: "@actor.level"
         predicate: ["self:condition:drained"]
   Swift Swimmer:
+    movement:
+      - swim: 15
+      - swim: 25
+        prereq:
+          heritage: Makar
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -4747,6 +4783,8 @@ pf2e_feats:
         value: "trip"
         predicate: ["item:melee", "toppling-dance"]
   Tree Climber (Sildanyar):
+    movement:
+      - climb: 10
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -5093,6 +5131,15 @@ pf2e_feats:
         value: 1
         predicate: ["action:make-an-impression", {"or": ["target:tag:bat", "target:tag:rat", "target:tag:wolf"]}]
   War Conditioning:
+    feat_choice:
+      summary: a climb Speed or a swim Speed
+      options:
+        Climb:
+          movement:
+            - climb: 20
+        Swim:
+          movement:
+            - swim: 20
     feat_type:
       - Ancestry
     assoc_ancestry:
@@ -5141,6 +5188,8 @@ pf2e_feats:
         slug: "ward-against-corruption"
         predicate: [{"or": ["item:trait:disease", "item:trait:death"]}, {"or": ["origin:mode:undead", "origin:trait:sakhil"]}]
   Warren Digger:
+    movement:
+      - burrow: 15
     feat_type:
       - Ancestry
     assoc_ancestry:

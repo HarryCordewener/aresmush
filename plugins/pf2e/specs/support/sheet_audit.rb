@@ -199,15 +199,19 @@ module AresMUSH
         {
           'name' => 'focus pool',
           'check' => lambda { |ctx|
-            char, cc, want, level = ctx.values_at('char', 'charclass', 'want', 'level')
-            return [] if want['focus_pool'].zero?
+            char, want = ctx.values_at('char', 'want')
 
-            held = (char.magic&.focus_pool || {})['max'].to_i
-            # PF2e caps a focus pool at three however many sources feed it.
-            wanted = [ want['focus_pool'], 3 ].min
-            return [] if held >= wanted
+            held = Pf2emagic::Entries.focus_records(char.magic).map { |r| r['spell'] }
+            missing = want['focus_spells'] - held
+            return [ "focus spells the class tables grant are missing: #{missing.join(', ')}" ] unless missing.empty?
 
-            [ "focus pool maximum is #{held}, not #{wanted}" ]
+            # A point for each of those that costs one, and the feats the build took can only add
+            # more. PF2e caps a focus pool at three.
+            costing = want['focus_spells'].reject { |spell| Pf2emagic.focus_cantrip?(spell) }.size
+            max = Pf2emagic.focus_pool_max(char.magic)
+            return [] if max >= [ costing, 3 ].min
+
+            [ "focus pool maximum is #{max}, less than the #{costing} focus spells the class tables grant" ]
           }
         },
         {

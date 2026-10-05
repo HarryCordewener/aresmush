@@ -2,26 +2,20 @@ module AresMUSH
   module Pf2e
     class PF2eFeatDisplay < ErbTemplateRenderer
       include CommonTemplateFields
+      include PagedTemplate
 
-      attr_accessor :paginator, :title, :page_notice
+      attr_accessor :paginator, :title
 
-      def initialize(paginator, title, page_notice = nil)
+      def initialize(paginator, title, cmd = nil)
         @paginator = paginator
         @title = title
-        @page_notice = page_notice
+        @cmd = cmd
 
         super File.dirname(__FILE__) + "/feat_display.erb"
       end
 
       def title
         @title
-      end
-
-      def page_footer
-        footer = @paginator.page_footer
-        return footer if @page_notice.blank?
-
-        "#{footer}\n#{@page_notice}"
       end
 
     end

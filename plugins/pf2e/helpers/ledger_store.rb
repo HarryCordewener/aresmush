@@ -150,6 +150,11 @@ module AresMUSH
           'boosts' => char.pf2_boosts,
           'formulas' => char.pf2_formula_book,
           'spells' => Pf2emagic::Entries.known_lists(char),
+          'focus' => Pf2emagic::Entries.focus_records(char.magic),
+          # Every focus spell the ledger has a grant for, reverted or live: the ones materialising
+          # may take away. A focus spell outside this list predates the ledger or never went through
+          # it, and is left alone.
+          'focus_recorded' => rows(char).select { |row| row['kind'] == 'focus_spell' }.map { |row| Ledger.focus_record(row['payload']) }.uniq,
           # What the derived scores are compared against.
           'ability_scores' => char.abilities.each_with_object({}) { |a, h| h[a.name] = a.base_val }
         }
@@ -192,6 +197,8 @@ module AresMUSH
             char.update(op['attr'].to_sym => op['value'])
           when 'set_known'
             Pf2emagic::Entries.set_known!(char, op['source'], op['lists'])
+          when 'set_focus'
+            apply_focus(char, op['add'], op['remove'])
           when 'set_ability'
             apply_ability_score(char, op['ability'], op['to'])
           end
@@ -212,6 +219,16 @@ module AresMUSH
         Pf2e::Paths.apply_all!(char)
 
         ops.size
+      end
+
+      def self.apply_focus(char, add, remove)
+        Array(remove).each do |r|
+          Pf2emagic::Entries.revoke_focus!(char, r['type'], r['spell'], :kind => r['kind'], :granted_by => r['granted_by'])
+        end
+
+        Array(add).each do |r|
+          Pf2emagic::Entries.grant_focus!(char, r['type'], [ r['spell'] ], :kind => r['kind'], :granted_by => r['granted_by'])
+        end
       end
 
       def self.apply_ability_score(char, name, score)
@@ -440,6 +457,9 @@ module AresMUSH
 
           Pf2emagic::Entries.set_known!(char, p['source'],
             known.merge(p['rank'].to_s => at_rank + [ p['spell'] ]))
+        },
+        'focus_spell' => lambda { |char, p|
+          Pf2emagic::Entries.grant_focus!(char, p['type'], [ p['spell'] ], :kind => p['kind'], :granted_by => p['granted_by'])
         }
       }.freeze
 
@@ -464,6 +484,10 @@ module AresMUSH
           end
 
           Pf2emagic::Entries.set_known!(char, match['source'], without)
+        },
+        'focus_spell' => lambda { |char, match|
+          Pf2emagic::Entries.revoke_focus!(char, match['type'], match['spell'], :kind => match['kind'],
+            :granted_by => match['granted_by'])
         }
       }.freeze
 
@@ -552,7 +576,8 @@ module AresMUSH
           'boosts' => char.pf2_boosts,
           # Only enumerated casters contribute: a Cleric prepares from the whole divine list, so
           # there is nothing to record and nothing a rollback could take away.
-          'spells' => Pf2emagic::Entries.known_lists(char)
+          'spells' => Pf2emagic::Entries.known_lists(char),
+          'focus' => Pf2emagic::Entries.focus_records(char.magic)
         })
 
         marker = "level-#{level}-#{Time.now.to_i}"
@@ -581,6 +606,48 @@ module AresMUSH
       # Bootstrapping
       # ------------------------------------------------------------------------------
 
+      # Brings a character's focus spells onto the ledger, for the one-off migration run through
+      # tinker. Before this the ledger recorded none, so the materialiser could not take a level's
+      # focus spells back on a rollback. For each character:
+      #
+      # - a cantrip filed among the focus spells - a composition cantrip above rank 0, granted by a
+      #   path that went by rank alone - is refiled as a cantrip, so it neither costs a point to cast
+      #   nor counts toward the pool
+      # - every focus spell the ledger has no grant for is recorded, as an import at level 1: which
+      #   level granted it is not known, so a rollback leaves it, as it leaves the rest of an import
+      # - the pool is filled
+      #
+      # A draft character's focus spells are refiled and their pool filled, but not recorded:
+      # chargen's commit records them. Running it twice records nothing the second time. Returns
+      # how many focus spells it recorded.
+      def self.seed_focus!(char)
+        magic = char.magic
+        return 0 unless magic
+
+        Pf2emagic::Entries.focus_records(magic).each do |r|
+          next unless r['kind'] == 'spell' && Pf2emagic.focus_cantrip?(r['spell'])
+
+          Pf2emagic::Entries.revoke_focus!(char, r['type'], r['spell'], :kind => 'spell', :granted_by => r['granted_by'])
+          Pf2emagic::Entries.grant_focus!(char, r['type'], [ r['spell'] ], :kind => 'cantrip', :granted_by => r['granted_by'])
+        end
+
+        known = rows(char).select { |row| row['kind'] == 'focus_spell' }.map { |row| Ledger.focus_record(row['payload']) }
+        unrecorded = finalized?(char) ? Pf2emagic::Entries.focus_records(Character[char.id].magic) - known : []
+
+        unless unrecorded.empty?
+          write(char, :source_type => 'imported', :source_ref => 'focus spells before the ledger recorded them',
+                :effective_level => 1, :materialize => false) do |txn|
+            unrecorded.each { |record| txn.grant('focus_spell', record) }
+          end
+
+          invalidate!(char)
+        end
+
+        Pf2e.daily_refresh_focus_pool(Character[char.id].magic)
+
+        unrecorded.size
+      end
+
       # Turns a character who predates the ledger into one honest `imported` transaction.
       # Coarse on purpose: the old stores cannot say which level trained which skill, so
       # inventing per-level history here would be a lie.
@@ -599,6 +666,8 @@ module AresMUSH
               Array(spells).each { |spell| txn.grant('spell_access', 'source' => source, 'rank' => rank, 'spell' => spell) }
             end
           end
+
+          Pf2emagic::Entries.focus_records(char.magic).each { |record| txn.grant('focus_spell', record) }
 
           char.skills.each do |skill|
             next if skill.prof_level.to_s == 'untrained'

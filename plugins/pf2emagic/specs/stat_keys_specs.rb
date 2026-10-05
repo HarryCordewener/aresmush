@@ -13,7 +13,7 @@ module AresMUSH
     describe :STAT_KEYS do
       it "should name every key update_magic handles" do
         source = File.read(File.join(Pf2emagic.plugin_dir, 'models', 'magic.rb'))
-        body = source[source.index('def self.update_magic')..source.index('def self.get_max_focus_pool')]
+        body = source[source.index('def self.update_magic')..source.index('def self.get_spell_dc')]
         handled = body.scan(/^\s*when ((?:["'][a-z_]+["'](?:,\s*)?)+)$/).flatten
                       .flat_map { |line| line.scan(/[a-z_]+/) }.uniq
 

@@ -690,7 +690,7 @@ module AresMUSH
       end
 
       def spell_level_label(level)
-        return t('pf2emagic.any_rank_heading') if Pf2emagic.any_rank?(level)
+        return Pf2emagic.any_rank_heading(level) if Pf2emagic.any_rank?(level)
         return "Cantrip(s)" if level.to_s.downcase == 'cantrip'
 
         "#{Pf2emagic.ordinal_level(level)}-rank"

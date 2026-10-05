@@ -434,8 +434,10 @@ module AresMUSH
 
           return [] if specialty.blank? || open?(specialty)
 
+          info = specialty_info(ctx, specialty)
+
           Onboarding.apply_payload(char, ctx[:archetype],
-            specialty_info(ctx, specialty)['initial_dedication'],
+            Onboarding.with_faith(info['initial_dedication'], info),
             state['to_assign'], state['advancement'],
             :source => 'specialty', :name => specialty)
         end
@@ -452,7 +454,7 @@ module AresMUSH
 
           option = choice_options(ctx)[chosen] || {}
 
-          Onboarding.apply_payload(char, archetype, option['initial_dedication'],
+          Onboarding.apply_payload(char, archetype, Onboarding.with_faith(option['initial_dedication'], option),
             state['to_assign'], state['advancement'],
             :source => 'specialty choice', :name => chosen)
         end

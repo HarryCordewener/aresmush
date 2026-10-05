@@ -3,13 +3,15 @@ module AresMUSH
     # Paginated multi-column list of options.
     class PF2OptionListTemplate < ErbTemplateRenderer
       include CommonTemplateFields
+      include PagedTemplate
 
       attr_accessor :paginator, :title, :columns
 
-      def initialize(paginator, title = "Available Options", columns = 2)
+      def initialize(paginator, title = "Available Options", columns = 2, cmd = nil)
         @paginator = paginator
         @title = title
         @columns = columns
+        @cmd = cmd
 
         super File.dirname(__FILE__) + "/option_list.erb"
       end

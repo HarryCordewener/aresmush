@@ -44,6 +44,29 @@ module AresMUSH
           'Devoted' => { 'feat_type' => [ 'General' ], 'prereq' => { 'focus_spell' => [ 'Lay on Hands' ] } },
           'Healer' => { 'feat_type' => [ 'General' ], 'prereq' => { 'divine_font' => [ 'heal' ] } },
           'Watchful' => { 'feat_type' => [ 'General' ], 'prereq' => { 'combat_stats' => 'Perception/expert' } },
+          'Evasive' => { 'feat_type' => [ 'General' ], 'prereq' => { 'combat_stats' => 'Reflex/expert' } },
+          'Armed' => { 'feat_type' => [ 'General' ], 'prereq' => { 'combat_stats' => 'Weapon/expert' } },
+          'Hardy' => { 'feat_type' => [ 'General' ], 'prereq' => { 'max_class_hp' => 8 } },
+          'Unknowable' => { 'feat_type' => [ 'General' ], 'prereq' => { 'combat_stats' => 'Luck/expert' } },
+          'TraditionSkilled' => { 'feat_type' => [ 'General' ], 'prereq' => { 'tradition_skill' => [ 'Sorcerer Archetype/master' ] } },
+          'Riposting' => { 'feat_type' => [ 'General' ], 'prereq' => { 'feature' => [ 'Opportune Riposte' ] } },
+          'Armament' => { 'feat_type' => [ 'General' ], 'prereq' => { 'feature' => [ 'Blessed Armament' ] } },
+          'Sanctified' => { 'feat_type' => [ 'General' ], 'prereq' => { 'sanctification' => [ 'holy', 'unholy' ] } },
+          'Stanced' => { 'feat_type' => [ 'General' ], 'prereq' => { 'stances' => 2 } },
+          'Dispeller' => { 'feat_type' => [ 'General' ], 'prereq' => { 'repertoire_spell' => [ 'Dispel Magic' ] } },
+          'Bonded' => { 'feat_type' => [ 'General' ], 'prereq' => { 'familiar' => true } },
+          'Leafy' => { 'feat_type' => [ 'General' ], 'prereq' => { 'specialize' => [ 'Leaf' ] } },
+
+          # Order Explorer's shape: a choice of another specialty that makes the character a member.
+          'Explorer' => { 'feat_type' => [ 'General' ],
+                          'feat_choice' => { 'from' => 'other_specialties', 'joins_specialty' => true } },
+          # Crossblooded Evolution's: another specialty, without membership.
+          'Crossing' => { 'feat_type' => [ 'General' ], 'feat_choice' => { 'from' => 'other_specialties' } },
+
+          # Held, never taken: a stance to count, and a feat that gives a familiar.
+          'Crane Poise' => { 'feat_type' => [ 'General' ], 'traits' => [ 'stance' ] },
+          'Tiger Poise' => { 'feat_type' => [ 'General' ], 'traits' => [ 'monk', 'stance' ] },
+          'Pact' => { 'feat_type' => [ 'General' ], 'familiar' => true },
 
           # Gates that are not prereq entries: the feat's own type decides who may take it.
           'FighterOnly' => { 'feat_type' => [ 'Charclass' ], 'assoc_charclass' => [ 'Fighter' ] },
@@ -59,6 +82,10 @@ module AresMUSH
         allow(Global).to receive(:read_config).with('pf2e', 'prof_progression')
           .and_return(%w(untrained trained expert master legendary))
         matrix_focus([])
+        allow(Global).to receive(:read_config).with('pf2e_magic', 'tradition_skills')
+          .and_return('arcane' => 'Arcana', 'divine' => 'Religion', 'occult' => 'Occultism', 'primal' => 'Nature')
+        allow(Global).to receive(:read_config).with('pf2e_class', 'Fighter', 'HP').and_return(10)
+        allow(Global).to receive(:read_config).with('pf2e_class', 'Wizard', 'HP').and_return(6)
       end
 
       # feat => the mutation that satisfies its prerequisite. Everything else stays at the axis
@@ -83,6 +110,22 @@ module AresMUSH
         'Focused' => { :focus_pool => 1 },
         'Healer' => { :divine_font => 'heal' },
         'Watchful' => { :perception => 'expert' },
+        'Evasive' => { :saves => { 'reflex' => 'expert' } },
+        'Armed' => { :weapon_prof => { 'martial' => 'expert' } },
+        # The default Fighter gains 10 Hit Points a level; a Wizard gains 6.
+        'Hardy' => { :charclass => 'Wizard' },
+        # The skill follows the archetype's tradition, so both have to move.
+        'TraditionSkilled' => { :traditions => { 'Sorcerer Archetype' => [ 'divine', 'trained' ] },
+                                :skills => { 'Religion' => 'master' } },
+        'Riposting' => { :features => [ 'Opportune Riposte' ] },
+        # A class option is recorded as "Feature (Option)", and the option is what is named.
+        'Armament' => { :features => [ 'Blessing of the Devoted (Blessed Armament)' ] },
+        'Sanctified' => { :sanctification => 'Unholy' },
+        'Stanced' => { :feats => { 'charclass' => [ 'Crane Poise', 'Tiger Poise' ] } },
+        'Dispeller' => { :repertoire => { 'Sorcerer' => { '3' => [ 'Dispel Magic' ] } } },
+        'Bonded' => { :feats => { 'charclass' => [ 'Pact' ] } },
+        # A specialty joined through a choice counts, as the one taken at chargen does.
+        'Leafy' => { :choices => { 'Explorer' => [ 'Leaf' ] } },
         'ElfOnly' => { :ancestry => 'Elf' }
       }.freeze
 
@@ -108,7 +151,7 @@ module AresMUSH
         'EitherSkill' => %w(Skilled),
         # `caster` asks whether the character casts from a tradition. A class tradition counts and
         # so do innate spells. A focus pool on its own does not, and neither does a divine font.
-        'Casting' => %w(Arcanist InnatelyPrimal),
+        'Casting' => %w(Arcanist InnatelyPrimal TraditionSkilled),
         # A tradition is what `tradition` asks for, and Casting's mutation grants one.
         'Arcanist' => %w(Casting),
         # Both heritage rows are satisfied by a heritage that is Skilled and is not Versatile.
@@ -161,6 +204,124 @@ module AresMUSH
               expect(matrix_allows?(matrix_char(other_mutation), feat)).to be false
             end
           end
+        end
+      end
+
+      # `tradition_skill` reads the skill from the tradition, which the single mutation above cannot
+      # show going wrong in either direction.
+      describe "a skill that follows an archetype's tradition" do
+        def sorcerer(tradition, skill, prof = 'master')
+          matrix_char(:traditions => { 'Sorcerer Archetype' => [ tradition, 'trained' ] },
+                      :skills => { skill => prof })
+        end
+
+        it "should refuse the right rank in another tradition's skill" do
+          expect(matrix_allows?(sorcerer('divine', 'Arcana'), 'TraditionSkilled')).to be false
+        end
+
+        it "should refuse the tradition's skill below the rank asked for" do
+          expect(matrix_allows?(sorcerer('divine', 'Religion', 'expert'), 'TraditionSkilled')).to be false
+        end
+
+        it "should allow a higher rank than the one asked for" do
+          expect(matrix_allows?(sorcerer('occult', 'Occultism', 'legendary'), 'TraditionSkilled')).to be true
+        end
+
+        it "should count a tradition this level is granting" do
+          char = matrix_char(:skills => { 'Nature' => 'master' }, :advancing => true)
+          allow(char).to receive(:pf2_advancement)
+            .and_return('magic_stats' => { 'Sorcerer Archetype' => { 'tradition' => { 'primal' => 'trained' } } })
+
+          expect(matrix_allows?(char, 'TraditionSkilled')).to be true
+        end
+      end
+
+      describe "a class feature" do
+        it "should count a feature the level-up in progress grants" do
+          char = matrix_char(:advancing => true)
+          allow(char).to receive(:pf2_advancement).and_return('charclass_feature' => [ 'Opportune Riposte' ])
+
+          expect(matrix_allows?(char, 'Riposting')).to be true
+        end
+
+        it "should count an option the level-up in progress picks" do
+          char = matrix_char(:advancing => true)
+          allow(char).to receive(:pf2_advancement)
+            .and_return('charclass_feature option' => { 'Blessing of the Devoted' => 'Blessed Armament' })
+
+          expect(matrix_allows?(char, 'Armament')).to be true
+        end
+
+        # The Champion archetype's Devout Blessing is a feat choice rather than a class option.
+        it "should count a feat choice resolved to it" do
+          expect(matrix_allows?(matrix_char(:choices => { 'Devout Blessing' => [ 'Blessed Armament' ] }), 'Armament')).to be true
+        end
+
+        it "should not count another option of the same feature" do
+          char = matrix_char(:features => [ 'Blessing of the Devoted (Blessed Shield)' ])
+
+          expect(matrix_allows?(char, 'Armament')).to be false
+        end
+      end
+
+      describe "stances" do
+        it "should refuse fewer than asked for" do
+          expect(matrix_allows?(matrix_char(:feats => matrix_holding('Crane Poise')), 'Stanced')).to be false
+        end
+
+        it "should count a stance feat the level-up in progress takes" do
+          char = matrix_char(:feats => matrix_holding('Crane Poise'), :advancing => true)
+          allow(char).to receive(:pf2_advancement).and_return('feats' => { 'charclass' => [ 'Tiger Poise' ] })
+
+          expect(matrix_allows?(char, 'Stanced')).to be true
+        end
+      end
+
+      describe "a specialty joined through a choice" do
+        it "should not count one chosen without joining it" do
+          expect(matrix_allows?(matrix_char(:choices => { 'Crossing' => [ 'Leaf' ] }), 'Leafy')).to be false
+        end
+
+        it "should count one picked during the level-up in progress" do
+          char = matrix_char(:advancing => true)
+          allow(char).to receive(:pf2_to_assign).and_return('feat_choices' => { 'Explorer' => [ 'Leaf' ] })
+
+          expect(matrix_allows?(char, 'Leafy')).to be true
+        end
+      end
+
+      describe "a sanctification" do
+        it "should refuse a character with none" do
+          expect(matrix_allows?(matrix_char(:sanctification => 'Unsanctified'), 'Sanctified')).to be false
+        end
+      end
+
+      # A witch's familiar is a class feature, not the Familiar feat.
+      describe "a familiar" do
+        it "should count a Familiar class feature" do
+          expect(matrix_allows?(matrix_char(:features => [ 'Familiar' ]), 'Bonded')).to be true
+        end
+
+        it "should not count a feature that only mentions one" do
+          expect(matrix_allows?(matrix_char(:features => [ 'Familiar Master' ]), 'Bonded')).to be false
+        end
+      end
+
+      describe "a combat stat" do
+        it "should refuse a factor it does not know rather than letting it through" do
+          expect(matrix_allows?(matrix_char(:saves => { 'reflex' => 'legendary' }), 'Unknowable')).to be false
+        end
+
+        it "should read the save it names and not another" do
+          expect(matrix_allows?(matrix_char(:saves => { 'fortitude' => 'master' }), 'Evasive')).to be false
+        end
+
+        it "should count an unarmed attack as a weapon" do
+          expect(matrix_allows?(matrix_char(:weapon_prof => { 'unarmed' => 'expert' }), 'Armed')).to be true
+        end
+
+        it "should not count a weapon below the rank asked for" do
+          expect(matrix_allows?(matrix_char(:weapon_prof => { 'simple' => 'trained' }), 'Armed')).to be false
         end
       end
 

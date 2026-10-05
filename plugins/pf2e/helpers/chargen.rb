@@ -456,6 +456,13 @@ module AresMUSH
         end
 
         Pf2e.do_feat_magic_stats(enactor, details, charclass, client).each { |msg| client.emit_ooc msg }
+
+        # A granted feat's own choice opens here as it does when a level-up grants the feat - the
+        # Cloistered Cleric's Domain Initiate - and is picked with cg/option like any other. One the
+        # class or specialty already names was opened above.
+        next if choice_names.any? { |name| name.casecmp?(info[0]) }
+
+        Pf2e.resolve_granted_choice(enactor, info[0], details, nil, client).each { |msg| client.emit_ooc msg }
       end
 
       # Background feats come last, so the loop above cannot grant them a second time.

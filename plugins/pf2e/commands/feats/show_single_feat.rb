@@ -37,7 +37,7 @@ module AresMUSH
 
         title = "Feat Details for #{self.feat_displayname}"
 
-        template = PF2eFeatDisplay.new(paginator, title)
+        template = PF2eFeatDisplay.new(paginator, title, cmd)
 
         client.emit template.render
         

@@ -19,7 +19,8 @@ module AresMUSH
         :restricted_spellbook => {},
         :innate_spells => [],
         :divine_font => nil,
-        :restricted_slots => {}
+        :restricted_slots => {},
+        :daily_pick => {}
       }.freeze
 
       # `character` answers nil so Entries.stored finds no rows: a unit spec is describing what the

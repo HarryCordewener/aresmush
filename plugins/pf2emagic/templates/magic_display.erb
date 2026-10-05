@@ -14,6 +14,12 @@
 <%= spell %>
 <% end -%>
 <% end %>
+<% if has_blood_magic %>
+<%= textline("Blood Magic") %>
+<% blood_magic.each do |line| -%>
+<%= line %>
+<% end -%>
+<% end %>
 <% if has_signature_spells %>
 <%= textline("Signature Spells") %>
 <% signature_spells.each do |spell| -%>

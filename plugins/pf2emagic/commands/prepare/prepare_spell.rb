@@ -28,18 +28,6 @@ module AresMUSH
       end
 
       def handle
-        # Arcane Evolution Check
-
-        if cmd.switch == "evo"
-          if character_has?(Pf2e::DraftSheet.of(enactor).feats_by_bucket.values.flatten, "Arcane Evolution")
-            use_arcane_evo = true
-          else
-            client.emit_failure t('pf2e.does_not_have', :item => 'feat')
-          end
-        else
-          use_arcane_evo = false
-        end
-
         # A spell level is either a cantrip or a number. Validate and normalize spell level expression.
 
         level = if self.spell_level.nil?
@@ -50,7 +38,7 @@ module AresMUSH
                   self.spell_level.to_s
                 end
 
-        msg = Pf2emagic.prepare_spell(self.spell_name, enactor, self.caster_class, level, use_arcane_evo)
+        msg = Pf2emagic.prepare_spell(self.spell_name, enactor, self.caster_class, level)
 
         # If the prepare succeeded, msg will be a hash, if failure, it'll be a string.
         if msg.is_a?(String)

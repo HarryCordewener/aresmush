@@ -36,7 +36,7 @@ module AresMUSH
           return
         end
 
-        template = PF2XPHistoryTemplate.new(char, paginator, client)
+        template = PF2XPHistoryTemplate.new(char, paginator, client, cmd)
 
         client.emit template.render
 
