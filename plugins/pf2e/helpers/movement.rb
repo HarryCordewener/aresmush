@@ -35,10 +35,13 @@ module AresMUSH
       # `entries` are movement entries each carrying its `source`, already checked against their
       # prereqs. `combat` is csheet's view: armor's penalty applies, and the unarmored bonus does when
       # no armor is worn. `armor` is { name, penalty, min_str, category }, or nil for none.
-      def self.compute(ancestry_speed, entries, combat: false, armor: nil, strength: 10)
+      # `modifiers` are rows from the rules engine for anything this does not model itself - what the
+      # character is under, their conditions, what they carry - already stacked.
+      def self.compute(ancestry_speed, entries, combat: false, armor: nil, strength: 10, modifiers: [])
         parts = [ [ 'ancestry', ancestry_speed.to_i, :base ] ]
 
         increases(entries).each { |source, amount| parts << [ source, amount, :increase ] }
+        modifiers.each { |row| parts << [ row['source'], row['value'].to_i, :modifier ] }
 
         permanent = parts.sum { |_s, amount, _k| amount }
         conditional = conditional_bonuses(entries)
@@ -53,10 +56,11 @@ module AresMUSH
         parts << [ armor['name'], penalty, :armor ] if penalty < 0
 
         total = parts.sum { |_s, amount, _k| amount }
+        taken = parts.any? { |_s, amount, _k| amount.negative? }
 
         {
-          # The penalty is already among the parts; what it adds is the 5-foot floor.
-          'land' => penalty < 0 ? [ total, 5 ].max : total,
+          # A penalty is already among the parts; what it adds is the 5-foot floor, whatever it came from.
+          'land' => taken ? [ total, 5 ].max : total,
           'parts' => parts,
           'special' => special(entries, permanent, penalty),
           'conditional' => WHEN.keys.map { |key| conditional[key] }.compact
@@ -128,7 +132,21 @@ module AresMUSH
             'name' => armor.name, 'penalty' => armor.speed_penalty,
             'min_str' => armor.min_str, 'category' => armor.category
           },
-          :strength => Pf2eAbilities.get_score(char, 'Strength'))
+          :strength => Pf2eAbilities.get_score(char, 'Strength'),
+          :modifiers => modifiers_for(char))
+      end
+
+      # What changes a Speed that no `movement` entry speaks for: an effect the character is under, a
+      # condition, something they carry. Their feats are left out, because their own entries above are
+      # how a feat raises a Speed and counting both would count it twice.
+      def self.modifiers_for(char)
+        domains = Domains.for('speed', nil, nil)
+        sources = Effects.conditions(char) + Effects.items(char) + Effects.runes(char) +
+                  ActiveEffects.sources(char)
+        held = Effects.options(char, domains)
+        rows = Effects.modifiers(sources, domains, Effects.context(char), held).select { |row| row['met'] }
+
+        Modifiers.breakdown(0, rows)['modifiers'].select { |row| row['enabled'] }
       end
 
       def self.entries_for(char)

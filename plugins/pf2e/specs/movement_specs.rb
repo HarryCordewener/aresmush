@@ -69,6 +69,13 @@ module AresMUSH
         end
       end
 
+      # PF2e: no penalty takes a Speed below 5 feet, whatever it came from.
+      it "should keep a Speed at 5 feet however much is taken off it" do
+        result = Movement.compute(25, [], :modifiers => [ { 'source' => 'Effect: Deep Mud', 'value' => -30 } ])
+
+        expect(result['land']).to eq 5
+      end
+
       describe "armor" do
         it "should take its penalty from every speed" do
           result = compute([ entry('Makar heritage', 'swim' => 15) ], :combat => true, :armor => breastplate)
@@ -206,6 +213,27 @@ module AresMUSH
 
           expect(Movement.speed_text(result)).to eq '30-ft (25-ft from ancestry, +5 ft from Fleet)'
           expect(Movement.special_text(result)).to eq '25-ft swim speed (Swift Swimmer)'
+        end
+
+        # An effect's own speed modifier is no part of the sheet's feats or armor, so Movement asks the
+        # rules for it the way every other figure does.
+        it "should count an effect the character is under" do
+          Pf2e::ActiveEffects.apply(char, 'Effect: Boots of Elvenkind')
+
+          result = Movement.for(char, :combat => true)
+
+          expect(result['land']).to eq 30
+          expect(Movement.speed_text(result)).to include('+5 ft from Effect: Boots of Elvenkind')
+
+          Pf2e::ActiveEffects.on(char).each(&:delete)
+        end
+
+        it "should count a penalty an effect carries" do
+          Pf2e::ActiveEffects.apply(char, 'Effect: Animate Net')
+
+          expect(Movement.for(char, :combat => true)['land']).to eq 15
+
+          Pf2e::ActiveEffects.on(char).each(&:delete)
         end
 
         it "should give Quick Climb's climb speed only at legendary Athletics" do
