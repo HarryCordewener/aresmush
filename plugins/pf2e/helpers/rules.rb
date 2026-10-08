@@ -646,7 +646,7 @@ module AresMUSH
           held = Array(options) + Array(source['options'])
 
           of_kind(source, 'DamageAlteration')
-            .map { |row| resolved(row, source, context) }
+            .filter_map { |row| resolved(row, source, context) }
             .select { |row| Domains.matches?(selectors_of(row), domains) }
             .select { |row| Predicate.test(row['predicate'], held) }
             .map { |row| contribute(row, source, context) }
@@ -717,7 +717,7 @@ module AresMUSH
           held = Array(options) + Array(source['options'])
 
           of_kind(source, 'AdjustModifier')
-            .map { |row| resolved(row, source, context) }
+            .filter_map { |row| resolved(row, source, context) }
             .select { |row| Domains.matches?(selectors_of(row), domains) }
             .map { |row| contribute(row, source, context)&.merge('when' => row['predicate'],
                                                                  'held' => held) }
@@ -767,7 +767,7 @@ module AresMUSH
         Array(sources).flat_map do |source|
           held = Array(options) + Array(source['options'])
 
-          of_kind(source, key).map { |row| resolved(row, source, {}) }
+          of_kind(source, key).filter_map { |row| resolved(row, source, {}) }
                               .select { |row| Domains.matches?(selectors_of(row), domains) }
                               .select { |row| Predicate.test(row['predicate'], held) }
                               .map { |row| yield(row, source) }
