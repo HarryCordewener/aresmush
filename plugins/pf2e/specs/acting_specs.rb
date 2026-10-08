@@ -407,6 +407,79 @@ module AresMUSH
         end
       end
 
+      # Shield Block answers a hit just taken: the raised shield's Hardness comes off its physical damage,
+      # and the shield takes what is left.
+      describe "Shield Block" do
+        before(:each) do
+          add('2 goblin warrior')
+          @hero.update(:pf2_feats => { 'general' => [ 'Shield Block' ] })
+          @shield = Pf2egear.create_item(state, 'shields', 'Steel Shield', 1, Global.read_config('pf2e_shields', 'Steel Shield'))
+          @shield.update(:equipped => true)
+        end
+
+        def state
+          CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id])
+        end
+
+        def damage_taken
+          Pf2eHP.get_hp_obj(state).damage.to_i
+        end
+
+        def struck
+          @dice = 1.0
+          run(PF2EncounterAsCmd, "e/as #2=strike #{@hero.name}")
+        end
+
+        it "should take the shield's Hardness off the hit, and leave the rest to the shield" do
+          run(PF2EncounterActCmd, 'e/act raise a shield', @hero)
+          struck
+          taken = damage_taken
+          run(PF2EncounterActCmd, 'e/act shield block', @hero)
+
+          expect(@client.failures).to eq []
+          expect(taken).to be > 5
+          expect(damage_taken).to eq taken - 5
+          expect(PF2Shield[@shield.id].damage).to eq taken - 5
+          expect(TurnState.turn(state)['reaction']).to be true
+        end
+
+        it "should keep them up when what the shield takes leaves them hit points" do
+          run(PF2EncounterActCmd, 'e/act raise a shield', @hero)
+          Pf2eHP.get_hp_obj(state).update(:damage => Pf2eHP.get_max_hp(state) - 8)
+          struck
+
+          expect(Pf2e.condition_level(state, 'Dying')).to be > 0
+
+          run(PF2EncounterActCmd, 'e/act shield block', @hero)
+
+          expect(Pf2e.condition_level(state, 'Dying')).to eq 0
+          expect(Pf2eHP.get_current_hp(state)).to be > 0
+        end
+
+        it "should offer Shield Block when a raised shield could block the hit" do
+          run(PF2EncounterActCmd, 'e/act raise a shield', @hero)
+          struck
+
+          expect(said).to include('+e/act shield block')
+        end
+
+        it "should refuse without a raised shield" do
+          struck
+          taken = damage_taken
+          run(PF2EncounterActCmd, 'e/act shield block', @hero)
+
+          expect(@client.failures.join).to include(t('pf2e.shield_block_no_shield'))
+          expect(damage_taken).to eq taken
+        end
+
+        it "should refuse with nothing to block" do
+          run(PF2EncounterActCmd, 'e/act raise a shield', @hero)
+          run(PF2EncounterActCmd, 'e/act shield block', @hero)
+
+          expect(@client.failures.join).to include(t('pf2e.shield_block_no_hit'))
+        end
+      end
+
       describe "cover and trust" do
         before(:each) { add('goblin warrior') }
 

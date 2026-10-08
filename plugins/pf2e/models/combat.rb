@@ -209,12 +209,9 @@ module AresMUSH
     # bonus is the shield's, which is why Raise a Shield's effect carries no number of its own; a broken
     # shield, at half its hit points or less, gives none.
     def self.raised_shield(char)
-      return nil unless Pf2e::ActiveEffects.named_on(char, 'Effect: Raise a Shield').any?
-
-      shield = Pf2egear::Inventory.held(char, 'shields').find(&:equipped)
+      shield = Pf2e::ShieldBlock.raised(char)
 
       return nil unless shield && shield.ac_bonus.to_i.positive?
-      return nil if shield.hp.to_i.positive? && shield.damage.to_i * 2 >= shield.hp.to_i
 
       { 'source' => shield.nickname || shield.name, 'slug' => 'raised-shield', 'type' => 'circumstance',
         'value' => shield.ac_bonus.to_i }

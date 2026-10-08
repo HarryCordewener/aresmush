@@ -98,6 +98,7 @@ module AresMUSH
         entry = follow_up_entry(entry, follow, term) if follow
 
         return reaction_strike(scene, name, entry, words) if entry['strike']
+        return shield_block(scene, name, entry) if name == ShieldBlock::NAME
         said = said(words, scene.permitted)
         out = report
         refused(out, said)
@@ -326,6 +327,13 @@ module AresMUSH
         Actors.of(holder).proficiency(kind, name)
       end
 
+      def self.shield_block(scene, name, entry)
+        blocked = ShieldBlock.block(scene, report)
+
+        spend(scene, name, entry, blocked.state) if blocked.ok?
+        blocked
+      end
+
       # ------------------------------------------------------------------------------
       # Strikes
 
@@ -544,9 +552,14 @@ module AresMUSH
         immediate, persistent = rows.partition { |row| row['category'].to_s != 'persistent' }
         shown = []
         standing = still_up(whom.holder)
+        blockable = ShieldBlock.before(whom.holder)
+        taken = 0
+        physical = 0
 
         immediate.each do |row|
           held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical)
+          taken += held['amount'].to_i
+          physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])
           resisted = Array(held['applied']).reject { |one| one['category'] != 'immunity' && one['adjustment'].to_i.zero? }
                                            .map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
           kind = row['category'].to_s == 'splash' ? "splash #{row['type']}" : row['type']
@@ -564,6 +577,16 @@ module AresMUSH
         out['lines'] << told('pf2e.act_damage', :damage => shown.join(' + '), :target => whom.label)
         out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
         dropped(whom, standing, out)
+        offer_block(whom, blockable, taken, physical, critical, out) if blockable && physical.positive?
+      end
+
+      # A hit a raised shield could have taken is kept for Shield Block, and its bearer told they may.
+      def self.offer_block(whom, before, taken, physical, critical, out)
+        ShieldBlock.remember(whom.holder, before, taken, physical, critical)
+
+        return unless ShieldBlock.offered?(whom.holder)
+
+        out['lines'] << told('pf2e.act_follow_up', :effect => ShieldBlock::NAME, :command => '+e/act shield block')
       end
 
       # Whether someone is on their feet: a creature with hit points left, a character not yet dying -
