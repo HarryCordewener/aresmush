@@ -115,6 +115,57 @@ module AresMUSH
         expect(ordered.casting_class(Character[@hero.id])).to eq 'Bard'
       end
 
+      # A wizard's Drain Bonded Item lets them cast again a spell they prepared today and have cast.
+      describe "Drain Bonded Item" do
+        before(:each) do
+          @magic.update(:tradition => { 'Wizard' => [ 'arcane', 'trained' ] }, :spell_abil => { 'Wizard' => 'Intelligence' },
+                        :spells_per_day => { 'Wizard' => { '1' => 1 } }, :repertoire => {},
+                        :spells_prepared => { 'Wizard' => { '1' => [ 'Fear' ] } })
+          @hero.update(:pf2_base_info => { 'charclass' => 'Wizard' },
+                       :pf2_features => { 'charclass_features' => [ 'Drain Bonded Item' ], 'archetype_features' => [] })
+          rested
+        end
+
+        def drain(text = 'e/act drain bonded item/fear')
+          PF2EncounterActCmd.new(@client, Command.new(text), Character[@hero.id]).on_command
+        end
+
+        def fear_left
+          Array((standing.magic.spells_today['Wizard'] || {})['1']).count('Fear')
+        end
+
+        it "should give back a spell cast today, to cast again" do
+          cast('e/cast Fear')
+          expect(fear_left).to eq 0
+
+          drain
+
+          expect(@client.failures).to eq []
+          expect(fear_left).to eq 1
+        end
+
+        it "should refuse a spell not yet cast today" do
+          drain
+
+          expect(@client.failures.join).to include('Fear')
+          expect(fear_left).to eq 1
+        end
+      end
+
+      # A prepared spell named without a rank is cast from the rank it is prepared at.
+      it "should cast a prepared spell named without a rank" do
+        @magic.update(:tradition => { 'Wizard' => [ 'arcane', 'trained' ] }, :spell_abil => { 'Wizard' => 'Intelligence' },
+                      :spells_per_day => { 'Wizard' => { '1' => 1, '2' => 1 } }, :repertoire => {},
+                      :spells_prepared => { 'Wizard' => { '2' => [ 'Fear' ] } })
+        @hero.update(:pf2_base_info => { 'charclass' => 'Wizard' })
+        rested
+
+        cast('e/cast Fear')
+
+        expect(@client.failures).to eq []
+        expect(Array(standing.magic.spells_today['Wizard']['2'])).to eq []
+      end
+
       it "should say which class casts it, so the lookup cannot quietly answer nothing" do
         expect(PF2EncounterCastCmd.new(@client, Command.new('e/cast Charm'), Character[@hero.id])
                  .casting_class(Character[@hero.id])).to eq 'Sorcerer'

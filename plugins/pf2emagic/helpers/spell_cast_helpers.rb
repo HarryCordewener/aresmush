@@ -209,11 +209,14 @@ module AresMUSH
       spname = find_spell[0]
       spdeets = find_spell[1]
 
-      splevel = level ? level : spdeets['base_level']
-
-      # Is that spell available at that level today?
+      # Is that spell available at that level today? Named without a rank, it is cast from the lowest
+      # rank it is prepared at today, or its own.
       cc_spells = magic.spells_today
       cc_spells_2day = cc_spells[charclass]
+      prepared_at = (cc_spells_2day || {}).select { |rank, list| rank != 'cantrip' && Array(list).include?(spname) }
+                                          .keys.min_by(&:to_i)
+
+      splevel = (level || prepared_at || spdeets['base_level']).to_s
 
       # Not prepared on its own, but in a slot holding two spells (Split Slot, Spell Combination).
       unless Array((cc_spells_2day || {})[splevel]).include?(spname)
