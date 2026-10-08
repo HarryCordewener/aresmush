@@ -8,8 +8,9 @@ module AresMUSH
   # predicated on it: a Clandestine Cloak declares `clandestine-cloak` and predicates its own bonuses on
   # it. Two hundred and nineteen rules on what we stock are declarations of this kind.
   #
-  # Foundry defaults a toggleable one to off. Here it is on, because an item a character is wearing
-  # should do what it says - and the store exists so a player who wants it off can say so.
+  # Foundry defaults a toggleable one to off. Here an item's is on, because an item a character is
+  # wearing should do what it says - and the store exists so a player who wants it off can say so. A
+  # toggle on something the character does is off, as Foundry has it.
   describe Pf2e::RollOptions, :dbtest => true do
 
     before(:each) do
@@ -90,6 +91,27 @@ module AresMUSH
         plain = Pf2eSkills.get_skill_bonus(reread, 'Stealth')
 
         expect(Pf2eSkills.get_skill_bonus(give('Clandestine Cloak'), 'Stealth')).to eq plain + 1
+      end
+    end
+
+    # A toggle on a feat, a class feature or an action is something the character does at a moment -
+    # Nimble Dodge's dodge, a finisher, a spellshape - so it is off, as Foundry has it, until they say.
+    describe "a toggle on something the character does" do
+      def nimble
+        @char.update(:pf2_feats => { 'charclass' => [ 'Nimble Dodge' ] })
+        @combat.update(:armor_prof => { 'unarmored' => 'trained' })
+        reread
+      end
+
+      it "should be off until the player turns it on" do
+        expect(Pf2e::RollOptions.active(nimble)).to_not include 'nimble-dodge'
+      end
+
+      it "should leave AC alone until then, and add its bonus once it is on" do
+        plain = Pf2e::Stat.total(nimble, 'ac')
+        Pf2e::RollOptions.set(reread, 'nimble-dodge', true)
+
+        expect(Pf2e::Stat.total(reread, 'ac')).to eq plain + 2
       end
     end
 

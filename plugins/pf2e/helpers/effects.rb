@@ -270,6 +270,10 @@ module AresMUSH
         end.compact
       end
 
+      # What a feat, a class feature or an action is: something the character does, whose toggles are off
+      # until they say (`Rules`, RollOption).
+      DOES = 'does'.freeze
+
       # A class feature's rules, from `pf2e_class_features.yml`, as a feat's are, and the character's
       # subclass's - a barbarian's instinct, a ranger's hunter's edge - which the catalogue files under the
       # class and subclass it is.
@@ -282,7 +286,8 @@ module AresMUSH
 
           next nil unless info.is_a?(Hash) && info['rules']
 
-          built = source(name, info['rules'], 'id' => Domains.slug(name), 'item' => { 'level' => char.pf2_level.to_i })
+          built = source(name, info['rules'], 'id' => Domains.slug(name), 'kind' => DOES,
+                                              'item' => { 'level' => char.pf2_level.to_i })
 
           with_selections(char, built)
         end.compact
@@ -308,7 +313,8 @@ module AresMUSH
         (Global.read_config('pf2e_actions') || {}).filter_map do |name, entry|
           next nil unless entry.is_a?(Hash) && entry['rules'] && entry['for'] != 'everyone' && held.include?(Domains.slug(name))
 
-          with_selections(char, source(name, entry['rules'], 'id' => Domains.slug(name), 'item' => { 'level' => char.pf2_level.to_i }))
+          with_selections(char, source(name, entry['rules'], 'id' => Domains.slug(name), 'kind' => DOES,
+                                                             'item' => { 'level' => char.pf2_level.to_i }))
         end
       end
 
@@ -326,7 +332,7 @@ module AresMUSH
           next nil unless info && info['rules']
 
           built = source(name, info['rules'],
-                         'id' => Domains.slug(name), 'item' => { 'level' => char.pf2_level.to_i })
+                         'id' => Domains.slug(name), 'kind' => DOES, 'item' => { 'level' => char.pf2_level.to_i })
 
           with_selections(char, built)
         end.compact

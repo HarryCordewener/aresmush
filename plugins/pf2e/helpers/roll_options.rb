@@ -8,10 +8,11 @@ module AresMUSH
     # holds. Two hundred and nineteen rules on the things we stock are declarations of this kind, and
     # eighty-nine of them are asked about by another rule on the same item or feat.
     #
-    # Foundry defaults a toggleable option to off and leaves the player to flip it. Here it is on
+    # Foundry defaults a toggleable option to off and leaves the player to flip it. Here an item's is on
     # instead, because an item a character is wearing should do what it says without being asked - and a
-    # player who wants it off can say so, which is what this store is for. Only a deliberate choice is
-    # written down; an option nobody has touched follows the rule's own default.
+    # player who wants it off can say so, which is what this store is for. A toggle on a feat, a class
+    # feature or an action is something done at a moment, and is off until the player turns it on. Only
+    # a deliberate choice is written down; an option nobody has touched follows the rule's own default.
     module RollOptions
 
       # `sheet/option <name>` writes one of these. Anything not held follows the declaration.

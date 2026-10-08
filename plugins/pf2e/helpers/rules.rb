@@ -108,8 +108,10 @@ module AresMUSH
           # bonuses on it - so this contributes an option, not a modifier.
           #
           # `value` decides whether it holds without being asked for. Foundry defaults a toggleable one
-          # to off and everything else to on; here an option a character has is on unless they turn it
-          # off, because an item you are wearing should do what it says.
+          # to off and everything else to on; here an item's toggle is on unless they turn it off,
+          # because an item you are wearing should do what it says. A toggle on a feat, a class feature
+          # or an action is something done at a moment - Nimble Dodge, a finisher, a spellshape - and
+          # is off until the player says, as Foundry has it.
           #
           # Except where the circumstance is about someone else. A declaration marked `totm` - Foundry's
           # own marker for what only the table knows - or one naming a fact about the target is off until
@@ -129,7 +131,7 @@ module AresMUSH
               # `locked_to` whatever the player said - a stance you cannot leave, a rune you cannot turn off.
               'locked_when' => row['disabledIf'],
               'locked_to' => row['disabledValue'],
-              'default' => row['value'].nil? ? !about_target?(row) : truthy(row['value'], context) }
+              'default' => row['value'].nil? ? !about_target?(row) && !done_at_a_moment?(row, source) : truthy(row['value'], context) }
           }
         },
         {
@@ -527,6 +529,10 @@ module AresMUSH
 
       def self.about_target?(row)
         row['toggleable'].to_s == TABLE_ONLY || row['option'].to_s.start_with?('target:')
+      end
+
+      def self.done_at_a_moment?(row, source)
+        row['toggleable'] && source['kind'] == Effects::DOES
       end
 
       def self.truthy(value, context)
