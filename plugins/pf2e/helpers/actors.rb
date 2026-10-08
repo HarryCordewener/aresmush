@@ -97,7 +97,7 @@ module AresMUSH
 
       # What alters the things it has: its feats, class features and items as well as what it is under.
       def alteration_sources
-        Effects.feats(@holder) + Effects.features(@holder) + Effects.items(@holder)
+        Effects.feats(@holder) + Effects.features(@holder) + Effects.actions(@holder) + Effects.items(@holder)
       end
 
       def carries_items?

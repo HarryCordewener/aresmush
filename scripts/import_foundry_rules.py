@@ -38,7 +38,18 @@ SOURCES = [
     ('feats', ['pf2e_feat_ancestry.yml', 'pf2e_feat_class.yml', 'pf2e_feat_dedication.yml',
                'pf2e_feat_general.yml', 'pf2e_feat_skill.yml']),
     ('class-features', ['pf2e_class_features.yml']),
+    # An action's own rules - Rage's +2 to melee damage while raging - which apply to whoever has it.
+    ('actions', ['pf2e_actions.yml']),
 ]
+
+# A subclass as their pack names it: a barbarian's Fury is their Fury Instinct, a sorcerer's Draconic
+# their Bloodline: Draconic. Any class not named here calls it what we do.
+SUBCLASS_NAMES = {'Barbarian': '{} Instinct', 'Druid': '{} Order', 'Sorcerer': 'Bloodline: {}',
+                  'Investigator': '{} Methodology'}
+
+# A subclass's rules the engine works out itself, so reading them as well would count them twice: a
+# thief's Dexterity to finesse damage is `Pf2e::Damage.damage_attribute`'s.
+HANDLED = {('Rogue', 'Thief'): lambda rule: rule.get('key') == 'FlatModifier' and rule.get('ability') == 'dex'}
 
 # A class feature as the class tables grant it carries what it amounts to at that level - "Sneak Attack
 # 2d6", "Incredible Movement (+15 feet)", "Precise Strike 3 (3d6)" - where their pack has one item that
@@ -70,20 +81,48 @@ def granted_features():
     return found
 
 
-def class_feature_catalogue(theirs):
-    """The class features this game grants that their pack gives rules, as entries for the rules to
-    be written under."""
-    lines = ['---',
-             '# A class feature\'s rule elements, from Foundry\'s class-features pack, written by',
-             '# scripts/import_foundry_rules.py. An entry is a feature some class or specialty grants.',
-             'pf2e_class_features:']
+def subclasses(theirs):
+    """Every class's subclasses their pack has, as `{ their name: (class, ours) }`."""
+    found = {}
+    specialties = yaml.safe_load(open(os.path.join(CONFIG, 'pf2e_specialty.yml')))['pf2e_specialty']
 
-    for name in sorted(granted_features()):
+    for charclass, held in specialties.items():
+        for ours in held or {}:
+            name = SUBCLASS_NAMES.get(charclass, '{}').format(ours)
+            if name in theirs:
+                found[name] = (charclass, ours)
+
+    return found
+
+
+def class_feature_catalogue(theirs):
+    """The class features and subclasses this game grants that their pack gives rules, as entries for
+    the rules to be written under. A subclass's entry names the class and subclass it is."""
+    lines = ['---',
+             '# A class feature\'s or subclass\'s rule elements, from Foundry\'s class-features pack, written',
+             '# by scripts/import_foundry_rules.py. An entry is a feature some class or specialty grants, or a',
+             '# subclass, which says whose it is.',
+             'pf2e_class_features:']
+    named = subclasses(theirs)
+
+    for name in sorted(granted_features() | set(named)):
         rules = [rule for rule in theirs.get(name, ([], []))[0] if rule.get('key') in KINDS]
-        if rules:
-            lines += [f'  {name}:', '    pack: "class-features"']
+        if not rules:
+            continue
+        lines += [f'  {json.dumps(name)}:', '    pack: "class-features"']
+        if name in named:
+            lines += [f'    charclass: {json.dumps(named[name][0])}', f'    subclass: {json.dumps(named[name][1])}']
 
     return '\n'.join(lines) + '\n'
+
+
+def handled(rule, entry_text):
+    """Whether a subclass's rule is one the engine works out itself."""
+    charclass = re.search(r'^    charclass: "(.+)"$', entry_text or '', re.M)
+    subclass = re.search(r'^    subclass: "(.+)"$', entry_text or '', re.M)
+    test = HANDLED.get((charclass and charclass.group(1), subclass and subclass.group(1)))
+
+    return bool(test and test(rule))
 
 
 # The kinds Pf2e::Rules implements, and the fields it reads for each. What is listed here is written
@@ -707,8 +746,10 @@ def main():
             additions = {}
 
             for item, (rules, declared) in theirs.items():
-                if not item or not re.search(rf'^  {re.escape(item)}:$', text, re.M):
+                found = item and re.search(rf'^  "?{re.escape(item)}"?:$\n((?:    .*\n)*)', text, re.M)
+                if not found:
                     continue
+                rules = [rule for rule in rules if not handled(rule, found.group(1))]
                 for rule in rules:
                     if rule.get('key') not in KINDS:
                         unread[rule.get('key')] += 1
@@ -781,7 +822,7 @@ def insert(text, additions):
             dropping = True
             continue
 
-        header = re.match(r'^  ([^\s#][^:]*):$', line)
+        header = re.match(r'^  "?([^\s#"][^"]*?)"?:$', line)
         if header:
             if pending:
                 out.extend(yaml_rows(additions[pending]))

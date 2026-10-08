@@ -15,6 +15,16 @@ pf2e_actions:
     cost: 1
     traits: ["concentrate", "prediction", "transcendence"]
     description: "You take in every movement around you, affording you unparalleled accuracy. Your next successful Strike against an enemy before the end of your next turn deals an additional 1d6 precision damage. This damage increases to 2d6 at 10th level and 3d6 at 18th level."
+    rules:
+      - key: "RollOption"
+        option: "a-moment-unending"
+        toggleable: true
+      - key: "DamageDice"
+        category: "precision"
+        selector: "strike-damage"
+        diceNumber: "ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,10),2,1))"
+        dieSize: "d6"
+        predicate: ["a-moment-unending"]
   "A Quick Glimpse Beyond":
     from: "action"
     for: "background"
@@ -88,6 +98,9 @@ pf2e_actions:
     category: "interaction"
     traits: ["magical"]
     description: "Activate 2 envision%rFrequency once per day for each reflection%rYou activate one of your resonant reflections:"
+    rules:
+      - key: "RollOption"
+        option: "resonant-reflection"
   "Additional Recollection":
     from: "feat"
     type: "free"
@@ -224,6 +237,21 @@ pf2e_actions:
     category: "offensive"
     traits: ["leshy"]
     description: "Requirements You're on a solid surface%rEffect You send your roots into or across the ground, making it harder for you to stumble. Until you move, you gain a +2 circumstance bonus to your Fortitude or Reflex DC against attempts to Reposition, Shove, or Trip you (or a +4 circumstance bonus if you're a root leshy). This bonus also applies to saving throws against spells or effects that attempt to move you or knock you Prone. If an effect forces you to move, you move only half the normal distance, as some of the effort goes to tearing loose the roots."
+    rules:
+      - key: "RollOption"
+        option: "anchor"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 2
+        predicate: [{"or": ["action:reposition", "action:shove", "action:trip", "inflicts:prone", "forced-movement"]}]
+      - key: "AdjustModifier"
+        mode: "add"
+        selector: "saving-throw"
+        value: 2
+        slug: "anchor"
+        predicate: ["heritage:root-leshy"]
   "Animalistic Brutality":
     from: "feat"
     type: "action"
@@ -382,6 +410,14 @@ pf2e_actions:
     category: "offensive"
     traits: ["finisher"]
     description: "You make a graceful, deadly attack. Make a Strike; if you hit and your weapon qualifies for Precise Strike, you deal the full 1d6 damage from precise strike."
+    rules:
+      - key: "RollOption"
+        option: "finisher"
+        toggleable: true
+        suboptions: [{"label": "Basic", "value": "basic"}]
+        disabledIf: [{"not": "self:effect:panache"}]
+        disabledValue: false
+        label: "Finisher"
   "Battle Medicine":
     from: "feat"
     type: "action"
@@ -404,6 +440,14 @@ pf2e_actions:
     category: "offensive"
     traits: ["eidolon"]
     description: "Your eidolon rushes forward, using their momentum to increase the power of their attack. Your eidolon Strides twice and then Strikes. If the eidolon moved at least 20 feet away from their starting position and moved entirely in a straight line, they gain a +1 circumstance bonus to this attack roll."
+    rules:
+      - key: "RollOption"
+        option: "beasts-charge"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: ["strike-attack-roll"]
+        type: "circumstance"
+        value: 1
   "Bend Time":
     from: "action"
     for: "background"
@@ -427,6 +471,15 @@ pf2e_actions:
     traits: []
     frequency: {"max": 1, "per": "day"}
     description: "Frequency once per day%rTrigger You fail a saving throw against an enchantment effect%rEffect Your bestial manifestation becomes more pronounced, and your mind gains a flash of clarity as your instincts take over. You can reroll the triggering saving throw with a +2 circumstance bonus, but you must use the new result. This is a fortune effect."
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 2
+        predicate: ["bestial-clarity"]
+      - key: "RollOption"
+        option: "bestial-clarity"
+        toggleable: true
   "Binding Vow":
     from: "action"
     for: "archetype"
@@ -436,6 +489,12 @@ pf2e_actions:
     traits: ["auditory", "concentrate", "occult"]
     frequency: {"max": 1, "per": "day"}
     description: "Frequency once per day%rEffect You bind yourself by formally speaking a binding vow. Supernatural power flows through and around you as you speak it, and all those present to hear it intrinsically know that it binds you. Breaking this vow is anathema to you, and if you break it willingly, you lose all pactbinder benefits until you fulfill your vow or, if that's impossible, participate in an atone ritual. The vow doesn't prevent unwilling violations and can't be used to try to circumvent mind-control magic, confusion, or similar situations where you perform an action not entirely of your own volition. A Binding Vow doesn't end until you've fulfilled it. Even if you die, the vow still binds you if you return to life. The vow doesn't force you to go to ridiculous extremes, such as dying, to fulfill your vow unless you specifically swear to go to such extremes. Trying to subvert your binding vow by making selfish promises (such as swearing to an ally that you'll kill someone you already wanted to kill) is in itself a violation of your vow, as is attempting to subvert other vows you've made (such as those from other pactbinder feats or a champion's sanctification).%rWhen you make a…"
+    rules:
+      - key: "FlatModifier"
+        selector: ["skill-check"]
+        type: "circumstance"
+        value: 1
+        predicate: ["binding-vow", {"or": ["action:coerce", "action:request", {"and": ["feat:sociable-vow", {"or": ["action:gather-information", "action:make-an-impression", "action:demoralize"]}]}]}]
   "Bite and Sting":
     from: "action"
     for: "archetype"
@@ -581,6 +640,14 @@ pf2e_actions:
     traits: []
     frequency: {"max": 1, "per": "PT10M"}
     description: "Frequency once per 10 minutes%rTrigger A melee Strike hits you and deals bludgeoning damage%rEffect You gain resistance equal to your level to bludgeoning damage from the triggering Strike, then Stride up to half your Speed. You can Fly instead of Striding if you have a fly Speed."
+    rules:
+      - key: "RollOption"
+        option: "bounce-away"
+        toggleable: true
+      - key: "Resistance"
+        type: "bludgeoning"
+        value: "@actor.level"
+        predicate: ["bounce-away"]
   "Bounce Back":
     from: "feat"
     type: "free"
@@ -609,6 +676,17 @@ pf2e_actions:
     category: "offensive"
     traits: ["transcendence"]
     description: "You can attempt to Escape with a +2 status bonus on your check, then Stride up to twice your Speed in a straight line, and finally make a melee Strike. If you don't need to Escape or you can't move or choose not to, you still take the other actions listed."
+    rules:
+      - key: "RollOption"
+        option: "break-free"
+        toggleable: true
+        disabledIf: [{"not": "divine-spark:bands-of-imprisonment"}]
+        disabledValue: false
+      - key: "FlatModifier"
+        selector: ["athletics", "acrobatics", "unarmed-attack-roll"]
+        type: "status"
+        value: 2
+        predicate: ["action:escape", "break-free"]
   "Break Them Down":
     from: "action"
     for: "class"
@@ -761,6 +839,15 @@ pf2e_actions:
     category: "defensive"
     traits: []
     description: "Trigger You attempt a saving throw against a magical effect, but you haven't rolled yet%rYour ancestors' innate resistance to magic surges before slowly ebbing down. You gain a +1 circumstance bonus to saving throws on the triggering save and other saves against magical effects until the end of this turn."
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["call-on-ancient-blood", "item:magical"]
+      - key: "RollOption"
+        option: "call-on-ancient-blood"
+        toggleable: true
   "Call the Swarm":
     from: "feat"
     type: "action"
@@ -845,6 +932,13 @@ pf2e_actions:
     category: "interaction"
     traits: ["concentrate", "polymorph"]
     description: "You return to your natural shape or adopt a new shape as described by the source of this action."
+    rules:
+      - key: "RollOption"
+        option: "change-shape"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Humanoid", "predicate": [{"not": "non-humanoid-change-shape"}], "value": "humanoid"}]
+        label: "Current Form"
   "Change Tradition Focus":
     from: "action"
     for: "subsystems"
@@ -862,6 +956,12 @@ pf2e_actions:
     traits: ["concentrate"]
     self_effect: "Effect: Channel Draconic Essence"
     description: "Requirements You aren't channeling draconic essence and you're holding or wearing your draconic gift%rEffect You call down a portion of the magical essence of your draconic benefactor. A Medium spectral dragon that looks like your benefactor appears in any square within 30 feet. This spectral dragon can't be targeted by any attacks or spells and has no Hit Points, saving throws, or skills. It can occupy the same space as creatures and objects. While your spectral dragon is in your space, you gain a +1 status bonus to saves against sleep and paralysis.%rChannel Draconic Essence lasts until you Channel Draconic Essence again, you Dismiss the effect, the encounter ends, you fall Unconscious, or the spectral dragon is farther than 120 feet from you, whichever comes first."
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|flags.system.draconicBenefactor.tradition}"
   "Channel Elements":
     from: "action"
     for: "class"
@@ -1103,6 +1203,20 @@ pf2e_actions:
     category: "offensive"
     traits: ["finisher"]
     description: "You make an incredibly graceful attack, piercing your foe's defenses. Make a Strike with the following failure effect.%rFailure You deal half your Precise Strike damage to the target. This damage type is that of the weapon or unarmed attack you used for the Strike."
+    rules:
+      - key: "RollOption"
+        option: "finisher"
+        toggleable: true
+        suboptions: [{"label": "Confident", "value": "confident"}]
+        disabledIf: [{"not": "self:effect:panache"}]
+        disabledValue: false
+        label: "Finisher"
+      - key: "Note"
+        selector: "strike-attack-roll"
+        outcome: ["failure"]
+        title: "{item|name}"
+        text: "You deal half your Precise Strike damage to the target. This damage type is that of the weapon or unarmed attack you used for the Strike."
+        predicate: [{"or": ["finisher:confident", "eternal-confidence"]}, {"or": ["item:melee", {"and": ["feat:flying-blade", "item:thrown", {"or": ["target:range-increment:1", {"and": ["finisher:twirling-throw", {"lte": ["target:range-increment", 3]}]}]}]}]}, {"or": ["item:trait:agile", "item:trait:finesse"]}, {"not": "feat:precise-finisher"}]
   "Conjure Bullet":
     from: "action"
     for: "archetype"
@@ -1303,6 +1417,21 @@ pf2e_actions:
     traits: ["brandish", "commander", "tactic"]
     frequency: {"max": 1, "per": "day"}
     description: "Frequency once per day%rYour squad rallies with a resounding clangor that drowns out all other sounds of war. Choose an enemy you are observing and signal all squadmates within the aura of your commander's banner. All squadmates can Stride up to twice their Speed directly toward the target as a reaction, yelling and trampling. When any squadmate enters a square adjacent to any enemy, that enemy must attempt a Fortitude save against your class DC or take 2d6 bludgeoning damage and 2d6 sonic damage damage, plus an additional 2d6 bludgeoning and 2d6 sonic damage for every squadmate participating in Cry Havoc! (enemies who critically fail are Deafened for 1 round). Regardless of the outcome, the enemy is then temporarily immune to any further damage from Cry Havoc! for 24 hours.%rSquadmates can use Cry Havoc! while Burrowing, Climbing, Flying, or Swimming instead of Striding if they have the corresponding movement type."
+    rules:
+      - key: "RollOption"
+        option: "cry-havoc"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "One", "value": "1"}, {"label": "Two", "predicate": [{"gte": ["attribute:int:mod", 0]}], "value": "2"}, {"label": "Three", "predicate": [{"gte": ["attribute:int:mod", 1]}], "value": "3"}, {"label": "Four", "predicate": [{"gte": ["attribute:int:mod", 2]}], "value": "4"}, {"label": "Five", "predicate": [{"gte": ["attribute:int:mod", 3]}], "value": "5"}, {"label": "Six", "predicate": [{"gte": ["attribute:int:mod", 4]}], "value": "6"}, {"label": "Seven", "predicate": [{"gte": ["attribute:int:mod", 5]}], "value": "7"}, {"label": "Eight", "predicate": [{"gte": ["attribute:int:mod", 6]}], "value": "8"}, {"label": "Nine", "predicate": [{"gte": ["attribute:int:mod", 7]}], "value": "9"}]
+        selection: "1"
+        value: true
+        label: "Cry Havoc \u2014 Participating squadmates"
+      - key: "DamageAlteration"
+        property: "dice-number"
+        mode: "add"
+        selectors: ["{item|id}-inline-damage"]
+        value: "2*@item.flags.system.rulesSelections.cryHavoc"
+        predicate: ["cry-havoc", {"or": ["damage:type:bludgeoning", "damage:type:sonic"]}]
   "Current Spell":
     from: "feat"
     type: "action"
@@ -1338,6 +1467,16 @@ pf2e_actions:
     category: "offensive"
     traits: ["move"]
     description: "Trigger You're hit by a Strike during the first round of combat%rEffect You take advantage of the fact that your foe isn't ready to anticipate your dance-like moves in combat. Add a +3 circumstance bonus to your Armor Class against the triggering Strike to determine the Strike's actual result."
+    rules:
+      - key: "RollOption"
+        option: "dancing-dodge"
+        domain: "ac"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "ac"
+        type: "circumstance"
+        value: 3
+        predicate: ["dancing-dodge"]
   "Dashing Strike":
     from: "feat"
     type: "action"
@@ -1584,6 +1723,10 @@ pf2e_actions:
     frequency: {"max": 1, "per": "round"}
     self_effect: "Effect: Devise a Stratagem"
     description: "Frequency once per round%rYou assess a foe's weaknesses in combat and use them to formulate a plan of attack. Choose a creature you can see. You can Devise a Stratagem as a free action if you're aware that creature could help answer the question at the heart of one of your active investigations. Roll a d20, then decide on an attack stratagem or skill stratagem.%rAttack Stratagem If you Strike the chosen creature before the start of your next turn, your Strike gains the fortune trait and you must use the result of the d20 roll for your Strike's attack roll instead of rolling. You make this substitution only for the first Strike you make against the creature this round, not any subsequent ones. When you make this substitution, you can add your Intelligence modifier to your attack roll instead of your Strength or Dexterity modifier. If you Strike with a melee weapon, melee unarmed attack, or thrown weapon, it must have the agile or finesse trait to benefit from the substitution.%rSkill Stratagem You can't attempt to Strike the target until the start of your next turn. You gain a +1 circumstance bonus to your next Intelligence-, Wisdom-, or Charisma-based skill check or Perception…"
+    rules:
+      - key: "RollOption"
+        option: "target:mark:devise-a-stratagem"
+        toggleable: "totm"
   "Devour Ambient Magic":
     from: "action"
     for: "archetype"
@@ -1637,6 +1780,15 @@ pf2e_actions:
     category: "defensive"
     traits: []
     description: "Requirements You have your fist positioned to parry%rTrigger An enemy within your reach targets you or an ally with a weapon Strike%rEffect You attempt to Disarm the weapon the enemy is attacking with. You gain a +2 status bonus to this Disarm check, and if the check is successful, the triggering attack is disrupted. If the Disarm attempt is a critical success and you have a hand free, you can catch the disarmed weapon in your hand instead of it falling to the ground in the target's space."
+    rules:
+      - key: "RollOption"
+        option: "disarming-interception"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "athletics"
+        type: "status"
+        value: 2
+        predicate: ["action:disarm", "disarming-interception"]
   "Disarming Stance":
     from: "feat"
     type: "action"
@@ -1823,6 +1975,12 @@ pf2e_actions:
     category: "defensive"
     traits: ["concentrate", "fortune"]
     description: "Trigger You critically fail a saving throw against an effect with the same tradition trait as your draconic benefactor (for instance, a divine spell if your benefactor is a diabolic dragon)%rRequirements Your spectral dragon is in your space%rEffect You improve your saving throw result by one degree of success, and Channel Draconic Essence ends."
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|flags.system.draconicBenefactor.tradition}"
   "Dragon Breath":
     from: "action"
     for: "archetype"
@@ -1848,6 +2006,37 @@ pf2e_actions:
     category: "offensive"
     traits: ["eidolon"]
     description: "Your eidolon exhales a blast of destructive energy that deals (ceil(@actor.level / 2))d6 untyped|options:area-damage damage to all creatures in an area with a basic Reflex save against your spell DC. Your eidolon then can't use Dragon Breath again for the next 1d4 rounds. At 3rd level and every 2 levels thereafter, the damage increases by 1d6.%rWhen the eidolon gains this ability, you choose the area—a 60-foot line or a 30-foot cone—as well as the damage type—acid, cold, electricity, fire, piercing, poison, or void. You can instead choose force if your eidolon has the arcane trait, spirit if they have the divine trait, or mental if they have the occult trait. If you model your eidolon after a specific type of dragon, your GM might allow you to choose from additional damage types.%rDragon Breath has the tradition trait of your eidolon and the trait matching the damage type chosen (unless you choose piercing damage)."
+    rules:
+      - key: "ChoiceSet"
+        flag: "shape"
+        rollOption: "dragon-breath-shape"
+        choices: [{"label": "Cone", "value": "cone"}, {"label": "Line", "value": "line"}]
+      - key: "ChoiceSet"
+        flag: "dragonBreathDamage"
+        rollOption: "dragon-breath-damage"
+        prompt: "Select a damage type."
+        choices: {"config": "damageTypes"}
+      - key: "ChoiceSet"
+        flag: "dragonBreathTradition"
+        prompt: "Select a tradition."
+        choices: {"config": "magicTraditions"}
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["{item|id}-inline-damage"]
+        value: "{item|flags.system.rulesSelections.dragonBreathDamage}"
+        slug: "base"
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{item|flags.system.rulesSelections.dragonBreathTradition}"
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{item|flags.system.rulesSelections.dragonBreathDamage}"
+        predicate: [{"nor": ["dragon-breath-damage:bludgeoning", "dragon-breath-damage:piercing", "dragon-breath-damage:slashing"]}]
   "Dragon Roar":
     from: "feat"
     type: "action"
@@ -2091,6 +2280,28 @@ pf2e_actions:
     category: "offensive"
     traits: ["attack", "impulse", "kineticist", "primal"]
     description: "1 or 2%rWith a wave of your hand, you collect elemental matter from your aura and swing or hurl it. Choose one of your kinetic elements and a damage type listed for that element, then make a melee or ranged impulse attack against the AC of one creature. Add your Strength modifier to the damage roll for a melee Elemental Blast. If you make a 2-action Elemental Blast, you gain a status bonus to the damage roll equal to your Constitution modifier. The element determines the damage die, damage type, and range (for a ranged blast). A damage type other than a physical damage type adds its trait to the blast.%rAir 1d6 electricity or slashing, 60 feet Earth 1d8 bludgeoning or piercing, 30 feet Fire 1d6 fire, range 60 feet Metal 1d8 piercing or slashing, 30 feet Water 1d8 bludgeoning or cold, 30 feet Wood 1d8 bludgeoning or vitality, 30 feet%rCritical Success The target takes double damage.%rSuccess The target takes full damage.%rLevel (+4) The damage increases by one die."
+    rules:
+      - key: "RollOption"
+        option: "action-cost"
+        domain: "elemental-blast"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "One Action", "value": "1"}, {"label": "Two Actions", "value": "2"}]
+        predicate: ["self:effect:kinetic-aura"]
+      - key: "FlatModifier"
+        selector: "elemental-blast-damage"
+        type: "status"
+        value: "@actor.abilities.con.mod"
+        slug: "two-action-elemental-blast"
+        label: "Two-Action Blast"
+        predicate: ["self:action:slug:elemental-blast", "self:action:cost:2"]
+      - key: "DamageAlteration"
+        property: "dice-number"
+        mode: "override"
+        selectors: ["elemental-blast-damage"]
+        value: "max(1 + floor((@actor.level - 1) / 4), 1)"
+        slug: "base"
+        predicate: ["class:kineticist"]
   "Elemental Burst":
     from: "action"
     for: "class"
@@ -2134,6 +2345,16 @@ pf2e_actions:
     traits: ["concentrate", "eidolon"]
     frequency: {"max": 1, "per": "PT1M"}
     description: "Frequency once per minute%rEffect Your eidolon gathers the power of the mightiest archdragons to make their magical breath even more spectacular. If your eidolon's next action is to use Dragon Breath, both the number of damage dice and area of Dragon Breath are doubled."
+    rules:
+      - key: "RollOption"
+        option: "empower-breath"
+        toggleable: true
+      - key: "DamageAlteration"
+        property: "dice-number"
+        selectors: ["dragon-breath-eidolon-inline-damage"]
+        value: "ceil(@actor.level / 2)"
+        slug: "base"
+        predicate: ["empower-breath"]
   "Empty Vessel":
     from: "action"
     for: "ancestry"
@@ -2142,6 +2363,19 @@ pf2e_actions:
     traits: ["concentrate"]
     frequency: {"max": 1, "per": "day"}
     description: "Frequency once per day%rTrigger You would take mental damage or be affected by a mental effect%rEffect You gain a +2 circumstance bonus to Will saves and resistance to mental damage equal to your level against the triggering effect. This applies only to the initial effect, not successive saves, persistent mental damage, or other repeated effects."
+    rules:
+      - key: "RollOption"
+        option: "empty-vessel"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "will"
+        type: "circumstance"
+        value: 2
+        predicate: ["empty-vessel"]
+      - key: "Resistance"
+        type: "mental"
+        value: "@actor.level"
+        predicate: ["empty-vessel"]
   "Encouraging Words":
     from: "action"
     for: "stamina"
@@ -2195,6 +2429,11 @@ pf2e_actions:
     category: "offensive"
     traits: ["magical", "spellshot"]
     description: "Trigger You roll initiative.%rYou unleash a small surge of magical energy into your weapon, shrouding the bullet with potential energy and granting it the ability to deal energy damage to your foes to exploit their weaknesses. You can Interact to draw a ranged weapon. On your first three Strikes of this encounter with a firearm or crossbow, you deal an additional 1 acid, cold, fire or electricity damage per weapon damage die. You choose which damage type to deal as part of making each Strike.%rEffect: Energy Shot"
+    rules:
+      - key: "Note"
+        selector: "initiative"
+        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        text: "{item|description}"
   "Energy Ward":
     from: "feat"
     type: "free"
@@ -2555,6 +2794,12 @@ pf2e_actions:
     category: "offensive"
     traits: ["light", "spirit", "teleportation", "transcendence"]
     description: "You swing your weapon in a wide arc, releasing a blazing rainbow that deals 9d6 spirit|options:area-damage damage and 9d6 untyped|options:area-damage damage of the same type as your weapon to all enemies in a 60-foot cone, with a Fortitude save against your class DC. As the rainbow ripples out, you use it as a bridge to teleport to any location within the effect's area."
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "other-tags"
+        mode: "add"
+        value: "exemplar-spirit-damage"
   "Fling Magic":
     from: "action"
     for: "class"
@@ -2563,6 +2808,22 @@ pf2e_actions:
     category: "offensive"
     traits: ["concentrate", "magical", "manipulate", "thaumaturge"]
     description: "Requirements You are holding your wand implement.%rYou fling magical energy at a target within 60 feet, dealing (ceil(@actor.level/2)+2)d4 untyped damage, with a Reflex save against your class DC. The damage is of the type you selected when you gained your wand implement. At 3rd level and every 2 levels thereafter, the damage increases by 1d4.%rYou can expend more energy than usual to boost the effect of Fling Magic, dealing d6s of damage instead of d4s. After you do, the wand's extra energy is discharged; you can't boost the wand's damage again, but can continue to Fling Magic normally. The extra energy recharges at the end of your next turn.%rSpecial This activity has the trait corresponding to the damage type you selected."
+    rules:
+      - key: "RollOption"
+        option: "wand-damage-type"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Cold", "predicate": [{"or": ["wand-initiate-damage-type:cold", "wand-adept-damage-type:cold", "feature:paragon-benefit-wand"]}], "value": "cold"}, {"label": "Electricity", "predicate": [{"or": ["wand-initiate-damage-type:electricity", "wand-adept-damage-type:electricity", "feature:paragon-benefit-wand"]}], "value": "electricity"}, {"label": "Fire", "predicate": [{"or": ["wand-initiate-damage-type:fire", "wand-adept-damage-type:fire", "feature:paragon-benefit-wand"]}], "value": "fire"}]
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["{item|id}-inline-damage"]
+        value: "{item|flags.system.rulesSelections.wandDamageType}"
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{item|flags.system.rulesSelections.wandDamageType}"
   "Flinging Charge":
     from: "feat"
     type: "action"
@@ -2591,6 +2852,26 @@ pf2e_actions:
     category: "offensive"
     traits: ["spirit", "transcendence"]
     description: "Make two Strikes with the gleaming blade, each against the same target and using your current multiple attack penalty. If the Gleaming Blade doesn't have the agile trait, the second Strike takes a –2 penalty. If both attacks hit, you combine their damage, which is all dealt as spirit damage.%rYou add any precision damage only once. Combine the damage from both Strikes and apply resistances and weaknesses only once. This counts as two attacks when calculating your multiple attack penalty."
+    rules:
+      - key: "RollOption"
+        option: "flowing-spirit-strike"
+        toggleable: true
+        suboptions: [{"label": "First Strike", "value": "first-strike"}, {"label": "Second Strike", "value": "second-strike"}]
+        disabledIf: [{"not": "divine-spark:gleaming-blade"}]
+        disabledValue: false
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["strike-damage"]
+        value: "spirit"
+        predicate: ["flowing-spirit-strike", "item:tag:physical-ikon:gleaming-blade"]
+      - key: "FlatModifier"
+        selector: "attack"
+        value: -2
+        predicate: ["flowing-spirit-strike:second-strike", "item:tag:physical-ikon:gleaming-blade", {"not": "agile"}]
+      - key: "RollOption"
+        option: "exemplar-spirit-damage"
+        predicate: ["flowing-spirit-strike"]
   "Flurry of Blows":
     from: "action"
     for: "class"
@@ -2749,6 +3030,25 @@ pf2e_actions:
     category: "offensive"
     traits: ["spirit", "transcendence"]
     description: "Your spirit is so dense it takes on tangible force. Make a melee Strike with the Titan's Breaker. This counts as two attacks when calculating your multiple attack penalty. If this Strike hits, your additional spirit damage from the ikon's immanence increases to 4 plus an extra die of weapon damage.%rIf you're at least 10th level, it's increased to 6 spirit damage and two extra dice, and if you're at least 18th level, it's increased to 8 spirit damage and three extra dice."
+    rules:
+      - key: "RollOption"
+        option: "fracture-mountains"
+        toggleable: true
+        disabledIf: [{"not": "divine-spark:titans-breaker"}]
+        disabledValue: false
+      - key: "AdjustModifier"
+        mode: "override"
+        selector: "strike-damage"
+        relabel: "{item|name}"
+        value: "ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,10),6,4))"
+        slug: "titans-breaker-immanence"
+        predicate: ["fracture-mountains"]
+      - key: "DamageDice"
+        selector: "strike-damage"
+        diceNumber: "ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,10),2,1))"
+        damageType: "spirit"
+        tags: ["exemplar"]
+        predicate: ["fracture-mountains", "item:tag:physical-ikon:titans-breaker"]
   "Friendly Toss":
     from: "feat"
     type: "action"
@@ -2791,6 +3091,20 @@ pf2e_actions:
     category: "offensive"
     traits: ["eidolon"]
     description: "Your eidolon makes a melee Strike. This counts as two attacks when calculating your multiple attack penalty. If this Strike hits, your eidolon deals an extra die of weapon damage and gains a +1 circumstance bonus to the damage roll.%rIf you're at least 10th level, increase this to two extra dice with a +2 circumstance bonus, and if you're at least 18th level, increase it to three extra dice with a +3 circumstance bonus."
+    rules:
+      - key: "RollOption"
+        option: "furious-strike"
+        domain: "melee-strike-damage"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "melee-strike-damage"
+        type: "circumstance"
+        value: "ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,10),2,1))"
+        predicate: ["furious-strike"]
+      - key: "DamageDice"
+        selector: "melee-strike-damage"
+        diceNumber: "ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,10),2,1))"
+        predicate: ["furious-strike"]
   "Furious Vengeance":
     from: "feat"
     type: "reaction"
@@ -2898,6 +3212,16 @@ pf2e_actions:
     category: "offensive"
     traits: ["fire", "sonic", "visual"]
     description: "Chaos fills a 20-foot within 120 feet. All creatures in the area takes (max(3,(3 + floor((@actor.level - 10)/ 3))))d6 fire,(max(3,(3 + floor((@actor.level - 10)/ 3))))d6 sonic|options:area-damage damage and must attempt a Fortitude save. Every 3 levels, the fire damage and sonic damage each increase by 1d6. You can expend 2 versatile vials instead of 1 to increase the fire and sonic damage by 1d6 each, or by 2d6 each at 16th level.%rCritical Success The creature is unaffected.%rSuccess The creature is Dazzled and Deafened until the end of its next turn and takes half damage.%rFailure The creature is dazzled and deafened for 1 minute and takes full damage.%rCritical Failure The creature is Blinded for 1 round, dazzled and deafened for 1 minute, and takes double damage."
+    rules:
+      - key: "RollOption"
+        option: "goblin-jubilee-upgrade"
+        toggleable: true
+        label: "Goblin Jubilee \u2014 Expending 2 Versatile Vials"
+      - key: "DamageAlteration"
+        property: "dice-number"
+        selectors: ["{item|id}-inline-damage"]
+        value: "ternary(gte(@actor.level,16),2,1)"
+        predicate: ["goblin-jubilee-upgrade"]
   "Goblin Scuttle":
     from: "feat"
     type: "reaction"
@@ -3058,6 +3382,12 @@ pf2e_actions:
     category: "offensive"
     traits: ["concentrate", "mental", "spirit", "transcendence"]
     description: "The weight of authority falls heavily upon you, as well as nearby creatures. All enemies in a 15-foot burst within 60 feet take spirit damage damage equal to your level with a Will save against your class DC. Any enemy that fails its save must immediately kneel, dropping Prone as a free action."
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "other-tags"
+        mode: "add"
+        value: "exemplar-spirit-damage"
   "Hellbreaker Strike":
     from: "action"
     for: "archetype"
@@ -3066,6 +3396,29 @@ pf2e_actions:
     category: "offensive"
     traits: ["holy"]
     description: "Make a weapon or unarmed Strike. This counts as two attacks when determining your multiple attack penalty. If your Strike hits, you deal an additional 2d8 spirit damage. At 18th level, this increases to 3d8 spirit damage."
+    rules:
+      - key: "RollOption"
+        option: "hellbreaker-strike"
+        toggleable: true
+      - key: "DamageDice"
+        selector: "strike-damage"
+        diceNumber: 2
+        dieSize: "d8"
+        damageType: "spirit"
+        slug: "hellbreaker-strike"
+        predicate: ["hellbreaker-strike"]
+      - key: "DamageAlteration"
+        property: "dice-number"
+        selectors: ["strike-damage"]
+        value: 1
+        slug: "hellbreaker-strike"
+        predicate: [{"gte": ["self:level", 18]}]
+      - key: "AdjustStrike"
+        property: "traits"
+        mode: "add"
+        definition: [{"or": ["item:category:unarmed", "item:category:simple", "item:category:martial", "item:category:advanced"]}]
+        value: "holy"
+        predicate: ["hellbreaker-strike"]
   "Heroic Presence":
     from: "feat"
     type: "action"
@@ -3137,6 +3490,23 @@ pf2e_actions:
     traits: ["concentrate", "ranger"]
     self_effect: "Effect: Hunt Prey"
     description: "You designate a single creature as your prey and focus your attacks against that creature. You must be able to see or hear the prey, or you must be tracking the prey during exploration.%rYou gain a +2 circumstance bonus to Perception checks when you Seek your prey and a +2 circumstance bonus to Survival checks when you Track your prey. You also ignore the penalty for making ranged attacks within your second range increment against the prey you're hunting.%rYou can have only one creature designated as your prey at a time. If you use Hunt Prey against a creature when you already have a creature designated, the prior creature loses the designation and the new prey gains the designation. Your designation lasts until your next daily preparations."
+    rules:
+      - key: "FlatModifier"
+        selector: "perception"
+        type: "circumstance"
+        value: 2
+        label: "To Seek Hunted Prey"
+        predicate: ["action:seek", "target:mark:hunted-prey"]
+      - key: "FlatModifier"
+        selector: "survival"
+        type: "circumstance"
+        value: 2
+        label: "To Track Hunted Prey"
+        predicate: ["action:track", "target:mark:hunted-prey"]
+      - key: "RollOption"
+        option: "ignore-range-penalty:2"
+        domain: "ranged-attack-roll"
+        predicate: ["target:mark:hunted-prey"]
   "Hunt Runelord":
     from: "action"
     for: "background"
@@ -3238,6 +3608,11 @@ pf2e_actions:
     category: "offensive"
     traits: ["magical", "thaumaturge"]
     description: "Trigger The target of your Exploit Vulnerability uses a concentrate, manipulate, or move action, or leaves a square during a move action it's using.%rRequirements You're holding your weapon implement and are benefiting from Exploit Vulnerability against a creature. The creature must be within your reach if you're wielding a melee weapon, or within 10 feet if you're wielding a ranged weapon.%rYour weapon senses a moment of weakness and guides your hand to strike down a foe. Make a Strike against the triggering creature with your weapon implement. If your attack is a critical hit, you disrupt the triggering action. This Strike doesn't count toward your multiple attack penalty, and your multiple attack penalty doesn't apply to this Strike."
+    rules:
+      - key: "RollOption"
+        option: "implements-interruption"
+        toggleable: true
+        predicate: ["feature:adept-benefit-weapon"]
   "Impossible Flurry":
     from: "feat"
     type: "action"
@@ -3451,6 +3826,11 @@ pf2e_actions:
     category: "offensive"
     traits: ["gunslinger"]
     description: "Trigger You roll initiative.%rYou know trouble can lurk around every corner, and your hands never stray far from your holsters. You can Interact to draw a one-handed ranged weapon and can then Interact to draw a one-handed melee weapon. As your first action on your first turn, you can Stride as a free action toward an enemy you can perceive. If you can't perceive any enemies or can't end your movement closer to one, you can't use this Stride."
+    rules:
+      - key: "Note"
+        selector: "initiative"
+        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        text: "{item|system.description.value}"
   "Inured to Death":
     from: "action"
     for: "background"
@@ -3459,6 +3839,14 @@ pf2e_actions:
     traits: []
     frequency: {"max": 1, "per": "day"}
     description: "Frequency once per day%rTrigger You take damage from an effect with the death or void trait%rEffect You gain resistance to that damage equal to half your level (minimum 1)."
+    rules:
+      - key: "RollOption"
+        option: "inured-to-death"
+        toggleable: true
+      - key: "Resistance"
+        type: "all-damage"
+        value: "max(1,floor(@actor.level/2))"
+        predicate: ["inured-to-death"]
   "Invest an Item":
     from: "action"
     for: "everyone"
@@ -3488,6 +3876,15 @@ pf2e_actions:
     category: "defensive"
     traits: []
     description: "Trigger You attempt a saving throw against a divine effect, but you haven't rolled yet.%rYou rise above the triggering effect, refusing to be harmed by it. You gain a +1 circumstance bonus to the triggering saving throw and to any other saving throws you attempt against divine effects until the start of your next turn."
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["item:trait:divine", "celestial-privilege"]
+      - key: "RollOption"
+        option: "celestial-privilege"
+        toggleable: true
   "Invoke Rune":
     from: "action"
     for: "class"
@@ -3667,6 +4064,12 @@ pf2e_actions:
     category: "offensive"
     traits: ["spirit", "transcendence"]
     description: "Requirements Your previous action was an unsuccessful Strike with the weapon from the Shadow Sheath%rEffect The shadow weapon you threw fades, the distraction covering your true intention all along—a second strike in hidden in the blind spot of the first! Interact to draw another weapon from the shadow sheath, then Strike with it at the same multiple attack penalty as the unsuccessful attack. The opponent is Off-Guard to this attack.%rThis Strike counts toward your multiple attack penalty as normal. After the Strike resolves, you can Interact to draw another weapon from the shadow sheath."
+    rules:
+      - key: "RollOption"
+        option: "liars-hidden-blade"
+        toggleable: true
+        disabledIf: [{"not": "divine-spark:shadow-sheath"}]
+        disabledValue: false
   "Liberate Self":
     from: "action"
     for: "archetype"
@@ -3724,6 +4127,11 @@ pf2e_actions:
     traits: ["gunslinger"]
     self_effect: "Effect: Living Fortification"
     description: "Trigger You roll initiative.%rYou posture defensively with firearms or crossbows, acting like a walking tower. Interact to draw a firearm or crossbow. You then position that weapon defensively, as the parry trait, gaining a +1 circumstance bonus to AC until the end of your first turn, or a +2 circumstance bonus if the chosen weapon has the parry trait."
+    rules:
+      - key: "Note"
+        selector: ["initiative"]
+        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        text: "<p>{item|description}</p><p>@UUID[Compendium.pf2e.feat-effects.Item.Effect: Living Fortification]</p>"
   "Long Jump":
     from: "action"
     for: "everyone"
@@ -3754,6 +4162,15 @@ pf2e_actions:
     traits: ["fortune"]
     frequency: {"max": 1, "per": "day"}
     description: "Trigger You attempt a skill check during Exploration or Downtime%rFrequency once per day%rEffect Draw a harrow card, then reroll the skill check. If you draw a card from the suit of Keys, add a +4 status bonus to the original roll and your reroll, then take the result you prefer as your actual result. If you drew any other card, you gain no bonus and must take the result of the rerolled skill check."
+    rules:
+      - key: "RollOption"
+        option: "lucky-break"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "status"
+        value: 4
+        predicate: ["lucky-break"]
   "Lunge":
     from: "feat"
     type: "action"
@@ -3811,6 +4228,12 @@ pf2e_actions:
     category: "interaction"
     traits: ["concentrate", "manipulate", "summoner", "teleportation"]
     description: "Your eidolon appears in an open space adjacent to you, and can then take a single action. If your eidolon was already manifested, you unmanifest them instead. The conduit that allows your eidolon to manifest is also a tether between you. Your eidolon must remain within 100 feet of you at all times and can't willingly go beyond that limit. If forced beyond this distance, or if you are reduced to 0 Hit Points or your eidolon were to die, your eidolon's physical form unmanifests, and you need to use Manifest Eidolon to manifest them again.%rSpecial This activity has the trait matching your eidolon's tradition (arcane, divine, occult, or primal)."
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|flags.system.eidolon.tradition}"
   "Manifest Realm":
     from: "action"
     for: "archetype"
@@ -3857,6 +4280,37 @@ pf2e_actions:
     category: "offensive"
     traits: ["concentrate"]
     description: "Requirements The creature you intend to mark is observed by you%rEffect You designate a single creature as your mark. Using Mark for Death while Hidden or Undetected doesn't make you Observed. Mark for Death lasts until the mark dies or you use Mark for Death again. You gain a +2 circumstance bonus to Perception checks to Seek your mark, as well as to Deception checks to Feint against your mark. Your mark takes a –2 circumstance penalty to all Perception checks to Seek you.%rIn addition, when attacking your mark, you have the Sneak Attack class feature, except it deals 1d4 precision damage and you don't increase the number of dice as you gain levels. At 6th level, the damage increases to 1d6. If you already have the sneak attack class feature, you instead deal an additional 1 precision damage with your sneak attacks made against your mark, increasing to 2 precision damage at 6th level."
+    rules:
+      - key: "RollOption"
+        option: "marked-for-death"
+        toggleable: true
+        label: "Target is Marked for Death"
+      - key: "FlatModifier"
+        selector: ["perception", "deception"]
+        type: "circumstance"
+        value: 2
+        slug: "mark-for-death-skill"
+        label: "Target is Marked for Death"
+        predicate: ["marked-for-death", {"or": ["action:feint", "action:seek"]}]
+      - key: "DamageDice"
+        category: "precision"
+        selector: "strike-damage"
+        diceNumber: "1"
+        dieSize: "d4"
+        slug: "sneak-attack"
+        predicate: [{"not": "feature:sneak-attack"}, "marked-for-death", "target:condition:off-guard", {"or": ["item:trait:agile", "item:trait:finesse", {"and": ["item:ranged", {"not": "item:thrown-melee"}]}]}]
+      - key: "DamageAlteration"
+        property: "dice-faces"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 6
+        predicate: ["dice:slug:sneak-attack", {"not": "feature:sneak-attack"}, {"gte": ["self:level", 6]}]
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        value: "ternary(gte(@actor.level,6),2,1)"
+        damageCategory: "precision"
+        slug: "mark-for-death-damage"
+        predicate: ["marked-for-death", "feature:sneak-attack", "target:condition:off-guard", "item:tag:sneak-attack"]
   "Mark the Center":
     from: "action"
     for: "class"
@@ -4055,6 +4509,14 @@ pf2e_actions:
     type: "reaction"
     traits: ["concentrate", "magical"]
     description: "Trigger A creature you have successfully Recalled Knowledge about would damage you%rRequirements You have a free hand%rEffect You brandish your charm, channeling and shaping the forces within it to protect you against harm. You gain resistance to all damage equal to 2 + half your level rounded up against the triggering effect."
+    rules:
+      - key: "RollOption"
+        option: "mystic-aegis"
+        toggleable: true
+      - key: "Resistance"
+        type: "all-damage"
+        value: "2 + ceil(@actor.level/2)"
+        predicate: ["mystic-aegis"]
   "Mythic Echo":
     from: "action"
     for: "background"
@@ -4070,6 +4532,12 @@ pf2e_actions:
     traits: ["auditory", "fortune"]
     frequency: {"max": 1, "per": "day"}
     description: "Frequency once per day;%rTrigger You fail or critically fail a Deception, Diplomacy, Intimidation, or Society check%rEffect Reroll the skill check. You must use the second result, even if it's worse."
+    rules:
+      - key: "Note"
+        selector: ["deception", "diplomacy", "intimidation", "society"]
+        outcome: ["criticalFailure"]
+        title: "{item|name} <span class=\"action-glyph\">R</span>"
+        text: "Frequency once per day;%rEffect Reroll the skill check. You must use the second result, even if it's worse."
   "Naval Training":
     from: "action"
     for: "class"
@@ -4159,6 +4627,22 @@ pf2e_actions:
     category: "offensive"
     traits: ["gunslinger"]
     description: "Trigger You roll Stealth for initiative.%rYour first shot is the deadliest. Interact to draw a firearm or crossbow. Your first successful Strike with that weapon during this encounter deals an additional 1d6 precision damage. This precision damage increases to 2d6 at 9th level and 3d6 at 15th level."
+    rules:
+      - key: "RollOption"
+        option: "one-shot-one-kill"
+        domain: "strike-damage"
+        toggleable: true
+      - key: "DamageDice"
+        category: "precision"
+        selector: "strike-damage"
+        diceNumber: "clamp(floor((@actor.level + 3)/6),1,3)"
+        dieSize: "d6"
+        predicate: ["one-shot-one-kill", {"or": ["item:group:firearm", "item:group:crossbow"]}]
+      - key: "Note"
+        selector: "initiative"
+        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        text: "{item|description}"
+        predicate: ["check:statistic:base:stealth"]
   "One for All":
     from: "feat"
     type: "action"
@@ -4202,6 +4686,19 @@ pf2e_actions:
     category: "offensive"
     traits: ["bravado", "swashbuckler"]
     description: "Trigger A foe within your reach critically fails a Strike against you%rYou take advantage of an opening from your enemy's fumbled attack. You either make a melee Strike against the triggering foe or attempt to Disarm it of the weapon it used for the Strike."
+    rules:
+      - key: "RollOption"
+        option: "opportune-riposte"
+        toggleable: true
+      - key: "RollOption"
+        option: "item:trait:bravado"
+        predicate: ["opportune-riposte", "action:disarm"]
+      - key: "AdjustStrike"
+        property: "traits"
+        mode: "add"
+        definition: ["item:melee"]
+        value: "bravado"
+        predicate: ["opportune-riposte"]
   "Opportunistic Accusation":
     from: "action"
     for: "background"
@@ -4231,6 +4728,31 @@ pf2e_actions:
     traits: ["inventor", "manipulate"]
     frequency: {"max": 1, "per": "round"}
     description: "Frequency once per round%rTemporarily cranking the gizmos on your body into overdrive, you try to add greater power to your attacks. Attempt a Crafting check that has a standard DC for your level.%rEffect: Overdrive%rCritical Success Your gizmos go into a state of incredible efficiency called critical overdrive, adding great power to your attacks. Your Strikes deal additional damage equal to your Intelligence modifier for 1 minute. After the Overdrive ends, your gizmos become unusable as they cool down or reset, and you can't use Overdrive for 1 minute.%rSuccess Your gizmos go into overdrive, adding power to your attacks. As critical success, except the additional damage is equal to half your Intelligence modifier.%rFailure Your gizmos whine concerningly and begin to smoke. Your Strikes deal 1 additional fire damage for 1 minute.%rCritical Failure Whoops! Something explodes. You take fire damage equal to half your level (rounded up), and you can't use Overdrive again for 1d4 #Recharge Overdrive rounds as your gizmos reset.%rSpecial When under the effects of Overdrive, you can still use the Overdrive action. You can't extend your Overdrive's duration this way, but you can turn an…"
+    rules:
+      - key: "Note"
+        selector: "crafting"
+        outcome: ["criticalSuccess"]
+        title: "Critical Success"
+        text: "Your gizmos go into a state of incredible efficiency called critical Overdrive, adding great power to your attacks."
+        predicate: ["self:action:slug:overdrive"]
+      - key: "Note"
+        selector: "crafting"
+        outcome: ["success"]
+        title: "Success"
+        text: "Your gizmos go into Overdrive, adding power to your attacks."
+        predicate: ["self:action:slug:overdrive"]
+      - key: "Note"
+        selector: "crafting"
+        outcome: ["failure"]
+        title: "Failure"
+        text: "Your gizmos whine concerningly and begin to smoke. Your Strikes deal 1 additional fire damage. Overdrive"
+        predicate: ["self:action:slug:overdrive"]
+      - key: "Note"
+        selector: "crafting"
+        outcome: ["criticalFailure"]
+        title: "Critical Failure"
+        text: "Whoops! Something explodes. You take (ceil(@actor.level / 2))[@actor.flags.system.inventor.explode]|immutable|name:PF2E.SpecificRule.Inventor.Innovation.MalfunctionDamage damage, and you can't use Overdrive again for 1d4 rounds as your gizmos reset."
+        predicate: ["self:action:slug:overdrive"]
   "Overflowing Blade":
     from: "action"
     for: "archetype"
@@ -4239,6 +4761,18 @@ pf2e_actions:
     category: "offensive"
     traits: ["concentrate", "force", "magical"]
     description: "Requirements You are overflowing%rEffect You conduct the magic in your internal nexus to coat your weapon or unarmed strike, empowering it with magical energy for a devastating attack. Make a melee Strike. If the Strike hits, you deal an additional 1d4 force damage. At 10th level, the additional damage increases to 2d4 force damage. At 18th level, the additional damage increases to 3d4 force damage. You are no longer overflowing."
+    rules:
+      - key: "RollOption"
+        option: "overflowing-blade"
+        toggleable: true
+        predicate: ["self:effect:overflowing"]
+      - key: "DamageDice"
+        selector: "melee-strike-damage"
+        diceNumber: "ternary(gte(@actor.level,18),3,ternary(gte(@actor.level,10),2,1))"
+        dieSize: "d4"
+        damageType: "force"
+        slug: "overflowing-blade"
+        predicate: ["overflowing-blade"]
   "Overload Vision":
     from: "action"
     for: "spells"
@@ -4273,6 +4807,11 @@ pf2e_actions:
     category: "offensive"
     traits: ["flourish"]
     description: "Requirements You're wielding a one-handed melee weapon or a melee weapon with the agile or finesse trait%rEffect Make two Strikes against a target within your reach, one with the required weapon and one with your fist unarmed attack. If both hit the same target, combine their damage for the purposes of its resistances and weaknesses. Apply your multiple attack penalty to each Strike normally."
+    rules:
+      - key: "RollOption"
+        option: "overwhelming-combination"
+        toggleable: true
+        predicate: ["feat:kaiju-defense-oath"]
   "Overwhelming Energy":
     from: "feat"
     type: "action"
@@ -4433,6 +4972,12 @@ pf2e_actions:
     category: "offensive"
     traits: ["auditory", "spellshape"]
     description: "By using your perfect pitch, you can amplify your voice to cause magical auditory effects to reach further. If your next action this round is to Cast a Spell or use an action that creates an auditory effect with a range, increase that range by 30 feet."
+    rules:
+      - key: "RollOption"
+        option: "spellshape"
+        toggleable: true
+        suboptions: [{"label": "{item|name}", "value": "pitch-perfect-projection"}]
+        label: "Spellshape"
   "Plaintive Plea":
     from: "action"
     for: "ancestry"
@@ -4624,6 +5169,17 @@ pf2e_actions:
     traits: ["concentrate", "exploration", "investigator"]
     frequency: {"max": 1, "per": "PT10M"}
     description: "Frequency once per 10 minutes%rYou name one detail you've identified that you think is part of a larger mystery, then spend 1 minute examining it. The detail is typically either obvious or something you've already discovered using Recall Knowledge, Sense Motive, Gather Information, or a similar action. After the minute passes, the GM either confirms there's a larger mystery or tells you there's nothing more to learn (the detail is inconsequential or you know all the information already). If there is in fact a larger mystery at play, you can't Pursue a Lead again for 10 minutes, but you can choose to open an investigation. To do so, define the question at the heart of the mystery, such as \"Where has the priceless work of art that was supposed to hang here been taken?\" or \"Who or what killed this priest?\" Work with your GM to refine the question if need be. You can also give your investigation a name to better keep track of it (such as \"The Case of the Cheated Goblin\" or \"The Skinsaw Murders\").%rInvestigation Bonus Whenever you attempt a Perception check or skill check to attempt to get closer to answering the question at the heart of an active investigation, you gain a +1…"
+    rules:
+      - key: "RollOption"
+        option: "pursue-a-lead"
+        toggleable: true
+        label: "Pursue a Lead \u2014 Investigation Bonus"
+      - key: "FlatModifier"
+        selector: ["perception", "skill-check"]
+        type: "circumstance"
+        value: 1
+        slug: "pursue-a-lead"
+        predicate: ["pursue-a-lead"]
   "Qi Center":
     from: "feat"
     type: "free"
@@ -4679,6 +5235,12 @@ pf2e_actions:
     traits: ["barbarian"]
     self_effect: "Effect: Rage"
     description: "Trigger You roll initiative.%rRequirements You are not Encumbered or wearing heavy armor.%rSo long as you are able to move freely, your fury is instinctive and instantaneous. You Rage."
+    rules:
+      - key: "Note"
+        selector: "initiative"
+        title: "{item|name} <span class=\"action-glyph\">F</span>"
+        text: "{item|description}\n@UUID[Compendium.pf2e.feat-effects.Item.Effect: Rage]\n@UUID[Compendium.pf2e.feat-effects.Item.Effect: Rage Temporary Hit Points Immunity]"
+        predicate: [{"not": "condition:encumbered"}, {"or": ["feat:invulnerable-rager", {"not": "armor:category:heavy"}]}]
   "Quickened Casting":
     from: "feat"
     type: "free"
@@ -4711,6 +5273,18 @@ pf2e_actions:
     traits: ["barbarian", "concentrate", "emotion", "mental"]
     self_effect: "Effect: Rage"
     description: "Requirements You aren't Fatigued or raging.%rYou tap into your inner fury and begin raging. You gain a number of temporary Hit Points equal to your level plus your Constitution modifier. While you are raging:%rYou deal 2 additional damage on melee Strikes. This additional damage is halved if your weapon or unarmed attack is agile. You can't use actions with the concentrate trait unless they also have the rage trait. You can Seek while raging.%rRage lasts for 1 minute, until you fall Unconscious, or until the encounter ends, whichever comes first. You can't voluntarily stop raging. When you stop raging, you lose any remaining temporary Hit Points from Rage, and can't gain temporary Hit Points from using the Rage action again for 1 minute.%rEffect: Rage Temporary Hit Points Immunity"
+    rules:
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        value: 2
+        slug: "rage"
+        predicate: ["self:effect:rage", {"or": [{"not": "item:ranged"}, {"and": ["feat:raging-thrower", "item:thrown"]}]}]
+      - key: "AdjustModifier"
+        mode: "multiply"
+        selector: "strike-damage"
+        value: 0.5
+        slug: "rage"
+        predicate: ["item:trait:agile"]
   "Raise Menhir":
     from: "feat"
     type: "action"
@@ -4825,6 +5399,15 @@ pf2e_actions:
     traits: ["fortune"]
     frequency: {"max": 1, "per": "PT1H"}
     description: "Frequency once per hour%rTrigger You fail to Lie to a creature in public%rEffect As your target sees through your lie, you spin your falsehood in a way that utilizes the crowd's reaction to bolster believability. Re-roll your Deception check to Lie with a +2 status bonus and use this check's result as the actual result to Lie."
+    rules:
+      - key: "RollOption"
+        option: "reactive-falsehood"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "deception"
+        type: "status"
+        value: 2
+        predicate: ["reactive-falsehood"]
   "Reactive Interference":
     from: "feat"
     type: "reaction"
@@ -4885,6 +5468,14 @@ pf2e_actions:
     category: "offensive"
     traits: ["manipulate"]
     description: "You arrange your bones into the form of a Small or Medium humanoid's skeleton. This doesn't change your normal Speeds, Strikes, or senses. If you are wearing heavy clothing or impersonating a skeleton, this counts as setting up a disguise for the Impersonate use of Deception and grants a +1 status bonus to those Deception checks."
+    rules:
+      - key: "RollOption"
+        option: "rearrange-bones"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Small", "value": "small"}, {"label": "Medium", "value": "medium"}]
+      - key: "CreatureSize"
+        value: "{item|flags.system.rulesSelections.rearrangeBones}"
   "Reason Rapidly":
     from: "feat"
     type: "action"
@@ -5129,6 +5720,23 @@ pf2e_actions:
     category: "defensive"
     traits: []
     description: "Trigger You attempt a saving throw against a magical effect but haven't rolled yet%rYour ancestral resistance to magic protects you. You gain a +1 circumstance bonus to the triggering saving throw. If the triggering effect is arcane, you gain a +2 circumstance bonus instead."
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        slug: "resist-elf-magic"
+        predicate: ["resist-elf-magic", {"or": ["magical", "divine", "primal", "occult"]}]
+      - key: "AdjustModifier"
+        mode: "add"
+        selector: "saving-throw"
+        value: 1
+        slug: "resist-elf-magic"
+        predicate: ["item:trait:arcane"]
+      - key: "RollOption"
+        option: "resist-elf-magic"
+        domain: "saving-throw"
+        toggleable: true
   "Resist Magic":
     from: "action"
     for: "ancestry"
@@ -5136,6 +5744,19 @@ pf2e_actions:
     category: "defensive"
     traits: []
     description: "Trigger You attempt a saving throw against a harmful magical effect but haven't rolled yet.%rYour innate magic protects you. You gain a +1 circumstance bonus to the triggering saving throw. Additionally, if the triggering effect is arcane, if you roll a success, you get a critical success instead."
+    rules:
+      - key: "RollOption"
+        option: "resist-magic"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["resist-magic", "item:magical"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "saving-throw"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["resist-magic", "item:trait:arcane"]
   "Resounding Blow":
     from: "feat"
     type: "action"
@@ -5196,6 +5817,11 @@ pf2e_actions:
     category: "offensive"
     traits: ["champion", "divine"]
     description: "Trigger An enemy damages your ally, and both are in your champion's aura%rEffect You protect your ally and strike your enemy. The ally gains resistance to all damage against the triggering damage equal to 2 + your level. If the enemy is within reach, make a melee Strike against it.%rEffect: Champion's Resistance"
+    rules:
+      - key: "RollOption"
+        option: "retributive-strike"
+        toggleable: true
+        predicate: [{"or": ["feature:relentless-reaction", "feat:shining-oath", "feat:fiendsbane-oath", "feat:dragonslayer-oath", "feat:esoteric-oath"]}]
   "Revealing Stab":
     from: "feat"
     type: "action"
@@ -5255,6 +5881,12 @@ pf2e_actions:
     category: "offensive"
     traits: ["sonic", "spirit", "transcendence"]
     description: "You clang your ikon against a weapon, shield, or the ground, emitting a shock wave that deals (max(1,(floor((@actor.level - 2)/2))))d4 spirit,(max(1,(floor((@actor.level - 2)/2))))d4 sonic|options:area-damage damage to all creatures in a 30-foot cone or 15-foot emanation (Fortitude save). A creature that critically fails its saving throw is Deafened for 1 minute.%rAt 6th level and every 2 levels thereafter, the damage increases by 1d4 spirit damage and 1d4 sonic damage."
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "other-tags"
+        mode: "add"
+        value: "exemplar-spirit-damage"
   "Roaring Charge":
     from: "action"
     for: "class"
@@ -5593,6 +6225,12 @@ pf2e_actions:
     category: "interaction"
     traits: ["concentrate", "scrying", "summoner"]
     description: "Requirements Your eidolon is manifested.%rYou project your senses into your eidolon, allowing you to perceive through it. When you do, you lose all sensory information from your own body, but can sense through your eidolon's body for up to 1 minute. You can Dismiss this effect.%rSpecial This action has the trait matching your eidolon's tradition (arcane, divine, occult, or primal). Your eidolon can also use this ability. When it does, it projects its senses into your body."
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|flags.system.eidolon.tradition}"
   "Share Tincture":
     from: "feat"
     type: "action"
@@ -5678,6 +6316,11 @@ pf2e_actions:
     traits: ["divine", "exemplar"]
     frequency: {"max": 1, "per": "round"}
     description: "Frequency once per round%rYou shift your power, filling one of your ikons with your divine spark. That ikon softly glows with radiant light, emits subtle chimes as it moves, or is otherwise obviously empowered in a way that matches your growing divinity, granting the ikon the divine trait and granting you that ikon's immanence effects for as long as your divine spark is empowering it. Your spark is indivisible, so it can empower only one ikon at a time. You can also Shift Immanence to return your spark to the depths of your soul, leaving none of your ikons empowered.%rSpecial In addition to the above usage, you can also Shift Immanence as a free action triggered when you roll initiative."
+    rules:
+      - key: "Note"
+        selector: "initiative"
+        title: "{item|name}"
+        text: "You can also Shift Immanence as a free action triggered when you roll initiative."
   "Shift Spell":
     from: "action"
     for: "archetype"
@@ -5715,6 +6358,16 @@ pf2e_actions:
     traits: ["concentrate", "eidolon"]
     frequency: {"max": 1, "per": "PT1M"}
     description: "Frequency once per minute%rRequirements Your eidolon is dispersed.%rYour eidolon focuses on inflicting the most damage possible on its foes. If your eidolon's next action is to use Swarming Assault, the number of damage dice of the Swarming Assault are doubled. Additionally, creatures that fail their Reflex save against that Swarming Assault are Sickened 2 (Sickened 4 on a critical failure)."
+    rules:
+      - key: "RollOption"
+        option: "sickening-assault"
+        toggleable: true
+      - key: "DamageAlteration"
+        property: "dice-number"
+        mode: "multiply"
+        selectors: ["swarming-assault-inline-damage"]
+        value: 2
+        predicate: ["sickening-assault"]
   "Sidestep":
     from: "feat"
     type: "reaction"
@@ -5735,6 +6388,15 @@ pf2e_actions:
     category: "offensive"
     traits: ["gunslinger"]
     description: "Requirements You're wielding a firearm that has the kickback or scatter trait, or a two-handed crossbow.%rWith unbelievable force, you charge and smash your weapon into a target before digging in your heels and pulling the trigger. Leap or Stride, then make a Strike with the required firearm or crossbow against an adjacent target. This Strike deals an additional 3d8 bludgeoning damage and ignores 10 points of the target's Hardness (if any), or of their shield's Hardness if the target uses Shield Block.%rAfter the Strike, you become Immobilized and position the required weapon defensively, as the parry trait, gaining a +1 circumstance bonus to AC, or a +2 circumstance bonus if the chosen weapon has the parry trait. Both effects last until the start of your next turn. If a force would move you while you're immobilized in this way, it must succeed at an appropriate check against your class DC."
+    rules:
+      - key: "RollOption"
+        option: "siegebreaker-damage"
+        toggleable: true
+      - key: "DamageDice"
+        selector: ["firearm-weapon-group-damage", "crossbow-weapon-group-damage"]
+        diceNumber: 3
+        dieSize: "d8"
+        predicate: ["siegebreaker-damage", {"or": [{"and": ["item:group:firearm", {"or": ["item:trait:scatter", "item:trait:kickback"]}]}, {"and": ["item:group:crossbow", "item:usage:hands:2"]}]}]
   "Silencing Strike":
     from: "feat"
     type: "action"
@@ -5987,6 +6649,18 @@ pf2e_actions:
     category: "offensive"
     traits: []
     description: "Trigger You fail a Reflex or Will saving throw%rEffect You reroll the triggering saving throw. You must use the second result, even if it's worse. If you roll a success, you get a critical success instead."
+    rules:
+      - key: "RollOption"
+        option: "spiritual-aid"
+        toggleable: true
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["spiritual-aid"]
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["spiritual-aid"]
   "Spiritual Guides":
     from: "feat"
     type: "reaction"
@@ -6001,6 +6675,16 @@ pf2e_actions:
     traits: ["concentrate"]
     frequency: {"max": 1, "per": "day"}
     description: "Frequency once per day%rTrigger You would take spirit damage from a fiend%rEffect You gain resistance to spirit damage equal to twice your level plus your Charisma modifier against the triggering damage. If this resistance prevents you from taking any damage at all, the spiritual backlash against the fiend who attempted to damage you forces them to attempt a Will save against your class DC to avoid being Slowed 1 for one round."
+    rules:
+      - key: "RollOption"
+        option: "spiritual-scar"
+        toggleable: true
+      - key: "Resistance"
+        definition: ["origin:trait:fiend", "damage:type:spirit"]
+        type: "custom"
+        value: "@actor.abilities.cha.mod + 2*@actor.level"
+        label: "spirit damage from fiends"
+        predicate: ["spiritual-scar"]
   "Spit Ambient Magic":
     from: "action"
     for: "archetype"
@@ -6049,6 +6733,11 @@ pf2e_actions:
     category: "interaction"
     traits: ["gunslinger"]
     description: "Trigger You roll initiative.%rYou can Interact to draw a combination weapon and set it to melee or ranged mode. On your first turn, your movement and ranged attacks don't trigger reactions that are normally triggered by movement or a ranged attack (such as Attack of Opportunity)."
+    rules:
+      - key: "Note"
+        selector: "initiative"
+        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        text: "{item|system.description.value}"
   "Squawk!":
     from: "feat"
     type: "reaction"
@@ -6348,6 +7037,17 @@ pf2e_actions:
     category: "offensive"
     traits: ["eidolon"]
     description: "Requirements Your eidolon is dispersed.%rYour eidolon swarms over each creature occupying its space, biting, pecking, clawing, or making similar attacks with its component bodies. It deals (ceil(@actor.level / 2))d6|options:area-damage damage to each creature in the area, with a Reflex save against your spell DC. You choose each time your eidolon uses Swarming Assault whether it deals piercing or slashing damage. Your eidolon then can't use Swarming Assault again for the next 1d4 rounds.%rAt 3rd level and every 2 levels thereafter, the damage increases by 1d6."
+    rules:
+      - key: "RollOption"
+        option: "swarming-assault"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Piercing", "value": "piercing"}, {"label": "Slashing", "value": "slashing"}]
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["{item|id}-inline-damage"]
+        value: "{item|flags.system.rulesSelections.swarmingAssault}"
   "Swift Banishment":
     from: "feat"
     type: "reaction"
@@ -6563,6 +7263,20 @@ pf2e_actions:
     category: "offensive"
     traits: ["gunslinger"]
     description: "Trigger You roll initiative.%rYou react to trouble with lightning speed, positioning yourself just right. You gain a +2 circumstance bonus to your initiative roll, and you can Interact to draw a one-handed firearm or one-handed crossbow. As your first action on your first turn, you can Step up to 10 feet as a free action."
+    rules:
+      - key: "RollOption"
+        option: "ten-paces"
+        domain: "initiative"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "initiative"
+        type: "circumstance"
+        value: 2
+        predicate: ["ten-paces"]
+      - key: "Note"
+        selector: "initiative"
+        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        text: "{item|description}"
   "Tenacious Stance":
     from: "action"
     for: "archetype"
@@ -6580,6 +7294,10 @@ pf2e_actions:
     category: "offensive"
     traits: ["eidolon"]
     description: "Stretching to extend their body to its limits, your eidolon attacks a foe that would normally be beyond their reach. Your eidolon makes a melee unarmed Strike, increasing their reach by 5 feet for that Strike. If the unarmed attack has the disarm, shove, or trip trait, the eidolon can use the corresponding action instead of a Strike."
+    rules:
+      - key: "RollOption"
+        option: "tendril-strike"
+        toggleable: true
   "Terrifying Howl":
     from: "feat"
     type: "action"
@@ -6677,6 +7395,35 @@ pf2e_actions:
     category: "defensive"
     traits: []
     description: "Trigger You are targeted by a Strike%rEffect You dart aside, gaining a +1 circumstance bonus to AC, then Step after the Strike resolves."
+    rules:
+      - key: "RollOption"
+        option: "timely-dodge"
+        domain: "ac"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "ac"
+        type: "circumstance"
+        value: 1
+        slug: "timely-dodge"
+        predicate: ["timely-dodge"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "ac"
+        value: 2
+        slug: "timely-dodge"
+        predicate: ["parent:granter:slug:effect-prey-mutagen-moderate"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "ac"
+        value: 3
+        slug: "timely-dodge"
+        predicate: ["parent:granter:prey-mutagen:prey-mutagen-greater"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "ac"
+        value: 4
+        slug: "timely-dodge"
+        predicate: ["parent:granter:prey-mutagen:prey-mutagen-major"]
   "Topple the Pillar of Heaven":
     from: "action"
     for: "class"
@@ -6970,6 +7717,15 @@ pf2e_actions:
     traits: []
     self_effect: "Effect: Unwavering Resilience"
     description: "Trigger You attempt a saving throw against a poison, disease, or mental effect, but you haven't rolled yet.%rYou tap into the power of the Plane of Wood, gaining strength and mental fortitude. You gain a +1 circumstance bonus on the triggering save. If you critically succeed at this saving throw, you become bolstered by your success; blossoms and new growth temporarily sprout all over your body, and you gain a number of temporary Hit Point equal to your level. These temporary Hit Points last for one minute. When there temporary Hit Points are lost, the verdant growth subsides."
+    rules:
+      - key: "RollOption"
+        option: "unwavering-resilience"
+        toggleable: true
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "circumstance"
+        value: 1
+        predicate: ["unwavering-resilience"]
   "Upstage":
     from: "action"
     for: "archetype"
@@ -7049,6 +7805,20 @@ pf2e_actions:
     category: "offensive"
     traits: ["gunslinger"]
     description: "Your careful shot against an unsuspecting opponent pierces a vital artery or organ. Make a ranged Strike. If the target is Off-Guard, the Strike deals an extra die of weapon damage, and the foe takes persistent bleed damage equal to the amount of precision damage from your One Shot, One Kill."
+    rules:
+      - key: "RollOption"
+        option: "vital-shot"
+        toggleable: true
+      - key: "DamageDice"
+        selector: "ranged-strike-damage"
+        diceNumber: 1
+        predicate: ["vital-shot", "target:condition:off-guard"]
+      - key: "DamageDice"
+        selector: "ranged-strike-damage"
+        diceNumber: "ternary(gte(@actor.level,15),3,ternary(gte(@actor.level,9),2,1))"
+        dieSize: "d6"
+        damageType: "bleed"
+        predicate: ["vital-shot", "target:condition:off-guard"]
   "Vivacious Bravado":
     from: "feat"
     type: "action"

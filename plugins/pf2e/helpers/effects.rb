@@ -65,7 +65,8 @@ module AresMUSH
 
       def self.sheet_sources(char)
         SheetReads.memo(char, :effect_sources) do
-          conditions(char) + feats(char) + features(char) + items(char) + runes(char) + ActiveEffects.sources(char)
+          conditions(char) + feats(char) + features(char) + actions(char) + items(char) + runes(char) +
+            ActiveEffects.sources(char)
         end
       end
 
@@ -269,9 +270,14 @@ module AresMUSH
         end.compact
       end
 
-      # A class feature's rules, from `pf2e_class_features.yml`, as a feat's are.
+      # A class feature's rules, from `pf2e_class_features.yml`, as a feat's are, and the character's
+      # subclass's - a barbarian's instinct, a ranger's hunter's edge - which the catalogue files under the
+      # class and subclass it is.
       def self.features(char)
-        (char.pf2_features || {}).values.flatten.map { |one| feature_named(one.to_s) }.uniq.map do |name|
+        named = (char.pf2_features || {}).values.flatten.map { |one| feature_named(one.to_s) }
+        names = (named + [ subclass_named(char) ]).compact.uniq
+
+        names.map do |name|
           info = Global.read_config('pf2e_class_features', name)
 
           next nil unless info.is_a?(Hash) && info['rules']
@@ -280,6 +286,30 @@ module AresMUSH
 
           with_selections(char, built)
         end.compact
+      end
+
+      def self.subclass_named(char)
+        info = char.pf2_base_info || {}
+
+        return nil if info['specialize'].to_s.empty?
+
+        (Global.read_config('pf2e_class_features') || {}).find do |_name, entry|
+          entry.is_a?(Hash) && entry['charclass'] == info['charclass'] && entry['subclass'] == info['specialize']
+        end&.first
+      end
+
+      # The rules of an action the character has of their own - Rage's +2 to melee damage while raging.
+      # The basic actions everyone has are not anyone's to carry rules for.
+      def self.actions(char)
+        held = ((char.pf2_feats || {}).values.flatten + (char.pf2_features || {}).values.flatten +
+                (char.respond_to?(:pf2_actions) ? (char.pf2_actions || {}).values_at('actions', 'reactions').flatten.compact : []))
+               .map { |one| Domains.slug(feature_named(one.to_s)) }
+
+        (Global.read_config('pf2e_actions') || {}).filter_map do |name, entry|
+          next nil unless entry.is_a?(Hash) && entry['rules'] && entry['for'] != 'everyone' && held.include?(Domains.slug(name))
+
+          with_selections(char, source(name, entry['rules'], 'id' => Domains.slug(name), 'item' => { 'level' => char.pf2_level.to_i }))
+        end
       end
 
       # A class feature as the class tables grant it carries what it amounts to at that level - "Sneak

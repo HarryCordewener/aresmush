@@ -82,6 +82,35 @@ module AresMUSH
         encounter.delete
       end
 
+      # Rage's +2 is the Rage action's own rule, while the barbarian rages; an instinct raises it.
+      describe "a barbarian's rage" do
+        before(:each) do
+          char.update(:pf2_base_info => { 'charclass' => 'Barbarian', 'specialize' => 'Fury' },
+                      :pf2_features => { 'charclass_features' => [ 'Rage', 'Instinct' ] })
+          Paths.apply_all!(char)
+        end
+
+        def rage_bonus(weapon)
+          Damage.of(char, attack(weapon))['instances'].first['sources'].count { |one| one.to_s.match?(/rage/i) }
+        end
+
+        def damage_of(weapon)
+          instance = Damage.of(char, attack(weapon))['instances'].first
+
+          instance['modifier']
+        end
+
+        it "should add nothing while they are not raging" do
+          expect(Damage.of(char, attack('Longsword'))['formula']).to eq '1d8+3 S'
+        end
+
+        it "should add the instinct's rage damage to a melee Strike while they rage" do
+          ActiveEffects.apply(char, 'Effect: Rage')
+
+          expect(Damage.of(char, attack('Longsword'))['formula']).to eq '1d8+6 S'
+        end
+      end
+
       it "should add more dice at a higher level, as the feature's own rule says" do
         char.update(:pf2_level => 5)
         Paths.apply_all!(char)

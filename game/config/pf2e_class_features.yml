@@ -1,47 +1,353 @@
 ---
-# A class feature's rule elements, from Foundry's class-features pack, written by
-# scripts/import_foundry_rules.py. An entry is a feature some class or specialty grants.
+# A class feature's or subclass's rule elements, from Foundry's class-features pack, written
+# by scripts/import_foundry_rules.py. An entry is a feature some class or specialty grants, or a
+# subclass, which says whose it is.
 pf2e_class_features:
-  Abundant Vials:
+  "Abundant Vials":
     pack: "class-features"
     rules:
       - key: "GrantItem"
         uuid: "Compendium.pf2e.conditionitems.Item.Quickened"
         inMemoryOnly: true
-  Adamantine Strikes:
+  "Adamantine Strikes":
     pack: "class-features"
-  Advanced Vials:
+  "Advanced Vials":
     pack: "class-features"
-  Agile Mind:
+  "Agile Mind":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Alchemical Weapon Expertise:
+  "Alchemical Sciences Methodology":
+    pack: "class-features"
+    charclass: "Investigator"
+    subclass: "Alchemical Sciences"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.crafting.rank"
+        mode: "upgrade"
+        value: 1
+  "Alchemical Weapon Expertise":
     pack: "class-features"
     rules:
       - key: "ActiveEffectLike"
         path: "system.proficiencies.attacks.weapon-base-alchemical-bomb.rank"
         mode: "upgrade"
         value: 2
-  Alchemical Weapon Mastery:
+  "Alchemical Weapon Mastery":
     pack: "class-features"
     rules:
       - key: "ActiveEffectLike"
         path: "system.proficiencies.attacks.weapon-base-alchemical-bomb.rank"
         mode: "upgrade"
         value: 3
-  Arcane Bond:
+  "Ancestors":
     pack: "class-features"
-  Arcane Thesis:
+    charclass: "Oracle"
+    subclass: "Ancestors"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.society.rank"
+        mode: "upgrade"
+        value: 1
+  "Animal Instinct":
+    pack: "class-features"
+    charclass: "Barbarian"
+    subclass: "Animal"
+    rules:
+      - key: "ChoiceSet"
+        rollOption: "animal-instinct"
+        prompt: "Select an animal."
+        choices: [{"label": "Ankylosaurus", "value": "ankylosaurus"}, {"label": "Ant", "value": "ant"}, {"label": "Ape", "value": "ape"}, {"label": "Bat", "value": "bat"}, {"label": "Bear", "value": "bear"}, {"label": "Bird", "value": "bird"}, {"label": "Brontosaurus", "value": "brontosaurus"}, {"label": "Bull", "value": "bull"}, {"label": "Cat", "value": "cat"}, {"label": "Crab", "value": "crab"}, {"label": "Crocodile", "value": "crocodile"}, {"label": "Deer", "value": "deer"}, {"label": "Frog", "value": "frog"}, {"label": "Orca", "value": "orca"}, {"label": "Scorpion", "value": "scorpion"}, {"label": "Seal", "value": "seal"}, {"label": "Shark", "value": "shark"}, {"label": "Snake", "value": "snake"}, {"label": "Spider", "value": "spider"}, {"label": "Tyrannosaurus", "value": "tyrannosaurus"}, {"label": "Wasp", "value": "wasp"}, {"label": "Wolf", "value": "wolf"}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "{item|_id}-damage"
+        value: 5
+        slug: "rage"
+        predicate: ["class:barbarian", {"gte": ["self:level", 7]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "{item|_id}-damage"
+        value: 12
+        slug: "rage"
+        predicate: ["class:barbarian", "feature:greater-weapon-specialization"]
+      - key: "Resistance"
+        type: ["piercing", "slashing"]
+        value: "@actor.flags.system.ragingResistance"
+        predicate: ["self:effect:rage", "feature:raging-resistance"]
+      - key: "DamageDice"
+        selector: "{item|_id}-damage"
+        override: {"upgrade": true}
+        predicate: [{"gte": ["self:level", 7]}, {"not": "feat:barbarian-dedication"}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "fist"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d10"}}
+        traits: ["grapple", "unarmed"]
+        slug: "instinct-fist"
+        label: "Fist"
+        predicate: ["animal-instinct:ape", "self:effect:rage", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "jaws"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed"]
+        slug: "instinct-jaws"
+        label: "Jaws"
+        predicate: ["self:effect:rage", {"or": ["animal-instinct:bear", "animal-instinct:cat"]}, {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "jaws"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d10"}}
+        traits: ["unarmed"]
+        slug: "instinct-jaws"
+        label: "Jaws"
+        predicate: ["self:effect:rage", "animal-instinct:frog", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "jaws"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "trip"]
+        slug: "instinct-jaws"
+        label: "Jaws"
+        predicate: ["self:effect:rage", "animal-instinct:wolf", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "claw"
+        damage: {"base": {"damageType": "slashing", "dice": 1, "die": "d6"}}
+        traits: ["unarmed", "agile"]
+        slug: "instinct-claw"
+        label: "Claw"
+        predicate: ["self:effect:rage", {"or": ["animal-instinct:bear", "animal-instinct:cat"]}, {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "shove"]
+        slug: "instinct-horn"
+        label: "Horn"
+        predicate: ["self:effect:rage", "animal-instinct:bull", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "grapple"]
+        slug: "instinct-antler"
+        label: "Antler"
+        predicate: ["self:effect:rage", "animal-instinct:deer", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d6"}}
+        traits: ["unarmed", "agile"]
+        slug: "instinct-tongue"
+        label: "Tongue"
+        predicate: ["self:effect:rage", "animal-instinct:frog", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        baseType: "jaws"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "grapple"]
+        slug: "instinct-jaws"
+        label: "Jaws"
+        predicate: ["self:effect:rage", "animal-instinct:shark", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "grapple"]
+        slug: "instinct-fangs"
+        label: "Fangs"
+        predicate: ["self:effect:rage", "animal-instinct:snake", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "razing"]
+        slug: "instinct-tail"
+        label: "Tail"
+        predicate: ["self:effect:rage", "animal-instinct:ankylosaurus", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "grapple"]
+        slug: "instinct-mandibles"
+        label: "Mandibles"
+        predicate: ["self:effect:rage", "animal-instinct:ant", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed"]
+        slug: "instinct-fangs"
+        label: "Fangs"
+        predicate: ["self:effect:rage", "animal-instinct:bat", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d4"}}
+        traits: ["unarmed", "parry"]
+        slug: "instinct-wing"
+        label: "Wing"
+        predicate: ["self:effect:rage", "animal-instinct:bat", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed"]
+        slug: "instinct-beak"
+        label: "Beak"
+        predicate: ["self:effect:rage", "animal-instinct:bird", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "slashing", "dice": 1, "die": "d6"}}
+        traits: ["unarmed", "agile"]
+        slug: "instinct-talon"
+        label: "Talon"
+        predicate: ["self:effect:rage", "animal-instinct:bird", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "trip"]
+        slug: "instinct-tail"
+        label: "Tail"
+        predicate: ["self:effect:rage", "animal-instinct:brontosaurus", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "razing"]
+        slug: "instinct-big-claw"
+        label: "Big Claw"
+        predicate: ["self:effect:rage", "animal-instinct:crab", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "slashing", "dice": 1, "die": "d4"}}
+        traits: ["unarmed", "parry"]
+        slug: "instinct-claw"
+        label: "Claw"
+        predicate: ["self:effect:rage", "animal-instinct:crab", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed"]
+        slug: "instinct-jaws"
+        label: "Jaws"
+        predicate: ["self:effect:rage", "animal-instinct:crocodile", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d6"}}
+        traits: ["unarmed", "agile"]
+        slug: "instinct-tail"
+        label: "Tail"
+        predicate: ["self:effect:rage", "animal-instinct:crocodile", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d8"}}
+        traits: ["unarmed", "forceful"]
+        slug: "instinct-jaws"
+        label: "Jaws"
+        predicate: ["self:effect:rage", "animal-instinct:orca", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d6"}}
+        traits: ["unarmed", "venomous", "reach"]
+        slug: "instinct-stinger"
+        label: "Stinger"
+        predicate: ["self:effect:rage", "animal-instinct:scorpion", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "slashing", "dice": 1, "die": "d4"}}
+        traits: ["unarmed", "parry"]
+        slug: "instinct-pincer"
+        label: "Pincer"
+        predicate: ["self:effect:rage", "animal-instinct:scorpion", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d10"}}
+        traits: ["unarmed", "grapple"]
+        slug: "instinct-jaws"
+        label: "Jaws"
+        predicate: ["self:effect:rage", "animal-instinct:seal", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d8"}}
+        traits: ["unarmed", "grapple", "venomous"]
+        slug: "instinct-fangs"
+        label: "Fangs"
+        predicate: ["self:effect:rage", "animal-instinct:spider", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Note"
+        selector: "instinct-web-attack-roll"
+        title: "Spider"
+        text: "The spider's web attack deals no damage, but the target takes a \u201310-foot circumstance penalty to its Speeds for 1 round on a hit.%rtCMVyxQhzYCjBQtK%rIf a target is hit a second time by the same character's web attack while they have this penalty, they're instead Immobilized until they succeed at a check to Escape against your class DC."
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d8"}}
+        traits: ["unarmed", "deadly-d12"]
+        slug: "instinct-jaws"
+        label: "Jaws"
+        predicate: ["self:effect:rage", "animal-instinct:tyrannosaurus", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "bludgeoning", "dice": 1, "die": "d6"}}
+        traits: ["unarmed", "agile"]
+        slug: "instinct-tail"
+        label: "Tail"
+        predicate: ["self:effect:rage", "animal-instinct:tyrannosaurus", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Strike"
+        category: "unarmed"
+        group: "brawling"
+        damage: {"base": {"damageType": "piercing", "dice": 1, "die": "d4"}}
+        traits: ["unarmed", "backstabber", "deadly-d8", "venomous"]
+        slug: "instinct-stinger"
+        label: "Pincer"
+        predicate: ["self:effect:rage", "animal-instinct:wasp", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "other-tags"
+        mode: "add"
+        value: "instinct-unarmed-strike"
+        predicate: ["item:id:{item|id}"]
+  "Animal Order":
+    pack: "class-features"
+    charclass: "Druid"
+    subclass: "Animal"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.athletics.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "feat:order-explorer:animal-order"}]
+  "Arcane Bond":
+    pack: "class-features"
+  "Arcane Thesis":
     pack: "class-features"
     rules:
       - key: "ChoiceSet"
         flag: "arcaneThesis"
         prompt: "Select an arcane thesis."
         choices: {"filter": ["item:tag:wizard-arcane-thesis"]}
-  Armor Expertise:
+  "Armor Expertise":
     pack: "class-features"
     rules:
       - key: "Resistance"
@@ -84,7 +390,7 @@ pf2e_class_features:
         type: "critical-hits"
         value: "6 + @armor.system.runes.potency"
         predicate: ["armor:category:heavy", "armor:group:chain"]
-  Armor Mastery:
+  "Armor Mastery":
     pack: "class-features"
     rules:
       - key: "ActiveEffectLike"
@@ -92,7 +398,7 @@ pf2e_class_features:
         mode: "upgrade"
         value: 3
         predicate: [{"not": "class:barbarian"}]
-  Assured Evasion:
+  "Assured Evasion":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
@@ -104,18 +410,46 @@ pf2e_class_features:
         title: "{item|name}"
         text: "When you roll a failure on a Reflex save against a damaging effect, you take half damage."
         predicate: ["damaging-effect"]
-  Bard Weapon Expertise:
+  "Bard Weapon Expertise":
     pack: "class-features"
     rules:
       - key: "CriticalSpecialization"
         predicate: [{"gte": ["item:proficiency:rank", 2]}, {"or": ["courageous-anthem:origin:signature:{actor|signature}", "hymn-of-healing:origin:signature:{actor|signature}", "silvers-refrain:origin:signature:{actor|signature}", "song-of-strength:origin:signature:{actor|signature}", "uplifting-overture:origin:signature:{actor|signature}", "rallying-anthem:origin:signature:{actor|signature}", "triple-time:origin:signature:{actor|signature}"]}]
-  Battle Hardened:
+  "Battle":
+    pack: "class-features"
+    charclass: "Oracle"
+    subclass: "Battle"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.athletics.rank"
+        mode: "upgrade"
+        value: 1
+  "Battle Hardened":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "fortitude"
         adjustment: {"success": "to-critical-success"}
-  Battlefield Surveyor:
+  "Battledancer":
+    pack: "class-features"
+    charclass: "Swashbuckler"
+    subclass: "Battledancer"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.performance.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "Note"
+        selector: "strike-attack-roll"
+        outcome: ["success", "criticalSuccess"]
+        title: "Exemplary Finisher"
+        text: "You can Step as a free action immediately after the finisher."
+        predicate: ["finisher", "feature:exemplary-finisher"]
+      - key: "RollOption"
+        option: "item:trait:bravado"
+        domain: "skill-check"
+        predicate: ["action:perform"]
+  "Battlefield Surveyor":
     pack: "class-features"
     rules:
       - key: "FlatModifier"
@@ -123,19 +457,392 @@ pf2e_class_features:
         type: "circumstance"
         value: 2
         predicate: ["perception"]
-  Bravery:
+  "Bloodline: Aberrant":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Aberrant"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.intimidation.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.occultism.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Eerie-Veil", "predicate": ["class:sorcerer"], "value": "aberrant"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Eerie-Veil", "value": "aberrant"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:occult"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bloodline: Angelic":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Angelic"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.diplomacy.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Divine Aura", "predicate": ["class:sorcerer"], "value": "angelic"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Divine Aura", "value": "angelic"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:divine"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bloodline: Demonic":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Demonic"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.intimidation.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolutionn"}]
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Corruption of Sin", "predicate": ["class:sorcerer"], "value": "demonic"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Corruption of Sin", "value": "demonic"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:divine"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bloodline: Diabolic":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Diabolic"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.deception.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Tongue of Flame", "predicate": ["class:sorcerer"], "value": "diabolic"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Tongue of Flame", "value": "diabolic"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:divine"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bloodline: Draconic":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Draconic"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.intimidation.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.dragonBloodline.skill}.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "feature:bloodline:draconic:{item|flags.system.rulesSelections.dragonBloodline.slug}"
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Scaly Hide", "predicate": ["class:sorcerer"], "value": "draconic"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Scaly Hide", "value": "draconic"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:{item|flags.system.rulesSelections.dragonBloodline.tradition}"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bloodline: Elemental":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Elemental"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.intimidation.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.nature.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "feature:bloodline:elemental:{item|flags.system.rulesSelections.elementalBloodline.slug}"
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Elemental Fury", "predicate": ["class:sorcerer"], "value": "elemental"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Elemental Fury", "value": "elemental"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:primal"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["spell-damage"]
+        value: "{item|flags.system.rulesSelections.elementalBloodline.damageType}"
+        slug: "base"
+        predicate: [{"or": ["item:slug:elemental-toss", "item:slug:elemental-blast"]}]
+  "Bloodline: Fey":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Fey"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.deception.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.nature.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Cloak of Ribbons", "predicate": ["class:sorcerer"], "value": "fey"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Cloak of Ribbons", "value": "fey"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:primal"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bloodline: Hag":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Hag"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.deception.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.occultism.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Retributive Spite", "predicate": ["class:sorcerer"], "value": "hag"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Retributive Spite", "value": "hag"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:occult"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bloodline: Imperial":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Imperial"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.arcana.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.society.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Imperious Defense", "predicate": ["class:sorcerer"], "value": "imperial"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Imperious Defense", "value": "imperial"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:arcane"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bloodline: Undead":
+    pack: "class-features"
+    charclass: "Sorcerer"
+    subclass: "Undead"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.intimidation.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.religion.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+      - key: "RollOption"
+        option: "blood-magic"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Stolen Life", "predicate": ["class:sorcerer"], "value": "undead"}]
+        label: "Blood Magic"
+      - key: "RollOption"
+        option: "second-blood-magic"
+        toggleable: true
+        suboptions: [{"label": "Stolen Life", "value": "undead"}]
+        label: "Second Blood Magic"
+        predicate: [{"or": ["feat:blood-ascendancy", "feat:blood-sovereignty"]}]
+      - key: "RollOption"
+        option: "feature:bloodline:tradition:divine"
+        predicate: [{"not": "parent:granter:slug:crossblooded-evolution"}]
+  "Bomber":
+    pack: "class-features"
+    charclass: "Alchemist"
+    subclass: "Bomber"
+    rules:
+      - key: "Note"
+        selector: "strike-damage"
+        title: "{item|name}"
+        text: "When throwing an alchemical bomb with the splash trait, you can choose to deal splash damage to only your primary target instead of the usual splash area."
+        predicate: ["item:trait:alchemical", "item:trait:bomb", "item:trait:splash"]
+      - key: "RollOption"
+        option: "bomber-field-vials"
+        toggleable: true
+        suboptions: [{"label": "Cold", "value": "cold"}, {"label": "Electricity", "value": "electricity"}, {"label": "Fire", "value": "fire"}]
+        label: "Field Vials \u2014 Alter Versatile Vials Damage"
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "damage-type"
+        mode: "override"
+        value: "{item|flags.system.rulesSelections.bomberFieldVials}"
+        predicate: ["bomber-field-vials", "item:slug:versatile-vial"]
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "traits"
+        mode: "add"
+        value: "{item|flags.system.rulesSelections.bomberFieldVials}"
+        predicate: ["bomber-field-vials", "item:slug:versatile-vial"]
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "traits"
+        mode: "remove"
+        value: "acid"
+        predicate: ["bomber-field-vials", "item:slug:versatile-vial"]
+  "Bones":
+    pack: "class-features"
+    charclass: "Oracle"
+    subclass: "Bones"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.medicine.rank"
+        mode: "upgrade"
+        value: 1
+  "Braggart":
+    pack: "class-features"
+    charclass: "Swashbuckler"
+    subclass: "Braggart"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.intimidation.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: ["class:swashbuckler"]
+      - key: "Note"
+        selector: "strike-attack-roll"
+        outcome: ["success", "criticalSuccess"]
+        title: "Exemplary Finisher"
+        text: "If the foe was temporarily immune to your Demoralize, their temporary immunity ends."
+        predicate: ["finisher", "feature:exemplary-finisher"]
+      - key: "RollOption"
+        option: "item:trait:bravado"
+        domain: "skill-check"
+        predicate: ["action:demoralize"]
+  "Bravery":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
         predicate: ["item:trait:fear"]
-  Brutality:
+  "Brutality":
     pack: "class-features"
     rules:
       - key: "CriticalSpecialization"
         predicate: ["self:effect:rage", "item:melee"]
-  Champion's Aura:
+  "Champion's Aura":
     pack: "class-features"
     rules:
       - key: "RollOption"
@@ -150,15 +857,28 @@ pf2e_class_features:
         radius: "@actor.flags.system.champion.aura"
         slug: "champions-aura"
         predicate: ["champions-aura", {"not": "self:condition:unconscious"}]
-  Confident Evasion:
+  "Chirurgeon":
+    pack: "class-features"
+    charclass: "Alchemist"
+    subclass: "Chirurgeon"
+  "Confident Evasion":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "reflex"
         adjustment: {"success": "one-degree-better"}
-  Confident Finisher:
+  "Confident Finisher":
     pack: "class-features"
-  Debilitating Strike:
+  "Cosmos":
+    pack: "class-features"
+    charclass: "Oracle"
+    subclass: "Cosmos"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.nature.rank"
+        mode: "upgrade"
+        value: 1
+  "Debilitating Strike":
     pack: "class-features"
     rules:
       - key: "RollOption"
@@ -242,7 +962,7 @@ pf2e_class_features:
         title: "Debilitation f"
         text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Frightened.Note]</p>"
         predicate: ["debilitation:frightened", "target:condition:off-guard"]
-  Deific Weapon:
+  "Deific Weapon":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -254,9 +974,9 @@ pf2e_class_features:
         definition: ["item:category:advanced", "item:deity-favored"]
         sameAs: "martial"
         slug: "deific-weapon"
-  Deny Advantage:
+  "Deny Advantage":
     pack: "class-features"
-  Divine Font:
+  "Divine Font":
     pack: "class-features"
     rules:
       - key: "ChoiceSet"
@@ -264,19 +984,19 @@ pf2e_class_features:
         rollOption: "divine-font"
         prompt: "Select a Divine Font."
         choices: [{"img": "icons/magic/life/cross-worn-green.webp", "label": "Healing", "predicate": ["deity:primary:font:heal"], "value": "heal"}, {"img": "systems/pf2e/icons/spells/harm.webp", "label": "Harmful", "predicate": ["deity:primary:font:harm"], "value": "harm"}]
-  Divine Will:
+  "Divine Will":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Dogged Will:
+  "Dogged Will":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Double Debilitation:
+  "Double Debilitation":
     pack: "class-features"
     rules:
       - key: "RollOption"
@@ -345,21 +1065,90 @@ pf2e_class_features:
         selector: "strike-damage"
         text: "The target gains weakness 5 to bleed and poison damage. Effect: Heartless Debilitations"
         predicate: ["second-debilitation:weakness-heartless", "target:condition:off-guard"]
-  Eternal Confidence:
+  "Dragon Instinct":
+    pack: "class-features"
+    charclass: "Barbarian"
+    subclass: "Dragon"
+    rules:
+      - key: "ChoiceSet"
+        flag: "dragon"
+        prompt: "Select a dragon."
+        choices: [{"label": "Adamantine Dragon", "value": {"damageType": "bludgeoning", "dragonType": "adamantine", "tradition": "primal"}}, {"label": "Barrage Dragon", "value": {"damageType": "force", "dragonType": "barrage", "tradition": "arcane"}}, {"label": "Bog Dragon", "value": {"damageType": "acid", "dragonType": "bog", "tradition": "primal"}}, {"label": "Brine Dragon", "value": {"damageType": "bludgeoning", "dragonType": "brine", "tradition": "primal"}}, {"label": "Cinder Dragon", "value": {"damageType": "fire", "dragonType": "cinder", "tradition": "primal"}}, {"label": "Cloud Dragon", "value": {"damageType": "electricity", "dragonType": "cloud", "tradition": "primal"}}, {"label": "Crystal Dragon", "value": {"damageType": "piercing", "dragonType": "crystal", "tradition": "primal"}}, {"label": "Conspirator Dragon", "value": {"damageType": "poison", "dragonType": "conspirator", "tradition": "occult"}}, {"label": "Coral Dragon", "value": {"damageType": "bludgeoning", "dragonType": "coral", "tradition": "primal"}}, {"label": "Delight Dragon", "value": {"damageType": "spirit", "dragonType": "delight", "tradition": "divine"}}, {"label": "Despair Dragon", "value": {"damageType": "sonic", "dragonType": "despair", "tradition": "occult"}}, {"label": "Diabolic Dragon", "value": {"damageType": "fire", "dragonType": "diabolic", "tradition": "divine"}}, {"label": "Empyreal Dragon", "value": {"damageType": "spirit", "dragonType": "empyreal", "tradition": "divine"}}, {"label": "Executor Dragon", "value": {"damageType": "sonic", "dragonType": "executor", "tradition": "divine"}}, {"label": "Forest Dragon", "value": {"damageType": "piercing", "dragonType": "forest", "tradition": "primal"}}, {"label": "Fortune Dragon", "value": {"damageType": "force", "dragonType": "fortune", "tradition": "arcane"}}, {"label": "Horned Dragon", "value": {"damageType": "poison", "dragonType": "horned", "tradition": "primal"}}, {"label": "Magma Dragon", "value": {"damageType": "fire", "dragonType": "magma", "tradition": "primal"}}, {"label": "Mirage Dragon", "value": {"damageType": "mental", "dragonType": "mirage", "tradition": "arcane"}}, {"label": "Mocking Dragon", "value": {"damageType": "bludgeoning", "dragonType": "mocking", "tradition": "occult"}}, {"label": "Oath Dragon", "value": {"damageType": "spirit", "dragonType": "oath", "tradition": "divine"}}, {"label": "Omen Dragon", "value": {"damageType": "mental", "dragonType": "omen", "tradition": "occult"}}, {"label": "Phase Dragon", "value": {"damageType": "force", "dragonType": "phase", "tradition": "arcane"}}, {"label": "Requiem Dragon", "value": {"damageType": "spirit", "dragonType": "requiem", "tradition": "divine"}}, {"label": "Resurrection Dragon", "value": {"damageType": "void", "dragonType": "resurrection", "tradition": "divine"}}, {"label": "Rime Dragon", "value": {"damageType": "cold", "dragonType": "rime", "tradition": "primal"}}, {"label": "Rune Dragon", "value": {"damageType": "fire", "dragonType": "rune", "tradition": "arcane"}}, {"label": "Sage Dragon", "value": {"damageType": "mental", "dragonType": "sage", "tradition": "occult"}}, {"label": "Stormcrown Dragon", "value": {"damageType": "electricity", "dragonType": "stormcrown", "tradition": "primal"}}, {"label": "Time Dragon", "value": {"damageType": "force", "dragonType": "time", "tradition": "arcane"}}, {"label": "Sea Dragon", "value": {"damageType": "bludgeoning", "dragonType": "sea", "tradition": "arcane"}}, {"label": "Sky Dragon", "value": {"damageType": "electricity", "dragonType": "sky", "tradition": "divine"}}, {"label": "Sovereign Dragon", "value": {"damageType": "mental", "dragonType": "sovereign", "tradition": "occult"}}, {"label": "Umbral Dragon", "value": {"damageType": "void", "dragonType": "umbral", "tradition": "occult"}}, {"label": "Underworld Dragon", "value": {"damageType": "fire", "dragonType": "underworld", "tradition": "arcane"}}, {"label": "Vizier Dragon", "value": {"damageType": "fire", "dragonType": "vizier", "tradition": "occult"}}, {"label": "Vorpal Dragon", "value": {"damageType": "void", "dragonType": "vorpal", "tradition": "arcane"}}, {"label": "Wailing Dragon", "value": {"damageType": "sonic", "dragonType": "wailing", "tradition": "arcane"}}, {"label": "Whisper Dragon", "value": {"damageType": "mental", "dragonType": "whisper", "tradition": "occult"}}, {"label": "Wish Dragon", "value": {"damageType": "mental", "dragonType": "wish", "tradition": "arcane"}}, {"label": "Black Dragon", "value": {"damageType": "acid", "dragonType": "black", "tradition": "arcane"}}, {"label": "Blue Dragon", "value": {"damageType": "electricity", "dragonType": "blue", "tradition": "arcane"}}, {"label": "Brass Dragon", "value": {"damageType": "fire", "dragonType": "brass", "tradition": "arcane"}}, {"label": "Bronze Dragon", "value": {"damageType": "electricity", "dragonType": "bronze", "tradition": "arcane"}}, {"label": "Copper Dragon", "value": {"damageType": "acid", "dragonType": "copper", "tradition": "arcane"}}, {"label": "Gold Dragon", "value": {"damageType": "fire", "dragonType": "gold", "tradition": "arcane"}}, {"label": "Green Dragon", "value": {"damageType": "poison", "dragonType": "green", "tradition": "arcane"}}, {"label": "Silver Dragon", "value": {"damageType": "cold", "dragonType": "silver", "tradition": "arcane"}}, {"label": "Red Dragon", "value": {"damageType": "fire", "dragonType": "red", "tradition": "arcane"}}, {"label": "White Dragon", "value": {"damageType": "cold", "dragonType": "white", "tradition": "arcane"}}]
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.instinct.dragon.tradition"
+        mode: "override"
+        value: "{item|flags.system.rulesSelections.dragon.tradition}"
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.instinct.dragon.dragonType"
+        mode: "override"
+        value: "{item|flags.system.rulesSelections.dragon.dragonType}"
+      - key: "ActiveEffectLike"
+        path: "flags.system.barbarian.instinct.dragon.damageType"
+        mode: "override"
+        value: "{item|flags.system.rulesSelections.dragon.damageType}"
+      - key: "RollOption"
+        option: "draconic-rage"
+        toggleable: true
+        disabledIf: [{"not": "self:effect:rage"}]
+        disabledValue: true
+        value: true
+        label: "Draconic Rage"
+        predicate: [{"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 4
+        damageType: "{item|flags.system.rulesSelections.dragon.damageType}"
+        slug: "rage"
+        predicate: ["draconic-rage"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 8
+        slug: "rage"
+        predicate: ["draconic-rage", "class:barbarian", {"gte": ["self:level", 7]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 16
+        slug: "rage"
+        predicate: ["draconic-rage", "class:barbarian", "feature:greater-weapon-specialization"]
+      - key: "Resistance"
+        type: ["piercing", "{item|flags.system.rulesSelections.dragon.damageType}"]
+        value: "@actor.flags.system.ragingResistance"
+        predicate: ["self:effect:rage", "feature:raging-resistance"]
+  "Empiricism Methodology":
+    pack: "class-features"
+    charclass: "Investigator"
+    subclass: "Empiricism"
+    rules:
+      - key: "ChoiceSet"
+        flag: "skill"
+        prompt: "Select a skill."
+        choices: [{"label": "Arcana", "value": "arcana"}, {"label": "Crafting", "value": "crafting"}, {"label": "Occultism", "value": "occultism"}, {"label": "Society", "value": "society"}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.{item|flags.system.rulesSelections.skill}.rank"
+        mode: "upgrade"
+        value: 1
+  "Enigma":
+    pack: "class-features"
+    charclass: "Bard"
+    subclass: "Enigma"
+  "Eternal Confidence":
     pack: "class-features"
     rules:
       - key: "RollOption"
         option: "eternal-confidence"
         predicate: [{"or": ["finisher", "opportune-riposte"]}]
-  Evasive Reflexes:
+  "Evasive Reflexes":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "reflex"
         adjustment: {"success": "one-degree-better"}
-  Exalted Reaction:
+  "Exalted Reaction":
     pack: "class-features"
-  Expert Spellcaster:
+  "Expert Spellcaster":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -367,26 +1156,77 @@ pf2e_class_features:
         property: "traits"
         mode: "add"
         value: "{actor|class.slug}"
-  Expert Strikes:
+  "Expert Strikes":
     pack: "class-features"
     rules:
       - key: "CriticalSpecialization"
         predicate: ["item:category:unarmed", "item:group:brawling"]
-  Explosion Dodger:
+  "Explosion Dodger":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "reflex"
         adjustment: {"success": "one-degree-better"}
-  Field Discovery:
+  "Fencer":
     pack: "class-features"
-  Fifth Doctrine:
+    charclass: "Swashbuckler"
+    subclass: "Fencer"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.deception.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: ["class:swashbuckler"]
+      - key: "Note"
+        selector: "strike-attack-roll"
+        outcome: ["success", "criticalSuccess"]
+        title: "Exemplary Finisher"
+        text: "The foe is Off-Guard until your next turn."
+        predicate: ["finisher", "feature:exemplary-finisher"]
+      - key: "RollOption"
+        option: "item:trait:bravado"
+        domain: "skill-check"
+        predicate: [{"or": ["action:create-a-diversion", "action:feint"]}]
+  "Field Discovery":
     pack: "class-features"
-  Final Doctrine:
+  "Fifth Doctrine":
     pack: "class-features"
-  First Doctrine:
+  "Final Doctrine":
     pack: "class-features"
-  Fortitude Expertise:
+  "First Doctrine":
+    pack: "class-features"
+  "Flames":
+    pack: "class-features"
+    charclass: "Oracle"
+    subclass: "Flames"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.acrobatics.rank"
+        mode: "upgrade"
+        value: 1
+  "Flurry":
+    pack: "class-features"
+    charclass: "Ranger"
+    subclass: "Flurry"
+    rules:
+      - key: "MultipleAttackPenalty"
+        selector: "attack"
+        value: -2
+        predicate: ["item:trait:agile", "target:mark:hunted-prey"]
+      - key: "MultipleAttackPenalty"
+        selector: "attack"
+        value: -3
+        predicate: ["target:mark:hunted-prey", {"not": "item:trait:agile"}]
+  "Forensic Medicine Methodology":
+    pack: "class-features"
+    charclass: "Investigator"
+    subclass: "Forensic Medicine"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.medicine.rank"
+        mode: "upgrade"
+        value: 1
+  "Fortitude Expertise":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -394,9 +1234,9 @@ pf2e_class_features:
         property: "traits"
         mode: "add"
         value: "{actor|class.slug}"
-  Fourth Doctrine:
+  "Fourth Doctrine":
     pack: "class-features"
-  Furious Footfalls:
+  "Furious Footfalls":
     pack: "class-features"
     rules:
       - key: "FlatModifier"
@@ -410,9 +1250,74 @@ pf2e_class_features:
         value: 10
         slug: "furious-footfalls"
         predicate: ["self:effect:rage"]
-  Graceful Legend:
+  "Fury Instinct":
     pack: "class-features"
-  Greater Dogged Will:
+    charclass: "Barbarian"
+    subclass: "Fury"
+    rules:
+      - key: "ChoiceSet"
+        flag: "furyInstinct"
+        prompt: "Select a 1st-level class feat."
+        choices: {"filter": ["item:level:1", "item:category:class", "item:trait:barbarian", {"not": "item:draconic-arrogance"}], "itemType": "feat"}
+        predicate: ["class:barbarian"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "strike-damage"
+        value: 3
+        slug: "rage"
+        predicate: [{"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "strike-damage"
+        value: 7
+        slug: "rage"
+        predicate: ["class:barbarian", {"gte": ["self:level", 7]}]
+      - key: "Resistance"
+        exceptions: [{"definition": [{"or": ["item:type:melee", "item:type:weapon"]}, "item:category:unarmed"], "label": "PF2E.IWR.Custom.NonWeapons"}]
+        type: "physical"
+        value: "@actor.flags.system.ragingResistance"
+        predicate: ["self:effect:rage", "feature:raging-resistance"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "strike-damage"
+        value: 13
+        slug: "rage"
+        predicate: ["class:barbarian", "feature:greater-weapon-specialization"]
+  "Giant Instinct":
+    pack: "class-features"
+    charclass: "Barbarian"
+    subclass: "Giant"
+    rules:
+      - key: "ChoiceSet"
+        flag: "energy"
+        prompt: "Select an energy type for Raging Resistance."
+        choices: [{"label": "Cold", "value": "cold"}, {"label": "Electricity", "value": "electricity"}, {"label": "Fire", "value": "fire"}]
+        predicate: ["feature:giant-instinct", "class:barbarian"]
+      - key: "Resistance"
+        type: ["{item|flags.system.rulesSelections.energy}", "bludgeoning"]
+        value: "@actor.flags.system.ragingResistance"
+        predicate: ["self:effect:rage", "feature:raging-resistance"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "strike-damage"
+        value: 6
+        slug: "rage"
+        predicate: [{"or": ["class:barbarian", "feat:instinct-ability"]}, "item:oversized"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "strike-damage"
+        value: 10
+        slug: "rage"
+        predicate: ["class:barbarian", {"gte": ["self:level", 7]}, "item:oversized"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "strike-damage"
+        value: 18
+        slug: "rage"
+        predicate: ["class:barbarian", "feature:greater-weapon-specialization", "item:oversized"]
+  "Graceful Legend":
+    pack: "class-features"
+  "Greater Dogged Will":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
@@ -424,9 +1329,9 @@ pf2e_class_features:
         title: "{item|name}"
         text: "When you roll a failure on a Will save against a damaging effect, you take half damage."
         predicate: ["damaging-effect"]
-  Greater Field Discovery:
+  "Greater Field Discovery":
     pack: "class-features"
-  Greater Juggernaut:
+  "Greater Juggernaut":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
@@ -438,7 +1343,7 @@ pf2e_class_features:
         title: "{item|name}"
         text: "When you roll a failure on a Fortitude save against a damaging effect, you take half damage."
         predicate: ["damaging-effect"]
-  Greater Mysterious Resolve:
+  "Greater Mysterious Resolve":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
@@ -450,7 +1355,7 @@ pf2e_class_features:
         title: "{item|name}"
         text: "When you roll a failure on a Will save against a damaging effect, you take half damage."
         predicate: ["damaging-effect"]
-  Greater Natural Reflexes:
+  "Greater Natural Reflexes":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
@@ -462,7 +1367,7 @@ pf2e_class_features:
         title: "{item|name}"
         text: "When you roll a failure on a Reflex save against a damaging effect, you take half damage."
         predicate: ["damaging-effect"]
-  Greater Performer's Heart:
+  "Greater Performer's Heart":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
@@ -474,7 +1379,7 @@ pf2e_class_features:
         title: "{item|name}"
         text: "When you roll a failure on a Will save against a damaging effect, you take half damage."
         predicate: ["damaging-effect"]
-  Greater Rogue Reflexes:
+  "Greater Rogue Reflexes":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
@@ -486,7 +1391,7 @@ pf2e_class_features:
         title: "{item|name}"
         text: "When you roll a failure on a Reflex save against a damaging effect, you take half damage."
         predicate: ["damaging-effect"]
-  Greater Weapon Specialization:
+  "Greater Weapon Specialization":
     pack: "class-features"
     rules:
       - key: "AdjustModifier"
@@ -495,9 +1400,29 @@ pf2e_class_features:
         relabel: "PF2E.GreaterWeaponSpecialization"
         value: 2
         slug: "weapon-specialization"
-  Hunt Prey:
+  "Gymnast":
     pack: "class-features"
-  Incredible Movement:
+    charclass: "Swashbuckler"
+    subclass: "Gymnast"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.athletics.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: ["class:swashbuckler"]
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        type: "circumstance"
+        value: "2* @weapon.system.damage.dice"
+        label: "Exemplary Finisher"
+        predicate: ["finisher", "feature:exemplary-finisher", {"or": ["target:condition:grabbed", "target:condition:restrained", "target:condition:prone"]}]
+      - key: "RollOption"
+        option: "item:trait:bravado"
+        domain: "skill-check"
+        predicate: [{"or": ["action:grapple", "action:reposition", "action:shove", "action:trip"]}]
+  "Hunt Prey":
+    pack: "class-features"
+  "Incredible Movement":
     pack: "class-features"
     rules:
       - key: "FlatModifier"
@@ -506,13 +1431,22 @@ pf2e_class_features:
         value: "5*floor((@actor.level + 5) / 4)"
         slug: "incredible-movement"
         predicate: [{"not": "self:armored"}]
-  Indomitable Will:
+  "Indomitable Will":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Investigator Expertise:
+  "Interrogation Methodology":
+    pack: "class-features"
+    charclass: "Investigator"
+    subclass: "Interrogation"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.diplomacy.rank"
+        mode: "upgrade"
+        value: 1
+  "Investigator Expertise":
     pack: "class-features"
     rules:
       - key: "AdjustModifier"
@@ -520,20 +1454,20 @@ pf2e_class_features:
         selectors: ["perception", "skill-check", "saving-throw"]
         value: 2
         slug: "pursue-a-lead"
-  Juggernaut:
+  "Juggernaut":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "fortitude"
         adjustment: {"success": "to-critical-success"}
-  Keen Flair:
+  "Keen Flair":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "strike-attack-roll"
         adjustment: {"success": "to-critical-success"}
         predicate: ["check:roll:total:natural:19", "item:proficiency:rank:3"]
-  Keen Recollection:
+  "Keen Recollection":
     pack: "class-features"
     rules:
       - key: "FlatModifier"
@@ -541,7 +1475,17 @@ pf2e_class_features:
         type: "proficiency"
         value: "@actor.level"
         predicate: ["action:recall-knowledge", "proficiency:untrained"]
-  Legendary Spellcaster:
+  "Leaf Order":
+    pack: "class-features"
+    charclass: "Druid"
+    subclass: "Leaf"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.diplomacy.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "feat:order-explorer:leaf-order"}]
+  "Legendary Spellcaster":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -549,7 +1493,29 @@ pf2e_class_features:
         property: "traits"
         mode: "add"
         value: "{actor|class.slug}"
-  Magical Fortitude:
+  "Life":
+    pack: "class-features"
+    charclass: "Oracle"
+    subclass: "Life"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.medicine.rank"
+        mode: "upgrade"
+        value: 1
+  "Lore":
+    pack: "class-features"
+    charclass: "Oracle"
+    subclass: "Lore"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.occultism.rank"
+        mode: "upgrade"
+        value: 1
+  "Maestro":
+    pack: "class-features"
+    charclass: "Bard"
+    subclass: "Maestro"
+  "Magical Fortitude":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -557,13 +1523,13 @@ pf2e_class_features:
         property: "traits"
         mode: "add"
         value: "{actor|class.slug}"
-  Majestic Will:
+  "Majestic Will":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Master Spellcaster:
+  "Master Spellcaster":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -571,9 +1537,9 @@ pf2e_class_features:
         property: "traits"
         mode: "add"
         value: "{actor|class.slug}"
-  Master Strike:
+  "Master Strike":
     pack: "class-features"
-  Masterful Hunter:
+  "Masterful Hunter":
     pack: "class-features"
     rules:
       - key: "AdjustModifier"
@@ -585,7 +1551,20 @@ pf2e_class_features:
         option: "ignore-range-penalty:3"
         domain: "ranged-attack-roll"
         predicate: ["target:mark:hunted-prey", {"gte": ["item:proficiency:rank", 3]}]
-  Medium Armor Expertise:
+  "Mastermind":
+    pack: "class-features"
+    charclass: "Rogue"
+    subclass: "Mastermind"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.society.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ChoiceSet"
+        flag: "mastermind"
+        prompt: "Select a skill to become trained in."
+        choices: [{"label": "Arcana", "value": "system.skills.arcana.rank"}, {"label": "Nature", "value": "system.skills.nature.rank"}, {"label": "Occultism", "value": "system.skills.occultism.rank"}, {"label": "Religion", "value": "system.skills.religion.rank"}]
+  "Medium Armor Expertise":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -593,7 +1572,7 @@ pf2e_class_features:
         property: "traits"
         mode: "add"
         value: "{actor|class.slug}"
-  Metal Strikes:
+  "Metal Strikes":
     pack: "class-features"
     rules:
       - key: "AdjustStrike"
@@ -618,7 +1597,7 @@ pf2e_class_features:
         definition: ["item:trait:monk"]
         value: "silver"
         predicate: ["feat:monastic-weaponry"]
-  Mighty Rage:
+  "Mighty Rage":
     pack: "class-features"
     rules:
       - key: "RollOption"
@@ -630,15 +1609,19 @@ pf2e_class_features:
         value: 2
         slug: "rage"
         predicate: ["mighty-rage-attack"]
-  Monk Expertise:
+  "Monk Expertise":
     pack: "class-features"
-  Mysterious Resolve:
+  "Mutagenist":
+    pack: "class-features"
+    charclass: "Alchemist"
+    subclass: "Mutagenist"
+  "Mysterious Resolve":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Mystic Strikes:
+  "Mystic Strikes":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -653,7 +1636,7 @@ pf2e_class_features:
         mode: "add"
         value: "magical"
         predicate: ["item:trait:monk", "feat:monastic-weaponry"]
-  Natural Reflexes:
+  "Natural Reflexes":
     pack: "class-features"
     rules:
       - key: "Note"
@@ -664,11 +1647,26 @@ pf2e_class_features:
       - key: "AdjustDegreeOfSuccess"
         selector: "reflex"
         adjustment: {"success": "one-degree-better"}
-  On the Case:
+  "On the Case":
     pack: "class-features"
-  Opportune Riposte:
+  "Opportune Riposte":
     pack: "class-features"
-  Panache:
+  "Outwit":
+    pack: "class-features"
+    charclass: "Ranger"
+    subclass: "Outwit"
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 2
+        predicate: [{"or": ["check:statistic:deception", "check:statistic:intimidation", "check:statistic:stealth", "action:recall-knowledge"]}, "target:mark:hunted-prey"]
+      - key: "FlatModifier"
+        selector: "ac"
+        type: "circumstance"
+        value: 1
+        predicate: ["origin:mark:hunted-prey"]
+  "Panache":
     pack: "class-features"
     rules:
       - key: "Note"
@@ -683,7 +1681,7 @@ pf2e_class_features:
         title: "Failure"
         text: "You gain panache until the end of your next turn Effect: Panache (Temporary)"
         predicate: [{"or": ["item:trait:bravado", "self:action:trait:bravado"]}, {"or": [{"not": "self:effect:panache"}, "finisher:illimitable"]}]
-  Perception Mastery:
+  "Perception Mastery":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
@@ -691,22 +1689,26 @@ pf2e_class_features:
         property: "traits"
         mode: "add"
         value: "{actor|class.slug}"
-  Performer's Heart:
+  "Performer's Heart":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Powerful Alchemy:
+  "Polymath":
     pack: "class-features"
-  Powerful Fist:
+    charclass: "Bard"
+    subclass: "Polymath"
+  "Powerful Alchemy":
+    pack: "class-features"
+  "Powerful Fist":
     pack: "class-features"
     rules:
       - key: "ItemAlteration"
         itemId: "xxxxxxFISTxxxxxx"
         property: "damage-dice-faces"
         mode: "upgrade"
-  Precise Strike:
+  "Precise Strike":
     pack: "class-features"
     rules:
       - key: "ActiveEffectLike"
@@ -727,30 +1729,68 @@ pf2e_class_features:
         dieSize: "d6"
         slug: "finisher"
         predicate: ["finisher", {"or": ["item:melee", {"and": ["feat:flying-blade", "item:thrown", {"or": ["target:range-increment:1", {"and": ["finisher:twirling-throw", {"lte": ["target:range-increment", 3]}]}]}]}]}, {"or": ["item:trait:agile", "item:trait:finesse"]}]
-  Prodigious Will:
+  "Precision":
+    pack: "class-features"
+    charclass: "Ranger"
+    subclass: "Precision"
+    rules:
+      - key: "RollOption"
+        option: "precision-hunters-edge"
+        toggleable: true
+        suboptions: [{"label": "First", "value": "first-hit"}]
+        disabledIf: [{"not": "self:effect:hunt-prey"}]
+        disabledValue: false
+        label: "Precision \u2014 Hit against Hunted Prey"
+      - key: "DamageDice"
+        category: "precision"
+        selector: "strike-damage"
+        diceNumber: "ternary(lt(@actor.level,11),1,ternary(lt(@actor.level,19),2,3))"
+        dieSize: "d8"
+        slug: "precision"
+        predicate: ["precision-hunters-edge", "target:mark:hunted-prey"]
+  "Prodigious Will":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Rage:
+  "Rage":
     pack: "class-features"
-  Ranger Expertise:
+  "Ranger Expertise":
     pack: "class-features"
-  Ranger Weapon Expertise:
+  "Ranger Weapon Expertise":
     pack: "class-features"
     rules:
       - key: "CriticalSpecialization"
         predicate: ["target:mark:hunted-prey", {"or": ["item:category:simple", "item:category:martial", "item:category:unarmed"]}]
-  Reactive Strike:
+  "Rascal":
     pack: "class-features"
-  Reinforced Ego:
+    charclass: "Swashbuckler"
+    subclass: "Rascal"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.thievery.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "Note"
+        selector: "strike-attack-roll"
+        outcome: ["success", "criticalSuccess"]
+        title: "Exemplary Finisher"
+        text: "The foe takes a -10 circumstance penalty to its speed until the start of your next turn. Effect: Exemplary Finisher (Rascal)"
+        predicate: ["finisher", "feature:exemplary-finisher"]
+      - key: "RollOption"
+        option: "item:trait:bravado"
+        domain: "skill-check"
+        predicate: ["action:dirty-trick"]
+  "Reactive Strike":
+    pack: "class-features"
+  "Reinforced Ego":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Relentless Reaction:
+  "Relentless Reaction":
     pack: "class-features"
     rules:
       - key: "FlatModifier"
@@ -759,33 +1799,94 @@ pf2e_class_features:
         damageType: "spirit"
         damageCategory: "persistent"
         predicate: ["retributive-strike"]
-  Resolute Faith:
+  "Resolute Faith":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Rogue Resilience:
+  "Rogue Resilience":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "fortitude"
         adjustment: {"success": "one-degree-better"}
-  Sacred Body:
+  "Ruffian":
+    pack: "class-features"
+    charclass: "Rogue"
+    subclass: "Ruffian"
+    rules:
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "other-tags"
+        mode: "add"
+        value: "sneak-attack"
+        predicate: [{"or": [{"and": ["item:category:simple", {"lte": ["item:damage:die:faces", 8]}]}, {"and": [{"or": ["item:category:martial", "item:category:advanced"]}, {"lte": ["item:damage:die:faces", 6]}]}]}]
+      - key: "ActiveEffectLike"
+        path: "system.skills.intimidation.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.defenses.medium.rank"
+        mode: "upgrade"
+        value: 2
+        predicate: ["feature:light-armor-expertise"]
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.defenses.medium.rank"
+        mode: "upgrade"
+        value: 3
+        predicate: ["feature:light-armor-mastery"]
+      - key: "CriticalSpecialization"
+        predicate: ["item:tag:sneak-attack", "target:condition:off-guard", {"not": "item:category:unarmed"}]
+  "Sacred Body":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "fortitude"
         adjustment: {"success": "one-degree-better"}
-  Savvy Reflexes:
+  "Savvy Reflexes":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "reflex"
         adjustment: {"success": "one-degree-better"}
-  Second Doctrine:
+  "School of Unified Magical Theory":
     pack: "class-features"
-  Sneak Attack:
+    charclass: "Wizard"
+    subclass: "School of Unified Magical Theory"
+    rules:
+      - key: "ChoiceSet"
+        flag: "feat"
+        prompt: "Select a 1st-level wizard feat."
+        choices: {"filter": ["item:type:feat", "item:trait:wizard", "item:level:1"]}
+  "Scoundrel":
+    pack: "class-features"
+    charclass: "Rogue"
+    subclass: "Scoundrel"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.diplomacy.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "ActiveEffectLike"
+        path: "system.skills.deception.rank"
+        mode: "upgrade"
+        value: 1
+      - key: "Note"
+        selector: "skill-check"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "When you successfully Feint, the target is off-guard against melee attacks you attempt against it until the end of your next turn."
+        predicate: ["action:feint"]
+      - key: "Note"
+        selector: "skill-check"
+        outcome: ["criticalSuccess"]
+        title: "{item|name}"
+        text: "On a critical success, the target is off-guard against all melee attacks until the end of your next turn, not just yours."
+        predicate: ["action:feint"]
+  "Second Doctrine":
+    pack: "class-features"
+  "Sneak Attack":
     pack: "class-features"
     rules:
       - key: "ActiveEffectLike"
@@ -814,13 +1915,70 @@ pf2e_class_features:
         diceNumber: "@actor.flags.system.sneakAttackDamage.number"
         dieSize: "d{actor|flags.system.sneakAttackDamage.faces}"
         predicate: ["item:tag:sneak-attack", "target:condition:off-guard"]
-  Sorcerous Potency:
+  "Sorcerous Potency":
     pack: "class-features"
     rules:
       - key: "RollOption"
         option: "sorcerous-potency"
         toggleable: true
-  Strategic Strike:
+  "Spirit Instinct":
+    pack: "class-features"
+    charclass: "Barbarian"
+    subclass: "Spirit"
+    rules:
+      - key: "RollOption"
+        option: "spirit-rage"
+        toggleable: true
+        disabledIf: [{"not": "self:effect:rage"}]
+        disabledValue: false
+        value: true
+        label: "Spirit Rage"
+        predicate: [{"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "Resistance"
+        type: "void"
+        value: "@actor.flags.system.ragingResistance"
+        predicate: ["self:effect:rage", "feature:raging-resistance"]
+      - key: "Resistance"
+        definition: ["origin:mode:undead"]
+        type: "custom"
+        value: "@actor.flags.system.ragingResistance"
+        label: "all damage from undead"
+        predicate: ["self:effect:rage", "feature:raging-resistance"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 3
+        damageType: "spirit"
+        slug: "rage"
+        predicate: ["spirit-rage"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "strike-damage"
+        value: 7
+        slug: "rage"
+        predicate: ["class:barbarian", "spirit-rage", {"gte": ["self:level", 7]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "strike-damage"
+        value: 13
+        slug: "rage"
+        predicate: ["class:barbarian", "feature:greater-weapon-specialization", "spirit-rage"]
+      - key: "AdjustStrike"
+        property: "property-runes"
+        mode: "add"
+        value: "ghost-touch"
+        predicate: ["spirit-rage"]
+  "Storm Order":
+    pack: "class-features"
+    charclass: "Druid"
+    subclass: "Storm"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.acrobatics.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "feat:order-explorer:storm-order"}]
+  "Strategic Strike":
     pack: "class-features"
     rules:
       - key: "DamageDice"
@@ -829,7 +1987,7 @@ pf2e_class_features:
         diceNumber: "floor((@actor.level+3)/4)"
         dieSize: "d6"
         predicate: ["check:substitution:devise-a-stratagem"]
-  Stylish Combatant:
+  "Stylish Combatant":
     pack: "class-features"
     rules:
       - key: "FlatModifier"
@@ -838,7 +1996,74 @@ pf2e_class_features:
         value: 1
         slug: "stylish-combatant-skill"
         predicate: ["item:trait:bravado", {"or": ["encounter", "feature:continuous-flair"]}]
-  Swashbuckler Expertise:
+  "Superstition Instinct":
+    pack: "class-features"
+    charclass: "Barbarian"
+    subclass: "Superstition"
+    rules:
+      - key: "FlatModifier"
+        selector: "saving-throw"
+        type: "status"
+        value: 2
+        slug: "superstition-saves"
+        predicate: ["magical", "self:effect:rage", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "RollOption"
+        option: "target:caster"
+        toggleable: true
+        label: "Witnessed target casting a spell"
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 3
+        slug: "rage"
+        predicate: ["self:effect:rage", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 4
+        slug: "rage"
+        predicate: ["self:effect:rage", "target:caster", {"or": ["class:barbarian", "feat:instinct-ability"]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 7
+        slug: "rage"
+        predicate: ["self:effect:rage", "class:barbarian", {"gte": ["self:level", 7]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 8
+        slug: "rage"
+        predicate: ["self:effect:rage", "target:caster", "class:barbarian", {"gte": ["self:level", 7]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 13
+        slug: "rage"
+        predicate: ["self:effect:rage", {"not": "target:caster"}, "class:barbarian", "feature:greater-weapon-specialization"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 16
+        slug: "rage"
+        predicate: ["self:effect:rage", "target:caster", "class:barbarian", "feature:greater-weapon-specialization"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["strike-damage"]
+        value: 4
+        slug: "agile-rage"
+        predicate: ["self:effect:rage", {"not": "target:caster"}, "class:barbarian", "feature:greater-weapon-specialization"]
+      - key: "ChoiceSet"
+        flag: "ragingResistance"
+        prompt: "Select associated magical traditions."
+        choices: [{"label": "Arcane and Occult", "value": {"label": "PF2E.SpecificRule.Barbarian.Superstition.RagingResistance.ResistanceLabels.ArcaneAndOccult", "resistanceOne": "arcane", "resistanceTwo": "occult"}}, {"label": "Arcane and Primal", "value": {"label": "PF2E.SpecificRule.Barbarian.Superstition.RagingResistance.ResistanceLabels.ArcaneAndPrimal", "resistanceOne": "arcane", "resistanceTwo": "primal"}}, {"label": "Divine and Occult", "value": {"label": "PF2E.SpecificRule.Barbarian.Superstition.RagingResistance.ResistanceLabels.DivineAndOccult", "resistanceOne": "divine", "resistanceTwo": "occult"}}, {"label": "Divine and Primal", "value": {"label": "PF2E.SpecificRule.Barbarian.Superstition.RagingResistance.ResistanceLabels.DivineAndPrimal", "resistanceOne": "divine", "resistanceTwo": "primal"}}]
+      - key: "Resistance"
+        definition: ["item:type:spell", {"or": ["item:trait:{item|flags.system.rulesSelections.ragingResistance.resistanceOne}", "item:trait:{item|flags.system.rulesSelections.ragingResistance.resistanceTwo}"]}]
+        type: "custom"
+        value: "@actor.flags.system.ragingResistance"
+        label: "{item|flags.system.rulesSelections.ragingResistance.label}"
+        predicate: ["self:effect:rage", "feature:raging-resistance"]
+  "Swashbuckler Expertise":
     pack: "class-features"
     rules:
       - key: "AdjustModifier"
@@ -846,32 +2071,101 @@ pf2e_class_features:
         selector: "skill-check"
         value: 2
         slug: "stylish-combatant-skill"
-  Tempered Reflexes:
+  "Tempered Reflexes":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "reflex"
         adjustment: {"success": "one-degree-better"}
-  Third Doctrine:
+  "Tempest":
     pack: "class-features"
-  Unimpeded Journey:
+    charclass: "Oracle"
+    subclass: "Tempest"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.nature.rank"
+        mode: "upgrade"
+        value: 1
+  "Thief":
     pack: "class-features"
-  Vivacious Speed:
+    charclass: "Rogue"
+    subclass: "Thief"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.thievery.rank"
+        mode: "upgrade"
+        value: 1
+  "Third Doctrine":
     pack: "class-features"
-  Voice of Nature:
+  "Toxicologist":
+    pack: "class-features"
+    charclass: "Alchemist"
+    subclass: "Toxicologist"
+    rules:
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "traits"
+        mode: "remove"
+        value: "acid"
+        predicate: ["item:slug:versatile-vial"]
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "traits"
+        mode: "add"
+        value: "poison"
+        predicate: ["item:slug:versatile-vial"]
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "damage-type"
+        mode: "override"
+        value: "poison"
+        predicate: ["item:slug:versatile-vial"]
+      - key: "RollOption"
+        option: "toxicologist-field-benefit"
+        toggleable: true
+        label: "Toxicologist \u2014 Deal acid damage instead of poison"
+      - key: "DamageAlteration"
+        property: "damage-type"
+        mode: "override"
+        selectors: ["alchemical-bomb-base-damage", "inline-damage"]
+        value: "acid"
+        predicate: ["toxicologist-field-benefit", "item:trait:infused", {"or": ["item:category:poison", {"and": ["item:base:alchemical-bomb", "damage:type:poison", "item:trait:poison"]}]}]
+  "Unimpeded Journey":
+    pack: "class-features"
+  "Untamed Order":
+    pack: "class-features"
+    charclass: "Druid"
+    subclass: "Untamed"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.intimidation.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: [{"not": "feat:order-explorer:untamed-order"}]
+  "Vivacious Speed":
+    pack: "class-features"
+  "Voice of Nature":
     pack: "class-features"
     rules:
       - key: "ChoiceSet"
         flag: "feat"
         prompt: "Select a 1st-level class feat."
         choices: [{"value": "Compendium.pf2e.feats-srd.Item.Animal Empathy"}, {"value": "Compendium.pf2e.feats-srd.Item.Plant Empathy"}]
-  Warden's Endurance:
+  "Warden's Endurance":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "fortitude"
         adjustment: {"success": "one-degree-better"}
-  Weapon Expertise:
+  "Warpriest":
+    pack: "class-features"
+    charclass: "Cleric"
+    subclass: "Warpriest"
+  "Warrior":
+    pack: "class-features"
+    charclass: "Bard"
+    subclass: "Warrior"
+  "Weapon Expertise":
     pack: "class-features"
     rules:
       - key: "ActiveEffectLike"
@@ -886,7 +2180,7 @@ pf2e_class_features:
         property: "traits"
         mode: "add"
         value: "{actor|class.slug}"
-  Weapon Specialization:
+  "Weapon Specialization":
     pack: "class-features"
     rules:
       - key: "FlatModifier"
@@ -907,24 +2201,44 @@ pf2e_class_features:
         value: 4
         slug: "weapon-specialization"
         predicate: ["item:proficiency:rank:4"]
-  Weapon Tricks:
+  "Weapon Tricks":
     pack: "class-features"
     rules:
       - key: "CriticalSpecialization"
         predicate: ["target:condition:off-guard", {"or": ["item:trait:agile", "item:trait:finesse"]}]
-  Wild Willpower:
+  "Wild Willpower":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Will of the Pupil:
+  "Will of the Pupil":
     pack: "class-features"
     rules:
       - key: "AdjustDegreeOfSuccess"
         selector: "will"
         adjustment: {"success": "one-degree-better"}
-  Wizard Weapon Expertise:
+  "Wit":
+    pack: "class-features"
+    charclass: "Swashbuckler"
+    subclass: "Wit"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.skills.diplomacy.rank"
+        mode: "upgrade"
+        value: 1
+        predicate: ["class:swashbuckler"]
+      - key: "Note"
+        selector: "strike-attack-roll"
+        outcome: ["success", "criticalSuccess"]
+        title: "Exemplary Finisher"
+        text: "The foe takes a -2 circumstance penalty to attack rolls against you until the start of your next turn. Effect: Exemplary Finisher (Wit)"
+        predicate: ["finisher", "feature:exemplary-finisher"]
+      - key: "RollOption"
+        option: "item:trait:bravado"
+        domain: "skill-check"
+        predicate: ["action:bon-mot"]
+  "Wizard Weapon Expertise":
     pack: "class-features"
 
     rules:

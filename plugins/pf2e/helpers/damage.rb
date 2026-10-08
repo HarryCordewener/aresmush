@@ -70,6 +70,11 @@ module AresMUSH
         met_dice, unmet_dice = dice.partition { |row| row['met'] }
         met_flat, unmet_flat = flat.partition { |row| row['met'] }
 
+        # The flat modifiers are adjusted and stacked as any modifiers are: a fury instinct raises Rage's
+        # +2 to +3, and of two status bonuses only the better counts.
+        met_flat = Modifiers.stack(Modifiers.adjust(met_flat, Rules.modifier_adjustments(sources, domains, held, context)))
+                            .select { |row| row['enabled'] }
+
         # A bomb's persistent and splash damage are the bomb's own, so they always apply.
         bomb_dice, bomb_flat = Consumables.bomb_rows(attack)
         met_dice += bomb_dice

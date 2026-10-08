@@ -120,6 +120,28 @@ module AresMUSH
         end
       end
 
+      # Damage modifiers stack as any modifiers do: the best bonus and worst penalty of a type.
+      describe "bonuses to damage of one type" do
+        def bonus(source, value, type = 'status')
+          { 'source' => source, 'slug' => Domains.slug(source), 'type' => type, 'value' => value,
+            'damage_type' => nil, 'category' => nil, 'critical' => nil, 'met' => true }
+        end
+
+        before(:each) { allow(Effects).to receive(:damage_dice).and_return([]) }
+
+        it "should count only the best status bonus" do
+          allow(Effects).to receive(:modifiers).and_return([ bonus('Inspire', 1), bonus('Heroism', 2) ])
+
+          expect(Damage.formula(char, sword)).to eq '1d8+6 S'
+        end
+
+        it "should count every untyped one" do
+          allow(Effects).to receive(:modifiers).and_return([ bonus('One', 1, 'untyped'), bonus('Two', 2, 'untyped') ])
+
+          expect(Damage.formula(char, sword)).to eq '1d8+7 S'
+        end
+      end
+
       # Burn It!'s +1 is to persistent fire someone is already dealing: a bow that deals none deals none.
       describe "a bonus to persistent damage" do
         def burn_it
