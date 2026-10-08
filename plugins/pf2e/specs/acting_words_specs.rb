@@ -141,6 +141,28 @@ module AresMUSH
         end
       end
 
+      # What the importer reads from a spell's outcomes is only what the engine can do.
+      describe "the outcomes the spell data holds" do
+        before(:all) do
+          @mechanics = YAML.load_file('game/config/pf2e_spell_mechanics.yml')['pf2e_spell_mechanics']
+          @conditions = YAML.load_file('game/config/pf2e_conditions.yml')['pf2e_conditions'].keys
+        end
+
+        def left
+          @mechanics.values.flat_map { |one| (one['outcomes'] || {}).values.flatten }
+        end
+
+        it "should name only conditions the game has" do
+          expect(left.map { |one| one['condition'] }.compact.uniq - @conditions).to eq []
+        end
+
+        it "should time each with a duration the engine counts" do
+          known = %w{turn-end next-turn-start next-turn-end its-turn-end its-next-turn-start its-next-turn-end}
+
+          expect(left.map { |one| one['until'] }.compact.uniq.reject { |one| known.include?(one) || one.match?(/\Arounds:\d+\z/) }).to eq []
+        end
+      end
+
       # A save that is not basic says in its own text what each outcome does to the damage.
       describe "how much of a spell's damage an outcome deals" do
         it "should scale a basic save the basic way" do

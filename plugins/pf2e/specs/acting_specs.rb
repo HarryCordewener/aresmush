@@ -412,12 +412,71 @@ module AresMUSH
           expect(@client.failures).to eq []
           expect(said).to include('rolls Will')
           expect(Pf2e.condition_level(npc(3), 'Frightened')).to eq 3
+          # A critical failure also leaves the target fleeing for a round.
+          expect(npc(3).pf2_conditions).to have_key('Fleeing')
           expect(TurnState.turn(npc(2))['actions']).to eq 2
+        end
+      end
+
+      describe "what a spell's outcome says" do
+        before(:each) do
+          add('gnome bard')
+          add('goblin warrior')
+        end
+
+        # Daze's stun is in a sentence of its own rather than an outcome's paragraph.
+        it "should stun a target that critically fails Daze's save" do
+          @dice = 0.05
+          run(PF2EncounterAsCmd, 'e/as #2=cast daze=#3')
+
+          expect(Pf2e.condition_level(npc(3), 'Stunned')).to eq 1
+        end
+
+        # What Command does is the target's to do; the room is told what that is.
+        it "should tell the room what an outcome does where it sets no condition" do
+          @dice = 0.05
+          run(PF2EncounterAsCmd, 'e/as #2=cast command=#3')
+
+          expect(said).to include('The target must use all its actions on its next turn to obey your command.')
+        end
+
+        # A spell attack's outcomes are the attack's: Briny Bolt's critical hit blinds and dazzles.
+        it "should leave what a spell attack's outcome says on what it hits" do
+          @dice = 1.0
+          run(PF2EncounterAsCmd, 'e/as #2=cast briny bolt=#3')
+
+          expect(npc(3).pf2_conditions.keys).to include('Blinded', 'Dazzled')
         end
       end
 
       describe "the turn" do
         before(:each) { add('goblin warrior') }
+
+        # "Until the end of its next turn" is the target's: this round's turn if it has yet to act, and
+        # next round's if it has.
+        it "should end a condition at the end of the target's next turn, which is this round's if it is still to come" do
+          @encounter.update(:next_init => 1)
+          ends = Turns.expiry_for('its-next-turn-end', @encounter, @hero.name, npc(2).name)
+
+          expect(ends).to eq('event' => 'turn-end', 'of' => npc(2).name, 'round' => 1)
+
+          Pf2e.set_condition(npc(2), 'Dazzled')
+          Acting.expire_at(npc(2), 'Dazzled', ends)
+          Turns.turn_ended(@encounter, npc(2).name, 1)
+
+          expect(npc(2).pf2_conditions).not_to have_key('Dazzled')
+        end
+
+        it "should end it at the end of the target's turn next round when the target has acted" do
+          @encounter.update(:next_init => 2)
+
+          expect(Turns.expiry_for('its-next-turn-end', @encounter, @hero.name, npc(2).name)['round']).to eq 2
+          expect(Turns.expiry_for('its-next-turn-start', @encounter, @hero.name, npc(2).name)['event']).to eq 'turn-start'
+        end
+
+        it "should time the caster's own durations from the caster's turn, as before" do
+          expect(Turns.expiry_for('next-turn-end', @encounter, @hero.name, npc(2).name)).to eq Turns.expiry('next-turn-end', @hero.name, 1)
+        end
 
         it "should end a condition set until the start of the actor's next turn" do
           Pf2e.set_condition(npc(2), 'Off-Guard')

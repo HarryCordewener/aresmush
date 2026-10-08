@@ -93,6 +93,27 @@ module AresMUSH
         end
       end
 
+      # The same, for a condition an outcome leaves: one timed by `its-` is counted from the turn of
+      # whoever holds it - Blanket of Stars' "dazzled until the end of its next turn" - and anything else
+      # from the caster's.
+      def self.expiry_for(until_when, encounter, actor, target)
+        kind = until_when.to_s
+
+        return expiry(kind, actor, encounter.round) unless kind.start_with?('its-')
+
+        { 'event' => kind.end_with?('start') ? 'turn-start' : 'turn-end', 'of' => target,
+          'round' => upcoming_round(encounter, target) }
+      end
+
+      # The round of someone's next turn: this one, if their place in the order is still to come.
+      def self.upcoming_round(encounter, label)
+        order = Combatants.rows(encounter).map { |row| row['name'] }
+        now = (encounter.next_init.to_i - 1) % [ order.size, 1 ].max
+        at = order.index(label)
+
+        at && at > now ? encounter.round.to_i : encounter.round.to_i + 1
+      end
+
       # Everyone in the encounter, as they stand in it: its creatures, and its characters' states there.
       def self.holders(encounter)
         encounter.npcs.to_a + encounter.states.to_a

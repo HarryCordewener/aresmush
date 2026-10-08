@@ -11,6 +11,15 @@ The prose links the condition it means (`@UUID[...conditionitems...]{Frightened 
 sits in says which outcome it is, so each outcome's conditions and effects are read from there. Every
 outcome of a save happens to whoever rolled it, which is what makes the link enough.
 
+Not every spell gives its outcomes paragraphs of their own. Daze says it in a sentence: "If the target
+critically fails the save, it is also Stunned 1." So a sentence that names an outcome - "critically
+fails", "on a failure", "on a success" - gives that outcome the conditions in the same clause, including
+a numbered one written without a link ("or sickened 2 on a critical failure"). A failure's condition is
+a critical failure's too, unless the sentence gives the critical failure its own.
+
+And what an outcome does that is neither damage nor a condition - Command's "must use a single action
+to do as you command" - is kept as its words (`outcome_text`), for the room to be told.
+
 Usage: scripts/import_foundry_spells.py /path/to/foundryvtt-pf2e [--write]
 """
 
@@ -19,6 +28,8 @@ import json
 import os
 import re
 import sys
+
+import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,36 +43,85 @@ OUTCOMES = {'Critical Success': 'criticalSuccess', 'Success': 'success', 'Failur
             'Critical Failure': 'criticalFailure'}
 PARAGRAPH = re.compile(r'<strong>(Critical Success|Critical Failure|Success|Failure)</strong>(.*?)(?=<strong>(?:Critical Success|Critical Failure|Success|Failure)</strong>|<hr|</p>\s*<p><strong>Heightened|\Z)',
                        re.S)
-LINK = re.compile(r'@UUID\[Compendium\.pf2e\.([\w-]+)\.Item\.[^\]]+\]\{([^}]+)\}')
+# A link, with the words it shows or without: `@UUID[...Item.Frightened]{Frightened 2}`, or
+# `@UUID[...Item.Fleeing]`, which shows the item's own name.
+LINK = re.compile(r'@UUID\[Compendium\.pf2e\.([\w-]+)\.Item\.([^\]]+)\](?:\{([^}]+)\})?')
 
-# How long something an outcome leaves lasts, counted from the caster's turn: to the end or start of
-# their next, or a number of rounds, which ends as their turn starts that many rounds on. A minute is
-# ten rounds.
+
+def shown(link):
+    return link.group(3) or link.group(2)
+
+# How long something an outcome leaves lasts. Counted from the caster's turn: to the end of this one, to
+# the end or start of their next, or a number of rounds, which ends as their turn starts that many
+# rounds on; a minute is ten rounds. Or counted from the turn of whoever it was left on, which is what
+# "its next turn" means: `its-` and the same words.
+THEIRS = r"(?:its|their|the target's|the creature's|that creature's)"
 UNTIL = [(re.compile(r'until the end of (?:your|the caster\'s) next turn', re.I), lambda _: 'next-turn-end'),
-         (re.compile(r'until the start of (?:your|the caster\'s) next turn', re.I), lambda _: 'next-turn-start'),
+         (re.compile(r'until the (?:start|beginning) of (?:your|the caster\'s) (?:next )?turn', re.I), lambda _: 'next-turn-start'),
+         (re.compile(r'until the end of (?:your|the caster\'s) turn', re.I), lambda _: 'turn-end'),
+         (re.compile(r'until the end of ' + THEIRS + r' next turn', re.I), lambda _: 'its-next-turn-end'),
+         (re.compile(r'until the end of ' + THEIRS + r' turn', re.I), lambda _: 'its-turn-end'),
+         (re.compile(r'until the (?:start|beginning) of ' + THEIRS + r' (?:next )?turn', re.I), lambda _: 'its-next-turn-start'),
          (re.compile(r'for (\d+) rounds?', re.I), lambda found: f'rounds:{found.group(1)}'),
          (re.compile(r'for (\d+) minutes?', re.I), lambda found: f'rounds:{int(found.group(1)) * 10}')]
 
 
+# The conditions this game has, which is what an outcome may leave: a spell that links an attitude -
+# Charm's Friendly - leaves no condition the engine knows.
+CONDITIONS = set(yaml.safe_load(open(os.path.join(CONFIG, 'pf2e_conditions.yml')))['pf2e_conditions'])
+
+# What the caster gains, said of "you": Blinding Fury's "you become hidden to it".
+THE_CASTER = re.compile(r"\byou(?:'re)?\s+(?:become|are|gain)\b|\brendering you\b|\byou are\b", re.I)
+
+
+def duration_of(text, durations, link):
+    """The duration a linked condition lasts for, by where the sentence that holds it says it. Read with
+    every link blanked out, because a link's own path is full of full stops."""
+    text = LINK.sub(lambda found: '#' * len(found.group(0)), text)
+    start = max(text.rfind('.', 0, link.start()), text.rfind(';', 0, link.start())) + 1
+    end_at = [at for at in (text.find('.', link.end()), text.find(';', link.end())) if at >= 0]
+    end = min(end_at) if end_at else len(text)
+
+    after = next((key for at, key in durations if link.end() <= at < end), None)
+    if after:
+        return after
+
+    opening = next((key for at, key in durations
+                    if start <= at < link.start() and not re.sub(r'<[^>]+>|\W', '', text[start:at])), None)
+
+    return opening
+
+
 def effects_in(effects_text):
     """What one outcome's paragraph leaves on the one who rolled: each condition it links, at the value
-    its label gives, and each effect. A duration belongs to the condition it directly follows."""
+    its label gives, and each effect. A condition the paragraph gives the caster, or one this game does
+    not have, is left out.
+
+    A duration belongs to the conditions its sentence names before it - "confused and dazzled until the
+    end of its next turn" - or, where the sentence opens with it, to all of them: "Until the end of its
+    next turn, the target is stupefied 2 and fascinated". Frightened takes none, because it eases by
+    itself each turn: "frightened 3 and fleeing for 1 round" is the fleeing's round."""
     found = []
     durations = sorted((match.start(), key(match)) for pattern, key in UNTIL for match in pattern.finditer(effects_text))
     links = list(LINK.finditer(effects_text))
 
     for index, link in enumerate(links):
-        pack, label = link.groups()
+        pack, label = link.group(1), shown(link)
         following = links[index + 1].start() if index + 1 < len(links) else len(effects_text)
-        # Only a duration straight after the condition: "frightened 3 and fleeing for 1 round" puts the
-        # round on the fleeing, which the text names without linking.
-        until = next((key for at, key in durations
-                      if link.end() <= at < following and not re.search(r'\band\b|,', effects_text[link.end():at])),
-                     None)
+        until = duration_of(effects_text, durations, link)
+
+        sentence = re.split(r'[.;]', effects_text[:link.start()])[-1]
+
+        if THE_CASTER.search(re.sub(r'@UUID\[[^\]]*\](\{[^}]*\})?', '', sentence)):
+            continue
 
         if pack == 'conditionitems':
             named = re.match(r'(.+?)(?:\s+(\d+))?\Z', label.strip())
             one = {'condition': named.group(1).strip().title().replace('Off-guard', 'Off-Guard')}
+            if one['condition'] not in CONDITIONS:
+                continue
+            if one['condition'] == 'Frightened':
+                until = None
             if named.group(2):
                 one['value'] = int(named.group(2))
             if until:
@@ -80,6 +140,72 @@ def outcomes_of(description):
         held = effects_in(text)
         if held:
             out[OUTCOMES[label]] = held
+
+    for outcome, held in prose_outcomes(description).items():
+        out.setdefault(outcome, held)
+
+    return out
+
+
+# Outcomes as a sentence names them, most particular first.
+SPOKEN = [(re.compile(r'critically fails|critical failure|critically failed', re.I), 'criticalFailure'),
+          (re.compile(r'critically succeeds|critical success', re.I), 'criticalSuccess'),
+          (re.compile(r'\bfails\b|\bfailure\b|\bfailed\b', re.I), 'failure'),
+          (re.compile(r'\bon a success\b|\bsucceeds\b', re.I), 'success')]
+
+# A sentence whose outcome belongs to another roll, or that a condition escapes, is not read: "must
+# succeed at a Reflex save or become off-guard" is a second save, and "unless it Escapes" a way out.
+AMBIGUOUS = re.compile(r'must succeed|unless|\bStrike\b|Heightened', re.I)
+
+# A condition with a value, written without a link.
+VALUED = ('Clumsy', 'Doomed', 'Drained', 'Enfeebled', 'Frightened', 'Sickened', 'Slowed', 'Stunned', 'Stupefied')
+PLAIN = re.compile(r'\b(' + '|'.join(VALUED) + r')\s+(\d+)\b', re.I)
+
+
+def prose_outcomes(description):
+    """The outcomes a spell names in its sentences rather than in paragraphs of their own."""
+    rest = PARAGRAPH.sub('', description or '').split('<strong>Heightened')[0]
+    out = {}
+
+    for sentence in re.split(r'(?<=[.!?])\s+|</p>', rest):
+        if AMBIGUOUS.search(re.sub(r'@UUID\[[^\]]*\]', '', sentence)):
+            continue
+
+        said = {}
+        for clause in re.split(r';|\(|\)|, or |, and on ', sentence):
+            outcome = next((key for pattern, key in SPOKEN if pattern.search(re.sub(r'@UUID\[[^\]]*\]', '', clause))), None)
+            held = effects_in(clause) + plain_conditions(clause)
+            if outcome and held:
+                said.setdefault(outcome, []).extend(held)
+
+        if 'failure' in said and 'criticalFailure' not in said:
+            said['criticalFailure'] = list(said['failure'])
+
+        for outcome, held in said.items():
+            out.setdefault(outcome, []).extend(held)
+
+    return out
+
+
+def plain_conditions(clause):
+    """Numbered conditions a clause names without linking them."""
+    unlinked = LINK.sub('', clause)
+
+    return [{'condition': name.title(), 'value': int(value)} for name, value in PLAIN.findall(re.sub(r'<[^>]+>', '', unlinked))]
+
+
+def outcome_text_of(description):
+    """Each outcome paragraph as the words a player reads."""
+    out = {}
+
+    for label, text in PARAGRAPH.findall(description or ''):
+        words = LINK.sub(shown, text)
+        words = re.sub(r'@UUID\[[^\]]*\.([^.\]]+)\]', lambda found: found.group(1), words)
+        words = re.sub(r'@Damage\[([^\]\[]*(?:\[[^\]]*\][^\]\[]*)*)\]', lambda found: re.sub(r'\[[^\]]*\]', '', found.group(1)), words)
+        words = re.sub(r'<[^>]+>', ' ', words)
+        words = re.sub(r'\s+', ' ', words).strip()
+        if words:
+            out[OUTCOMES[label]] = words
 
     return out
 
@@ -212,6 +338,10 @@ def mechanics_of(doc):
     outcomes = outcomes_of(description)
     if outcomes:
         entry['outcomes'] = outcomes
+    if save:
+        words = outcome_text_of(description)
+        if words:
+            entry['outcome_text'] = words
     if save and not save.get('basic') and damage:
         scale = damage_scale_of(description)
         if scale:

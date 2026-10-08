@@ -567,7 +567,7 @@ module AresMUSH
           each = Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted)
 
           if attack
-            spell_attack(each, spell, casting, formulas, said, out)
+            spell_attack(each, spell, mechanics, casting, formulas, said, out)
           elsif mechanics['save']
             spell_save(each, spell, mechanics, dc, formulas, out)
           elsif formulas.any?
@@ -689,7 +689,8 @@ module AresMUSH
         figure ? figure['total'].to_i : nil
       end
 
-      def self.spell_attack(scene, spell, casting, formulas, said, out)
+      # A spell attack's outcomes are the attack's own: Briny Bolt's critical hit blinds what it hits.
+      def self.spell_attack(scene, spell, mechanics, casting, formulas, said, out)
         options = TurnState.map_options(scene.actor.holder) + options_for(scene, said) + [ 'action:cast-a-spell' ]
         check = Check.of(scene.actor.holder, 'spell_attack', casting || {}, options)
         extra = attack_penalty(scene.actor.holder)
@@ -697,11 +698,14 @@ module AresMUSH
         rolled = attack_roll(scene, { 'name' => spell }, check, said, extra, out)
         out['lines'] << rolled['line']
 
-        return unless rolled['hit'] && formulas.any?
+        if rolled['hit'] && formulas.any?
+          rows = DamageRoll.of_formulas(formulas.map { |formula, type, category, _| [ formula, type, category ] },
+                                        rolled['result']['degree'] == Degree::CRITICAL_SUCCESS)
+          deal(scene, scene.target, rows, out)
+        end
 
-        rows = DamageRoll.of_formulas(formulas.map { |formula, type, category, _| [ formula, type, category ] },
-                                      rolled['result']['degree'] == Degree::CRITICAL_SUCCESS)
-        deal(scene, scene.target, rows, out)
+        degree = rolled.dig('result', 'degree')
+        outcome(scene, mechanics, degree, formulas, out) if degree
       end
 
       # A save against the caster's DC, rolled by each target: a basic save scales the damage, and any
@@ -727,9 +731,19 @@ module AresMUSH
 
         heal_or_hurt(scene, mechanics, formulas, result['degree'], out) if formulas.any?
 
-        consequences(scene, Array((mechanics['outcomes'] || {})[Degree::NAMES[result['degree']]]).map { |one|
-          one.merge('on' => 'target')
-        }, out)
+        outcome(scene, mechanics, result['degree'], formulas, out)
+      end
+
+      # What an outcome leaves on the target. Where it leaves nothing the engine can set and deals no
+      # damage, its own words are told, so the room knows what Command's failure makes the target do.
+      def self.outcome(scene, mechanics, degree, formulas, out)
+        named = Degree::NAMES[degree]
+        held = Array((mechanics['outcomes'] || {})[named])
+
+        consequences(scene, held.map { |one| one.merge('on' => 'target') }, out)
+
+        words = (mechanics['outcome_text'] || {})[named]
+        out['lines'] << told('pf2e.act_outcome_words', :words => words) if words && held.empty? && formulas.empty?
       end
 
       # Damage that heals the living and hurts the undead, or the reverse, by the spell's vitality or void.
@@ -817,12 +831,13 @@ module AresMUSH
         set = Pf2e.set_condition(whom.holder, name, value || Pf2e.default_condition_value(name))
         return out['lines'] << told(set.key, set.args) if set.err?
 
-        ends = scene.encounter && one['until'] ? Turns.expiry(one['until'], scene.actor.label, scene.encounter.round) : nil
+        ends = scene.encounter && one['until'] ? Turns.expiry_for(one['until'], scene.encounter, scene.actor.label, whom.label) : nil
         expire_at(whom.holder, name, ends) if ends
 
         shown = value ? "#{name} #{value}" : name
+        timed_by = one['until'].to_s.start_with?('its-') ? whom.label : scene.actor.label
         out['lines'] << told('pf2e.act_now', :target => whom.label, :condition => shown,
-                                          :until => ends ? until_phrase(one['until'], scene.actor.label) : '')
+                                          :until => ends ? until_phrase(one['until'].to_s.delete_prefix('its-'), timed_by) : '')
       end
 
       # ` until the end of Aria's next turn`, ` for 10 rounds`.
