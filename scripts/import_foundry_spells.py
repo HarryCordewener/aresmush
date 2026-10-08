@@ -199,6 +199,11 @@ def plain_conditions(clause):
     return [{'condition': name.title(), 'value': int(value)} for name, value in PLAIN.findall(re.sub(r'<[^>]+>', '', unlinked))]
 
 
+# What a spell with no save does to its target where its words say so outright: Stabilize's "The target
+# loses the Dying condition".
+ENDS = re.compile(r'The target loses the (\w+) condition')
+
+
 def outcome_text_of(description):
     """Each outcome paragraph as the words a player reads."""
     out = {}
@@ -223,7 +228,7 @@ KIND = r'(?:(?!no\b)[a-z]+ ){0,3}'
 SCALES = [(re.compile(rf'\bhalf (?:the )?{KIND}damage\b', re.I), 0.5),
           (re.compile(rf'\bdouble (?:the )?{KIND}damage\b', re.I), 2),
           (re.compile(rf'\bfull {KIND}damage\b|\btakes? (?:the )?(?:full )?{KIND}damage\b', re.I), 1),
-          (re.compile(r'\bunaffected\b|\bno damage\b|\btakes? no\b[^.]*\bdamage\b', re.I), 0)]
+          (re.compile(r'\bunaffected\b|\bno effect\b|\bno damage\b|\btakes? no\b[^.]*\bdamage\b', re.I), 0)]
 
 
 def damage_scale_of(description):
@@ -342,6 +347,9 @@ def mechanics_of(doc):
     outcomes = outcomes_of(description)
     if outcomes:
         entry['outcomes'] = outcomes
+    ended = ENDS.findall(LINK.sub(shown, description or '')) if not save else []
+    if ended:
+        entry['applies'] = [{'remove': [name.title() for name in ended]}]
     if save:
         words = outcome_text_of(description)
         if words:

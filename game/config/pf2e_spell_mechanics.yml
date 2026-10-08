@@ -150,6 +150,7 @@ pf2e_spell_mechanics:
     target: "1 creature"
     range: "30 feet"
     outcome_text: {"criticalSuccess": "The spell has no effect.", "success": "The duration is 1 round.", "failure": "The duration is 2 rounds.", "criticalFailure": "The duration is 4 rounds."}
+    damage_scale: {"criticalSuccess": 0}
   "Agonizing Despair":
     rank: 3
     traits: ["concentrate", "emotion", "fear", "manipulate", "mental"]
@@ -10820,7 +10821,7 @@ pf2e_spell_mechanics:
     target: "1 intelligent creature"
     range: "30 feet"
     outcomes: {"criticalFailure": [{"condition": "Enfeebled", "value": 1}]}
-    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "You take on the target's appearance, with the same effects of a 3rd-rank Illusory Disguise spell, and the target can't speak, with the same effects of a 2nd-rank Silence spell.", "failure": "As success, but the target also takes 4d6 mental damage from the transformation.", "criticalFailure": "As success, but the target also takes 8d6 mental damage from the transformation.%rThe first time each round you Sustain this spell after you cast this spell, the target ages rapidly, taking (ternary(gte(@item.rank, 9), 3, 2))d8 void damage (Will save). On a failure, the target also becomes Enfeebled 1 or increases the value of its enfeebled condition by 1."}
+    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "You take on the target's appearance, with the same effects of a 3rd-rank Illusory Disguise spell, and the target can't speak, with the same effects of a 2nd-rank Silence spell.", "failure": "As success, but the target also takes 4d6 mental damage from the transformation.", "criticalFailure": "As success, but the target also takes 8d6 mental damage from the transformation.%rThe first time each round you Sustain this spell after you cast this spell, the target ages rapidly, taking (ternary(gte(@item.rank, 9), 3, 2))d8 void damage (basic Will save). On a failure, the target also becomes Enfeebled 1 or increases the value of its enfeebled condition by 1."}
     damage_scale: {"criticalSuccess": 0}
   "Seize Soul":
     rank: 9
@@ -11887,6 +11888,7 @@ pf2e_spell_mechanics:
     time: "2"
     target: "1 dying creature"
     range: "30 feet"
+    applies: [{"remove": ["Dying"]}]
   "Stagnate Time":
     rank: 5
     traits: ["concentrate", "manipulate"]

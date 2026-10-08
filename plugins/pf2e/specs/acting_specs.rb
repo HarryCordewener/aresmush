@@ -757,6 +757,17 @@ module AresMUSH
           expect(npc(3).pf2_persistent).to eq [ { 'formula' => '4d6', 'type' => 'fire', 'dc' => 15 } ]
         end
 
+        # A spell with no save that ends a condition on its target does: Stabilize ends dying.
+        it "should end a dying target's dying with Stabilize" do
+          state = CombatantStates.of(@encounter, Character[@hero.id])
+          Pf2eHP.get_hp_obj(state).update(:damage => Pf2eHP.get_max_hp(state))
+          Pf2e.set_condition(state, 'Dying', 1)
+          run(PF2EncounterAsCmd, "e/as #2=cast stabilize=#{@hero.name}")
+
+          expect(@client.failures).to eq []
+          expect(Pf2e.condition_level(CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id]), 'Dying')).to eq 0
+        end
+
         # What Command does is the target's to do; the room is told what that is.
         it "should tell the room what an outcome does where it sets no condition" do
           @dice = 0.05

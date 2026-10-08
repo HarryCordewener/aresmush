@@ -777,6 +777,8 @@ module AresMUSH
             spell_save(each, spell, mechanics, dc, formulas, out)
           elsif formulas.any?
             spell_unopposed(each, mechanics, formulas, out)
+          elsif mechanics['applies'] && each.target
+            consequences(each, Array(mechanics['applies']).map { |one| one.merge('on' => 'target') }, out)
           else
             spell_effect(each, spell, rank, out)
           end
