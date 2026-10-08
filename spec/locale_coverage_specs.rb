@@ -30,9 +30,13 @@ module AresMUSH
       webportal.only_switch_arescentral_alts
     }.to_set
 
+    # The forms I18n chooses among by `count`. A key that holds them is one key, asked for whole.
+    PLURAL = %w{zero one two few many other}.freeze
+
     # Dotted keys, the way `t` asks for them.
     def self.flatten(node, prefix = [])
       return { prefix.join('.') => node } unless node.is_a?(Hash)
+      return { prefix.join('.') => node } if !node.empty? && (node.keys.map(&:to_s) - PLURAL).empty?
 
       node.flat_map { |key, value| flatten(value, prefix + [ key.to_s ]).to_a }.to_h
     end
