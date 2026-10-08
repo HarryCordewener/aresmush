@@ -126,6 +126,7 @@ module AresMUSH
         return reaction_strike(scene, name, entry, words) if entry['strike']
         return several_strikes(scene, name, entry, words) if entry['strikes']
         return shield_block(scene, name, entry) if name == ShieldBlock::NAME
+        return bonded_item(scene, name, entry, words) if name == BondedItem::NAME
         return attack_answer(scene, name, entry) if entry['type'] == 'reaction' && AttackAnswers.answer(scene.actor.holder, name)
         said = said(words, scene.permitted)
         out = report
@@ -388,6 +389,13 @@ module AresMUSH
 
         spend(scene, name, entry, answered.state) if answered.ok?
         answered
+      end
+
+      def self.bonded_item(scene, name, entry, words)
+        drained = BondedItem.drain(scene, words, report)
+
+        spend(scene, name, entry, drained.state) if drained.ok?
+        drained
       end
 
       def self.shield_block(scene, name, entry)
