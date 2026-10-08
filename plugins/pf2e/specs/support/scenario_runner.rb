@@ -398,7 +398,9 @@ module AresMUSH
 
         type(@gm, "e/as ##{row['id']}=strike #{target.name}")
 
-        # A player behind a raised shield answers the hit with Shield Block when it is offered.
+        # A player answers a hit with what the game offers: Nimble Dodge where it would turn the hit, then
+        # Shield Block behind a raised shield.
+        AttackAnswers.offered(state_of(target)).first(1).each { |name| attempt(target, :act, name, "e/act #{name.downcase}") }
         attempt(target, :act, 'Shield Block', 'e/act shield block') if ShieldBlock.offered?(state_of(target))
 
         unless @tried[:creatures][row['id']]

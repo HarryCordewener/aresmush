@@ -6,7 +6,7 @@ module AresMUSH
     #
     # The hit has already been dealt when the player answers it, so whoever takes physical damage behind
     # a raised shield keeps the hit on them - what they had before it, what it dealt, and whether it was
-    # a critical hit - until the next hit or the block. Blocking puts back what they had and deals the
+    # a critical hit - until the next hit or the block, and while nothing else has moved their hit points. Blocking puts back what they had and deals the
     # hit again less the Hardness, so being knocked out by it is undone when the block saves them.
     module ShieldBlock
 
@@ -44,7 +44,7 @@ module AresMUSH
 
       def self.remember(holder, before, taken, physical, critical)
         TurnState.write(holder, 'struck' => { 'before' => before, 'taken' => taken, 'physical' => physical,
-                                              'critical' => critical })
+                                              'critical' => critical, 'after' => AttackAnswers.standing(holder) })
       end
 
       # Whether to offer the block: they have it, their reaction is ready, and the hit is on them.
@@ -59,6 +59,7 @@ module AresMUSH
 
         return Err.new(:no_raised_shield, 'pf2e.shield_block_no_shield') unless shield
         return Err.new(:nothing_to_block, 'pf2e.shield_block_no_hit') unless hit
+        return Err.new(:too_late, 'pf2e.answer_too_late', 'action' => NAME) unless hit['after'] == AttackAnswers.standing(holder)
 
         blocked = [ shield.hardness.to_i, hit['physical'].to_i ].min
         rest = hit['physical'].to_i - blocked

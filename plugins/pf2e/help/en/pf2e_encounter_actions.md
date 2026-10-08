@@ -49,6 +49,9 @@ your first that will do. It spends your reaction, and the multiple attack penalt
 nor counts it.
 An action that is several Strikes - Flurry of Blows - makes them all at the one target, each counting
 toward your multiple attack penalty, for what the action costs.
+Nimble Dodge, and a reaction like it that raises your AC against an attack, answers a hit you have
+just taken: its bonus is put against the attack's roll, and a hit it turns into a miss is undone. A
+hit it could turn says so.
 Shield Block answers a hit you have just taken while your shield is raised: its Hardness comes off the
 hit's physical damage, and you and the shield each take the rest. A hit you could block says so.
 

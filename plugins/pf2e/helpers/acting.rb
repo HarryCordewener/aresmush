@@ -112,6 +112,7 @@ module AresMUSH
         return reaction_strike(scene, name, entry, words) if entry['strike']
         return several_strikes(scene, name, entry, words) if entry['strikes']
         return shield_block(scene, name, entry) if name == ShieldBlock::NAME
+        return attack_answer(scene, name, entry) if entry['type'] == 'reaction' && AttackAnswers.answer(scene.actor.holder, name)
         said = said(words, scene.permitted)
         out = report
         refused(out, said)
@@ -341,6 +342,13 @@ module AresMUSH
         Actors.of(holder).proficiency(kind, name)
       end
 
+      def self.attack_answer(scene, name, entry)
+        answered = AttackAnswers.use(scene, name, report)
+
+        spend(scene, name, entry, answered.state) if answered.ok?
+        answered
+      end
+
       def self.shield_block(scene, name, entry)
         blocked = ShieldBlock.block(scene, report)
 
@@ -500,6 +508,12 @@ module AresMUSH
       def self.hit(scene, attack, check, result, out)
         critical = result['degree'] == Degree::CRITICAL_SUCCESS
         rows = Actors.of(scene.actor.holder).strike_damage(attack, check, critical)
+        answerable = !scene.target.creature?
+
+        if answerable
+          calm = critical ? Actors.of(scene.actor.holder).strike_damage(attack, check, false) : rows
+          AttackAnswers.remember(scene.target.holder, result, calm)
+        end
 
         if out['held']
           out['held'] << { 'rows' => rows, 'critical' => critical }
@@ -512,6 +526,13 @@ module AresMUSH
         follow_ups(scene, attack, out)
 
         critical_specialization(scene, attack, out) if critical
+
+        return unless answerable
+
+        AttackAnswers.dealt(scene.target.holder)
+        AttackAnswers.offered(scene.target.holder).each do |reaction|
+          out['lines'] << told('pf2e.act_follow_up', :effect => reaction, :command => "+e/act #{reaction.downcase}")
+        end
       end
 
       # A splash weapon that misses still splashes the target, though not on a critical miss.

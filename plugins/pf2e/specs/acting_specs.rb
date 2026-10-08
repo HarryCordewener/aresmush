@@ -536,6 +536,65 @@ module AresMUSH
         end
       end
 
+      # Nimble Dodge answers an attack that has hit: its +2 to AC is put against the roll, and a hit it
+      # turns into a miss is undone.
+      describe "Nimble Dodge" do
+        before(:each) do
+          add('2 goblin warrior')
+          @hero.update(:pf2_feats => { 'charclass' => [ 'Nimble Dodge' ] })
+        end
+
+        def state
+          CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id])
+        end
+
+        def ac
+          Resolve.defence(state, 'ac')['dc']
+        end
+
+        # The goblin's Strike is +7: a die that meets the AC exactly hits, and +2 makes it miss.
+        def struck_exactly
+          @dice = (ac - 7) / 20.0
+          run(PF2EncounterAsCmd, "e/as #2=strike #{@hero.name}")
+        end
+
+        it "should turn a hit by less than 2 into a miss, and undo it" do
+          struck_exactly
+          expect(Pf2eHP.get_hp_obj(state).damage).to be > 0
+
+          run(PF2EncounterActCmd, 'e/act nimble dodge', @hero)
+
+          expect(@client.failures).to eq []
+          expect(Pf2eHP.get_hp_obj(state).damage).to eq 0
+          expect(TurnState.turn(state)['reaction']).to be true
+        end
+
+        it "should offer itself when it could turn the hit" do
+          struck_exactly
+
+          expect(said).to include('+e/act nimble dodge')
+        end
+
+        it "should refuse once something has moved their hit points since" do
+          struck_exactly
+          Harm.heal(state, 1)
+
+          run(PF2EncounterActCmd, 'e/act nimble dodge', @hero)
+
+          expect(@client.failures.join).to include('Too late for Nimble Dodge')
+        end
+
+        it "should leave a hit it cannot turn as it was" do
+          @dice = 1.0
+          run(PF2EncounterAsCmd, "e/as #2=strike #{@hero.name}")
+          taken = Pf2eHP.get_hp_obj(state).damage
+
+          run(PF2EncounterActCmd, 'e/act nimble dodge', @hero)
+
+          expect(Pf2eHP.get_hp_obj(state).damage).to eq taken
+        end
+      end
+
       describe "cover and trust" do
         before(:each) { add('goblin warrior') }
 
