@@ -61,7 +61,7 @@ module AresMUSH
 
         expect(@client.failures).to eq []
         expect(PF2Consumable[@potion.id]).to be_nil
-        expect(@client.said.join).to include(t('pf2egear.item_destroyed', :name => 'Healing Potion (Minor)'))
+        expect(@client.said.join).to include(t('pf2egear.item_used_up', :name => 'Healing Potion (Minor)'))
       end
     end
   end
