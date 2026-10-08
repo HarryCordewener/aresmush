@@ -424,6 +424,7 @@ pf2e_actions:
     cost: 1
     category: "skill"
     traits: ["general", "healing", "manipulate", "skill"]
+    check: {"slug": "battle-medicine", "statistic": "medicine", "options": ["action:battle-medicine"], "dc": 15}
   "Bear Allies' Burdens":
     from: "action"
     for: "class"

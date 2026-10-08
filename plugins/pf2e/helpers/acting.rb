@@ -19,7 +19,19 @@ module AresMUSH
 
       # Who is acting, at whom, in which encounter, and on whose word. `permitted` is whether the one
       # typing may speak for a target's cover and concealment.
-      Scene = Struct.new(:encounter, :actor, :target, :enactor, :permitted)
+      #
+      # Someone acting on themselves is one record held once: a model saves every attribute it holds, so
+      # two copies would each write back what the other changed.
+      Scene = Struct.new(:encounter, :actor, :target, :enactor, :permitted) do
+        def initialize(*)
+          super
+
+          return unless actor && target
+          return unless actor.holder.class == target.holder.class && actor.holder.id == target.holder.id
+
+          self.target = target.dup.tap { |one| one.holder = actor.holder }
+        end
+      end
 
       def self.report
         { 'lines' => [], 'gm' => [], 'detail' => [] }
@@ -252,7 +264,8 @@ module AresMUSH
 
         rolled_check.notes(result['degree']).each { |one| out['lines'] << told('pf2e.act_note', :text => one['text']) if one['text'] }
 
-        consequences(scene, applied, out, :rank => rank_of(scene.actor.holder, kind, stat_name))
+        consequences(scene, applied, out, :rank => rank_of(scene.actor.holder, kind, stat_name), :dc => dc,
+                                          :options => Array(check['options']))
       end
 
       # The way of doing the action the actor named - `stabilize` for First Aid - or its first. The
@@ -888,7 +901,7 @@ module AresMUSH
 
       # What an outcome does, done: each on the target or on the actor. `rank` is the actor's proficiency
       # in what they rolled, which Aid's bonus grows with.
-      def self.consequences(scene, list, out, rank: 'trained')
+      def self.consequences(scene, list, out, rank: 'trained', dc: nil, options: [])
         list.each do |one|
           whom = one['on'] == 'actor' ? scene.actor : scene.target
 
@@ -897,6 +910,11 @@ module AresMUSH
           if one['condition'] then condition_consequence(scene, whom, one, out)
           elsif one['remove'] then removal_consequence(whom, one, out)
           elsif one['effect'] then effect_consequence(scene, whom, one, rank, out)
+          elsif one['heal']
+            amount = Pf2e.roll_formula(one['heal']) + (one['bonus'] || {})[dc.to_s].to_i
+            Harm.heal(whom.holder, amount, options)
+            out['lines'] << told('pf2e.act_healed', :target => whom.label, :count => amount)
+            out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
           elsif one['damage']
             deal(scene, whom, [ { 'amount' => Pf2e.roll_formula(one['damage']), 'type' => one['type'],
                                   'formula' => one['damage'] } ], out)

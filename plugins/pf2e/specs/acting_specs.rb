@@ -187,6 +187,47 @@ module AresMUSH
           expect(ActiveEffects.on(npc(3)).first.answers).to eq [ '-1' ]
         end
 
+        # Battle Medicine is a Medicine check against Treat Wounds' DC: 15, or a higher one said for more.
+        describe "Battle Medicine" do
+          before(:each) do
+            @hero.update(:pf2_feats => { 'skill' => [ 'Battle Medicine' ] })
+            Pf2eHP.get_hp_obj(state).update(:damage => 15)
+          end
+
+          def state
+            CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id])
+          end
+
+          def treat(text = '')
+            run(PF2EncounterActCmd, "e/act battle medicine=#{@hero.name}#{text}", @hero)
+          end
+
+          it "should heal 2d8 on a success against DC 15" do
+            @dice = 0.75
+            treat
+
+            expect(@client.failures).to eq []
+            expect(said).to include('Medicine', 'DC 15 - ')
+            expect(said).to include(t('pf2e.act_healed', :target => @hero.name, :count => 12))
+            expect(Pf2eHP.get_hp_obj(state).damage).to eq 3
+          end
+
+          it "should add the bonus of a higher DC said" do
+            @dice = 1.0
+            treat('/20')
+
+            expect(said).to include('DC 20 - ')
+            expect(Pf2eHP.get_hp_obj(state).damage).to eq 0
+          end
+
+          it "should hurt on a critical failure" do
+            @dice = 0.05
+            treat
+
+            expect(Pf2eHP.get_hp_obj(state).damage).to eq 16
+          end
+        end
+
         it "should count an attack action toward the multiple attack penalty" do
           run(PF2EncounterAsCmd, 'e/as #2=act trip=#3')
 
