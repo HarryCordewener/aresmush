@@ -42,7 +42,10 @@ module AresMUSH
     # `options` are the circumstances of what is being done, which is how a bonus to healing from
     # Treat Wounds applies to that and not to every point of healing: Robust Health's own rule is
     # predicated on `action:treat-wounds`.
-    def self.modify_damage(char, amount, healing=false, is_dm=false, kind=nil, options=[])
+    # `is_dm` is whether this damage may kill: a GM with the right to say so, or persistent damage. Any
+    # damage takes a character no lower than nothing and leaves them dying there; only damage that may
+    # kill takes them past it. `critical` is a critical hit's, which leaves them two steps nearer death.
+    def self.modify_damage(char, amount, healing=false, is_dm=false, kind=nil, options=[], critical: false)
       amount = Pf2e::IWR.apply(Pf2e::IWR.of(char), amount, kind)['amount'] if kind && !healing
       Pf2e::Turns.damaged(char, kind) if kind && !healing
       amount = healed(char, amount, options) if healing
@@ -87,21 +90,22 @@ module AresMUSH
 
         new_damage = existing_damage + extra_damage
 
-        # Check to see if this damage puts the character in Dying.
-        if (new_damage >= max_hp && is_dm)
+        # Reduced to nothing: Dying 1, or 2 from a critical hit, one higher for each point of Wounded
+        # already carried; hit again while dying, one higher, or two from a critical hit. Doomed lowers
+        # the value at which that kills them.
+        if new_damage >= max_hp
           hp.damage = max_hp
 
-          # Reduced to nothing: Dying 1, one higher for each point of Wounded already carried.
-          # Doomed lowers the value at which that kills them.
-          dying_value = 1 + Pf2e.condition_level(char, 'Wounded')
-          doomed_value = Pf2e.condition_level(char, 'Doomed')
-          fatal_at = 4 - doomed_value
+          step = critical ? 2 : 1
+          dying = Pf2e.condition_level(char, 'Dying')
+          dying_value = dying.positive? ? dying + step : step + Pf2e.condition_level(char, 'Wounded')
+          fatal_at = 4 - Pf2e.condition_level(char, 'Doomed')
 
-          if dying_value >= fatal_at
+          if dying_value >= fatal_at && is_dm
             char.update(pf2_is_dead: true)
-            Pf2e.set_condition char, 'Dying', dying_value.clamp(0, fatal_at)
+            Pf2e.set_condition char, 'Dying', fatal_at
           else
-            Pf2e.set_condition char, 'Dying', dying_value
+            Pf2e.set_condition char, 'Dying', [ dying_value, fatal_at - 1 ].min
           end
 
           hp.save

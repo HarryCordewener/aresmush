@@ -400,7 +400,7 @@ module AresMUSH
         critical = result['degree'] == Degree::CRITICAL_SUCCESS
         rows = Actors.of(scene.actor.holder).strike_damage(attack, check, critical)
 
-        deal(scene, scene.target, rows, out)
+        deal(scene, scene.target, rows, out, :critical => critical)
 
         Consumables.effect(scene.encounter, scene.actor.label, scene.target, attack['effect'], out) if attack['bomb'] && attack['effect']
 
@@ -497,12 +497,14 @@ module AresMUSH
 
       # Damage landing on someone: persistent damage is set to burn, the rest dealt after what they
       # resist, and the room is told what they took.
-      def self.deal(scene, whom, rows, out)
+      # `critical` is a critical hit's, or a critically failed save's: one that drops a character leaves
+      # them nearer death.
+      def self.deal(scene, whom, rows, out, critical: false)
         immediate, persistent = rows.partition { |row| row['category'].to_s != 'persistent' }
         shown = []
 
         immediate.each do |row|
-          held = Harm.damage(whom.holder, row['amount'], row['type'])
+          held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical)
           resisted = Array(held['applied']).map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
           kind = row['category'].to_s == 'splash' ? "splash #{row['type']}" : row['type']
           shown << "#{held['amount']} #{kind}#{resisted.empty? ? '' : " (#{resisted.join(', ')})"}"
@@ -699,9 +701,9 @@ module AresMUSH
         out['lines'] << rolled['line']
 
         if rolled['hit'] && formulas.any?
-          rows = DamageRoll.of_formulas(formulas.map { |formula, type, category, _| [ formula, type, category ] },
-                                        rolled['result']['degree'] == Degree::CRITICAL_SUCCESS)
-          deal(scene, scene.target, rows, out)
+          critical = rolled['result']['degree'] == Degree::CRITICAL_SUCCESS
+          rows = DamageRoll.of_formulas(formulas.map { |formula, type, category, _| [ formula, type, category ] }, critical)
+          deal(scene, scene.target, rows, out, :critical => critical)
         end
 
         degree = rolled.dig('result', 'degree')
@@ -769,7 +771,7 @@ module AresMUSH
 
         rows = DamageRoll.of_formulas(formulas.map { |f, type, category, _| [ f, type, category ] }, false)
         rows = rows.map { |row| row.merge('amount' => (row['amount'] * factor).floor) }
-        deal(scene, scene.target, rows, out)
+        deal(scene, scene.target, rows, out, :critical => degree == Degree::CRITICAL_FAILURE)
       end
 
       # Damage with no attack and no save: it lands.

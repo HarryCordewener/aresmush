@@ -111,6 +111,59 @@ module AresMUSH
       expect(Pf2eHP[@hp.id].damage).to eq 3
     end
 
+    # A Strike in a fight is not a GM's word that a character may die, but it still drops them.
+    describe "damage that may not kill" do
+      def max
+        Pf2eHP.get_max_hp(reread)
+      end
+
+      it "should put a character taken to nothing into Dying" do
+        Pf2eHP.modify_damage(@char, max + 7, false, false)
+
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 1
+      end
+
+      it "should take them no lower than nothing" do
+        Pf2eHP.modify_damage(@char, max + 7, false, false)
+
+        expect(Pf2eHP.get_current_hp(reread)).to eq 0
+      end
+
+      it "should raise Dying by one when they are hit again while dying" do
+        Pf2eHP.modify_damage(@char, max, false, false)
+        Pf2eHP.modify_damage(reread, 3, false, false)
+
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 2
+      end
+
+      # The rules' Dying 4 is death; damage that may not kill stops short of it.
+      it "should leave them dying rather than dead" do
+        @char.update(:pf2_conditions => { 'Wounded' => { 'value' => 3, 'status' => true } })
+
+        Pf2eHP.modify_damage(reread, max, false, false)
+
+        expect(reread.pf2_is_dead).to be_falsey
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 3
+      end
+    end
+
+    # A critical hit that drops a character leaves them Dying 2, and one that hits them while dying
+    # raises it by two.
+    describe "a critical hit" do
+      it "should leave a character it drops Dying 2" do
+        Pf2eHP.modify_damage(@char, Pf2eHP.get_max_hp(@char), false, false, nil, [], :critical => true)
+
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 2
+      end
+
+      it "should raise Dying by two" do
+        Pf2eHP.modify_damage(@char, Pf2eHP.get_max_hp(@char), false, false)
+        Pf2eHP.modify_damage(reread, 1, false, false, nil, [], :critical => true)
+
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 3
+      end
+    end
+
     it "should leave a character standing who is only hurt" do
       Pf2eHP.modify_damage(@char, 1, false, true)
 

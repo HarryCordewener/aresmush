@@ -129,10 +129,10 @@ module AresMUSH
       # ------------------------------------------------------------------------------
       # Hit points
 
-      def damage(amount, kind = nil, is_dm: false)
+      def damage(amount, kind = nil, is_dm: false, critical: false)
         held = kind ? IWR.apply(IWR.of(@holder), amount.to_i, kind) : { 'amount' => amount.to_i, 'applied' => [] }
 
-        Pf2eHP.modify_damage(@holder, amount.to_i, false, is_dm, kind)
+        Pf2eHP.modify_damage(@holder, amount.to_i, false, is_dm, kind, [], :critical => critical)
 
         held
       end
@@ -322,7 +322,7 @@ module AresMUSH
       # ------------------------------------------------------------------------------
       # Hit points
 
-      def damage(amount, kind = nil, is_dm: false)
+      def damage(amount, kind = nil, is_dm: false, critical: false)
         Npcs.damage(@holder, amount, kind)
       end
 

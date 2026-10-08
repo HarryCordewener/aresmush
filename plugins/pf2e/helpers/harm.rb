@@ -7,8 +7,8 @@ module AresMUSH
     module Harm
 
       # `{ 'amount' => what they took after resistances, 'applied' => the resistances that counted }`
-      def self.damage(holder, amount, kind = nil, is_dm: false)
-        Actors.of(holder).damage(amount, kind, :is_dm => is_dm)
+      def self.damage(holder, amount, kind = nil, is_dm: false, critical: false)
+        Actors.of(holder).damage(amount, kind, :is_dm => is_dm, :critical => critical)
       end
 
       def self.heal(holder, amount, options = [])
