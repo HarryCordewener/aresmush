@@ -44,6 +44,17 @@ module AresMUSH
         expect(template.class_features).to eq 'Divine Font, Fifth Doctrine (Cloistered)'
       end
 
+      # A class with no subclass - a fighter - says so rather than leaving the field blank.
+      it "should say N/A for a subclass never chosen" do
+        template = rendered_for({})
+
+        [ nil, '' ].each do |none|
+          template.instance_variable_set(:@base_info, { 'charclass' => 'Fighter', 'specialize' => none })
+
+          expect(template.subclass).to eq 'N/A'
+        end
+      end
+
       it "should cope with no features hash at all" do
         expect(rendered_for(nil).class_features).to eq 'None'
       end

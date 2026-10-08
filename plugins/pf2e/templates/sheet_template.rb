@@ -53,7 +53,7 @@ module AresMUSH
       end
 
       def subclass
-        @base_info['specialize'] ? @base_info['specialize'] : "N/A"
+        @base_info['specialize'].to_s.empty? ? "N/A" : @base_info['specialize']
       end
 
       def subclass_name
