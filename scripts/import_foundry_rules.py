@@ -361,6 +361,12 @@ WORDED = {'text', 'title', 'label', 'prompt'}
 ENRICHER_START = re.compile(r'@(\w+)\[')
 TAG = re.compile(r'<[^>]+>')
 
+# The English `strings` last read, which `@Localize[...]` in a text is read from.
+LOCALIZED = {}
+
+# What a text still holds of Foundry's markup when it has not been made plain.
+MARKUP = re.compile(r'@(?:Localize|Damage|Check|UUID|Template)\[|\[\[/|<(?:p|br|hr|strong|em|span)\b')
+
 
 def strings(checkout):
     """Every localisation key their packs name, as its English."""
@@ -377,6 +383,7 @@ def strings(checkout):
                 continue
             text = shown.stdout
         flatten(json.loads(text), '', found)
+    LOCALIZED.update(found)
 
     return found
 
@@ -412,15 +419,22 @@ def spoken(kind, target):
     if kind == 'UUID':
         return target.split('.Item.')[-1].split('.')[-1]
     if kind == 'Damage':
-        return re.sub(r'\[([\w,-]+)\]', lambda found: ' ' + found.group(1).replace(',', ' '), target).strip()
+        # The roll's own options - `|options:area-damage` - say how it is rolled, not what it is.
+        formula = target.split('|')[0]
+        formula = re.sub(r'\[([\w,-]+)\]', lambda found: ' ' + found.group(1).replace(',', ' '), formula).strip()
+        return re.sub(r',\s*', ', ', formula)
+    if kind == 'Localize':
+        return enrich(LOCALIZED.get(target, ''))
     if kind == 'Check':
         parts = target.split('|')
         dc = next((part.split(':', 1)[1] for part in parts if part.startswith('dc:')), None)
         named = parts[0].replace('-', ' ').title()
         return f'DC {dc} {named}' if dc and dc.isdigit() else named
     if kind == 'Template':
-        fields = dict(part.split(':', 1) for part in target.split('|') if ':' in part)
-        return f"{fields.get('distance', '')}-foot {fields.get('type', '')}".strip()
+        parts = target.split('|')
+        fields = dict(part.split(':', 1) for part in parts if ':' in part)
+        shape = fields.get('type') or next((part for part in parts if ':' not in part), '')
+        return f"{fields.get('distance', '')}-foot {shape}".strip()
 
     return ''
 
@@ -484,9 +498,12 @@ def plain(text, limit=None):
 
 
 def translated(value, found):
-    """A localisation key as its English; anything else as it stands."""
+    """A localisation key as its English, a text still in Foundry's markup as plain words, and anything
+    else as it stands."""
     if isinstance(value, str) and LANG_KEY.match(value) and value in found:
         return plain(found[value])
+    if isinstance(value, str) and MARKUP.search(value):
+        return plain(value)
 
     return value
 

@@ -3282,7 +3282,7 @@ pf2e_effects:
       - key: "Note"
         selector: "all"
         title: "Blasphemous Utterances"
-        text: "<p>A creature in the aura can't take actions that have the concentrate trait unless they succeed at a @Check[flat|dc:10] check. On a failure, the action is disrupted.</p>"
+        text: "A creature in the aura can't take actions that have the concentrate trait unless they succeed at a DC 10 Flat check. On a failure, the action is disrupted."
         predicate: ["concentrate"]
   "Effect: Blast Boots (Major)":
     pack: "equipment-effects"
@@ -11711,7 +11711,7 @@ pf2e_effects:
     duration: {"unit": "days", "value": 1, "expiry": "turn-start", "sustained": false}
     traits: []
     badge: {"type": "counter", "value": 1, "max": null}
-    description: "Granted by Energetic Meltdown%rMild Backlash You take damage equal to your level as energy scours your body.%rModerate Backlash After taking the damage, you gain weakness to the energy type of your backlash until your next daily preparations. The weakness is equal to one-third of your level. You also lose immunity to the energy type if you had it, until your next daily preparations.%rSevere Backlash You deal 1d6 damage per level to all creatures in a 30-foot with a Fortitude save. You automatically take full damage without attempting a save."
+    description: "Granted by Energetic Meltdown%rMild Backlash You take damage equal to your level as energy scours your body.%rModerate Backlash After taking the damage, you gain weakness to the energy type of your backlash until your next daily preparations. The weakness is equal to one-third of your level. You also lose immunity to the energy type if you had it, until your next daily preparations.%rSevere Backlash You deal 1d6 damage per level to all creatures in a 30-foot emanation with a Fortitude save. You automatically take full damage without attempting a save."
     rules:
       - key: "Weakness"
         type: "{actor|flags.system.deviantAbilities.dragon.damageType}"
@@ -16479,7 +16479,7 @@ pf2e_effects:
         damageType: "bludgeoning"
       - key: "Note"
         selector: "attack"
-        title: "<span class=\"action-glyph\">1</span> @Localize[PF2E.AttackEffectKnockdown] ({item|name})"
+        title: "1 Knockdown ({item|name})"
         text: "Requirements The monster's last action was a successful Strike that lists Knockdown in its damage entry%rEffect The monster attempts to trip the creature. This attempt neither applies nor counts toward the monster's multiple attack penalty."
   "Effect: Heads Up!":
     pack: "equipment-effects"
@@ -21068,7 +21068,7 @@ pf2e_effects:
     level: 1
     duration: {"unit": "rounds", "value": 1, "expiry": "turn-start", "sustained": false}
     traits: []
-    description: "Granted by Nanite Surge.%rYour circuitry glows, lighting a 10-foot with dim light for 1 round."
+    description: "Granted by Nanite Surge.%rYour circuitry glows, lighting a 10-foot emanation with dim light for 1 round."
     rules:
       - key: "GrantItem"
         uuid: "Compendium.pf2e.feat-effects.Item.Effect: Nanite Surge (Bonus)"
@@ -22592,13 +22592,13 @@ pf2e_effects:
         selector: "strike-attack-roll"
         outcome: ["criticalSuccess"]
         title: "Perfect Protection"
-        text: "@Localize[PF2E.SpecificRule.FortificationLikeEffect.Twelve]\n@Localize[PF2E.SpecificRule.FortificationLikeEffect.Fortification]"
+        text: "Each time you're critically hit, attempt a DC 12 Flat. On a success, it becomes a normal hit.If your armor has a fortification or greater fortification rune, you roll only one flat check."
         predicate: ["parent:tag:dc-12"]
       - key: "Note"
         selector: "strike-attack-roll"
         outcome: ["criticalSuccess"]
         title: "Perfect Protection"
-        text: "@Localize[PF2E.SpecificRule.FortificationLikeEffect.Ten]\n@Localize[PF2E.SpecificRule.FortificationLikeEffect.Fortification]"
+        text: "Each time you're critically hit, attempt a DC 10 Flat. On a success, it becomes a normal hit.If your armor has a fortification or greater fortification rune, you roll only one flat check."
         predicate: ["parent:tag:dc-10"]
   "Effect: Perfect Resistance":
     pack: "feat-effects"
@@ -25858,7 +25858,7 @@ pf2e_effects:
         predicate: ["fear"]
       - key: "Note"
         selector: "fortitude"
-        text: "<p>While within the aura, creatures take a -2 circumstance penalty to recover from the sickened condition.</p>"
+        text: "While within the aura, creatures take a -2 circumstance penalty to recover from the sickened condition."
   "Effect: Rovagug's Mud":
     pack: "equipment-effects"
     level: 13
@@ -28492,7 +28492,7 @@ pf2e_effects:
     rules:
       - key: "Note"
         selector: "tail-attack"
-        text: "<p>@Localize[PF2E.AttackEffects.IncreasedReach5]</p><hr /><p><strong><span class=\"action-glyph\">1</span> @Localize[PF2E.AttackEffectGrab]</strong> ({item|name})</p>@Localize[PF2E.NPC.Abilities.Glossary.Grab]"
+        text: "Reach increased by 5 feet%r1 Grab ({item|name})%rRequirements The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained%rEffect If used after a Strike, the monster attempts to grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty.%rThe monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn."
   "Effect: Snap Out of It! (Marshal)":
     pack: "feat-effects"
     level: 4
@@ -33782,7 +33782,7 @@ pf2e_effects:
         value: 40
       - key: "Note"
         selector: "jaws-attack"
-        title: "<span class=\"action-glyph\">1</span> @Localize[PF2E.AttackEffectKnockdown] ({item|name})"
+        title: "1 Knockdown ({item|name})"
         text: "Requirements The monster's last action was a successful Strike that lists Knockdown in its damage entry%rEffect The monster attempts to trip the creature. This attempt neither applies nor counts toward the monster's multiple attack penalty."
   "Effect: Wolfjaw Armor":
     pack: "equipment-effects"
@@ -39929,8 +39929,8 @@ pf2e_effects:
         predicate: ["target:trait:metal", {"or": ["melting-heart-first:reactive-touch", "melting-heart-second:reactive-touch"]}]
       - key: "Note"
         selector: "cabled-fist-damage"
-        title: "@Localize[PF2E.AttackEffectGrab] <span class=\"action-glyph\">1</span>"
-        text: "@Localize[PF2E.NPC.Abilities.Glossary.Grab]"
+        title: "Grab 1"
+        text: "Requirements The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained%rEffect If used after a Strike, the monster attempts to grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty.%rThe monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend that condition to the end of the monster's next turn."
         predicate: [{"or": ["melting-heart-first:weighted-grasp", "melting-heart-second:weighted-grasp"]}]
   "Spell Effect: Mantle of the Unwavering Heart":
     pack: "spell-effects"
@@ -43993,7 +43993,7 @@ pf2e_effects:
         selector: ["melee-strike-attack-roll"]
         outcome: ["criticalSuccess"]
         title: "{item|name}"
-        text: "The target is @UUID[Compendium.pf2e.conditionitems.Item.Sickened]{Sickened 1} (with a DC to remove equal to your class DC); this is in addition to any critical specialization effect you might gain from the attack."
+        text: "The target is Sickened 1 (with a DC to remove equal to your class DC); this is in addition to any critical specialization effect you might gain from the attack."
         predicate: ["item:damage:type:piercing"]
   "Stance: Gorilla Stance":
     pack: "feat-effects"

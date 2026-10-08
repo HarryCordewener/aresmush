@@ -80,7 +80,7 @@ pf2e_actions:
     category: "offensive"
     traits: []
     frequency: {"max": 1, "per": "round"}
-    description: "Frequency once per round%rEffect Each enemy in your aura takes ternary(gte(@actor.level, 18), 7, ternary(gte(@actor.level, 15), 6, 5))d6 acid,2d6 persistent acid|options:area-damage damage with a Reflex save against your class DC or spell DC, whichever is higher. The initial damage increases to 6d6 at 15th level and 7d6 at 18th level."
+    description: "Frequency once per round%rEffect Each enemy in your aura takes ternary(gte(@actor.level, 18), 7, ternary(gte(@actor.level, 15), 6, 5))d6 acid,2d6 persistent acid damage with a Reflex save against your class DC or spell DC, whichever is higher. The initial damage increases to 6d6 at 15th level and 7d6 at 18th level."
   "Act Together":
     from: "action"
     for: "class"
@@ -520,7 +520,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: ["fire", "healing", "light", "visual"]
-    description: "Requirements You're transformed into phoenix form by the monstrosity form spell granted by this feat%rEffect You dismiss phoenix form while a fiery corona erupts from you as searing light. Each creature in a 10-foot burst takes max(16,(2*(floor(@actor.level/2))))d6 fire|options:area-damage damage with a Fortitude save against your spell DC; creatures that critically fail are Blinded for 1 round. You gain 8d6 temporary Hit Points. At 18th level and again at 20th level, the burst deals an additional 2d6 fire damage, and you gain an additional 1d6 temporary Hit Points."
+    description: "Requirements You're transformed into phoenix form by the monstrosity form spell granted by this feat%rEffect You dismiss phoenix form while a fiery corona erupts from you as searing light. Each creature in a 10-foot burst takes max(16,(2*(floor(@actor.level/2))))d6 fire damage with a Fortitude save against your spell DC; creatures that critically fail are Blinded for 1 round. You gain 8d6 temporary Hit Points. At 18th level and again at 20th level, the burst deals an additional 2d6 fire damage, and you gain an additional 1d6 temporary Hit Points."
   "Bleed Out":
     from: "feat"
     type: "action"
@@ -1286,7 +1286,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: []
-    description: "Choose either auditory or visual effects. The display gains that trait, and you attempt to counteract one or more effects in a 60-foot that have this trait. On a success, the effect is suppressed until the start of your next turn, rather than ending entirely. Use your Fireworks Lore modifier as your counteract modifier, and your counteract rank is equal to half your level (rounded up). You can spend 2 versatile vials and 3 actions (instead of the usual Cost and actions) to create an even bigger coughing dragon display that attempts to counteract both auditory and visual effects at the same time."
+    description: "Choose either auditory or visual effects. The display gains that trait, and you attempt to counteract one or more effects in a 60-foot emanation that have this trait. On a success, the effect is suppressed until the start of your next turn, rather than ending entirely. Use your Fireworks Lore modifier as your counteract modifier, and your counteract rank is equal to half your level (rounded up). You can spend 2 versatile vials and 3 actions (instead of the usual Cost and actions) to create an even bigger coughing dragon display that attempts to counteract both auditory and visual effects at the same time."
   "Courageous Advance":
     from: "feat"
     type: "action"
@@ -1568,7 +1568,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["primal", "void"]
     frequency: {"max": 1, "per": "day"}
-    description: "Frequency once per day%rEffect Void energy seeps out of you, decaying everything within a 5-foot and causing plants and foliage to age and decompose. Natural difficult terrain is destroyed, and creatures in the area with the plant or wood trait take 1d6 void|options:area-damage damage with a Fortitude save against your class DC or spell DC, whichever is higher."
+    description: "Frequency once per day%rEffect Void energy seeps out of you, decaying everything within a 5-foot emanation and causing plants and foliage to age and decompose. Natural difficult terrain is destroyed, and creatures in the area with the plant or wood trait take 1d6 void damage with a Fortitude save against your class DC or spell DC, whichever is higher."
   "Deconstruct":
     from: "action"
     for: "everyone"
@@ -1699,7 +1699,7 @@ pf2e_actions:
     type: "reaction"
     category: "offensive"
     traits: ["champion", "divine"]
-    description: "Trigger An enemy in your champion's aura damages you%rEffect Bloodshed begets bloodshed as you drag your enemy toward oblivion. You increase the amount of damage you take by (ternary(gte(@actor.level,19),6,ternary(gte(@actor.level,16),5,ternary(gte(@actor.level,12),4,ternary(gte(@actor.level,9),3,ternary(gte(@actor.level,5),2,1))))))d6, and you deal (ternary(gte(@actor.level,19),6,ternary(gte(@actor.level,16),5,ternary(gte(@actor.level,12),4,ternary(gte(@actor.level,9),3,ternary(gte(@actor.level,5),2,1))))))d6 spirit|options:destructive-vengeance:enemy damage to the triggering enemy. The damage you take and deal when you use this reaction increases to 2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, and 6d6 at 19th level.%rIn addition, until the end of your next turn, your Strikes against the triggering creature deal 2 extra spirit damage. This extra damage increases to 4 at 9th level and 6 at 16th level.%rEffect: Champion's Extra Damage"
+    description: "Trigger An enemy in your champion's aura damages you%rEffect Bloodshed begets bloodshed as you drag your enemy toward oblivion. You increase the amount of damage you take by (ternary(gte(@actor.level,19),6,ternary(gte(@actor.level,16),5,ternary(gte(@actor.level,12),4,ternary(gte(@actor.level,9),3,ternary(gte(@actor.level,5),2,1))))))d6, and you deal (ternary(gte(@actor.level,19),6,ternary(gte(@actor.level,16),5,ternary(gte(@actor.level,12),4,ternary(gte(@actor.level,9),3,ternary(gte(@actor.level,5),2,1))))))d6 spirit damage to the triggering enemy. The damage you take and deal when you use this reaction increases to 2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, and 6d6 at 19th level.%rIn addition, until the end of your next turn, your Strikes against the triggering creature deal 2 extra spirit damage. This extra damage increases to 4 at 9th level and 6 at 16th level.%rEffect: Champion's Extra Damage"
   "Detect Magic":
     from: "action"
     for: "everyone"
@@ -1990,7 +1990,7 @@ pf2e_actions:
     category: "offensive"
     traits: []
     frequency: {"max": 1, "per": "PT1H"}
-    description: "Frequency once per hour%rEffect You breathe deeply and exhale a line or cone of powerful breath, much like the dragon with which you made the pact. If the dragon had a cone-shaped breath, your breath is a 30-foot cone. If they had a line-shaped breath, your breath is a 60-foot line. If they had a burst-shaped breath, your breath is a 10-foot burst within 60 feet. No matter the shape, it deals 1d6 damage per level ((@actor.level)d6 untyped|options:area-damage), of the same damage type as the dragon's breath, with a Reflex save, using the higher of your class DC or spell DC. This action has the same traits as the breath of the dragon you made the pact with."
+    description: "Frequency once per hour%rEffect You breathe deeply and exhale a line or cone of powerful breath, much like the dragon with which you made the pact. If the dragon had a cone-shaped breath, your breath is a 30-foot cone. If they had a line-shaped breath, your breath is a 60-foot line. If they had a burst-shaped breath, your breath is a 10-foot burst within 60 feet. No matter the shape, it deals 1d6 damage per level ((@actor.level)d6 untyped), of the same damage type as the dragon's breath, with a Reflex save, using the higher of your class DC or spell DC. This action has the same traits as the breath of the dragon you made the pact with."
   "Dragon Breath (Dragon Form)":
     from: "action"
     for: "spells"
@@ -1998,7 +1998,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: []
-    description: "You exhale deadly magical energy in an area, dealing 10d6 untyped|options:area-damage damage to each creature in the area with a basic save against your spell DC. The shape, damage type, and save type match that of your chosen dragon's breath. If the chosen dragon's breath can deal more than one type of damage, choose one when you cast dragon form . The shape is a 30-foot cone or a 100-foot line. Once activated, Dragon Breath can't be used again for 1d4 rounds. Dragon Breath has the tradition trait matching the type of dragon and the damage trait matching the type of damage it deals, if applicable."
+    description: "You exhale deadly magical energy in an area, dealing 10d6 untyped damage to each creature in the area with a basic save against your spell DC. The shape, damage type, and save type match that of your chosen dragon's breath. If the chosen dragon's breath can deal more than one type of damage, choose one when you cast dragon form . The shape is a 30-foot cone or a 100-foot line. Once activated, Dragon Breath can't be used again for 1d4 rounds. Dragon Breath has the tradition trait matching the type of dragon and the damage trait matching the type of damage it deals, if applicable."
   "Dragon Breath (Eidolon)":
     from: "action"
     for: "class"
@@ -2006,7 +2006,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["eidolon"]
-    description: "Your eidolon exhales a blast of destructive energy that deals (ceil(@actor.level / 2))d6 untyped|options:area-damage damage to all creatures in an area with a basic Reflex save against your spell DC. Your eidolon then can't use Dragon Breath again for the next 1d4 rounds. At 3rd level and every 2 levels thereafter, the damage increases by 1d6.%rWhen the eidolon gains this ability, you choose the area—a 60-foot line or a 30-foot cone—as well as the damage type—acid, cold, electricity, fire, piercing, poison, or void. You can instead choose force if your eidolon has the arcane trait, spirit if they have the divine trait, or mental if they have the occult trait. If you model your eidolon after a specific type of dragon, your GM might allow you to choose from additional damage types.%rDragon Breath has the tradition trait of your eidolon and the trait matching the damage type chosen (unless you choose piercing damage)."
+    description: "Your eidolon exhales a blast of destructive energy that deals (ceil(@actor.level / 2))d6 untyped damage to all creatures in an area with a basic Reflex save against your spell DC. Your eidolon then can't use Dragon Breath again for the next 1d4 rounds. At 3rd level and every 2 levels thereafter, the damage increases by 1d6.%rWhen the eidolon gains this ability, you choose the area—a 60-foot line or a 30-foot cone—as well as the damage type—acid, cold, electricity, fire, piercing, poison, or void. You can instead choose force if your eidolon has the arcane trait, spirit if they have the divine trait, or mental if they have the occult trait. If you model your eidolon after a specific type of dragon, your GM might allow you to choose from additional damage types.%rDragon Breath has the tradition trait of your eidolon and the trait matching the damage type chosen (unless you choose piercing damage)."
     rules:
       - key: "ChoiceSet"
         flag: "shape"
@@ -2311,7 +2311,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["concentrate", "eidolon"]
     frequency: {"max": 1, "per": "PT10M"}
-    description: "Frequency once per 10 minutes%rYour eidolon rips off a chunk of elemental matter from their own form and hurls it into a group of foes. Your eidolon loses a number of Hit Points equal to your level. All creatures in a 20-foot burst within 60 feet take (max(6,(@actor.level - 1)))d6|options:area-damage damage with a Reflex save against your spell DC. The damage increases by 1d6 for each level you have beyond 7th. The damage's type is either fire damage if your eidolon is a fire elemental, or the same physical damage type as your eidolon's primary unarmed attack if your eidolon isn't a fire elemental. Elemental Burst gains any traits that your eidolon's unarmed attacks gain from elemental core."
+    description: "Frequency once per 10 minutes%rYour eidolon rips off a chunk of elemental matter from their own form and hurls it into a group of foes. Your eidolon loses a number of Hit Points equal to your level. All creatures in a 20-foot burst within 60 feet take (max(6,(@actor.level - 1)))d6 damage with a Reflex save against your spell DC. The damage increases by 1d6 for each level you have beyond 7th. The damage's type is either fire damage if your eidolon is a fire elemental, or the same physical damage type as your eidolon's primary unarmed attack if your eidolon isn't a fire elemental. Elemental Burst gains any traits that your eidolon's unarmed attacks gain from elemental core."
   "Elemental Maelstrom":
     from: "action"
     for: "class"
@@ -2416,7 +2416,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["primal"]
     frequency: {"max": 1, "per": "day"}
-    description: "Frequency once per day%rEnergy bursts forth from your body. You deal ceil(@actor.level/2)d6[@actor.flags.system.elementalHeartDwarf.damageType]|options:area-damage damage to all adjacent creatures (Reflex save using your class DC or spell DC, whichever is higher). At 3rd level, and every 2 levels thereafter, this damage increases by 1d6 damage."
+    description: "Frequency once per day%rEnergy bursts forth from your body. You deal ceil(@actor.level/2)d6[@actor.flags.system.elementalHeartDwarf.damageType] damage to all adjacent creatures (Reflex save using your class DC or spell DC, whichever is higher). At 3rd level, and every 2 levels thereafter, this damage increases by 1d6 damage."
   "Energy Fusion":
     from: "feat"
     type: "action"
@@ -2433,7 +2433,7 @@ pf2e_actions:
     rules:
       - key: "Note"
         selector: "initiative"
-        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        title: "F {item|name}"
         text: "{item|description}"
   "Energy Ward":
     from: "feat"
@@ -2593,7 +2593,7 @@ pf2e_actions:
     cost: 2
     category: "interaction"
     traits: ["fire", "inventor", "manipulate", "unstable"]
-    description: "You intentionally take your innovation beyond normal safety limits, making it explode and damage nearby creatures without damaging the innovation... hopefully. The explosion deals max(2, @actor.level)d6[@actor.flags.system.inventor.explode]|options:area-damage damage with a Reflex to all creatures in a 5-foot around you (if you're wearing or holding the innovation) or around your innovation (if your innovation is a minion).%rAt 3rd level, and every level thereafter, increase your explosion's damage by 1d6.%rIf you have the breakthrough innovation class feature, you can choose either a 5-foot or 10-foot for the area when you use Explode; if you have the revolutionary innovation class feature, you can choose a 5-foot, 10-foot, or 15-foot."
+    description: "You intentionally take your innovation beyond normal safety limits, making it explode and damage nearby creatures without damaging the innovation... hopefully. The explosion deals max(2, @actor.level)d6[@actor.flags.system.inventor.explode] damage with a Reflex to all creatures in a 5-foot emanation around you (if you're wearing or holding the innovation) or around your innovation (if your innovation is a minion).%rAt 3rd level, and every level thereafter, increase your explosion's damage by 1d6.%rIf you have the breakthrough innovation class feature, you can choose either a 5-foot or 10-foot emanation for the area when you use Explode; if you have the revolutionary innovation class feature, you can choose a 5-foot, 10-foot, or 15-foot emanation."
   "Exploit Blunder":
     from: "feat"
     type: "reaction"
@@ -2794,7 +2794,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: ["light", "spirit", "teleportation", "transcendence"]
-    description: "You swing your weapon in a wide arc, releasing a blazing rainbow that deals 9d6 spirit|options:area-damage damage and 9d6 untyped|options:area-damage damage of the same type as your weapon to all enemies in a 60-foot cone, with a Fortitude save against your class DC. As the rainbow ripples out, you use it as a bridge to teleport to any location within the effect's area."
+    description: "You swing your weapon in a wide arc, releasing a blazing rainbow that deals 9d6 spirit damage and 9d6 untyped damage of the same type as your weapon to all enemies in a 60-foot cone, with a Fortitude save against your class DC. As the rainbow ripples out, you use it as a bridge to teleport to any location within the effect's area."
     rules:
       - key: "ItemAlteration"
         itemId: "{item|id}"
@@ -3213,7 +3213,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: ["fire", "sonic", "visual"]
-    description: "Chaos fills a 20-foot within 120 feet. All creatures in the area takes (max(3,(3 + floor((@actor.level - 10)/ 3))))d6 fire,(max(3,(3 + floor((@actor.level - 10)/ 3))))d6 sonic|options:area-damage damage and must attempt a Fortitude save. Every 3 levels, the fire damage and sonic damage each increase by 1d6. You can expend 2 versatile vials instead of 1 to increase the fire and sonic damage by 1d6 each, or by 2d6 each at 16th level.%rCritical Success The creature is unaffected.%rSuccess The creature is Dazzled and Deafened until the end of its next turn and takes half damage.%rFailure The creature is dazzled and deafened for 1 minute and takes full damage.%rCritical Failure The creature is Blinded for 1 round, dazzled and deafened for 1 minute, and takes double damage."
+    description: "Chaos fills a 20-foot within 120 feet. All creatures in the area takes (max(3,(3 + floor((@actor.level - 10)/ 3))))d6 fire,(max(3,(3 + floor((@actor.level - 10)/ 3))))d6 sonic damage and must attempt a Fortitude save. Every 3 levels, the fire damage and sonic damage each increase by 1d6. You can expend 2 versatile vials instead of 1 to increase the fire and sonic damage by 1d6 each, or by 2d6 each at 16th level.%rCritical Success The creature is unaffected.%rSuccess The creature is Dazzled and Deafened until the end of its next turn and takes half damage.%rFailure The creature is dazzled and deafened for 1 minute and takes full damage.%rCritical Failure The creature is Blinded for 1 round, dazzled and deafened for 1 minute, and takes double damage."
     rules:
       - key: "RollOption"
         option: "goblin-jubilee-upgrade"
@@ -3254,7 +3254,7 @@ pf2e_actions:
     type: "reaction"
     category: "interaction"
     traits: ["manipulate"]
-    check: {"slug": "grab-an-edge", "statistic": ["reflex", "acrobatics"], "options": ["action:grab-an-edge"], "notes": {"criticalSuccess": "You grab the edge or handhold, whether or not you have a hand free, typically by using a suitable held item to catch yourself (catching a battle axe on a ledge, for example). You still take damage from the distance fallen so far, but you treat the fall as though it were 30 feet shorter.", "success": "If you have at least one hand free, you grab the edge or handhold, stopping your fall. You still take damage from the distance fallen so far, but you treat the fall as though it were 20 feet shorter. If you have no hands free, you continue to fall as if you had failed the check.", "criticalFailure": "You continue to fall, and if you've fallen 20 feet or more before you use this reaction, you take 10 bludgeoning|options:fall-damage damage from the impact for every 20 feet fallen."}}
+    check: {"slug": "grab-an-edge", "statistic": ["reflex", "acrobatics"], "options": ["action:grab-an-edge"], "notes": {"criticalSuccess": "You grab the edge or handhold, whether or not you have a hand free, typically by using a suitable held item to catch yourself (catching a battle axe on a ledge, for example). You still take damage from the distance fallen so far, but you treat the fall as though it were 30 feet shorter.", "success": "If you have at least one hand free, you grab the edge or handhold, stopping your fall. You still take damage from the distance fallen so far, but you treat the fall as though it were 20 feet shorter. If you have no hands free, you continue to fall as if you had failed the check.", "criticalFailure": "You continue to fall, and if you've fallen 20 feet or more before you use this reaction, you take 10 bludgeoning damage from the impact for every 20 feet fallen."}}
     description: "Trigger You fall from or past an edge or handhold.%rRequirements Your hands are not tied behind your back or otherwise restrained.%rWhen you fall off or past an edge or other handhold, you can try to grab it, potentially stopping your fall. You must succeed at your choice of an Acrobatics check or a Reflex save, usually at the Climb DC. If you grab the edge or handhold, you can then Climb up using Athletics.%rCritical Success You grab the edge or handhold, whether or not you have a hand free, typically by using a suitable held item to catch yourself (catching a battle axe on a ledge, for example). You still take damage from the distance fallen so far, but you treat the fall as though it were 30 feet shorter.%rSuccess If you have at least one hand free, you grab the edge or handhold, stopping your fall. You still take damage from the distance fallen so far, but you treat the fall as though it were 20 feet shorter. If you have no hands free, you continue to fall as if you had failed the check.%rCritical Failure You continue to fall, and if you've fallen 20 feet or more before you use this reaction, you take 10 bludgeoning damage from the impact for every 20 feet fallen."
   "Graceful Poise":
     from: "feat"
@@ -3832,7 +3832,7 @@ pf2e_actions:
     rules:
       - key: "Note"
         selector: "initiative"
-        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        title: "F {item|name}"
         text: "{item|system.description.value}"
   "Inured to Death":
     from: "action"
@@ -3979,7 +3979,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["fire", "light", "magical"]
-    description: "Requirements Your lantern light is shining%rEffect Your lenses focus your light into a searing beam. You deal ((max(5,ceil(@actor.level/2)))d4) fire|options:area-damage damage to all creatures in a 30-foot, with a Reflex saving throw against the higher of your class DC or spell DC. Your lantern light then extinguishes, and you can't use this ability or use your lantern light again for 1d4 rounds. At 11th level and every two levels thereafter, the damage increases by 1d4."
+    description: "Requirements Your lantern light is shining%rEffect Your lenses focus your light into a searing beam. You deal ((max(5,ceil(@actor.level/2)))d4) fire damage to all creatures in a 30-foot, with a Reflex saving throw against the higher of your class DC or spell DC. Your lantern light then extinguishes, and you can't use this ability or use your lantern light again for 1d4 rounds. At 11th level and every two levels thereafter, the damage increases by 1d4."
   "Lantern Strobe":
     from: "action"
     for: "ancestry"
@@ -3996,7 +3996,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["manipulate"]
-    description: "Cost 1 versatile vial%rRequirements You're holding or wearing an Alchemist's Toolkit and have a free hand%rEffect You set off a fireworks display. You can launch a normal firework to simply create a visual or audible signal within 20 feet or you can choose one of the following special effects. You can also use the comet, flower, or salute fireworks displays, and feats can add more options. A specific fireworks display takes the listed number of actions to launch and has the listed traits.%rComet 1 (visual) You shoot a streak of shining light in a 60-foot. All spaces in that line are lit with bright light until the start of your next turn. As part of this action, you can also Point Out a single creature in the line, and your allies do not need to hear or understand you.%rFlower 1 (visual) You ignite a ring of sparks, creating a shape that might be reminiscent of a flower blooming in the sky. Each enemy in a 20-foot must attempt a Fortitude save. On a failure, the enemy is Dazzled for 1 round, and on a critical failure they are dazzled for 2 rounds.%rSalute 1 (auditory) You create a startling bang or whistle. When you launch a salute display, you can choose a Confused or Fascinated…"
+    description: "Cost 1 versatile vial%rRequirements You're holding or wearing an Alchemist's Toolkit and have a free hand%rEffect You set off a fireworks display. You can launch a normal firework to simply create a visual or audible signal within 20 feet or you can choose one of the following special effects. You can also use the comet, flower, or salute fireworks displays, and feats can add more options. A specific fireworks display takes the listed number of actions to launch and has the listed traits.%rComet 1 (visual) You shoot a streak of shining light in a 60-foot line. All spaces in that line are lit with bright light until the start of your next turn. As part of this action, you can also Point Out a single creature in the line, and your allies do not need to hear or understand you.%rFlower 1 (visual) You ignite a ring of sparks, creating a shape that might be reminiscent of a flower blooming in the sky. Each enemy in a 20-foot emanation must attempt a Fortitude save. On a failure, the enemy is Dazzled for 1 round, and on a critical failure they are dazzled for 2 rounds.%rSalute 1 (auditory) You create a startling bang or whistle. When you launch a salute display, you can choose a Confused…"
   "Lay Down Arms":
     from: "action"
     for: "archetype"
@@ -4133,8 +4133,8 @@ pf2e_actions:
     rules:
       - key: "Note"
         selector: ["initiative"]
-        title: "<span class=\"action-glyph\">F</span> {item|name}"
-        text: "<p>{item|description}</p><p>@UUID[Compendium.pf2e.feat-effects.Item.Effect: Living Fortification]</p>"
+        title: "F {item|name}"
+        text: "{item|description}%rEffect: Living Fortification"
   "Long Jump":
     from: "action"
     for: "everyone"
@@ -4409,7 +4409,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["concentrate"]
-    description: "Requirements Your horde has been raised%rEffect Each enemy in a 5-foot emanation around your horde takes (ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,14),6,ternary(gte(@actor.level,10),4,2))))d6 bludgeoning|options:area-damage damage (if your horde is zombies) or (ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,14),6,ternary(gte(@actor.level,10),4,2))))d6 slashing|options:area-damage damage (if your horde is skeletons) with a Reflex save against your spell DC. At 10th level and every 4 levels thereafter, the damage increases by 2d6."
+    description: "Requirements Your horde has been raised%rEffect Each enemy in a 5-foot emanation around your horde takes (ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,14),6,ternary(gte(@actor.level,10),4,2))))d6 bludgeoning damage (if your horde is zombies) or (ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,14),6,ternary(gte(@actor.level,10),4,2))))d6 slashing damage (if your horde is skeletons) with a Reflex save against your spell DC. At 10th level and every 4 levels thereafter, the damage increases by 2d6."
   "Mobile Finisher":
     from: "feat"
     type: "action"
@@ -4539,7 +4539,7 @@ pf2e_actions:
       - key: "Note"
         selector: ["deception", "diplomacy", "intimidation", "society"]
         outcome: ["criticalFailure"]
-        title: "{item|name} <span class=\"action-glyph\">R</span>"
+        title: "{item|name} R"
         text: "Frequency once per day;%rEffect Reroll the skill check. You must use the second result, even if it's worse."
   "Naval Training":
     from: "action"
@@ -4643,7 +4643,7 @@ pf2e_actions:
         predicate: ["one-shot-one-kill", {"or": ["item:group:firearm", "item:group:crossbow"]}]
       - key: "Note"
         selector: "initiative"
-        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        title: "F {item|name}"
         text: "{item|description}"
         predicate: ["check:statistic:base:stealth"]
   "One for All":
@@ -4878,7 +4878,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["aura"]
     frequency: {"max": 1, "per": "PT1H"}
-    description: "Frequency once per hour%rEffect A palpable weight extends from your familiar in a 15-foot. Enemies who enter or start their turn within the aura must succeed at a Will save against your spell DC or become Stupefied 2 as long as they remain within the aura, or Stupefied 3 on a critical failure. The aura lasts until the end of your next turn, but the familiar can Sustain it up to 1 minute."
+    description: "Frequency once per hour%rEffect A palpable weight extends from your familiar in a 15-foot emanation. Enemies who enter or start their turn within the aura must succeed at a Will save against your spell DC or become Stupefied 2 as long as they remain within the aura, or Stupefied 3 on a critical failure. The aura lasts until the end of your next turn, but the familiar can Sustain it up to 1 minute."
   "Penetrating Projectile":
     from: "feat"
     type: "action"
@@ -5114,7 +5114,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["primal", "sonic"]
     frequency: {"max": 1, "per": "PT1H"}
-    description: "Frequency once per hour%rEffect Your animal companion screeches and howls, empowered with natural magic. All creatures in a 30-foot take (floor(@actor.level/2))d6 sonic|options:area-damage damage for every 2 levels your companion has, with a Fortitude save against your spell DC. Creatures that fail become Frightened 1, and creatures that critically fail become Frightened 2. The fright is an emotion, fear, and mental effect."
+    description: "Frequency once per hour%rEffect Your animal companion screeches and howls, empowered with natural magic. All creatures in a 30-foot take (floor(@actor.level/2))d6 sonic damage for every 2 levels your companion has, with a Fortitude save against your spell DC. Creatures that fail become Frightened 1, and creatures that critically fail become Frightened 2. The fright is an emotion, fear, and mental effect."
   "Primal Roar":
     from: "action"
     for: "class"
@@ -5243,8 +5243,8 @@ pf2e_actions:
     rules:
       - key: "Note"
         selector: "initiative"
-        title: "{item|name} <span class=\"action-glyph\">F</span>"
-        text: "{item|description}\n@UUID[Compendium.pf2e.feat-effects.Item.Effect: Rage]\n@UUID[Compendium.pf2e.feat-effects.Item.Effect: Rage Temporary Hit Points Immunity]"
+        title: "{item|name} F"
+        text: "{item|description}Effect: RageEffect: Rage Temporary Hit Points Immunity"
         predicate: [{"not": "condition:encumbered"}, {"or": ["feat:invulnerable-rager", {"not": "armor:category:heavy"}]}]
   "Quickened Casting":
     from: "feat"
@@ -5886,7 +5886,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["sonic", "spirit", "transcendence"]
-    description: "You clang your ikon against a weapon, shield, or the ground, emitting a shock wave that deals (max(1,(floor((@actor.level - 2)/2))))d4 spirit,(max(1,(floor((@actor.level - 2)/2))))d4 sonic|options:area-damage damage to all creatures in a 30-foot cone or 15-foot emanation (Fortitude save). A creature that critically fails its saving throw is Deafened for 1 minute.%rAt 6th level and every 2 levels thereafter, the damage increases by 1d4 spirit damage and 1d4 sonic damage."
+    description: "You clang your ikon against a weapon, shield, or the ground, emitting a shock wave that deals (max(1,(floor((@actor.level - 2)/2))))d4 spirit,(max(1,(floor((@actor.level - 2)/2))))d4 sonic damage to all creatures in a 30-foot cone or 15-foot emanation (Fortitude save). A creature that critically fails its saving throw is Deafened for 1 minute.%rAt 6th level and every 2 levels thereafter, the damage increases by 1d4 spirit damage and 1d4 sonic damage."
     rules:
       - key: "ItemAlteration"
         itemId: "{item|id}"
@@ -6742,7 +6742,7 @@ pf2e_actions:
     rules:
       - key: "Note"
         selector: "initiative"
-        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        title: "F {item|name}"
         text: "{item|system.description.value}"
   "Squawk!":
     from: "feat"
@@ -7042,7 +7042,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["eidolon"]
-    description: "Requirements Your eidolon is dispersed.%rYour eidolon swarms over each creature occupying its space, biting, pecking, clawing, or making similar attacks with its component bodies. It deals (ceil(@actor.level / 2))d6|options:area-damage damage to each creature in the area, with a Reflex save against your spell DC. You choose each time your eidolon uses Swarming Assault whether it deals piercing or slashing damage. Your eidolon then can't use Swarming Assault again for the next 1d4 rounds.%rAt 3rd level and every 2 levels thereafter, the damage increases by 1d6."
+    description: "Requirements Your eidolon is dispersed.%rYour eidolon swarms over each creature occupying its space, biting, pecking, clawing, or making similar attacks with its component bodies. It deals (ceil(@actor.level / 2))d6 damage to each creature in the area, with a Reflex save against your spell DC. You choose each time your eidolon uses Swarming Assault whether it deals piercing or slashing damage. Your eidolon then can't use Swarming Assault again for the next 1d4 rounds.%rAt 3rd level and every 2 levels thereafter, the damage increases by 1d6."
     rules:
       - key: "RollOption"
         option: "swarming-assault"
@@ -7281,7 +7281,7 @@ pf2e_actions:
         predicate: ["ten-paces"]
       - key: "Note"
         selector: "initiative"
-        title: "<span class=\"action-glyph\">F</span> {item|name}"
+        title: "F {item|name}"
         text: "{item|description}"
   "Tenacious Stance":
     from: "action"
@@ -7339,7 +7339,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["fire", "primal"]
     frequency: {"max": 1, "per": "day"}
-    description: "Frequency once per day%rEffect You concentrate your thermal energy and explode it outward. All creatures in a 20-foot emanation take 14d6 fire|options:area-damage damage with a basic Reflex save. Afterward, you lose all effects of the Dormant Eruption feat until your next daily preparations."
+    description: "Frequency once per day%rEffect You concentrate your thermal energy and explode it outward. All creatures in a 20-foot emanation take 14d6 fire damage with a basic Reflex save. Afterward, you lose all effects of the Dormant Eruption feat until your next daily preparations."
   "Thoughtful Reload":
     from: "action"
     for: "class"
@@ -7380,7 +7380,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["auditory", "concentrate", "emotion", "fear", "flourish", "mental", "sonic"]
-    description: "The target unleashes a powerful vocalization. Each enemy in a 10-foot emanation takes 4d8 sonic|options:area-damage damage with a Will save against your spell DC. A creature that fails its Will save is also Frightened 1."
+    description: "The target unleashes a powerful vocalization. Each enemy in a 10-foot emanation takes 4d8 sonic damage with a Will save against your spell DC. A creature that fails its Will save is also Frightened 1."
   "Tiger Slash":
     from: "feat"
     type: "action"
@@ -7437,7 +7437,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["transcendence"]
-    description: "Your ikon extends to an impossible length, striking all in its way. You deal (max(6,floor(@actor.level / 2)))d8 untyped|options:area-damage damage to all creatures in a 60-foot line, with a Reflex save against your class DC. The damage type matches that of your weapon. At 14th level and every two levels thereafter, the damage increases by 1d8."
+    description: "Your ikon extends to an impossible length, striking all in its way. You deal (max(6,floor(@actor.level / 2)))d8 untyped damage to all creatures in a 60-foot line, with a Reflex save against your class DC. The damage type matches that of your weapon. At 14th level and every two levels thereafter, the damage increases by 1d8."
   "Touch and Go":
     from: "action"
     for: "class"
@@ -7700,7 +7700,7 @@ pf2e_actions:
     type: "free"
     category: "offensive"
     traits: ["concentrate"]
-    description: "Trigger Your previous action was to Sustain your manifested realm%rEffect You punish those who transgress upon your realm. An enemy within your realm takes 4d8[@actor.flags.system.realmDamage]|shortLabel|options:area-damage damage of your realm's damage type with a Fortitude save against your class DC or spell DC, whichever is higher."
+    description: "Trigger Your previous action was to Sustain your manifested realm%rEffect You punish those who transgress upon your realm. An enemy within your realm takes 4d8[@actor.flags.system.realmDamage]|shortLabel damage of your realm's damage type with a Fortitude save against your class DC or spell DC, whichever is higher."
   "Unravel the Future":
     from: "action"
     for: "class"

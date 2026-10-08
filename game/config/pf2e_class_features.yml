@@ -890,77 +890,77 @@ pf2e_class_features:
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.SpeedPenalty.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target takes a -10-foot status penalty to its Speeds. Effect: Debilitating Strike"
         predicate: ["debilitation:speed-penalty", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Enfeebled.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target becomes Enfeebled 1."
         predicate: ["debilitation:enfeebled", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Bloody.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target takes 3d6 bleed damage."
         predicate: ["debilitation:bloody", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Clumsy.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target becomes Clumsy 1."
         predicate: ["debilitation:clumsy", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Critical.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target attempts a Fortitude save against your class DC with the following effects.%rCritical Success The target is unaffected.%rSuccess The target is Slowed 1 until the end of your next turn.%rFailure The target is Slowed 2 until the end of your next turn.%rCritical Failure The target is Paralyzed until the end of your next turn."
         predicate: ["debilitation:critical", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.OffGuard.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target becomes Off-Guard."
         predicate: ["debilitation:off-guard", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PrecisionDamage.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target takes an additional 2d6 precision damage from your attacks. Effect: Precise Debilitations"
         predicate: ["debilitation:precision-damage", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventFlanking.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target can't flank or contribute to allies' flanking. Effect: Debilitation (No Flanking)"
         predicate: ["debilitation:prevent-flanking", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventReactions.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target can't use reactions."
         predicate: ["debilitation:prevent-reactions", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventStep.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target can't Step"
         predicate: ["debilitation:prevent-step", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.ReduceCover.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target doesn't gain a circumstance bonus to AC from Raising a Shield, lesser cover, or standard cover; it gains a +2 circumstance bonus to AC only from greater cover or Taking Cover."
         predicate: ["debilitation:reduce-cover", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Stupefied.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target is Stupefied 1"
         predicate: ["debilitation:stupefied", "target:condition:off-guard"]
       - key: "Note"
         selector: "strike-damage"
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Weakness.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target gains weakness 5 to your choice of bludgeoning, piercing, or slashing damage. Effect: Vicious Debilitations"
         predicate: ["debilitation:weakness", "target:condition:off-guard"]
       - key: "Note"
         selector: ["strike-damage"]
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.WeaknessHeartless.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target gains weakness 5 to bleed and poison damage. Effect: Heartless Debilitations"
         predicate: ["debilitation:weakness-heartless", "target:condition:off-guard"]
       - key: "Note"
         selector: ["strike-damage"]
         title: "Debilitation f"
-        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Frightened.Note]</p>"
+        text: "Trigger Your Strike hits an off-guard creature and deals damage.%rThe target becomes Frightened 1."
         predicate: ["debilitation:frightened", "target:condition:off-guard"]
   "Deific Weapon":
     pack: "class-features"

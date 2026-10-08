@@ -938,7 +938,7 @@ pf2e_magicitem:
       - key: "Note"
         selector: "{item|id}-ranged-damage"
         title: "Explosive Ammunition"
-        text: "The missile explodes in a , dealing |options:area-damage] damage to each creature in the area (including the target). Each creature must attempt a save."
+        text: "The missile explodes in a 10-foot burst, dealing 6d6 fire damage to each creature in the area (including the target). Each creature must attempt a DC 25 Reflex save."
   Eyes of the Cat:
     traits:
       - invested
@@ -1555,7 +1555,7 @@ pf2e_magicitem:
       - key: "Note"
         selector: "{item|id}-ranged-damage"
         title: "Explosive Ammunition (Greater)"
-        text: "The missile explodes in a , dealing |options:area-damage] damage to each creature in the area (including the target). Each creature must attempt a save."
+        text: "The missile explodes in a 10-foot burst, dealing 10d6 fire damage to each creature in the area (including the target). Each creature must attempt a DC 30 Reflex save."
   Eye of Fortune:
     traits:
       - invested
