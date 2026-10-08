@@ -21,8 +21,9 @@ the engine applies lives in `game/config/pf2e_action_consequences.yml`, written 
 GM can change it without running this.
 
 A reaction that is a Strike - Reactive Strike's "Make a melee Strike against the triggering creature" -
-says so under `strike`: `melee` where only a melee Strike will do, `any` otherwise. Using it rolls that
-Strike.
+says so under `strike`: `melee` where only a melee Strike will do, `any` otherwise. An action that is
+several Strikes - Flurry of Blows' "Make two unarmed Strikes." - says how many under `strikes`, and
+`attack: unarmed` where they must be. Using either rolls the Strikes.
 
 The rules an action carries for as long as a character owns it are counted here and written by
 `import_foundry_rules.py --only actions`, which runs after this.
@@ -58,6 +59,8 @@ COMMON = {'basic', 'skill', 'exploration', 'downtime'}
 
 # A reaction whose effect is a Strike at whoever triggered it, and whether it has to be a melee one.
 STRIKES = re.compile(r'[Mm]ake an? (melee )?Strike against the triggering (?:creature|foe)')
+SEVERAL = re.compile(r'[Mm]ake (two|three) (unarmed )?Strikes\.')
+COUNTS = {'two': 2, 'three': 3}
 
 
 MACROS = 'src/module/system/action-macros'
@@ -276,6 +279,9 @@ def entry_of(doc, source, effects, counted):
     struck = STRIKES.search(text) if kind == 'reaction' else None
     if struck:
         entry['strike'] = 'melee' if struck.group(1) else 'any'
+    several = SEVERAL.search(text) if kind == 'action' else None
+    if several:
+        entry['strikes'] = {'count': COUNTS[several.group(1)], **({'attack': 'unarmed'} if several.group(2) else {})}
     if source == 'action':
         entry['description'] = text
 
@@ -300,7 +306,7 @@ def rendered(entries):
         lines.append(f'  {json.dumps(name, ensure_ascii=False)}:')
 
         for field in ('from', 'for', 'type', 'cost', 'category', 'traits', 'frequency', 'self_effect',
-                      'strike', 'check', 'description'):
+                      'strike', 'strikes', 'check', 'description'):
             if field in entry and entry[field] is not None:
                 lines.append(f'    {field}: {value(entry[field])}')
 

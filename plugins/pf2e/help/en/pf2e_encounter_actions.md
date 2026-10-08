@@ -47,6 +47,8 @@ Battle Medicine rolls Medicine against DC 15, or the higher Treat Wounds DC you 
 A reaction that is a Strike - Reactive Strike, Opportune Riposte - rolls it with the weapon you name, or
 your first that will do. It spends your reaction, and the multiple attack penalty neither applies to it
 nor counts it.
+An action that is several Strikes - Flurry of Blows - makes them all at the one target, each counting
+toward your multiple attack penalty, for what the action costs.
 Shield Block answers a hit you have just taken while your shield is raised: its Hardness comes off the
 hit's physical damage, and you and the shield each take the rest. A hit you could block says so.
 

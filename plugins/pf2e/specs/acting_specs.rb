@@ -299,6 +299,21 @@ module AresMUSH
           expect(turn).to include('actions' => 1, 'attacks' => 1, 'reaction' => true)
         end
 
+        # Flurry of Blows is one action that makes two unarmed Strikes, each counting toward the multiple
+        # attack penalty as Strikes do. Both hitting, their damage is dealt as one, for resistances.
+        it "should make Flurry of Blows' two unarmed Strikes for one action" do
+          @hero.update(:pf2_features => { 'charclass_features' => [ 'Flurry of Blows' ], 'archetype_features' => [] })
+          @dice = 0.75
+          run(PF2EncounterActCmd, 'e/act flurry of blows=#3', @hero)
+          turn = TurnState.turn(CombatantStates.of(@encounter, Character[@hero.id]))
+
+          expect(@client.failures).to eq []
+          expect(said.scan('strikes Goblin Warrior #3 with Fist').size).to eq 2
+          expect(said).to include('Fist (2nd attack)')
+          expect(said.scan('Damage to Goblin Warrior #3').size).to eq 1
+          expect(turn).to include('actions' => 1, 'attacks' => 2)
+        end
+
         it "should let a character strike a creature with their fist" do
           @dice = 0.75
           run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)

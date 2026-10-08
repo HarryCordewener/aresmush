@@ -110,6 +110,7 @@ module AresMUSH
         entry = follow_up_entry(entry, follow, term) if follow
 
         return reaction_strike(scene, name, entry, words) if entry['strike']
+        return several_strikes(scene, name, entry, words) if entry['strikes']
         return shield_block(scene, name, entry) if name == ShieldBlock::NAME
         said = said(words, scene.permitted)
         out = report
@@ -360,9 +361,52 @@ module AresMUSH
         strike(scene, term, words, :reaction => name, :melee => melee)
       end
 
-      def self.strike(scene, weapon_term, words, reaction: nil, melee: false)
+      # An action that is several Strikes - Flurry of Blows' two unarmed ones - at the one target, each
+      # counting toward the multiple attack penalty, for what the action costs. What they hit with is
+      # dealt together, so a resistance or weakness applies once to the whole.
+      def self.several_strikes(scene, name, entry, words)
+        holder = scene.actor.holder
+        unarmed = entry['strikes']['attack'] == 'unarmed'
+        usable = attacks_of(holder).select { |_, attack| !unarmed || Pf2e.has_trait?(attack['traits'], 'unarmed') }
+        named = said(words, scene.permitted)['words']
+        attack = named.map { |word| usable.find { |names, _| names.any? { |one| Domains.slug(one) == Domains.slug(word) } } }.compact.first ||
+                 usable.first
+
+        return Err.new(:no_attack, 'pf2e.act_no_attack', 'attack' => unarmed ? 'unarmed' : '') unless attack
+
+        out = report
+        out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => name,
+                                                :cost => Actions.cost(name), :target => target_phrase(scene))
+
+        hits = []
+
+        entry['strikes']['count'].to_i.times do
+          struck = strike(scene, attack.first.first, words, :spent => false, :hold => true)
+
+          return struck if struck.err?
+
+          %w{lines gm detail}.each { |key| out[key] += struck.state[key] }
+          hits += struck.state['held']
+        end
+
+        deal(scene, scene.target, combined(hits), out, :critical => hits.any? { |one| one['critical'] }) if hits.any?
+        spend(scene, name, entry, out)
+        Ok.new(:state => out)
+      end
+
+      # Hits' damage as one: each kind added up, and each persistent damage as it is.
+      def self.combined(hits)
+        immediate, persistent = hits.flat_map { |one| one['rows'] }.partition { |row| row['category'].to_s != 'persistent' }
+
+        immediate.group_by { |row| [ row['type'], row['category'] ] }
+                 .map { |_, rows| rows.first.merge('amount' => rows.sum { |row| row['amount'].to_i }) } + persistent
+      end
+
+      # `hold` keeps a hit's damage in the report's `held` for the caller to deal, with what else it hit.
+      def self.strike(scene, weapon_term, words, reaction: nil, melee: false, spent: true, hold: false)
         said = said(words, scene.permitted)
         out = report
+        out['held'] = [] if hold
         refused(out, said)
 
         return Err.new(:no_target, 'pf2e.act_needs_target') unless scene.target
@@ -402,7 +446,7 @@ module AresMUSH
         if reaction
           TurnState.spend(scene.actor.holder, reaction, :type => 'reaction')
         else
-          TurnState.spend(scene.actor.holder, 'Strike', :cost => 1, :type => 'action', :attack => true)
+          TurnState.spend(scene.actor.holder, 'Strike', :cost => spent ? 1 : 0, :type => 'action', :attack => true)
         end
 
         Ok.new(:state => out)
@@ -457,7 +501,11 @@ module AresMUSH
         critical = result['degree'] == Degree::CRITICAL_SUCCESS
         rows = Actors.of(scene.actor.holder).strike_damage(attack, check, critical)
 
-        deal(scene, scene.target, rows, out, :critical => critical)
+        if out['held']
+          out['held'] << { 'rows' => rows, 'critical' => critical }
+        else
+          deal(scene, scene.target, rows, out, :critical => critical)
+        end
 
         Consumables.effect(scene.encounter, scene.actor.label, scene.target, attack['effect'], out) if attack['bomb'] && attack['effect']
 
