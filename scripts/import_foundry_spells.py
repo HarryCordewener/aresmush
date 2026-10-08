@@ -245,7 +245,7 @@ def main():
 
     entries = {}
 
-    for path, body in npcs.blobs(args.checkout):
+    for path, body in npcs.blobs(args.checkout, 'packs/pf2e/spells'):
         if not path.startswith('packs/pf2e/spells/'):
             continue
 

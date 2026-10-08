@@ -40,9 +40,10 @@ SIZES = {'tiny': 'tiny', 'sm': 'small', 'med': 'medium', 'lg': 'large', 'huge': 
 TYPES = {'action': 'action', 'reaction': 'reaction', 'free': 'free', 'passive': 'passive'}
 
 
-def blobs(checkout):
-    """Every JSON file in their packs, read in one pass through git rather than one process per file."""
-    listed = subprocess.run(['git', '-C', checkout, 'ls-tree', '-r', 'HEAD', 'packs/pf2e'],
+def blobs(checkout, packs='packs/pf2e'):
+    """Every JSON file in their packs, or in the one pack named, read in one pass through git rather than
+    one process per file."""
+    listed = subprocess.run(['git', '-C', checkout, 'ls-tree', '-r', 'HEAD', packs],
                             capture_output=True, text=True).stdout.splitlines()
     wanted = [(line.split()[2], line.split('\t', 1)[1]) for line in listed
               if line.endswith('.json') and not line.endswith('_folders.json')]

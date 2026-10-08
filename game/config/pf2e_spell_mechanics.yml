@@ -1478,6 +1478,16 @@ pf2e_spell_mechanics:
     save: "reflex"
     basic: false
     range: "60 feet"
+  "Brimstone Rain":
+    rank: 5
+    traits: ["concentrate", "fire", "manipulate", "poison", "unholy"]
+    time: "3"
+    save: "reflex"
+    basic: true
+    damage: [{"formula": "8d6", "type": "fire", "category": null, "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["1d6"]}
+    area: "20-foot burst"
+    range: "120 feet"
   "Brine Dragon Bile":
     rank: 2
     traits: ["acid", "attack", "concentrate", "water"]
@@ -1902,6 +1912,12 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d4"]}
     area: "15-foot cone"
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
+  "Choking Fog":
+    rank: 4
+    traits: ["concentrate", "focus", "manipulate", "wizard"]
+    time: "2"
+    area: "20-foot burst"
+    range: "60"
   "Chosen Gravity":
     rank: 3
     traits: ["concentrate", "manipulate"]
@@ -2412,6 +2428,13 @@ pf2e_spell_mechanics:
     rank: 7
     traits: ["concentrate", "manipulate"]
     time: "10 minutes"
+  "Control Currents":
+    rank: 1
+    traits: ["concentrate", "focus", "manipulate", "water", "wizard"]
+    time: "2"
+    save: "fortitude"
+    basic: false
+    area: "30-foot line"
   "Control Sand":
     rank: 7
     traits: ["concentrate", "earth", "manipulate"]
@@ -2461,7 +2484,7 @@ pf2e_spell_mechanics:
     time: "2"
     damage: [{"formula": "1d6+4", "type": "vitality", "category": null, "kinds": ["healing"]}]
   "Corpse Bloom":
-    rank: 1
+    rank: 3
     traits: ["concentrate", "manipulate", "poison"]
     time: "3"
     save: "fortitude"
@@ -2730,6 +2753,14 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "120 feet"
+  "Curse of Slippery Steps":
+    rank: 1
+    traits: ["concentrate", "curse", "manipulate", "water"]
+    time: "2"
+    save: "reflex"
+    basic: false
+    target: "1 creature"
+    range: "30 feet"
   "Curse of the Spirit Orchestra":
     rank: 7
     traits: ["concentrate", "curse", "manipulate", "misfortune"]
@@ -3146,6 +3177,18 @@ pf2e_spell_mechanics:
     rank: 6
     traits: ["concentrate", "manipulate", "polymorph", "unholy"]
     time: "2"
+  "Devil's Horseshoe":
+    rank: 1
+    traits: ["concentrate", "manipulate", "sanctified", "spirit"]
+    time: "10 minutes"
+    save: "will"
+    basic: false
+    damage: [{"formula": "2d6", "type": "spirit", "category": null, "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["2d6"]}
+    target: "one door or similar opening"
+    range: "touch"
+    outcomes: {"failure": [{"condition": "Enfeebled", "value": 1}, {"condition": "Stupefied", "value": 1, "until": "rounds:10"}], "criticalFailure": [{"condition": "Enfeebled", "value": 2}, {"condition": "Stupefied", "value": 2, "until": "rounds:10"}]}
+    damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Devour Life":
     rank: 8
     traits: ["concentrate", "death", "healing", "manipulate", "void"]
@@ -3180,6 +3223,10 @@ pf2e_spell_mechanics:
     rank: 1
     traits: ["unholy"]
     time: "1 day"
+  "Diabolical Mantle":
+    rank: 7
+    traits: ["concentrate", "manipulate", "polymorph", "unholy"]
+    time: "2"
   "Diadem of Divine Radiance":
     rank: 5
     traits: ["concentrate", "light", "manipulate", "mythic", "sanctified"]
@@ -3457,10 +3504,6 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "15 feet"
-  "Divine Vessel":
-    rank: 7
-    traits: ["concentrate", "manipulate", "morph"]
-    time: "2"
   "Divine Wrath":
     rank: 4
     traits: ["concentrate", "manipulate", "sanctified", "spirit"]
@@ -5360,6 +5403,15 @@ pf2e_spell_mechanics:
     target: "1 creature"
     range: "touch"
     outcomes: {"success": [{"condition": "Sickened", "value": 1}], "failure": [{"condition": "Sickened", "value": 2}]}
+  "Gift of Dusk":
+    rank: 4
+    traits: ["concentrate", "curse", "manipulate", "shadow", "unholy"]
+    time: "2"
+    save: "fortitude"
+    basic: false
+    target: "1 creature that has a shadow"
+    range: "30 feet"
+    outcomes: {"success": [{"condition": "Enfeebled", "value": 1, "until": "rounds:10"}], "criticalFailure": [{"condition": "Enfeebled", "value": 2}, {"condition": "Enfeebled", "value": 3}, {"condition": "Enfeebled", "value": 4}]}
   "Gift of the Anemos":
     rank: 1
     traits: ["air", "animist", "aura", "focus"]
@@ -5452,11 +5504,25 @@ pf2e_spell_mechanics:
     time: "1"
     target: "1 creature"
     range: "60 feet"
+  "Glimpse the Netherworld":
+    rank: 4
+    traits: ["cold", "concentrate", "focus", "manipulate", "shadow"]
+    time: "2"
+    save: "reflex"
+    basic: true
+    damage: [{"formula": "4d8", "type": "cold", "category": null, "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["1d8"]}
+    area: "10-foot emanation"
+    range: "60 feet"
   "Glimpse the Truth":
     rank: 4
     traits: ["aura", "cleric", "focus", "manipulate", "revelation"]
     time: "1"
     area: "30-foot emanation"
+  "Gloom Mantle":
+    rank: 1
+    traits: ["darkness", "illusion", "manipulate", "shadow", "visual"]
+    time: "2"
   "Glossolalia":
     rank: 5
     traits: ["concentrate", "incapacitation", "manipulate", "mental"]
@@ -6571,6 +6637,10 @@ pf2e_spell_mechanics:
     basic: false
     area: "15-foot emanation"
     target: "enemies in the area"
+  "Infernal Supervision":
+    rank: 2
+    traits: ["concentrate", "manipulate", "unholy"]
+    time: "2"
   "Infiltrator's Tunnel":
     rank: 4
     traits: ["concentrate", "manipulate", "teleportation"]
@@ -6617,7 +6687,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "4d4", "type": "force", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d4"]}
     area: "60-foot line"
-    variants: [{"name": null, "time": "2"}, {"name": null, "time": "3", "area": "120-foot None"}, {"name": "Inner Radiance Torrent (2 Rounds)", "time": "2 rounds", "area": "120-foot None", "damage": [{"formula": "8d4", "type": "force", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["4d4"]}}]
+    variants: [{"name": null, "time": "2", "damage": [{"formula": "4d4", "type": "force", "category": null, "kinds": ["damage"]}]}, {"name": null, "time": "3", "area": "120-foot None", "damage": [{"formula": "4d4", "type": "force", "category": null, "kinds": ["damage"]}]}, {"name": "Inner Radiance Torrent (2 Rounds)", "time": "2 rounds", "area": "120-foot None", "damage": [{"formula": "8d4", "type": "force", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["4d4"]}}]
   "Inner Upheaval":
     rank: 1
     traits: ["concentrate", "focus", "monk"]
@@ -6854,6 +6924,15 @@ pf2e_spell_mechanics:
     time: "2"
     target: "1 willing creature"
     range: "60 feet"
+  "Kiss the Ring":
+    rank: 6
+    traits: ["concentrate", "emotion", "fear", "incapacitation", "manipulate", "mental"]
+    time: "2"
+    save: "will"
+    basic: false
+    target: "1 creature"
+    range: "30 feet"
+    outcomes: {"success": [{"condition": "Frightened", "value": 1}]}
   "Knock":
     rank: 2
     traits: ["concentrate", "manipulate"]
@@ -8673,6 +8752,15 @@ pf2e_spell_mechanics:
     damage: [{"formula": "6d12", "type": "electricity", "category": null, "kinds": ["damage"]}, {"formula": "6d6", "type": "sonic", "category": null, "kinds": ["damage"]}]
     target: "up to 3 creatures"
     range: "120 feet"
+  "Piercing Jet":
+    rank: 2
+    traits: ["attack", "concentrate", "manipulate", "water"]
+    time: "2"
+    attack: true
+    damage: [{"formula": "4d6", "type": "piercing", "category": null, "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["2d6"]}
+    target: "1 creature or object"
+    range: "30 feet"
   "Pillar of Water":
     rank: 3
     traits: ["concentrate", "manipulate", "water"]
@@ -8683,6 +8771,14 @@ pf2e_spell_mechanics:
     traits: ["concentrate", "earth", "manipulate"]
     time: "3"
     range: "120 feet"
+  "Pin the Spears in the Lamb":
+    rank: 1
+    traits: ["concentrate", "focus", "manipulate", "shadow"]
+    time: "1 to 3"
+    save: "reflex"
+    basic: false
+    target: "1 or more creatures that have shadows"
+    range: "30 feet"
   "Pinpoint":
     rank: 8
     traits: ["concentrate", "detection", "manipulate"]
@@ -9806,6 +9902,17 @@ pf2e_spell_mechanics:
     rank: 1
     traits: ["animist", "focus", "water"]
     time: "1"
+  "Roar of Freedom":
+    rank: 8
+    traits: ["concentrate", "emotion", "manipulate", "sonic"]
+    time: "1"
+    save: "will"
+    basic: false
+    damage: [{"formula": "12d8", "type": "sonic", "category": null, "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["1d8"]}
+    area: "30-foot emanation"
+    outcomes: {"failure": [{"condition": "Frightened", "value": 1}, {"condition": "Stupefied", "value": 1, "until": "rounds:1"}], "criticalFailure": [{"condition": "Frightened", "value": 2}, {"condition": "Stupefied", "value": 2, "until": "rounds:2"}]}
+    damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Roar of the Dragon":
     rank: 4
     traits: ["auditory", "cleric", "concentrate", "emotion", "focus", "manipulate", "mental"]
@@ -9871,6 +9978,14 @@ pf2e_spell_mechanics:
     time: "2"
     target: "1 willing creature"
     range: "touch"
+  "Rude awakening":
+    rank: 1
+    traits: ["concentrate", "emotion", "manipulate", "water"]
+    time: "2"
+    save: "reflex"
+    basic: false
+    target: "1 allied creature"
+    range: "30 feet"
   "Rune Trap":
     rank: 3
     traits: []
@@ -9994,6 +10109,12 @@ pf2e_spell_mechanics:
     time: "1"
     target: "1 of your thralls"
     range: "60 feet"
+  "Saturate":
+    rank: 2
+    traits: ["concentrate", "manipulate", "water"]
+    time: "2"
+    area: "20-foot burst"
+    range: "120 feet"
   "Savor the Sting":
     rank: 1
     traits: ["cleric", "focus", "manipulate", "mental", "nonlethal"]
@@ -10145,6 +10266,16 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 living creature"
     range: "touch"
+  "Searing Rain":
+    rank: 5
+    traits: ["concentrate", "emotion", "manipulate", "water"]
+    time: "3"
+    save: "reflex"
+    basic: false
+    damage: [{"formula": "6d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}, {"formula": "2d6", "type": "fire", "category": "persistent", "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["1d6", "1d6"]}
+    area: "20-foot burst"
+    range: "120 feet"
   "Seashell of Stolen Sound":
     rank: 1
     traits: ["concentrate", "manipulate", "sonic"]
@@ -10242,6 +10373,10 @@ pf2e_spell_mechanics:
     traits: ["illusion"]
     time: "1 day"
     target: "1 living creature"
+  "Shadow Form":
+    rank: 7
+    traits: ["concentrate", "manipulate", "polymorph", "shadow"]
+    time: "2"
   "Shadow Illusion":
     rank: 6
     traits: ["auditory", "concentrate", "focus", "illusion", "manipulate", "shadow", "visual"]
@@ -10623,6 +10758,15 @@ pf2e_spell_mechanics:
     time: "2"
     target: "1 willing creature"
     range: "touch"
+  "Silver Spear":
+    rank: 6
+    traits: ["attack", "concentrate", "manipulate", "metal"]
+    time: "2"
+    attack: true
+    damage: [{"formula": "12d6", "type": "piercing", "category": null, "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["2d6"]}
+    area: "120-foot burst"
+    target: "1 creature"
   "Silver's Refrain":
     rank: 0
     traits: ["bard", "cantrip", "composition", "concentrate"]
@@ -11163,6 +11307,16 @@ pf2e_spell_mechanics:
     traits: ["earth"]
     time: "8 hours"
     range: "5 miles"
+  "Spray of Salt":
+    rank: 2
+    traits: ["concentrate", "earth", "manipulate"]
+    time: "2"
+    save: "fortitude"
+    basic: false
+    damage: [{"formula": "5d4", "type": "acid", "category": null, "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["2d4"]}
+    area: "15-foot cone"
+    damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Spray of Stars":
     rank: 1
     traits: ["concentrate", "fire", "focus", "light", "manipulate", "oracle"]
@@ -12040,6 +12194,14 @@ pf2e_spell_mechanics:
     time: "reaction"
     target: "the triggering creature"
     range: "120 feet"
+  "Tenebrous Freedom":
+    rank: 1
+    traits: ["concentrate", "focus", "manipulate", "shadow", "wizard"]
+    time: "2"
+    save: "fortitude"
+    basic: false
+    target: "1 creature that has a shadow"
+    range: "30 feet"
   "Tentacular Innervation":
     rank: 6
     traits: ["concentrate", "morph"]
@@ -12081,6 +12243,16 @@ pf2e_spell_mechanics:
     time: "1 to 3"
     target: "1 or more creatures"
     range: "varies"
+  "The Night is Mine":
+    rank: 1
+    traits: ["cold", "concentrate", "focus", "manipulate", "shadow", "wizard"]
+    time: "1"
+    save: "reflex"
+    basic: true
+    damage: [{"formula": "2d4", "type": "cold", "category": null, "kinds": ["damage"]}]
+    heightening: {"interval": 1, "damage": ["2d4"]}
+    target: "1 creature"
+    range: "30 feet"
   "The Parrot's Whisper":
     rank: 2
     traits: ["auditory", "concentrate", "manipulate"]
@@ -12509,6 +12681,11 @@ pf2e_spell_mechanics:
     time: "1"
     save: "fortitude"
     basic: false
+  "Turnip Lantern":
+    rank: 1
+    traits: ["aura", "concentrate", "light", "manipulate"]
+    time: "2"
+    target: "1 minute"
   "Ulcerous Canker":
     rank: 1
     traits: ["concentrate", "focus", "manipulate", "oracle", "poison", "void"]
@@ -12660,6 +12837,15 @@ pf2e_spell_mechanics:
     basic: false
     area: "20-foot burst"
     range: "120 feet"
+  "Unending Tears":
+    rank: 4
+    traits: ["concentrate", "emotion", "manipulate", "water"]
+    time: "2"
+    save: "will"
+    basic: false
+    target: "1 creature"
+    range: "30 feet"
+    outcomes: {"failure": [{"condition": "Stupefied", "value": 1}]}
   "Unexpected Transposition":
     rank: 6
     traits: ["concentrate", "teleportation"]
