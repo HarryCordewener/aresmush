@@ -27,7 +27,8 @@ module AresMUSH
         ((magic.slot_pairs || {}).keys + (magic.mastered_spells || {}).keys).each { |cc| prepared_spells[cc] ||= {} }
 
         if prepared_spells.empty?
-          client.emit_failure t('pf2emagic.no_prepared_spells')
+          prepares = (magic.tradition || {}).keys.any? { |cc| Pf2emagic.get_caster_type(cc) == 'prepared' }
+          client.emit_failure t(prepares ? 'pf2emagic.no_prepared_spells' : 'pf2emagic.prepares_nothing')
           return
         end
 

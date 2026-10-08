@@ -28,6 +28,13 @@ module AresMUSH
         expect(@said).to eq t('pf2emagic.you_cast_no_spells')
       end
 
+      it "should tell a caster who prepares nothing that they cast from their repertoire" do
+        run(double('magic', :tradition => { 'Bard' => [ 'occult' ] }, :spells_prepared => {}, :slot_pairs => {},
+                            :mastered_spells => {}))
+
+        expect(@said).to eq t('pf2emagic.prepares_nothing')
+      end
+
       it "should tell a caster with nothing prepared so" do
         run(double('magic', :tradition => { 'Wizard' => [ 'arcane' ] }, :spells_prepared => {}, :slot_pairs => {},
                             :mastered_spells => {}))

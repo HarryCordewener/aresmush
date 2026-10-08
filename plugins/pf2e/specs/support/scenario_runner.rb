@@ -487,8 +487,12 @@ module AresMUSH
 
         # What the game offers them, and what their class, heritage and background say they have.
         granted = Array((Character[char.id].pf2_actions || {})['actions'])
-        # A healing action is for whoever is worst hurt; anything else is aimed at a foe.
+        # A healing action is for whoever is worst hurt; anything else is aimed at a foe. Shield Block and
+        # Nimble Dodge answer a hit, and are used when one offers them.
+        answers = [ ShieldBlock::NAME ] + AttackAnswers.reactions(state)
         (class_actions(state) + granted).uniq { |action| Domains.slug(action) }.each do |action|
+          next if answers.include?(action)
+
           if Array(Actions.info(action)['traits']).include?('healing')
             out << [ :heal, action, -> { "e/act #{action}=#{hurt_ally.name}" } ]
           else
