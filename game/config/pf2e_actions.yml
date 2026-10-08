@@ -2170,7 +2170,6 @@ pf2e_actions:
     cost: 1
     category: "defensive"
     traits: ["move"]
-    check: {"slug": "drop-prone", "statistic": null, "options": ["action:drop-prone"]}
     description: "You fall Prone."
   "Dual Finisher":
     from: "feat"
@@ -6764,7 +6763,6 @@ pf2e_actions:
     cost: 1
     category: "interaction"
     traits: ["move"]
-    check: {"slug": "stand", "statistic": null, "options": ["action:stand"]}
     description: "You stand up from Prone."
   "Stand Still":
     from: "feat"

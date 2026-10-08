@@ -127,6 +127,7 @@ module AresMUSH
         else
           out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => name,
                                                   :cost => Actions.cost(name), :target => target_phrase(scene))
+          consequences(scene, Array(Actions.consequences(Domains.slug(name))['always']), out)
         end
 
         spend(scene, name, entry, out)

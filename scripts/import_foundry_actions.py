@@ -113,6 +113,11 @@ def checks(checkout, found):
     out = {}
 
     for path, text in macro_sources(checkout):
+        # A `SimpleAction` - Stand, Drop Prone - rolls nothing; what it does is in
+        # `pf2e_action_consequences.yml` under `always`.
+        if 'SingleCheckAction' not in text and 'simpleRollActionCheck' not in text:
+            continue
+
         constants = dict(re.findall(r'const (\w+) = "([^"]*)"', text))
         opened = re.search(r'(?:new SingleCheckAction\(|super\()\s*\{', text)
         data = as_json(literal(text, opened.end() - 1), constants) if opened else legacy(text, constants)

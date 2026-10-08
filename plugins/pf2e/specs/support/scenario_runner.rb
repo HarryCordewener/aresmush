@@ -433,6 +433,9 @@ module AresMUSH
       def player_turn(char)
         return if down?(char)
 
+        # Someone who starts their turn on the ground gets up first.
+        type(char, 'e/act stand') if (state_of(char).pf2_conditions || {}).key?('Prone')
+
         agenda = (@agendas ||= {})[[ char.id, encounter.id ]] ||= agenda_for(char)
         undone = agenda.reject { |kind, what, _text| @tried[char.id].key?([ kind, what ]) }
         undone = undone.sort_by { |kind, _what, _text| kind == :heal ? 0 : 1 } if ally_hurt?

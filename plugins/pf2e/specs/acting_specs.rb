@@ -538,6 +538,26 @@ module AresMUSH
 
       # Nimble Dodge answers an attack that has hit: its +2 to AC is put against the roll, and a hit it
       # turns into a miss is undone.
+      # Stand rolls nothing: you stand up from prone, and Drop Prone puts you there.
+      describe "Stand" do
+        it "should leave the character no longer prone, and roll nothing" do
+          state = CombatantStates.of(@encounter, Character[@hero.id])
+          Pf2e.set_condition(state, 'Prone')
+          run(PF2EncounterActCmd, 'e/act stand', @hero)
+
+          expect(@client.failures).to eq []
+          expect(CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id]).pf2_conditions).to_not have_key('Prone')
+          expect(said).to_not include(' vs ')
+          expect(said).to include(t('pf2e.act_no_longer', :target => @hero.name, :condition => 'Prone').strip)
+        end
+
+        it "should leave the character prone when they drop prone" do
+          run(PF2EncounterActCmd, 'e/act drop prone', @hero)
+
+          expect(CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id]).pf2_conditions).to have_key('Prone')
+        end
+      end
+
       describe "Nimble Dodge" do
         before(:each) do
           add('2 goblin warrior')

@@ -4,7 +4,8 @@
 # the target chooses, and Shove's push, which is movement on the map, are left to the note.
 #
 # Keyed by the action's slug, or `<action>:<variant>` for one way of doing it. Each outcome -
-# criticalSuccess, success, failure, criticalFailure - lists what happens:
+# criticalSuccess, success, failure, criticalFailure - lists what happens, and `always` what an action
+# that rolls nothing does:
 #
 #   on         whom it happens to: target, or actor
 #   condition  a condition set, at `value`; `remove` takes a list away instead
@@ -58,3 +59,7 @@ pf2e_action_consequences:
     criticalSuccess: [{"on": "target", "heal": "4d8", "bonus": {"20": 10, "30": 30, "40": 50}}]
     success: [{"on": "target", "heal": "2d8", "bonus": {"20": 10, "30": 30, "40": 50}}]
     criticalFailure: [{"on": "target", "damage": "1d8", "type": "untyped"}]
+  "stand":
+    always: [{"on": "actor", "remove": ["Prone"]}]
+  "drop-prone":
+    always: [{"on": "actor", "condition": "Prone"}]
