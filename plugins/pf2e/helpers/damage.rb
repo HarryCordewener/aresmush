@@ -70,6 +70,11 @@ module AresMUSH
         met_dice, unmet_dice = dice.partition { |row| row['met'] }
         met_flat, unmet_flat = flat.partition { |row| row['met'] }
 
+        # A bomb's persistent and splash damage are the bomb's own, so they always apply.
+        bomb_dice, bomb_flat = Consumables.bomb_rows(attack)
+        met_dice += bomb_dice
+        met_flat += bomb_flat
+
         # An override adjusts the weapon's own dice rather than adding any of its own, so it is taken
         # out before the rest are added up.
         overriding, adding = met_dice.partition { |row| row['override'] }
@@ -285,6 +290,9 @@ module AresMUSH
                    elsif attribute then Pf2e.ability_mod(char, attribute)
                    else 0
                    end
+
+        # An attack with no die deals a flat amount of its own, as an acid flask's 1 acid does.
+        modifier += attack['flat'].to_i
 
         empty_instance([ attack['damage_type'] || 'B', nil ])
           .merge('die' => die,

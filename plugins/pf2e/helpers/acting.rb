@@ -337,7 +337,14 @@ module AresMUSH
         rolled = attack_roll(scene, attack, check, said, extra, out)
         out['lines'] << rolled['line']
 
-        hit(scene, attack, check, rolled['result'], out) if rolled['hit']
+        if rolled['hit']
+          hit(scene, attack, check, rolled['result'], out)
+        elsif attack['bomb'] && rolled.dig('result', 'degree') == Degree::FAILURE
+          splash(scene, attack, check, out)
+        end
+
+        # A bomb is thrown whatever it does.
+        Consumables.spend!(scene.actor.holder, attack['consumable']) if attack['consumable']
 
         TurnState.spend(scene.actor.holder, 'Strike', :cost => 1, :type => 'action', :attack => true)
 
@@ -395,9 +402,18 @@ module AresMUSH
 
         deal(scene, scene.target, rows, out)
 
+        Consumables.effect(scene.encounter, scene.actor.label, scene.target, attack['effect'], out) if attack['bomb'] && attack['effect']
+
         follow_ups(scene, attack, out)
 
         critical_specialization(scene, attack, out) if critical
+      end
+
+      # A splash weapon that misses still splashes the target, though not on a critical miss.
+      def self.splash(scene, attack, check, out)
+        rows = Actors.of(scene.actor.holder).strike_damage(attack, check, false).select { |row| row['category'] == 'splash' }
+
+        deal(scene, scene.target, rows, out) if rows.any?
       end
 
       # What a creature's Strike lets it do next, where the stat block lists it: Grab, Knockdown and Push
@@ -488,7 +504,8 @@ module AresMUSH
         immediate.each do |row|
           held = Harm.damage(whom.holder, row['amount'], row['type'])
           resisted = Array(held['applied']).map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
-          shown << "#{held['amount']} #{row['type']}#{resisted.empty? ? '' : " (#{resisted.join(', ')})"}"
+          kind = row['category'].to_s == 'splash' ? "splash #{row['type']}" : row['type']
+          shown << "#{held['amount']} #{kind}#{resisted.empty? ? '' : " (#{resisted.join(', ')})"}"
         end
 
         # Words already, because they join the rest of the hit in one line.

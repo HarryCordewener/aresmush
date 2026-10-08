@@ -25,6 +25,9 @@ module AresMUSH
         enactor
       end
 
+      # What a consumable does beyond being used up. Outside a fight, nothing the game keeps count of.
+      def consumed(_item); end
+
       def check_valid_category
         return nil if [ "weapons", "weapon", "armor", "magicitem", "consumable", "consumables" ].include?(self.category)
         return t('pf2egear.bad_category')
@@ -59,6 +62,8 @@ module AresMUSH
           if scene
             Scenes.add_to_scene(scene, message)
           end
+
+          consumed(item)
 
           new_quantity = item.quantity - 1
 

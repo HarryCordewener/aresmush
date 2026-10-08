@@ -40,7 +40,9 @@ Cover, a stance - puts you under it. Anything else is announced.
 
 `+e/strike <target>[=<weapon>][/<circumstance>...]` - Strike, with your first equipped weapon or the one
 you name (by name or nickname, or an unarmed attack like `fist`). A hit rolls the damage and deals it,
-after what the target resists.
+after what the target resists. A bomb you carry is thrown the same way - `+e/strike #3=alchemist's fire`
+- and one is spent whatever happens: its persistent damage burns on a hit, and its splash lands on the
+target even on a miss, though not a critical one. Who else stands in the splash is the GM's to say.
     +e/strike #3
     +e/strike #3=longsword/flanking
     +e/strike #4=shortbow/range 2
@@ -148,6 +150,9 @@ Strikes and AC, what you use - so what you buy or sell outside meanwhile is no p
 
 `+e/gear [<who>]` - What you carry in the encounter here.
 `+e/use <category>=<number>[/<use>]` - Use an item you carry there: drink a potion, spend a charge.
+`+e/use consumables=<number>[/<who>]` - Drink a potion, elixir or mutagen, or give it to someone else in
+the fight. A healing potion heals by its dice - vitality heals the living, and does nothing for the
+undead - and an elixir or mutagen puts its effect on whoever takes it.
 `+e/equip <category>=<number>` - Draw a weapon, put on armour, strap on a shield.
 `+e/unequip <category>=<number>` - Stow it again.
 

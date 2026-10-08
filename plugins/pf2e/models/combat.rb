@@ -546,6 +546,25 @@ module AresMUSH
         'rune' => Pf2egear.get_rune_value(weapon, 'fundamental', 'potency') })
     end
 
+    # A bomb the character carries, thrown as a Strike: a martial weapon of the bomb group, whose item
+    # bonus to hit is the bomb's own, and whose damage is its dice - or a flat amount, where it has no
+    # die - its persistent damage and its splash, and the effect it leaves on whoever it hits.
+    # `consumable` is the item one is spent from.
+    def self.bomb_descriptor(char, item)
+      info = weapon_info(item.name) || {}
+      bomb = info['bomb'] || {}
+
+      adjusted_strike(char, { 'id' => item.id.to_s, 'name' => item.name,
+        'prof' => get_weapon_prof(char, item.name),
+        'group' => 'bomb', 'base' => item.name, 'traits' => Array(info['traits']), 'ranged' => true,
+        'unarmed' => false, 'bomb' => true,
+        'die' => bomb['die'], 'dice' => bomb['die'] ? bomb['dice'].to_i : nil, 'flat' => bomb['die'] ? 0 : bomb['dice'].to_i,
+        'damage_type' => bomb['damage_type'], 'range' => bomb['range'].to_i, 'reload' => 0, 'hands' => 1,
+        'materials' => [], 'runes' => [], 'striking' => 0, 'rune' => bomb['bonus'].to_i,
+        'persistent' => bomb['persistent'], 'persistent_type' => bomb['persistent_type'],
+        'splash' => bomb['splash'].to_i, 'effect' => info['effect'], 'consumable' => item.id.to_s })
+    end
+
     def self.unarmed_descriptor(name, info, prof, char = nil)
       descriptor = { 'id' => nil, 'name' => name, 'prof' => prof, 'group' => info['group'],
                      'base' => name, 'traits' => info['traits'], 'ranged' => false, 'unarmed' => true,

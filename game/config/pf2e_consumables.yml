@@ -13,6 +13,13 @@ pf2e_consumables:
       - bomb
       - consumable
       - splash
+    bomb:
+      dice: 1
+      damage_type: acid
+      persistent: 1d6
+      persistent_type: acid
+      splash: 1
+      range: 20
   Alarm Snare:
     bulk: 0
     level: 1
@@ -35,6 +42,14 @@ pf2e_consumables:
       - consumable
       - fire
       - splash
+    bomb:
+      dice: 1
+      die: d8
+      damage_type: fire
+      persistent: 1
+      persistent_type: fire
+      splash: 1
+      range: 20
   Antidote (Lesser):
     bulk: 0.1
     level: 1
@@ -44,6 +59,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    effect: 'Effect: Antidote'
   Antiplague (Lesser):
     bulk: 0.1
     level: 1
@@ -53,6 +69,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    effect: 'Effect: Antiplague'
   Arsenic:
     bulk: 0.1
     level: 1
@@ -72,6 +89,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Bestial Mutagen (Lesser)'
   Blasting Stone (Lesser):
     category: martial
     group: Bomb
@@ -88,6 +106,12 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The bomb also deals )[sonic]]{1 sonic splash damage} and all creatures within 10 feet must succeed at a save or be Deafened until the end of its next turn."
+    bomb:
+      dice: 1
+      die: d4
+      damage_type: sonic
+      splash: 1
+      range: 20
   Blight Bomb (Lesser):
     category: martial
     group: Bomb
@@ -100,6 +124,14 @@ pf2e_consumables:
       - consumable
       - poison
       - splash
+    bomb:
+      dice: 1
+      die: d4
+      damage_type: poison
+      persistent: 1d4
+      persistent_type: poison
+      splash: 1
+      range: 20
   Bottled Lightning (Lesser):
     category: martial
     group: Bomb
@@ -116,6 +148,12 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The bomb also deals )[electricity]]{1 electricity splash damage} and the target becomes Off-Guard until the start of your next turn."
+    bomb:
+      dice: 1
+      die: d6
+      damage_type: electricity
+      splash: 1
+      range: 20
   Caltrop Snare:
     bulk: 0
     level: 1
@@ -133,6 +171,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Cheetah''s Elixir (Lesser)'
   Cognitive Mutagen (Lesser):
     bulk: 0.1
     level: 1
@@ -143,6 +182,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Cognitive Mutagen (Lesser)'
   Drakeheart Mutagen (Lesser):
     bulk: 0.1
     level: 1
@@ -153,6 +193,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Drakeheart Mutagen (Lesser)'
   Dread Ampoule (Lesser):
     category: martial
     group: Bomb
@@ -177,6 +218,12 @@ pf2e_consumables:
         selector: "{item|_id}-damage"
         outcome: ["criticalSuccess"]
         text: "On a hit, The target is Frightened 2"
+    bomb:
+      dice: 1
+      die: d6
+      damage_type: mental
+      splash: 1
+      range: 20
   Eagle Eye Elixir (Lesser):
     bulk: 0.1
     level: 1
@@ -185,6 +232,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Eagle Eye Elixir'
   Elixir of Gender Transformation (Lesser):
     bulk: 0.1
     level: 1
@@ -202,6 +250,8 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    heal: 1d6
+    effect: 'Effect: Elixir of Life'
   Forensic Dye:
     bulk: 0.1
     level: 1
@@ -225,6 +275,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The target takes a -5-foot penalty to its Speeds until the end of its next turn (Effect: Frost Vial)."
+    effect: 'Effect: Frost Vial'
+    bomb:
+      dice: 1
+      die: d6
+      damage_type: cold
+      splash: 1
+      range: 20
   Gecko Potion:
     bulk: 0.1
     level: 1
@@ -233,6 +290,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Gecko Potion'
   Ghost Charge (Lesser):
     category: martial
     group: Bomb
@@ -249,6 +307,12 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "The target that takes damage becomes Enfeebled 1 until the start of your next turn."
+    bomb:
+      dice: 1
+      die: d8
+      damage_type: vitality
+      splash: 1
+      range: 20
   Ghost Ink:
     bulk: 0.1
     level: 1
@@ -273,6 +337,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - light
+    effect: 'Effect: Glow Rod'
   Glue Bomb (Lesser):
     category: martial
     group: Bomb
@@ -294,6 +359,11 @@ pf2e_consumables:
         outcome: ["criticalSuccess"]
         title: "{item|name}"
         text: "On a critical hit, -10-foot Speed penalty for 1 minute and Immobilized for 1 round."
+    effect: 'Effect: Glue Bomb'
+    bomb:
+      damage_type: bludgeoning
+      range: 20
+      dice: 0
   Hampering Snare:
     bulk: 0
     level: 1
@@ -313,6 +383,8 @@ pf2e_consumables:
       - magical
       - potion
       - vitality
+    heal: 1d8
+    heal_type: vitality
   Holy Water:
     bulk: 0.1
     level: 1
@@ -338,6 +410,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Juggernaut Mutagen (Lesser)'
   Marking Snare:
     bulk: 0
     level: 1
@@ -388,6 +461,8 @@ pf2e_consumables:
       - magical
       - oil
       - void
+    heal: 1d8
+    heal_type: void
   Potency Crystal:
     bulk: 0
     level: 1
@@ -396,6 +471,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Potency Crystal'
   Potion of Acid Retaliation (Minor):
     bulk: 0.1
     level: 1
@@ -428,6 +504,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Emergency Escape'
   Potion of Fire Retaliation (Minor):
     bulk: 0.1
     level: 1
@@ -453,6 +530,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Predator''s Claw'
   Quicksilver Mutagen (Lesser):
     bulk: 0.1
     level: 1
@@ -463,6 +541,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Quicksilver Mutagen (Lesser)'
   Ration Tonic:
     bulk: 0.1
     level: 1
@@ -481,6 +560,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Serene Mutagen (Lesser)'
   Shielding Salve:
     bulk: 0.1
     level: 1
@@ -489,6 +569,7 @@ pf2e_consumables:
       - consumable
       - magical
       - oil
+    effect: 'Effect: Shielding Salve'
   Shining Ammunition:
     bulk: 0
     level: 1
@@ -502,6 +583,7 @@ pf2e_consumables:
         selector: "{item|_id}-attack"
         title: "Shining Ammunition"
         text: "The ammunition sheds bright light in a 20-foot radius (and dim light to the next 20 feet) for 10 minutes. If it hits a target, it sticks, causing the target to shed light in the same radius. Effect: Shining Ammunition"
+    effect: 'Effect: Shining Ammunition'
   Signaling Snare:
     bulk: 0
     level: 1
@@ -521,6 +603,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Silvertongue Mutagen (Lesser)'
   Smoke Ball (Lesser):
     bulk: 0.1
     level: 1
@@ -640,6 +723,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - mental
+    effect: 'Effect: Bravo''s Brew'
   Bronze Bull Pendant:
     bulk: 0
     level: 2
@@ -648,6 +732,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Bronze Bull Pendant'
   Cat's Eye Elixir:
     bulk: 0.1
     level: 2
@@ -681,6 +766,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Darkvision Elixir (Lesser)'
   Deadweight Snare:
     bulk: 0
     level: 2
@@ -691,6 +777,7 @@ pf2e_consumables:
       - mechanical
       - snare
       - trap
+    effect: 'Effect: Deadweight Snare (Success)'
   Effervescent Ampoule:
     bulk: 0
     level: 2
@@ -762,6 +849,7 @@ pf2e_consumables:
       - consumable
       - magical
       - oil
+    effect: 'Effect: Oil of Potency'
   Oil of Weightlessness:
     bulk: 0.1
     level: 2
@@ -794,6 +882,7 @@ pf2e_consumables:
     traits:
       - alchemical
       - consumable
+    effect: 'Effect: Silver Salve'
   Surging Serum (Minor):
     bulk: 0.1
     level: 2
@@ -816,6 +905,14 @@ pf2e_consumables:
       - bomb
       - consumable
       - splash
+    bomb:
+      dice: 1
+      damage_type: acid
+      persistent: 2d6
+      persistent_type: acid
+      splash: 2
+      bonus: 1
+      range: 20
   Alchemist's Fire (Moderate):
     category: martial
     group: Bomb
@@ -828,6 +925,15 @@ pf2e_consumables:
       - consumable
       - fire
       - splash
+    bomb:
+      dice: 2
+      die: d8
+      damage_type: fire
+      persistent: 2
+      persistent_type: fire
+      splash: 2
+      bonus: 1
+      range: 20
   Alloy Orb (Low-Grade):
     bulk: 0.1
     level: 3
@@ -836,6 +942,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Alloy Orb (Low-Grade)'
   Beacon Shot:
     bulk: 0
     level: 3
@@ -853,6 +960,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Bestial Mutagen (Moderate)'
   Blasting Stone (Moderate):
     category: martial
     group: Bomb
@@ -869,6 +977,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The bomb also deals )[sonic]]{2 sonic splash damage} and all creatures within 10 feet must succeed at a save or be Deafened until the end of its next turn."
+    bomb:
+      dice: 2
+      die: d4
+      damage_type: sonic
+      splash: 2
+      bonus: 1
+      range: 20
   Blight Bomb (Moderate):
     category: martial
     group: Bomb
@@ -881,6 +996,15 @@ pf2e_consumables:
       - consumable
       - poison
       - splash
+    bomb:
+      dice: 2
+      die: d4
+      damage_type: poison
+      persistent: 2d4
+      persistent_type: poison
+      splash: 2
+      bonus: 1
+      range: 20
   Bottled Lightning (Moderate):
     category: martial
     group: Bomb
@@ -897,6 +1021,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The bomb also deals )[electricity]]{2 electricity splash damage} and the target becomes Off-Guard until the start of your next turn."
+    bomb:
+      dice: 2
+      die: d6
+      damage_type: electricity
+      splash: 2
+      bonus: 1
+      range: 20
   Cognitive Mutagen (Moderate):
     bulk: 0.1
     level: 3
@@ -907,6 +1038,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Cognitive Mutagen (Moderate)'
   Cytillesh Oil:
     bulk: 0.1
     level: 3
@@ -926,6 +1058,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Drakeheart Mutagen (Moderate)'
   Dread Ampoule (Moderate):
     category: martial
     group: Bomb
@@ -950,6 +1083,13 @@ pf2e_consumables:
         selector: "{item|_id}-damage"
         outcome: ["criticalSuccess"]
         text: "On a hit, The target is Frightened 2"
+    bomb:
+      dice: 2
+      die: d6
+      damage_type: mental
+      splash: 2
+      bonus: 1
+      range: 20
   Elixir of Gender Transformation (Moderate):
     bulk: 0.1
     level: 3
@@ -982,6 +1122,14 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The target takes a -10-foot penalty to its Speeds until the end of its next turn (Effect: Frost Vial)."
+    effect: 'Effect: Frost Vial'
+    bomb:
+      dice: 2
+      die: d6
+      damage_type: cold
+      splash: 2
+      bonus: 1
+      range: 20
   Ghost Charge (Moderate):
     category: martial
     group: Bomb
@@ -998,6 +1146,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "The target that takes damage becomes Enfeebled 1 until the start of your next turn."
+    bomb:
+      dice: 2
+      die: d8
+      damage_type: vitality
+      splash: 2
+      bonus: 1
+      range: 20
   Glue Bomb (Moderate):
     category: martial
     group: Bomb
@@ -1019,6 +1174,12 @@ pf2e_consumables:
         outcome: ["criticalSuccess"]
         title: "{item|name}"
         text: "On a critical hit, -15-foot Speed penalty for 1 minute and Immobilized for 1 round."
+    effect: 'Effect: Glue Bomb'
+    bomb:
+      damage_type: bludgeoning
+      bonus: 1
+      range: 20
+      dice: 0
   Graveroot:
     bulk: 0.1
     level: 3
@@ -1038,6 +1199,8 @@ pf2e_consumables:
       - magical
       - potion
       - vitality
+    heal: 2d8+5
+    heal_type: vitality
   Juggernaut Mutagen (Moderate):
     bulk: 0.1
     level: 3
@@ -1048,6 +1211,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Juggernaut Mutagen (Moderate)'
   Marvelous Miniature (Chest):
     bulk: 0
     level: 3
@@ -1073,6 +1237,8 @@ pf2e_consumables:
       - magical
       - oil
       - void
+    heal: 2d8+5
+    heal_type: void
   Potion of Acid Retaliation (Lesser):
     bulk: 0.1
     level: 3
@@ -1123,6 +1289,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Quicksilver Mutagen (Moderate)'
   Serene Mutagen (Moderate):
     bulk: 0.1
     level: 3
@@ -1133,6 +1300,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Serene Mutagen (Moderate)'
   Silvertongue Mutagen (Moderate):
     bulk: 0.1
     level: 3
@@ -1143,6 +1311,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Silvertongue Mutagen (Moderate)'
   Slumber Arrow:
     bulk: 0
     level: 3
@@ -1184,6 +1353,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Bloodseeker Beak'
   Bomber's Eye Elixir (Lesser):
     bulk: 0.1
     level: 4
@@ -1192,6 +1362,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Bomber''s Eye Elixir'
   Bottled Catharsis (Lesser):
     bulk: 0.1
     level: 4
@@ -1232,6 +1403,15 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|id}-damage"
         text: "The target takes 1 persistent bleed damage from the crystals embedded in its flesh. As long as the bleed damage persists, the target also takes a \u20135-foot penalty to its speed. Effect: Crystal Shards"
+    bomb:
+      dice: 2
+      die: d4
+      damage_type: piercing
+      persistent: 1
+      persistent_type: bleed
+      splash: 4
+      bonus: 1
+      range: 20
   Darkvision Elixir (Moderate):
     bulk: 0.1
     level: 4
@@ -1240,6 +1420,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Darkvision Elixir (Moderate)'
   Dragon Turtle Scale:
     bulk: 0
     level: 4
@@ -1248,6 +1429,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Dragon Turtle Scale'
   Fear Gem:
     bulk: 0
     level: 4
@@ -1278,6 +1460,7 @@ pf2e_consumables:
       - mechanical
       - snare
       - trap
+    effect: 'Effect: Hobbling Snare'
   Invisibility Potion:
     bulk: 0.1
     level: 4
@@ -1333,6 +1516,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Shrinking Potion'
   Stalker Bane Snare:
     bulk: 0
     level: 4
@@ -1352,6 +1536,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - morph
+    effect: 'Effect: Stone Fist Elixir'
   Surging Serum (Lesser):
     bulk: 0.1
     level: 4
@@ -1408,6 +1593,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Cheetah''s Elixir (Moderate)'
   Eagle Eye Elixir (Moderate):
     bulk: 0.1
     level: 5
@@ -1416,6 +1602,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Eagle Eye Elixir'
   Elixir of Life (Lesser):
     bulk: 0.1
     level: 5
@@ -1425,6 +1612,8 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    heal: 3d6+6
+    effect: 'Effect: Elixir of Life'
   Emerald Grasshopper:
     bulk: 0
     level: 5
@@ -1489,6 +1678,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - polymorph
+    effect: 'Effect: Sea Touch Elixir (Lesser)'
   Shark Tooth Charm:
     bulk: 0
     level: 5
@@ -1497,6 +1687,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Shark Tooth Charm'
   Sneaky Key:
     bulk: 0
     level: 5
@@ -1505,6 +1696,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Sneaky Key'
   Spellstrike Ammunition (Type II):
     bulk: 0
     level: 5
@@ -1529,6 +1721,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Tiger Menuki'
   Tricky Liniment:
     bulk: 0.1
     level: 5
@@ -1537,6 +1730,7 @@ pf2e_consumables:
       - consumable
       - magical
       - oil
+    effect: 'Effect: Tricky Liniment'
   # Item Level 6
   Antidote (Moderate):
     bulk: 0.1
@@ -1547,6 +1741,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    effect: 'Effect: Antidote'
   Antiplague (Moderate):
     bulk: 0.1
     level: 6
@@ -1556,6 +1751,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    effect: 'Effect: Antiplague'
   Bomb Snare:
     bulk: 0
     level: 6
@@ -1592,6 +1788,8 @@ pf2e_consumables:
       - magical
       - potion
       - vitality
+    heal: 3d8+10
+    heal_type: vitality
   Iron Cube:
     bulk: 0
     level: 6
@@ -1629,6 +1827,8 @@ pf2e_consumables:
       - magical
       - oil
       - void
+    heal: 3d8+10
+    heal_type: void
   Oil of Weightlessness (Greater):
     bulk: 0.1
     level: 6
@@ -1645,6 +1845,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Acid Resistance'
   Potion of Acid Retaliation (Moderate):
     bulk: 0.1
     level: 6
@@ -1661,6 +1862,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Cold Resistance'
   Potion of Cold Retaliation (Moderate):
     bulk: 0.1
     level: 6
@@ -1677,6 +1879,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Electricity Resistance'
   Potion of Electricity Retaliation (Moderate):
     bulk: 0.1
     level: 6
@@ -1693,6 +1896,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Fire Resistance'
   Potion of Fire Retaliation (Moderate):
     bulk: 0.1
     level: 6
@@ -1717,6 +1921,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Sonic Resistance'
   Potion of Swimming:
     bulk: 0.1
     level: 6
@@ -1725,6 +1930,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Swimming'
   Salve of Antiparalysis:
     bulk: 0.1
     level: 6
@@ -1878,6 +2084,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - healing
+    effect: 'Effect: Skinstitch Salve'
   Smoke Ball (Greater):
     bulk: 0.1
     level: 7
@@ -1901,6 +2108,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Swift Block Cabochon'
   Tangle Root Toxin:
     bulk: 0.1
     level: 7
@@ -1919,6 +2127,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Alloy Orb (Standard-Grade)'
   Bloodseeker Beak (Greater):
     bulk: 0.1
     level: 8
@@ -1927,6 +2136,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Bloodseeker Beak'
   Bottled Catharsis (Moderate):
     bulk: 0.1
     level: 8
@@ -1953,6 +2163,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Darkvision Elixir (Greater)'
   Dragon Turtle Scale (Greater):
     bulk: 0
     level: 8
@@ -1961,6 +2172,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Dragon Turtle Scale'
   Dust of Corpse Animation:
     bulk: 0
     level: 8
@@ -1987,6 +2199,7 @@ pf2e_consumables:
       - mechanical
       - snare
       - trap
+    effect: 'Effect: Grasping Snare'
   Jade Bauble:
     bulk: 0
     level: 8
@@ -2056,6 +2269,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Shrinking Potion (Greater)'
   Striking Snare:
     bulk: 0
     level: 8
@@ -2101,6 +2315,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Cheetah''s Elixir (Greater)'
   Elixir of Life (Moderate):
     bulk: 0.1
     level: 9
@@ -2110,6 +2325,8 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    heal: 5d6+12
+    effect: 'Effect: Elixir of Life'
   Emerald Grasshopper (Greater):
     bulk: 0
     level: 9
@@ -2156,6 +2373,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Potency Crystal'
   Spellstrike Ammunition (Type IV):
     bulk: 0
     level: 9
@@ -2199,6 +2417,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    effect: 'Effect: Antidote'
   Antiplague (Greater):
     bulk: 0.1
     level: 10
@@ -2208,6 +2427,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    effect: 'Effect: Antiplague'
   Bravo's Brew (Moderate):
     bulk: 0.1
     level: 10
@@ -2217,6 +2437,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - mental
+    effect: 'Effect: Bravo''s Brew'
   Eagle Eye Elixir (Greater):
     bulk: 0.1
     level: 10
@@ -2225,6 +2446,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Eagle Eye Elixir'
   Iron Medallion:
     bulk: 0
     level: 10
@@ -2233,6 +2455,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Iron Medallion'
   Mistform Elixir (Greater):
     bulk: 0.1
     level: 10
@@ -2253,6 +2476,7 @@ pf2e_consumables:
       - mechanical
       - snare
       - trap
+    effect: 'Effect: Mudrock Snare'
   Mummified Bat:
     bulk: 0
     level: 10
@@ -2261,6 +2485,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Mummified Bat'
   Nethershade:
     bulk: 0.1
     level: 10
@@ -2279,6 +2504,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Acid Resistance'
   Potion of Cold Resistance (Moderate):
     bulk: 0.1
     level: 10
@@ -2287,6 +2513,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Cold Resistance'
   Potion of Electricity Resistance (Moderate):
     bulk: 0.1
     level: 10
@@ -2295,6 +2522,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Electricity Resistance'
   Potion of Resistance (Moderate):
     bulk: 0.1
     level: 10
@@ -2311,6 +2539,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Sonic Resistance'
   Snagging Hook Snare:
     bulk: 0
     level: 10
@@ -2360,6 +2589,14 @@ pf2e_consumables:
       - bomb
       - consumable
       - splash
+    bomb:
+      dice: 1
+      damage_type: acid
+      persistent: 3d6
+      persistent_type: acid
+      splash: 3
+      bonus: 2
+      range: 20
   Alchemist's Fire (Greater):
     category: martial
     group: Bomb
@@ -2372,6 +2609,15 @@ pf2e_consumables:
       - consumable
       - fire
       - splash
+    bomb:
+      dice: 3
+      die: d8
+      damage_type: fire
+      persistent: 3
+      persistent_type: fire
+      splash: 3
+      bonus: 2
+      range: 20
   Bestial Mutagen (Greater):
     bulk: 0.1
     level: 11
@@ -2382,6 +2628,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Bestial Mutagen (Greater)'
   Blasting Stone (Greater):
     category: martial
     group: Bomb
@@ -2398,6 +2645,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The bomb also deals )[sonic]]{3 sonic splash damage} and all creatures within 10 feet must succeed at a save or be Deafened until the end of its next turn."
+    bomb:
+      dice: 3
+      die: d4
+      damage_type: sonic
+      splash: 3
+      bonus: 2
+      range: 20
   Blight Bomb (Greater):
     category: martial
     group: Bomb
@@ -2410,6 +2664,15 @@ pf2e_consumables:
       - consumable
       - poison
       - splash
+    bomb:
+      dice: 3
+      die: d4
+      damage_type: poison
+      persistent: 3d4
+      persistent_type: poison
+      splash: 3
+      bonus: 2
+      range: 20
   Blightburn Resin:
     bulk: 0.1
     level: 11
@@ -2435,6 +2698,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The bomb also deals )[electricity]]{3 electricity splash damage} and the target becomes Off-Guard until the start of your next turn."
+    bomb:
+      dice: 3
+      die: d6
+      damage_type: electricity
+      splash: 3
+      bonus: 2
+      range: 20
   Cognitive Mutagen (Greater):
     bulk: 0.1
     level: 11
@@ -2445,6 +2715,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Cognitive Mutagen (Greater)'
   Drakeheart Mutagen (Greater):
     bulk: 0.1
     level: 11
@@ -2455,6 +2726,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Drakeheart Mutagen (Greater)'
   Dread Ampoule (Greater):
     category: martial
     group: Bomb
@@ -2479,6 +2751,13 @@ pf2e_consumables:
         selector: "{item|_id}-damage"
         outcome: ["criticalSuccess"]
         text: "On a hit, The target is Frightened 2"
+    bomb:
+      dice: 3
+      die: d6
+      damage_type: mental
+      splash: 3
+      bonus: 2
+      range: 20
   Frost Vial (Greater):
     category: martial
     group: Bomb
@@ -2495,6 +2774,14 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The target takes a -10-foot penalty to its Speeds until the end of its next turn (Effect: Frost Vial)."
+    effect: 'Effect: Frost Vial'
+    bomb:
+      dice: 3
+      die: d6
+      damage_type: cold
+      splash: 3
+      bonus: 2
+      range: 20
   Frozen Lava of Am'shere:
     bulk: 0
     level: 11
@@ -2519,6 +2806,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "The target that takes damage becomes Enfeebled 2 until the start of your next turn."
+    bomb:
+      dice: 3
+      die: d8
+      damage_type: vitality
+      splash: 3
+      bonus: 2
+      range: 20
   Glue Bomb (Greater):
     category: martial
     group: Bomb
@@ -2540,6 +2834,12 @@ pf2e_consumables:
         outcome: ["criticalSuccess"]
         title: "{item|name}"
         text: "On a critical hit, -15-foot Speed penalty for 1 minute and Immobilized for 1 round."
+    effect: 'Effect: Glue Bomb'
+    bomb:
+      damage_type: bludgeoning
+      bonus: 2
+      range: 20
+      dice: 0
   Grim Trophy (Greater):
     bulk: 0
     level: 11
@@ -2558,6 +2858,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Juggernaut Mutagen (Greater)'
   Oil of Keen Edges:
     bulk: 0.1
     level: 11
@@ -2567,6 +2868,7 @@ pf2e_consumables:
       - consumable
       - magical
       - oil
+    effect: 'Effect: Oil of Keen Edges'
   Oil of Repulsion:
     bulk: 0.1
     level: 11
@@ -2593,6 +2895,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Swimming (Greater)'
   Quicksilver Mutagen (Greater):
     bulk: 0.1
     level: 11
@@ -2603,6 +2906,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Quicksilver Mutagen (Greater)'
   Serene Mutagen (Greater):
     bulk: 0.1
     level: 11
@@ -2613,6 +2917,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Serene Mutagen (Greater)'
   Silvertongue Mutagen (Greater):
     bulk: 0.1
     level: 11
@@ -2623,6 +2928,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Silvertongue Mutagen (Greater)'
   Spellstrike Ammunition (Type V):
     bulk: 0
     level: 11
@@ -2647,6 +2953,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Alloy Orb (Exquisite Standard-Grade)'
   Balisse Feather:
     bulk: 0
     level: 12
@@ -2656,6 +2963,7 @@ pf2e_consumables:
       - holy
       - magical
       - talisman
+    effect: 'Effect: Balisse Feather'
   Bleeding Spines Snare:
     bulk: 0
     level: 12
@@ -2707,6 +3015,15 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "The target takes 1 persistent bleed damage from the crystals embedded in its flesh. As long as the bleed damage persists, the target also takes a \u20135-foot penalty to its speed. Effect: Crystal Shards"
+    bomb:
+      dice: 3
+      die: d4
+      damage_type: piercing
+      persistent: 1
+      persistent_type: bleed
+      splash: 5
+      bonus: 2
+      range: 20
   Energy Breath Potion (Acid, Moderate):
     bulk: 0.1
     level: 12
@@ -2780,6 +3097,8 @@ pf2e_consumables:
       - magical
       - potion
       - vitality
+    heal: 6d8+20
+    heal_type: vitality
   Incense of Distilled Death:
     bulk: 0
     level: 12
@@ -2813,6 +3132,7 @@ pf2e_consumables:
       - consumable
       - magical
       - oil
+    effect: 'Effect: Oil of Potency'
   Oil of Unlife (Greater):
     bulk: 0.1
     level: 12
@@ -2822,6 +3142,8 @@ pf2e_consumables:
       - magical
       - oil
       - void
+    heal: 6d8+20
+    heal_type: void
   Penetrating Ammunition:
     bulk: 0
     level: 12
@@ -2903,6 +3225,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - polymorph
+    effect: 'Effect: Sea Touch Elixir (Moderate)'
   Slumber Wine:
     bulk: 0.1
     level: 12
@@ -2967,6 +3290,8 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    heal: 7d6+18
+    effect: 'Effect: Elixir of Life'
   Explosive Ammunition (Greater):
     bulk: 0
     level: 13
@@ -3022,6 +3347,7 @@ pf2e_consumables:
       - uncommon
       - consumable
       - divine
+    effect: 'Effect: Taper of Sanctification'
   Time Shield Potion:
     bulk: 0.1
     level: 13
@@ -3040,6 +3366,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    effect: 'Effect: Antidote'
   Antiplague (Major):
     bulk: 0.1
     level: 14
@@ -3049,6 +3376,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    effect: 'Effect: Antiplague'
   Bomber's Eye Elixir (Greater):
     bulk: 0.1
     level: 14
@@ -3057,6 +3385,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Bomber''s Eye Elixir'
   Dazing Coil:
     bulk: 0
     level: 14
@@ -3090,6 +3419,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Acid Resistance'
   Potion of Cold Resistance (Greater):
     bulk: 0.1
     level: 14
@@ -3098,6 +3428,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Cold Resistance'
   Potion of Electricity Resistance (Greater):
     bulk: 0.1
     level: 14
@@ -3106,6 +3437,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Electricity Resistance'
   Potion of Fire Resistance (Greater):
     bulk: 0.1
     level: 14
@@ -3114,6 +3446,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Fire Resistance'
   Potion of Resistance (Greater):
     bulk: 0.1
     level: 14
@@ -3130,6 +3463,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Sonic Resistance'
   Rending Snare:
     bulk: 0
     level: 14
@@ -3167,6 +3501,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - mental
+    effect: 'Effect: Bravo''s Brew'
   Disintegration Bolt:
     bulk: 0
     level: 15
@@ -3184,6 +3519,8 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    heal: 8d6+21
+    effect: 'Effect: Elixir of Life'
   Frozen Lava of the Desolation:
     bulk: 0
     level: 15
@@ -3217,6 +3554,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Potency Crystal'
   Potion of Flying (Greater):
     bulk: 0.1
     level: 15
@@ -3225,6 +3563,7 @@ pf2e_consumables:
       - consumable
       - magical
       - potion
+    effect: 'Effect: Potion of Flying (Greater)'
   Sea Touch Elixir (Greater):
     bulk: 0.1
     level: 15
@@ -3234,6 +3573,7 @@ pf2e_consumables:
       - consumable
       - elixir
       - polymorph
+    effect: 'Effect: Sea Touch Elixir (Greater)'
   Spellstrike Ammunition (Type VII):
     bulk: 0
     level: 15
@@ -3257,6 +3597,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Alloy Orb (High-Grade)'
   Balisse Feather (Greater):
     bulk: 0
     level: 16
@@ -3266,6 +3607,7 @@ pf2e_consumables:
       - holy
       - magical
       - talisman
+    effect: 'Effect: Balisse Feather'
   Brimstone Fumes:
     bulk: 0.1
     level: 16
@@ -3309,6 +3651,7 @@ pf2e_consumables:
       - alchemical
       - consumable
       - elixir
+    effect: 'Effect: Eagle Eye Elixir'
   Flame Navette:
     bulk: 0
     level: 16
@@ -3382,6 +3725,14 @@ pf2e_consumables:
       - bomb
       - consumable
       - splash
+    bomb:
+      dice: 1
+      damage_type: acid
+      persistent: 4d6
+      persistent_type: acid
+      splash: 4
+      bonus: 3
+      range: 20
   Alchemist's Fire (Major):
     category: martial
     group: Bomb
@@ -3394,6 +3745,15 @@ pf2e_consumables:
       - consumable
       - fire
       - splash
+    bomb:
+      dice: 4
+      die: d8
+      damage_type: fire
+      persistent: 4
+      persistent_type: fire
+      splash: 4
+      bonus: 3
+      range: 20
   Bestial Mutagen (Major):
     bulk: 0.1
     level: 17
@@ -3404,6 +3764,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Bestial Mutagen (Major)'
   Blasting Stone (Major):
     category: martial
     group: Bomb
@@ -3420,6 +3781,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The bomb also deals )[sonic]]{4 sonic splash damage} and all creatures within 10 feet must succeed at a save or be Deafened until the end of its next turn."
+    bomb:
+      dice: 4
+      die: d4
+      damage_type: sonic
+      splash: 4
+      bonus: 3
+      range: 20
   Blight Bomb (Major):
     category: martial
     group: Bomb
@@ -3432,6 +3800,15 @@ pf2e_consumables:
       - consumable
       - poison
       - splash
+    bomb:
+      dice: 4
+      die: d4
+      damage_type: poison
+      persistent: 4d4
+      persistent_type: poison
+      splash: 4
+      bonus: 3
+      range: 20
   Bottled Lightning (Major):
     category: martial
     group: Bomb
@@ -3448,6 +3825,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The bomb also deals )[electricity]]{4 electricity splash damage} and the target becomes Off-Guard until the start of your next turn."
+    bomb:
+      dice: 4
+      die: d6
+      damage_type: electricity
+      splash: 4
+      bonus: 3
+      range: 20
   Cognitive Mutagen (Major):
     bulk: 0.1
     level: 17
@@ -3458,6 +3842,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Cognitive Mutagen (Major)'
   Dispelling Sliver:
     bulk: 0
     level: 17
@@ -3476,6 +3861,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Drakeheart Mutagen (Major)'
   Dread Ampoule (Major):
     category: martial
     group: Bomb
@@ -3500,6 +3886,13 @@ pf2e_consumables:
         selector: "{item|_id}-damage"
         outcome: ["criticalSuccess"]
         text: "On a hit, The target is Frightened 2"
+    bomb:
+      dice: 4
+      die: d6
+      damage_type: mental
+      splash: 4
+      bonus: 3
+      range: 20
   Energy Breath Potion (Acid, Greater):
     bulk: 0.1
     level: 17
@@ -3561,6 +3954,14 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "Effect The target takes a -15-foot penalty to its Speeds until the end of its next turn (Effect: Frost Vial)."
+    effect: 'Effect: Frost Vial'
+    bomb:
+      dice: 4
+      die: d6
+      damage_type: cold
+      splash: 4
+      bonus: 3
+      range: 20
   Frozen Lava of Dran:
     bulk: 0
     level: 17
@@ -3585,6 +3986,13 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "The target that takes damage becomes Enfeebled 2 until the start of your next turn."
+    bomb:
+      dice: 4
+      die: d8
+      damage_type: vitality
+      splash: 4
+      bonus: 3
+      range: 20
   Glue Bomb (Major):
     category: martial
     group: Bomb
@@ -3606,6 +4014,12 @@ pf2e_consumables:
         outcome: ["criticalSuccess"]
         title: "{item|name}"
         text: "On a critical hit, -20-foot Speed penalty for 1 minute and Immobilized for 1 round."
+    effect: 'Effect: Glue Bomb'
+    bomb:
+      damage_type: bludgeoning
+      bonus: 3
+      range: 20
+      dice: 0
   Hemlock:
     bulk: 0.1
     level: 17
@@ -3625,6 +4039,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Juggernaut Mutagen (Major)'
   Quicksilver Mutagen (Major):
     bulk: 0.1
     level: 17
@@ -3635,6 +4050,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Quicksilver Mutagen (Major)'
   Serene Mutagen (Major):
     bulk: 0.1
     level: 17
@@ -3645,6 +4061,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Serene Mutagen (Major)'
   Silvertongue Mutagen (Major):
     bulk: 0.1
     level: 17
@@ -3655,6 +4072,7 @@ pf2e_consumables:
       - elixir
       - mutagen
       - polymorph
+    effect: 'Effect: Silvertongue Mutagen (Major)'
   Spellstrike Ammunition (Type VIII):
     bulk: 0
     level: 17
@@ -3679,6 +4097,7 @@ pf2e_consumables:
       - consumable
       - magical
       - talisman
+    effect: 'Effect: Alloy Orb (Exquisite High-Grade)'
   Bottled Catharsis (Major):
     bulk: 0.1
     level: 18
@@ -3704,6 +4123,15 @@ pf2e_consumables:
       - key: "Note"
         selector: "{item|_id}-damage"
         text: "The target takes 1 persistent bleed damage from the crystals embedded in its flesh. As long as the bleed damage persists, the target also takes a \u20135-foot penalty to its speed. Effect: Crystal Shards"
+    bomb:
+      dice: 4
+      die: d4
+      damage_type: piercing
+      persistent: 1
+      persistent_type: bleed
+      splash: 6
+      bonus: 3
+      range: 20
   Healing Potion (Major):
     bulk: 0.1
     level: 18
@@ -3714,6 +4142,8 @@ pf2e_consumables:
       - magical
       - potion
       - vitality
+    heal: 8d8+30
+    heal_type: vitality
   King's Sleep:
     bulk: 0.1
     level: 18
@@ -3733,6 +4163,8 @@ pf2e_consumables:
       - magical
       - oil
       - void
+    heal: 8d8+30
+    heal_type: void
   Potion of Acid Retaliation (Major):
     bulk: 0.1
     level: 18
@@ -3803,6 +4235,8 @@ pf2e_consumables:
       - consumable
       - elixir
       - healing
+    heal: 10d6+27
+    effect: 'Effect: Elixir of Life'
   Frozen Lava of Toponi:
     bulk: 0
     level: 19
@@ -3819,6 +4253,7 @@ pf2e_consumables:
       - consumable
       - magical
       - oil
+    effect: 'Effect: Oil of Potency'
   Spellstrike Ammunition (Type IX):
     bulk: 0
     level: 19

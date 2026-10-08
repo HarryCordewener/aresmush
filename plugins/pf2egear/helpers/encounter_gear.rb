@@ -17,9 +17,41 @@ module AresMUSH
       end
     end
 
-    # `+e/use <category>=<number>[/<use>]`
+    # `+e/use <category>=<number>[/<use>]`, and for a consumable `+e/use consumables=<number>[/<who>]`:
+    # drunk, or given to someone else in the fight, it does what the catalogue says (`Pf2e::Consumables`).
     class PF2EncounterUseCmd < PF2UseItemCmd
       include EncounterGear
+      include Pf2e::ActsInEncounter
+
+      def consumable?
+        self.category.to_s.match?('consumable')
+      end
+
+      # Named for where it falls among the checks, which run in the order of their names: after the one
+      # that finds them in the encounter, and before anything is used.
+      def check_what_it_does
+        return nil unless holder && consumable?
+
+        found = Pf2egear::Inventory.item(holder, self.category, self.item_num)
+
+        return nil if found.err? || !found.state
+        return t('pf2e.consumable_throw_it', :item => found.state.name) if Pf2e::Consumables.bomb?(found.state.name)
+
+        encounter = Pf2e::Combatants.encounter_here(enactor)
+        whom = self.use_option ? Pf2e::Combatants.resolve(enactor, self.use_option, encounter)
+                               : Pf2e::Combatants.find(encounter, enactor.name)
+
+        return t(whom.key, **Pf2e::CharState.symbolize(whom.args)) if whom.err?
+
+        @taker = whom.state
+        nil
+      end
+
+      def consumed(item)
+        encounter = Pf2e::Combatants.encounter_here(enactor)
+
+        tell(encounter, Pf2e::Consumables.take(encounter, enactor.name, @taker, item.name))
+      end
     end
 
     # `+e/equip <category>=<number>` - draw a weapon, put on armour, strap on a shield.

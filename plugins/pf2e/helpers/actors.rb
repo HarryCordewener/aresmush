@@ -192,7 +192,11 @@ module AresMUSH
           [ [ name ], Pf2eCombat.unarmed_descriptor(name, info, Pf2eCombat.get_unarmed_prof(@holder, name, info), @holder) ]
         end
 
-        weapons + unarmed + Pf2eCombat.granted_strikes(@holder).map { |one| [ [ one['name'] ], one ] }
+        bombs = Pf2egear::Inventory.held(@holder, 'consumables').select { |item| Consumables.bomb?(item.name) }.map do |item|
+          [ [ item.name ], Pf2eCombat.bomb_descriptor(@holder, item) ]
+        end
+
+        weapons + unarmed + Pf2eCombat.granted_strikes(@holder).map { |one| [ [ one['name'] ], one ] } + bombs
       end
 
       def strike_damage(attack, check, critical)

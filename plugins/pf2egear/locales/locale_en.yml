@@ -27,7 +27,7 @@ en:
     item_rename_ok: "You rename %{name} to %{nickname}."
     item_sold_ok: "You sell %{quantity} of %{item} for %{cost}."
     item_unequip_ok: "You unequip %{name}."
-    item_use_ok: "%{name} uses a %{item}."
+    item_use_ok: "%{name} uses %{item}."
     item_view_title: "Detailed Item View for %{name}"
     items_invested_ok: "Successful. %{count} items successfully invested."
     items_uninvested_ok: "Successful. %{count} items successfully uninvested."
