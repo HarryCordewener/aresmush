@@ -593,6 +593,27 @@ module AresMUSH
           expect(damage_taken).to eq taken
         end
 
+        # Shield Block answers the last attack; one that missed leaves nothing to block.
+        it "should leave nothing to block after a later attack misses" do
+          run(PF2EncounterActCmd, 'e/act raise a shield', @hero)
+          struck
+          @dice = 0.05
+          run(PF2EncounterAsCmd, "e/as #2=strike #{@hero.name}")
+
+          expect(ShieldBlock.offered?(state)).to be_falsey
+          run(PF2EncounterActCmd, 'e/act shield block', @hero)
+          expect(@client.failures.join).to include(t('pf2e.shield_block_no_hit'))
+        end
+
+        # A broken shield gives nothing raised; raising it is refused and says why.
+        it "should refuse to raise a broken shield" do
+          @shield.update(:damage => 10)
+          run(PF2EncounterActCmd, 'e/act raise a shield', @hero)
+
+          expect(@client.failures.join).to include(t('pf2e.raise_shield_broken', :shield => 'Steel Shield'))
+          expect(ActiveEffects.named_on(state, 'Effect: Raise a Shield')).to be_empty
+        end
+
         it "should refuse with nothing to block" do
           run(PF2EncounterActCmd, 'e/act raise a shield', @hero)
           run(PF2EncounterActCmd, 'e/act shield block', @hero)

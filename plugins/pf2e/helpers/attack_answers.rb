@@ -50,7 +50,7 @@ module AresMUSH
       def self.offered(holder)
         hit = TurnState.of(holder)['attacked']
 
-        return [] unless hit && !TurnState.turn(holder)['reaction']
+        return [] unless hit && !TurnState.turn(holder)['reaction'] && hit['after'] == standing(holder)
 
         reactions(holder).select do |name|
           answer = answer(holder, name)

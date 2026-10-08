@@ -12,6 +12,8 @@ module AresMUSH
 
       NAME = 'Shield Block'.freeze
 
+      RAISE = 'Raise a Shield'.freeze
+
       PHYSICAL = %w{bludgeoning piercing slashing}.freeze
 
       # The shield they could block with: equipped, raised, and not broken.
@@ -22,6 +24,19 @@ module AresMUSH
         shield = Pf2egear::Inventory.held(holder, 'shields').find(&:equipped)
 
         shield && !broken?(shield) ? shield : nil
+      end
+
+      # Why a character cannot Raise a Shield - none equipped, or the one they have is broken - or nil.
+      # A creature's shield is its stat block's, and the GM's to judge.
+      def self.cannot_raise(holder)
+        return nil unless Actors.of(holder).carries_items?
+
+        shield = Pf2egear::Inventory.held(holder, 'shields').find(&:equipped)
+
+        return Err.new(:no_shield, 'pf2e.raise_shield_none') unless shield
+        return Err.new(:broken_shield, 'pf2e.raise_shield_broken', 'shield' => shield.nickname || shield.name) if broken?(shield)
+
+        nil
       end
 
       # Broken at half its Hit Points, its Broken Threshold.
@@ -49,7 +64,10 @@ module AresMUSH
 
       # Whether to offer the block: they have it, their reaction is ready, and the hit is on them.
       def self.offered?(holder)
-        Actions.owned?(holder, NAME) && !TurnState.turn(holder)['reaction'] && TurnState.of(holder)['struck']
+        hit = TurnState.of(holder)['struck']
+
+        Actions.owned?(holder, NAME) && !TurnState.turn(holder)['reaction'] && hit &&
+          hit['after'] == AttackAnswers.standing(holder)
       end
 
       def self.block(scene, out)

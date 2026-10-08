@@ -113,6 +113,9 @@ module AresMUSH
         command = COMMANDS[Domains.slug(name)]
         return Err.new(:own_command, 'pf2e.act_own_command', 'action' => name, 'command' => command) if command
 
+        unshielded = name == ShieldBlock::RAISE && ShieldBlock.cannot_raise(scene.actor.holder)
+        return unshielded if unshielded
+
         targets ||= [ scene.target ].compact
         if targets.size > 1 && !CreatureAbilities.damage_save(own_text(scene, name))
           return Err.new(:one_target, 'pf2e.act_one_target', 'action' => name)
@@ -507,6 +510,11 @@ module AresMUSH
 
         rolled = attack_roll(scene, attack, check, said, extra, out)
         out['lines'] << rolled['line']
+
+        # A hit kept to be answered is the last attack's; one that misses leaves nothing to answer.
+        unless rolled['hit'] || scene.target.creature?
+          TurnState.write(scene.target.holder, 'struck' => nil, 'attacked' => nil)
+        end
 
         if rolled['hit']
           hit(scene, attack, check, rolled['result'], out)

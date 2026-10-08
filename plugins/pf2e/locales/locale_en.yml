@@ -509,6 +509,8 @@ en:
     answer_against: "%{actor} uses %{action}: the attack's %{total} is now against AC %{ac} - %{degree}."
     answer_undone: "  %{target} takes none of it."
     answer_too_late: "Too late for %{action}: something has changed your hit points since the hit it would answer."
+    raise_shield_none: "You have no shield equipped to raise: +e/equip shields=<number>."
+    raise_shield_broken: "%{shield} is broken, and a broken shield raised gives no bonus. Repair it, or equip another."
     shield_block_no_shield: "Shield Block needs a shield raised, equipped and not broken."
     shield_block_no_hit: "There is no hit to block: Shield Block answers physical damage you have just taken behind a raised shield."
     shield_blocked: "%{actor} blocks with %{shield}, whose Hardness takes %{blocked} off the hit: %{actor} takes %{taken}, and %{shield} takes %{rest}."
