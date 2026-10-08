@@ -24,16 +24,23 @@ module AresMUSH
       def self.of_instances(instances, critical, attack = {})
         instances = Damage.critical_instances(instances, attack) if critical
 
-        rows = instances.map do |instance|
-          doubling = throw_dice(instance['dice']) + [ instance['modifier'].to_i ]
-          fixed = throw_dice(instance['fixed_dice']) + [ instance['fixed_modifier'].to_i ]
-          extra = critical ? throw_dice(instance['crit_only_dice']) + [ instance['crit_only_modifier'].to_i ] : []
+        rows = instances.filter_map do |instance|
+          doubling = written(instance['dice'], instance['modifier'])
+          fixed = written(instance['fixed_dice'], instance['fixed_modifier'])
+          extra = critical ? written(instance['crit_only_dice'], instance['crit_only_modifier']) : ''
 
-          amount = doubling.sum * (critical ? 2 : 1) + fixed.sum + extra.sum
-          formula = written(instance['dice'], instance['modifier'])
+          # The whole of what this kind of damage rolls, which persistent damage rolls again each turn. An
+          # instance that is a critical hit's alone deals nothing on a hit.
+          formula = [ critical ? doubled(doubling) : doubling, fixed, extra ].reject(&:empty?).join('+')
+
+          next nil if formula.empty?
+
+          amount = (throw_dice(instance['dice']).sum + instance['modifier'].to_i) * (critical ? 2 : 1) +
+                   throw_dice(instance['fixed_dice']).sum + instance['fixed_modifier'].to_i +
+                   (critical ? throw_dice(instance['crit_only_dice']).sum + instance['crit_only_modifier'].to_i : 0)
 
           { 'type' => kind(instance['damage_type']), 'category' => instance['category'],
-            'amount' => [ amount, 0 ].max, 'formula' => critical ? doubled(formula) : formula }
+            'amount' => [ amount, 0 ].max, 'formula' => formula.gsub('+-', '-') }
         end
 
         merged(rows)
@@ -101,6 +108,24 @@ module AresMUSH
         return formula unless die
 
         formula.to_s.sub(/(\d*)d(\d+)/) { "#{$1.empty? ? 1 : $1}d#{die}" }
+      end
+
+      # A formula with its like terms added up: `2d6+1d6+1d6+2+1` is `4d6+3`. One with anything but dice
+      # and numbers added together is left as it is.
+      def self.summed(formula)
+        terms = formula.to_s.delete(' ').split('+')
+
+        return formula.to_s unless terms.all? { |term| term.match?(/\A(\d*d\d+|\d+)\z/) }
+
+        dice = terms.grep(/d/).each_with_object(Hash.new(0)) do |term, counts|
+          count, die = term.split('d')
+          counts["d#{die}"] += count.to_s.empty? ? 1 : count.to_i
+        end
+        flat = terms.grep_v(/d/).sum(&:to_i)
+
+        parts = dice.map { |die, count| "#{count}#{die}" }
+        parts << flat.to_s if flat.positive? || parts.empty?
+        parts.join('+')
       end
 
       # A pile of dice and a flat amount as a formula: `2d6+4`.

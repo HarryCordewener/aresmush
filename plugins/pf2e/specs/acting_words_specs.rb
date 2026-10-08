@@ -82,7 +82,16 @@ module AresMUSH
           mechanics = { 'rank' => 3, 'damage' => [ { 'formula' => '6d6', 'type' => 'fire' } ],
                         'heightening' => { 'interval' => 1, 'damage' => [ '2d6' ] } }
 
-          expect(Acting.spell_damage(mechanics, 5).first.first).to eq '6d6+2d6+2d6'
+          expect(Acting.spell_damage(mechanics, 5).first.first).to eq '10d6'
+        end
+
+        # Gouging Claw's bleed at 10th rank is 2 and one more for each of nine ranks.
+        it "should add up what it adds, dice with dice and numbers with numbers" do
+          mechanics = { 'rank' => 0, 'damage' => [ { 'formula' => '2d6', 'type' => 'slashing' },
+                                                   { 'formula' => '2', 'type' => 'bleed', 'category' => 'persistent' } ],
+                        'heightening' => { 'interval' => 1, 'damage' => [ '1d6', '1' ] } }
+
+          expect(Acting.spell_damage(mechanics, 10).map(&:first)).to eq [ '11d6', '11' ]
         end
 
         it "should replace its damage at a fixed rank" do
@@ -111,6 +120,18 @@ module AresMUSH
 
         it "should keep a spell as it is when no variant is asked for" do
           expect(Acting.variant(heal, Acting.said([], false))['damage'].first['formula']).to eq '1d8'
+        end
+
+        # Gouging Claw slashes or pierces, as the caster chooses; cast without choosing, it would deal
+        # damage of no kind at all, which nothing resists.
+        it "should ask which way when the way decides the kind of damage" do
+          expect(Acting.way_needed('Gouging Claw', []).code).to eq :way_needed
+          expect(Acting.way_needed('Gouging Claw', [ 'slashing' ]).ok?).to be true
+        end
+
+        it "should not ask of a spell whose ways are a choice the caster may leave" do
+          expect(Acting.way_needed('Heal', []).ok?).to be true
+          expect(Acting.way_needed('Fireball', []).ok?).to be true
         end
 
         it "should find a variant by a word of its name" do

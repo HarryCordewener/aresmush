@@ -176,6 +176,9 @@ module AresMUSH
           return
         end
 
+        # Asked before the spell is spent, so a caster who has to choose loses nothing by not having.
+        return if CharState.emit_error!(client, Acting.way_needed(self.spell, self.words))
+
         cast = Actors.of(actor.state.holder).spends_spells? ? spend_the_spell(actor.state.holder) : nil
 
         if cast.is_a?(String)

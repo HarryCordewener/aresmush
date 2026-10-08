@@ -331,6 +331,9 @@ module AresMUSH
           run(PF2EncounterAsCmd, 'e/as #2=strike #3')
 
           expect(PersistentDamage.held(npc(3)).map { |one| one['type'] }).to include('fire')
+          # Told in words, with the rest of the hit.
+          expect(said).to match(/Damage to Goblin Warrior #3: .* \+ \S+ persistent fire/)
+          expect(said).to_not include('"key"')
         end
 
         # Knockdown is its own action after a Strike that lists it: a Trip that neither takes nor adds to

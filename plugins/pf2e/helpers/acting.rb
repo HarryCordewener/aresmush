@@ -336,6 +336,7 @@ module AresMUSH
 
         rolled = attack_roll(scene, attack, check, said, extra, out)
         out['lines'] << rolled['line']
+
         hit(scene, attack, check, rolled['result'], out) if rolled['hit']
 
         TurnState.spend(scene.actor.holder, 'Strike', :cost => 1, :type => 'action', :attack => true)
@@ -486,13 +487,14 @@ module AresMUSH
 
         immediate.each do |row|
           held = Harm.damage(whom.holder, row['amount'], row['type'])
-          resisted = Array(held['applied']).map { |one| "#{one['category']} #{one['adjustment']}" }
+          resisted = Array(held['applied']).map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
           shown << "#{held['amount']} #{row['type']}#{resisted.empty? ? '' : " (#{resisted.join(', ')})"}"
         end
 
+        # Words already, because they join the rest of the hit in one line.
         persistent.each do |row|
           PersistentDamage.add(whom.holder, row['formula'], row['type'])
-          shown << told('pf2e.act_persistent', :formula => row['formula'], :type => row['type'])
+          shown << Telling.value(told('pf2e.act_persistent', :formula => row['formula'], :type => row['type']))
         end
 
         return if shown.empty?
@@ -579,6 +581,24 @@ module AresMUSH
         mechanics.merge(chosen.reject { |field, _| field == 'name' }).merge('name' => chosen['name'])
       end
 
+      # Whether the caster has to say which way they cast a spell before it is spent: where the way decides
+      # the kind of damage it deals, as Gouging Claw's slashing or piercing does, cast without one it
+      # would deal damage of no kind.
+      def self.way_needed(spell, words)
+        name, mechanics = spell_mechanics(spell)
+        ways = Array((mechanics || {})['variants']).select { |one| one['name'] }
+        untyped = Array((mechanics || {})['damage']).any? { |one| one['type'].to_s == 'untyped' }
+
+        return Ok.new(:state => nil) if ways.empty? || !untyped
+
+        chosen = variant(mechanics, said(words, false))
+
+        return Ok.new(:state => chosen['name']) unless chosen.equal?(mechanics)
+
+        Err.new(:way_needed, 'pf2e.cast_way_needed', 'spell' => name,
+                'ways' => ways.map { |one| one['name'][/\(([^)]+)\)/, 1] || one['name'] }.join(', '))
+      end
+
       # How much of a spell's damage an outcome deals. A basic save is the basic scale; any other save
       # says in its own text what each outcome does, and an outcome whose text says nothing is the GM's
       # to apply.
@@ -633,7 +653,7 @@ module AresMUSH
           steps = [ (rank - base) / heightened['interval'].to_i, 0 ].max
           formulas = formulas.each_with_index.map do |(formula, *rest), index|
             added = Array(heightened['damage'])[index]
-            [ ([ formula ] + ([ added ] * (added ? steps : 0))).join('+'), *rest ]
+            [ DamageRoll.summed(([ formula ] + ([ added ] * (added ? steps : 0))).join('+')), *rest ]
           end
         elsif heightened['fixed']
           reached = heightened['fixed'].keys.map(&:to_i).select { |one| one <= rank }.max

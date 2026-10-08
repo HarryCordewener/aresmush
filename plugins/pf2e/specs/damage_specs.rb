@@ -318,6 +318,28 @@ module AresMUSH
           expect(Damage.trait_die({ 'traits' => [ 'Deadly (d10)' ] }, 'deadly')).to eq 10
         end
 
+        # A flaming rune's persistent fire is a critical hit's alone, and is not doubled.
+        describe "damage only a critical hit deals" do
+          def flaming
+            [ { 'damage_type' => 'slashing', 'category' => nil, 'dice' => [ [ 1, 'd8' ] ], 'modifier' => 4,
+                'fixed_dice' => [], 'fixed_modifier' => 0, 'crit_only_dice' => [], 'crit_only_modifier' => 0 },
+              { 'damage_type' => 'fire', 'category' => 'persistent', 'dice' => [], 'modifier' => 0,
+                'fixed_dice' => [], 'fixed_modifier' => 0, 'crit_only_dice' => [ [ 1, 'd10' ] ], 'crit_only_modifier' => 0 } ]
+          end
+
+          it "should deal none of it on a hit" do
+            rows = DamageRoll.of_instances(flaming, false, sword)
+
+            expect(rows.map { |row| row['category'] }).to eq [ nil ]
+          end
+
+          it "should deal it on a critical hit, as the dice to roll each turn" do
+            rows = DamageRoll.of_instances(flaming, true, sword)
+
+            expect(rows.find { |row| row['category'] == 'persistent' }['formula']).to eq '1d10'
+          end
+        end
+
         it "should roll what the sheet shows" do
           allow(Pf2e).to receive(:roll_dice) { |amount = 1, sides = 20| [ sides.to_i ] * amount.to_i }
           attack = sword('traits' => [ 'Deadly (d10)' ])

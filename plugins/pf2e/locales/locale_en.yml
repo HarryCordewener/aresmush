@@ -502,6 +502,7 @@ en:
     act_save_gm: "  %{target} rolls a %{save} save against the caster's DC - the GM sets it."
     act_healed: "  %{target} recovers %{amount} Hit Points."
     act_spell_damage_gm: "  %{target}'s damage for this outcome is the spell's text to settle: %{damage}."
+    cast_way_needed: "%{spell} is cast one of these ways, and the way decides its damage: %{ways}. Name it after a slash: +e/cast %{spell}=<target>/<way>."
     act_spell_gm: "  The engine knows no mechanics for this spell; the GM adjudicates it."
     act_frequency_reached: "  %{action} has been used %{used} times; it is meant for %{max} per %{per}. The GM may allow it."
     act_cover_refused: "Only the GM, or a player they trust, says a target has %{words}: +e/cover and +e/conceal."
