@@ -606,6 +606,14 @@ module AresMUSH
         end
 
         # A broken shield gives nothing raised; raising it is refused and says why.
+        it "should not offer a block once the shield is no longer raised" do
+          run(PF2EncounterActCmd, 'e/act raise a shield', @hero)
+          struck
+          ActiveEffects.named_on(state, 'Effect: Raise a Shield').each(&:delete)
+
+          expect(ShieldBlock.offered?(state)).to be_falsey
+        end
+
         it "should refuse to raise a broken shield" do
           @shield.update(:damage => 10)
           run(PF2EncounterActCmd, 'e/act raise a shield', @hero)

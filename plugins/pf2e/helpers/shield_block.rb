@@ -67,7 +67,7 @@ module AresMUSH
         hit = TurnState.of(holder)['struck']
 
         Actions.owned?(holder, NAME) && !TurnState.turn(holder)['reaction'] && hit &&
-          hit['after'] == AttackAnswers.standing(holder)
+          hit['after'] == AttackAnswers.standing(holder) && raised(holder)
       end
 
       def self.block(scene, out)
