@@ -23,7 +23,8 @@ GM can change it without running this.
 A reaction that is a Strike - Reactive Strike's "Make a melee Strike against the triggering creature" -
 says so under `strike`: `melee` where only a melee Strike will do, `any` otherwise. An action that is
 several Strikes - Flurry of Blows' "Make two unarmed Strikes." - says how many under `strikes`, and
-`attack: unarmed` where they must be. Using either rolls the Strikes.
+`attack` where they must be unarmed, melee or ranged; an action that is a Strike and something more -
+Deadly Aim's "Make a ranged Strike" - is one. Using either rolls the Strikes.
 
 The rules an action carries for as long as a character owns it are counted here and written by
 `import_foundry_rules.py --only actions`, which runs after this.
@@ -61,6 +62,11 @@ COMMON = {'basic', 'skill', 'exploration', 'downtime'}
 STRIKES = re.compile(r'[Mm]ake an? (melee )?Strike against the triggering (?:creature|foe)')
 SEVERAL = re.compile(r'[Mm]ake (two|three) (unarmed )?Strikes\.')
 COUNTS = {'two': 2, 'three': 3}
+
+# An action that is a Strike and something more - Combat Assessment, Deadly Aim, a finisher - is one
+# Strike of the kind it names, made with the action's own rules on.
+ONE = re.compile(r'\b(?:[Mm]ake|can make) an? (melee |ranged )?Strike\b')
+NOT_ONE = re.compile(r'\b(?:two|three) (?:\w+ )?Strikes\b|Strike twice')
 
 
 MACROS = 'src/module/system/action-macros'
@@ -281,6 +287,7 @@ def entry_of(doc, source, effects, counted):
         if effect not in effects:
             counted[f'a self-effect our catalogue lacks: {effect}'] += 1
     text = rules.plain((system.get('description') or {}).get('value'), DESCRIPTION)
+    entry['_text'] = text
     struck = STRIKES.search(text) if kind == 'reaction' else None
     if struck:
         entry['strike'] = 'melee' if struck.group(1) else 'any'
@@ -349,6 +356,14 @@ def main():
     for name, check in declared.items():
         if name.lower() in by_lower:
             entries[by_lower[name.lower()]]['check'] = check
+
+    for entry in entries.values():
+        text = entry.pop('_text', '')
+        if entry['type'] != 'action' or any(entry.get(field) for field in ('check', 'self_effect', 'strike', 'strikes')):
+            continue
+        one = ONE.search(text)
+        if one and not NOT_ONE.search(text):
+            entry['strikes'] = {'count': 1, **({'attack': one.group(1).strip()} if one.group(1) else {})}
 
     if args.write:
         open(os.path.join(CONFIG, OUT), 'w').write(rendered(entries))

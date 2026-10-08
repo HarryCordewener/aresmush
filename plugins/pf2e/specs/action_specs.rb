@@ -96,8 +96,10 @@ module AresMUSH
           expect(Actions.consequences('administer-first-aid', 'stabilize')['success'].first['remove']).to eq [ 'Dying' ]
         end
 
+        # A check's slug, or - for what an action that rolls nothing always does - the action's own.
         it "should key every entry on an action the catalogue holds" do
-          slugs = Actions.catalogue.values.map { |one| (one['check'] || {})['slug'] }.compact
+          slugs = Actions.catalogue.values.map { |one| (one['check'] || {})['slug'] }.compact +
+                  Actions.catalogue.keys.map { |name| Domains.slug(name) }
           strays = (Global.read_config('pf2e_action_consequences') || {}).keys.map { |key| key.split(':').first } - slugs
 
           expect(strays).to eq []

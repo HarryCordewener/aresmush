@@ -66,6 +66,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["fortune"]
     frequency: {"max": 1, "per": "day"}
+    strikes: {"count": 1}
     description: "Frequency once per day%rEffect You make a Strike with a ranged weapon, rolling the attack and damage twice and using the better results for each. The attack ignores circumstance penalties to the attack roll and any flat check required due to the target being Concealed or Hidden."
   "Accompany":
     from: "feat"
@@ -138,6 +139,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1}
   "Aegis of Envy":
     from: "action"
     for: "archetype"
@@ -265,6 +267,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian"]
+    strikes: {"count": 1, "attack": "melee"}
   "Anoint Ally":
     from: "feat"
     type: "action"
@@ -302,6 +305,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["transcendence"]
+    strikes: {"count": 1}
     description: "Requirements Your previous action was to Strike with the Unfailing Bow%rEffect You repeat your motions exactly, your attack landing in the same location as your previous shot. You make a Strike against the same target. The result of your d20 roll is the same as the result of the required shot, though any penalties (such as your multiple attack penalty) apply normally to this shot and you don't automatically adjust the degree of success if the initial roll was a natural 1 or 20."
   "Assisting Shot":
     from: "feat"
@@ -309,6 +313,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1}
   "Assume a Role":
     from: "action"
     for: "archetype"
@@ -336,6 +341,7 @@ pf2e_actions:
     category: "ancestry"
     traits: ["elf", "fortune"]
     frequency: {"max": 1, "per": "PT10M"}
+    strikes: {"count": 1}
   "Avert Gaze":
     from: "action"
     for: "everyone"
@@ -409,6 +415,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["finisher"]
+    strikes: {"count": 1}
     description: "You make a graceful, deadly attack. Make a Strike; if you hit and your weapon qualifies for Precise Strike, you deal the full 1d6 damage from precise strike."
     rules:
       - key: "RollOption"
@@ -555,6 +562,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["transcendence"]
+    strikes: {"count": 1}
     description: "You aim your weapon in a superficial cut above your opponent's eye. Make a Strike with the imbued ikon. If that Strike is successful, the target must succeed at a Fortitude save against your class DC or become Blinded for 1 round or until it uses an Interact action to clear the blood from its vision."
   "Blizzard Evasion":
     from: "action"
@@ -676,6 +684,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["transcendence"]
+    strikes: {"count": 1, "attack": "melee"}
     description: "You can attempt to Escape with a +2 status bonus on your check, then Stride up to twice your Speed in a straight line, and finally make a melee Strike. If you don't need to Escape or you can't move or choose not to, you still take the other actions listed."
     rules:
       - key: "RollOption"
@@ -695,6 +704,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["gunslinger"]
+    strikes: {"count": 1, "attack": "melee"}
     description: "Your foes are but dross from which you carve and shoot your legend. Make a melee Strike and then a ranged Strike with a combination weapon, both against the same enemy; you don't need to change modes to do so. If the melee Strike hits, you gain a +1 circumstance bonus to the attack roll with the ranged Strike. Each attack counts toward your multiple attack penalty, but your multiple attack penalty doesn't increase until you've made both attacks. If both Strikes hit, you deal an additional 2d6 bleed damage to the enemy, and they're Dazzled until this persistent bleed damage ends."
   "Break the Sun's Legs":
     from: "action"
@@ -717,12 +727,14 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1}
   "Brutish Shove":
     from: "feat"
     type: "action"
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1}
   "Buckle-Cut Blitz":
     from: "action"
     for: "class"
@@ -925,6 +937,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1, "attack": "melee"}
   "Change Shape":
     from: "action"
     for: "ancestry"
@@ -978,6 +991,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["cleric", "divine"]
+    strikes: {"count": 1, "attack": "melee"}
   "Chaotic Destiny":
     from: "action"
     for: "background"
@@ -1102,6 +1116,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: []
+    strikes: {"count": 1, "attack": "ranged"}
     description: "Make a ranged Strike with your ikon. If the Strike hits, the target must succeed at a Reflex save against your class DC or the arrow transforms into a multitude of ethereal snakes that coil around the target, Immobilizing it until it succeeds at an Escape attempt against your class DC."
   "Collect Spirit Remnant":
     from: "action"
@@ -1117,12 +1132,14 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["commander", "fighter"]
+    strikes: {"count": 1, "attack": "melee"}
   "Combat Grab":
     from: "feat"
     type: "action"
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1, "attack": "melee"}
   "Combat Reading":
     from: "feat"
     type: "action"
@@ -1203,6 +1220,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["finisher"]
+    strikes: {"count": 1}
     description: "You make an incredibly graceful attack, piercing your foe's defenses. Make a Strike with the following failure effect.%rFailure You deal half your Precise Strike damage to the target. This damage type is that of the weapon or unarmed attack you used for the Strike."
     rules:
       - key: "RollOption"
@@ -1299,12 +1317,14 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["auditory", "bard", "concentrate", "spellshape"]
+    strikes: {"count": 1, "attack": "melee"}
   "Courageous Onslaught":
     from: "feat"
     type: "action"
     cost: 1
     category: "class"
     traits: ["auditory", "bard", "concentrate", "spellshape"]
+    strikes: {"count": 1, "attack": "melee"}
   "Coven Spell":
     from: "feat"
     type: "reaction"
@@ -1484,6 +1504,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1, "attack": "melee"}
   "Dastardly Dash":
     from: "feat"
     type: "action"
@@ -1505,6 +1526,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1, "attack": "melee"}
   "Dazzle Seeker":
     from: "action"
     for: "ancestry"
@@ -1518,6 +1540,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["flourish", "ranger"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Death Drone":
     from: "action"
     for: "archetype"
@@ -1596,6 +1619,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["champion", "flourish", "guardian"]
+    strikes: {"count": 1, "attack": "melee"}
   "Defensive Coordination":
     from: "feat"
     type: "action"
@@ -1774,6 +1798,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["barbarian", "flourish", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "Disarming Interception":
     from: "action"
     for: "archetype"
@@ -1803,6 +1828,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1, "attack": "melee"}
   "Discover":
     from: "action"
     for: "subsystems"
@@ -1840,6 +1866,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["rogue"]
+    strikes: {"count": 1}
   "Disrupt Prey":
     from: "feat"
     type: "reaction"
@@ -2183,6 +2210,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "flourish"]
+    strikes: {"count": 1}
   "Dueling Counter":
     from: "action"
     for: "subsystems"
@@ -2271,6 +2299,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: []
+    strikes: {"count": 1}
     description: "Requirements You are wielding a bow or a loaded crossbow%rEffect You Cast a Spell that takes 1 or 2 actions to cast and requires a spell attack roll. The effects of the spell do not occur immediately but are imbued into the bow you're wielding. Make a Strike with that bow. Your spell flies with the ammunition, using your attack roll result to determine the effects of both the Strike and the spell. This counts as two attacks for your multiple attack penalty, but you don't apply the penalty until after you've completed the Eldritch Shot. Combine the Strike and spell's damage for the purpose of resistances and weaknesses."
   "Elemental Blast":
     from: "action"
@@ -2555,6 +2584,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1}
   "Executioner's Volley":
     from: "action"
     for: "class"
@@ -2646,6 +2676,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["rogue"]
+    strikes: {"count": 1, "attack": "melee"}
   "Fated Not to Die":
     from: "action"
     for: "background"
@@ -2677,12 +2708,14 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["rogue"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Felling Strike":
     from: "feat"
     type: "action"
     cost: 2
     category: "class"
     traits: ["fighter"]
+    strikes: {"count": 1}
   "Feral Swing":
     from: "action"
     for: "class"
@@ -2753,6 +2786,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["gunslinger"]
+    strikes: {"count": 1}
     description: "Requirements On your last action, you failed (but didn't critically fail) a Strike with a firearm or crossbow you're holding in one hand, and your other hand is either wielding a melee weapon or empty.%rYour last attack failed, but it set you up for another. Make a Strike with your other hand, using a one-handed melee weapon or unarmed attack. This Strike uses the same multiple attack penalty as the Strike that failed on the last action. Afterward, increase your multiple attack penalty normally."
   "Fire in the Hole":
     from: "action"
@@ -2830,6 +2864,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["fighter", "flourish"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Floral Restoration":
     from: "feat"
     type: "action"
@@ -2896,6 +2931,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: []
+    strikes: {"count": 1}
     description: "Effect You Fly and can make a Strike at any point along the way."
   "Flying Kick":
     from: "feat"
@@ -2922,6 +2958,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["barbarian", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "For My House!":
     from: "action"
     for: "archetype"
@@ -3030,6 +3067,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["spirit", "transcendence"]
+    strikes: {"count": 1, "attack": "melee"}
     description: "Your spirit is so dense it takes on tangible force. Make a melee Strike with the Titan's Breaker. This counts as two attacks when calculating your multiple attack penalty. If this Strike hits, your additional spirit damage from the ikon's immanence increases to 4 plus an extra die of weapon damage.%rIf you're at least 10th level, it's increased to 6 spirit damage and two extra dice, and if you're at least 18th level, it's increased to 8 spirit damage and three extra dice."
     rules:
       - key: "RollOption"
@@ -3056,6 +3094,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "manipulate", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "Fuel Impossible Spell":
     from: "action"
     for: "impossible-spells"
@@ -3311,6 +3350,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1}
   "Harbinger's Caw":
     from: "feat"
     type: "reaction"
@@ -3588,6 +3628,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "Impersonate":
     from: "action"
     for: "everyone"
@@ -3821,6 +3862,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "emotion", "fear", "fighter", "mental"]
+    strikes: {"count": 1, "attack": "melee"}
   "Into the Fray":
     from: "action"
     for: "class"
@@ -3954,6 +3996,7 @@ pf2e_actions:
     cost: 1
     category: "ancestry"
     traits: ["goblin"]
+    strikes: {"count": 1, "attack": "melee"}
   "Knockback":
     from: "feat"
     type: "action"
@@ -4039,6 +4082,7 @@ pf2e_actions:
     cost: 2
     category: "ancestry"
     traits: ["hobgoblin"]
+    strikes: {"count": 1, "attack": "melee"}
   "Legendary Negotiation":
     from: "feat"
     type: "action"
@@ -4051,6 +4095,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["death", "finisher", "swashbuckler"]
+    strikes: {"count": 1}
   "Ley Line Conduit":
     from: "feat"
     type: "action"
@@ -4179,6 +4224,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter"]
+    strikes: {"count": 1}
   "Lunging Stance":
     from: "feat"
     type: "action"
@@ -4192,6 +4238,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "Magpie Snatch":
     from: "feat"
     type: "action"
@@ -4477,6 +4524,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["rogue"]
+    strikes: {"count": 1, "attack": "melee"}
   "Multishot Stance":
     from: "feat"
     type: "action"
@@ -4763,6 +4811,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["concentrate", "force", "magical"]
+    strikes: {"count": 1, "attack": "melee"}
     description: "Requirements You are overflowing%rEffect You conduct the magic in your internal nexus to coat your weapon or unarmed strike, empowering it with magical energy for a devastating attack. Make a melee Strike. If the Strike hits, you deal an additional 1d4 force damage. At 10th level, the additional damage increases to 2d4 force damage. At 18th level, the additional damage increases to 3d4 force damage. You are no longer overflowing."
     rules:
       - key: "RollOption"
@@ -4796,6 +4845,7 @@ pf2e_actions:
     cost: 3
     category: "class"
     traits: ["fighter"]
+    strikes: {"count": 1, "attack": "melee"}
   "Overwhelming Breath":
     from: "feat"
     type: "action"
@@ -4852,6 +4902,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["fighter"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Passage of Lines":
     from: "action"
     for: "class"
@@ -4884,6 +4935,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "flourish", "rage"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Penetrating Shot":
     from: "feat"
     type: "action"
@@ -4907,12 +4959,14 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["finisher", "fortune", "swashbuckler"]
+    strikes: {"count": 1}
   "Perfect Shot":
     from: "feat"
     type: "action"
     cost: 3
     category: "class"
     traits: ["flourish", "ranger"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Perform":
     from: "action"
     for: "everyone"
@@ -5004,6 +5058,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["death", "transcendence"]
+    strikes: {"count": 1}
     description: "You snap off a fragment of your ikon within your opponent's body, which threatens to burst into numerous barbs. Make a Strike with your ikon. If successful, barbs fill the target, dealing two die of weapon damage the first time the creature uses a move action on each of its turns; the barbs are made out of the same material as your weapon ikon and bypass resistances and such accordingly (for instance, a cold iron spear would create cold iron barbs). The barbs last for 1d4 rounds. If the target dies while the barbs are still in their body, the barbs burst forth in a forest of thorns covering the creature's space, which are greater difficult terrain and deal piercing damage equal to half your level for each square that is moved into."
   "Plummeting Roll":
     from: "action"
@@ -5064,12 +5119,14 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["fighter", "flourish"]
+    strikes: {"count": 1}
   "Predator's Pounce":
     from: "feat"
     type: "action"
     cost: 1
     category: "class"
     traits: ["barbarian", "flourish", "rage"]
+    strikes: {"count": 1}
   "Predictable!":
     from: "feat"
     type: "action"
@@ -5223,6 +5280,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "flourish", "press"]
+    strikes: {"count": 1, "attack": "melee"}
   "Quick Tincture":
     from: "action"
     for: "class"
@@ -5498,6 +5556,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["fighter", "flourish"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Recall Ammunition":
     from: "action"
     for: "archetype"
@@ -5768,6 +5827,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "Resounding Finale":
     from: "feat"
     type: "reaction"
@@ -5815,6 +5875,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["finisher", "swashbuckler"]
+    strikes: {"count": 1, "attack": "melee"}
   "Retributive Strike":
     from: "action"
     for: "class"
@@ -5833,6 +5894,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["fighter"]
+    strikes: {"count": 1}
   "Reverberate":
     from: "feat"
     type: "reaction"
@@ -5844,6 +5906,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["finisher", "swashbuckler"]
+    strikes: {"count": 1}
   "Revivifying Mutagen":
     from: "feat"
     type: "action"
@@ -6054,6 +6117,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["press", "ranger"]
+    strikes: {"count": 1, "attack": "melee"}
   "Second Thoughts":
     from: "feat"
     type: "reaction"
@@ -6171,6 +6235,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: ["transcendence"]
+    strikes: {"count": 1}
     description: "Make a Strike that deals slashing damage with your weapon ikon. If that Strike is successful, you can immediately make an additional Strike against a different target within your reach. You can continue making Strikes in this manner, each against a different target, until you have made a total of four Strikes or you miss with a Strike, whichever comes first. Each attack counts toward your multiple attack penalty, but you do not increase your penalty until you have made all your attacks."
   "Shadow Step":
     from: "action"
@@ -6248,6 +6313,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1, "attack": "melee"}
   "Shatter Glass":
     from: "action"
     for: "equipment"
@@ -6392,6 +6458,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["gunslinger"]
+    strikes: {"count": 1}
     description: "Requirements You're wielding a firearm that has the kickback or scatter trait, or a two-handed crossbow.%rWith unbelievable force, you charge and smash your weapon into a target before digging in your heels and pulling the trigger. Leap or Stride, then make a Strike with the required firearm or crossbow against an adjacent target. This Strike deals an additional 3d8 bludgeoning damage and ignores 10 points of the target's Hardness (if any), or of their shield's Hardness if the target uses Shield Block.%rAfter the Strike, you become Immobilized and position the required weapon defensively, as the parry trait, gaining a +1 circumstance bonus to AC, or a +2 circumstance bonus if the chosen weapon has the parry trait. Both effects last until the start of your next turn. If a force would move you while you're immobilized in this way, it must succeed at an appropriate check against your class DC."
     rules:
       - key: "RollOption"
@@ -6408,6 +6475,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["barbarian", "incapacitation", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "Siphon Power":
     from: "feat"
     type: "free"
@@ -6443,6 +6511,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["fighter", "flourish"]
+    strikes: {"count": 1, "attack": "melee"}
   "Slayer's Identification":
     from: "action"
     for: "archetype"
@@ -6456,6 +6525,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter", "press"]
+    strikes: {"count": 1, "attack": "melee"}
   "Sleeper Hold":
     from: "feat"
     type: "action"
@@ -6489,6 +6559,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["fighter"]
+    strikes: {"count": 1}
   "Sneak":
     from: "action"
     for: "everyone"
@@ -6580,6 +6651,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: []
+    strikes: {"count": 1}
     description: "Requirements You are wielding a loaded magic firearm or magic crossbow%rEffect You Cast a Spell that takes 1 or 2 actions to cast and requires a spell attack roll. The effects of the spell do not occur immediately but are imbued into the required weapon. Make a Strike with that weapon. Your spell flies with the ammunition, using your attack roll result to determine the effects of both the Strike and the spell. This counts as two attacks for your multiple attack penalty, but you don't apply the penalty until after you've completed the Spell-Woven Shot."
   "Spellshape Channel":
     from: "feat"
@@ -6593,6 +6665,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: []
+    strikes: {"count": 1}
     description: "Requirements You're wielding your bonded beast gun or another magic firearm%rEffect You Cast a Spell that takes 1 or 2 actions to cast and requires a spell attack roll. The effects of the spell do not occur immediately but are imbued into the beast gun you're wielding. Make a Strike with that beast gun. Your spell flies with the ammunition, using your attack roll result to determine the effects of both the Strike and the spell. Combine the Strike and spell's damage for the purpose of resistances and weaknesses. This counts as two attacks for the purposes of determining your multiple attack penalty, but you don't apply the penalty until after you've completed resolving the attack and spell.%rSpecial If you also have the Spell-Woven Shot action you can load and activate a piece of magical ammunition as a free action before making a Spellsling attack once per 10 minutes."
   "Spellstrike":
     from: "action"
@@ -6601,6 +6674,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["magus"]
+    strikes: {"count": 1, "attack": "melee"}
     description: "Frequency until recharged (see below)%rYou channel a spell into a punch or sword thrust to deliver a combined attack. You cast a spell that takes 1 or 2 actions to cast and requires either a spell attack roll or a saving throw. You imbue its effects into an attack instead of executing the spell normally. Make a melee Strike with a weapon or unarmed attack. This counts as two attacks for your multiple attack penalty, but you don't apply the penalty until after you've completed the Spellstrike. The infusion of spell energy grants your Strike the arcane trait, making it magical. If the spell required a spell attack roll, use your Strike's results to determine the effects of both the Strike and the spell. If the spell required a save, the target of the Strike rolls its saving throw normally regardless of your attack roll's result unless your Strike was a critical failure, in which case your spell is disrupted.%rAfter you use Spellstrike, you can't do so again until you recharge your Spellstrike as a single action, which has the concentrate trait. You also recharge your Spellstrike when you cast a conflux spell that takes at least 1 action to cast; casting a focus spell of another type…"
   "Spin Tale":
     from: "action"
@@ -6911,6 +6985,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["finisher", "swashbuckler"]
+    strikes: {"count": 1}
   "Stumbling Stance":
     from: "feat"
     type: "action"
@@ -6924,6 +6999,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["finisher", "swashbuckler"]
+    strikes: {"count": 1, "attack": "melee"}
   "Stupefying Raid":
     from: "action"
     for: "class"
@@ -6946,6 +7022,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "fighter", "flourish"]
+    strikes: {"count": 1, "attack": "melee"}
   "Sudden Leap":
     from: "feat"
     type: "action"
@@ -6967,6 +7044,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["attack", "barbarian", "concentrate", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "Surgical Shock":
     from: "feat"
     type: "action"
@@ -7672,6 +7750,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["finisher", "swashbuckler"]
+    strikes: {"count": 1, "attack": "melee"}
   "Unbalancing Sweep":
     from: "feat"
     type: "action"
@@ -7684,6 +7763,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["rogue"]
+    strikes: {"count": 1, "attack": "melee"}
   "Unleash Psyche":
     from: "action"
     for: "class"
@@ -7780,12 +7860,14 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "rage"]
+    strikes: {"count": 1, "attack": "melee"}
   "Vicious Swing":
     from: "feat"
     type: "action"
     cost: 2
     category: "class"
     traits: ["fighter", "flourish"]
+    strikes: {"count": 1, "attack": "melee"}
   "Vigorous Anthem":
     from: "feat"
     type: "action"
@@ -7808,6 +7890,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["gunslinger"]
+    strikes: {"count": 1, "attack": "ranged"}
     description: "Your careful shot against an unsuspecting opponent pierces a vital artery or organ. Make a ranged Strike. If the target is Off-Guard, the Strike deals an extra die of weapon damage, and the foe takes persistent bleed damage equal to the amount of precision damage from your One Shot, One Kill."
     rules:
       - key: "RollOption"
@@ -7930,6 +8013,7 @@ pf2e_actions:
     cost: 3
     category: "class"
     traits: ["barbarian", "fighter", "flourish"]
+    strikes: {"count": 1, "attack": "melee"}
   "Whirlwind Toss":
     from: "feat"
     type: "action"
@@ -7970,6 +8054,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["gunslinger"]
+    strikes: {"count": 1, "attack": "melee"}
     description: "Should foes parry your blade or dodge your bullets? Neither—they should be watching their purse. Make a melee Strike with your combination weapon, and then attempt a Thievery check with a –5 penalty to Steal from your target; you can't Steal closely guarded objects or objects that would take a long time to pilfer. You don't need a free hand to attempt to Steal something in this manner. If your Thievery check succeeds, the target is Off-Guard against your ranged attacks until the start of your next turn, and you don't trigger reactions that are normally triggered by movement or a ranged attack. These effects occur even if your target has no objects to Steal."
   "Winding Flow":
     from: "feat"

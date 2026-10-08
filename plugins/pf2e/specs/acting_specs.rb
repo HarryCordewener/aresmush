@@ -332,6 +332,23 @@ module AresMUSH
           expect(@client.failures.join).to include(t('pf2e.act_cannot_act', :actor => @hero.name))
         end
 
+        # An action that is a Strike and more makes the Strike, of the kind it names, with the action's own
+        # rules switched on for it: Deadly Aim's -2 to hit, for its extra damage.
+        it "should make an action's ranged Strike with the action's own rules on" do
+          @hero.update(:pf2_feats => { 'charclass' => [ 'Deadly Aim' ] })
+          state = CombatantStates.of(@encounter, Character[@hero.id])
+          bow = Pf2egear.create_item(state, 'weapons', 'Shortbow', 1, Global.read_config('pf2e_weapons', 'Shortbow'))
+          bow.update(:equipped => true)
+          run(PF2EncounterActCmd, 'e/act deadly aim=#3', @hero)
+          turn = TurnState.turn(CombatantStates.of(@encounter, Character[@hero.id]))
+          run(PF2EncounterWhyCmd, 'e/why', @hero)
+
+          expect(@client.failures).to eq []
+          expect(said).to include('with Shortbow')
+          expect(said).to include('-2 circumstance (Deadly Aim)')
+          expect(turn).to include('actions' => 1, 'attacks' => 1)
+        end
+
         it "should let a character strike a creature with their fist" do
           @dice = 0.75
           run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)

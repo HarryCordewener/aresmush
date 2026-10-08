@@ -410,18 +410,28 @@ module AresMUSH
         strike(scene, term, words, :reaction => name, :melee => melee)
       end
 
-      # An action that is several Strikes - Flurry of Blows' two unarmed ones - at the one target, each
-      # counting toward the multiple attack penalty, for what the action costs. What they hit with is
-      # dealt together, so a resistance or weakness applies once to the whole.
+      # Which attacks an action's Strikes may be made with: `unarmed`, `melee` or `ranged`, or any.
+      STRIKE_KINDS = {
+        'unarmed' => ->(attack) { Pf2e.has_trait?(attack['traits'], 'unarmed') },
+        'melee' => ->(attack) { !attack['ranged'] },
+        'ranged' => ->(attack) { attack['ranged'] || Array(attack['traits']).any? { |one| one.to_s.start_with?('thrown') } }
+      }.freeze
+
+      # An action that is several Strikes - Flurry of Blows' two unarmed ones - or a Strike and something
+      # more - Deadly Aim's ranged one - at the one target, each counting toward the multiple attack
+      # penalty, for what the action costs, and with the action's own rules switched on. What they hit
+      # with is dealt together, so a resistance or weakness applies once to the whole.
       def self.several_strikes(scene, name, entry, words)
         holder = scene.actor.holder
-        unarmed = entry['strikes']['attack'] == 'unarmed'
-        usable = attacks_of(holder).select { |_, attack| !unarmed || Pf2e.has_trait?(attack['traits'], 'unarmed') }
+        kind = entry['strikes']['attack']
+        usable = attacks_of(holder).select { |_, attack| !STRIKE_KINDS[kind] || STRIKE_KINDS[kind].call(attack) }
         named = said(words, scene.permitted)['words']
         attack = named.map { |word| usable.find { |names, _| names.any? { |one| Domains.slug(one) == Domains.slug(word) } } }.compact.first ||
                  usable.first
 
-        return Err.new(:no_attack, 'pf2e.act_no_attack', 'attack' => unarmed ? 'unarmed' : '') unless attack
+        return Err.new(:no_attack, 'pf2e.act_no_attack', 'attack' => kind.to_s) unless attack
+
+        words = Array(words) + own_toggles(holder, name)
 
         out = report
         out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => name,
@@ -441,6 +451,13 @@ module AresMUSH
         deal(scene, scene.target, combined(hits), out, :critical => hits.any? { |one| one['critical'] }) if hits.any?
         spend(scene, name, entry, out)
         Ok.new(:state => out)
+      end
+
+      # The circumstances an action's own rules declare to switch themselves on, which using it does.
+      def self.own_toggles(holder, name)
+        source = Effects.sources(holder).find { |one| Domains.slug(one['name']) == Domains.slug(name) }
+
+        source ? Rules.of_kind(source, 'RollOption').select { |row| row['toggleable'] }.map { |row| row['option'].to_s } : []
       end
 
       # Hits' damage as one: each kind added up, and each persistent damage as it is.
