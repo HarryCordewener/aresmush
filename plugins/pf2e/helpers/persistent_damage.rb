@@ -66,6 +66,9 @@ module AresMUSH
             remove(char, one['type'])
             events << Turns.event('pf2e.persistent_ended', 'name' => char.name, 'type' => one['type'],
                                   'die' => check['die'], 'dc' => check['dc'])
+          else
+            events << Turns.event('pf2e.persistent_continues', 'name' => char.name, 'type' => one['type'],
+                                  'die' => check['die'], 'dc' => check['dc'])
           end
 
           events

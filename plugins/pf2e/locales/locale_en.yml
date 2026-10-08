@@ -281,6 +281,7 @@ en:
     aura_not_found: "%{name} projects no aura called %{aura}."
     persistent_dealt: "%{name} takes %{amount} persistent %{type} damage."
     persistent_ended: "%{name}'s persistent %{type} damage ends (%{die} against DC %{dc})."
+    persistent_continues: "%{name}'s persistent %{type} damage goes on (%{die} against DC %{dc})."
     effect_search_found: "Effects: %{list}"
     effect_search_more: " ...and %{count} more; add a word to narrow it."
     charclass_not_set: "You cannot set a specialty until you set your class."

@@ -127,12 +127,13 @@ module AresMUSH
         expect(Pf2e.held_conditions(reread).keys).to_not include 'Persistent'
       end
 
-      it "should go on when the flat check fails" do
+      it "should go on when the flat check fails, and say so" do
         Pf2e::PersistentDamage.add(reread, '1', 'fire', 21)
 
-        ends
+        events = ends
 
         expect(Pf2e::PersistentDamage.held(reread).size).to eq 1
+        expect(events.map { |one| one['key'] }).to include 'pf2e.persistent_continues'
       end
 
       # Resistance to the kind reduces it, like any damage of that kind. Forgefather's Seal resists fire.
