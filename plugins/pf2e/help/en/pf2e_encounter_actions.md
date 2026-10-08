@@ -149,6 +149,9 @@ encounter, with the same commands:
 A creature's own abilities are used by name: `+e/as #3=act goblin scuttle`. Its abilities' rules
 apply by themselves - a bonus to its saves, extra damage on a Strike, fast healing, an aura to place
 with `+e/as #3=enter <aura>=<ids>`.
+An ability whose words say what it deals and the save against it - a Constrict, a breath weapon - rolls
+each target's save and deals the damage, basic: `+e/as #6=act magma breath=#1,#2,aria`. What else its
+words say is yours to apply.
 
 Where a creature's Strike lists Grab, Knockdown or Push, a hit says so and names the command:
 `+e/as #3=act knockdown=#1`. Each is a Grapple, Trip or Shove of its own that neither takes nor adds

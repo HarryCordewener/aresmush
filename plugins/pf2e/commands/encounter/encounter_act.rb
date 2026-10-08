@@ -70,7 +70,7 @@ module AresMUSH
       end
     end
 
-    # `+e/act <action>[=<target>][/<circumstance>...]`
+    # `+e/act <action>[=<target>,<target>...][/<circumstance>...]`
     class PF2EncounterActCmd
       include CommandHandler
       include ActsInEncounter
@@ -91,15 +91,16 @@ module AresMUSH
 
         return if CharState.emit_error!(client, actor)
 
-        target = nil
-        unless self.target.to_s.empty?
-          found = Combatants.resolve(enactor, self.target, encounter)
-          return if CharState.emit_error!(client, found)
+        named = self.target.to_s.split(',').map(&:strip).reject(&:empty?)
+        targets, missing = Combatants.resolve_all(enactor, named, encounter)
 
-          target = found.state
+        unless missing.empty?
+          found = Combatants.resolve(enactor, missing.first, encounter)
+          return if CharState.emit_error!(client, found)
         end
 
-        done = Acting.act(scene_for(encounter, actor.state, target), self.action, self.words)
+        done = Acting.act(scene_for(encounter, actor.state, targets.first), self.action, self.words,
+                          :targets => targets)
 
         return if CharState.emit_error!(client, done)
 

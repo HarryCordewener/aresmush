@@ -399,6 +399,36 @@ module AresMUSH
           expect(npc(2).max_hp).to eq full - [ npc(2).pf2_level, 1 ].max
         end
 
+        # An ability that says what it deals and the save against it rolls each target's save and deals
+        # the damage by the save, basic as an area's or a Constrict's is.
+        it "should roll the save against an ability's damage and deal it" do
+          add('python')
+          @dice = 0.05
+          run(PF2EncounterAsCmd, "e/as #2=act constrict=#{@hero.name}")
+
+          state = CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id])
+          expect(@client.failures).to eq []
+          expect(said).to include("#{@hero.name} rolls Fortitude", 'vs DC 17')
+          expect(Pf2eHP.get_hp_obj(state).damage).to be > 0
+        end
+
+        it "should roll it for each target a breath is aimed at" do
+          add('fire scamp')
+          add('goblin warrior')
+          run(PF2EncounterAsCmd, "e/as #2=act flame breath=#3,#{@hero.name}")
+
+          expect(@client.failures).to eq []
+          expect(said.scan(/rolls Reflex/).size).to eq 2
+        end
+
+        it "should refuse several targets for an action that takes one" do
+          add('goblin warrior')
+          add('goblin warrior')
+          run(PF2EncounterActCmd, "e/act demoralize=#2,#3", @hero)
+
+          expect(@client.failures.join).to include(t('pf2e.act_one_target', :action => 'Demoralize'))
+        end
+
         it "should add an ability's bonus to its saves" do
           add('shade (dreamlands)')
 

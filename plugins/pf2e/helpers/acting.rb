@@ -98,11 +98,18 @@ module AresMUSH
       # ------------------------------------------------------------------------------
       # Actions
 
-      def self.act(scene, term, words)
+      # `targets` is every combatant it is aimed at, where more than one was named; only a creature's
+      # ability that deals damage against a save takes more than one.
+      def self.act(scene, term, words, targets: nil)
         follow = Actors.of(scene.actor.holder).follow_up(term)
         name = follow ? follow['action'] : action_named(scene, term)
 
         return name if name.is_a?(Err)
+
+        targets ||= [ scene.target ].compact
+        if targets.size > 1 && !CreatureAbilities.damage_save(own_text(scene, name))
+          return Err.new(:one_target, 'pf2e.act_one_target', 'action' => name)
+        end
 
         return strike(scene, nil, words) if name == 'Strike'
 
@@ -118,7 +125,7 @@ module AresMUSH
         refused(out, said)
 
         # A creature's own ability, which no catalogue holds.
-        return announce_ability(scene, name, out) if entry.empty?
+        return announce_ability(scene, name, out, targets) if entry.empty?
 
         if entry['check']
           check_action(scene, name, entry, said, out)
@@ -160,14 +167,31 @@ module AresMUSH
         allowed.err? ? allowed : found.state
       end
 
-      # A creature's ability that no catalogue holds: its stat block's words, for the GM to run.
-      def self.announce_ability(scene, name, out)
+      def self.own_text(scene, name)
+        (Actors.of(scene.actor.holder).own_ability(name) || {})['text']
+      end
+
+      # A creature's ability that no catalogue holds: its stat block's words, for the GM to run - and where
+      # they say what it deals and the save against it, each target's save rolled and the damage dealt.
+      def self.announce_ability(scene, name, out, targets = [ scene.target ].compact)
         own = Actors.of(scene.actor.holder).own_ability(name) || {}
         cost = own['type'] == 'action' ? Actions::COSTS[own['cost'].to_i] || 'one action' : Actions::TYPES[own['type']]
+        aimed = targets.map(&:label).join(', ')
 
         out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => name, :cost => cost,
-                                                :target => target_phrase(scene))
+                                                :target => aimed.empty? ? '' : told('pf2e.act_at', :target => aimed))
         out['lines'] << told('pf2e.act_note', :text => own['text']) if own['text']
+
+        dealt = CreatureAbilities.damage_save(own['text'])
+        if dealt
+          mechanics = { 'save' => dealt['save'], 'basic' => true, 'traits' => Array(own['traits']) }
+          formulas = [ [ dealt['formula'], dealt['type'], nil, [ 'damage' ] ] ]
+
+          targets.each do |target|
+            spell_save(Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted), name, mechanics,
+                       dealt['dc'], formulas, out)
+          end
+        end
 
         TurnState.spend(scene.actor.holder, name, :cost => own['cost'] || 1, :type => own['type'] || 'action',
                                                   :attack => Array(own['traits']).include?('attack'))
