@@ -168,6 +168,9 @@ module AresMUSH
         advance
         expect(current).to eq @hero.name
         expect(TurnState.turn(hero)['attacks']).to eq 0
+        # Their reminder is of the turn starting, not the one before.
+        expect(@reminded.select { |name, _message| name == @hero.name }.last.last).to include(TurnState.summary(hero))
+        expect(TurnState.summary(hero)).to include('0 of 3')
         expect(npc(3).pf2_conditions).to_not have_key('Frightened')
 
         # A potion drunk mid-fight is gone from what they carry there, and the GM can give it back. Their own

@@ -67,7 +67,8 @@ module AresMUSH
       # Whether the character can use an action. The basic, skill, exploration and downtime actions are
       # everyone's. Anything else - a class's, an archetype's, a heritage's - and any feat that is an
       # action, is theirs if a feat or feature of theirs has its name: the Rage class feature is what gives
-      # a barbarian Rage, at the level the class grants it and not before.
+      # a barbarian Rage, at the level the class grants it and not before. A class, heritage or background
+      # can also name an action outright, as an investigator's names Devise a Stratagem.
       def self.usable(char, name)
         entry = info(name)
 
@@ -78,7 +79,8 @@ module AresMUSH
 
       def self.owned?(char, name)
         wanted = Domains.slug(name)
-        held = (char.pf2_feats || {}).values.flatten + (char.pf2_features || {}).values.flatten
+        given = char.respond_to?(:pf2_actions) ? (char.pf2_actions || {}).values_at('actions', 'reactions') : []
+        held = (char.pf2_feats || {}).values.flatten + (char.pf2_features || {}).values.flatten + given.flatten.compact
 
         held.any? { |one| Domains.slug(one) == wanted }
       end

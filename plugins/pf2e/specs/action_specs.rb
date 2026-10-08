@@ -133,6 +133,17 @@ module AresMUSH
 
           expect(Actions.usable(reread, 'Mountain Stance').ok?).to be true
         end
+
+        # A class, heritage or background can hand over an action by name: an investigator's Devise a
+        # Stratagem, written however the class data capitalises it.
+        it "should be the character's when their class gives it them by name" do
+          expect(Actions.usable(reread, 'Devise a Stratagem').ok?).to be false
+
+          @char.update(:pf2_actions => { 'actions' => [ 'Devise A Stratagem' ], 'reactions' => [ 'Clue In' ] })
+
+          expect(Actions.usable(reread, 'Devise a Stratagem').ok?).to be true
+          expect(Actions.usable(reread, 'Clue In').ok?).to be true
+        end
       end
 
       it "should do nothing outside an encounter" do

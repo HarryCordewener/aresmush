@@ -197,9 +197,12 @@ module AresMUSH
 
         return Err.new(:no_combatant, 'pf2e.no_combatant', 'target' => term) unless char.found?
 
-        row = encounter && rows(encounter).find { |one| one['char'] == char.target.id }
+        return Ok.new(:state => Combatant.new(char.target, char.target.name, nil)) unless encounter
 
-        Ok.new(:state => row ? combatant(row) : Combatant.new(char.target, char.target.name, nil))
+        # In an encounter, only someone in it: a character's own sheet is no part of a fight.
+        row = rows(encounter).find { |one| one['char'] == char.target.id }
+
+        row ? Ok.new(:state => combatant(row)) : Err.new(:no_combatant, 'pf2e.no_combatant', 'target' => term)
       end
 
       # Several at once, saying which names found nobody: `[ found, missing ]`.

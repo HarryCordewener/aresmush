@@ -52,6 +52,33 @@ module AresMUSH
         expect(second['id']).to eq first['id'] + 1
       end
 
+      describe "naming a target" do
+        before(:each) do
+          @outsider = Character.create(:name => "Outsider#{rand(1000000)}")
+        end
+
+        after(:each) { @outsider.delete }
+
+        it "should find a character in the encounter by name" do
+          Combatants.join(@encounter, @hero.name, 10, :holder => @hero)
+
+          found = Combatants.resolve(@hero, @hero.name, PF2Encounter[@encounter.id])
+
+          expect(found.ok?).to be true
+          expect(found.state.holder.character).to eq @hero
+        end
+
+        # Whatever is done in an encounter is done to someone's state there; a character outside it has
+        # none, and their own sheet is no part of the fight.
+        it "should find nobody for a character who is not in the encounter" do
+          Combatants.join(@encounter, @hero.name, 10, :holder => @hero)
+
+          found = Combatants.resolve(@hero, @outsider.name, PF2Encounter[@encounter.id])
+
+          expect(found.code).to eq :no_combatant
+        end
+      end
+
       describe "keeping the turn where it was" do
         before(:each) do
           [ [ 'A', 20 ], [ 'B', 15 ], [ 'C', 10 ] ].each { |name, init| Combatants.join(@encounter, name, init) }

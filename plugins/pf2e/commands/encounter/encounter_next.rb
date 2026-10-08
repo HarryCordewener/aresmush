@@ -90,7 +90,10 @@ module AresMUSH
           PF2Encounter.send_to_encounter(encounter, notice)
         end
 
-        # The one whose turn it is hears what matters to it; a creature's reminder goes to the GM.
+        # The one whose turn it is hears what matters to it; a creature's reminder goes to the GM. Read
+        # again, because the turn starting has just changed what it holds.
+        holder = Pf2e::Combatants.at(encounter, this_init)&.holder
+
         if holder
           reminder = Pf2e::Turns.reminder(holder, moved.state['round'])
           Pf2e::Actors.of(holder).hears_own_turn? ? Login.emit_ooc_if_logged_in(holder, reminder) : client.emit_ooc(reminder)
