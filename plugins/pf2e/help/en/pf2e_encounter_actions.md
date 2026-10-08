@@ -38,6 +38,18 @@ An action that rolls a check - Trip, Demoralize, Grapple, Feint, Escape, Seek an
 against the target's defence and says how it went. An action that puts an effect on you - Rage, Take
 Cover, a stance - puts you under it. Anything else is announced.
 
+Some actions do more:
+    +e/act battle medicine=bram/20
+    +e/act reactive strike=#3/longsword
+    +e/act shield block
+Battle Medicine rolls Medicine against DC 15, or the higher Treat Wounds DC you name for more healing:
+20, 30 or 40. Who has been treated today is the GM's to keep track of.
+A reaction that is a Strike - Reactive Strike, Opportune Riposte - rolls it with the weapon you name, or
+your first that will do. It spends your reaction, and the multiple attack penalty neither applies to it
+nor counts it.
+Shield Block answers a hit you have just taken while your shield is raised: its Hardness comes off the
+hit's physical damage, and you and the shield each take the rest. A hit you could block says so.
+
 `+e/strike <target>[=<weapon>][/<circumstance>...]` - Strike, with your first equipped weapon or the one
 you name (by name or nickname, or an unarmed attack like `fist`). A hit rolls the damage and deals it,
 after what the target resists. A bomb you carry is thrown the same way - `+e/strike #3=alchemist's fire`
