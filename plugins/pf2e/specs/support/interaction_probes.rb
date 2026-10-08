@@ -95,6 +95,31 @@ module AresMUSH
           [ shown.match?(/DC 5|flat/i), "no flat check told: #{shown[0, 300]}" ]
         end
 
+        probe('a hidden target makes a Strike roll a DC 11 flat check first') do
+          ref, _holder = aim
+          type(@gm, "e/conceal #{ref}=hidden")
+          type(striker, "e/strike #{ref}=#{weapon}")
+          type(@gm, "e/conceal #{ref}=none")
+          shown = @lines.last(8).join(' ')
+          [ shown.include?('11'), "no DC 11 flat check told: #{shown[0, 300]}" ]
+        end
+
+        probe('a successful Grapple leaves the target grabbed, and grabbed is off-guard') do
+          ref, holder = aim
+          type(striker, "e/act grapple=#{ref}")
+          degree = (@audit.last_roll(striker.name) || {}).dig('result', 'degree').to_i
+          held = conditions_of(holder)
+          wanted = { 3 => 'Restrained', 2 => 'Grabbed' }[degree]
+
+          next [ !held.key?('Grabbed'), "degree #{degree} left it grabbed" ] unless wanted
+          next [ false, "degree #{degree} should leave it #{wanted}, holds #{held.keys}" ] unless held.key?(wanted)
+          next [ true, nil ] if holder.class[holder.id].hp_left.zero?
+
+          type(striker, "e/strike #{ref}=#{weapon}")
+          found = defence_rows(holder).find { |row| row['type'] == 'circumstance' && row['value'].to_i == -2 }
+          [ found, "a #{wanted.downcase} target is not off-guard: #{defence_rows(holder).inspect[0, 300]}" ]
+        end
+
         archer = @party.find { |char| ranged_of(char) }
         if archer
           probe('the third range increment is -4 to the attack') do
@@ -198,6 +223,35 @@ module AresMUSH
           type(blessed, "e/strike #{ref}=#{weapon_of(blessed) || 'fist'}")
           rows = rows_of((@audit.last_roll(blessed.name) || {})['result'])
           [ rows.any? { |row| row['type'] == 'status' && row['value'].to_i == 1 }, "no +1 status: #{rows.map { |row| [ row['source'], row['type'], row['value'] ] }.inspect}" ]
+        end
+
+        helper = @party.first
+        healed = @party[2]
+        probe('a potion given to a dying ally ends their dying, and leaves them wounded and awake') do
+          type(@gm, "damage #{healed.name}=#{hp_of(healed)}")
+          dying = value_of(state_of(healed), 'Dying')
+          type(@gm, "e/loot #{helper.name}=Healing Potion (Minor)")
+          potion = state_of(helper).consumables.to_a.index { |one| one.name == 'Healing Potion (Minor)' }
+          type(helper, "e/use consumables=#{potion}/#{healed.name}")
+          held = conditions_of(state_of(healed))
+
+          [ dying.positive? && !held.key?('Dying') && !held.key?('Unconscious') && value_of(state_of(healed), 'Wounded') >= 1 &&
+              hp_of(healed).positive?,
+            "dying #{dying}; after the potion #{held.keys}, #{hp_of(healed)} hit points" ]
+        end
+
+        # A night's rest restores Constitution times level, at least level, and ends what a fight left.
+        probe('the GM\'s rest restores a night\'s hit points and clears what the fight left') do
+          before = @party.to_h { |char| [ char.name, hp_of(char) ] }
+          type(@gm, 'e/rest')
+          wrong = @party.filter_map do |char|
+            con = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(Character[char.id], 'Constitution'))
+            wanted = [ before[char.name] + [ con, 1 ].max * Character[char.id].pf2_level.to_i, max_hp_of(char) ].min
+            "#{char.name} #{before[char.name]} -> #{hp_of(char)}, not #{wanted}" unless hp_of(char) == wanted
+          end
+          lingering = @party.select { |char| (conditions_of(state_of(char)).keys & %w{Dying Unconscious Frightened}).any? }.map(&:name)
+
+          [ wrong.empty? && lingering.empty?, "#{wrong.join('; ')}; still under conditions: #{lingering}" ]
         end
 
         dropped = @party[1]
