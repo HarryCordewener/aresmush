@@ -83,6 +83,7 @@ en:
     no_such_spell: "Your specified spell is not in the spells database. Try %xhspell/search name=<part of the name>%xn to find it."
     no_such_spell_but: "No spell by that name. Did you mean: %{options}?"
     not_caster: "This character has no magical ability."
+    you_cast_no_spells: "You cast no spells, so there is nothing to prepare."
     not_casting_class: "Cannot cast as %{cc}."
     not_enough_focus_points: "You are out of focus points."
     not_in_list: "The spell you specified is not in your current list."

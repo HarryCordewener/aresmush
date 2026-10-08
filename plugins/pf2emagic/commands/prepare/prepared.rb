@@ -18,7 +18,7 @@ module AresMUSH
         magic = enactor.magic
 
         unless magic && Pf2emagic.is_caster?(enactor)
-          client.emit_failure t('pf2emagic.not_caster')
+          client.emit_failure t('pf2emagic.you_cast_no_spells')
           return
         end
 

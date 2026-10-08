@@ -17,7 +17,7 @@ module AresMUSH
       it "should tell someone with no magic that they cast no spells" do
         run(nil)
 
-        expect(@said).to eq t('pf2emagic.not_caster')
+        expect(@said).to eq t('pf2emagic.you_cast_no_spells')
       end
 
       it "should tell someone who casts nothing that they cast no spells" do
@@ -25,7 +25,7 @@ module AresMUSH
         run(double('magic', :tradition => { 'innate' => {} }, :spells_prepared => {}, :slot_pairs => {},
                             :mastered_spells => {}))
 
-        expect(@said).to eq t('pf2emagic.not_caster')
+        expect(@said).to eq t('pf2emagic.you_cast_no_spells')
       end
 
       it "should tell a caster with nothing prepared so" do
