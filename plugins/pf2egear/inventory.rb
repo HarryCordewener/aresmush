@@ -17,18 +17,21 @@ module AresMUSH
     #   investable - the item can be invested, which PF2e limits to ten per day
     #   use_needs  - what has to be true before the item can be used: worn, or invested
     #   in_bags    - the item can be put in a bag
+    #   proficiency - the wearer's proficiency with an item of this name, for what is worn or wielded
     module Inventory
 
       CATEGORIES = [
         {
           'names' => %w{weapons weapon}, 'config' => 'pf2e_weapons', 'collection' => :weapons, 'in_bag' => :weapons, 'model' => 'PF2Weapon',
           'single' => false, 'stackable' => false, 'investable' => true, 'in_bags' => true,
-          'use_needs' => :equipped
+          'use_needs' => :equipped,
+          'proficiency' => lambda { |char, name| Pf2eCombat.get_weapon_prof(char, name) }
         },
         {
           'names' => %w{armor}, 'config' => 'pf2e_armor', 'collection' => :armor, 'in_bag' => :armor, 'model' => 'PF2Armor',
           'single' => true, 'stackable' => false, 'investable' => true, 'in_bags' => true,
-          'use_needs' => :equipped
+          'use_needs' => :equipped,
+          'proficiency' => lambda { |char, name| Pf2eCombat.get_armor_prof(char, name) }
         },
         {
           'names' => %w{shields shield}, 'config' => 'pf2e_shields', 'collection' => :shields, 'in_bag' => :shields, 'model' => 'PF2Shield',
@@ -106,6 +109,11 @@ module AresMUSH
 
       def self.bag_categories
         CATEGORIES.select { |row| row['in_bag'] }.flat_map { |row| row['names'] }
+      end
+
+      # The wearer's proficiency with it, or nil for a thing nobody is trained in using.
+      def self.proficiency(char, category, name)
+        (row(category) || {})['proficiency']&.call(char, name)
       end
 
       def self.single?(category)

@@ -23,6 +23,8 @@ en:
     cannot_use_now: "This item must be %{action} to be used."
 
     item_equip_ok: "You equip %{name}."
+    equip_untrained_armor: "You are untrained in %{kind} armor, so your proficiency adds nothing to your AC while you wear %{name}."
+    equip_untrained_weapon: "You are untrained in %{name}, so your proficiency adds nothing to your attack rolls with it."
     item_bought_ok: "You buy %{quantity} of %{item} at a cost of %{cost}."
     item_rename_ok: "You rename %{name} to %{nickname}."
     item_sold_ok: "You sell %{quantity} of %{item} for %{cost}."

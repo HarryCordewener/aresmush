@@ -56,6 +56,16 @@ module AresMUSH
         iname = item.nickname ? item.nickname : item.name
 
         client.emit_success t('pf2egear.item_equip_ok', :name => iname)
+
+        # Untrained is allowed, and costs them their proficiency bonus; the player hears so now.
+        return unless Pf2egear::Inventory.proficiency(holder, self.category, item.name) == 'untrained'
+
+        if Pf2egear::Inventory.canonical(self.category) == 'armor'
+          client.emit_ooc t('pf2egear.equip_untrained_armor', :name => iname,
+                            :kind => Global.read_config('pf2e_armor', item.name, 'category'))
+        else
+          client.emit_ooc t('pf2egear.equip_untrained_weapon', :name => iname)
+        end
       end
 
     end

@@ -386,7 +386,7 @@ module AresMUSH
 
       combat = char.combat
 
-      char_armor_prof = combat.armor_prof
+      char_armor_prof = combat.armor_prof || {}
 
       armor_cat = Global.read_config('pf2e_armor', name, 'category')
 
