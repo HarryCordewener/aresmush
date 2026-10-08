@@ -482,7 +482,7 @@ module AresMUSH
         out << [ :strike, 'fist', -> { "e/strike #{foe_ref.call}=fist" } ]
         out << [ :look, 'why', 'e/why' ]
 
-        out << [ :act, 'Raise a Shield', 'e/act raise a shield' ] unless state.shields.to_a.empty?
+        out << [ :act, 'Raise a Shield', 'e/act raise a shield' ] unless state.shields.to_a.empty? || ShieldBlock.cannot_raise(state)
         out << [ :act, 'Demoralize', -> { "e/act demoralize=#{foe_ref.call}" } ]
 
         # What the game offers them, and what their class, heritage and background say they have.
@@ -493,7 +493,9 @@ module AresMUSH
         (class_actions(state) + granted).uniq { |action| Domains.slug(action) }.each do |action|
           next if answers.include?(action) || Acting::COMMANDS.key?(Domains.slug(action))
 
-          if Array(Actions.info(action)['traits']).include?('healing')
+          if action == BondedItem::NAME
+            out << [ :ability, action, -> { "e/act #{action.downcase}/#{cast_today(char) || 'nothing'}" } ]
+          elsif Array(Actions.info(action)['traits']).include?('healing')
             out << [ :heal, action, -> { "e/act #{action}=#{hurt_ally.name}" } ]
           else
             out << [ :ability, action, -> { "e/act #{action}=#{foe_ref.call}" } ]
@@ -520,6 +522,24 @@ module AresMUSH
         (Character[char.id].pf2_alchemy_plan || {}).each_key { |item| out << [ :alchemy, item, "e/alchemy #{item}" ] }
 
         out
+      end
+
+      # A spell they prepared today and have cast, which Drain Bonded Item gives back.
+      def cast_today(char)
+        magic = state_of(char).magic
+
+        return nil unless magic
+
+        (magic.spells_prepared || {}).each do |charclass, ranks|
+          (ranks || {}).each do |rank, spells|
+            next if rank.to_s == 'cantrip'
+
+            left = Array(((magic.spells_today || {})[charclass] || {})[rank])
+            Array(spells).uniq.each { |spell| return spell if Array(spells).count(spell) > left.count(spell) }
+          end
+        end
+
+        nil
       end
 
       # The actions a character's own feats and features give them, which no one else has.

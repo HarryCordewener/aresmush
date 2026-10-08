@@ -205,7 +205,8 @@ module AresMUSH
           end
         end
 
-        shield = @party.find { |char| state_of(char).shields.to_a.any?(&:equipped) }
+        # A shield broken in an earlier fight gives nothing raised, and is refused; it is no test.
+        shield = @party.find { |char| state_of(char).shields.to_a.any?(&:equipped) && !ShieldBlock.cannot_raise(state_of(char)) }
         if shield
           probe('Raise a Shield is +2 circumstance to AC against the next Strike') do
             ref, _holder = aim
