@@ -138,11 +138,21 @@ module AresMUSH
       # whether it is ranged, which is what its range says.
       def self.strikes(npc)
         Array(npc.stat_block['strikes']).map do |strike|
+          range = range_of(strike)
+
           { 'id' => strike_id(strike), 'name' => strike['name'], 'base' => strike['name'], 'bonus' => strike['bonus'].to_i,
-            'traits' => Array(strike['traits']), 'ranged' => strike['range'].to_i.positive?,
-            'range' => strike['range'].to_i, 'unarmed' => false,
+            'traits' => Array(strike['traits']), 'ranged' => range.positive?,
+            'range' => range, 'unarmed' => false,
             'damage' => Array(strike['damage']), 'effects' => Array(strike['effects']) }
         end
+      end
+
+      # A Strike's range increment in feet: its own, or what a `thrown-30` or `range-increment-60` trait
+      # says. Nothing for a melee Strike.
+      def self.range_of(strike)
+        return strike['range'].to_i if strike['range'].to_i.positive?
+
+        Array(strike['traits']).map { |one| one.to_s[/\A(?:thrown|range(?:-increment)?)-(\d+)\z/, 1].to_i }.max.to_i
       end
 
       def self.strike(npc, term = nil)

@@ -4,6 +4,18 @@ module AresMUSH
     # A creature's stat block as text, the way a GM reads one at the table.
     module StatBlock
 
+      # `Ranged Javelin +6 (thrown-30), 1d6+4 piercing plus Grab`: a Strike with a range increment is
+      # ranged, and what it deals is its damage and then what else a hit does.
+      def self.strike_line(strike)
+        traits = Array(strike['traits'])
+        ranged = Npcs.range_of(strike).positive?
+        hits = Array(strike['damage']).map { |formula, type, category| [ formula, category, type ].compact.join(' ') } +
+               Array(strike['effects'])
+
+        "#{ranged ? 'Ranged' : 'Melee'} #{strike['name']} #{signed(strike['bonus'])}" \
+          "#{traits.any? ? " (#{traits.join(', ')})" : ''}#{hits.any? ? ", #{hits.join(' plus ')}" : ''}"
+      end
+
       def self.lines(name, block, npc: nil, gm: true)
         lines = [ "%xh#{name}%xn  Creature #{block['level']}  #{traits(block)}" ]
 
@@ -24,12 +36,7 @@ module AresMUSH
         lines << "HP #{block['hp']}#{block['hp_details'] ? " (#{block['hp_details']})" : ''}#{iwr(block)}"
         lines << "Speed #{(block['speeds'] || {}).map { |kind, feet| kind == 'land' ? "#{feet} feet" : "#{kind} #{feet} feet" }.join(', ')}"
 
-        Array(block['strikes']).each do |strike|
-          damage = Array(strike['damage']).map { |formula, type, category| [ formula, category, type ].compact.join(' ') }
-          lines << "#{strike['range'].to_i.positive? ? 'Ranged' : 'Melee'} #{strike['name']} #{signed(strike['bonus'])} " \
-                   "(#{Array(strike['traits']).join(', ')}), #{damage.join(' plus ')}" \
-                   "#{Array(strike['effects']).any? ? " plus #{strike['effects'].join(', ')}" : ''}"
-        end
+        Array(block['strikes']).each { |strike| lines << strike_line(strike) }
 
         Array(block['spellcasting']).each do |casting|
           spells = (casting['spells'] || {}).map { |rank, names| "#{rank == '0' ? 'Cantrips' : "Rank #{rank}"}: #{names.join(', ')}" }
