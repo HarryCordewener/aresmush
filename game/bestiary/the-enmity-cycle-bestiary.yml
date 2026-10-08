@@ -14,7 +14,7 @@
   senses: ["low-light-vision"]
   skills: {"Deception": 13, "Diplomacy": 15, "Medicine": 11, "Occultism": 15, "Performance": 16, "Society": 13, "Stealth": 13}
   strikes: [{"name": "Rapier", "bonus": 16, "damage": [["2d6+8", "piercing", null]], "traits": ["deadly-d8", "disarm", "finesse"]}]
-  actions: [{"name": "Cruel Performance", "type": "action", "traits": ["evil", "occult", "sonic"], "cost": 2, "text": "Frequency once per day%rEffect The bard makes cruel, cutting comments that draw blood. All enemies within 30 feet take 7d6 slashing damage (DC 24 Fortitude save)."}]
+  actions: [{"name": "Cruel Performance", "type": "action", "traits": ["evil", "occult", "sonic"], "cost": 2, "text": "Frequency once per day%rEffect The bard makes cruel, cutting comments that draw blood. All enemies within 30 feet take 7d6 slashing damage (DC 24 basic Fortitude save)."}]
   spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 24, "attack": 16, "spells": {"0": ["Bullhorn", "Ghost Sound", "Haunting Hymn", "Light", "Summon Instrument"], "1": ["Biting Words", "Charm", "Fear"], "2": ["Dispel Magic", "False Life", "Mirror Image"], "3": ["Agonizing Despair", "Roaring Applause", "Slow"]}}]
 "Jimbilin":
   pack: "the-enmity-cycle-bestiary"
@@ -31,7 +31,7 @@
   senses: ["low-light-vision"]
   skills: {"Deception": 12, "Diplomacy": 12, "Medicine": 10, "Religion": 10, "Stealth": 8}
   strikes: [{"name": "Scorpion Whip", "bonus": 10, "damage": [["2d4+4", "piercing", null]], "traits": []}]
-  actions: [{"name": "Prayer of Oblivion", "type": "action", "traits": ["divine", "evil", "void"], "cost": 3, "text": "The priest chants a prayer to his deity that invokes the forces of nothingness.%rFrequency once per day%rEffect All enemies within 30 feet take 5d6 void damage (DC 21 Will save)."}]
+  actions: [{"name": "Prayer of Oblivion", "type": "action", "traits": ["divine", "evil", "void"], "cost": 3, "text": "The priest chants a prayer to his deity that invokes the forces of nothingness.%rFrequency once per day%rEffect All enemies within 30 feet take 5d6 void damage (DC 21 basic Will save)."}]
   spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 21, "attack": 13, "spells": {"0": ["Chill Touch", "Divine Lance", "Haunting Hymn", "Shield"], "1": ["Bane", "Fear", "Harm"], "2": ["Boneshaker", "Darkvision"]}}]
 "Krashk":
   pack: "the-enmity-cycle-bestiary"

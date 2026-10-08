@@ -429,6 +429,7 @@ def spoken(kind, target):
         parts = target.split('|')
         dc = next((part.split(':', 1)[1] for part in parts if part.startswith('dc:')), None)
         named = parts[0].replace('-', ' ').title()
+        named = f'basic {named}' if 'basic' in parts else named
         return f'DC {dc} {named}' if dc and dc.isdigit() else named
     if kind == 'Template':
         parts = target.split('|')
