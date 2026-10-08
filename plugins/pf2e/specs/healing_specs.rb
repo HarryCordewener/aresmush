@@ -94,6 +94,14 @@ module AresMUSH
         expect(rest).to eq 2 * 5
       end
 
+      # "Your Constitution modifier (minimum 1) multiplied by your level": a character with no
+      # Constitution bonus still recovers their level.
+      it "should recover at least one for each level" do
+        Pf2eAbilities.find(:character_id => @char.id).to_a.find { |one| one.name == 'Constitution' }.update(:base_val => 10)
+
+        expect(rest).to eq 5
+      end
+
       it "should recover twice as much with a feat that says so" do
         @char.update(:pf2_feats => { 'general' => [ 'Fast Recovery' ] })
         Pf2e::Paths.apply_all!(reread)

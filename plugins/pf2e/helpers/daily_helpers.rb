@@ -30,10 +30,12 @@ module AresMUSH
     # A full night's rest recovers Constitution modifier times level, doubled by Fast Recovery and its
     # like. Foundry keeps that as a multiplier their rules add to, so what an effect wrote is one less
     # than the multiplier it means (`system.attributes.hp.recoveryMultiplier`).
+    # A night's rest: the Constitution modifier, at least 1, for each level - twice over with Fast
+    # Recovery.
     def self.get_daily_healing(char)
-      con_mod = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Constitution")).clamp(0,99)
+      con_mod = [ Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Constitution")), 1 ].max
 
-      ((con_mod * char.pf2_level) * recovery_multiplier(char)).to_i.clamp(1,999)
+      con_mod * [ char.pf2_level.to_i, 1 ].max * recovery_multiplier(char)
     end
 
     def self.recovery_multiplier(char)
