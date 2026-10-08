@@ -83,12 +83,12 @@ module AresMUSH
                     'damage_type' => attack['persistent_type'], 'category' => 'persistent', 'critical' => nil }
         elsif persistent.to_i.positive?
           flat << { 'source' => attack['name'], 'value' => persistent.to_i, 'damage_type' => attack['persistent_type'],
-                    'category' => 'persistent', 'critical' => nil }
+                    'category' => 'persistent', 'critical' => nil, 'creates' => true }
         end
 
         if attack['splash'].to_i.positive?
           flat << { 'source' => attack['name'], 'value' => attack['splash'].to_i, 'damage_type' => attack['damage_type'],
-                    'category' => 'splash', 'critical' => false }
+                    'category' => 'splash', 'critical' => false, 'creates' => true }
         end
 
         [ dice, flat ]

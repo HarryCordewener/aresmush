@@ -580,10 +580,14 @@ module AresMUSH
         'splash' => bomb['splash'].to_i, 'effect' => info['effect'], 'consumable' => item.id.to_s })
     end
 
+    # An unarmed attack's damage is written with its count, `1d4`, where a weapon's is its die alone; both
+    # are read here, so a fist rolls one d4 and not a d14.
     def self.unarmed_descriptor(name, info, prof, char = nil)
+      written = info['damage'].to_s.match(/\A(\d*)(d\d+)\z/)
       descriptor = { 'id' => nil, 'name' => name, 'prof' => prof, 'group' => info['group'],
                      'base' => name, 'traits' => info['traits'], 'ranged' => false, 'unarmed' => true,
-                     'bomb' => false, 'die' => info['damage'], 'range' => 0,
+                     'bomb' => false, 'die' => written ? written[2] : info['damage'],
+                     'dice' => written && !written[1].empty? ? written[1].to_i : nil, 'range' => 0,
                      'materials' => [], 'runes' => [],
                      'damage_type' => info['damage_type'] || 'B', 'striking' => 0, 'rune' => 0 }
 

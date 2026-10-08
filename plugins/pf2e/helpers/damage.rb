@@ -199,6 +199,12 @@ module AresMUSH
 
         (dice + flat).each do |row|
           key = [ row['damage_type'] || base['damage_type'], apart(row['category']) ]
+
+          # A flat bonus to damage kept apart - Burn It!'s +1 to persistent fire - is a bonus to that
+          # damage where the roll deals some, and makes none of its own. Dice do, and a bomb's own
+          # persistent and splash damage say they do.
+          next if key.last && !row['die'] && !row['creates'] && !instances.key?(key)
+
           into = instances[key] ||= empty_instance(key)
 
           add(into, row)

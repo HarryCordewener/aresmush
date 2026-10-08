@@ -25,6 +25,11 @@ module AresMUSH
         instances = Damage.critical_instances(instances, attack) if critical
 
         rows = instances.filter_map do |instance|
+          # Damage whose dice are a critical hit's alone - a flaming rune's persistent fire - deals
+          # nothing on a hit, bonuses to it included.
+          next nil if !critical && Array(instance['dice']).empty? && Array(instance['fixed_dice']).empty? &&
+                      Array(instance['crit_only_dice']).any?
+
           doubling = written(instance['dice'], instance['modifier'])
           fixed = written(instance['fixed_dice'], instance['fixed_modifier'])
           extra = critical ? written(instance['crit_only_dice'], instance['crit_only_modifier']) : ''

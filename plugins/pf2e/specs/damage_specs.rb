@@ -93,6 +93,59 @@ module AresMUSH
         end
       end
 
+      # Chargen writes a fist's damage as `1d4`, a count and a die, where a weapon's is a die alone.
+      describe "an unarmed attack's damage" do
+        before(:each) do
+          allow(Effects).to receive(:damage_dice).and_return([])
+          allow(Effects).to receive(:modifiers).and_return([])
+        end
+
+        it "should roll one d4 for a fist written 1d4" do
+          fist = Pf2eCombat.unarmed_descriptor('Fist', { 'damage' => '1d4', 'damage_type' => 'B',
+                                                         'traits' => %w{agile finesse unarmed} }, 'trained')
+
+          expect(Damage.formula(char, fist)).to eq '1d4+4 B'
+        end
+
+        it "should roll as many as it says" do
+          claws = Pf2eCombat.unarmed_descriptor('Claws', { 'damage' => '2d6', 'damage_type' => 'S', 'traits' => [] }, 'trained')
+
+          expect(Damage.formula(char, claws)).to eq '2d6+4 S'
+        end
+
+        it "should read a die written alone, as a weapon's is" do
+          fist = Pf2eCombat.unarmed_descriptor('Fist', { 'damage' => 'd4', 'damage_type' => 'B', 'traits' => [] }, 'trained')
+
+          expect(Damage.formula(char, fist)).to eq '1d4+4 B'
+        end
+      end
+
+      # Burn It!'s +1 is to persistent fire someone is already dealing: a bow that deals none deals none.
+      describe "a bonus to persistent damage" do
+        def burn_it
+          { 'source' => 'Burn It!', 'slug' => 'burn-it-persistent', 'type' => 'status', 'value' => 1,
+            'damage_type' => 'fire', 'category' => 'persistent', 'critical' => nil, 'met' => true }
+        end
+
+        it "should add nothing to a roll with no persistent damage of its kind" do
+          allow(Effects).to receive(:damage_dice).and_return([])
+          allow(Effects).to receive(:modifiers).and_return([ burn_it ])
+
+          expect(Damage.of(char, sword)['instances'].map { |one| one['category'] }).to eq [ nil ]
+        end
+
+        it "should add to persistent damage of its kind" do
+          flaming = { 'source' => 'Flaming', 'dice' => 1, 'die' => 'd10', 'damage_type' => 'fire',
+                      'category' => 'persistent', 'critical' => true, 'met' => true }
+          allow(Effects).to receive(:damage_dice).and_return([ flaming ])
+          allow(Effects).to receive(:modifiers).and_return([ burn_it ])
+
+          persistent = Damage.of(char, sword)['instances'].find { |one| one['category'] == 'persistent' }
+
+          expect(persistent['modifier']).to eq 1
+        end
+      end
+
       describe "dice an effect adds" do
         def with_dice(rows)
           allow(Effects).to receive(:damage_dice).and_return(rows)
@@ -331,6 +384,13 @@ module AresMUSH
             rows = DamageRoll.of_instances(flaming, false, sword)
 
             expect(rows.map { |row| row['category'] }).to eq [ nil ]
+          end
+
+          it "should deal none of a bonus to it on a hit either" do
+            bonused = flaming.map(&:dup)
+            bonused.last['modifier'] = 1
+
+            expect(DamageRoll.of_instances(bonused, false, sword).map { |row| row['category'] }).to eq [ nil ]
           end
 
           it "should deal it on a critical hit, as the dice to roll each turn" do
