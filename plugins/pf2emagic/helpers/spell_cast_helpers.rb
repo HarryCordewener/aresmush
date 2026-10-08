@@ -380,9 +380,6 @@ module AresMUSH
       return t('pf2emagic.not_caster') unless Pf2emagic.is_caster?(char)
       magic = char.magic
 
-      caster_stats = get_caster_stats(char, 'innate')
-      return caster_stats if caster_stats.is_a? String
-
       # Find_spell will be either an array if it found a unique match or a string if it didn't.
       find_spell = get_spell_details(spell)
 
@@ -415,6 +412,9 @@ module AresMUSH
         magic.update(spells_today: cc_spells)
       end
 
+      # Everything about an innate cast is its grant's, but the proficiency, which is the character's
+      # innate one.
+      caster_stats = { 'prof_level' => Array((magic.tradition || {})['innate'])[1] || 'trained' }
       caster_stats['tradition'] = spinfo['tradition']
       caster_stats['spell level'] = spinfo['level']
       caster_stats['spell type'] = 'innate'

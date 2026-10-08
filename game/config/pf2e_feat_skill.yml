@@ -53,7 +53,7 @@ pf2e_feats:
     assoc_skill: Arcana
     magic_stats:
       innate_spell:
-        level: 1
+        level: cantrip
         name: 
           - Detect Magic
         tradition: arcane
