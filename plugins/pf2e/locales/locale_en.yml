@@ -508,6 +508,7 @@ en:
     act_save_line: "  %{target} rolls %{save} %{roll} vs DC %{dc} - %{degree}."
     act_save_gm: "  %{target} rolls a %{save} save against the caster's DC - the GM sets it."
     act_down: "  %{target} is down."
+    act_unharmed: "  %{target} takes no damage."
     act_temp_hp:
       one: "  They have 1 temporary Hit Point."
       other: "  They have %{count} temporary Hit Points."

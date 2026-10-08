@@ -462,6 +462,15 @@ module AresMUSH
           expect(Pf2e.condition_level(npc(3), 'Stunned')).to eq 1
         end
 
+        # A critical success on a basic save takes nothing, and the room is told so, not of 0 damage.
+        it "should say a target that critically succeeds a basic save takes no damage" do
+          @dice = 1.0
+          run(PF2EncounterAsCmd, 'e/as #2=cast daze=#3')
+
+          expect(said).to include(t('pf2e.act_unharmed', :target => 'Goblin Warrior #3').strip)
+          expect(said).to_not include('Damage to Goblin Warrior #3')
+        end
+
         # What Command does is the target's to do; the room is told what that is.
         it "should tell the room what an outcome does where it sets no condition" do
           @dice = 0.05

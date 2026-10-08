@@ -514,13 +514,19 @@ module AresMUSH
       # `critical` is a critical hit's, or a critically failed save's: one that drops a character leaves
       # them nearer death.
       def self.deal(scene, whom, rows, out, critical: false)
+        # Nothing to deal - a basic save critically succeeded - is told as nothing, not as 0 damage.
+        if rows.all? { |row| row['amount'].to_i <= 0 && row['category'].to_s != 'persistent' }
+          return out['lines'] << told('pf2e.act_unharmed', :target => whom.label)
+        end
+
         immediate, persistent = rows.partition { |row| row['category'].to_s != 'persistent' }
         shown = []
         standing = still_up(whom.holder)
 
         immediate.each do |row|
           held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical)
-          resisted = Array(held['applied']).map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
+          resisted = Array(held['applied']).reject { |one| one['category'] != 'immunity' && one['adjustment'].to_i.zero? }
+                                           .map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
           kind = row['category'].to_s == 'splash' ? "splash #{row['type']}" : row['type']
           shown << "#{held['amount']} #{kind}#{resisted.empty? ? '' : " (#{resisted.join(', ')})"}"
         end
