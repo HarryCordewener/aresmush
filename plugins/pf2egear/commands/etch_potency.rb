@@ -12,23 +12,22 @@ module AresMUSH
             @item_index = args[3].to_i
             self.rune_lvl = args[4].to_i
           else
-            client.emit_failure t('pf2egear.rune_cmd_fail', :rune_type => "potency")
-            return
+            @unreadable = true
           end
       end
 
-      def check_permissions
-        # Admin may only swap out runes
-        if !enactor.is_admin?
-          client.emit_failure t("pf2egear.rune_no_admin")
-          return
-        end
+      # Checks run in the order of their names, so staff are asked for first and the arguments second.
+      def check_admin
+        t('pf2egear.rune_no_admin') unless enactor.is_admin?
+      end
+
+      def check_args
+        t('pf2egear.rune_cmd_fail', :rune_type => "potency") if @unreadable
       end
 
       def check_character_exists
         if !(@char = Character.find_one_by_name(self.target))
           return t('pf2egear.target_not_found', :name => self.target)
-          return nil
         end
       end
 
@@ -36,7 +35,6 @@ module AresMUSH
         # Validate the category we are editing
         if !["weapon", "weapons", "armor"].include?(self.category.downcase)
           return t('pf2egear.bad_category')
-          return nil
         end
       end
       
@@ -53,12 +51,10 @@ module AresMUSH
       def check_rune_level
         if (self.rune_lvl < 0 || self.rune_lvl > 3)
           return t('pf2egear.rune_out_of_range', )
-          return nil
         end
         power = @item.runes&.dig("fundamental", "power") || 0
         if (self.rune_lvl < power)
           return t('pf2egear.rune_potency_gt_power')
-          return nil
         end
       end
 

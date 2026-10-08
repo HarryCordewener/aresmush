@@ -12,23 +12,22 @@ module AresMUSH
             @item_index = args[3].to_i
             self.rune_name = args[4]
           else
-            client.emit_failure t('pf2egear.rune_property_cmd_fail')
-            return
+            @unreadable = true
           end
       end
 
-      def check_permissions
-        # Admin may only swap out runes
-        if !enactor.is_admin?
-          client.emit_failure t("pf2egear.rune_no_admin")
-          return
-        end
+      # Checks run in the order of their names, so staff are asked for first and the arguments second.
+      def check_admin
+        t('pf2egear.rune_no_admin') unless enactor.is_admin?
+      end
+
+      def check_args
+        t('pf2egear.rune_property_cmd_fail') if @unreadable
       end
 
       def check_character_exists
         if !(@char = Character.find_one_by_name(self.target))
           return t('pf2egear.target_not_found', :name => self.target)
-          return nil
         end
       end
       
