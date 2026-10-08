@@ -408,16 +408,32 @@ module AresMUSH
         "%b%b#{item_color}#{left("Class", 15)}#{left("Tradition", 14)}#{left("Prof", 8)}#{left("Spell Atk Bonus", 21)}#{left("Spell DC", 16)}%xn"
       end
 
+      # A row per casting class, and one per tradition of innate spells the character has. The register's
+      # own `innate` key is not a class, and says nothing where there are no innate spells.
       def spell_dcs
-        dc_list = magic_stats.tradition
+        classes = (magic_stats.tradition || {}).reject { |key, _| key.to_s.casecmp?('innate') }
 
-        list = []
+        classes.map { |key, value| format_spell_dc(key, value) } + innate_dcs
+      end
 
-        dc_list.each_pair do |key, value|
-          list << format_spell_dc(key, value)
+      # An innate spell is cast with its grant's tradition and ability, at the character's innate
+      # proficiency.
+      def innate_dcs
+        prof = Array((magic_stats.tradition || {})['innate'])[1] || 'trained'
+
+        Pf2emagic::Entries.for_magic(magic_stats).select { |entry| entry['source_type'] == 'innate' }.map do |entry|
+          ability = entry['ability'] || 'Charisma'
+          stats = { 'tradition' => entry['tradition'], 'prof_level' => prof, 'spell_abil' => ability,
+                    'modifier' => Pf2eAbilities.abilmod(Pf2eAbilities.get_score(@char, ability)) }
+          atk = Pf2e::Stat.total(@char, 'spell_attack', stats)
+          dc = Pf2e::Stat.total(@char, 'spell_dc', stats)
+
+          "%b%b#{left('Innate', 15)}#{left(Pf2e.pretty_string(entry['tradition'].to_s), 14)}#{left(prof.slice(0).upcase, 8)}#{left(atk, 22)}#{left(dc, 16)}"
         end
+      end
 
-        list
+      def ac
+        Pf2eCombat.calculate_ac(@char)
       end
 
       def known_for

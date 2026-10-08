@@ -502,6 +502,7 @@ module AresMUSH
       def self.deal(scene, whom, rows, out, critical: false)
         immediate, persistent = rows.partition { |row| row['category'].to_s != 'persistent' }
         shown = []
+        standing = still_up(whom.holder)
 
         immediate.each do |row|
           held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical)
@@ -520,6 +521,26 @@ module AresMUSH
 
         out['lines'] << told('pf2e.act_damage', :damage => shown.join(' + '), :target => whom.label)
         out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
+        dropped(whom, standing, out)
+      end
+
+      # Whether someone is on their feet: a creature with hit points left, a character not yet dying -
+      # and how near death a dying one is.
+      def self.still_up(holder)
+        fresh = holder.class[holder.id] || holder
+
+        Actors.of(fresh).creature? ? fresh.hp_left.to_i.positive? : Pf2e.condition_level(fresh, 'Dying')
+      end
+
+      # The room is told when a hit drops someone: a creature is down, a character dying, or nearer death.
+      def self.dropped(whom, standing, out)
+        now = still_up(whom.holder)
+
+        if standing == true && now == false
+          out['lines'] << told('pf2e.act_down', :target => whom.label)
+        elsif standing.is_a?(Integer) && now.is_a?(Integer) && now > standing
+          out['lines'] << told('pf2e.act_dying', :target => whom.label, :value => now)
+        end
       end
 
       # A character's attacks by what they would call them: the weapons they have equipped, their
@@ -758,7 +779,7 @@ module AresMUSH
         if heals.any? && !hurts_this
           amount = heals.sum { |formula, *_| Pf2e.roll_formula(formula) }
           Harm.heal(scene.target.holder, amount)
-          out['lines'] << told('pf2e.act_healed', :target => scene.target.label, :amount => amount)
+          out['lines'] << told('pf2e.act_healed', :target => scene.target.label, :count => amount)
           return
         end
 
@@ -937,17 +958,31 @@ module AresMUSH
       end
 
       # Every modifier of a roll and of the defence it was against, for `+e/why`.
+      # The roll and what it was against, each from its number before modifiers and then each modifier;
+      # one with no modifiers ends where its number does.
       def self.detail_lines(what, statistic, result, defence)
         lines = [ told('pf2e.why_roll', :what => what, :statistic => statistic, :roll => Telling.roll(result),
-                                        :base => result['breakdown']['base']) ]
+                                        :base => result['breakdown']['base'], :tail => tail(result['breakdown'])) ]
         lines += modifier_lines(result['breakdown'])
 
         if defence
-          lines << told('pf2e.why_defence', :dc => defence['dc'], :base => defence['breakdown']['base'])
+          lines << told('pf2e.why_defence', :defence => defence_word(defence), :dc => defence['dc'],
+                                            :base => defence['breakdown']['base'], :tail => tail(defence['breakdown']))
           lines += modifier_lines(defence['breakdown'])
         end
 
         lines
+      end
+
+      def self.tail(breakdown)
+        Array(breakdown['modifiers']).empty? ? '.' : ':'
+      end
+
+      # `AC`, `Will DC`, `Athletics DC`.
+      def self.defence_word(defence)
+        return 'AC' if defence['kind'] == 'ac'
+
+        "#{(defence['name'] || defence['kind']).to_s.split.map(&:capitalize).join(' ')} DC"
       end
 
       def self.modifier_lines(breakdown)

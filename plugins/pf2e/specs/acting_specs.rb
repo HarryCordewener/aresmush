@@ -212,6 +212,34 @@ module AresMUSH
           expect(check.total).to eq 7 - 4
         end
 
+        # The room is told when a hit drops something: a creature is down, a character dying.
+        it "should say a creature is down when a hit takes its last hit point" do
+          @dice = 1.0
+          run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)
+
+          expect(npc(3).hp_left).to eq 0
+          expect(said).to include(t('pf2e.act_down', :target => 'Goblin Warrior #3'))
+        end
+
+        it "should say a character is dying when a hit drops them" do
+          state = CombatantStates.of(@encounter, Character[@hero.id])
+          state.update(:damage => Pf2eHP.get_max_hp(state) - 1)
+          @dice = 1.0
+          run(PF2EncounterAsCmd, "e/as #2=strike #{@hero.name}")
+
+          expect(said).to include(t('pf2e.act_dying', :target => @hero.name, :value => 2))
+        end
+
+        # +e/why names what the roll was against, and a defence with nothing to add ends there.
+        it "should explain a Strike against the AC it named" do
+          run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)
+          @client.said.clear
+          run(PF2EncounterWhyCmd, 'e/why', @hero)
+
+          expect(said).to include('against AC 16, from 16.')
+          expect(said).to_not include('(base')
+        end
+
         it "should let a character strike a creature with their fist" do
           @dice = 0.75
           run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)
@@ -487,11 +515,107 @@ module AresMUSH
           expect(npc(2).pf2_conditions).not_to have_key('Off-Guard')
         end
 
+        # A dying character rolls a recovery check as their turn starts: a flat check against 10 and their
+        # dying value. A critical success takes two off, a success one; a failure adds one, a critical
+        # failure two. At nothing they stop dying, wounded and still unconscious.
+        describe "a recovery check" do
+          def hero_state
+            CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id])
+          end
+
+          def dying(value)
+            state = hero_state
+            state.update(:damage => Pf2eHP.get_max_hp(state))
+            Pf2e.set_condition(state, 'Dying', value)
+          end
+
+          def turn
+            Turns.turn_started(PF2Encounter[@encounter.id], @hero.name, 2)
+          end
+
+          it "should bring someone out of dying on a natural 20, wounded and unconscious" do
+            dying(2)
+            @dice = 1.0
+
+            told = turn
+
+            expect(Pf2e.condition_level(hero_state, 'Dying')).to eq 0
+            expect(Pf2e.condition_level(hero_state, 'Wounded')).to eq 1
+            expect(hero_state.pf2_conditions).to have_key('Unconscious')
+            expect(told.map { |one| one['key'] }).to include('pf2e.recovery_check')
+          end
+
+          # Out of dying they are unconscious for having no hit points, and healing wakes them.
+          it "should wake someone healed after they stopped dying, still wounded once" do
+            dying(1)
+            @dice = 1.0
+            turn
+
+            Harm.heal(hero_state, 5)
+
+            expect(hero_state.pf2_conditions).to_not have_key('Unconscious')
+            expect(Pf2e.condition_level(hero_state, 'Wounded')).to eq 1
+          end
+
+          it "should not wake someone asleep for another reason" do
+            Pf2e.set_condition(hero_state, 'Unconscious')
+            hero_state.update(:damage => 3)
+
+            Harm.heal(hero_state, 2)
+
+            expect(hero_state.pf2_conditions).to have_key('Unconscious')
+          end
+
+          it "should take one off on a success" do
+            dying(1)
+            @dice = 0.6
+
+            turn
+
+            expect(Pf2e.condition_level(hero_state, 'Dying')).to eq 0
+          end
+
+          it "should add one on a failure" do
+            dying(1)
+            @dice = 0.25
+
+            turn
+
+            expect(Pf2e.condition_level(hero_state, 'Dying')).to eq 2
+          end
+
+          # Death is the GM's to say: a check that would kill leaves them one short, and says so.
+          it "should stop one short of death, and tell the GM" do
+            dying(3)
+            @dice = 0.25
+
+            told = turn
+
+            expect(Pf2e.condition_level(hero_state, 'Dying')).to eq 3
+            expect(Character[@hero.id].pf2_is_dead).to be_falsey
+            expect(told.map { |one| one['key'] }).to include('pf2e.recovery_at_death')
+          end
+
+          it "should roll nothing for someone who is not dying" do
+            expect(turn.map { |one| one['key'] }).to_not include('pf2e.recovery_check')
+          end
+        end
+
         it "should start the counts over as a turn starts" do
           TurnState.spend(npc(2), 'Strike', :attack => true)
           Turns.turn_started(@encounter, npc(2).name, 2)
 
           expect(TurnState.turn(npc(2))['attacks']).to eq 0
+        end
+
+        # A creature with no hit points left has no turn to take; the GM is told so, and how to clear it.
+        it "should tell the GM a creature's turn is a fallen one's" do
+          npc(2).update(:damage => npc(2).max_hp)
+
+          reminder = Turns.reminder(npc(2), 2)
+
+          expect(reminder).to include(t('pf2e.turn_down', :name => npc(2).name, :ref => '#2'))
+          expect(reminder).to_not include('+e/as #2=strike')
         end
 
         it "should remind the GM of a creature's turn" do

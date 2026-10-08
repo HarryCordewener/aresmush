@@ -36,7 +36,43 @@ module AresMUSH
         Equipment.lapse!(holder, 'turn')
         ActiveEffects.on(holder).each { |effect| ActiveEffects.give_temp_hp(holder, effect, 'on_turn_start') }
 
-        events + heal(holder)
+        events + heal(holder) + recovery(holder)
+      end
+
+      # A dying character's recovery check as their turn starts: a flat check against 10 and their dying
+      # value. A critical success takes two off, a success one; a failure adds one, a critical failure
+      # two. At nothing they stop dying, wounded one more and still unconscious. Death is the GM's to
+      # say, so a check that would reach it leaves them one short and says so.
+      RECOVERY = { Degree::CRITICAL_SUCCESS => -2, Degree::SUCCESS => -1, Degree::FAILURE => 1,
+                   Degree::CRITICAL_FAILURE => 2 }.freeze
+
+      def self.recovery(holder)
+        dying = Pf2e.condition_level(holder, 'Dying')
+
+        return [] unless dying.positive? && !Actors.of(holder).creature?
+
+        dc = Pf2eHP.recovery_dc(holder)
+        die = Pf2e.roll_dice(1, 20).first
+        degree = Degree.of(die, dc, die)
+        value = dying + RECOVERY[degree]
+        fatal_at = 4 - Pf2e.condition_level(holder, 'Doomed')
+        told = [ event('pf2e.recovery_check', 'name' => holder.name, 'die' => die, 'dc' => dc,
+                       'degree' => Resolve::WORDS[degree]) ]
+
+        if value <= 0
+          Pf2e.remove_condition(holder, 'Dying', true)
+          Pf2e.set_condition(holder, 'Wounded', Pf2e.condition_level(holder, 'Wounded') + 1)
+          Pf2e.set_condition(holder, 'Unconscious', nil, 'granted_by' => Pf2eHP::NO_HIT_POINTS)
+          told << event('pf2e.recovery_stable', 'name' => holder.name)
+        elsif value >= fatal_at
+          Pf2e.set_condition(holder, 'Dying', fatal_at - 1)
+          told << event('pf2e.recovery_at_death', 'name' => holder.name, 'value' => fatal_at - 1)
+        else
+          Pf2e.set_condition(holder, 'Dying', value)
+          told << event('pf2e.recovery_dying', 'name' => holder.name, 'value' => value)
+        end
+
+        told
       end
 
       def self.turn_ended(encounter, participant, round)
@@ -163,7 +199,7 @@ module AresMUSH
           next nil unless one['value'].positive?
 
           Harm.heal(char, one['value'])
-          event('pf2e.fast_healing', 'name' => char.name, 'amount' => one['value'], 'source' => one['source'])
+          event('pf2e.fast_healing', 'name' => char.name, 'count' => one['value'].to_i, 'source' => one['source'])
         end.compact
       end
 

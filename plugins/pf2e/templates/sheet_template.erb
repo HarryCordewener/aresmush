@@ -35,6 +35,7 @@
 <%= left("#{item_color}Temp HP%xn: #{temp_hp}",39) %>
 <%= left("#{item_color}Class DC%xn: #{class_dc}",39) -%>
 <%= left("#{item_color}Perception%xn: #{perception}",39) %>
+<%= left("#{item_color}AC%xn: #{ac}",39) %>
 <% if has_archetypes? %>
 <%= left("#{item_color}Archetype Class DC(s)%xn: #{archetype_class_dcs}", 78) %>
 <% end %>
@@ -98,7 +99,7 @@
 <% end %>
 <% if [ "magic", "all" ].include?(section) %>
 <%= section_line("Magic") %>
-<% if magic_stats %>
+<% if magic_stats && spell_dcs.any? %>
 <%= magic_header %>
 <% spell_dcs.each do |dcs| %>
 <%= dcs %>

@@ -66,6 +66,18 @@ module AresMUSH
       expect(Pf2e.get_condition_value(reread, 'Dying')).to be_nil
     end
 
+    # Wounded comes with losing Dying, once: someone who stopped dying on their own is already wounded
+    # for it, and healing them adds nothing more.
+    it "should not wound again someone healed after they stopped dying" do
+      Pf2eHP.modify_damage(@char, Pf2eHP.get_max_hp(@char), false, true)
+      Pf2e.remove_condition(reread, 'Dying', true)
+      Pf2e.set_condition(reread, 'Wounded', 1)
+
+      Pf2eHP.modify_damage(reread, 5, true)
+
+      expect(Pf2e.condition_level(reread, 'Wounded')).to eq 1
+    end
+
     it "should kill a character whose Dying reaches four" do
       @char.update(:pf2_conditions => { 'Wounded' => { 'value' => 3, 'status' => true } })
 

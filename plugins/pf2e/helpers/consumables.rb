@@ -40,7 +40,7 @@ module AresMUSH
         amount = Pf2e.roll_formula(entry['heal'])
         Harm.heal(target.holder, amount)
 
-        out['lines'] << Telling.event('pf2e.consumable_heals', 'target' => target.label, 'amount' => amount,
+        out['lines'] << Telling.event('pf2e.consumable_heals', 'target' => target.label, 'count' => amount,
                                                                'item' => name)
         out['gm'] << Telling.event('pf2e.act_hp_left', 'target' => target.label, 'hp' => Harm.hit_points(target.holder))
       end

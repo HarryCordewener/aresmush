@@ -359,7 +359,10 @@ module AresMUSH
       end
 
       # Its Strikes, and the command that makes one.
+      # Its Strikes, ready to type - or, with no hit points left, that it has fallen and how to clear it.
       def reminder_lines
+        return [ t('pf2e.turn_down', :name => @holder.name, :ref => "##{@holder.number}") ] unless @holder.hp_left.to_i.positive?
+
         strikes = Npcs.strikes(@holder).map { |one| "#{one['name']} #{StatBlock.signed(one['bonus'])}" }
 
         strikes.any? ? [ t('pf2e.turn_npc_strikes', :strikes => strikes.join(', '), :ref => "##{@holder.number}") ] : []

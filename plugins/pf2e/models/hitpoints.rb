@@ -55,7 +55,8 @@ module AresMUSH
       existing_damage = hp.damage
 
       if healing
-        if (existing_damage == max_hp)
+        # Healed out of dying: wounded one more. Someone who stopped dying on their own already was.
+        if Pf2e.condition_level(char, 'Dying').positive?
           Pf2e.set_condition(char, 'Wounded', 1 + Pf2e.condition_level(char, 'Wounded'))
           Pf2e.remove_condition(char, 'Dying')
         end
@@ -63,6 +64,7 @@ module AresMUSH
         # What an effect took and says cannot be healed stays taken while the effect lasts.
         floor = [ Pf2e::HitPointLoss.unrecoverable(char), max_hp ].min
         hp.update(damage: (existing_damage - amount).clamp(floor, max_hp))
+        woken(char)
         return
       end
 
@@ -115,6 +117,18 @@ module AresMUSH
         hp.damage = new_damage
         hp.save
       end
+    end
+
+    # What someone who stopped dying is unconscious for, which healing them ends.
+    NO_HIT_POINTS = 'no hit points'.freeze
+
+    # Back above nothing, someone unconscious only for having no hit points wakes.
+    def self.woken(char)
+      held = (char.pf2_conditions || {})['Unconscious']
+
+      return unless held.is_a?(Hash) && held['granted_by'] == NO_HIT_POINTS && get_current_hp(char).positive?
+
+      Pf2e.remove_condition(char, 'Unconscious', true)
     end
 
     # What the character recovers, given what they were given. Theirs rather than the healer's - Robust
