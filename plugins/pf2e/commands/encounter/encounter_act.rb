@@ -203,10 +203,19 @@ module AresMUSH
         Pf2emagic.cast_spell(char, charclass || 'Innate', self.spell, [], level, kind)
       end
 
+      # Which of their casting classes casts it, where they did not say: the one that knows the spell, and
+      # otherwise the only one they have. A spellcasting entry is named by `name`.
       def casting_class(char)
         return nil unless char.magic
 
-        Pf2emagic::Entries.casting(char.magic).first&.dig('source')
+        entries = Pf2emagic::Entries.casting(char.magic)
+        knows = entries.find { |entry| knows_spell?(char.magic, entry['name']) }
+
+        (knows || entries.first)&.dig('name')
+      end
+
+      def knows_spell?(magic, source)
+        Pf2emagic::Entries.known(magic, source).values.flatten.any? { |spell| spell.to_s.casecmp?(self.spell.to_s) }
       end
     end
 
