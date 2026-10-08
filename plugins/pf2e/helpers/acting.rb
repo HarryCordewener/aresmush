@@ -165,6 +165,7 @@ module AresMUSH
       # What is said after the action's name reaches its effect: the rank it is at, a counter, an answer
       # to what it asks - `action/use rage` and `+e/act raise a shield` are the same command.
       def self.self_action(scene, name, entry, said, out)
+        temporary = temp_hp_of(scene.actor.holder)
         applied = ActiveEffects.apply(scene.actor.holder, entry['self_effect'], :options => effect_options(said),
                                                                                 :applied_by => scene.actor.label,
                                                                                 :encounter => scene.encounter)
@@ -179,6 +180,16 @@ module AresMUSH
         out['lines'] << told('pf2e.act_self_effect', :actor => scene.actor.label, :action => name,
                                                   :cost => Actions.cost(name), :effect => effect.name,
                                                   :lasts => ActiveEffects.remaining(effect))
+
+        gained = temp_hp_of(scene.actor.holder) - temporary
+        out['lines'] << told('pf2e.act_temp_hp', :count => temp_hp_of(scene.actor.holder)) if gained.positive?
+      end
+
+      # Temporary hit points, wherever the holder keeps them.
+      def self.temp_hp_of(holder)
+        fresh = holder.class[holder.id] || holder
+
+        (fresh.respond_to?(:temp_hp) ? fresh.temp_hp : fresh.hp&.temp_hp).to_i
       end
 
       # What was said about an effect, in the words `ActiveEffects.apply` takes: `rank 6`, `value 3`, and
@@ -229,13 +240,16 @@ module AresMUSH
         return unless result['degree']
 
         outcome = Degree::NAMES[result['degree']]
+        applied = Array(Actions.consequences(slug, check['variant'])[outcome])
+
+        # The action's own words for the outcome, where the engine has nothing of its own to do: where it
+        # does, what it does is told as it is done.
         note = (check['notes'] || {})[outcome]
-        out['lines'] << told('pf2e.act_note', :text => note) if note
+        out['lines'] << told('pf2e.act_note', :text => note) if note && applied.empty?
 
         rolled_check.notes(result['degree']).each { |one| out['lines'] << told('pf2e.act_note', :text => one['text']) if one['text'] }
 
-        consequences(scene, Array(Actions.consequences(slug, check['variant'])[outcome]), out,
-                     :rank => rank_of(scene.actor.holder, kind, stat_name))
+        consequences(scene, applied, out, :rank => rank_of(scene.actor.holder, kind, stat_name))
       end
 
       # The way of doing the action the actor named - `stabilize` for First Aid - or its first. The

@@ -158,6 +158,8 @@ module AresMUSH
           run(PF2EncounterAsCmd, 'e/as #2=act demoralize=#3')
 
           expect(Pf2e.condition_level(npc(3), 'Frightened')).to eq 1
+          # Told once, as it is set, not again in the action's own words.
+          expect(said.scan(/Frightened 1/).size).to eq 1
 
           Turns.turn_ended(@encounter, npc(3).name, 1)
 
@@ -694,6 +696,16 @@ module AresMUSH
 
           run(PF2HealPlayerCmd, 'heal #2=3')
           expect(npc(2).damage).to eq 1
+        end
+
+        # The GM's damage drops someone as a Strike does, and the room is told the same.
+        it "should say when the GM's damage drops someone" do
+          allow_any_instance_of(Character).to receive(:is_admin?).and_return(true)
+          run(PF2DamagePlayerCmd, "damage #2=#{npc(2).max_hp}")
+          run(PF2DamagePlayerCmd, "damage #{@hero.name}=#{Pf2eHP.get_max_hp(CombatantStates.of(@encounter, Character[@hero.id]))}")
+
+          expect(said).to include(t('pf2e.act_down', :target => 'Goblin Warrior #2').strip)
+          expect(said).to include(t('pf2e.act_dying', :target => @hero.name, :value => 1).strip)
         end
       end
     end

@@ -45,15 +45,22 @@ module AresMUSH
         # can bring on the Dead condition.
         is_dc = self.is_ndc ? false : enactor.has_permission?("kill_pc")
 
+        dropped = Pf2e::Acting.report
+
         ok_char_list = targets.map do |holder|
+          standing = Pf2e::Acting.still_up(holder)
           Pf2e::Harm.damage(holder, self.damage, self.kind, :is_dm => is_dc)
 
           Pf2e::Actors.of(holder).notify_damage(self.damage, enactor.name)
+          Pf2e::Acting.dropped(Pf2e::Combatants::Combatant.new(holder, holder.name, nil), standing, dropped)
 
           holder.name
         end
 
         client.emit_success t('pf2e.damage_applied_ok', :list => ok_char_list.sort.join(", "), :amount => self.damage)
+
+        # The room is told who it dropped, as a Strike tells it.
+        Pf2e::Telling.lines(dropped['lines']).each { |line| enactor_room.emit line.strip }
 
       end
 

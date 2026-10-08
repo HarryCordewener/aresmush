@@ -45,7 +45,7 @@ module AresMUSH
                      :pf2_features => { 'charclass_features' => [], 'archetype_features' => [] })
         @abilities = Pf2e::ABILITIES.map { |name| Pf2eAbilities.create(:character => @char, :name => name, :base_val => 12) }
 
-        allow_any_instance_of(Room).to receive(:emit)
+        allow_any_instance_of(Room).to receive(:emit) { |_room, message| @client.said << message.to_s }
       end
 
       after(:each) do
@@ -189,6 +189,7 @@ module AresMUSH
           use("action/use rage")
 
           expect(standing.temp_hp).to eq 3 + 1
+          expect(@client.said.join).to include(t('pf2e.act_temp_hp', :count => 4).strip)
         end
 
         it "should refuse an action the character does not have, and put nothing on them" do
