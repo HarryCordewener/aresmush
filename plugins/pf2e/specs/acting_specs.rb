@@ -242,6 +242,22 @@ module AresMUSH
           expect(said).to_not include('(base')
         end
 
+        # A reaction that is a Strike rolls it: the reaction is spent, and the Strike neither takes nor
+        # adds to the multiple attack penalty.
+        it "should make Reactive Strike's Strike outside the multiple attack penalty" do
+          @hero.update(:pf2_features => { 'charclass_features' => [ 'Reactive Strike' ], 'archetype_features' => [] })
+          run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)
+          @client.said.clear
+          run(PF2EncounterActCmd, 'e/act reactive strike=#3/fist', @hero)
+          turn = TurnState.turn(CombatantStates.of(@encounter, Character[@hero.id]))
+
+          expect(@client.failures).to eq []
+          expect(said).to include('Reactive Strike')
+          expect(said).to include('with Fist')
+          expect(said).to_not include('2nd attack')
+          expect(turn).to include('actions' => 1, 'attacks' => 1, 'reaction' => true)
+        end
+
         it "should let a character strike a creature with their fist" do
           @dice = 0.75
           run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)

@@ -96,6 +96,8 @@ module AresMUSH
 
         entry = Actions.info(name)
         entry = follow_up_entry(entry, follow, term) if follow
+
+        return reaction_strike(scene, name, entry, words) if entry['strike']
         said = said(words, scene.permitted)
         out = report
         refused(out, said)
@@ -327,23 +329,39 @@ module AresMUSH
       # ------------------------------------------------------------------------------
       # Strikes
 
-      def self.strike(scene, weapon_term, words)
+      # A Strike made as a reaction, Reactive Strike's: with the attack named among what was said, or the
+      # first that will do. It spends the reaction, and the multiple attack penalty neither applies to it
+      # nor counts it.
+      def self.reaction_strike(scene, name, entry, words)
+        melee = entry['strike'] == 'melee'
+        term = said(words, scene.permitted)['words'].find { |word| attack_for(scene.actor.holder, word, :melee => melee) }
+
+        strike(scene, term, words, :reaction => name, :melee => melee)
+      end
+
+      def self.strike(scene, weapon_term, words, reaction: nil, melee: false)
         said = said(words, scene.permitted)
         out = report
         refused(out, said)
 
         return Err.new(:no_target, 'pf2e.act_needs_target') unless scene.target
 
-        attack = attack_for(scene.actor.holder, weapon_term)
+        attack = attack_for(scene.actor.holder, weapon_term, :melee => melee)
 
         return Err.new(:no_attack, 'pf2e.act_no_attack', 'attack' => weapon_term.to_s) unless attack
 
+        if reaction
+          out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => reaction,
+                                                  :cost => Actions.cost(reaction), :target => target_phrase(scene))
+        end
+
         # Range increments are a ranged or thrown attack's; a melee Strike ignores them.
         increments = attack['ranged'] || Pf2e.has_trait?(attack['traits'], 'thrown') ? said['range'].to_i : 0
-        said = said.merge('range' => increments)
+        said = said.merge('range' => increments, 'no_map' => !reaction.nil?)
         return Err.new(:out_of_range, 'pf2e.act_out_of_range') if increments > 6
 
-        options = TurnState.map_options(scene.actor.holder) + options_for(scene, said, 'strike') + [ 'action:strike' ]
+        penalty = said['no_map'] ? [] : TurnState.map_options(scene.actor.holder)
+        options = penalty + options_for(scene, said, 'strike') + [ 'action:strike' ]
         check = Check.of(scene.actor.holder, 'attack', attack, options)
         extra = increments > 1 ? [ { 'source' => "range increment #{increments}", 'slug' => 'range-penalty',
                                      'type' => 'untyped', 'value' => -2 * (increments - 1) } ] : []
@@ -360,7 +378,11 @@ module AresMUSH
         # A bomb is thrown whatever it does.
         Consumables.spend!(scene.actor.holder, attack['consumable']) if attack['consumable']
 
-        TurnState.spend(scene.actor.holder, 'Strike', :cost => 1, :type => 'action', :attack => true)
+        if reaction
+          TurnState.spend(scene.actor.holder, reaction, :type => 'reaction')
+        else
+          TurnState.spend(scene.actor.holder, 'Strike', :cost => 1, :type => 'action', :attack => true)
+        end
 
         Ok.new(:state => out)
       end
@@ -398,7 +420,7 @@ module AresMUSH
       def self.circumstance_phrase(scene, said)
         attacks = TurnState.turn(scene.actor.holder)['attacks'].to_i
         parts = []
-        parts << told('pf2e.act_nth_attack', :nth => [ attacks + 1, 3 ].min == 2 ? '2nd' : '3rd') if attacks.positive?
+        parts << told('pf2e.act_nth_attack', :nth => [ attacks + 1, 3 ].min == 2 ? '2nd' : '3rd') if attacks.positive? && !said['no_map']
         parts << told('pf2e.act_flanking') if said['flanking']
         parts << told('pf2e.act_range', :range => said['range']) if said['range'].to_i > 1
         cover = cover_of(scene, said)
@@ -569,8 +591,9 @@ module AresMUSH
         Actors.of(holder).attacks
       end
 
-      def self.attack_for(holder, term)
+      def self.attack_for(holder, term, melee: false)
         listed = attacks_of(holder)
+        listed = listed.reject { |_, attack| attack['ranged'] } if melee
 
         return listed.first&.last if term.to_s.strip.empty?
 

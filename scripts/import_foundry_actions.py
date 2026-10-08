@@ -20,8 +20,12 @@ the words are not regular enough to act on: Grapple's critical failure lets the 
 the engine applies lives in `game/config/pf2e_action_consequences.yml`, written from those notes, where a
 GM can change it without running this.
 
-The rules an action carries for as long as a character owns it are counted rather than written: they
-belong with how a use of it becomes a roll - Power Attack's extra die.
+A reaction that is a Strike - Reactive Strike's "Make a melee Strike against the triggering creature" -
+says so under `strike`: `melee` where only a melee Strike will do, `any` otherwise. Using it rolls that
+Strike.
+
+The rules an action carries for as long as a character owns it are counted here and written by
+`import_foundry_rules.py --only actions`, which runs after this.
 
 Usage: scripts/import_foundry_actions.py /path/to/foundryvtt-pf2e [--write]
 """
@@ -51,6 +55,9 @@ TYPES = {'action', 'reaction', 'free', 'passive'}
 # Their actions pack is filed by whose an action is: these folders are everyone's, and any other - a
 # class, an archetype, an ancestry, a heritage - belongs to whoever has the feat or feature of its name.
 COMMON = {'basic', 'skill', 'exploration', 'downtime'}
+
+# A reaction whose effect is a Strike at whoever triggered it, and whether it has to be a melee one.
+STRIKES = re.compile(r'[Mm]ake an? (melee )?Strike against the triggering (?:creature|foe)')
 
 
 MACROS = 'src/module/system/action-macros'
@@ -265,8 +272,12 @@ def entry_of(doc, source, effects, counted):
         entry['self_effect'] = effect if effect in effects else None
         if effect not in effects:
             counted[f'a self-effect our catalogue lacks: {effect}'] += 1
+    text = rules.plain((system.get('description') or {}).get('value'), DESCRIPTION)
+    struck = STRIKES.search(text) if kind == 'reaction' else None
+    if struck:
+        entry['strike'] = 'melee' if struck.group(1) else 'any'
     if source == 'action':
-        entry['description'] = rules.plain((system.get('description') or {}).get('value'), DESCRIPTION)
+        entry['description'] = text
 
     return entry
 
@@ -289,7 +300,7 @@ def rendered(entries):
         lines.append(f'  {json.dumps(name, ensure_ascii=False)}:')
 
         for field in ('from', 'for', 'type', 'cost', 'category', 'traits', 'frequency', 'self_effect',
-                      'check', 'description'):
+                      'strike', 'check', 'description'):
             if field in entry and entry[field] is not None:
                 lines.append(f'    {field}: {value(entry[field])}')
 
