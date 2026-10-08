@@ -254,14 +254,19 @@ module AresMUSH
 
         rows(char).each do |row|
           next if !row['reverted_by'].blank?
-          next unless row['kind'] == 'grant_feat'
-          next if (row['payload'] || {})['choice'].blank?
+
+          payload = row['payload'] || {}
+          name, label = case row['kind']
+                        when 'grant_feat' then [ payload['feat'], payload['choice'] ]
+                        when 'make_choice' then [ payload['choice'], payload['label'] ]
+                        end
+          next if name.blank? || label.blank?
 
           key = row['effective_level'].to_i.to_s
           entry = (tracker[key] ||= {})
           choices = (entry['feat_choices'] ||= {})
-          list = (choices[row['payload']['feat']] ||= [])
-          list << row['payload']['choice'] unless list.include?(row['payload']['choice'])
+          list = (choices[name] ||= [])
+          list << label unless list.include?(label)
         end
 
         tracker
@@ -584,8 +589,14 @@ module AresMUSH
 
         plan['revocations'].each { |r| revert_matching!(char, r['kind'], r['match'], :by => marker, :materialize => false, :limit => r['limit']) }
 
+        # What this level chose, which `do_advancement` has just written against it.
+        chosen = (Pf2e.level_entry(char, level)['feat_choices'] || {})
+
         txn_id = write(char, :source_type => 'level_up', :source_ref => "advance to level #{level}", :effective_level => level, :materialize => false) do |txn|
           plan['grants'].each { |g| txn.grant(g['kind'], g['payload']) }
+          chosen.each_pair do |choice, labels|
+            Array(labels).each { |label| txn.grant('make_choice', 'choice' => choice, 'label' => label) }
+          end
         end
 
         invalidate!(char)
@@ -682,6 +693,10 @@ module AresMUSH
 
           (char.pf2_features || {}).each_pair do |bucket, features|
             Array(features).each { |f| txn.grant('grant_feature', 'bucket' => bucket, 'feature' => f) }
+          end
+
+          Pf2e.recorded_choices(char).each do |choice, label, level|
+            txn.grant('make_choice', { 'choice' => choice, 'label' => label }, { 'effective_level' => [ level, 1 ].max })
           end
 
           DraftSheet.of(char).languages.each { |l| txn.grant('add_language', 'language' => l) }

@@ -70,6 +70,13 @@ module AresMUSH
             Ledger.add_to_bucket(sheet['feat_choices'], p['feat'], p['choice']) unless p['choice'].blank?
           }
         },
+        # What a feat or a class asked the character to choose, by the name of the choice: Assurance's
+        # skill, a cleric's domain. A class's choice is often named for no feat, so it is a kind of its
+        # own rather than a field on the feat.
+        'make_choice' => {
+          'key' => 'choice', 'sheet' => 'feat_choices',
+          'apply' => lambda { |sheet, p| Ledger.add_to_bucket(sheet['feat_choices'], p['choice'], p['label']) }
+        },
         'grant_feature' => {
           'key' => 'feature', 'sheet' => 'features', 'sync' => 'bucketed', 'default_bucket' => 'charclass_features',
           'apply' => lambda { |sheet, p| Ledger.add_to_bucket(sheet['features'], p['bucket'] || 'charclass_features', p['feature']) }

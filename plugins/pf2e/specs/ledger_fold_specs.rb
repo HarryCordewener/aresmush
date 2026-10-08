@@ -100,6 +100,22 @@ module AresMUSH
         # domain, Assurance for a second skill - and each taking is its own grant. Folding
         # those to one entry undercounts the sheet and, because the repeat check reads that
         # list, would let the feat be taken past its maximum.
+        # A choice a class or feat asks for is history of its own, whatever its name: a class's choice
+        # is often named for no feat at all.
+        it "should record a choice made, by the name of the choice" do
+          sheet = Ledger.fold([ grant(1, 'make_choice', { 'choice' => 'Domain Initiate', 'label' => 'Family' }, level: 1),
+                                grant(2, 'make_choice', { 'choice' => 'Assurance', 'label' => 'Arcana' }, level: 1),
+                                grant(3, 'make_choice', { 'choice' => 'Assurance', 'label' => 'Society' }, level: 2) ], at_level: 2)
+
+          expect(sheet['feat_choices']).to eq('Domain Initiate' => [ 'Family' ], 'Assurance' => [ 'Arcana', 'Society' ])
+        end
+
+        it "should not know a choice made above the level being read" do
+          sheet = Ledger.fold([ grant(1, 'make_choice', { 'choice' => 'Assurance', 'label' => 'Society' }, level: 2) ], at_level: 1)
+
+          expect(sheet['feat_choices']).to eq({})
+        end
+
         it "should list a feat once per taking" do
           grants = [
             grant(1, 'grant_feat', { 'bucket' => 'charclass', 'feat' => 'Domain Acumen', 'choice' => 'Sun' }, level: 4),
