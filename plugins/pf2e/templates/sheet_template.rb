@@ -269,11 +269,12 @@ module AresMUSH
         feature_list('archetype_features')
       end
 
-      # Through Array(), because the materialiser rebuilds pf2_features from the fold and the fold
-      # only makes a bucket that has something in it: a character with no archetype has no
-      # 'archetype_features' key at all, and `sheet` raised NoMethodError on every one of them.
+      # The fold only makes a bucket that has something in it, so a bucket may be missing. A feature
+      # the class table grants by its general name ("Fifth Doctrine") is named once, by the version
+      # a specialty grants alongside it ("Fifth Doctrine (Cloistered)").
       def feature_list(bucket)
         held = Array((@char.pf2_features || {})[bucket])
+        held = held.reject { |name| held.any? { |other| other.start_with?("#{name} (") } }
 
         held.empty? ? "None" : held.sort.join(", ")
       end

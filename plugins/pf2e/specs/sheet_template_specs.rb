@@ -3,11 +3,8 @@ require "plugin_test_loader"
 module AresMUSH
   module Pf2e
 
-    # What the sheet does with a bucket that is not there.
-    #
-    # `pf2_features` starts as two empty buckets, but the materialiser rebuilds it from the fold and
-    # the fold only makes a bucket that has something in it. So a character with no archetype has no
-    # 'archetype_features' key after their first commit, and the sheet asked it for `.empty?`.
+    # How the sheet lists a bucket of features. The fold only makes a bucket that has something in it,
+    # so a character with no archetype has no 'archetype_features' key at all.
     describe Pf2eSheetTemplate do
 
       def rendered_for(features)
@@ -38,6 +35,13 @@ module AresMUSH
 
         expect(template.class_features).to eq 'Bravery, Rage'
         expect(template.archetype_features).to eq 'Basic Bard Spellcasting'
+      end
+
+      # The class table grants "Fifth Doctrine" and the doctrine says what it is; the sheet names it once.
+      it "should name a feature once when a specialty's version of it is held too" do
+        template = rendered_for('charclass_features' => [ 'Fifth Doctrine', 'Fifth Doctrine (Cloistered)', 'Divine Font' ])
+
+        expect(template.class_features).to eq 'Divine Font, Fifth Doctrine (Cloistered)'
       end
 
       it "should cope with no features hash at all" do
