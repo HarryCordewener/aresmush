@@ -129,9 +129,20 @@ module AresMUSH
           expect(Acting.way_needed('Gouging Claw', [ 'slashing' ]).ok?).to be true
         end
 
+        # Elemental Breath deals nothing until it is cast as one element or another.
+        it "should ask which way when only the ways deal damage" do
+          expect(Acting.way_needed('Elemental Breath', []).code).to eq :way_needed
+          expect(Acting.way_needed('Elemental Breath', [ 'fire' ]).ok?).to be true
+        end
+
         it "should not ask of a spell whose ways are a choice the caster may leave" do
           expect(Acting.way_needed('Heal', []).ok?).to be true
           expect(Acting.way_needed('Fireball', []).ok?).to be true
+        end
+
+        # Lay on Hands is cast the way its target calls for: healing the living, harming the undead.
+        it "should not ask of a spell its target decides" do
+          expect(Acting.way_needed('Lay on Hands', []).ok?).to be true
         end
 
         it "should find a variant by a word of its name" do

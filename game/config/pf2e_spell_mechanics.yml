@@ -714,7 +714,7 @@ pf2e_spell_mechanics:
     traits: ["concentrate", "manipulate", "plant", "wood"]
     time: "3"
     range: "60 feet"
-    variants: [{"name": "Avenging Wildwood (Bludgeoning)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["1d8"]}}, {"name": "Avenging Wildwood (Piercing)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["1d8"]}}, {"name": "Avenging Wildwood (Slashing)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["1d8"]}}]
+    variants: [{"name": "Avenging Wildwood (Bludgeoning)", "save": null, "basic": false, "damage": [{"formula": "2d8", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 2, "damage": ["1d8"]}}, {"name": "Avenging Wildwood (Piercing)", "save": null, "basic": false, "damage": [{"formula": "2d8", "type": "piercing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 2, "damage": ["1d8"]}}, {"name": "Avenging Wildwood (Slashing)", "save": null, "basic": false, "damage": [{"formula": "2d8", "type": "slashing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 2, "damage": ["1d8"]}}]
   "Awaken Animal":
     rank: 6
     traits: ["mental"]
@@ -1024,7 +1024,7 @@ pf2e_spell_mechanics:
     attack: true
     target: "1 or more creatures"
     range: "60 feet"
-    variants: [{"name": null, "time": "1", "target": "1 creature", "damage": [], "heightening": {"interval": 1, "damage": ["1d6"]}}, {"name": null, "time": "2 or 3", "target": "2 or more creatures", "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}]
+    variants: [{"name": null, "time": "1", "target": "1 creature", "damage": [{"formula": "2d6", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d6"]}}, {"name": null, "time": "2 or 3", "target": "2 or more creatures", "damage": [{"formula": "4d6", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}]
   "Blazing Dive":
     rank: 3
     traits: ["air", "concentrate", "fire", "manipulate"]
@@ -2097,7 +2097,7 @@ pf2e_spell_mechanics:
     target: "1 creature"
     range: "60 feet"
     outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Blinded", "until": "rounds:1"}]}
-    variants: [{"name": "Cinder Swarm (Fire Ants)", "save": "reflex", "basic": true, "damage": [], "heightening": {"interval": 1, "damage": ["2d6", "0"]}}, {"name": "Cinder Swarm (Fireflies)", "save": "fortitude", "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}]
+    variants: [{"name": "Cinder Swarm (Fire Ants)", "save": "reflex", "basic": true, "damage": [{"formula": "3d6", "type": "piercing", "category": null, "kinds": ["damage"]}, {"formula": "2d6", "type": "fire", "category": "persistent", "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6", "0"]}}, {"name": "Cinder Swarm (Fireflies)", "save": "fortitude", "basic": false, "damage": [{"formula": "3d6", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}]
   "Circle of Protection":
     rank: 3
     traits: ["concentrate", "manipulate"]
@@ -2235,7 +2235,7 @@ pf2e_spell_mechanics:
     save: "reflex"
     basic: true
     range: "100 feet"
-    variants: [{"name": "Clockwork Devotion (Arrive)", "damage": []}, {"name": "Clockwork Devotion (Depart)", "area": "30-foot emanation", "damage": []}]
+    variants: [{"name": "Clockwork Devotion (Arrive)", "damage": [{"formula": "4d10", "type": "slashing", "category": null, "kinds": ["damage"]}]}, {"name": "Clockwork Devotion (Depart)", "area": "30-foot emanation", "damage": [{"formula": "4d8", "type": "fire", "category": null, "kinds": ["damage"]}, {"formula": "4d8", "type": "slashing", "category": null, "kinds": ["damage"]}]}]
   "Clone":
     rank: 9
     traits: []
@@ -2495,7 +2495,7 @@ pf2e_spell_mechanics:
     time: "3"
     range: "500 feet"
     outcomes: {"success": [{"condition": "Frightened", "value": 2}], "failure": [{"condition": "Frightened", "value": 3}], "criticalFailure": [{"condition": "Frightened", "value": 4}, {"condition": "Fleeing", "until": "rounds:1"}, {"condition": "Clumsy", "until": "rounds:3"}, {"condition": "Drained", "until": "rounds:3"}, {"condition": "Enfeebled", "until": "rounds:3"}, {"condition": "Frightened"}, {"condition": "Sickened", "until": "rounds:3"}, {"condition": "Stupefied", "until": "rounds:3"}, {"effect": "Spell Effect: Conquering Soldiers (Depart)"}]}
-    variants: [{"name": "Conquering Soldiers (Arrive)", "area": "80-foot emanation", "save": "will", "basic": false, "damage": []}, {"name": "Conquering Soldiers (Depart)", "save": null, "basic": false}]
+    variants: [{"name": "Conquering Soldiers (Arrive)", "area": "80-foot emanation", "save": "will", "basic": false, "damage": [{"formula": "6d12", "type": "mental", "category": null, "kinds": ["damage"]}]}, {"name": "Conquering Soldiers (Depart)", "save": null, "basic": false}]
   "Consecrate":
     rank: 2
     traits: ["consecration"]
@@ -4129,7 +4129,7 @@ pf2e_spell_mechanics:
     basic: true
     area: "60-foot cone"
     outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Prone"}]}
-    variants: [{"name": "Elemental Breath (Air)", "damage": [], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Elemental Breath (Earth)", "damage": [], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Elemental Breath (Fire)", "damage": [], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Elemental Breath (Metal)", "damage": [], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Elemental Breath (Water)", "damage": [], "heightening": {"interval": 1, "damage": ["1d10", "0"]}}, {"name": "Elemental Breath (Wood)", "damage": [], "heightening": {"interval": 1, "damage": ["1d10", "0"]}}]
+    variants: [{"name": "Elemental Breath (Air)", "damage": [{"formula": "6d10", "type": "electricity", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Elemental Breath (Earth)", "damage": [{"formula": "5d10", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Elemental Breath (Fire)", "damage": [{"formula": "7d10", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Elemental Breath (Metal)", "damage": [{"formula": "5d10", "type": "slashing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Elemental Breath (Water)", "damage": [{"formula": "3d10", "type": "cold", "category": null, "kinds": ["damage"]}, {"formula": "3d10", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d10", "0"]}}, {"name": "Elemental Breath (Wood)", "damage": [{"formula": "3d10", "type": "piercing", "category": null, "kinds": ["damage"]}, {"formula": "3d10", "type": "slashing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d10", "0"]}}]
   "Elemental Confluence":
     rank: 6
     traits: ["air", "concentrate", "earth", "fire", "manipulate", "metal", "water", "wood"]
@@ -5135,7 +5135,7 @@ pf2e_spell_mechanics:
     area: "5-foot burst"
     range: "30 feet"
     outcomes: {"criticalFailure": [{"condition": "Dazzled", "until": "rounds:2"}, {"condition": "Clumsy", "value": 1, "until": "rounds:2"}, {"condition": "Prone"}]}
-    variants: [{"name": "Flourishing Flora (Cacti)", "damage": [], "heightening": {"interval": 1, "damage": ["1d4"]}}, {"name": "Flourishing Flora (Flowers)", "damage": [], "heightening": {"interval": 1, "damage": ["1d4"]}}, {"name": "Flourishing Flora (Fruits)", "damage": [], "heightening": {"interval": 1, "damage": ["1d4"]}}, {"name": "Flourishing Flora (Roots)", "damage": [], "heightening": {"interval": 1, "damage": ["1d4"]}}]
+    variants: [{"name": "Flourishing Flora (Cacti)", "damage": [{"formula": "2d4", "type": "piercing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d4"]}}, {"name": "Flourishing Flora (Flowers)", "damage": [{"formula": "2d4", "type": "poison", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d4"]}}, {"name": "Flourishing Flora (Fruits)", "damage": [{"formula": "2d4", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d4"]}}, {"name": "Flourishing Flora (Roots)", "damage": [{"formula": "2d4", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d4"]}}]
   "Flowing Strike":
     rank: 5
     traits: ["concentrate", "manipulate", "water"]
@@ -7199,7 +7199,7 @@ pf2e_spell_mechanics:
     time: "3"
     range: "500 feet"
     outcomes: {"failure": [{"condition": "Sickened", "value": 2}], "criticalFailure": [{"condition": "Sickened", "value": 2}]}
-    variants: [{"name": "Jassim's Allegiance (Arrive)", "area": "60-foot line", "save": "reflex", "basic": true, "damage": []}, {"name": "Jassim's Allegiance (Depart)", "area": "60-foot emanation", "save": "fortitude", "basic": true, "damage": []}]
+    variants: [{"name": "Jassim's Allegiance (Arrive)", "area": "60-foot line", "save": "reflex", "basic": true, "damage": [{"formula": "5d12", "type": "fire", "category": null, "kinds": ["damage"]}, {"formula": "5d12", "type": "piercing", "category": null, "kinds": ["damage"]}]}, {"name": "Jassim's Allegiance (Depart)", "area": "60-foot emanation", "save": "fortitude", "basic": true, "damage": [{"formula": "10d6", "type": "slashing", "category": null, "kinds": ["damage"]}]}]
   "Jealous Hex":
     rank: 1
     traits: ["concentrate", "curse", "focus", "sorcerer"]
@@ -7347,7 +7347,7 @@ pf2e_spell_mechanics:
     time: "1"
     target: "1 willing living creature or 1 undead creature"
     range: "touch"
-    variants: [{"name": "Lay on Hands (Healing)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["6"]}}, {"name": "Lay on Hands (Vs. Undead)", "save": "fortitude", "basic": true, "damage": [], "heightening": {"interval": 1, "damage": ["1d6"]}}]
+    variants: [{"name": "Lay on Hands (Healing)", "save": null, "basic": false, "damage": [{"formula": "6", "type": "vitality", "category": null, "kinds": ["healing"]}], "heightening": {"interval": 1, "damage": ["6"]}}, {"name": "Lay on Hands (Vs. Undead)", "save": "fortitude", "basic": true, "damage": [{"formula": "1d6", "type": "vitality", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d6"]}}]
   "Leaden Steps":
     rank: 1
     traits: ["concentrate", "manipulate", "metal", "morph"]
@@ -9242,7 +9242,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}]
     area: "100-foot burst"
     range: "300 feet"
-    variants: [{"name": "Planar Collision (Air)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Earth)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Fire)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Metal)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Water)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Wood)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}]}]
+    variants: [{"name": "Planar Collision (Air)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}, {"formula": "8d8", "type": "acid", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Earth)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}, {"formula": "8d8", "type": "bludgeoning", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Fire)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}, {"formula": "8d8", "type": "fire", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Metal)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}, {"formula": "8d8", "type": "slashing", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Water)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}, {"formula": "8d8", "type": "cold", "category": null, "kinds": ["damage"]}]}, {"name": "Planar Collision (Wood)", "damage": [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}, {"formula": "8d8", "type": "piercing", "category": null, "kinds": ["damage"]}]}]
   "Planar Displacement":
     rank: 7
     traits: ["teleportation"]
@@ -9289,7 +9289,7 @@ pf2e_spell_mechanics:
     basic: true
     area: "30-foot cone"
     outcomes: {"criticalFailure": [{"condition": "Sickened", "value": 2}]}
-    variants: [{"name": null, "time": "1", "area": "15-foot None", "damage": [], "heightening": {"interval": 1, "damage": ["1d6", "1d6"]}}, {"name": null, "time": "2", "damage": [], "heightening": {"interval": 1, "damage": ["2d6", "2d6"]}}, {"name": null, "time": "3", "area": "60-foot None", "damage": [], "heightening": {"interval": 1, "damage": ["2d6", "2d6"]}}]
+    variants: [{"name": null, "time": "1", "area": "15-foot None", "damage": [{"formula": "2d6", "type": "electricity", "category": null, "kinds": ["damage"]}, {"formula": "2d6", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 2, "damage": ["1d6", "1d6"]}}, {"name": null, "time": "2", "damage": [{"formula": "5d6", "type": "electricity", "category": null, "kinds": ["damage"]}, {"formula": "5d6", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 2, "damage": ["2d6", "2d6"]}}, {"name": null, "time": "3", "area": "60-foot None", "damage": [{"formula": "5d6", "type": "electricity", "category": null, "kinds": ["damage"]}, {"formula": "5d6", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 2, "damage": ["2d6", "2d6"]}}]
   "Pocket Library":
     rank: 1
     traits: ["concentrate", "extradimensional", "manipulate"]
@@ -9564,7 +9564,7 @@ pf2e_spell_mechanics:
     save: "will"
     basic: true
     area: "20-foot emanation"
-    variants: [{"name": null, "time": "2 to 3", "damage": [], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Psychic Outburst (Two-Round)", "area": "40-foot None", "damage": [], "heightening": {"interval": 1, "damage": ["1d10"]}}]
+    variants: [{"name": null, "time": "2 to 3", "damage": [{"formula": "6d10", "type": "mental", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d10"]}}, {"name": "Psychic Outburst (Two-Round)", "area": "40-foot None", "damage": [{"formula": "8d10", "type": "mental", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d10"]}}]
   "Puff of Poison":
     rank: 0
     traits: ["cantrip", "concentrate", "manipulate", "poison"]
@@ -10528,7 +10528,7 @@ pf2e_spell_mechanics:
     basic: true
     area: "5-foot burst"
     range: "30 feet"
-    variants: [{"name": "Sacred Beasts (Bludgeoning)", "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": "Sacred Beasts (Piercing)", "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": "Sacred Beasts (Slashing)", "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}]
+    variants: [{"name": "Sacred Beasts (Bludgeoning)", "damage": [{"formula": "2d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": "Sacred Beasts (Piercing)", "damage": [{"formula": "2d6", "type": "piercing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": "Sacred Beasts (Slashing)", "damage": [{"formula": "2d6", "type": "slashing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}]
   "Sacred Covenant":
     rank: 9
     traits: ["concentrate", "manipulate"]
@@ -11309,7 +11309,7 @@ pf2e_spell_mechanics:
     time: "3"
     range: "100 feet"
     outcomes: {"criticalFailure": [{"condition": "Frightened", "value": 2}]}
-    variants: [{"name": "Skeleton Army (Arrive)", "area": "20-foot emanation", "save": "reflex", "basic": true, "damage": []}, {"name": "Skeleton Army (Depart)", "area": "20-foot burst", "save": "reflex", "basic": true, "damage": []}]
+    variants: [{"name": "Skeleton Army (Arrive)", "area": "20-foot emanation", "save": "reflex", "basic": true, "damage": [{"formula": "4d8", "type": "slashing", "category": null, "kinds": ["damage"]}]}, {"name": "Skeleton Army (Depart)", "area": "20-foot burst", "save": "reflex", "basic": true, "damage": [{"formula": "6d6", "type": "piercing", "category": null, "kinds": ["damage"]}]}]
   "Sky Laughs at Waves":
     rank: 1
     traits: ["focus", "magus", "manipulate"]
@@ -11534,7 +11534,7 @@ pf2e_spell_mechanics:
     attack: true
     target: "1 creature"
     range: "varies"
-    variants: [{"name": null, "time": "1", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["1d6"]}}, {"name": null, "time": "2", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": null, "time": "3", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}]
+    variants: [{"name": null, "time": "1", "save": null, "basic": false, "damage": [{"formula": "3d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d6"]}}, {"name": null, "time": "2", "save": null, "basic": false, "damage": [{"formula": "6d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": null, "time": "3", "save": null, "basic": false, "damage": [{"formula": "6d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}]
   "Soul Siphon":
     rank: 1
     traits: ["focus", "manipulate", "oracle", "void"]
@@ -11703,7 +11703,7 @@ pf2e_spell_mechanics:
     time: "1"
     target: "1 unattended object up to 1 bulk"
     range: "30 feet"
-    variants: [{"name": "Spirit Object (Bludgeoning)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d4"]}}, {"name": "Spirit Object (Piercing)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d4"]}}, {"name": "Spirit Object (Slashing)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d4"]}}]
+    variants: [{"name": "Spirit Object (Bludgeoning)", "save": null, "basic": false, "damage": [{"formula": "2d4", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d4"]}}, {"name": "Spirit Object (Piercing)", "save": null, "basic": false, "damage": [{"formula": "2d4", "type": "piercing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d4"]}}, {"name": "Spirit Object (Slashing)", "save": null, "basic": false, "damage": [{"formula": "2d4", "type": "slashing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d4"]}}]
   "Spirit Sense":
     rank: 2
     traits: ["concentrate", "detection", "manipulate", "mental"]
@@ -12680,7 +12680,7 @@ pf2e_spell_mechanics:
     area: "5-foot burst"
     target: "2 non-overlapping 5-foot bursts"
     range: "60 feet"
-    variants: [{"name": "Telekinetic Rend (Bludgeoning)", "damage": [], "heightening": {"interval": 2, "damage": ["1d6"]}}, {"name": "Telekinetic Rend (Slashing)", "damage": [], "heightening": {"interval": 2, "damage": ["1d6"]}}]
+    variants: [{"name": "Telekinetic Rend (Bludgeoning)", "damage": [{"formula": "1d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 2, "damage": ["1d6"]}}, {"name": "Telekinetic Rend (Slashing)", "damage": [{"formula": "1d6", "type": "slashing", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 2, "damage": ["1d6"]}}]
   "Telepathic Bond":
     rank: 5
     traits: ["concentrate", "manipulate", "mental"]
@@ -12942,7 +12942,7 @@ pf2e_spell_mechanics:
     attack: true
     target: "1 creature"
     range: "touch"
-    variants: [{"name": "Threefold Limb (Ice)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": "Threefold Limb (Liquid Water)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": "Threefold Limb (Steam)", "save": null, "basic": false, "damage": [], "heightening": {"interval": 1, "damage": ["2d6"]}}]
+    variants: [{"name": "Threefold Limb (Ice)", "save": null, "basic": false, "damage": [{"formula": "2d6", "type": "cold", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": "Threefold Limb (Liquid Water)", "save": null, "basic": false, "damage": [{"formula": "2d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}, {"name": "Threefold Limb (Steam)", "save": null, "basic": false, "damage": [{"formula": "2d6", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}]
   "Thunder Echo":
     rank: 2
     traits: ["concentrate", "electricity", "manipulate"]
@@ -13134,7 +13134,7 @@ pf2e_spell_mechanics:
     time: "1"
     target: "1 willing undead creature or 1 living creature"
     range: "touch"
-    variants: [{"name": "Touch of the Void (Healing)", "damage": [], "heightening": {"interval": 1, "damage": ["6"]}}, {"name": "Touch of the Void (Vs. Living)", "save": "fortitude", "basic": true, "damage": [], "heightening": {"interval": 1, "damage": ["1d6"]}}]
+    variants: [{"name": "Touch of the Void (Healing)", "damage": [{"formula": "6", "type": "untyped", "category": null, "kinds": ["healing"]}], "heightening": {"interval": 1, "damage": ["6"]}}, {"name": "Touch of the Void (Vs. Living)", "save": "fortitude", "basic": true, "damage": [{"formula": "1d6", "type": "void", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d6"]}}]
   "Toxic Cloud":
     rank: 5
     traits: ["concentrate", "death", "manipulate", "poison"]
@@ -13595,7 +13595,7 @@ pf2e_spell_mechanics:
     range: "30 feet"
     outcomes: {"criticalFailure": [{"effect": "Spell Effect: Unravel Knowledge"}]}
     outcome_text: {"success": "The target is unaffected.", "failure": "The target's memories of their ability grow foggy. The first time they use the chosen ability each round, they take 3d8 mental damage. This ability is less effective if you choose an ability almost anyone can use; the target takes 3d4 mental damage instead if you choose a basic action (such as Strike, Stride, or Raise a Shield) or a skill action that can be used untrained (such as Demoralize or Hide).", "criticalFailure": "As failure, and the target takes a –2 status penalty to any check or DC for the ability the first time they use it each round.%rSpell Effect: Unravel Knowledge"}
-    variants: [{"name": "Unravel Knowledge (Higher Damage)", "damage": [], "heightening": {"interval": 1, "damage": ["1d8"]}}, {"name": "Unravel Knowledge (Lower Damage)", "damage": [], "heightening": {"interval": 1, "damage": ["1d4"]}}]
+    variants: [{"name": "Unravel Knowledge (Higher Damage)", "damage": [{"formula": "3d8", "type": "mental", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d8"]}}, {"name": "Unravel Knowledge (Lower Damage)", "damage": [{"formula": "3d4", "type": "mental", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d4"]}}]
   "Unraveling Blast":
     rank: 1
     traits: ["concentrate", "focus", "manipulate", "sorcerer"]
@@ -13877,7 +13877,7 @@ pf2e_spell_mechanics:
     basic: true
     target: "one creature you can see"
     range: "30 feet"
-    variants: [{"name": "Vengeful Glare (Cold)", "damage": [], "heightening": {"interval": 1, "damage": ["1d4"]}}, {"name": "Vengeful Glare (Fire)", "damage": [], "heightening": {"interval": 1, "damage": ["1d4"]}}]
+    variants: [{"name": "Vengeful Glare (Cold)", "damage": [{"formula": "1d4", "type": "cold", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d4"]}}, {"name": "Vengeful Glare (Fire)", "damage": [{"formula": "1d4", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["1d4"]}}]
   "Ventriloquism":
     rank: 1
     traits: ["auditory", "concentrate", "illusion", "manipulate"]

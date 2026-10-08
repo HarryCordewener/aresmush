@@ -768,6 +768,17 @@ module AresMUSH
           expect(Pf2e.condition_level(CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id]), 'Dying')).to eq 0
         end
 
+        # A spell cast one way for the living and another against the undead, cast without saying which,
+        # is cast the way its target calls for: Lay on Hands heals a living ally.
+        it "should heal a living target with Lay on Hands" do
+          state = CombatantStates.of(@encounter, Character[@hero.id])
+          Pf2eHP.get_hp_obj(state).update(:damage => 10)
+          run(PF2EncounterAsCmd, "e/as #2=cast lay on hands=#{@hero.name}")
+
+          expect(@client.failures).to eq []
+          expect(Pf2eHP.get_hp_obj(CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id])).damage).to eq 4
+        end
+
         # What Command does is the target's to do; the room is told what that is.
         it "should tell the room what an outcome does where it sets no condition" do
           @dice = 0.05

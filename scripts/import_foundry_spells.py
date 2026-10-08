@@ -265,10 +265,14 @@ def variant_of(overlay, base):
 
     damage = system.get('damage') or {}
     if damage:
+        # The spell's own damage as this way changes it, then any this way deals of its own - Lay on
+        # Hands deals nothing until it is cast one way or the other.
+        own = base.get('damage') or {}
+        keys = [key for key, one in own.items() if one.get('formula')] + \
+               [key for key, one in damage.items() if key not in own and one.get('formula')]
         merged = []
-        for key, one in (base.get('damage') or {}).items():
-            if not one.get('formula'):
-                continue
+        for key in keys:
+            one = own.get(key) or {}
             change = damage.get(key) or {}
             merged.append({'formula': change.get('formula', one.get('formula')), 'type': change.get('type', one.get('type')),
                            'category': change.get('category', one.get('category')),
@@ -276,8 +280,9 @@ def variant_of(overlay, base):
         variant['damage'] = merged
         heightening = (system.get('heightening') or {}).get('damage')
         if heightening:
-            variant['heightening'] = {'interval': (base.get('heightening') or {}).get('interval', 1),
-                                      'damage': [heightening.get(key) for key in damage]}
+            variant['heightening'] = {'interval': (system.get('heightening') or {}).get('interval') or
+                                                  (base.get('heightening') or {}).get('interval', 1),
+                                      'damage': [heightening.get(key) for key in keys]}
 
     return variant
 

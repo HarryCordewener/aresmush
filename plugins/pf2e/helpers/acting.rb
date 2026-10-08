@@ -751,8 +751,9 @@ module AresMUSH
         said = said(words, scene.permitted)
         out = report
         refused(out, said)
-        spell, mechanics = spell_mechanics(spell)
-        mechanics = variant(mechanics, said) if mechanics
+        spell, base = spell_mechanics(spell)
+        named = base && variant(base, said)
+        mechanics = named
         rank = spell_rank(scene.actor.holder, spell, mechanics, said, cast)
         casting = Actors.of(scene.actor.holder).casting(spell, cast)
 
@@ -765,11 +766,13 @@ module AresMUSH
         end
 
         attack = mechanics['attack']
-        formulas = spell_damage(mechanics, rank)
         dc = casting ? spell_figure(scene.actor.holder, 'spell_dc', casting) : nil
 
         targets.each do |target|
           each = Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted)
+          mechanics = named.equal?(base) ? way_for(base, target) : named
+          attack = mechanics['attack']
+          formulas = spell_damage(mechanics, rank)
 
           if attack
             spell_attack(each, spell, mechanics, casting, formulas, said, out)
@@ -784,9 +787,9 @@ module AresMUSH
           end
         end
 
-        spell_effect(scene, spell, rank, out) if targets.empty? && !attack && !mechanics['save']
+        spell_effect(scene, spell, rank, out) if targets.empty? && !named['attack'] && !named['save']
 
-        spend_casting(scene.actor.holder, spell, mechanics['time'], attack)
+        spend_casting(scene.actor.holder, spell, named['time'], named['attack'])
 
         Ok.new(:state => out)
       end
@@ -805,15 +808,31 @@ module AresMUSH
         mechanics.merge(chosen.reject { |field, _| field == 'name' }).merge('name' => chosen['name'])
       end
 
+      # A spell cast one way against the undead and another for anyone else - Lay on Hands - cast without
+      # saying which, is cast the way its target calls for.
+      def self.way_for(mechanics, target)
+        variants = Array(mechanics['variants'])
+        undead = variants.find { |one| one['name'].to_s.match?(/undead/i) }
+
+        return mechanics unless undead
+
+        chosen = Effects.facts(target.holder).include?('self:mode:undead') ? undead : (variants - [ undead ]).first
+
+        chosen ? mechanics.merge(chosen.reject { |field, _| field == 'name' }).merge('name' => chosen['name']) : mechanics
+      end
+
       # Whether the caster has to say which way they cast a spell before it is spent: where the way decides
       # the kind of damage it deals, as Gouging Claw's slashing or piercing does, cast without one it
-      # would deal damage of no kind.
+      # would deal damage of no kind; and where only its ways deal any, as Elemental Breath's elements do.
       def self.way_needed(spell, words)
         name, mechanics = spell_mechanics(spell)
         ways = Array((mechanics || {})['variants']).select { |one| one['name'] }
         untyped = Array((mechanics || {})['damage']).any? { |one| one['type'].to_s == 'untyped' }
+        # Only its ways deal anything, and its target does not decide which.
+        ways_only = Array((mechanics || {})['damage']).empty? && ways.any? { |one| Array(one['damage']).any? } &&
+                    ways.none? { |one| one['name'].to_s.match?(/undead/i) }
 
-        return Ok.new(:state => nil) if ways.empty? || !untyped
+        return Ok.new(:state => nil) if ways.empty? || !(untyped || ways_only)
 
         chosen = variant(mechanics, said(words, false))
 
