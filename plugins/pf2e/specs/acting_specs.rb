@@ -314,6 +314,21 @@ module AresMUSH
           expect(turn).to include('actions' => 1, 'attacks' => 2)
         end
 
+        # A creature with no hit points left, or a character knocked out, does nothing.
+        it "should refuse a creature with no hit points left" do
+          npc(2).update(:damage => npc(2).max_hp)
+          run(PF2EncounterAsCmd, "e/as #2=strike #{@hero.name}")
+
+          expect(@client.failures.join).to include(t('pf2e.act_cannot_act', :actor => 'Goblin Warrior #2'))
+        end
+
+        it "should refuse a character who is unconscious" do
+          Pf2e.set_condition(CombatantStates.of(@encounter, Character[@hero.id]), 'Unconscious')
+          run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)
+
+          expect(@client.failures.join).to include(t('pf2e.act_cannot_act', :actor => @hero.name))
+        end
+
         it "should let a character strike a creature with their fist" do
           @dice = 0.75
           run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)

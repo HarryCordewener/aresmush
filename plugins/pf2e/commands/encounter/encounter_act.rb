@@ -26,14 +26,25 @@ module AresMUSH
       # The one acting: the combatant the enactor plays, as they stand in the encounter. Nothing is done
       # outside one.
       def acting_as(encounter, actor = nil)
-        return Ok.new(:state => actor) if actor
+        return able(actor) if actor
         return Err.new(:no_encounter, 'pf2e.no_encounter_here') unless encounter
 
         found = Combatants.find(encounter, enactor.name)
 
         return Err.new(:not_in_encounter, 'pf2e.act_join_first', 'id' => encounter.id) unless found.ok?
 
-        found
+        able(found.state)
+      end
+
+      # A creature with no hit points left, or a character knocked out, does nothing - but for answering
+      # the hit that knocked them out, which the rules have happen before it lands.
+      def able(combatant)
+        holder = combatant.holder
+        down = Actors.of(holder).creature? ? holder.hp_left.to_i <= 0 : Pf2e.held_conditions(holder).key?('Unconscious')
+
+        return Ok.new(:state => combatant) unless down && !Acting.answering?(holder)
+
+        Err.new(:cannot_act, 'pf2e.act_cannot_act', 'actor' => combatant.label)
       end
 
       def scene_for(encounter, actor, target)

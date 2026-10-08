@@ -499,6 +499,7 @@ en:
     act_persistent_ended: "  %{target} no longer takes persistent %{type} damage."
     act_hp_left: "%{target}: %{hp} HP."
     act_crit_spec: "  Critical specialization (%{group}):"
+    act_cannot_act: "%{actor} is out of the fight - no hit points left, or unconscious - and can do nothing."
     act_one_target: "%{action} is aimed at one target. Only an ability that deals damage against a save takes several."
     answer_no_attack: "There is no attack to answer: %{action} answers an attack that has just hit you."
     answer_against: "%{actor} uses %{action}: the attack's %{total} is now against AC %{ac} - %{degree}."

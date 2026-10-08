@@ -343,7 +343,7 @@ module AresMUSH
         return unless row
 
         if row['npc']
-          creature_turn(row)
+          creature_turn(row) if Pf2eNpc[row['npc']]&.hp_left.to_i.positive?
         elsif row['char']
           player_turn(Character[row['char']])
         end

@@ -367,6 +367,15 @@ module AresMUSH
         Actors.of(holder).proficiency(kind, name)
       end
 
+      # Whether the last hit on them can still be answered: nothing has moved their hit points since.
+      def self.answering?(holder)
+        %w{attacked struck}.any? do |key|
+          hit = TurnState.of(holder)[key]
+
+          hit && hit['after'] == AttackAnswers.standing(holder)
+        end
+      end
+
       def self.attack_answer(scene, name, entry)
         answered = AttackAnswers.use(scene, name, report)
 
