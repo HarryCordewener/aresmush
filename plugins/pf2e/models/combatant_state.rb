@@ -38,6 +38,9 @@ module AresMUSH
     attribute :pf2_money, :type => DataType::Integer, :default => 0
     attribute :consumables_at_start, :type => DataType::Hash, :default => {}
 
+    # The exploration activity they are doing, which a fight started from the exploration reads.
+    attribute :exploration_activity
+
     reference :character, "AresMUSH::Character"
     reference :encounter, "AresMUSH::PF2Encounter"
     collection :pf2_effects, "AresMUSH::Pf2eEffect", :state
@@ -57,7 +60,7 @@ module AresMUSH
     # Its own fields; everything else is the character's.
     OWN = (Pf2e::StateHP::FIELDS + %w{pf2_conditions pf2_persistent pf2_turn_state pf2_derived
                           pf2_is_dead pf2_reagents spells_today focus_current revelation_locked pf2_money
-                          consumables_at_start}).freeze
+                          consumables_at_start exploration_activity}).freeze
 
     def delete_effects
       self.pf2_effects.each(&:delete)

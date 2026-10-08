@@ -28,9 +28,7 @@ module AresMUSH
 
         message = t('pf2e.rest_done', :name => enactor.name, :who => resting.map(&:label).join(', '))
 
-        enactor_room.emit_ooc message
-        PF2Encounter.send_to_encounter(PF2Encounter[encounter.id], message)
-        Scenes.add_to_scene(encounter.scene, message, Game.master.system_character, false, true) if encounter.scene
+        Pf2e::Encounters::Announce.tell(PF2Encounter[encounter.id], message, :room => enactor_room, :story => true)
       end
 
       # The characters named, or every character in the encounter. A creature does not prepare.

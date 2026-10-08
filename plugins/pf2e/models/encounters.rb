@@ -16,6 +16,10 @@ module AresMUSH
     attribute :messages, :type => DataType::Array, :default => []
     attribute :init_stat
 
+    # `exploration` for an exploration between fights (`Pf2e::Exploration`): no initiative and no turns.
+    # Anything else is a fight.
+    attribute :mode
+
     # The last combatant id given. An id is never reused within an encounter, so `#2` means the same
     # creature all fight long.
     attribute :last_number, :type => DataType::Integer, :default => 0

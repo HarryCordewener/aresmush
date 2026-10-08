@@ -77,6 +77,10 @@ module AresMUSH
       Global.logger.debug "Stopping scene #{scene.id}."
       return if scene.completed
 
+      # CUSTOM CODE ADD FOR EMBLEM OF EA: an encounter still running ends with its scene, as if its GM
+      # had ended it, and says so in the scene while it still has its room and its log.
+      Pf2e::Encounters::Ending.scene_stopping(scene)
+
       if (scene.room)
         scene.room.characters.each do |c|
           connected_client = Login.find_game_client(c)
@@ -103,10 +107,6 @@ module AresMUSH
 
       scene.update(completed: true)
       scene.update(date_completed: Time.now)
-
-      # CUSTOM CODE ADD FOR EMBLEM OF EA: an encounter still running ends with its scene, as if its GM
-      # had ended it.
-      scene.encounters.select(&:is_active).each { |encounter| Pf2e::Encounters::Ending.end!(encounter) }
 
       # Can't use the regular notify method because of watcher race condition
       web_msg = "#{scene.id}||#{:status_changed}|"

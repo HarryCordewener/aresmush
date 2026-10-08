@@ -63,3 +63,7 @@ pf2e_action_consequences:
     always: [{"on": "actor", "remove": ["Prone"]}]
   "drop-prone":
     always: [{"on": "actor", "condition": "Prone"}]
+  "treat-wounds":
+    criticalSuccess: [{"on": "target", "heal": "4d8", "bonus": {"20": 10, "30": 30, "40": 50}}, {"on": "target", "remove": ["Wounded"]}]
+    success: [{"on": "target", "heal": "2d8", "bonus": {"20": 10, "30": 30, "40": 50}}, {"on": "target", "remove": ["Wounded"]}]
+    criticalFailure: [{"on": "target", "damage": "1d8", "type": "untyped"}]

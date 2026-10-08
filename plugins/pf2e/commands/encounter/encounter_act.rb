@@ -51,15 +51,15 @@ module AresMUSH
         Acting::Scene.new(encounter, actor, target, enactor, Combatants.trusted?(enactor, encounter))
       end
 
-      # Tells the room and records it in the encounter and the scene. What only the GM sees goes to them.
+      # Tells the room, and records it in the encounter and as a line of the scene's story. What only the
+      # GM sees goes to them.
       def tell(encounter, out)
         message = Telling.lines(out['lines']).join('%r')
 
-        enactor_room.emit message
-
         if encounter
-          PF2Encounter.send_to_encounter(encounter, message)
-          Scenes.add_to_scene(encounter.scene, message, Game.master.system_character, false, true) if encounter.scene
+          Pf2e::Encounters::Announce.tell(encounter, message, :room => enactor_room, :story => true)
+        else
+          enactor_room.emit message
         end
 
         tell_gm(encounter, out['gm'])

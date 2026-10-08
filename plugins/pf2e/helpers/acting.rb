@@ -113,6 +113,14 @@ module AresMUSH
         command = COMMANDS[Domains.slug(name)]
         return Err.new(:own_command, 'pf2e.act_own_command', 'action' => name, 'command' => command) if command
 
+        # An exploration activity is taken up while exploring; it and anything else that takes minutes are
+        # refused in a fight.
+        exploring = Exploration.exploring?(scene.encounter)
+        return Exploration.take_up(scene, name, report) if exploring && Exploration.activity?(name)
+        if !exploring && scene.encounter && Exploration.only_exploring?(name, Actions.info(name))
+          return Err.new(:explore_only, 'pf2e.explore_only', 'action' => name)
+        end
+
         unshielded = name == ShieldBlock::RAISE && ShieldBlock.cannot_raise(scene.actor.holder)
         return unshielded if unshielded
 

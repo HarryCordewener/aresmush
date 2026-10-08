@@ -199,6 +199,14 @@ module AresMUSH
           return PF2ActionViewCmd
         end
       when "encounter", "initiative", "init", "e"
+        # `+e/explore=12` and `+e/start=12` arrive with the `=` in the switch and the number as a page.
+        if cmd.switch.to_s.include?('=') && cmd.args.to_s.strip.empty?
+          switch, rest = cmd.switch.split('=', 2)
+          cmd.switch = switch
+          cmd.args = "=#{rest}#{cmd.page}"
+          cmd.page = nil
+        end
+
         case cmd.switch
         when "act"
           return PF2EncounterActCmd
@@ -258,6 +266,8 @@ module AresMUSH
           return PF2EncounterHistoryCmd
         when "start"
           return PF2InitiateCombatCmd
+        when "explore", "start/explore"
+          return PF2ExploreCmd
         when "view"
           return PF2InitViewCmd
         when "join"

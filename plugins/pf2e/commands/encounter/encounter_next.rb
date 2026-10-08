@@ -21,6 +21,8 @@ module AresMUSH
 
         encounter = found.state
 
+        return client.emit_failure(t('pf2e.explore_no_turns')) if Pf2e::Exploration.exploring?(encounter)
+
         # Verify that this character can modify the encounter.
 
         cannot_modify = Pf2e.can_modify_encounter(enactor, encounter)
@@ -56,14 +58,7 @@ module AresMUSH
           :round => round_text
         )
 
-        # Emit to the room.
-        enactor_room.emit @message
-
-        # Log message to the encounter.
-        PF2Encounter.send_to_encounter(encounter, @message)
-
-        # Log the message to the scene as an OOC message.
-        Scenes.add_to_scene(scene, @message, Game.master.system_character, false, true)
+        Pf2e::Encounters::Announce.tell(encounter, @message, :room => enactor_room)
 
         # If the current initiative is a PC, shoot them a global notifier.
 
@@ -86,8 +81,7 @@ module AresMUSH
                              moved.state['round']).each do |event|
           notice = t(event['key'], **Pf2e::CharState.symbolize(event['args']))
 
-          enactor_room.emit notice
-          PF2Encounter.send_to_encounter(encounter, notice)
+          Pf2e::Encounters::Announce.tell(encounter, notice, :room => enactor_room, :story => true)
         end
 
         # The one whose turn it is hears what matters to it; a creature's reminder goes to the GM. Read

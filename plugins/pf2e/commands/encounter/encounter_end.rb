@@ -34,16 +34,7 @@ module AresMUSH
         end
 
         encounter = PF2Encounter[encounter.id]
-        @message = t('pf2e.encounter_complete', :id => encounter.id)
-
-        # Emit to the room.
-        enactor_room.emit @message
-
-        # Log message to the encounter.
-        PF2Encounter.send_to_encounter(encounter, @message)
-
-        # Log the message to the scene as an OOC message.
-        Scenes.add_to_scene(scene, @message, Game.master.system_character, false, true)
+        Pf2e::Encounters::Announce.tell(encounter, t('pf2e.encounter_complete', :id => encounter.id), :room => enactor_room)
 
       end
     end

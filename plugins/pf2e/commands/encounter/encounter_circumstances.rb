@@ -31,8 +31,7 @@ module AresMUSH
         encounter.update(field => held)
 
         message = t("pf2e.#{field}_set", :target => found.state.label, :level => wanted, :name => enactor.name)
-        enactor.room.emit message
-        PF2Encounter.send_to_encounter(encounter, message)
+        Pf2e::Encounters::Announce.tell(encounter, message, :room => enactor.room)
       end
     end
 
@@ -110,8 +109,7 @@ module AresMUSH
         encounter.update(:trusted => list)
 
         message = t(trusting ? 'pf2e.trusted' : 'pf2e.untrusted', :name => char.name, :gm => enactor.name)
-        enactor.room.emit message
-        PF2Encounter.send_to_encounter(encounter, message)
+        Pf2e::Encounters::Announce.tell(encounter, message, :room => enactor.room)
       end
     end
 
@@ -163,8 +161,7 @@ module AresMUSH
                                           :effects => done.state.empty? ? t('pf2e.nothing') : done.state.join(', '))
           end
 
-          enactor_room.emit message
-          PF2Encounter.send_to_encounter(encounter, message)
+          Pf2e::Encounters::Announce.tell(encounter, message, :room => enactor_room, :story => true)
         end
       end
     end

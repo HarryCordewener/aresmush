@@ -21,6 +21,7 @@ module AresMUSH
 
         allow(Global).to receive(:client_monitor).and_return(double(:notify_web_clients => nil))
         allow(Scenes).to receive(:create_log)
+        allow(Scenes).to receive(:add_to_scene)
       end
 
       after(:each) do

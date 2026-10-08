@@ -349,6 +349,14 @@ module AresMUSH
           expect(turn).to include('actions' => 1, 'attacks' => 1)
         end
 
+        # What a Strike does is the story of the scene: it goes in the scene's log as a line a shared log
+        # keeps, where the bookkeeping of turns and joins goes in as OOC.
+        it "should log a Strike's result in the scene as a line its shared log keeps" do
+          run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)
+
+          expect(Scenes).to have_received(:add_to_scene).with(anything, a_string_including('strikes Goblin Warrior #3'))
+        end
+
         it "should let a character strike a creature with their fist" do
           @dice = 0.75
           run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)

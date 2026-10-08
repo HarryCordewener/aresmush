@@ -20,6 +20,8 @@ module AresMUSH
 
         encounter = found.state
 
+        return client.emit_failure(t('pf2e.explore_no_turns')) if Pf2e::Exploration.exploring?(encounter)
+
         # Verify that this character can modify the encounter.
 
         cannot_modify = Pf2e.can_modify_encounter(enactor, encounter)
@@ -46,13 +48,7 @@ module AresMUSH
           :round => t(moved.state['label'])
         )
 
-        enactor_room.emit @message
-
-        # Log to the encounter.
-        PF2Encounter.send_to_encounter(encounter, @message)
-
-        # Log the initiative message to the scene as an OOC message.
-        Scenes.add_to_scene(encounter.scene, @message, Game.master.system_character, false, true)
+        Pf2e::Encounters::Announce.tell(encounter, @message, :room => enactor_room)
 
         # If the current initiative is a PC, shoot them a global notifier.
 

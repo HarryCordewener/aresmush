@@ -50,6 +50,9 @@ module AresMUSH
           return
         end
 
+        # Exploring has no initiative: they are simply there, doing what they say they are doing.
+        return join_exploration(encounter) if Pf2e::Exploration.exploring?(encounter)
+
         # If they specified an init stat, error if invalid, otherwise use the one
         # specified by the organizer.
 
@@ -89,6 +92,18 @@ module AresMUSH
         scene = encounter.scene
         Scenes.add_to_scene(scene, @message, Game.master.system_character, false, true)
 
+      end
+
+      def join_exploration(encounter)
+        Pf2e::Combatants.join(encounter, enactor.name, 0, :holder => enactor)
+        enactor.encounters.add encounter
+        encounter.characters.add enactor
+
+        message = t('pf2e.explore_joined', :name => enactor.name, :encounter => encounter.id)
+
+        enactor_room.emit message
+        PF2Encounter.send_to_encounter(encounter, message)
+        Scenes.add_to_scene(encounter.scene, message, Game.master.system_character, false, true)
       end
     end
   end

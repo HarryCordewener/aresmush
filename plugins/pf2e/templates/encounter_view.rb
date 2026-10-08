@@ -14,7 +14,12 @@ module AresMUSH
       end
 
       def title
-        t('pf2e.initiative_view_title', :id => @encounter.id)
+        t(exploring? ? 'pf2e.exploration_view_title' : 'pf2e.initiative_view_title', :id => @encounter.id)
+      end
+
+      # An exploration has no initiative; it lists what each is doing instead.
+      def exploring?
+        Pf2e::Exploration.exploring?(@encounter)
       end
 
       def section_line(title)
@@ -22,6 +27,8 @@ module AresMUSH
       end
 
       def header_line
+        return "%b#{left("Id", 4)}%b#{left("Name", 24)}%b#{left("Activity", 20)}%b#{left("Conditions", 25)}" if exploring?
+
         "%b#{left("Id", 4)}#{left("Init", 5)}%b#{left("Name", 24)}%b#{left("Conditions, cover", 40)}"
       end
 
@@ -48,11 +55,16 @@ module AresMUSH
         concealment = (@encounter.concealment || {})[number.to_s]
         said = conditions + [ cover ? "#{cover} cover" : nil, concealment ].compact
 
+        if exploring?
+          activity = holder.respond_to?(:exploration_activity) ? holder.exploration_activity : nil
+          return "%b#{left("##{number}", 4)}%b#{left(name, 24)}%b#{left(activity || '-', 20)}%b#{left(conditions.join(", "), 25)}"
+        end
+
         "%b#{left("##{number}", 4)}#{left(initiative, 5)}%b#{left(name, 24)}%b#{left(said.join(", "), 40)}"
       end
 
       def difficulty
-        Pf2e::Difficulty.shown(@encounter)
+        exploring? ? '' : Pf2e::Difficulty.shown(@encounter)
       end
 
       def trusted

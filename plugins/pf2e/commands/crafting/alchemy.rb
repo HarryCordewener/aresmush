@@ -99,8 +99,7 @@ module AresMUSH
 
         message = t('pf2e.alchemy_quick', :name => enactor.name, :item => made.state)
 
-        enactor_room.emit message
-        PF2Encounter.send_to_encounter(PF2Encounter[encounter.id], message)
+        Pf2e::Encounters::Announce.tell(PF2Encounter[encounter.id], message, :room => enactor_room, :story => true)
       end
     end
   end

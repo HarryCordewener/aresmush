@@ -192,8 +192,7 @@ module AresMUSH
           named = npc.name.end_with?("##{npc.number}") ? npc.name : "#{npc.name} (##{npc.number})"
           message = t('pf2e.encounter_add_ok', :roll => one.state['initiative'], :encounter => encounter.id,
                                                :name => named)
-          enactor_room.emit message
-          PF2Encounter.send_to_encounter(encounter, message)
+          Pf2e::Encounters::Announce.tell(encounter, message, :room => enactor_room)
         end
       end
     end
