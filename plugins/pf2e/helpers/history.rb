@@ -11,8 +11,10 @@ module AresMUSH
     # back, with no die rolled twice.
     #
     # What its characters carry is the encounter's own copy (`Equipment`), so it is recorded and put back
-    # like anything else, and nothing outside the encounter can move it. The history is one line: `history_at` is how many of its entries are
-    # in effect, and recording a new one drops any past that point, which could only have been redone.
+    # like anything else, and nothing outside the encounter can move it.
+    #
+    # The history is one line: `history_at` is how many of its entries are in effect, and recording a new
+    # one drops any past that point, which could only have been redone.
     #
     # An ended encounter's history is frozen.
     module History
