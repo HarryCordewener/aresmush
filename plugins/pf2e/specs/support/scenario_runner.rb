@@ -172,6 +172,13 @@ module AresMUSH
         say ''
       end
 
+      # A kit is what the character would choose, so one they are untrained in is the scenario's mistake.
+      def wear!(char, text)
+        untrained = type(char, text).said.map { |line| clean(line) }.find { |line| line.start_with?('You are untrained') }
+
+        @audit.find('kit', "#{char.name}: #{text}", untrained) if untrained
+      end
+
       # Money to spend, then the kit: bought, worn and wielded by the player, its runes etched by staff.
       def outfit!
         say '## Outfitting'
@@ -186,8 +193,8 @@ module AresMUSH
           type(char, "buy shields=#{kit['shields']}") if kit['shields']
           Array(kit['consumables']).each { |item, count| type(char, "buy consumables=#{item}/#{count || 1}") }
 
-          Array(kit['weapons']).each_index { |n| type(char, "equip weapons=#{n}") }
-          type(char, 'equip armor=0') if kit['armor']
+          Array(kit['weapons']).each_index { |n| wear!(char, "equip weapons=#{n}") }
+          wear!(char, 'equip armor=0') if kit['armor']
           type(char, 'equip shields=0') if kit['shields']
 
           etch!(char, kit['runes'] || {}, Array(kit['weapons']).size, kit['armor'])
@@ -380,15 +387,19 @@ module AresMUSH
       end
 
       # ------------------------------------------------------------------------------
-      # A creature's turn: its GM strikes the most hurt player and, the first time, uses one of its own
-      # abilities or spells.
+      # A creature's turn: its GM strikes the player with the most hit points left and, the first time,
+      # uses one of its own abilities or spells. The probes knock a character out on purpose; spreading
+      # the blows lets everyone play the fight through.
 
       def creature_turn(row)
-        target = @party.reject { |char| down?(char) }.max_by { |char| max_hp_of(char) - hp_of(char) } || @party.first
+        target = @party.reject { |char| down?(char) }.max_by { |char| hp_of(char) } || @party.first
         npc = Pf2eNpc[row['npc']]
         block = npc.stat_block || {}
 
         type(@gm, "e/as ##{row['id']}=strike #{target.name}")
+
+        # A player behind a raised shield answers the hit with Shield Block when it is offered.
+        attempt(target, :act, 'Shield Block', 'e/act shield block') if ShieldBlock.offered?(state_of(target))
 
         unless @tried[:creatures][row['id']]
           @tried[:creatures][row['id']] = true
@@ -471,8 +482,13 @@ module AresMUSH
 
         # What the game offers them, and what their class, heritage and background say they have.
         granted = Array((Character[char.id].pf2_actions || {})['actions'])
+        # A healing action is for whoever is worst hurt; anything else is aimed at a foe.
         (class_actions(state) + granted).uniq { |action| Domains.slug(action) }.each do |action|
-          out << [ :ability, action, -> { "e/act #{action}=#{foe_ref.call}" } ]
+          if Array(Actions.info(action)['traits']).include?('healing')
+            out << [ :heal, action, -> { "e/act #{action}=#{hurt_ally.name}" } ]
+          else
+            out << [ :ability, action, -> { "e/act #{action}=#{foe_ref.call}" } ]
+          end
         end
 
         spells_for(char, state).each { |entry| out << entry }

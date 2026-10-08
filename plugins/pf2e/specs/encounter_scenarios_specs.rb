@@ -49,7 +49,7 @@ module AresMUSH
             Seat.new(charclass: 'Fighter', ancestry: 'Khazad', heritage: 'Rock', background: 'Guard',
                      kit: kit(1, weapons: [ 'Longsword' ], armor: 'Chain Mail', shields: 'Steel Shield')),
             Seat.new(charclass: 'Cleric', ancestry: 'Human', heritage: 'Versatile', background: 'Acolyte',
-                     kit: kit(1, weapons: [ 'Mace' ], armor: 'Hide', shields: 'Wooden Shield')),
+                     kit: kit(1, weapons: [ 'Mace' ], armor: "Explorer's Clothing", shields: 'Wooden Shield')),
             Seat.new(charclass: 'Rogue', ancestry: 'Goblin', heritage: 'Unbreakable', background: 'Criminal',
                      kit: kit(1, weapons: [ 'Rapier', 'Shortbow' ], armor: 'Studded Leather')),
             Seat.new(charclass: 'Wizard', ancestry: 'Sildanyar', heritage: 'Seer', background: 'Scholar',
@@ -109,7 +109,7 @@ module AresMUSH
             Seat.new(charclass: 'Wizard', ancestry: 'Gnome', heritage: 'Umbral', background: 'Astrologer',
                      kit: kit(20, weapons: [ 'Staff' ], armor: "Explorer's Clothing")),
             Seat.new(charclass: 'Cleric', ancestry: 'Khazad', heritage: 'Death Warden', background: 'Blessed',
-                     kit: kit(20, weapons: [ 'Warhammer' ], armor: 'Breastplate', shields: 'Steel Shield')),
+                     kit: kit(20, weapons: [ 'Mace' ], armor: "Explorer's Clothing", shields: 'Steel Shield')),
             Seat.new(charclass: 'Rogue', ancestry: 'Bassin', heritage: 'Twilight', background: 'Charlatan',
                      kit: kit(20, weapons: [ 'Shortsword', 'Shortbow' ], armor: 'Studded Leather'))
           ],
