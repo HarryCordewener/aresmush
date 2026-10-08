@@ -48,7 +48,12 @@ A reaction that is a Strike - Reactive Strike, Opportune Riposte - rolls it with
 your first that will do. It spends your reaction, and the multiple attack penalty neither applies to it
 nor counts it.
 An action that is several Strikes - Flurry of Blows - makes them all at the one target, each counting
-toward your multiple attack penalty, for what the action costs.
+toward your multiple attack penalty, for what the action costs. One that is a Strike and something more -
+Deadly Aim, Combat Assessment, a finisher - makes its Strike with the action's own rules on; the rest is
+yours to play.
+`+e/act drain bonded item/<spell>` gives a wizard back a spell they prepared today and have cast, to cast
+again with `+e/cast`.
+An action with a command of its own - Quick Alchemy, Refocus - is refused with that command.
 Nimble Dodge, and a reaction like it that raises your AC against an attack, answers a hit you have
 just taken: its bonus is put against the attack's roll, and a hit it turns into a miss is undone. A
 hit it could turn says so.
