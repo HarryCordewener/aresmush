@@ -1139,7 +1139,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Blinded"}]}
+    outcomes: {"success": [{"condition": "Blinded", "until": "its-next-turn-start"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Blinded until its next turn begins.", "failure": "The target is Blinded for 1 minute.", "criticalFailure": "The target is Blinded permanently."}
   "Blink Charge":
     rank: 5

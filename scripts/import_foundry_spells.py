@@ -62,6 +62,10 @@ UNTIL = [(re.compile(r'until the end of (?:your|the caster\'s) next turn', re.I)
          (re.compile(r'until the end of ' + THEIRS + r' next turn', re.I), lambda _: 'its-next-turn-end'),
          (re.compile(r'until the end of ' + THEIRS + r' turn', re.I), lambda _: 'its-turn-end'),
          (re.compile(r'until the (?:start|beginning) of ' + THEIRS + r' (?:next )?turn', re.I), lambda _: 'its-next-turn-start'),
+         (re.compile(r'until ' + THEIRS + r' next turn begins', re.I), lambda _: 'its-next-turn-start'),
+         (re.compile(r'until ' + THEIRS + r' next turn ends', re.I), lambda _: 'its-next-turn-end'),
+         (re.compile(r'until your next turn begins', re.I), lambda _: 'next-turn-start'),
+         (re.compile(r'until your next turn ends', re.I), lambda _: 'next-turn-end'),
          (re.compile(r'for (\d+) rounds?', re.I), lambda found: f'rounds:{found.group(1)}'),
          (re.compile(r'for (\d+) minutes?', re.I), lambda found: f'rounds:{int(found.group(1)) * 10}')]
 
