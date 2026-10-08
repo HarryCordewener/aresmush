@@ -45,11 +45,13 @@ module AresMUSH
         { 'name' => 'ac',
           'ability' => ->(_char, _name) { 'Dexterity' },
           'base' => ->(char, _name) { Pf2eCombat.base_ac(char) },
+          'basis' => ->(char, _name) { ac_basis(char) },
           'intrinsic' => ->(char, _name) { Pf2eCombat.ac_modifiers(char) } },
 
         { 'name' => 'perception',
           'ability' => ->(_char, _name) { 'Wisdom' },
           'base' => ->(char, _name) { Pf2e.get_prof_bonus(char, char.combat&.perception) },
+          'rank' => ->(char, _name) { char.combat&.perception },
           'intrinsic' => ->(char, _name) { [ ability_mod(char, 'Wisdom') ] } },
 
         { 'name' => 'save',
@@ -58,6 +60,7 @@ module AresMUSH
           'base' => ->(char, name) {
             Pf2e.get_prof_bonus(char, Pf2eCombat.get_save_from_char(char, name))
           },
+          'rank' => ->(char, name) { Pf2eCombat.get_save_from_char(char, name) },
           'intrinsic' => ->(char, name) {
             [ ability_mod(char, Pf2e::LINKED_ABILITY[name.to_s.downcase]),
               # This game's armour carries `potency` for AC and `power` for saves, which is what the
@@ -68,6 +71,7 @@ module AresMUSH
         { 'name' => 'skill',
           'ability' => ->(_char, name) { Pf2eSkills.get_linked_attr(name) },
           'base' => ->(char, name) { Pf2e.get_prof_bonus(char, Pf2eSkills.get_skill_prof(char, name)) },
+          'rank' => ->(char, name) { Pf2eSkills.get_skill_prof(char, name) },
           'intrinsic' => ->(char, name) {
             [ ability_mod(char, Pf2eSkills.get_linked_attr(name)), armor_check_penalty(char, name) ]
           } },
@@ -75,6 +79,7 @@ module AresMUSH
         { 'name' => 'lore',
           'ability' => ->(_char, _name) { 'Intelligence' },
           'base' => ->(char, name) { Pf2e.get_prof_bonus(char, Pf2eSkills.get_skill_prof(char, name)) },
+          'rank' => ->(char, name) { Pf2eSkills.get_skill_prof(char, name) },
           'intrinsic' => ->(char, _name) { [ ability_mod(char, 'Intelligence') ] } },
 
         # Here `name` is a descriptor rather than a name: `Pf2eCombat.attack_descriptor` builds one
@@ -86,6 +91,7 @@ module AresMUSH
         { 'name' => 'attack',
           'ability' => ->(_char, attack) { attack_abilities(attack) },
           'base' => ->(char, attack) { Pf2e.get_prof_bonus(char, attack['prof']) },
+          'rank' => ->(_char, attack) { attack['prof'] },
           'intrinsic' => ->(char, attack) {
             attack_abilities(attack).map { |ability| ability_mod(char, ability) } +
               [ item(attack['rune'], 'potency rune', 'weapon-potency') ]
@@ -96,11 +102,13 @@ module AresMUSH
         { 'name' => 'spell_dc',
           'ability' => ->(_char, caster) { caster['spell_abil'] },
           'base' => ->(char, caster) { 10 + Pf2e.get_prof_bonus(char, caster['prof_level']) },
+          'rank' => ->(_char, caster) { caster['prof_level'] },
           'intrinsic' => ->(char, caster) { [ ability_mod(char, caster['spell_abil']) ] } },
 
         { 'name' => 'spell_attack',
           'ability' => ->(_char, caster) { caster['spell_abil'] },
           'base' => ->(char, caster) { Pf2e.get_prof_bonus(char, caster['prof_level']) },
+          'rank' => ->(_char, caster) { caster['prof_level'] },
           'intrinsic' => ->(char, caster) { [ ability_mod(char, caster['spell_abil']) ] } },
 
         # `name` is nothing for the character's own class DC, and an archetype's proficiency and key
@@ -108,6 +116,7 @@ module AresMUSH
         { 'name' => 'class_dc',
           'ability' => ->(char, named) { class_attribute(char, named) },
           'base' => ->(char, named) { 10 + Pf2e.get_prof_bonus(char, class_proficiency(char, named)) },
+          'rank' => ->(char, named) { class_proficiency(char, named) },
           'intrinsic' => ->(char, named) { [ ability_mod(char, class_attribute(char, named)) ] } },
 
         # How much more a character recovers than they were given. Not a figure on a sheet: the base is
@@ -157,11 +166,32 @@ module AresMUSH
         # An unmet row is kept out of the stacking, so it cannot override one that applies, but it is
         # still reported: "+2, but only while picking a lock" is what a player wants to know.
         figure = Modifiers.breakdown(row['base'].call(char, name).to_i, adjusted)
-                          .merge('conditional' => unmet + waived)
+                          .merge('conditional' => unmet + waived, 'basis' => basis(row, char, name))
 
         # A character in a battle form has the form's AC, skills, attacks and speeds where those are
         # better or the form insists.
         BattleForms.override(char, kind, name, figure)
+      end
+
+      # What the base is made of, for whoever asks why: `expert, level 11`; for AC the armour as well.
+      def self.basis(row, char, name)
+        return row['basis'].call(char, name) if row['basis']
+        return nil unless row['rank']
+
+        proficiency(char, row['rank'].call(char, name))
+      end
+
+      def self.proficiency(char, rank)
+        rank = rank.to_s.downcase
+        rank.empty? || rank == 'untrained' ? 'untrained' : "#{rank}, level #{char.pf2_level.to_i}"
+      end
+
+      def self.ac_basis(char)
+        armor = Alterations.armor(char)
+        category = armor ? armor.category : 'unarmored'
+        worn = armor && armor.ac_bonus.to_i.positive? ? ", #{armor.name} +#{armor.ac_bonus.to_i}" : ''
+
+        "10#{worn}, #{proficiency(char, (char.combat&.armor_prof || {})[category])}"
       end
 
       def self.total(char, kind, name = nil, options = [], extra = [])

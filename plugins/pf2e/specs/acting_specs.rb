@@ -274,12 +274,15 @@ module AresMUSH
         end
 
         # +e/why names what the roll was against, and a defence with nothing to add ends there.
+        # The base of a figure says what it is: the attack's proficiency and level. A creature's AC is
+        # its stat block's, and says no more than the number.
         it "should explain a Strike against the AC it named" do
           run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)
           @client.said.clear
           run(PF2EncounterWhyCmd, 'e/why', @hero)
 
-          expect(said).to include('against AC 16, from 16.')
+          expect(said).to include('from 3 (trained, level 1):')
+          expect(said).to include('against AC 16.')
           expect(said).to_not include('(base')
         end
 

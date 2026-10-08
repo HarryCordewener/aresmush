@@ -551,6 +551,7 @@ en:
     until_one_round: " for 1 round"
     why_roll: "%{what} - %{statistic} %{roll}, from %{base}%{tail}"
     why_defence: "  against %{defence} %{dc}, from %{base}%{tail}"
+    why_defence_plain: "  against %{defence} %{dc}."
     why_modifier: "    %{value} %{type} (%{source})"
     why_modifier_off: "    %{value} %{type} (%{source}) - does not count"
     why_nothing: "You have made no roll to explain yet."

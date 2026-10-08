@@ -1175,16 +1175,26 @@ module AresMUSH
       # one with no modifiers ends where its number does.
       def self.detail_lines(what, statistic, result, defence)
         lines = [ told('pf2e.why_roll', :what => what, :statistic => statistic, :roll => Telling.roll(result),
-                                        :base => result['breakdown']['base'], :tail => tail(result['breakdown'])) ]
+                                        :base => based(result['breakdown']), :tail => tail(result['breakdown'])) ]
         lines += modifier_lines(result['breakdown'])
 
         if defence
-          lines << told('pf2e.why_defence', :defence => defence_word(defence), :dc => defence['dc'],
-                                            :base => defence['breakdown']['base'], :tail => tail(defence['breakdown']))
+          plain = Array(defence['breakdown']['modifiers']).empty? && !defence['breakdown']['basis'] &&
+                  defence['breakdown']['base'].to_i == defence['dc'].to_i
+          lines << (plain ? told('pf2e.why_defence_plain', :defence => defence_word(defence), :dc => defence['dc']) :
+                            told('pf2e.why_defence', :defence => defence_word(defence), :dc => defence['dc'],
+                                                     :base => based(defence['breakdown']), :tail => tail(defence['breakdown'])))
           lines += modifier_lines(defence['breakdown'])
         end
 
         lines
+      end
+
+      # `15 (expert, level 11)`: the base, and what it is made of where that is known.
+      def self.based(breakdown)
+        basis = breakdown['basis']
+
+        basis ? "#{breakdown['base']} (#{basis})" : breakdown['base'].to_s
       end
 
       def self.tail(breakdown)
