@@ -48,6 +48,35 @@ module AresMUSH
         expect(prepare("alchemist's fire (lesser)", 9).code).to eq :no_reagents
       end
 
+      # What their reagents will make is their level and Intelligence, whether or not they have rested
+      # since they gained them.
+      it "should plan against what their reagents will make, before they have ever rested" do
+        char.update(:pf2_reagents => { 'alchemist' => [ 0, 0, 0 ] }, :pf2_base_info => { 'charclass' => 'Alchemist' })
+
+        expect(Alchemy.capacity(char)).to eq 5
+        expect(prepare("alchemist's fire (lesser)", 10).ok?).to be true
+        expect(prepare("alchemist's fire (lesser)", 1).code).to eq :no_reagents
+      end
+
+      it "should give an alchemist their level and Intelligence in batches at a rest" do
+        char.update(:pf2_base_info => { 'charclass' => 'Alchemist' })
+
+        Pf2e.rest(standing)
+
+        expect(Alchemy.batches(standing)).to eq 5
+      end
+
+      # An alchemist is one by their class's Advanced Alchemy, whether or not anything recorded their reagents.
+      it "should give an alchemist reagents at a rest though none were recorded" do
+        char.update(:pf2_reagents => {}, :pf2_base_info => { 'charclass' => 'Alchemist' })
+        standing.update(:pf2_reagents => {})
+
+        Pf2e.rest(standing)
+
+        expect(Alchemy.batches(standing)).to eq 5
+        expect(Alchemy.left(standing)).to eq 5
+      end
+
       it "should refuse what is not alchemical, what is too high a level, and what they cannot make" do
         expect(prepare('gecko potion', 1).code).to eq :not_alchemical
         expect(prepare("alchemist's fire (greater)", 1).code).to eq :too_high

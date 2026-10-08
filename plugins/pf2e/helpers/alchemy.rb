@@ -30,6 +30,16 @@ module AresMUSH
         reagents(holder).first.to_i
       end
 
+      # How many batches of reagents their preparations give them a day: an alchemist's level and
+      # Intelligence, and anyone else's level, the reagents a dedication grants.
+      def self.capacity(holder)
+        level = holder.pf2_level.to_i
+
+        return level unless (holder.pf2_base_info || {})['charclass'] == 'Alchemist'
+
+        level + Pf2eAbilities.abilmod(Pf2eAbilities.get_score(holder, 'Intelligence'))
+      end
+
       def self.left(holder)
         reagents(holder).last.to_i
       end
@@ -67,8 +77,8 @@ module AresMUSH
 
         wanted = plan(char).merge(named => plan(char)[named].to_i + quantity.to_i).reject { |_name, many| many.to_i < 1 }
 
-        return Err.new(:no_reagents, 'pf2e.alchemy_no_reagents', 'items' => batches(char) * per_batch) if
-          wanted.values.sum(&:to_i) > batches(char) * per_batch
+        return Err.new(:no_reagents, 'pf2e.alchemy_no_reagents', 'items' => capacity(char) * per_batch) if
+          wanted.values.sum(&:to_i) > capacity(char) * per_batch
 
         char.update(:pf2_alchemy_plan => wanted)
 

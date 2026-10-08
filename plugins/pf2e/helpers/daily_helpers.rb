@@ -42,30 +42,23 @@ module AresMUSH
 
     SNARES_BY_RANK = { 'expert' => 4, 'master' => 6, 'legendary' => 8 }.freeze
 
+    # The day's reagents: an alchemist's batches, `[ total, allocated, remaining ]`, and a snare-maker's
+    # snares, `[ total, remaining ]`. An alchemist is one by their Advanced Alchemy whether or not their
+    # reagents were ever recorded, which chargen does not do.
     def self.daily_refresh_reagents(char)
-      # Reagents structure:
-      # For alchemists, alchemist: [total, allocated, remaining]
-      # For snares, snares: [total, remaining]
+      reagents = (char.pf2_reagents || {}).dup
+      reagents['alchemist'] ||= [ 0, 0, 0 ] if Pf2e::Alchemy.alchemist?(char)
 
-      reagents = char.pf2_reagents
-      return nil unless reagents
       return nil if reagents.empty?
 
-      alchemist = reagents['alchemist']
-      snares = reagents['snares']
-      if alchemist
-        int_mod = Pf2eAbilities.abilmod(Pf2eAbilities.get_score(char, "Intelligence"))
-        cl = char.pf2_level
+      if reagents['alchemist']
+        total = Pf2e::Alchemy.capacity(char)
+        allocated = char.pf2_alloc_reagents.to_i
 
-        is_alchemist = char.pf2_base_info['charclass'] == "Alchemist"
+        reagents['alchemist'] = [ total, allocated, total - allocated ]
+      end
 
-        total = is_alchemist ? (cl + int_mod) : cl
-
-        allocated = char.pf2_alloc_reagents
-
-        reagents['alchemist'] = [ total, allocated, (total - allocated) ]
-
-      elsif snares
+      if reagents['snares']
         # Snares prepared each day, by Crafting: 4 for an expert, 6 for a master, 8 for a legend.
         snares_today = SNARES_BY_RANK[Pf2eSkills.get_skill_prof(char, 'Crafting').to_s.downcase].to_i
 
@@ -73,7 +66,6 @@ module AresMUSH
       end
 
       char.update(pf2_reagents: reagents)
-
     end
 
     # Daily preparations fill the pool.

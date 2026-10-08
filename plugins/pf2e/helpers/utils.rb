@@ -550,22 +550,8 @@ module AresMUSH
       end
     end
 
-    def self.update_reagents(char, info, cleanup=false)
-
-      reagents = char.pf2_reagents
-
-      if cleanup
-        info.each_pair do |k,v|
-          reagents.delete[k]
-        end
-      else
-        info.each_pair do |k,v|
-          reagents[k] = v
-        end
-      end
-
-      char.update(pf2_reagents: reagents)
-
+    def self.update_reagents(char, info)
+      char.update(pf2_reagents: (char.pf2_reagents || {}).merge(info))
     end
 
     def self.treat_as_charclass?(char, charclass)

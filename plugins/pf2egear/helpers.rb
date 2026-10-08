@@ -238,7 +238,7 @@ module AresMUSH
     def self.destroy_item(item, client, enactor)
       item.delete
       dest_msg = t('pf2egear.item_destroyed', :name => item.name)
-      Login.notify(enactor, :pf2_gear, dest_msg)
+      Login.notify(enactor, :pf2_gear, dest_msg, item.id)
       client.emit_ooc dest_msg
     end
 
