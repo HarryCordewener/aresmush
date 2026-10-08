@@ -156,6 +156,24 @@ module AresMUSH
         end.reject { |row| row['amount'].zero? && row['type'].to_s.empty? }
       end
 
+      # A hit's damage as the target takes it: each type's rows added together, as a resistance or a
+      # weakness applies once to all of a type - the weapon's piercing and the precision damage with it,
+      # a bomb's fire and its splash. `categories` keeps what the rows were beyond plain damage, and
+      # `splash` how much splash went into plain damage of its type.
+      def self.by_type(rows)
+        rows.group_by { |row| row['type'] }.map do |type, group|
+          categories = group.map { |row| row['category'] }.compact.uniq
+          # Splash with plain damage of its type is that damage; splash alone is still splash.
+          categories -= [ 'splash' ] if group.any? { |row| row['category'].nil? }
+          formula = group.map { |row| row['formula'] }.compact.join('+')
+
+          splash = group.select { |row| row['category'] == 'splash' }.sum { |row| row['amount'].to_i }
+
+          { 'amount' => group.sum { |row| row['amount'].to_i }, 'type' => type, 'categories' => categories,
+            'splash' => categories.include?('splash') ? 0 : splash, 'formula' => formula.empty? ? nil : formula }
+        end
+      end
+
       # `9 slashing + 3 fire`.
       def self.shown(rows)
         rows.map { |row| [ row['amount'], row['category'], row['type'] ].compact.join(' ') }.join(' + ')

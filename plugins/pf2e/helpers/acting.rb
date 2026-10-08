@@ -672,14 +672,22 @@ module AresMUSH
         taken = 0
         physical = 0
 
-        immediate.each do |row|
+        # Precision damage is lost on a target immune to it; the rest of each type is taken together.
+        precise, immediate = immediate.partition { |row| row['category'].to_s == 'precision' }
+        if precise.any? && IWR.immune?(iwr_of(whom.holder), [ 'precision' ])
+          shown << "0 precision (immune)"
+          precise = []
+        end
+
+        DamageRoll.by_type(immediate + precise).each do |row|
           held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical)
           taken += held['amount'].to_i
           physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])
           resisted = Array(held['applied']).reject { |one| one['category'] != 'immunity' && one['adjustment'].to_i.zero? }
                                            .map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
-          kind = row['category'].to_s == 'splash' ? "splash #{row['type']}" : row['type']
-          shown << "#{held['amount']} #{kind}#{resisted.empty? ? '' : " (#{resisted.join(', ')})"}"
+          kind = row['categories'] == [ 'splash' ] ? "splash #{row['type']}" : row['type']
+          notes = (row['splash'].to_i.positive? ? [ "with #{row['splash']} splash" ] : []) + resisted
+          shown << "#{held['amount']} #{kind}#{notes.empty? ? '' : " (#{notes.join(', ')})"}"
         end
 
         # Words already, because they join the rest of the hit in one line.
@@ -703,6 +711,10 @@ module AresMUSH
         return unless ShieldBlock.offered?(whom.holder)
 
         out['lines'] << told('pf2e.act_follow_up', :effect => ShieldBlock::NAME, :command => '+e/act shield block')
+      end
+
+      def self.iwr_of(holder)
+        Actors.of(holder).creature? ? Npcs.iwr(holder) : IWR.of(holder)
       end
 
       # Whether someone is on their feet: a creature with hit points left, a character not yet dying -

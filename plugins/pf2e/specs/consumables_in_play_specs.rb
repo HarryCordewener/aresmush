@@ -225,7 +225,7 @@ module AresMUSH
 
           expect(@client.failures).to eq []
           expect(said).to include("Alchemist's Fire (Lesser)")
-          expect(said).to include('6 fire + 1 splash fire + 1 persistent fire')
+          expect(said).to include('7 fire (with 1 splash) + 1 persistent fire')
           expect(PersistentDamage.held(goblin).map { |one| [ one['formula'], one['type'] ] }).to eq [ [ '1', 'fire' ] ]
           expect(carried(@hero, "Alchemist's Fire (Lesser)").quantity).to eq 1
         end
@@ -236,7 +236,7 @@ module AresMUSH
 
           run(PF2EncounterStrikeCmd, "e/strike ##{@goblin['id']}=alchemist's fire")
 
-          expect(said).to include('16 fire + 1 splash fire + 2 persistent fire')
+          expect(said).to include('17 fire (with 1 splash) + 2 persistent fire')
         end
 
         it "should leave a glue bomb's effect on the creature it hits" do
