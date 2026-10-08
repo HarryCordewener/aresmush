@@ -30,7 +30,8 @@ module AresMUSH
       end
 
       # The neutral sheet, rested: every hit point, a full focus pool, the day's spells from what they have
-      # prepared, and nothing on them.
+      # prepared, and nothing on them. What their feats and features work out - sneak attack's dice - is
+      # worked out for them as they stand here, with what they carried in.
       def self.fresh(encounter, char)
         state = Pf2eCombatantState.create(:character => char, :encounter => encounter)
         pool = Pf2emagic.focus_pool_max(char.magic)
@@ -38,6 +39,7 @@ module AresMUSH
         state.update(:focus_current => pool, :pf2_reagents => char.pf2_reagents || {})
         Pf2emagic.generate_spells_today(state) if char.magic
         Equipment.copy!(state, char)
+        Paths.apply_all!(state)
 
         state
       end

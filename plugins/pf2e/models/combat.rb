@@ -487,7 +487,8 @@ module AresMUSH
         favored?(char, descriptor) ? 'item:deity-favored' : nil ].compact +
         Array(descriptor['traits']).map { |trait| "item:trait:#{Pf2e::Domains.slug(trait)}" } +
         Array(descriptor['materials']).map { |one| "item:material:#{Pf2e::Domains.slug(one)}" } +
-        Array(descriptor['runes']).map { |one| "item:rune:property:#{Pf2e::Domains.slug(one)}" }
+        Array(descriptor['runes']).map { |one| "item:rune:property:#{Pf2e::Domains.slug(one)}" } +
+        Array(descriptor['tags']).map { |one| "item:tag:#{Pf2e::Domains.slug(one)}" }
     end
 
     # Magical because it says so, or because someone etched it: a potency or striking rune makes a

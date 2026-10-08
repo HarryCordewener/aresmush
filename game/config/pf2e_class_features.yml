@@ -1,0 +1,950 @@
+---
+# A class feature's rule elements, from Foundry's class-features pack, written by
+# scripts/import_foundry_rules.py. An entry is a feature some class or specialty grants.
+pf2e_class_features:
+  Abundant Vials:
+    pack: "class-features"
+    rules:
+      - key: "GrantItem"
+        uuid: "Compendium.pf2e.conditionitems.Item.Quickened"
+        inMemoryOnly: true
+  Adamantine Strikes:
+    pack: "class-features"
+  Advanced Vials:
+    pack: "class-features"
+  Agile Mind:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Alchemical Weapon Expertise:
+    pack: "class-features"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.weapon-base-alchemical-bomb.rank"
+        mode: "upgrade"
+        value: 2
+  Alchemical Weapon Mastery:
+    pack: "class-features"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.weapon-base-alchemical-bomb.rank"
+        mode: "upgrade"
+        value: 3
+  Arcane Bond:
+    pack: "class-features"
+  Arcane Thesis:
+    pack: "class-features"
+    rules:
+      - key: "ChoiceSet"
+        flag: "arcaneThesis"
+        prompt: "Select an arcane thesis."
+        choices: {"filter": ["item:tag:wizard-arcane-thesis"]}
+  Armor Expertise:
+    pack: "class-features"
+    rules:
+      - key: "Resistance"
+        type: "piercing"
+        value: "1 + @armor.system.runes.potency"
+        predicate: ["armor:category:medium", "armor:group:composite"]
+      - key: "Resistance"
+        type: "bludgeoning"
+        value: "1 + @armor.system.runes.potency"
+        predicate: ["armor:category:medium", "armor:group:leather"]
+      - key: "Resistance"
+        type: "slashing"
+        value: "1 + @armor.system.runes.potency"
+        predicate: ["armor:category:medium", "armor:group:plate"]
+      - key: "Resistance"
+        type: "piercing"
+        value: "2 + @armor.system.runes.potency"
+        predicate: ["armor:category:heavy", "armor:group:composite"]
+      - key: "Resistance"
+        type: "bludgeoning"
+        value: "2 + @armor.system.runes.potency"
+        predicate: ["armor:category:heavy", "armor:group:leather"]
+      - key: "Resistance"
+        type: "slashing"
+        value: "2 + @armor.system.runes.potency"
+        predicate: ["armor:category:heavy", "armor:group:plate"]
+      - key: "Resistance"
+        type: "precision"
+        value: "3 + @armor.system.runes.potency"
+        predicate: ["armor:category:medium", "armor:group:skeletal"]
+      - key: "Resistance"
+        type: "precision"
+        value: "5 + @armor.system.runes.potency"
+        predicate: ["armor:category:heavy", "armor:group:skeletal"]
+      - key: "Resistance"
+        type: "critical-hits"
+        value: "4 + @armor.system.runes.potency"
+        predicate: ["armor:category:medium", "armor:group:chain"]
+      - key: "Resistance"
+        type: "critical-hits"
+        value: "6 + @armor.system.runes.potency"
+        predicate: ["armor:category:heavy", "armor:group:chain"]
+  Armor Mastery:
+    pack: "class-features"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.defenses.heavy.rank"
+        mode: "upgrade"
+        value: 3
+        predicate: [{"not": "class:barbarian"}]
+  Assured Evasion:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"criticalFailure": "one-degree-better"}
+      - key: "Note"
+        selector: "reflex"
+        outcome: ["failure"]
+        title: "{item|name}"
+        text: "When you roll a failure on a Reflex save against a damaging effect, you take half damage."
+        predicate: ["damaging-effect"]
+  Bard Weapon Expertise:
+    pack: "class-features"
+    rules:
+      - key: "CriticalSpecialization"
+        predicate: [{"gte": ["item:proficiency:rank", 2]}, {"or": ["courageous-anthem:origin:signature:{actor|signature}", "hymn-of-healing:origin:signature:{actor|signature}", "silvers-refrain:origin:signature:{actor|signature}", "song-of-strength:origin:signature:{actor|signature}", "uplifting-overture:origin:signature:{actor|signature}", "rallying-anthem:origin:signature:{actor|signature}", "triple-time:origin:signature:{actor|signature}"]}]
+  Battle Hardened:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "fortitude"
+        adjustment: {"success": "to-critical-success"}
+  Battlefield Surveyor:
+    pack: "class-features"
+    rules:
+      - key: "FlatModifier"
+        selector: "initiative"
+        type: "circumstance"
+        value: 2
+        predicate: ["perception"]
+  Bravery:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+        predicate: ["item:trait:fear"]
+  Brutality:
+    pack: "class-features"
+    rules:
+      - key: "CriticalSpecialization"
+        predicate: ["self:effect:rage", "item:melee"]
+  Champion's Aura:
+    pack: "class-features"
+    rules:
+      - key: "RollOption"
+        option: "champions-aura"
+        toggleable: true
+        value: true
+      - key: "ActiveEffectLike"
+        path: "flags.system.champion.aura"
+        mode: "override"
+        value: 15
+      - key: "Aura"
+        radius: "@actor.flags.system.champion.aura"
+        slug: "champions-aura"
+        predicate: ["champions-aura", {"not": "self:condition:unconscious"}]
+  Confident Evasion:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"success": "one-degree-better"}
+  Confident Finisher:
+    pack: "class-features"
+  Debilitating Strike:
+    pack: "class-features"
+    rules:
+      - key: "RollOption"
+        option: "debilitation"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Bloody", "predicate": ["feat:bloody-debilitation"], "value": "bloody"}, {"label": "Clumsy", "predicate": ["feat:vicious-debilitations"], "value": "clumsy"}, {"label": "Critical", "predicate": ["feat:critical-debilitation"], "value": "critical"}, {"label": "Enfeebled", "value": "enfeebled"}, {"label": "Frightened", "predicate": ["feat:heartless-debilitations"], "value": "frightened"}, {"label": "Off-Guard", "predicate": ["feat:precise-debilitations"], "value": "off-guard"}, {"label": "Precision Damage", "predicate": ["feat:precise-debilitations"], "value": "precision-damage"}, {"label": "Prevent Flanking", "predicate": [{"or": ["feat:tactical-debilitations", "feat:methodical-debilitations"]}], "value": "prevent-flanking"}, {"label": "Prevent Reactions", "predicate": ["feat:tactical-debilitations"], "value": "prevent-reactions"}, {"label": "Prevent Step", "predicate": ["feat:eldritch-debilitations"], "value": "prevent-step"}, {"label": "Reduce Cover", "predicate": ["feat:methodical-debilitations"], "value": "reduce-cover"}, {"label": "Speed Penalty", "value": "speed-penalty"}, {"label": "Stupefied", "predicate": ["feat:eldritch-debilitations"], "value": "stupefied"}, {"label": "Weakness (Vicious Debilitations)", "predicate": ["feat:vicious-debilitations"], "value": "weakness"}, {"label": "Weakness (Heartless Debilitations)", "predicate": ["feat:heartless-debilitations"], "value": "weakness-heartless"}]
+        label: "Debilitation"
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.SpeedPenalty.Note]</p>"
+        predicate: ["debilitation:speed-penalty", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Enfeebled.Note]</p>"
+        predicate: ["debilitation:enfeebled", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Bloody.Note]</p>"
+        predicate: ["debilitation:bloody", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Clumsy.Note]</p>"
+        predicate: ["debilitation:clumsy", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Critical.Note]</p>"
+        predicate: ["debilitation:critical", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.OffGuard.Note]</p>"
+        predicate: ["debilitation:off-guard", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PrecisionDamage.Note]</p>"
+        predicate: ["debilitation:precision-damage", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventFlanking.Note]</p>"
+        predicate: ["debilitation:prevent-flanking", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventReactions.Note]</p>"
+        predicate: ["debilitation:prevent-reactions", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.PreventStep.Note]</p>"
+        predicate: ["debilitation:prevent-step", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.ReduceCover.Note]</p>"
+        predicate: ["debilitation:reduce-cover", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Stupefied.Note]</p>"
+        predicate: ["debilitation:stupefied", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Weakness.Note]</p>"
+        predicate: ["debilitation:weakness", "target:condition:off-guard"]
+      - key: "Note"
+        selector: ["strike-damage"]
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.WeaknessHeartless.Note]</p>"
+        predicate: ["debilitation:weakness-heartless", "target:condition:off-guard"]
+      - key: "Note"
+        selector: ["strike-damage"]
+        title: "Debilitation f"
+        text: "<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Trigger]</p>\n<p>@Localize[PF2E.SpecificRule.Rogue.Debilitation.Frightened.Note]</p>"
+        predicate: ["debilitation:frightened", "target:condition:off-guard"]
+  Deific Weapon:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "damage-dice-faces"
+        mode: "upgrade"
+        predicate: ["item:deity-favored", {"or": ["item:category:simple", {"and": ["item:category:unarmed", "item:damage:die:faces:4"]}]}]
+      - key: "MartialProficiency"
+        definition: ["item:category:advanced", "item:deity-favored"]
+        sameAs: "martial"
+        slug: "deific-weapon"
+  Deny Advantage:
+    pack: "class-features"
+  Divine Font:
+    pack: "class-features"
+    rules:
+      - key: "ChoiceSet"
+        flag: "divineFont"
+        rollOption: "divine-font"
+        prompt: "Select a Divine Font."
+        choices: [{"img": "icons/magic/life/cross-worn-green.webp", "label": "Healing", "predicate": ["deity:primary:font:heal"], "value": "heal"}, {"img": "systems/pf2e/icons/spells/harm.webp", "label": "Harmful", "predicate": ["deity:primary:font:harm"], "value": "harm"}]
+  Divine Will:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Dogged Will:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Double Debilitation:
+    pack: "class-features"
+    rules:
+      - key: "RollOption"
+        option: "second-debilitation"
+        toggleable: true
+        alwaysActive: true
+        suboptions: [{"label": "Bloody", "predicate": [{"not": "debilitation:bloody"}, "feat:bloody-debilitation"], "value": "bloody"}, {"label": "Clumsy", "predicate": [{"not": "debilitation:clumsy"}, "feat:vicious-debilitations"], "value": "clumsy"}, {"label": "Critical", "predicate": [{"not": "debilitation:critical"}, "feat:critical-debilitation"], "value": "critical"}, {"label": "Enfeebled", "predicate": [{"not": "debilitation:enfeebled"}], "value": "enfeebled"}, {"label": "Frightened", "predicate": [{"not": "debilitation:frightened"}, "feat:heartless-debilitations"], "value": "frightened"}, {"label": "Off-Guard", "predicate": [{"not": "debilitation:off-guard"}, "feat:precise-debilitations"], "value": "off-guard"}, {"label": "Precision Damage", "predicate": [{"not": "debilitation:precision-damage"}, "feat:precise-debilitations"], "value": "precision-damage"}, {"label": "Prevent Flanking", "predicate": [{"not": "debilitation:prevent-flanking"}, {"or": ["feat:tactical-debilitations", "feat:methodical-debilitations"]}], "value": "prevent-flanking"}, {"label": "Prevent Reactions", "predicate": [{"not": "debilitation:prevent-reactions"}, "feat:tactical-debilitations"], "value": "prevent-reactions"}, {"label": "Prevent Step", "predicate": [{"not": "debilitation:prevent-step"}, "feat:eldritch-debilitations"], "value": "prevent-step"}, {"label": "Reduce Cover", "predicate": [{"not": "debilitation:reduce-cover"}, "feat:methodical-debilitations"], "value": "reduce-cover"}, {"label": "Speed Penalty", "predicate": [{"not": "debilitation:speed-penalty"}], "value": "speed-penalty"}, {"label": "Stupefied", "predicate": [{"not": "debilitation:stupefied"}, "feat:eldritch-debilitations"], "value": "stupefied"}, {"label": "Weakness (Vicious Debilitations)", "predicate": [{"not": "debilitation:weakness"}, "feat:vicious-debilitations"], "value": "weakness"}, {"label": "Weakness (Heartless Debilitations)", "predicate": [{"not": "debilitation:weakness-heartless"}, "feat:heartless-debilitations"], "value": "weakness-heartless"}]
+        label: "Second Debilitation"
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target takes a -10-foot status penalty to its Speeds. Effect: Debilitating Strike"
+        predicate: ["second-debilitation:speed-penalty", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target becomes Enfeebled 1."
+        predicate: ["second-debilitation:enfeebled", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target becomes Frightened 1."
+        predicate: ["second-debilitation:frightened", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target takes 3d6 bleed damage."
+        predicate: ["second-debilitation:bloody", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target becomes Clumsy 1."
+        predicate: ["second-debilitation:clumsy", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target attempts a Fortitude save against your class DC with the following effects.%rCritical Success The target is unaffected.%rSuccess The target is Slowed 1 until the end of your next turn.%rFailure The target is Slowed 2 until the end of your next turn.%rCritical Failure The target is Paralyzed until the end of your next turn."
+        predicate: ["second-debilitation:critical", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target becomes Off-Guard."
+        predicate: ["second-debilitation:off-guard", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target takes an additional 2d6 precision damage from your attacks. Effect: Precise Debilitations"
+        predicate: ["second-debilitation:precision-damage", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target can't flank or contribute to allies' flanking. Effect: Debilitation (No Flanking)"
+        predicate: ["second-debilitation:prevent-flanking", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target can't use reactions."
+        predicate: ["second-debilitation:speed-penalty", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target can't Step"
+        predicate: ["second-debilitation:prevent-step", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target doesn't gain a circumstance bonus to AC from Raising a Shield, lesser cover, or standard cover; it gains a +2 circumstance bonus to AC only from greater cover or Taking Cover."
+        predicate: ["second-debilitation:reduce-cover", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target is Stupefied 1"
+        predicate: ["second-debilitation:stupefied", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target gains weakness 5 to your choice of bludgeoning, piercing, or slashing damage. Effect: Vicious Debilitations"
+        predicate: ["second-debilitation:weakness", "target:condition:off-guard"]
+      - key: "Note"
+        selector: "strike-damage"
+        text: "The target gains weakness 5 to bleed and poison damage. Effect: Heartless Debilitations"
+        predicate: ["second-debilitation:weakness-heartless", "target:condition:off-guard"]
+  Eternal Confidence:
+    pack: "class-features"
+    rules:
+      - key: "RollOption"
+        option: "eternal-confidence"
+        predicate: [{"or": ["finisher", "opportune-riposte"]}]
+  Evasive Reflexes:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"success": "one-degree-better"}
+  Exalted Reaction:
+    pack: "class-features"
+  Expert Spellcaster:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|class.slug}"
+  Expert Strikes:
+    pack: "class-features"
+    rules:
+      - key: "CriticalSpecialization"
+        predicate: ["item:category:unarmed", "item:group:brawling"]
+  Explosion Dodger:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"success": "one-degree-better"}
+  Field Discovery:
+    pack: "class-features"
+  Fifth Doctrine:
+    pack: "class-features"
+  Final Doctrine:
+    pack: "class-features"
+  First Doctrine:
+    pack: "class-features"
+  Fortitude Expertise:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|class.slug}"
+  Fourth Doctrine:
+    pack: "class-features"
+  Furious Footfalls:
+    pack: "class-features"
+    rules:
+      - key: "FlatModifier"
+        selector: "land-speed"
+        type: "status"
+        value: 5
+        slug: "furious-footfalls"
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "land-speed"
+        value: 10
+        slug: "furious-footfalls"
+        predicate: ["self:effect:rage"]
+  Graceful Legend:
+    pack: "class-features"
+  Greater Dogged Will:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"criticalFailure": "one-degree-better"}
+      - key: "Note"
+        selector: "will"
+        outcome: ["failure"]
+        title: "{item|name}"
+        text: "When you roll a failure on a Will save against a damaging effect, you take half damage."
+        predicate: ["damaging-effect"]
+  Greater Field Discovery:
+    pack: "class-features"
+  Greater Juggernaut:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "fortitude"
+        adjustment: {"criticalFailure": "one-degree-better"}
+      - key: "Note"
+        selector: "fortitude"
+        outcome: ["failure"]
+        title: "{item|name}"
+        text: "When you roll a failure on a Fortitude save against a damaging effect, you take half damage."
+        predicate: ["damaging-effect"]
+  Greater Mysterious Resolve:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"criticalFailure": "one-degree-better"}
+      - key: "Note"
+        selector: "will"
+        outcome: ["failure"]
+        title: "{item|name}"
+        text: "When you roll a failure on a Will save against a damaging effect, you take half damage."
+        predicate: ["damaging-effect"]
+  Greater Natural Reflexes:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"criticalFailure": "one-degree-better"}
+      - key: "Note"
+        selector: "reflex"
+        outcome: ["failure"]
+        title: "{item|name}"
+        text: "When you roll a failure on a Reflex save against a damaging effect, you take half damage."
+        predicate: ["damaging-effect"]
+  Greater Performer's Heart:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"criticalFailure": "one-degree-better"}
+      - key: "Note"
+        selector: "will"
+        outcome: ["failure"]
+        title: "{item|name}"
+        text: "When you roll a failure on a Will save against a damaging effect, you take half damage."
+        predicate: ["damaging-effect"]
+  Greater Rogue Reflexes:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"criticalFailure": "one-degree-better"}
+      - key: "Note"
+        selector: "reflex"
+        outcome: ["failure"]
+        title: "{item|name}"
+        text: "When you roll a failure on a Reflex save against a damaging effect, you take half damage."
+        predicate: ["damaging-effect"]
+  Greater Weapon Specialization:
+    pack: "class-features"
+    rules:
+      - key: "AdjustModifier"
+        mode: "multiply"
+        selectors: ["unarmed-damage", "weapon-damage"]
+        relabel: "PF2E.GreaterWeaponSpecialization"
+        value: 2
+        slug: "weapon-specialization"
+  Hunt Prey:
+    pack: "class-features"
+  Incredible Movement:
+    pack: "class-features"
+    rules:
+      - key: "FlatModifier"
+        selector: "land-speed"
+        type: "status"
+        value: "5*floor((@actor.level + 5) / 4)"
+        slug: "incredible-movement"
+        predicate: [{"not": "self:armored"}]
+  Indomitable Will:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Investigator Expertise:
+    pack: "class-features"
+    rules:
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["perception", "skill-check", "saving-throw"]
+        value: 2
+        slug: "pursue-a-lead"
+  Juggernaut:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "fortitude"
+        adjustment: {"success": "to-critical-success"}
+  Keen Flair:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "strike-attack-roll"
+        adjustment: {"success": "to-critical-success"}
+        predicate: ["check:roll:total:natural:19", "item:proficiency:rank:3"]
+  Keen Recollection:
+    pack: "class-features"
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "proficiency"
+        value: "@actor.level"
+        predicate: ["action:recall-knowledge", "proficiency:untrained"]
+  Legendary Spellcaster:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|class.slug}"
+  Magical Fortitude:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|class.slug}"
+  Majestic Will:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Master Spellcaster:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|class.slug}"
+  Master Strike:
+    pack: "class-features"
+  Masterful Hunter:
+    pack: "class-features"
+    rules:
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["perception", "survival"]
+        value: 4
+        predicate: [{"gte": ["perception:rank", 3]}, {"or": ["bonus:slug:hunt-prey-seek", "bonus:slug:hunt-prey-track"]}]
+      - key: "RollOption"
+        option: "ignore-range-penalty:3"
+        domain: "ranged-attack-roll"
+        predicate: ["target:mark:hunted-prey", {"gte": ["item:proficiency:rank", 3]}]
+  Medium Armor Expertise:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|class.slug}"
+  Metal Strikes:
+    pack: "class-features"
+    rules:
+      - key: "AdjustStrike"
+        property: "materials"
+        mode: "add"
+        definition: ["item:category:unarmed"]
+        value: "cold-iron"
+      - key: "AdjustStrike"
+        property: "materials"
+        mode: "add"
+        definition: ["item:category:unarmed"]
+        value: "silver"
+      - key: "AdjustStrike"
+        property: "materials"
+        mode: "add"
+        definition: ["item:trait:monk"]
+        value: "cold-iron"
+        predicate: ["feat:monastic-weaponry"]
+      - key: "AdjustStrike"
+        property: "materials"
+        mode: "add"
+        definition: ["item:trait:monk"]
+        value: "silver"
+        predicate: ["feat:monastic-weaponry"]
+  Mighty Rage:
+    pack: "class-features"
+    rules:
+      - key: "RollOption"
+        option: "mighty-rage-attack"
+        toggleable: true
+      - key: "AdjustModifier"
+        mode: "multiply"
+        selector: "strike-damage"
+        value: 2
+        slug: "rage"
+        predicate: ["mighty-rage-attack"]
+  Monk Expertise:
+    pack: "class-features"
+  Mysterious Resolve:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Mystic Strikes:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "traits"
+        mode: "add"
+        value: "magical"
+        predicate: ["item:category:unarmed"]
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "traits"
+        mode: "add"
+        value: "magical"
+        predicate: ["item:trait:monk", "feat:monastic-weaponry"]
+  Natural Reflexes:
+    pack: "class-features"
+    rules:
+      - key: "Note"
+        selector: "reflex"
+        outcome: ["success"]
+        title: "{item|name}"
+        text: "When you roll a success on a Reflex save, you get a critical success instead."
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"success": "one-degree-better"}
+  On the Case:
+    pack: "class-features"
+  Opportune Riposte:
+    pack: "class-features"
+  Panache:
+    pack: "class-features"
+    rules:
+      - key: "Note"
+        selector: ["skill-check", "strike-attack-roll"]
+        outcome: ["success", "criticalSuccess"]
+        title: "Success"
+        text: "You gain Panache."
+        predicate: [{"or": ["item:trait:bravado", "self:action:trait:bravado"]}, {"or": [{"not": "self:effect:panache"}, "finisher:illimitable"]}]
+      - key: "Note"
+        selector: ["skill-check", "strike-attack-roll"]
+        outcome: ["failure"]
+        title: "Failure"
+        text: "You gain panache until the end of your next turn Effect: Panache (Temporary)"
+        predicate: [{"or": ["item:trait:bravado", "self:action:trait:bravado"]}, {"or": [{"not": "self:effect:panache"}, "finisher:illimitable"]}]
+  Perception Mastery:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|class.slug}"
+  Performer's Heart:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Powerful Alchemy:
+    pack: "class-features"
+  Powerful Fist:
+    pack: "class-features"
+    rules:
+      - key: "ItemAlteration"
+        itemId: "xxxxxxFISTxxxxxx"
+        property: "damage-dice-faces"
+        mode: "upgrade"
+  Precise Strike:
+    pack: "class-features"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.swashbuckler.preciseStrike"
+        mode: "override"
+        value: "ceil(@actor.level/4) + 1"
+        predicate: ["class:swashbuckler"]
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        value: "@actor.flags.system.swashbuckler.preciseStrike"
+        damageCategory: "precision"
+        slug: "precise-strike"
+        predicate: [{"or": ["item:melee", {"and": ["feat:flying-blade", "item:thrown", "target:range-increment:1"]}]}, {"or": ["item:trait:agile", "item:trait:finesse"]}, {"not": "finisher"}]
+      - key: "DamageDice"
+        category: "precision"
+        selector: "strike-damage"
+        diceNumber: "@actor.flags.system.swashbuckler.preciseStrike"
+        dieSize: "d6"
+        slug: "finisher"
+        predicate: ["finisher", {"or": ["item:melee", {"and": ["feat:flying-blade", "item:thrown", {"or": ["target:range-increment:1", {"and": ["finisher:twirling-throw", {"lte": ["target:range-increment", 3]}]}]}]}]}, {"or": ["item:trait:agile", "item:trait:finesse"]}]
+  Prodigious Will:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Rage:
+    pack: "class-features"
+  Ranger Expertise:
+    pack: "class-features"
+  Ranger Weapon Expertise:
+    pack: "class-features"
+    rules:
+      - key: "CriticalSpecialization"
+        predicate: ["target:mark:hunted-prey", {"or": ["item:category:simple", "item:category:martial", "item:category:unarmed"]}]
+  Reactive Strike:
+    pack: "class-features"
+  Reinforced Ego:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Relentless Reaction:
+    pack: "class-features"
+    rules:
+      - key: "FlatModifier"
+        selector: "strike-damage"
+        value: "@actor.abilities.cha.mod"
+        damageType: "spirit"
+        damageCategory: "persistent"
+        predicate: ["retributive-strike"]
+  Resolute Faith:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Rogue Resilience:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "fortitude"
+        adjustment: {"success": "one-degree-better"}
+  Sacred Body:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "fortitude"
+        adjustment: {"success": "one-degree-better"}
+  Savvy Reflexes:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"success": "one-degree-better"}
+  Second Doctrine:
+    pack: "class-features"
+  Sneak Attack:
+    pack: "class-features"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "flags.system.sneakAttackDamage.number"
+        mode: "override"
+        value: "ternary(lt(@actor.level, 5), 1, ternary(lt(@actor.level, 11), 2, ternary(lt(@actor.level, 17), 3, 4)))"
+        predicate: ["class:rogue"]
+      - key: "ActiveEffectLike"
+        path: "flags.system.sneakAttackDamage.faces"
+        mode: "override"
+        value: 6
+        predicate: ["class:rogue"]
+      - key: "RollOption"
+        option: "target:condition:off-guard"
+        toggleable: "totm"
+        label: "Enable abilities that require an off-guard target"
+      - key: "ItemAlteration"
+        itemType: "weapon"
+        property: "other-tags"
+        mode: "add"
+        value: "sneak-attack"
+        predicate: [{"or": ["item:trait:agile", "item:trait:finesse", {"and": ["item:ranged", {"not": "item:thrown-melee"}]}]}]
+      - key: "DamageDice"
+        category: "precision"
+        selector: "strike-damage"
+        diceNumber: "@actor.flags.system.sneakAttackDamage.number"
+        dieSize: "d{actor|flags.system.sneakAttackDamage.faces}"
+        predicate: ["item:tag:sneak-attack", "target:condition:off-guard"]
+  Sorcerous Potency:
+    pack: "class-features"
+    rules:
+      - key: "RollOption"
+        option: "sorcerous-potency"
+        toggleable: true
+  Strategic Strike:
+    pack: "class-features"
+    rules:
+      - key: "DamageDice"
+        category: "precision"
+        selector: "strike-damage"
+        diceNumber: "floor((@actor.level+3)/4)"
+        dieSize: "d6"
+        predicate: ["check:substitution:devise-a-stratagem"]
+  Stylish Combatant:
+    pack: "class-features"
+    rules:
+      - key: "FlatModifier"
+        selector: "skill-check"
+        type: "circumstance"
+        value: 1
+        slug: "stylish-combatant-skill"
+        predicate: ["item:trait:bravado", {"or": ["encounter", "feature:continuous-flair"]}]
+  Swashbuckler Expertise:
+    pack: "class-features"
+    rules:
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selector: "skill-check"
+        value: 2
+        slug: "stylish-combatant-skill"
+  Tempered Reflexes:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "reflex"
+        adjustment: {"success": "one-degree-better"}
+  Third Doctrine:
+    pack: "class-features"
+  Unimpeded Journey:
+    pack: "class-features"
+  Vivacious Speed:
+    pack: "class-features"
+  Voice of Nature:
+    pack: "class-features"
+    rules:
+      - key: "ChoiceSet"
+        flag: "feat"
+        prompt: "Select a 1st-level class feat."
+        choices: [{"value": "Compendium.pf2e.feats-srd.Item.Animal Empathy"}, {"value": "Compendium.pf2e.feats-srd.Item.Plant Empathy"}]
+  Warden's Endurance:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "fortitude"
+        adjustment: {"success": "one-degree-better"}
+  Weapon Expertise:
+    pack: "class-features"
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.martial.rank"
+        mode: "upgrade"
+        value: 2
+        predicate: [{"or": ["class:champion", "class:exemplar", "class:guardian", "class:investigator", "class:magus", "class:runesmith", "class:swashbuckler", "class:thaumaturge"]}]
+      - key: "CriticalSpecialization"
+        predicate: [{"gte": ["item:proficiency:rank", 2]}, "class:swashbuckler", {"not": "item:category:unarmed"}]
+      - key: "ItemAlteration"
+        itemId: "{item|id}"
+        property: "traits"
+        mode: "add"
+        value: "{actor|class.slug}"
+  Weapon Specialization:
+    pack: "class-features"
+    rules:
+      - key: "FlatModifier"
+        selector: ["unarmed-damage", "weapon-damage"]
+        value: 2
+        slug: "weapon-specialization"
+        label: "Weapon Specialization"
+        predicate: [{"gte": ["item:proficiency:rank", 2]}]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["unarmed-damage", "weapon-damage"]
+        value: 3
+        slug: "weapon-specialization"
+        predicate: ["item:proficiency:rank:3"]
+      - key: "AdjustModifier"
+        mode: "upgrade"
+        selectors: ["unarmed-damage", "weapon-damage"]
+        value: 4
+        slug: "weapon-specialization"
+        predicate: ["item:proficiency:rank:4"]
+  Weapon Tricks:
+    pack: "class-features"
+    rules:
+      - key: "CriticalSpecialization"
+        predicate: ["target:condition:off-guard", {"or": ["item:trait:agile", "item:trait:finesse"]}]
+  Wild Willpower:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Will of the Pupil:
+    pack: "class-features"
+    rules:
+      - key: "AdjustDegreeOfSuccess"
+        selector: "will"
+        adjustment: {"success": "one-degree-better"}
+  Wizard Weapon Expertise:
+    pack: "class-features"
+
+    rules:
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.weapon-base-club.rank"
+        mode: "upgrade"
+        value: 2
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.weapon-base-crossbow.rank"
+        mode: "upgrade"
+        value: 2
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.weapon-base-dagger.rank"
+        mode: "upgrade"
+        value: 2
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.weapon-base-heavy-crossbow.rank"
+        mode: "upgrade"
+        value: 2
+      - key: "ActiveEffectLike"
+        path: "system.proficiencies.attacks.weapon-base-staff.rank"
+        mode: "upgrade"
+        value: 2

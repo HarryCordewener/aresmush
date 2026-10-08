@@ -95,9 +95,9 @@ module AresMUSH
         Stat.of(@holder, kind, name, options, extra)
       end
 
-      # What alters the things it has: its feats and items as well as what it is under.
+      # What alters the things it has: its feats, class features and items as well as what it is under.
       def alteration_sources
-        Effects.feats(@holder) + Effects.items(@holder)
+        Effects.feats(@holder) + Effects.features(@holder) + Effects.items(@holder)
       end
 
       def carries_items?

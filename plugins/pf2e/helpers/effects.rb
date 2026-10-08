@@ -65,7 +65,7 @@ module AresMUSH
 
       def self.sheet_sources(char)
         SheetReads.memo(char, :effect_sources) do
-          conditions(char) + feats(char) + items(char) + runes(char) + ActiveEffects.sources(char)
+          conditions(char) + feats(char) + features(char) + items(char) + runes(char) + ActiveEffects.sources(char)
         end
       end
 
@@ -267,6 +267,26 @@ module AresMUSH
                              'badge' => { 'value' => held['value'].to_i },
                              'level' => char.pf2_level.to_i })
         end.compact
+      end
+
+      # A class feature's rules, from `pf2e_class_features.yml`, as a feat's are.
+      def self.features(char)
+        (char.pf2_features || {}).values.flatten.map { |one| feature_named(one.to_s) }.uniq.map do |name|
+          info = Global.read_config('pf2e_class_features', name)
+
+          next nil unless info.is_a?(Hash) && info['rules']
+
+          built = source(name, info['rules'], 'id' => Domains.slug(name), 'item' => { 'level' => char.pf2_level.to_i })
+
+          with_selections(char, built)
+        end.compact
+      end
+
+      # A class feature as the class tables grant it carries what it amounts to at that level - "Sneak
+      # Attack 2d6", "Incredible Movement (+15 feet)", "Precise Strike 3 (3d6)" - where the catalogue
+      # holds the one item that works that out for itself.
+      def self.feature_named(granted)
+        granted.sub(/\s*\(.*\)\z/, '').sub(/\s+\d+d\d+\z/, '').sub(/\s+\d+\z/, '').strip
       end
 
       def self.feats(char)

@@ -24,6 +24,8 @@ import os
 import re
 import subprocess
 
+import yaml
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG = os.path.join(ROOT, 'game', 'config')
 
@@ -35,7 +37,54 @@ SOURCES = [
                    'pf2e_gear.yml', 'pf2e_consumables.yml']),
     ('feats', ['pf2e_feat_ancestry.yml', 'pf2e_feat_class.yml', 'pf2e_feat_dedication.yml',
                'pf2e_feat_general.yml', 'pf2e_feat_skill.yml']),
+    ('class-features', ['pf2e_class_features.yml']),
 ]
+
+# A class feature as the class tables grant it carries what it amounts to at that level - "Sneak Attack
+# 2d6", "Incredible Movement (+15 feet)", "Precise Strike 3 (3d6)" - where their pack has one item that
+# works it out itself. `Pf2e::Effects.feature_named` reads it the same way.
+def feature_named(granted):
+    name = re.sub(r'\s*\(.*\)$', '', granted)
+    name = re.sub(r'\s+\d+d\d+$', '', name)
+    name = re.sub(r'\s+\d+$', '', name)
+    return name.strip()
+
+
+def granted_features():
+    """Every class feature a class or a specialty grants, by the name it has in their pack."""
+    found = set()
+
+    def walk(node):
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if key in ('charclass_feature', 'charclass_features', 'features', 'feature') and isinstance(value, list):
+                    found.update(feature_named(one) for one in value if isinstance(one, str))
+                walk(value)
+        elif isinstance(node, list):
+            for one in node:
+                walk(one)
+
+    for name in ('pf2e_class.yml', 'pf2e_specialty.yml'):
+        walk(yaml.safe_load(open(os.path.join(CONFIG, name))))
+
+    return found
+
+
+def class_feature_catalogue(theirs):
+    """The class features this game grants that their pack gives rules, as entries for the rules to
+    be written under."""
+    lines = ['---',
+             '# A class feature\'s rule elements, from Foundry\'s class-features pack, written by',
+             '# scripts/import_foundry_rules.py. An entry is a feature some class or specialty grants.',
+             'pf2e_class_features:']
+
+    for name in sorted(granted_features()):
+        rules = [rule for rule in theirs.get(name, ([], []))[0] if rule.get('key') in KINDS]
+        if rules:
+            lines += [f'  {name}:', '    pack: "class-features"']
+
+    return '\n'.join(lines) + '\n'
+
 
 # The kinds Pf2e::Rules implements, and the fields it reads for each. What is listed here is written
 # out: a field accepted and then dropped is a rule that reads as something other than what Foundry
@@ -123,7 +172,7 @@ GRANTABLE = {'conditionitems', 'spell-effects', 'feat-effects', 'equipment-effec
 ALTERED = {'traits', 'runes-potency', 'runes-striking', 'runes-resilient', 'damage-dice-faces',
            'damage-dice-number', 'damage-type', 'material-type', 'range-increment', 'group', 'category',
            'ac-bonus', 'dex-cap', 'check-penalty', 'speed-penalty', 'strength', 'hardness', 'badge-value',
-           'badge-max', 'pd-recovery-dc'}
+           'badge-max', 'pd-recovery-dc', 'other-tags'}
 ALTERABLE_ITEMS = {'weapon', 'armor', 'shield', 'condition'}
 
 # The kinds of their own thing a character may be asked to choose among, as our inventory holds them.
@@ -618,6 +667,8 @@ def main():
     # would be a rule doing less than it says, and one read there and refused here an effect nobody
     # can import. `imported_rules_specs.rb` compares the two.
     parser.add_argument('--fields', action='store_true')
+    # One pack, where the others are not to be read again: `--only class-features`.
+    parser.add_argument('--only')
     args = parser.parse_args()
 
     if args.fields:
@@ -636,15 +687,23 @@ def main():
     words = strings(args.checkout)
 
     for pack, catalogues in SOURCES:
+        if args.only and pack != args.only:
+            continue
+
         theirs = foundry(args.checkout, pack)
         if not theirs:
             raise SystemExit(f'no {pack} under {args.checkout}')
 
+        # The class features' catalogue is made from the class tables, then filled like any other.
+        made = class_feature_catalogue(theirs) if pack == 'class-features' else None
+        if made and args.write:
+            open(os.path.join(CONFIG, 'pf2e_class_features.yml'), 'w').write(made)
+
         for name in catalogues:
             path = os.path.join(CONFIG, name)
-            if not os.path.exists(path):
+            if not made and not os.path.exists(path):
                 continue
-            text = open(path).read()
+            text = made or open(path).read()
             additions = {}
 
             for item, (rules, declared) in theirs.items():
@@ -668,6 +727,8 @@ def main():
 
     print('written' if args.write else 'dry run')
     for pack, _ in SOURCES:
+        if args.only and pack != args.only:
+            continue
         print(f"  {pack}: {totals[pack]} entries, {totals[f'{pack} rows']} rules")
     print('\nkinds of rule nothing here reads, on what we stock:')
     for kind, count in unread.most_common(12):

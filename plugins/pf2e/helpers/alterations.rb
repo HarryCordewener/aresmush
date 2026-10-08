@@ -20,6 +20,9 @@ module AresMUSH
       #   step  a die size, which `upgrade` and `downgrade` move one size at a time
       PROPERTIES = {
         'traits' => { 'field' => 'traits', 'list' => true },
+        # Tags a rule gives a weapon so another rule can ask for it: Sneak Attack's `sneak-attack` on an
+        # agile or finesse weapon, which its damage dice then require.
+        'other-tags' => { 'field' => 'tags', 'list' => true },
         'runes-potency' => { 'field' => 'potency' },
         'runes-striking' => { 'field' => 'striking' },
         'runes-resilient' => { 'field' => 'resilient' },
