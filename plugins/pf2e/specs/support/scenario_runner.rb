@@ -10,6 +10,7 @@ module AresMUSH
     # The room's and the GM's messages are written to the transcript by whoever drives the runner, which
     # stubs the emitters (`#heard`).
     class ScenarioRunner
+      include InteractionProbes
 
       # One player's seat: the character's class and origin, and what they carry.
       #
@@ -40,7 +41,7 @@ module AresMUSH
       MUSH_CODES = /%x[a-zA-Z]|%x\d+|%c[a-zA-Z]|%l[a-z]|%n|%t|%b/
 
       attr_reader :name, :level, :seats, :waves, :lines, :tries, :outcomes, :party, :gm, :encounters,
-                  :build_notes
+                  :build_notes, :audit, :probes
 
       def initialize(name, level:, seats:, waves:, rounds: 6)
         @name = name
@@ -55,15 +56,22 @@ module AresMUSH
         @encounters = []
         @build_notes = {}
         @tried = Hash.new { |h, k| h[k] = {} }
+        @audit = RollAudit.new
+        @probes = []
       end
 
       # ------------------------------------------------------------------------------
       # The transcript
 
+      # What leaks the engine's insides into what a player reads.
+      LEAKS = /Translation missing|=>|%\{|#<[A-Z]|undefined method|\bnil\b/
+
       def heard(message, to = nil)
         text = clean(message)
 
         return if text.empty?
+
+        @audit.find('wording', to ? "told #{to}" : 'told the room', text[0, 200]) if text.match?(LEAKS)
 
         @lines << (to ? "    [to #{to}] #{text}" : "    #{text}")
       end
@@ -99,7 +107,10 @@ module AresMUSH
         end
 
         (client.successes + client.oocs).each { |line| heard(line, enactor.name) }
-        client.failures.each { |line| @lines << "    !! #{clean(line)}" }
+        client.failures.each do |line|
+          @lines << "    !! #{clean(line)}"
+          @audit.find('wording', "#{enactor.name}: #{text}", clean(line)[0, 200]) if clean(line).match?(LEAKS)
+        end
         @lines << "    ** #{error.class}: #{error.message} (#{error.backtrace&.first})" if error
 
         outcome = Outcome.new(:who => enactor.name, :text => text, :said => client.successes + client.oocs,
@@ -113,6 +124,7 @@ module AresMUSH
 
         @tries << Try.new(:who => char.name, :kind => kind, :what => what, :text => text, :outcome => outcome)
         @tried[char.id][[ kind, what ]] = outcome
+        @audit.safely("#{char.name}: #{text}") { spell_outcome!(char, text) } if outcome.ok? && text.start_with?('e/cast')
         outcome
       end
 
@@ -269,6 +281,7 @@ module AresMUSH
       end
 
       def fight!(wave, carries_on: nil)
+        @wave = wave
         say "## Encounter: #{wave.map { |count, creature| "#{count} #{creature}" }.join(', ')}"
 
         type(@gm, carries_on ? "encounter =#{carries_on.id}" : 'encounter')
@@ -282,6 +295,8 @@ module AresMUSH
         type(@gm, 'e/rest') unless carries_on
         wave.each { |count, creature| type(@gm, "e/add #{count} #{creature}") }
         type(@gm, 'e/view')
+        type(@gm, 'e/next')
+        interactions!
 
         @rounds.times do |round|
           break if foes.empty?
@@ -290,7 +305,11 @@ module AresMUSH
           order_size = Combatants.rows(encounter).size
 
           order_size.times do
+            ending = frightened_before_turn_ends
+            heard_before = @lines.size
             type(@gm, 'e/next')
+            @audit.safely('frightened easing') { frightened_eased!(ending) }
+            @audit.safely('recovery check') { recovery_rolled!(@lines[heard_before..]) }
             break if foes.empty?
 
             act_on_turn
@@ -594,6 +613,12 @@ module AresMUSH
 
         lines << '## Errors'
         errors.each { |one| lines << "- #{one.who}: #{one.text} -> #{one.status}" }
+        lines << ''
+        lines << '## Interactions'
+        @probes.each { |name, status| lines << "- #{name}: #{status}" }
+        lines << ''
+        lines << "## Arithmetic: #{@audit.counts.map { |what, count| "#{count} #{what}" }.join(', ')}"
+        @audit.findings.each { |one| lines << "- #{one}" }
         lines.join("\n")
       end
 

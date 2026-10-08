@@ -1,5 +1,7 @@
 require "plugin_test_loader"
 require_relative "support/auto_builder"
+require_relative "support/roll_audit"
+require_relative "support/interaction_probes"
 require_relative "support/scenario_runner"
 
 module AresMUSH
@@ -141,10 +143,52 @@ module AresMUSH
         allow(Login).to receive(:emit_ooc_if_logged_in) { |who, message| runner.heard(message, who&.name) }
         allow(Login).to receive(:emit_if_logged_in) { |who, message| runner.heard(message, who&.name) }
         allow_any_instance_of(Character).to receive(:is_admin?) { |char| char.id == runner.gm&.id }
+        audited(runner.audit)
 
         runner.run!
         keep(runner, level)
         runner
+      end
+
+      # Every roll, defence and hit the fight makes, handed to the audit as it happens.
+      def audited(audit)
+        allow(Resolve).to receive(:roll).and_wrap_original do |original, check, **opts|
+          result = original.call(check, **opts)
+          audit.safely("roll #{check.kind}") { audit.rolled(check, opts[:dc], result) }
+          result
+        end
+
+        allow(Resolve).to receive(:defence).and_wrap_original do |original, holder, against, **opts|
+          result = original.call(holder, against, **opts)
+          audit.safely("defence #{against}") { audit.defended(holder, against, result) }
+          result
+        end
+
+        %i{of_instances of_formulas}.each do |name|
+          allow(DamageRoll).to receive(name).and_wrap_original do |original, rows, critical, *rest|
+            result = original.call(rows, critical, *rest)
+            audit.safely("damage #{name}") { audit.dealt_rows(result, critical) }
+            result
+          end
+        end
+
+        allow(Harm).to receive(:damage).and_wrap_original do |original, holder, amount, type = nil, **opts|
+          before = audit_hp(holder)
+          result = original.call(holder, amount, type, **opts)
+          audit.safely("damage to #{holder.name}") { audit.landed(holder, amount, type, before, audit_hp(holder), result) }
+          result
+        end
+      end
+
+      # Hit points with temporary ones, which take damage first.
+      def audit_hp(holder)
+        fresh = holder.class[holder.id]
+
+        if Actors.of(fresh).creature?
+          fresh.hp_left.to_i + fresh.temp_hp.to_i
+        else
+          Pf2eHP.get_current_hp(fresh) + fresh.temp_hp.to_i
+        end
       end
 
       def keep(runner, level)
@@ -162,6 +206,7 @@ module AresMUSH
           runner = play(level)
 
           expect(runner.errors.map { |one| "#{one.who}: #{one.text} -> #{one.status}" }).to eq []
+          expect(runner.audit.findings.map(&:to_s)).to eq []
           expect(runner.encounters.size).to eq 2
           runner.party.each { |char| expect(runner.tries.count { |one| one.who == char.name && one.outcome.ok? }).to be > 3 }
         end
