@@ -36,6 +36,10 @@ module AresMUSH
           'syntax' => '[add|delete] <feature name>',
           'plan' => lambda { |words, state, target| AdminSet.plan_feature(words, state, target) }
         },
+        'choice' => {
+          'syntax' => '[delete] <feat or choice>: <what was chosen>',
+          'plan' => lambda { |words, state, target| AdminSet.plan_choice(words, state, target) }
+        },
         # One row for both keywords: which list a spell lands in follows from the class's casting
         # mode, so the same grant serves a spellbook and a repertoire.
         'spellbook' => {
@@ -138,6 +142,26 @@ module AresMUSH
 
           ok(state, 'Feature').with_revocation('grant_feature', 'feature' => held)
         end
+      end
+
+      # What a character chose for a feat or a class, which staff restore where it was lost. It is
+      # recorded against a feat or feature they hold, or a choice they have already made.
+      def self.plan_choice(words, state, target)
+        deleting = words.first.to_s.casecmp?('delete')
+        name, label = (deleting ? words.drop(1) : words).join(' ').split(':', 2).map { |part| part.to_s.strip }
+
+        return short(target) if name.to_s.empty? || label.to_s.empty?
+
+        sheet = state['sheet'] || {}
+        holding = (sheet['feats'] || {}).values.flatten + (sheet['features'] || {}).values.flatten +
+                  (sheet['feat_choices'] || {}).keys
+        held = holding.find { |one| one.to_s.casecmp?(name) }
+
+        return Err.new(:not_in_list, 'pf2e.not_in_list', 'option' => name) unless held
+
+        return ok(state, 'Choice').with_grant('make_choice', 'choice' => held, 'label' => label) unless deleting
+
+        ok(state, 'Choice').with_revocation('make_choice', 'choice' => held, 'label' => label)
       end
 
       def self.plan_spell_list(words, state, target)

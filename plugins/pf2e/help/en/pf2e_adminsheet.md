@@ -29,6 +29,19 @@ levels still apply on top of it, so setting a score at 1st level does not freeze
 `[add|delete]`: Choose `add` to add a feature; `delete` to delete a feature.
 `<feature name>`: The name of the feature.
 
+### Setting what a character chose
+**Command**:
+`admin/set <character>/choice = <feat or choice>: <what was chosen>`
+`admin/set <character>/choice = delete <feat or choice>: <what was chosen>`
+
+**Key**:
+`<feat or choice>`: The feat or class choice it was for, as the character holds it: `Assurance`, `Domain Initiate`.
+`<what was chosen>`: The pick: `Arcana`, `Family`.
+
+What a character chose for a feat is what its rules read - Assurance's skill, a cleric's domain. Characters
+approved before choices were kept may have lost them; `Pf2e::ChoiceRecovery.recover_all!` in tinker reads
+back every one it can from what the choice left on the sheet, and names the rest for this command.
+
 ### Setting skills
 **Command**:
 `admin/set <character>/skill = <skill name> <proficiency level>`

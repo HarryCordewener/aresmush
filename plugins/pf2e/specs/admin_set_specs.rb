@@ -24,6 +24,8 @@ module AresMUSH
             'abilities' => scores.keys, 'ability_scores' => scores },
           :sheet => {
             'features' => { 'charclass_features' => [ 'Arcane Bond' ] },
+            'feats' => { 'skill' => [ 'Assurance' ] },
+            'feat_choices' => { 'Assurance' => [ 'Arcana' ] },
             'lores' => { 'Sailing Lore' => 'trained' }
           },
           :config => config
@@ -105,6 +107,31 @@ module AresMUSH
           result = plan('feature', 'Improve', 'Arcane', 'Bond')
 
           expect(result.code).to eq :bad_instruction
+        end
+      end
+
+      # What a character chose for a feat, which staff restore where it was lost: Assurance's skill.
+      describe "a choice" do
+        it "should record what was chosen, as the choice's name and the pick" do
+          result = plan('choice', 'Assurance:', 'Stealth')
+
+          expect(result.grants).to eq [ { 'kind' => 'make_choice',
+                                          'payload' => { 'choice' => 'Assurance', 'label' => 'Stealth' } } ]
+        end
+
+        it "should take one back it is told to delete" do
+          result = plan('choice', 'Delete', 'Assurance:', 'Arcana')
+
+          expect(result.revocations).to eq [ { 'kind' => 'make_choice',
+                                              'match' => { 'choice' => 'Assurance', 'label' => 'Arcana' } } ]
+        end
+
+        it "should refuse a choice for a feat the character does not hold" do
+          expect(plan('choice', 'Domain', 'Initiate:', 'Family').code).to eq :not_in_list
+        end
+
+        it "should need both the choice and the pick" do
+          expect(plan('choice', 'Assurance').code).to eq :bad_syntax
         end
       end
 
