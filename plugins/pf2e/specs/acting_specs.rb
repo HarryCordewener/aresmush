@@ -606,6 +606,15 @@ module AresMUSH
         end
       end
 
+      # An action with a command of its own is done with that command; using it as an action says which.
+      it "should point Quick Alchemy at the command that makes the item" do
+        @hero.update(:pf2_features => { 'charclass_features' => [ 'Quick Alchemy' ], 'archetype_features' => [] })
+        run(PF2EncounterActCmd, 'e/act quick alchemy', @hero)
+
+        expect(@client.failures.join).to include('+e/alchemy')
+        expect(TurnState.turn(CombatantStates.of(@encounter, Character[@hero.id]))['actions'].to_i).to eq 0
+      end
+
       describe "Nimble Dodge" do
         before(:each) do
           add('2 goblin warrior')

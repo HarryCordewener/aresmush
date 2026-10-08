@@ -491,7 +491,7 @@ module AresMUSH
         # Nimble Dodge answer a hit, and are used when one offers them.
         answers = [ ShieldBlock::NAME ] + AttackAnswers.reactions(state)
         (class_actions(state) + granted).uniq { |action| Domains.slug(action) }.each do |action|
-          next if answers.include?(action)
+          next if answers.include?(action) || Acting::COMMANDS.key?(Domains.slug(action))
 
           if Array(Actions.info(action)['traits']).include?('healing')
             out << [ :heal, action, -> { "e/act #{action}=#{hurt_ally.name}" } ]

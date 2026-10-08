@@ -100,11 +100,18 @@ module AresMUSH
 
       # `targets` is every combatant it is aimed at, where more than one was named; only a creature's
       # ability that deals damage against a save takes more than one.
+      # Actions done with a command of their own, which using them as an action points at.
+      COMMANDS = { 'quick-alchemy' => '+e/alchemy <item>', 'refocus' => '+e/refocus',
+                   'cast-a-spell' => '+e/cast <spell>=<target>' }.freeze
+
       def self.act(scene, term, words, targets: nil)
         follow = Actors.of(scene.actor.holder).follow_up(term)
         name = follow ? follow['action'] : action_named(scene, term)
 
         return name if name.is_a?(Err)
+
+        command = COMMANDS[Domains.slug(name)]
+        return Err.new(:own_command, 'pf2e.act_own_command', 'action' => name, 'command' => command) if command
 
         targets ||= [ scene.target ].compact
         if targets.size > 1 && !CreatureAbilities.damage_save(own_text(scene, name))
