@@ -179,7 +179,7 @@ module AresMUSH
 
       return t('pf2emagic.no_focus_pool') if max.zero?
 
-      return t('pf2emagic.cant_refocus_pool') unless gm || current < max
+      return t('pf2emagic.cant_refocus_pool', :current => current, :max => max) unless gm || current < max
 
       current = refocus_refills?(target) ? max : [ current + 1, max ].min
 

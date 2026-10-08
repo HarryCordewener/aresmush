@@ -135,11 +135,11 @@ module AresMUSH
 
       # A Refocus restores one point, or the whole pool for a feat that says it refills.
       describe :do_refocus do
-        def refocus(features: [])
+        def refocus(features: [], gm: true)
           @char.update(:pf2_features => @char.pf2_features.merge('charclass_features' => features))
           @magic.update(:tradition => @magic.tradition.merge(@char.pf2_base_info['charclass'] => [ 'divine', 'trained' ]))
 
-          Pf2emagic.do_refocus(Character[@char.id], Character[@char.id])
+          Pf2emagic.do_refocus(Character[@char.id], gm)
         end
 
         def three_spells
@@ -153,6 +153,15 @@ module AresMUSH
 
           expect(refocus).to be_nil
           expect(remaining).to eq 1
+        end
+
+        it "should tell a player whose pool is full how full it is" do
+          as('Cleric')
+          three_spells
+          left(3)
+
+          expect(refocus(:gm => false)).to eq t('pf2emagic.cant_refocus_pool', :current => 3, :max => 3)
+          expect(refocus(:gm => false)).to include('3 of 3')
         end
 
         it "should refill the pool for a feat that says it does" do
