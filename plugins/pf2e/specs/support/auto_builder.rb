@@ -232,7 +232,7 @@ module AresMUSH
         'bg skill choice','class skill choice','specialty skill choice','bgskill','open skills','open languages',
         'feats','raise skill','raise skill choice','raise ability','languages','charclass_feature option',
         'spellbook','repertoire','signature','archetype_deity','archetype_sanctification','grants','innate','repertoire_swap',
-        'class option','archetype','feat choice'
+        'class option','archetype','feat choice','feat_choices'
       ]
 
       # Resolving a choice is `cg/option` during chargen and `advance/option` afterwards; the wrong

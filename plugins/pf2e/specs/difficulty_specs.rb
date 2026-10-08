@@ -12,6 +12,12 @@ module AresMUSH
         Difficulty.of(creatures, characters, :level => level, :table => table)
       end
 
+      # A threat is measured against a party, so before anyone joins there is nothing to measure.
+      it "should say there is no threat to read before any character joins" do
+        expect(Difficulty.line(rated([ 2, -1 ], []), false)).to eq t('pf2e.difficulty_no_party')
+        expect(Difficulty.line(rated([ 2 ], [ 1 ]), false)).to include('for a party of 1 at level 1')
+      end
+
       it "should price a creature by its level against the party's" do
         expect(Difficulty.creature_xp(2, 5, table)).to eq 15
         expect(Difficulty.creature_xp(5, 5, table)).to eq 40

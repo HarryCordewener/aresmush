@@ -537,6 +537,7 @@ en:
     rest_nobody: "There is nobody in this encounter to rest."
     rest_creature: "%{ref} is a creature, and does not prepare. Heal it with heal."
     difficulty_line: "%{threat}: %{xp} XP of %{budget} for a party of %{size} at level %{level}%{set}."
+    difficulty_no_party: "No character has joined yet, so there is no party to measure its threat against."
     difficulty_set: " (set by the GM)"
     award_title: "PF2e's recommended rewards for encounter %{id} - a guide; staff pay what they decide."
     award_xp: "XP for each character: %{xp}, as for a party of four. Accomplishments to add: %{accomplishments}."

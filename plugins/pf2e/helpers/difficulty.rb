@@ -62,11 +62,16 @@ module AresMUSH
 
       # `Moderate: 80 XP of 80 for a party of 4 at level 3.`
       def self.shown(encounter)
-        rated = of_encounter(encounter)
+        line(of_encounter(encounter), encounter.party_level.to_i.positive?)
+      end
+
+      # A threat is measured against a party, so with no character in it there is none to tell.
+      def self.line(rated, set)
+        return t('pf2e.difficulty_no_party') if rated['party_size'].to_i.zero?
 
         t('pf2e.difficulty_line', :threat => rated['threat'].capitalize, :xp => rated['xp'], :budget => rated['budget'],
                                   :size => rated['party_size'], :level => rated['party_level'],
-                                  :set => encounter.party_level.to_i.positive? ? t('pf2e.difficulty_set') : '')
+                                  :set => set ? t('pf2e.difficulty_set') : '')
       end
 
       # What PF2e recommends for the encounter, and what staff have paid.
