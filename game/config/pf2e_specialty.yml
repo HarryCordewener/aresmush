@@ -205,7 +205,7 @@ pf2e_specialty:
         magic_stats:
           addrepertoire:
             1:
-            - True Strike
+            - Sure Strike
     Maestro:
       chargen:
         action: []
@@ -227,7 +227,7 @@ pf2e_specialty:
         magic_stats:
           addrepertoire:
             1:
-            - Unseen Servant
+            - Phantasmal Minion
     Warrior:
       chargen:
         action: []

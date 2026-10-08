@@ -29,6 +29,26 @@ module AresMUSH
         [ [ 1, info['chargen'] ] ] + (info['advance'] || {}).map { |level, block| [ level.to_i, block ] }
       end
 
+      # A spell a specialty hands over by a name the game no longer has is learned and then cannot be
+      # cast: Enigma's muse granted True Strike, which the remaster calls Sure Strike.
+      it "should give only spells the game has" do
+        missing = @specialty.flat_map do |charclass, specialties|
+          specialties.flat_map do |name, info|
+            level_blocks(info || {}).flat_map do |level, block|
+              stats = (block || {})['magic_stats'] || {}
+
+              %w(addrepertoire addspellbook addspell).flat_map do |key|
+                (stats[key] || {}).values.flatten.compact
+                                  .reject { |spell| @spells.key?(spell) || spell.to_s.casecmp?('open') }
+                                  .map { |spell| "#{charclass} #{name} level #{level}: #{spell}" }
+              end
+            end
+          end
+        end
+
+        expect(missing).to eq []
+      end
+
       describe "sorcerous gifts that follow a bloodline's 1st-level choice" do
         it "should name a table covering every option of the choice" do
           %w(Draconic Elemental).each do |name|
