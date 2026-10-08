@@ -440,10 +440,12 @@ module AresMUSH
         undone = agenda.reject { |kind, what, _text| @tried[char.id].key?([ kind, what ]) }
         undone = undone.sort_by { |kind, _what, _text| kind == :heal ? 0 : 1 } if ally_hurt?
 
-        undone.first(3).each do |kind, what, text|
+        # A command that cannot be typed yet - Drain Bonded Item before a spell is cast - waits.
+        undone.lazy.map { |kind, what, text| [ kind, what, text.respond_to?(:call) ? text.call : text ] }
+              .select { |_kind, _what, command| command }.first(3).each do |kind, what, command|
           break if foes.empty?
 
-          attempt(char, kind, what, text.respond_to?(:call) ? text.call : text)
+          attempt(char, kind, what, command)
         end
 
         return unless undone.empty? && foe
@@ -494,7 +496,7 @@ module AresMUSH
           next if answers.include?(action) || Acting::COMMANDS.key?(Domains.slug(action))
 
           if action == BondedItem::NAME
-            out << [ :ability, action, -> { "e/act #{action.downcase}/#{cast_today(char) || 'nothing'}" } ]
+            out << [ :ability, action, -> { (spell = cast_today(char)) && "e/act #{action.downcase}/#{spell}" } ]
           elsif Array(Actions.info(action)['traits']).include?('healing')
             out << [ :heal, action, -> { "e/act #{action}=#{hurt_ally.name}" } ]
           else
