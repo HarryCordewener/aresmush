@@ -204,6 +204,37 @@ module AresMUSH
           expect(ActiveEffects.on(standing).map(&:name)).to eq [ 'Effect: Cover' ]
         end
 
+        # A raised shield's bonus is the shield's own, and a broken one gives none.
+        describe "Raise a Shield" do
+          before(:each) do
+            @shield = PF2Shield.create(:name => 'Steel Shield', :state => standing, :equipped => true, :ac_bonus => 2,
+                                       :hp => 20, :hardness => 5)
+          end
+
+          after(:each) { @shield.delete }
+
+          it "should add the shield's circumstance bonus to AC while it is raised" do
+            ac = Stat.total(standing, 'ac')
+
+            use("action/use raise a shield")
+
+            expect(Stat.total(standing, 'ac')).to eq ac + 2
+          end
+
+          it "should add nothing while it is not raised" do
+            expect(Stat.of(standing, 'ac')['modifiers'].map { |row| row['slug'] }).to_not include('raised-shield')
+          end
+
+          it "should add nothing from a broken shield" do
+            @shield.update(:damage => 10)
+            ac = Stat.total(standing, 'ac')
+
+            use("action/use raise a shield")
+
+            expect(Stat.total(standing, 'ac')).to eq ac
+          end
+        end
+
         it "should announce an action with no effect of its own" do
           use("action/use stride")
 
