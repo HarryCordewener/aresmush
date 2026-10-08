@@ -918,7 +918,12 @@ module AresMUSH
         end
 
         rows = DamageRoll.of_formulas(formulas.map { |f, type, category, _| [ f, type, category ] }, false)
-        rows = rows.map { |row| row.merge('amount' => (row['amount'] * factor).floor) }
+        rows = rows.filter_map do |row|
+          next row.merge('amount' => (row['amount'] * factor).floor) unless row['category'].to_s == 'persistent'
+
+          scaled = Pf2e.scaled_formula(row['formula'], factor)
+          scaled && row.merge('formula' => scaled)
+        end
         deal(scene, scene.target, rows, out, :critical => degree == Degree::CRITICAL_FAILURE)
       end
 

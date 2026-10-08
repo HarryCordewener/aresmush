@@ -34,6 +34,7 @@ import yaml
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import import_foundry_npcs as npcs  # noqa: E402
+import import_foundry_rules as rules  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG = os.path.join(ROOT, 'game', 'config')
@@ -203,11 +204,7 @@ def outcome_text_of(description):
     out = {}
 
     for label, text in PARAGRAPH.findall(description or ''):
-        words = LINK.sub(shown, text)
-        words = re.sub(r'@UUID\[[^\]]*\.([^.\]]+)\]', lambda found: found.group(1), words)
-        words = re.sub(r'@Damage\[([^\]\[]*(?:\[[^\]]*\][^\]\[]*)*)\]', lambda found: re.sub(r'\[[^\]]*\]', '', found.group(1)), words)
-        words = re.sub(r'<[^>]+>', ' ', words)
-        words = re.sub(r'\s+', ' ', words).strip()
+        words = rules.plain(LINK.sub(shown, text))
         if words:
             out[OUTCOMES[label]] = words
 
@@ -220,9 +217,12 @@ def outcome_text_of(description):
 #
 # The amounts are tried before the refusals, because "takes half damage and takes no persistent damage"
 # is half damage.
-SCALES = [(re.compile(r'\bhalf (?:the )?damage\b', re.I), 0.5),
-          (re.compile(r'\bdouble (?:the )?damage\b', re.I), 2),
-          (re.compile(r'\bfull damage\b|\btakes? (?:the )?damage\b', re.I), 1),
+#
+# The damage may be named by its kind between: "half the persistent fire damage".
+KIND = r'(?:(?!no\b)[a-z]+ ){0,3}'
+SCALES = [(re.compile(rf'\bhalf (?:the )?{KIND}damage\b', re.I), 0.5),
+          (re.compile(rf'\bdouble (?:the )?{KIND}damage\b', re.I), 2),
+          (re.compile(rf'\bfull {KIND}damage\b|\btakes? (?:the )?(?:full )?{KIND}damage\b', re.I), 1),
           (re.compile(r'\bunaffected\b|\bno damage\b|\btakes? no\b[^.]*\bdamage\b', re.I), 0)]
 
 
@@ -377,6 +377,8 @@ def main():
     parser.add_argument('--write', action='store_true')
     args = parser.parse_args()
 
+    # The English an outcome's `@Localize[...]` is read from.
+    rules.strings(args.checkout)
     entries = {}
 
     for path, body in npcs.blobs(args.checkout, 'packs/pf2e/spells'):

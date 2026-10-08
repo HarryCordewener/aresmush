@@ -91,8 +91,33 @@ module AresMUSH
       DOMAINS = [ 'pd-recovery-check', 'check', 'flat-check' ].freeze
     end
 
+    # A formula of persistent damage as an outcome scales it: each term's dice and number doubled, or
+    # halved where that comes out whole, and otherwise the whole halved as it is rolled (`1d6/2`). Nothing
+    # at all for a scale of 0.
+    def self.scaled_formula(formula, factor)
+      return nil if factor.to_f.zero?
+      return formula.to_s if factor == 1
+
+      terms = formula.to_s.delete(' ').scan(/[+-]?[^+-]+/).map do |term|
+        sign = term.start_with?('-') ? '-' : '+'
+        body = term.delete_prefix('+').delete_prefix('-')
+        dice = body.match(/\A(\d*)d(\d+)\z/i)
+        count = dice ? (dice[1].empty? ? 1 : dice[1].to_i) : body.to_i
+        scaled = count * factor
+
+        return "#{formula}/#{(1 / factor.to_f).round}" unless scaled == scaled.floor
+
+        "#{sign}#{scaled.to_i}#{dice ? "d#{dice[2]}" : ''}"
+      end
+
+      terms.join.delete_prefix('+')
+    end
+
     # A formula of dice as a number: `2d6+3`. What an effect says it deals.
     def self.roll_formula(formula)
+      whole, divisor = formula.to_s.split('/')
+      return (roll_formula(whole) / divisor.to_i) if divisor.to_i.positive?
+
       formula.to_s.delete(' ').scan(/[+-]?[^+-]+/).sum do |term|
         sign = term.start_with?('-') ? -1 : 1
         body = term.delete_prefix('+').delete_prefix('-')
@@ -107,6 +132,9 @@ module AresMUSH
 
     # What a formula comes to on average, which is how two of the same kind are compared.
     def self.average(formula)
+      whole, divisor = formula.to_s.split('/')
+      return (average(whole) / divisor.to_i) if divisor.to_i.positive?
+
       formula.to_s.delete(' ').scan(/[+-]?[^+-]+/).sum do |term|
         sign = term.start_with?('-') ? -1 : 1
         body = term.delete_prefix('+').delete_prefix('-')

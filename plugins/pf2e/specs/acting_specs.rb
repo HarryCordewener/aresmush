@@ -616,6 +616,23 @@ module AresMUSH
           expect(said).to_not include('Damage to Goblin Warrior #3')
         end
 
+        # A save that is not basic scales the persistent damage as its outcome says: Blistering Invective's
+        # half on a success, double on a critical failure.
+        it "should halve the persistent damage on a success" do
+          @dice = 0.95
+          run(PF2EncounterAsCmd, 'e/as #2=cast blistering invective=#3')
+
+          expect(said).to include('Will', 'success')
+          expect(npc(3).pf2_persistent).to eq [ { 'formula' => '1d6', 'type' => 'fire', 'dc' => 15 } ]
+        end
+
+        it "should double the persistent damage on a critical failure" do
+          @dice = 0.05
+          run(PF2EncounterAsCmd, 'e/as #2=cast blistering invective=#3')
+
+          expect(npc(3).pf2_persistent).to eq [ { 'formula' => '4d6', 'type' => 'fire', 'dc' => 15 } ]
+        end
+
         # What Command does is the target's to do; the room is told what that is.
         it "should tell the room what an outcome does where it sets no condition" do
           @dice = 0.05
