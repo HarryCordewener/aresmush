@@ -247,6 +247,14 @@ module AresMUSH
         context == :chargen ? 'cg/feat' : 'advance/feat'
       end
 
+      # How many picks of a list are still open at a rank, whether the list is keyed by class or not.
+      def open_slots(key, klass, rank_key)
+        slots = (@char.pf2_to_assign || {})[key] || {}
+        slots = slots[klass] if slots[klass].is_a?(Hash)
+
+        Array(slots[rank_key]).count('open')
+      end
+
       def resolve_outstanding(context)
         runs = 0
         ta = @char.pf2_to_assign || {}
@@ -411,21 +419,21 @@ module AresMUSH
               accepted = false
 
               candidates.each do |pick|
-                before = @client.fails.size
+                open_before = open_slots(key, klass, rank_key)
 
                 if context == :chargen
                   lvl = rank_key.to_s == 'cantrip' ? 0 : (rank_key.to_s == 'any' ? highest_castable_rank : rank_key.to_i)
                   run("addspell #{klass}/#{lvl}=#{pick}")
                 else
+                  # The class-keyed form first, for a character with more than one casting class; the
+                  # plain form only where that one was refused.
                   rank_arg = rank_key.to_s == 'any' ? highest_castable_rank : rank_key
+                  before = @client.fails.size
                   run("advance/spell #{key}/#{klass}/#{rank_arg}=#{pick}")
-                  still_open = Array(((@char.pf2_to_assign || {})[key] || {})[rank_key]).count('open')
-                  run("advance/spell #{key}/#{rank_arg}=#{pick}") if still_open > 0
+                  run("advance/spell #{key}/#{rank_arg}=#{pick}") if @client.fails.size > before
                 end
 
-                remaining = Array(((@char.pf2_to_assign || {})[key] || {})[rank_key]).count('open')
-
-                if @client.fails.size == before && remaining < Array(list).count('open')
+                if open_slots(key, klass, rank_key) < open_before
                   @picked_spells << pick
                   accepted = true
                   runs += 1
@@ -486,15 +494,15 @@ module AresMUSH
       # ------------------------------------------------------------------------------
 
       # Chargen: base info, the four commits, boosts, skills, languages and feats.
-      def build_level_one(charclass)
+      def build_level_one(charclass, ancestry: 'Khazad', heritage: 'Forge', background: 'Acolyte')
         @char.update(:chargen_stage => 4)
         Pf2eAbilities.factory_default(@char)
         Pf2eSkills.factory_default(@char)
         @char = Character[@char.id]
 
-        run "cg/set ancestry=Khazad"
-        run "cg/set heritage=Forge"
-        run "cg/set background=Acolyte"
+        run "cg/set ancestry=#{ancestry}"
+        run "cg/set heritage=#{heritage}"
+        run "cg/set background=#{background}"
         run "cg/set charclass=#{charclass}"
 
         # A specialty can constrain alignment (champion causes do), so pick the pair together.
@@ -598,8 +606,8 @@ module AresMUSH
         @char
       end
 
-      def build(charclass, target)
-        build_level_one(charclass)
+      def build(charclass, target, **origin)
+        build_level_one(charclass, **origin)
         advance_to(target) if target > 1
         @char
       end
