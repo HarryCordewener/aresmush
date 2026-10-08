@@ -1218,7 +1218,7 @@ pf2e_spell_mechanics:
     target: "1 of your thralls"
     range: "30 feet"
     outcomes: {"criticalFailure": [{"effect": "Spell Effect: Blood Infusion"}]}
-    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The target loses any immunity to bleed and is considered to be a creature with blood for the purposes of effects and requirements. The creature takes (@item.rank) bleed damage.", "failure": "As success, but the persistent bleed damage is (@item.rank)d6 bleed.", "criticalFailure": "As success, but the persistent bleed damage is (@item.rank*2)d6 bleed.%rSpell Effect: Blood Infusion"}
+    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The target loses any immunity to bleed and is considered to be a creature with blood for the purposes of effects and requirements. The creature takes (1 per spell rank) bleed damage.", "failure": "As success, but the persistent bleed damage is (1d6 per spell rank) bleed.", "criticalFailure": "As success, but the persistent bleed damage is (2d6 per spell rank) bleed.%rSpell Effect: Blood Infusion"}
   "Blood Runs Cold":
     rank: 2
     traits: ["cold", "concentrate", "manipulate"]
@@ -1278,7 +1278,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "For 1 minute, the first time each round that the target would take at least 10 piercing or slashing damage from a single Strike, the strike deals an additional (floor(@item.rank/2))d6 piercing or (floor(@item.rank/2))d6 slashing damage of the same type.", "failure": "As success, but the Strike also deals an additional (floor(@item.rank/2))d6 bleed damage."}
+    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "For 1 minute, the first time each round that the target would take at least 10 piercing or slashing damage from a single Strike, the strike deals an additional (1d6 per 2 spell ranks) piercing or (1d6 per 2 spell ranks) slashing damage of the same type.", "failure": "As success, but the Strike also deals an additional (1d6 per 2 spell ranks) bleed damage."}
   "Bloody Tendrils":
     rank: 3
     traits: ["concentrate", "focus", "manipulate", "necromancer", "thrall"]
@@ -4286,7 +4286,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "30-foot line"
     outcomes: {"failure": [{"condition": "Drained", "value": 1}], "criticalFailure": [{"condition": "Drained", "value": 2}, {"condition": "Doomed", "value": 1}]}
-    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes (floor(@item.rank/2))d8 persistent void damage.", "failure": "The creature takes (floor(@item.rank/2)*2)d8 persistent void damage and becomes Drained 1.", "criticalFailure": "The creature takes (floor(@item.rank/2)*2)d8 persistent void damage and becomes Drained 2 and Doomed 1."}
+    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes (1d8 per 2 spell ranks) persistent void damage.", "failure": "The creature takes (2d8 per 2 spell ranks) persistent void damage and becomes Drained 1.", "criticalFailure": "The creature takes (2d8 per 2 spell ranks) persistent void damage and becomes Drained 2 and Doomed 1."}
   "Enfeeble":
     rank: 1
     traits: ["concentrate", "manipulate"]
@@ -5467,7 +5467,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 2, "damage": ["2d8"]}
     target: "1 living creature"
     range: "30 feet"
-    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage. For the spell's duration, the target takes 1 cold damage whenever it performs an auditory action or Casts a Spell.", "failure": "The target takes full damage. For the spell's duration, the target takes (floor(@item.rank/2))d8 cold damage whenever it performs an auditory action or Casts a Spell.", "criticalFailure": "The target takes double damage. For the spell's duration, the target takes (floor(@item.rank/2) + 1)d8 cold damage whenever it performs an auditory action or Casts a Spell."}
+    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage. For the spell's duration, the target takes 1 cold damage whenever it performs an auditory action or Casts a Spell.", "failure": "The target takes full damage. For the spell's duration, the target takes (1d8 per 2 spell ranks) cold damage whenever it performs an auditory action or Casts a Spell.", "criticalFailure": "The target takes double damage. For the spell's duration, the target takes (1d8, plus 1d8 per 2 spell ranks) cold damage whenever it performs an auditory action or Casts a Spell."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Fulminating Impact":
     rank: 4
@@ -6127,7 +6127,7 @@ pf2e_spell_mechanics:
     target: "1 living creature"
     range: "60 feet"
     outcomes: {"success": [{"condition": "Off-Guard", "until": "rounds:1"}]}
-    outcome_text: {"criticalSuccess": "The spell immediately ends.", "success": "The target becomes Off-Guard for 1 round.", "failure": "As success, and the target takes (@item.rank)d8 spirit damage.", "criticalFailure": "As success, but the target takes (@item.rank * 2)d8 spirit damage."}
+    outcome_text: {"criticalSuccess": "The spell immediately ends.", "success": "The target becomes Off-Guard for 1 round.", "failure": "As success, and the target takes (1d8 per spell rank) spirit damage.", "criticalFailure": "As success, but the target takes (2d8 per spell rank) spirit damage."}
   "Haven in the Ether":
     rank: 9
     traits: ["extradimensional", "teleportation"]
@@ -7512,7 +7512,7 @@ pf2e_spell_mechanics:
     target: "1 creature"
     range: "30 feet"
     outcomes: {"failure": [{"condition": "Immobilized", "until": "next-turn-end"}], "criticalFailure": [{"condition": "Restrained"}]}
-    outcome_text: {"criticalSuccess": "The target is unaffected", "success": "The target takes 2d12 electricity damage.", "failure": "The target takes 2d12 electricity damage and is Immobilized until the end of your next turn, but it can Escape. On subsequent turns, if the target is still immobilized by the lasso, you can Sustain the spell to deal (@item.rank -2)*2 electricity damage and keep the target immobilized until the end of your next turn.", "criticalFailure": "As failure, but the target is also Restrained."}
+    outcome_text: {"criticalSuccess": "The target is unaffected", "success": "The target takes 2d12 electricity damage.", "failure": "The target takes 2d12 electricity damage and is Immobilized until the end of your next turn, but it can Escape. On subsequent turns, if the target is still immobilized by the lasso, you can Sustain the spell to deal (2 per spell rank above 2) electricity damage and keep the target immobilized until the end of your next turn.", "criticalFailure": "As failure, but the target is also Restrained."}
     damage_scale: {"criticalSuccess": 0}
   "Lightning Storm":
     rank: 5
@@ -7936,7 +7936,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "9d6", "type": "void", "category": null, "kinds": ["damage"]}]
     heightening: {"fixed": {"10": ["10d6"]}}
     area: "60-foot line"
-    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes 9d6 void damage.", "failure": "The creature takes (ternary(gte(@item.rank, 10), 115, 100)) void damage.", "criticalFailure": "The creature dies."}
+    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes 9d6 void damage.", "failure": "The creature takes 100 (115 at rank 10) void damage.", "criticalFailure": "The creature dies."}
     damage_scale: {"criticalSuccess": 0}
   "Maze of Locked Doors":
     rank: 7
@@ -7985,7 +7985,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "6d6", "type": "poison", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["1d6"]}
     outcomes: {"success": [{"condition": "Sickened", "value": 1}], "failure": [{"condition": "Sickened", "value": 2}], "criticalFailure": [{"condition": "Sickened", "value": 2}]}
-    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target becomes Sickened 1.", "failure": "The target becomes Sickened 2 and takes (@item.level+2)d6 poison damage.", "criticalFailure": "The target becomes Sickened 2 and takes ((@item.level+2)*2)d6 poison damage."}
+    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target becomes Sickened 1.", "failure": "The target becomes Sickened 2 and takes (2d6, plus 1d6 per spell rank) poison damage.", "criticalFailure": "The target becomes Sickened 2 and takes (4d6, plus 2d6 per spell rank) poison damage."}
     damage_scale: {"criticalSuccess": 0}
   "Message":
     rank: 0
@@ -8310,7 +8310,7 @@ pf2e_spell_mechanics:
     target: "1 creature"
     range: "30 feet"
     outcomes: {"criticalFailure": [{"effect": "Spell Effect: Murmuration"}]}
-    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage.", "failure": "The target takes full damage.", "criticalFailure": "The target takes (@item.rank)d4 sonic, (@item.rank)d4 piercing damage, and if it attempts an attack roll or hostile skill check this round, it takes a –2 status penalty to the roll.%rSpell Effect: Murmuration"}
+    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage.", "failure": "The target takes full damage.", "criticalFailure": "The target takes (1d4 per spell rank) sonic, (1d4 per spell rank) piercing damage, and if it attempts an attack roll or hostile skill check this round, it takes a –2 status penalty to the roll.%rSpell Effect: Murmuration"}
   "Muscle Barrier":
     rank: 1
     traits: ["concentrate", "focus", "manipulate", "necromancer"]
@@ -9084,7 +9084,7 @@ pf2e_spell_mechanics:
     target: "1 living creature"
     range: "120 feet"
     outcomes: {"success": [{"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 2}], "criticalFailure": [{"condition": "Fleeing", "until": "its-next-turn-end"}, {"condition": "Frightened", "value": 4}]}
-    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes 4d6 mental damage and is Frightened 1.", "failure": "The target takes (max(8, @item.rank*2))d6 mental damage and is Frightened 2.", "criticalFailure": "The target is so afraid it might die. It must attempt a Fortitude save; if the target fails, it dies. On a successful Fortitude save, the target takes (max(12, @item.rank*3))d6 mental damage, is Fleeing until the end of its next turn, and is Frightened 4. This effect has the incapacitation trait."}
+    outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes 4d6 mental damage and is Frightened 1.", "failure": "The target takes (8d6, and 2d6 more every spell rank from rank 5) mental damage and is Frightened 2.", "criticalFailure": "The target is so afraid it might die. It must attempt a Fortitude save; if the target fails, it dies. On a successful Fortitude save, the target takes (12d6, and 3d6 more every spell rank from rank 5) mental damage, is Fleeing until the end of its next turn, and is Frightened 4. This effect has the incapacitation trait."}
   "Phantasmal Minion":
     rank: 1
     traits: ["concentrate", "manipulate", "summon"]
@@ -10821,7 +10821,7 @@ pf2e_spell_mechanics:
     target: "1 intelligent creature"
     range: "30 feet"
     outcomes: {"criticalFailure": [{"condition": "Enfeebled", "value": 1}]}
-    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "You take on the target's appearance, with the same effects of a 3rd-rank Illusory Disguise spell, and the target can't speak, with the same effects of a 2nd-rank Silence spell.", "failure": "As success, but the target also takes 4d6 mental damage from the transformation.", "criticalFailure": "As success, but the target also takes 8d6 mental damage from the transformation.%rThe first time each round you Sustain this spell after you cast this spell, the target ages rapidly, taking (ternary(gte(@item.rank, 9), 3, 2))d8 void damage (basic Will save). On a failure, the target also becomes Enfeebled 1 or increases the value of its enfeebled condition by 1."}
+    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "You take on the target's appearance, with the same effects of a 3rd-rank Illusory Disguise spell, and the target can't speak, with the same effects of a 2nd-rank Silence spell.", "failure": "As success, but the target also takes 4d6 mental damage from the transformation.", "criticalFailure": "As success, but the target also takes 8d6 mental damage from the transformation.%rThe first time each round you Sustain this spell after you cast this spell, the target ages rapidly, taking 2d8 (3d8 at rank 9) void damage (basic Will save). On a failure, the target also becomes Enfeebled 1 or increases the value of its enfeebled condition by 1."}
     damage_scale: {"criticalSuccess": 0}
   "Seize Soul":
     rank: 9
@@ -11862,7 +11862,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "5d4", "type": "acid", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d4"]}
     area: "15-foot cone"
-    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage. If the creature has the ooze, unholy, or water trait, it also takes (@item.level)d4 persistent spirit damage.", "criticalFailure": "The creature takes double damage, and double persistent damage if it has the ooze, unholy, or water trait."}
+    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage. If the creature has the ooze, unholy, or water trait, it also takes (1d4 per spell rank) persistent spirit damage.", "criticalFailure": "The creature takes double damage, and double persistent damage if it has the ooze, unholy, or water trait."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Spray of Stars":
     rank: 1
@@ -13099,7 +13099,7 @@ pf2e_spell_mechanics:
     save: "fortitude"
     basic: false
     outcomes: {"success": [{"condition": "Stunned", "value": 1}], "failure": [{"condition": "Stunned", "value": 3}]}
-    outcome_text: {"criticalSuccess": "The target survives, the spell ends, and the target is then temporarily immune for 24 hours.", "success": "The target is Stunned 1 and takes 5*@item.level damage, the spell ends, and the target is then temporarily immune for 24 hours.", "failure": "The target is Stunned 3 and takes 10*@item.level damage. The spell's duration continues, but the target is then temporarily immune for 24 hours against being killed by touch of death.", "criticalFailure": "The target dies.%rIf you cast touch of death again, the effects of any touch of death you had previously cast end."}
+    outcome_text: {"criticalSuccess": "The target survives, the spell ends, and the target is then temporarily immune for 24 hours.", "success": "The target is Stunned 1 and takes (5 per spell rank) damage, the spell ends, and the target is then temporarily immune for 24 hours.", "failure": "The target is Stunned 3 and takes (10 per spell rank) damage. The spell's duration continues, but the target is then temporarily immune for 24 hours against being killed by touch of death.", "criticalFailure": "The target dies.%rIf you cast touch of death again, the effects of any touch of death you had previously cast end."}
   "Touch of Obedience":
     rank: 1
     traits: ["cleric", "focus", "manipulate", "mental"]
@@ -14493,7 +14493,7 @@ pf2e_spell_mechanics:
     area: "10-foot burst"
     range: "60 feet"
     outcomes: {"failure": [{"condition": "Drained", "value": 1}], "criticalFailure": [{"condition": "Drained", "value": 2}, {"condition": "Doomed", "value": 1}]}
-    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes (floor(@item.rank/2))d8 persistent void damage.", "failure": "The creature takes (floor(@item.rank/2)*2)d8 persistent void damage and becomes Drained 1.", "criticalFailure": "The creature takes (floor(@item.rank/2)*2)d8 persistent void damage and becomes Drained 2 and Doomed 1."}
+    outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes (1d8 per 2 spell ranks) persistent void damage.", "failure": "The creature takes (2d8 per 2 spell ranks) persistent void damage and becomes Drained 1.", "criticalFailure": "The creature takes (2d8 per 2 spell ranks) persistent void damage and becomes Drained 2 and Doomed 1."}
   "Widow’s Bite":
     rank: 3
     traits: ["attack", "concentrate", "poison"]

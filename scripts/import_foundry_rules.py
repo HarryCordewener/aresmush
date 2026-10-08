@@ -23,8 +23,13 @@ import json
 import os
 import re
 import subprocess
+import sys
 
 import yaml
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import formula_words  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG = os.path.join(ROOT, 'game', 'config')
@@ -364,6 +369,9 @@ TAG = re.compile(r'<[^>]+>')
 # The English `strings` last read, which `@Localize[...]` in a text is read from.
 LOCALIZED = {}
 
+# Whether the text being made plain is a spell's, where an item's level is the spell's rank.
+RANKED = False
+
 # What a text still holds of Foundry's markup when it has not been made plain.
 MARKUP = re.compile(r'@(?:Localize|Damage|Check|UUID|Template)\[|\[\[/|<(?:p|br|hr|strong|em|span)\b')
 
@@ -484,13 +492,14 @@ def enrich(text):
 
 def plain(text, limit=None):
     """Their HTML as a line a player can read, with a paragraph as `%r`, which is how our config breaks
-    a line."""
+    a line, and each roll formula in it as words (`formula_words`)."""
     text = enrich(text or '')
     text = re.sub(r'</p>|<hr\s*/?>|<br\s*/?>', '\x00', text)
     text = TAG.sub(' ', text)
     text = html.unescape(re.sub(r'\s+', ' ', text)).strip()
     text = re.sub(r'(?:\s*\x00\s*)+', '%r', text)
     text = re.sub(r'\A(?:%r)+|(?:%r)+\Z', '', text)
+    text = formula_words.in_words(text, ranked=RANKED)
 
     if limit and len(text) > limit:
         text = text[:limit].rsplit(' ', 1)[0] + '…'

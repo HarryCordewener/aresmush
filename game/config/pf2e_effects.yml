@@ -9372,7 +9372,7 @@ pf2e_effects:
     duration: {"unit": "days", "value": 1, "expiry": "turn-start", "sustained": false}
     traits: []
     badge: {"type": "counter", "value": 1, "max": null}
-    description: "Granted by Desynchronized Motions%rAs your body speeds faster and faster, you risk falling out of sync with reality, as the world slows around you to the point that your interactions with it become strange and unpredictable.%rMild Backlash The friction of your motion through a slower world sets you alight. You take (2+floor(@actor.level/5))d4 persistent fire damage. At 5th level, and every 5 levels after, the persistent fire damage increases by 1d4. You take this persistent fire damage even if in a liquid environment, such as underwater, as your motion simply surrounds you in boiling…"
+    description: "Granted by Desynchronized Motions%rAs your body speeds faster and faster, you risk falling out of sync with reality, as the world slows around you to the point that your interactions with it become strange and unpredictable.%rMild Backlash The friction of your motion through a slower world sets you alight. You take (2d4, plus 1d4 per 5 levels) persistent fire damage. At 5th level, and every 5 levels after, the persistent fire damage increases by 1d4. You take this persistent fire damage even if in a liquid environment, such as underwater, as your motion simply surrounds you in boiling…"
   "Effect: Deteriorated":
     pack: "feat-effects"
     level: 2
@@ -35234,12 +35234,12 @@ pf2e_effects:
         selector: "{item|flags.system.rulesSelections.weapon}-attack"
         outcome: ["failure"]
         title: "{item|name}"
-        text: "On a failure, the Strike deals no damage, but the target takes (ceil((@actor.flags.system.blinkCharge - 4)/2))d8 force damage."
+        text: "On a failure, the Strike deals no damage, but the target takes (d8s equal to half of (your blink charge - 4), rounded up) force damage."
       - key: "Note"
         selector: "{item|flags.system.rulesSelections.weapon}-attack"
         outcome: ["criticalFailure"]
         title: "{item|name}"
-        text: "On a critical failure, the Strike deals no damage and you take (ceil((@actor.flags.system.blinkCharge - 4)/2))d8 force damage."
+        text: "On a critical failure, the Strike deals no damage and you take (d8s equal to half of (your blink charge - 4), rounded up) force damage."
   "Spell Effect: Blood Infusion":
     pack: "spell-effects"
     level: 1
@@ -39030,7 +39030,7 @@ pf2e_effects:
     level: 1
     duration: {"unit": "minutes", "value": 1, "expiry": "turn-start", "sustained": false}
     traits: []
-    description: "Granted by Incendiary Aura%rEach time a creature within the emanation takes fire damage, it catches on fire, taking (ceil(@item.level/2)+1)d4 persistent fire damage."
+    description: "Granted by Incendiary Aura%rEach time a creature within the emanation takes fire damage, it catches on fire, taking (1d4, plus 1d4 per 2 levels, rounded up) persistent fire damage."
     rules:
       - key: "Aura"
         radius: "ceil(@item.level/2)*5+5"
@@ -43207,14 +43207,14 @@ pf2e_effects:
     duration: {"unit": "days", "value": 1, "expiry": "turn-start", "sustained": false}
     traits: []
     badge: {"type": "counter", "value": 4, "max": null}
-    description: "Granted by Vital Beacon%rEither you or an ally can use an Interact action to supplicate and lay hands upon you to regain (@item.level)d((2+2*@item.badge.value)) healing vitality|shortLabel Hit Points. This healing decreases each time the beacon heals someone."
+    description: "Granted by Vital Beacon%rEither you or an ally can use an Interact action to supplicate and lay hands upon you to regain ((its level)d(2 + 2 × its value)) healing vitality Hit Points. This healing decreases each time the beacon heals someone."
   "Spell Effect: Vital Luminance":
     pack: "spell-effects"
     level: 4
     duration: {"unit": "minutes", "value": 1, "expiry": "turn-start", "sustained": false}
     traits: []
     badge: {"type": "counter", "value": 1, "max": null}
-    description: "Granted by Vital Luminance%rYou glow with bright light in a 30-foot emanation (and dim light to the next 30 feet).%rIf an undead creature damages you with an attack or spell while it's within the area of your light, that creature takes vitality damage equal to half your luminance reservoir value. It takes this damage only the first time it damages you in a round. ((0.5 * @item.badge.value * @item.level) vitality)%rYou can Dismiss this Spell. When you do, you can target a creature within your light and direct the vitality energy into it. The target must be a willing living creature or an…"
+    description: "Granted by Vital Luminance%rYou glow with bright light in a 30-foot emanation (and dim light to the next 30 feet).%rIf an undead creature damages you with an attack or spell while it's within the area of your light, that creature takes vitality damage equal to half your luminance reservoir value. It takes this damage only the first time it damages you in a round. ((0.5 × its value × its level) vitality)%rYou can Dismiss this Spell. When you do, you can target a creature within your light and direct the vitality energy into it. The target must be a willing living creature or an…"
   "Spell Effect: Vitrifying Blast":
     pack: "spell-effects"
     level: 6
@@ -44181,7 +44181,7 @@ pf2e_effects:
         selector: "{item|_id}-attack"
         outcome: ["criticalSuccess"]
         title: "{item|name}"
-        text: "All creatures other than you that are within 10 feet of the target, including the target itself, take (@item.system.damage.dice splash) bludgeoning damage."
+        text: "All creatures other than you that are within 10 feet of the target, including the target itself, take (its weapon damage dice splash) bludgeoning damage."
       - key: "GrantItem"
         uuid: "Compendium.pf2e.conditionitems.Item.Clumsy"
         inMemoryOnly: true
@@ -44389,7 +44389,7 @@ pf2e_effects:
     level: 1
     duration: {"unit": "encounter", "value": -1, "expiry": null, "sustained": false}
     traits: []
-    description: "Granted by Ravel of Thorns%rA creature that starts its turn in the thorns takes a –10-foot circumstance penalty to its Speeds until it leaves the area. The thorns are hazardous terrain. A creature takes (floor((@actor.level -4)/4)+2) piercing damage each time it moves into one of these squares. If any square the thorns grow on is water or soil, double the hazardous terrain damage for all thorns. If you move, the thorns disappear; new thorns grow at the end of your turn.%rLevel (+4) The damage increases by 1."
+    description: "Granted by Ravel of Thorns%rA creature that starts its turn in the thorns takes a –10-foot circumstance penalty to its Speeds until it leaves the area. The thorns are hazardous terrain. A creature takes (1, plus 1 per 4 levels) piercing damage each time it moves into one of these squares. If any square the thorns grow on is water or soil, double the hazardous terrain damage for all thorns. If you move, the thorns disappear; new thorns grow at the end of your turn.%rLevel (+4) The damage increases by 1."
   "Stance: Reflective Ripple Stance":
     pack: "feat-effects"
     level: 1
@@ -44524,7 +44524,7 @@ pf2e_effects:
     level: 1
     duration: {"unit": "encounter", "value": -1, "expiry": null, "sustained": false}
     traits: []
-    description: "Granted by Steam Knight%rYou shape your kinetic aura into swirling armor of steam that scalds your enemies and propels you on super-heated jet streams. A creature can take damage from Steam Knight only once per round. Your steam armor has the following effects.%rYou gain a +10-foot status bonus to your Speed. When you Leap, you can jump up to your Speed. You don't immediately fall at the end of a jump, provided you Leap again with your next action. If you Leap over a creature and come within 10 feet, that creature takes (floor((@actor.level -6)/5)+2)d6 fire damage with a Reflex save against…"
+    description: "Granted by Steam Knight%rYou shape your kinetic aura into swirling armor of steam that scalds your enemies and propels you on super-heated jet streams. A creature can take damage from Steam Knight only once per round. Your steam armor has the following effects.%rYou gain a +10-foot status bonus to your Speed. When you Leap, you can jump up to your Speed. You don't immediately fall at the end of a jump, provided you Leap again with your next action. If you Leap over a creature and come within 10 feet, that creature takes (1d6 per 5 levels, rounded up) fire damage with a Reflex save against…"
   "Stance: Stoked Flame Stance":
     pack: "feat-effects"
     level: 1

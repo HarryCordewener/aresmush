@@ -81,7 +81,7 @@ pf2e_actions:
     category: "offensive"
     traits: []
     frequency: {"max": 1, "per": "round"}
-    description: "Frequency once per round%rEffect Each enemy in your aura takes ternary(gte(@actor.level, 18), 7, ternary(gte(@actor.level, 15), 6, 5))d6 acid,2d6 persistent acid damage with a Reflex save against your class DC or spell DC, whichever is higher. The initial damage increases to 6d6 at 15th level and 7d6 at 18th level."
+    description: "Frequency once per round%rEffect Each enemy in your aura takes 5d6 (6d6 at 15th level, 7d6 at 18th level) acid,2d6 persistent acid damage with a Reflex save against your class DC or spell DC, whichever is higher. The initial damage increases to 6d6 at 15th level and 7d6 at 18th level."
   "Act Together":
     from: "action"
     for: "class"
@@ -115,7 +115,7 @@ pf2e_actions:
     category: "defensive"
     traits: ["healing"]
     frequency: {"max": 1, "per": "PT1H"}
-    description: "Frequency once per hour%rEffect Your ostilli pulses a calm lavender color as it converts stored magic into a curative balm. You regain ((2*floor(@actor.level/4))d4) healing Hit Points, and you can immediately attempt a flat check to recover from persistent bleed damage with the DC reduced to 10. This healing increases by 2d4 at 8th level and every 4 levels thereafter."
+    description: "Frequency once per hour%rEffect Your ostilli pulses a calm lavender color as it converts stored magic into a curative balm. You regain (2d4 per 4 levels) healing Hit Points, and you can immediately attempt a flat check to recover from persistent bleed damage with the DC reduced to 10. This healing increases by 2d4 at 8th level and every 4 levels thereafter."
   "Administer First Aid":
     from: "action"
     for: "everyone"
@@ -387,7 +387,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["shisk"]
     frequency: {"max": 1, "per": "day"}
-    description: "Frequency once per day%rTrigger You are hit with an unarmed strike or a strike with a non-reach melee weapon.%rYou break off quills in your attacker's flesh. You deal ceil(@actor.level/2)d8 piercing damage to the triggering creature (Reflex save using your class DC or spell DC, whichever is higher.) On a critical failure, the creature also takes (1d4+ceil(@actor.level/2)-1) bleed as your quills hook into its flesh. At 3rd level, and every 2 levels thereafter, this damage increases by 1d8 and the persistent piercing damage increases by 1."
+    description: "Frequency once per day%rTrigger You are hit with an unarmed strike or a strike with a non-reach melee weapon.%rYou break off quills in your attacker's flesh. You deal (1d8 per 2 levels, rounded up) piercing damage to the triggering creature (Reflex save using your class DC or spell DC, whichever is higher.) On a critical failure, the creature also takes (1d4 + half of your level, rounded up - 1) bleed as your quills hook into its flesh. At 3rd level, and every 2 levels thereafter, this damage increases by 1d8 and the persistent piercing damage increases by 1."
   "Barreling Charge":
     from: "feat"
     type: "action"
@@ -509,7 +509,7 @@ pf2e_actions:
     type: "action"
     cost: 1
     traits: []
-    description: "Requirements Your swarm is outside your body%rEffect Each creature in your swarm's space takes (floor(@actor.level/2))d4 piercing damage with a Reflex save against your class DC or spell DC, whichever is higher. At 4th level and every 2 levels thereafter, the damage increases by 1d4."
+    description: "Requirements Your swarm is outside your body%rEffect Each creature in your swarm's space takes (1d4 per 2 levels) piercing damage with a Reflex save against your class DC or spell DC, whichever is higher. At 4th level and every 2 levels thereafter, the damage increases by 1d4."
   "Blade Brake":
     from: "feat"
     type: "reaction"
@@ -527,7 +527,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: ["fire", "healing", "light", "visual"]
-    description: "Requirements You're transformed into phoenix form by the monstrosity form spell granted by this feat%rEffect You dismiss phoenix form while a fiery corona erupts from you as searing light. Each creature in a 10-foot burst takes max(16,(2*(floor(@actor.level/2))))d6 fire damage with a Fortitude save against your spell DC; creatures that critically fail are Blinded for 1 round. You gain 8d6 temporary Hit Points. At 18th level and again at 20th level, the burst deals an additional 2d6 fire damage, and you gain an additional 1d6 temporary Hit Points."
+    description: "Requirements You're transformed into phoenix form by the monstrosity form spell granted by this feat%rEffect You dismiss phoenix form while a fiery corona erupts from you as searing light. Each creature in a 10-foot burst takes 16d6 (18d6 at 18th level, 20d6 at 20th level) fire damage with a Fortitude save against your spell DC; creatures that critically fail are Blinded for 1 round. You gain 8d6 temporary Hit Points. At 18th level and again at 20th level, the burst deals an additional 2d6 fire damage, and you gain an additional 1d6 temporary Hit Points."
   "Bleed Out":
     from: "feat"
     type: "action"
@@ -1723,7 +1723,7 @@ pf2e_actions:
     type: "reaction"
     category: "offensive"
     traits: ["champion", "divine"]
-    description: "Trigger An enemy in your champion's aura damages you%rEffect Bloodshed begets bloodshed as you drag your enemy toward oblivion. You increase the amount of damage you take by (ternary(gte(@actor.level,19),6,ternary(gte(@actor.level,16),5,ternary(gte(@actor.level,12),4,ternary(gte(@actor.level,9),3,ternary(gte(@actor.level,5),2,1))))))d6, and you deal (ternary(gte(@actor.level,19),6,ternary(gte(@actor.level,16),5,ternary(gte(@actor.level,12),4,ternary(gte(@actor.level,9),3,ternary(gte(@actor.level,5),2,1))))))d6 spirit damage to the triggering enemy. The damage you take and deal when you use this reaction increases to 2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, and 6d6 at 19th level.%rIn addition, until the end of your next turn, your Strikes against the triggering creature deal 2 extra spirit damage. This extra damage increases to 4 at 9th level and 6 at 16th level.%rEffect: Champion's Extra Damage"
+    description: "Trigger An enemy in your champion's aura damages you%rEffect Bloodshed begets bloodshed as you drag your enemy toward oblivion. You increase the amount of damage you take by 1d6 (2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, 6d6 at 19th level), and you deal 1d6 (2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, 6d6 at 19th level) spirit damage to the triggering enemy. The damage you take and deal when you use this reaction increases to 2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, and 6d6 at 19th level.%rIn addition, until the end of your next turn, your Strikes against the triggering creature deal 2 extra spirit damage. This extra damage increases to 4 at 9th level and 6 at 16th level.%rEffect: Champion's Extra Damage"
   "Detect Magic":
     from: "action"
     for: "everyone"
@@ -2017,7 +2017,7 @@ pf2e_actions:
     category: "offensive"
     traits: []
     frequency: {"max": 1, "per": "PT1H"}
-    description: "Frequency once per hour%rEffect You breathe deeply and exhale a line or cone of powerful breath, much like the dragon with which you made the pact. If the dragon had a cone-shaped breath, your breath is a 30-foot cone. If they had a line-shaped breath, your breath is a 60-foot line. If they had a burst-shaped breath, your breath is a 10-foot burst within 60 feet. No matter the shape, it deals 1d6 damage per level ((@actor.level)d6 untyped), of the same damage type as the dragon's breath, with a Reflex save, using the higher of your class DC or spell DC. This action has the same traits as the breath of the dragon you made the pact with."
+    description: "Frequency once per hour%rEffect You breathe deeply and exhale a line or cone of powerful breath, much like the dragon with which you made the pact. If the dragon had a cone-shaped breath, your breath is a 30-foot cone. If they had a line-shaped breath, your breath is a 60-foot line. If they had a burst-shaped breath, your breath is a 10-foot burst within 60 feet. No matter the shape, it deals 1d6 damage per level ((1d6 per level) untyped), of the same damage type as the dragon's breath, with a Reflex save, using the higher of your class DC or spell DC. This action has the same traits as the breath of the dragon you made the pact with."
   "Dragon Breath (Dragon Form)":
     from: "action"
     for: "spells"
@@ -2033,7 +2033,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["eidolon"]
-    description: "Your eidolon exhales a blast of destructive energy that deals (ceil(@actor.level / 2))d6 untyped damage to all creatures in an area with a basic Reflex save against your spell DC. Your eidolon then can't use Dragon Breath again for the next 1d4 rounds. At 3rd level and every 2 levels thereafter, the damage increases by 1d6.%rWhen the eidolon gains this ability, you choose the area—a 60-foot line or a 30-foot cone—as well as the damage type—acid, cold, electricity, fire, piercing, poison, or void. You can instead choose force if your eidolon has the arcane trait, spirit if they have the divine trait, or mental if they have the occult trait. If you model your eidolon after a specific type of dragon, your GM might allow you to choose from additional damage types.%rDragon Breath has the tradition trait of your eidolon and the trait matching the damage type chosen (unless you choose piercing damage)."
+    description: "Your eidolon exhales a blast of destructive energy that deals (1d6 per 2 levels, rounded up) untyped damage to all creatures in an area with a basic Reflex save against your spell DC. Your eidolon then can't use Dragon Breath again for the next 1d4 rounds. At 3rd level and every 2 levels thereafter, the damage increases by 1d6.%rWhen the eidolon gains this ability, you choose the area—a 60-foot line or a 30-foot cone—as well as the damage type—acid, cold, electricity, fire, piercing, poison, or void. You can instead choose force if your eidolon has the arcane trait, spirit if they have the divine trait, or mental if they have the occult trait. If you model your eidolon after a specific type of dragon, your GM might allow you to choose from additional damage types.%rDragon Breath has the tradition trait of your eidolon and the trait matching the damage type chosen (unless you choose piercing damage)."
     rules:
       - key: "ChoiceSet"
         flag: "shape"
@@ -2339,7 +2339,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["concentrate", "eidolon"]
     frequency: {"max": 1, "per": "PT10M"}
-    description: "Frequency once per 10 minutes%rYour eidolon rips off a chunk of elemental matter from their own form and hurls it into a group of foes. Your eidolon loses a number of Hit Points equal to your level. All creatures in a 20-foot burst within 60 feet take (max(6,(@actor.level - 1)))d6 damage with a Reflex save against your spell DC. The damage increases by 1d6 for each level you have beyond 7th. The damage's type is either fire damage if your eidolon is a fire elemental, or the same physical damage type as your eidolon's primary unarmed attack if your eidolon isn't a fire elemental. Elemental Burst gains any traits that your eidolon's unarmed attacks gain from elemental core."
+    description: "Frequency once per 10 minutes%rYour eidolon rips off a chunk of elemental matter from their own form and hurls it into a group of foes. Your eidolon loses a number of Hit Points equal to your level. All creatures in a 20-foot burst within 60 feet take (6d6, and 1d6 more every level from 8th level) damage with a Reflex save against your spell DC. The damage increases by 1d6 for each level you have beyond 7th. The damage's type is either fire damage if your eidolon is a fire elemental, or the same physical damage type as your eidolon's primary unarmed attack if your eidolon isn't a fire elemental. Elemental Burst gains any traits that your eidolon's unarmed attacks gain from elemental core."
   "Elemental Maelstrom":
     from: "action"
     for: "class"
@@ -2444,7 +2444,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["primal"]
     frequency: {"max": 1, "per": "day"}
-    description: "Frequency once per day%rEnergy bursts forth from your body. You deal ceil(@actor.level/2)d6[@actor.flags.system.elementalHeartDwarf.damageType] damage to all adjacent creatures (Reflex save using your class DC or spell DC, whichever is higher). At 3rd level, and every 2 levels thereafter, this damage increases by 1d6 damage."
+    description: "Frequency once per day%rEnergy bursts forth from your body. You deal (1d6 per 2 levels, rounded up) damage to all adjacent creatures (Reflex save using your class DC or spell DC, whichever is higher). At 3rd level, and every 2 levels thereafter, this damage increases by 1d6 damage."
   "Energy Fusion":
     from: "feat"
     type: "action"
@@ -2622,7 +2622,7 @@ pf2e_actions:
     cost: 2
     category: "interaction"
     traits: ["fire", "inventor", "manipulate", "unstable"]
-    description: "You intentionally take your innovation beyond normal safety limits, making it explode and damage nearby creatures without damaging the innovation... hopefully. The explosion deals max(2, @actor.level)d6[@actor.flags.system.inventor.explode] damage with a Reflex to all creatures in a 5-foot emanation around you (if you're wearing or holding the innovation) or around your innovation (if your innovation is a minion).%rAt 3rd level, and every level thereafter, increase your explosion's damage by 1d6.%rIf you have the breakthrough innovation class feature, you can choose either a 5-foot or 10-foot emanation for the area when you use Explode; if you have the revolutionary innovation class feature, you can choose a 5-foot, 10-foot, or 15-foot emanation."
+    description: "You intentionally take your innovation beyond normal safety limits, making it explode and damage nearby creatures without damaging the innovation... hopefully. The explosion deals (2d6, and 1d6 more every level from 3rd level) damage with a Reflex to all creatures in a 5-foot emanation around you (if you're wearing or holding the innovation) or around your innovation (if your innovation is a minion).%rAt 3rd level, and every level thereafter, increase your explosion's damage by 1d6.%rIf you have the breakthrough innovation class feature, you can choose either a 5-foot or 10-foot emanation for the area when you use Explode; if you have the revolutionary innovation class feature, you can choose a 5-foot, 10-foot, or 15-foot emanation."
   "Exploit Blunder":
     from: "feat"
     type: "reaction"
@@ -2648,7 +2648,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["impulse", "kineticist", "primal"]
-    description: "You extract elemental matter from a creature's body to weaken it and take its power for your own. Target a creature within 30 feet that has a trait matching one of your kinetic elements or is made of one of your kinetic elements. The target takes (ceil(@actor.level/2))d4 untyped damage (with no damage type) and becomes susceptible to your impulses, depending on its Fortitude save against your class DC.%rCritical Success The creature is unaffected%rSuccess The creature takes half damage, and you add some of its elemental matter to your kinetic aura. Your impulses bypass any immunity the creature has to their elemental trait or traits, and the target takes a -1 circumstance penalty to its saves and AC against your impulses. If the target normally has a resistance that would apply to damage from one of your impulses, ignore that resistance; if it normally would be immune to that damage type, it instead has resistance equal to its level to damage from the impulse. You can't target a creature with Extract Element if elemental matter you extracted from it is already in your kinetic aura. These effects last for 5 minutes or until your kinetic aura ends, whichever comes first%rFailure As…"
+    description: "You extract elemental matter from a creature's body to weaken it and take its power for your own. Target a creature within 30 feet that has a trait matching one of your kinetic elements or is made of one of your kinetic elements. The target takes (1d4 per 2 levels, rounded up) untyped damage (with no damage type) and becomes susceptible to your impulses, depending on its Fortitude save against your class DC.%rCritical Success The creature is unaffected%rSuccess The creature takes half damage, and you add some of its elemental matter to your kinetic aura. Your impulses bypass any immunity the creature has to their elemental trait or traits, and the target takes a -1 circumstance penalty to its saves and AC against your impulses. If the target normally has a resistance that would apply to damage from one of your impulses, ignore that resistance; if it normally would be immune to that damage type, it instead has resistance equal to its level to damage from the impulse. You can't target a creature with Extract Element if elemental matter you extracted from it is already in your kinetic aura. These effects last for 5 minutes or until your kinetic aura ends, whichever comes first%rFailure As…"
   "Extravagant Parry":
     from: "feat"
     type: "action"
@@ -2841,7 +2841,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["concentrate", "magical", "manipulate", "thaumaturge"]
-    description: "Requirements You are holding your wand implement.%rYou fling magical energy at a target within 60 feet, dealing (ceil(@actor.level/2)+2)d4 untyped damage, with a Reflex save against your class DC. The damage is of the type you selected when you gained your wand implement. At 3rd level and every 2 levels thereafter, the damage increases by 1d4.%rYou can expend more energy than usual to boost the effect of Fling Magic, dealing d6s of damage instead of d4s. After you do, the wand's extra energy is discharged; you can't boost the wand's damage again, but can continue to Fling Magic normally. The extra energy recharges at the end of your next turn.%rSpecial This activity has the trait corresponding to the damage type you selected."
+    description: "Requirements You are holding your wand implement.%rYou fling magical energy at a target within 60 feet, dealing (2d4, plus 1d4 per 2 levels, rounded up) untyped damage, with a Reflex save against your class DC. The damage is of the type you selected when you gained your wand implement. At 3rd level and every 2 levels thereafter, the damage increases by 1d4.%rYou can expend more energy than usual to boost the effect of Fling Magic, dealing d6s of damage instead of d4s. After you do, the wand's extra energy is discharged; you can't boost the wand's damage again, but can continue to Fling Magic normally. The extra energy recharges at the end of your next turn.%rSpecial This activity has the trait corresponding to the damage type you selected."
     rules:
       - key: "RollOption"
         option: "wand-damage-type"
@@ -3251,7 +3251,7 @@ pf2e_actions:
     cost: 3
     category: "offensive"
     traits: ["fire", "sonic", "visual"]
-    description: "Chaos fills a 20-foot within 120 feet. All creatures in the area takes (max(3,(3 + floor((@actor.level - 10)/ 3))))d6 fire,(max(3,(3 + floor((@actor.level - 10)/ 3))))d6 sonic damage and must attempt a Fortitude save. Every 3 levels, the fire damage and sonic damage each increase by 1d6. You can expend 2 versatile vials instead of 1 to increase the fire and sonic damage by 1d6 each, or by 2d6 each at 16th level.%rCritical Success The creature is unaffected.%rSuccess The creature is Dazzled and Deafened until the end of its next turn and takes half damage.%rFailure The creature is dazzled and deafened for 1 minute and takes full damage.%rCritical Failure The creature is Blinded for 1 round, dazzled and deafened for 1 minute, and takes double damage."
+    description: "Chaos fills a 20-foot within 120 feet. All creatures in the area takes 3d6 (4d6 at 13th level, 5d6 at 16th level, 6d6 at 19th level) fire,3d6 (4d6 at 13th level, 5d6 at 16th level, 6d6 at 19th level) sonic damage and must attempt a Fortitude save. Every 3 levels, the fire damage and sonic damage each increase by 1d6. You can expend 2 versatile vials instead of 1 to increase the fire and sonic damage by 1d6 each, or by 2d6 each at 16th level.%rCritical Success The creature is unaffected.%rSuccess The creature is Dazzled and Deafened until the end of its next turn and takes half damage.%rFailure The creature is dazzled and deafened for 1 minute and takes full damage.%rCritical Failure The creature is Blinded for 1 round, dazzled and deafened for 1 minute, and takes double damage."
     rules:
       - key: "RollOption"
         option: "goblin-jubilee-upgrade"
@@ -3942,7 +3942,7 @@ pf2e_actions:
     type: "reaction"
     category: "offensive"
     traits: ["champion", "divine", "emotion", "mental"]
-    description: "Trigger An enemy in your champion's aura damages you%rEffect You put an impertinent foe who dared harm you in their proper place. You command your enemy to kneel before you in obedience. If they dare to refuse, they must pay the price in pain and anguish. The enemy must choose one of the following options.%rKneel The enemy drops Prone as a free action. Refuse You deal (ternary(gte(@actor.level,19),6,ternary(gte(@actor.level,16),5,ternary(gte(@actor.level,12),4,ternary(gte(@actor.level,9),3,ternary(gte(@actor.level,5),2,1))))))d6 mental damage to the enemy. This damage increases to 2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, and 6d6 at 19th level.%rRegardless of which option the enemy chose, your Strikes against it deal 1 extra spirit damage until the end of your next turn. This extra damage increases to 2 at 9th level and 3 at 16th level.%rEffect: Champion's Extra Damage"
+    description: "Trigger An enemy in your champion's aura damages you%rEffect You put an impertinent foe who dared harm you in their proper place. You command your enemy to kneel before you in obedience. If they dare to refuse, they must pay the price in pain and anguish. The enemy must choose one of the following options.%rKneel The enemy drops Prone as a free action. Refuse You deal 1d6 (2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, 6d6 at 19th level) mental damage to the enemy. This damage increases to 2d6 at 5th level, 3d6 at 9th level, 4d6 at 12th level, 5d6 at 16th level, and 6d6 at 19th level.%rRegardless of which option the enemy chose, your Strikes against it deal 1 extra spirit damage until the end of your next turn. This extra damage increases to 2 at 9th level and 3 at 16th level.%rEffect: Champion's Extra Damage"
   "Ironblood Stance":
     from: "feat"
     type: "action"
@@ -4021,7 +4021,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["fire", "light", "magical"]
-    description: "Requirements Your lantern light is shining%rEffect Your lenses focus your light into a searing beam. You deal ((max(5,ceil(@actor.level/2)))d4) fire damage to all creatures in a 30-foot, with a Reflex saving throw against the higher of your class DC or spell DC. Your lantern light then extinguishes, and you can't use this ability or use your lantern light again for 1d4 rounds. At 11th level and every two levels thereafter, the damage increases by 1d4."
+    description: "Requirements Your lantern light is shining%rEffect Your lenses focus your light into a searing beam. You deal 5d4 (6d4 at 11th level, 7d4 at 13th level, 8d4 at 15th level, 9d4 at 17th level, 10d4 at 19th level) fire damage to all creatures in a 30-foot, with a Reflex saving throw against the higher of your class DC or spell DC. Your lantern light then extinguishes, and you can't use this ability or use your lantern light again for 1d4 rounds. At 11th level and every two levels thereafter, the damage increases by 1d4."
   "Lantern Strobe":
     from: "action"
     for: "ancestry"
@@ -4455,7 +4455,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["concentrate"]
-    description: "Requirements Your horde has been raised%rEffect Each enemy in a 5-foot emanation around your horde takes (ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,14),6,ternary(gte(@actor.level,10),4,2))))d6 bludgeoning damage (if your horde is zombies) or (ternary(gte(@actor.level,18),8,ternary(gte(@actor.level,14),6,ternary(gte(@actor.level,10),4,2))))d6 slashing damage (if your horde is skeletons) with a Reflex save against your spell DC. At 10th level and every 4 levels thereafter, the damage increases by 2d6."
+    description: "Requirements Your horde has been raised%rEffect Each enemy in a 5-foot emanation around your horde takes 2d6 (4d6 at 10th level, 6d6 at 14th level, 8d6 at 18th level) bludgeoning damage (if your horde is zombies) or 2d6 (4d6 at 10th level, 6d6 at 14th level, 8d6 at 18th level) slashing damage (if your horde is skeletons) with a Reflex save against your spell DC. At 10th level and every 4 levels thereafter, the damage increases by 2d6."
   "Mobile Finisher":
     from: "feat"
     type: "action"
@@ -4619,7 +4619,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["concentrate", "healing", "transcendence", "vitality"]
-    description: "Your wounds knit shut with hardly a scratch. You regain (ceil(@actor.level/2))d8 healing vitality|shortLabel Hit Points. At 3rd level and every 2 levels thereafter, the healing increases by 1d8."
+    description: "Your wounds knit shut with hardly a scratch. You regain (1d8 per 2 levels, rounded up) healing vitality Hit Points. At 3rd level and every 2 levels thereafter, the healing increases by 1d8."
   "Nonlethal Spell":
     from: "feat"
     type: "action"
@@ -4802,7 +4802,7 @@ pf2e_actions:
         selector: "crafting"
         outcome: ["criticalFailure"]
         title: "Critical Failure"
-        text: "Whoops! Something explodes. You take (ceil(@actor.level / 2))[@actor.flags.system.inventor.explode]|immutable|name:PF2E.SpecificRule.Inventor.Innovation.MalfunctionDamage damage, and you can't use Overdrive again for 1d4 rounds as your gizmos reset."
+        text: "Whoops! Something explodes. You take (1 per 2 levels, rounded up) damage, and you can't use Overdrive again for 1d4 rounds as your gizmos reset."
         predicate: ["self:action:slug:overdrive"]
   "Overflowing Blade":
     from: "action"
@@ -5170,7 +5170,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["primal", "sonic"]
     frequency: {"max": 1, "per": "PT1H"}
-    description: "Frequency once per hour%rEffect Your animal companion screeches and howls, empowered with natural magic. All creatures in a 30-foot take (floor(@actor.level/2))d6 sonic damage for every 2 levels your companion has, with a Fortitude save against your spell DC. Creatures that fail become Frightened 1, and creatures that critically fail become Frightened 2. The fright is an emotion, fear, and mental effect."
+    description: "Frequency once per hour%rEffect Your animal companion screeches and howls, empowered with natural magic. All creatures in a 30-foot take (1d6 per 2 levels) sonic damage for every 2 levels your companion has, with a Fortitude save against your spell DC. Creatures that fail become Frightened 1, and creatures that critically fail become Frightened 2. The fright is an emotion, fear, and mental effect."
   "Primal Roar":
     from: "action"
     for: "class"
@@ -5370,7 +5370,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["divine", "earth"]
     frequency: {"max": 1, "per": "day"}
-    description: "Frequency once per day%rEffect Thick slabs of stone rise around you before tilting over. You deal (ceil(@actor.level/2)d6) bludgeoning damage to all adjacent creatures (Reflex against your class DC or spell DC, whichever is higher). On a critical failure, the creature is also knocked Prone. At 3rd level, and every 2 levels thereafter, this damage increases by 1d6."
+    description: "Frequency once per day%rEffect Thick slabs of stone rise around you before tilting over. You deal (1d6 per 2 levels, rounded up) bludgeoning damage to all adjacent creatures (Reflex against your class DC or spell DC, whichever is higher). On a critical failure, the creature is also knocked Prone. At 3rd level, and every 2 levels thereafter, this damage increases by 1d6."
   "Raise Symbol":
     from: "feat"
     type: "action"
@@ -5847,7 +5847,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["healing"]
     frequency: {"max": 1, "per": "PT1M"}
-    description: "Frequency once per minute%rTrigger You arrive at a location via a teleportation effect%rEffect When you reappear after the teleportation, your body takes advantage of the teleportation to put itself back together in a healthier state, and you restore a number of Hit Points equal to 1d6 plus your level plus your Intelligence modifier ((1d6 + @actor.level + @actor.system.abilities.int.mod) healing)."
+    description: "Frequency once per minute%rTrigger You arrive at a location via a teleportation effect%rEffect When you reappear after the teleportation, your body takes advantage of the teleportation to put itself back together in a healthier state, and you restore a number of Hit Points equal to 1d6 plus your level plus your Intelligence modifier ((1d6 + your level + your Intelligence modifier) healing)."
   "Restore the Mind":
     from: "action"
     for: "class"
@@ -5948,7 +5948,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["sonic", "spirit", "transcendence"]
-    description: "You clang your ikon against a weapon, shield, or the ground, emitting a shock wave that deals (max(1,(floor((@actor.level - 2)/2))))d4 spirit,(max(1,(floor((@actor.level - 2)/2))))d4 sonic damage to all creatures in a 30-foot cone or 15-foot emanation (Fortitude save). A creature that critically fails its saving throw is Deafened for 1 minute.%rAt 6th level and every 2 levels thereafter, the damage increases by 1d4 spirit damage and 1d4 sonic damage."
+    description: "You clang your ikon against a weapon, shield, or the ground, emitting a shock wave that deals (1d4, and 1d4 more every 2 levels from 6th level) spirit,(1d4, and 1d4 more every 2 levels from 6th level) sonic damage to all creatures in a 30-foot cone or 15-foot emanation (Fortitude save). A creature that critically fails its saving throw is Deafened for 1 minute.%rAt 6th level and every 2 levels thereafter, the damage increases by 1d4 spirit damage and 1d4 sonic damage."
     rules:
       - key: "ItemAlteration"
         itemId: "{item|id}"
@@ -6335,7 +6335,7 @@ pf2e_actions:
     category: "offensive"
     traits: []
     frequency: {"max": 1, "per": "PT10M"}
-    description: "Frequency once per 10 minutes%rEffect Your familiar's spirit exits its body, leaving its empty shell behind, before flying at an enemy within 20 feet and dealing (6+max(0,(ceil((@actor.level -8)/2)*2)))d6 spirit damage, with a Will save against your spell DC. If the familiar dealt damage, it then flies to an ally within 30 feet of the enemy, restoring Hit Points equal to half the damage dealt. Your familiar then re-forms in its original square. At 9th level, and every 2 levels thereafter, the attack deals an additional 2d6 damage."
+    description: "Frequency once per 10 minutes%rEffect Your familiar's spirit exits its body, leaving its empty shell behind, before flying at an enemy within 20 feet and dealing (6d6, and 2d6 more every 2 levels from 9th level) spirit damage, with a Will save against your spell DC. If the familiar dealt damage, it then flies to an ally within 30 feet of the enemy, restoring Hit Points equal to half the damage dealt. Your familiar then re-forms in its original square. At 9th level, and every 2 levels thereafter, the attack deals an additional 2d6 damage."
   "Shed Tail":
     from: "feat"
     type: "reaction"
@@ -6772,7 +6772,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["concentrate", "magical"]
     frequency: {"max": 1, "per": "turn"}
-    description: "Frequency once per round%rEffect Your ostilli flashes red as it regurgitates a dart of magic at a target within 30 feet. This magical dart deals ((1+floor((@actor.level -2)/4))d6) piercing damage (Reflex save against the higher of your class DC or spell DC). This damage increases by 1d6 at 6th level and every 4 levels thereafter."
+    description: "Frequency once per round%rEffect Your ostilli flashes red as it regurgitates a dart of magic at a target within 30 feet. This magical dart deals 1d6 (2d6 at 6th level, 3d6 at 10th level, 4d6 at 14th level, 5d6 at 18th level) piercing damage (Reflex save against the higher of your class DC or spell DC). This damage increases by 1d6 at 6th level and every 4 levels thereafter."
   "Split Hex":
     from: "feat"
     type: "action"
@@ -6904,7 +6904,7 @@ pf2e_actions:
     category: "offensive"
     traits: []
     frequency: {"max": 1, "per": "PT10M"}
-    description: "Frequency once per 10 minutes%rEffect Your familiar unravels into magical fibers that encompass an enemy within 30 feet and deal (6+max(0,(ceil((@actor.level -8)/2)*2)))d6 slashing damage, with a Reflex save against your spell DC. On a failure, the target is also Immobilized for 1 round or until it Escapes against your spell DC. Your familiar then re-forms in its original square. At 9th level, and every 2 levels thereafter, the attack deals an additional 2d6 damage."
+    description: "Frequency once per 10 minutes%rEffect Your familiar unravels into magical fibers that encompass an enemy within 30 feet and deal (6d6, and 2d6 more every 2 levels from 9th level) slashing damage, with a Reflex save against your spell DC. On a failure, the target is also Immobilized for 1 round or until it Escapes against your spell DC. Your familiar then re-forms in its original square. At 9th level, and every 2 levels thereafter, the attack deals an additional 2d6 damage."
   "Stone Bones":
     from: "feat"
     type: "reaction"
@@ -7118,7 +7118,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["eidolon"]
-    description: "Requirements Your eidolon is dispersed.%rYour eidolon swarms over each creature occupying its space, biting, pecking, clawing, or making similar attacks with its component bodies. It deals (ceil(@actor.level / 2))d6 damage to each creature in the area, with a Reflex save against your spell DC. You choose each time your eidolon uses Swarming Assault whether it deals piercing or slashing damage. Your eidolon then can't use Swarming Assault again for the next 1d4 rounds.%rAt 3rd level and every 2 levels thereafter, the damage increases by 1d6."
+    description: "Requirements Your eidolon is dispersed.%rYour eidolon swarms over each creature occupying its space, biting, pecking, clawing, or making similar attacks with its component bodies. It deals (1d6 per 2 levels, rounded up) damage to each creature in the area, with a Reflex save against your spell DC. You choose each time your eidolon uses Swarming Assault whether it deals piercing or slashing damage. Your eidolon then can't use Swarming Assault again for the next 1d4 rounds.%rAt 3rd level and every 2 levels thereafter, the damage increases by 1d6."
     rules:
       - key: "RollOption"
         option: "swarming-assault"
@@ -7513,7 +7513,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["transcendence"]
-    description: "Your ikon extends to an impossible length, striking all in its way. You deal (max(6,floor(@actor.level / 2)))d8 untyped damage to all creatures in a 60-foot line, with a Reflex save against your class DC. The damage type matches that of your weapon. At 14th level and every two levels thereafter, the damage increases by 1d8."
+    description: "Your ikon extends to an impossible length, striking all in its way. You deal 6d8 (7d8 at 14th level, 8d8 at 16th level, 9d8 at 18th level, 10d8 at 20th level) untyped damage to all creatures in a 60-foot line, with a Reflex save against your class DC. The damage type matches that of your weapon. At 14th level and every two levels thereafter, the damage increases by 1d8."
   "Touch and Go":
     from: "action"
     for: "class"
@@ -7529,7 +7529,7 @@ pf2e_actions:
     category: "defensive"
     traits: ["poison", "tripkee"]
     frequency: {"max": 1, "per": "PT1H"}
-    description: "Frequency once per hour%rTrigger A creature touches you, such as by Grappling you, successfully hitting you with an unarmed attack, or using a touch-range spell against you%rEffect You exude a deadly toxin. The triggering creature takes (ceil(@actor.level/2))d4 poison damage (Fortitude save using your class DC or spell DC, whichever is higher). At 3rd level and every 2 levels thereafter, the damage increases by 1d4."
+    description: "Frequency once per hour%rTrigger A creature touches you, such as by Grappling you, successfully hitting you with an unarmed attack, or using a touch-range spell against you%rEffect You exude a deadly toxin. The triggering creature takes (1d4 per 2 levels, rounded up) poison damage (Fortitude save using your class DC or spell DC, whichever is higher). At 3rd level and every 2 levels thereafter, the damage increases by 1d4."
   "Toxic Touch":
     from: "action"
     for: "heritage"
@@ -7778,7 +7778,7 @@ pf2e_actions:
     type: "free"
     category: "offensive"
     traits: ["concentrate"]
-    description: "Trigger Your previous action was to Sustain your manifested realm%rEffect You punish those who transgress upon your realm. An enemy within your realm takes 4d8[@actor.flags.system.realmDamage]|shortLabel damage of your realm's damage type with a Fortitude save against your class DC or spell DC, whichever is higher."
+    description: "Trigger Your previous action was to Sustain your manifested realm%rEffect You punish those who transgress upon your realm. An enemy within your realm takes 4d8 damage of your realm's damage type with a Fortitude save against your class DC or spell DC, whichever is higher."
   "Unravel the Future":
     from: "action"
     for: "class"
@@ -8034,7 +8034,7 @@ pf2e_actions:
     category: "offensive"
     traits: []
     frequency: {"max": 1, "per": "day"}
-    description: "Trigger You're hit with an unarmed Strike or a Strike with a non-reach melee weapon.%rFrequency once per day%rSeveral of your thorns break off and hook into your attacker's body. You deal (ceil(@actor.level/2)d8) piercing damage to the triggering creature. It attempts a Reflex save against the higher of your class DC or spell DC. On a critical failure, the creature also takes (1d4+ceil(@actor.level/2)-1) bleed damage as your thorns embed in its flesh.%rAt 3rd level, and every 2 levels thereafter, this damage increases by 1d8, and the persistent bleed damage increases by 1."
+    description: "Trigger You're hit with an unarmed Strike or a Strike with a non-reach melee weapon.%rFrequency once per day%rSeveral of your thorns break off and hook into your attacker's body. You deal (1d8 per 2 levels, rounded up) piercing damage to the triggering creature. It attempts a Reflex save against the higher of your class DC or spell DC. On a critical failure, the creature also takes (1d4 + half of your level, rounded up - 1) bleed damage as your thorns embed in its flesh.%rAt 3rd level, and every 2 levels thereafter, this damage increases by 1d8, and the persistent bleed damage increases by 1."
   "Widen Spell":
     from: "feat"
     type: "action"

@@ -3070,7 +3070,7 @@
   speeds: {"land": 25}
   skills: {"Arcana": 9, "Crafting": 7, "Deception": 8, "Diplomacy": 6, "Occultism": 7, "Religion": 11}
   strikes: [{"name": "Mace", "bonus": 8, "damage": [["1d6+1", "bludgeoning", null]], "traits": []}, {"name": "Crossbow", "bonus": 9, "damage": [["1d8", "piercing", null]], "traits": ["reload-1"], "range": 120}]
-  actions: [{"name": "Sap Life", "type": "passive", "traits": [], "text": "When Uncle Jeb casts a Harm spell and damages at least one living creature, he regains Hit Points equal to the spell rank of his harm spell.", "rules": [{"key": "Note", "selector": "spell-damage", "title": "{item|name}", "text": "When you cast a harm spell and damage at least one living creature, you regain (@item.rank) healing Hit Points.", "predicate": ["item:slug:harm"]}]}]
+  actions: [{"name": "Sap Life", "type": "passive", "traits": [], "text": "When Uncle Jeb casts a Harm spell and damages at least one living creature, he regains Hit Points equal to the spell rank of his harm spell.", "rules": [{"key": "Note", "selector": "spell-damage", "title": "{item|name}", "text": "When you cast a harm spell and damage at least one living creature, you regain (1 per spell rank) healing Hit Points.", "predicate": ["item:slug:harm"]}]}]
   spellcasting: [{"name": "Divine Prepared Spells", "tradition": "divine", "type": "prepared", "dc": 20, "attack": 12, "spells": {"0": ["Chill Touch", "Detect Magic", "Electric Arc", "Light", "Shield"], "1": ["Bane", "Charm", "Harm", "Heal"], "2": ["Sound Burst", "Spiritual Weapon"]}}, {"name": "Cleric Domain Spells", "tradition": "divine", "type": "focus", "dc": 20, "attack": 12, "spells": {"1": ["Sudden Shift"]}}]
 "Unstable Skeletal Champion":
   pack: "pfs-season-3-bestiary"

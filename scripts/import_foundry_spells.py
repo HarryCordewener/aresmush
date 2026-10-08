@@ -390,8 +390,9 @@ def main():
     parser.add_argument('--write', action='store_true')
     args = parser.parse_args()
 
-    # The English an outcome's `@Localize[...]` is read from.
+    # The English an outcome's `@Localize[...]` is read from, and a spell's level is its rank.
     rules.strings(args.checkout)
+    rules.RANKED = True
     entries = {}
 
     for path, body in npcs.blobs(args.checkout, 'packs/pf2e/spells'):
