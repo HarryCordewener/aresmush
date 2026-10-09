@@ -65,7 +65,7 @@ COUNTS = {'two': 2, 'three': 3}
 
 # An action that is a Strike and something more - Combat Assessment, Deadly Aim, a finisher - is one
 # Strike of the kind it names, made with the action's own rules on.
-ONE = re.compile(r'\b(?:[Mm]ake|can make) an? (melee |ranged )?Strike\b')
+ONE = re.compile(r'\b(?:[Mm]ake|can make) an? ((?:(?!two\b|three\b|Strike\b)[\w-]+ ){0,4})Strike\b')
 NOT_ONE = re.compile(r'\b(?:two|three) (?:\w+ )?Strikes\b|Strike twice')
 
 
@@ -258,6 +258,19 @@ def stocked_feats():
     return names
 
 
+def attack_kind(words):
+    """The kind of attack "Make a ranged weapon Strike" asks for: unarmed, ranged or melee, or any for
+    "a weapon or unarmed Strike" and a Strike named for its attack - "a tiger claw Strike"."""
+    said = words.lower().split()
+    if 'or' in said:
+        return None
+    if 'unarmed' in said:
+        return 'unarmed'
+    if {'ranged', 'thrown', 'firearm'} & set(said):
+        return 'ranged'
+    return 'melee' if 'melee' in said else None
+
+
 def entry_of(doc, source, effects, counted):
     system = doc['system']
     kind = (system.get('actionType') or {}).get('value') or 'passive'
@@ -363,7 +376,8 @@ def main():
             continue
         one = ONE.search(text)
         if one and not NOT_ONE.search(text):
-            entry['strikes'] = {'count': 1, **({'attack': one.group(1).strip()} if one.group(1) else {})}
+            kind = attack_kind(one.group(1))
+            entry['strikes'] = {'count': 1, **({'attack': kind} if kind else {})}
 
     if args.write:
         open(os.path.join(CONFIG, OUT), 'w').write(rendered(entries))

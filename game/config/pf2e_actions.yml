@@ -540,6 +540,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["finisher", "swashbuckler"]
+    strikes: {"count": 1}
   "Bless Ally":
     from: "action"
     for: "archetype"
@@ -555,6 +556,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["champion", "flourish"]
+    strikes: {"count": 1}
   "Blinding of the Needle":
     from: "action"
     for: "class"
@@ -1089,6 +1091,7 @@ pf2e_actions:
     category: "class"
     traits: ["monk", "poison"]
     frequency: {"max": 1, "per": "PT1M"}
+    strikes: {"count": 1}
   "Cobra Stance":
     from: "feat"
     type: "action"
@@ -1561,6 +1564,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["fighter", "flourish"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Debilitating Strike":
     from: "action"
     for: "class"
@@ -1859,6 +1863,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["magical", "spellshot"]
+    strikes: {"count": 1}
     description: "You imprint a bullet with a field of disruptive energy built upon your magical signature, disrupting the magic of whatever it hits. Make a firearm or crossbow Strike against a foe you can see. If you hit, you attempt to counteract a spell effect active on the target (your choice, or the highest-level effect if you don't choose). Your counteract rank is equal to half your level (rounded up), and your counteract check modifier is equal to your class DC – 10."
   "Dispelling Slice":
     from: "feat"
@@ -1878,6 +1883,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["monk", "void"]
+    strikes: {"count": 1, "attack": "unarmed"}
   "Disruptive Stance":
     from: "feat"
     type: "action"
@@ -1897,6 +1903,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["bravado", "flourish", "swashbuckler"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Disturbing Knowledge":
     from: "feat"
     type: "action"
@@ -3191,6 +3198,7 @@ pf2e_actions:
     cost: 1
     category: "offensive"
     traits: ["flourish", "gunslinger"]
+    strikes: {"count": 1}
     description: "Make a firearm or crossbow Strike. If you're Hidden from or Undetected by the target, the Strike adds the additional precision damage from One Shot, One Kill; if you would already receive that additional damage on the Strike, the effects aren't cumulative. If you were undetected or Unnoticed by any creatures, you're now hidden from them instead, or undetected if the shot was made with a silencer."
   "Giant's Lunge":
     from: "feat"
@@ -3401,6 +3409,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["rogue"]
+    strikes: {"count": 1, "attack": "unarmed"}
   "Healing Transformation":
     from: "feat"
     type: "action"
@@ -3436,6 +3445,7 @@ pf2e_actions:
     cost: 2
     category: "offensive"
     traits: ["holy"]
+    strikes: {"count": 1}
     description: "Make a weapon or unarmed Strike. This counts as two attacks when determining your multiple attack penalty. If your Strike hits, you deal an additional 2d8 spirit damage. At 18th level, this increases to 3d8 spirit damage."
     rules:
       - key: "RollOption"
@@ -3579,6 +3589,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["concentrate", "ranger"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Hustle":
     from: "action"
     for: "everyone"
@@ -3711,6 +3722,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["concentrate", "fighter"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Incredible Improvisation":
     from: "feat"
     type: "free"
@@ -3723,6 +3735,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["concentrate", "fighter", "press"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Indomitable Act":
     from: "action"
     for: "background"
@@ -4009,6 +4022,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["concentrate", "monk"]
+    strikes: {"count": 1, "attack": "unarmed"}
   "Knowledge of Shapes":
     from: "feat"
     type: "free"
@@ -4705,6 +4719,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["monk"]
+    strikes: {"count": 1, "attack": "unarmed"}
   "One-Toed Hop":
     from: "feat"
     type: "action"
@@ -4942,6 +4957,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["ranger"]
+    strikes: {"count": 1, "attack": "ranged"}
   "Perfect Clarity":
     from: "feat"
     type: "reaction"
@@ -6327,6 +6343,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["monk"]
+    strikes: {"count": 1, "attack": "unarmed"}
   "Shed Spirit":
     from: "action"
     for: "class"
@@ -7167,6 +7184,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["barbarian", "fighter", "flourish"]
+    strikes: {"count": 1, "attack": "melee"}
   "Swipe Souvenir":
     from: "feat"
     type: "action"
@@ -7286,6 +7304,7 @@ pf2e_actions:
     cost: 1
     category: "class"
     traits: ["monk"]
+    strikes: {"count": 1}
   "Tangled Forest Stance":
     from: "feat"
     type: "action"
@@ -7463,6 +7482,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["monk"]
+    strikes: {"count": 1}
   "Tiger Stance":
     from: "feat"
     type: "action"
@@ -7538,6 +7558,7 @@ pf2e_actions:
     category: "offensive"
     traits: ["poison"]
     frequency: {"max": 1, "per": "day"}
+    strikes: {"count": 1, "attack": "unarmed"}
     description: "Frequency once per day%rRequirements Your most recent action was to Tumble Through, and you successfully moved through an enemy's space%rEffect Make a melee unarmed Strike against the enemy whose space you moved through. On a hit, the target takes 1d6 persistent poison damage and is Sickened 1 (or takes 2d6 persistent poison and is Sickened 2 on a critical hit)."
   "Trace Rune":
     from: "action"
@@ -8047,6 +8068,7 @@ pf2e_actions:
     cost: 2
     category: "class"
     traits: ["air", "concentrate", "manipulate", "monk"]
+    strikes: {"count": 1}
   "Wind Them Up":
     from: "action"
     for: "class"

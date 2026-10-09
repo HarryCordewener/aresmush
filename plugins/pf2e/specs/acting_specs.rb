@@ -357,6 +357,15 @@ module AresMUSH
           expect(Scenes).to have_received(:add_to_scene).with(anything, a_string_including('strikes Goblin Warrior #3'))
         end
 
+        # "Make a slashing or piercing Strike" is a Strike as much as "Make a Strike" is.
+        it "should make the Strike of an action that names what it strikes with" do
+          @hero.update(:pf2_feats => { 'charclass' => [ 'Bleeding Finisher' ] })
+          run(PF2EncounterActCmd, 'e/act bleeding finisher=#3', @hero)
+
+          expect(@client.failures).to eq []
+          expect(said).to include('strikes Goblin Warrior #3 with Fist')
+        end
+
         it "should let a character strike a creature with their fist" do
           @dice = 0.75
           run(PF2EncounterStrikeCmd, 'e/strike #3=fist', @hero)
