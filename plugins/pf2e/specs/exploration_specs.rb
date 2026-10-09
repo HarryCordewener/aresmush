@@ -188,6 +188,12 @@ module AresMUSH
           expect(fight.carries_on_from.to_s).to eq @exploring.id.to_s
         end
 
+        # Everyone is already in it, so the call to stop and join would mislead.
+        it "should tell the room everyone exploring is in it, rather than to join" do
+          expect(said_lines.join).to include('Everyone exploring is in the fight')
+          expect(said_lines.join).to_not include('join the encounter')
+        end
+
         it "should bring everyone exploring into it, as they were" do
           names = Combatants.rows(fight).map { |row| row['name'] }
 

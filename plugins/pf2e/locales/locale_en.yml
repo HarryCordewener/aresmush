@@ -309,6 +309,8 @@ en:
     encounter_already_ended: "Encounter %{id} has already ended."
     encounter_cant_restart: "Encounter %{id} cannot be restarted. Reason: %{reason}"
     encounter_cannot_join: "You cannot join encounter %{id}. Reason: %{reason}"
+    encounter_start_join: "Please stop all actions and poses, and join the encounter. Type %{help} for in-encounter commands."
+    encounter_start_from_exploring: "Everyone exploring is in the fight, with initiative rolled as they were exploring. Type %{help} for in-encounter commands."
     encounter_start_title: "*** ENCOUNTER STARTED ***"
     encounter_ended_with_scene: "*** END OF ENCOUNTER %{id}: its scene has stopped. ***"
     encounter_complete: "*** END OF ENCOUNTER %{id} ***"

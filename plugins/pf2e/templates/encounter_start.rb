@@ -28,6 +28,15 @@ module AresMUSH
         PF2Encounter.gm_of(@encounter)&.name || @encounter.organizer
       end
 
+      # What the room is to do: join, or - for a fight that takes over from an exploration, which has
+      # brought everyone in already - nothing but play on.
+      def instruction
+        from = @encounter.carries_on_from ? PF2Encounter[@encounter.carries_on_from] : nil
+        key = Exploration.exploring?(from) ? 'pf2e.encounter_start_from_exploring' : 'pf2e.encounter_start_join'
+
+        t(key, :help => "#{title_color}help initiative%xn")
+      end
+
       def roll_init_cmd
         "init/join #{encounter_id}[=<alternate stat>]"
       end
