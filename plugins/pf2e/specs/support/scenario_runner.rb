@@ -11,6 +11,7 @@ module AresMUSH
     # stubs the emitters (`#heard`).
     class ScenarioRunner
       include InteractionProbes
+      include ExplorationPlay
 
       # One player's seat: the character's class and origin, and what they carry.
       #
@@ -38,10 +39,13 @@ module AresMUSH
       # A thing a player tried, by kind, and how it went.
       Try = Struct.new(:who, :kind, :what, :text, :outcome, keyword_init: true)
 
-      MUSH_CODES = /%x[a-zA-Z]|%x\d+|%c[a-zA-Z]|%l[a-z]|%n|%t|%b/
+      MUSH_CODES = /%[xX][a-zA-Z]|%[xX]\d{1,3}|%[cC][a-zA-Z]|%[cC]\d{1,3}|%l[a-z]|%n|%t|%b/
+
+      # The plugins a typed command can reach: the game's own and the scenes it is played in.
+      PLAYED = AutoBuilder::PLUGINS + [ 'Scenes' ]
 
       attr_reader :name, :level, :seats, :waves, :lines, :tries, :outcomes, :party, :gm, :encounters,
-                  :build_notes, :audit, :probes
+                  :build_notes, :audit, :probes, :explorations, :scene
 
       def initialize(name, level:, seats:, waves:, rounds: 6)
         @name = name
@@ -58,6 +62,8 @@ module AresMUSH
         @tried = Hash.new { |h, k| h[k] = {} }
         @audit = RollAudit.new
         @probes = []
+        @told_gm = []
+        @explorations = []
       end
 
       # ------------------------------------------------------------------------------
@@ -72,6 +78,7 @@ module AresMUSH
         return if text.empty?
 
         @audit.find('wording', to ? "told #{to}" : 'told the room', text[0, 200]) if text.match?(LEAKS)
+        @told_gm << text if @gm && to == @gm.name
 
         @lines << (to ? "    [to #{to}] #{text}" : "    #{text}")
       end
@@ -91,7 +98,7 @@ module AresMUSH
         client = AutoBuilder::CaptureClient.new
         cmd = Command.new(text)
         enactor = Character[char.id]
-        handler = AutoBuilder::PLUGINS.lazy.map { |plugin|
+        handler = PLAYED.lazy.map { |plugin|
           (AresMUSH.const_get(plugin).get_cmd_handler(client, cmd, enactor) rescue nil)
         }.find { |found| found }
         error = nil
@@ -287,7 +294,9 @@ module AresMUSH
         @encounter && PF2Encounter[@encounter.id]
       end
 
-      def fight!(wave, carries_on: nil)
+      # A fight: carrying on from the one before, or - started while the party explores - taking over
+      # from the exploration, which brings everyone into it with initiative rolled.
+      def fight!(wave, carries_on: nil, from_exploration: false)
         @wave = wave
         say "## Encounter: #{wave.map { |count, creature| "#{count} #{creature}" }.join(', ')}"
 
@@ -298,8 +307,10 @@ module AresMUSH
 
         @encounters << @encounter
 
-        @party.each { |char| type(char, 'e/join') }
-        type(@gm, 'e/rest') unless carries_on
+        unless from_exploration
+          @party.each { |char| type(char, 'e/join') }
+          type(@gm, 'e/rest') unless carries_on
+        end
         wave.each { |count, creature| type(@gm, "e/add #{count} #{creature}") }
         type(@gm, 'e/view')
         type(@gm, 'e/next')
@@ -494,6 +505,7 @@ module AresMUSH
         answers = [ ShieldBlock::NAME ] + AttackAnswers.reactions(state)
         (class_actions(state) + granted).uniq { |action| Domains.slug(action) }.each do |action|
           next if answers.include?(action) || Acting::COMMANDS.key?(Domains.slug(action))
+          next if Exploration.only_exploring?(action, Actions.info(action))
 
           if action == BondedItem::NAME
             out << [ :ability, action, -> { (spell = cast_today(char)) && "e/act #{action.downcase}/#{spell}" } ]
