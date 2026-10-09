@@ -25,8 +25,9 @@ module AresMUSH
         bootstrapper.db.load_config
 
         # A pose reads with the engine's own words, which the game loads as it starts and a spec does not.
-        engine_words = File.join(AresMUSH.engine_path, 'locales', 'locale_en.yml')
-        I18n.load_path << engine_words unless I18n.load_path.include?(engine_words)
+        # Stored straight into the translations, which another spec reloading them cannot undo.
+        engine_words = YAML.load_file(File.join(AresMUSH.engine_path, 'locales', 'locale_en.yml'))['en']
+        I18n.backend.store_translations(:en, engine_words)
 
         # The scene's log is written for real; only what it would tell web clients and a game's other
         # players is stubbed. A pose is logged when its event is handled, which here is at once.

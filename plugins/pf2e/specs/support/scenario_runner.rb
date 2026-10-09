@@ -63,6 +63,7 @@ module AresMUSH
         @audit = RollAudit.new
         @probes = []
         @told_gm = []
+        @told_room = []
         @explorations = []
       end
 
@@ -79,6 +80,7 @@ module AresMUSH
 
         @audit.find('wording', to ? "told #{to}" : 'told the room', text[0, 200]) if text.match?(LEAKS)
         @told_gm << text if @gm && to == @gm.name
+        @told_room << text unless to
 
         @lines << (to ? "    [to #{to}] #{text}" : "    #{text}")
       end
@@ -498,12 +500,10 @@ module AresMUSH
         out << [ :act, 'Raise a Shield', 'e/act raise a shield' ] unless state.shields.to_a.empty? || ShieldBlock.cannot_raise(state)
         out << [ :act, 'Demoralize', -> { "e/act demoralize=#{foe_ref.call}" } ]
 
-        # What the game offers them, and what their class, heritage and background say they have.
-        granted = Array((Character[char.id].pf2_actions || {})['actions'])
         # A healing action is for whoever is worst hurt; anything else is aimed at a foe. Shield Block and
         # Nimble Dodge answer a hit, and are used when one offers them.
         answers = [ ShieldBlock::NAME ] + AttackAnswers.reactions(state)
-        (class_actions(state) + granted).uniq { |action| Domains.slug(action) }.each do |action|
+        own_actions(char, state).each do |action|
           next if answers.include?(action) || Acting::COMMANDS.key?(Domains.slug(action))
           next if Exploration.only_exploring?(action, Actions.info(action))
 
@@ -554,6 +554,15 @@ module AresMUSH
         end
 
         nil
+      end
+
+      # What the game offers them, and what their class, heritage and background say they have, by the
+      # names the catalogue holds.
+      def own_actions(char, state)
+        granted = Array((Character[char.id].pf2_actions || {})['actions'])
+        named = granted.map { |action| (found = Actions.find(action)).ok? ? found.state : action }
+
+        (class_actions(state) + named).uniq { |action| Domains.slug(action) }
       end
 
       # The actions a character's own feats and features give them, which no one else has.

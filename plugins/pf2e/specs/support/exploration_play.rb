@@ -90,7 +90,7 @@ module AresMUSH
       end
 
       def exploring_only(char)
-        class_actions(state_of(char)).select do |action|
+        own_actions(char, state_of(char)).select do |action|
           Exploration.only_exploring?(action, Actions.info(action)) && !Exploration.activity?(action) &&
             !Actions.info(action)['check']
         end
@@ -170,7 +170,8 @@ module AresMUSH
           end
         end
 
-        @told_gm.uniq.each do |line|
+        # A line the GM alone was told - a creature's hit points - which the room never heard.
+        (@told_gm.uniq - @told_room).each do |line|
           next unless text.any? { |pose| pose.include?(line) } && line.length > 12
 
           @audit.find('scene', 'GM only', "a line only the GM was told is in the scene log: #{line[0, 120]}")
