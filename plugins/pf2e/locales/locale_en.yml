@@ -264,6 +264,8 @@ en:
       one: "for one more night"
       other: "for %{count} more nights"
     effect_lasts_until_rest: "until the next rest"
+    effect_lasts_turn_end: "until the end of this turn"
+    effect_lasts_turn_start: "until the start of the next turn"
     effect_lasts_rounds:
       one: "1 round left"
       other: "%{count} rounds left"

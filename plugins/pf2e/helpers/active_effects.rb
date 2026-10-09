@@ -486,7 +486,12 @@ module AresMUSH
 
         left = effect.started_round.to_i + rounds_long(effect) - effect.encounter.round.to_i
 
-        t('pf2e.effect_lasts_rounds', :count => [ left, 0 ].max)
+        # Its last round: it ends as this turn ends, or as the next one starts.
+        if left <= 0
+          return t(effect.expiry.to_s == 'turn-start' ? 'pf2e.effect_lasts_turn_start' : 'pf2e.effect_lasts_turn_end')
+        end
+
+        t('pf2e.effect_lasts_rounds', :count => left)
       end
     end
   end

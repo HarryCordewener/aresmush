@@ -235,6 +235,14 @@ module AresMUSH
         expect(Pf2e::ActiveEffects.remaining(effect)).to include '1'
       end
 
+      # An effect that ends with the turn it began in says so, rather than "0 rounds left".
+      it "should say an effect lasting to the end of the turn lasts that long" do
+        fight = encounter
+        effect = apply('Effect: Bespell Strikes', [], fight).state
+
+        expect(Pf2e::ActiveEffects.remaining(effect)).to eq t('pf2e.effect_lasts_turn_end')
+      end
+
       # A minute is ten rounds, and each round here is two turns. Rage lasts a minute.
       it "should count a minute in rounds" do
         fight = encounter
