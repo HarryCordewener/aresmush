@@ -280,6 +280,8 @@ module AresMUSH
           return PF2InitModCmd
         when "add"
           return PF2EncounterAddCmd
+        when "adjust"
+          return PF2EncounterAdjustCmd
         when "scan"
           return PF2EncounterScanCmd
         when "end"

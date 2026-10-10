@@ -239,8 +239,9 @@ module AresMUSH
       # A creature joins the encounter: its own hit points and conditions, an id, and a place in the
       # order - its Perception check unless the GM says where. `name` is what the GM calls it; otherwise
       # it is the creature and its id.
-      def self.add_npc(encounter, creature: nil, described: nil, name: nil, initiative: nil)
-        npc = Pf2eNpc.create(:encounter => encounter, :creature => creature, :described => described || {})
+      def self.add_npc(encounter, creature: nil, described: nil, name: nil, initiative: nil, adjustment: nil)
+        npc = Pf2eNpc.create(:encounter => encounter, :creature => creature, :described => described || {},
+                             :adjustment => adjustment)
         number = encounter.last_number.to_i + 1
         base = name.to_s.strip.empty? ? "#{creature || described['name']} ##{number}" : name.to_s.strip
         label = rows(encounter).any? { |row| row['name'] == base } ? "#{base} ##{number}" : base
@@ -252,26 +253,6 @@ module AresMUSH
         join(encounter, label, rolled, :holder => npc)
 
         Ok.new(:state => { 'npc' => npc, 'initiative' => rolled.to_i })
-      end
-
-      # A creature described by the numbers off a stat block: `ac 16 fort 5 ref 7 will 3 perception 2 hp 20`.
-      DESCRIBED = { 'ac' => %w{ac}, 'hp' => %w{hp}, 'perception' => %w{perception per},
-                    'fortitude' => %w{fort fortitude}, 'reflex' => %w{ref reflex}, 'will' => %w{will},
-                    'level' => %w{level lvl} }.freeze
-
-      def self.described(name, text)
-        pairs = text.to_s.downcase.scan(/([a-z]+)\s*([+-]?\d+)/)
-        read = pairs.each_with_object({}) do |(word, value), out|
-          field = DESCRIBED.find { |_field, words| words.include?(word) }&.first
-          out[field] = value.to_i if field
-        end
-
-        return nil unless read['ac']
-
-        { 'name' => name, 'level' => read['level'].to_i, 'ac' => read['ac'], 'hp' => read['hp'].to_i,
-          'perception' => read['perception'].to_i, 'traits' => [],
-          'saves' => { 'fortitude' => read['fortitude'].to_i, 'reflex' => read['reflex'].to_i,
-                       'will' => read['will'].to_i } }
       end
 
       # ------------------------------------------------------------------------------

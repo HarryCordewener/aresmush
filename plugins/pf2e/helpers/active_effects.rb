@@ -224,6 +224,7 @@ module AresMUSH
           name = Pf2e.canonical_condition(grant['name'])
 
           next if (char.pf2_conditions || {}).key?(name)
+          next if Gm.spared?(char, name, effect.applied_by)
 
           Pf2e.set_condition(char, name, grant['value'] || Pf2e.default_condition_value(name),
                              'granted_by' => effect.name,

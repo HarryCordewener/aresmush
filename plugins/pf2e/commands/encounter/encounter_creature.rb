@@ -17,7 +17,7 @@ module AresMUSH
       end
 
       def self.lines(name, block, npc: nil, gm: true)
-        lines = [ "%xh#{name}%xn  Creature #{block['level']}  #{traits(block)}" ]
+        lines = [ "%xh#{name}%xn  #{block['adjustment'] ? "#{block['adjustment'].capitalize} " : ''}Creature #{block['level']}  #{traits(block)}" ]
 
         if npc
           conditions = Pf2e.condition_labels(npc, false)
@@ -79,7 +79,8 @@ module AresMUSH
     end
 
     # `+e/creature <#id|name|creature>` - a combatant's stat block and state, or a creature from the
-    # bestiary. Players see a combatant's name and conditions; the GM sees the whole block.
+    # bestiary. Players in an encounter see a combatant's name and conditions; its GM sees the whole
+    # block, and reads the bestiary.
     class PF2EncounterCreatureCmd
       include CommandHandler
 
@@ -105,6 +106,9 @@ module AresMUSH
             return client.emit(StatBlock.lines(npc.name, npc.stat_block, :npc => npc, :gm => gm).join('%r'))
           end
         end
+
+        # A stat block is for whoever runs the fight. Someone in another's reads it when it is over.
+        return client.emit_failure(t('pf2e.creature_gm_only')) unless gm
 
         found = Bestiary.find(self.term)
 
@@ -133,7 +137,7 @@ module AresMUSH
       end
 
       def handle
-        found = Bestiary.search(self.words, self.level)
+        found = Bestiary.search(self.words, self.level).select { |name, _one| Gm.open?(enactor, name) }
 
         return client.emit_failure(t('pf2e.creature_not_found', :creature => self.words)) if found.empty?
 
@@ -144,20 +148,22 @@ module AresMUSH
       end
     end
 
-    # `+e/add [<count>] <creature>[=<name>]` adds creatures from the bestiary to the encounter, each with
-    # its own id and initiative. `+e/add <name>=ac 16 fort 5 ref 7 will 3 perception 2 hp 20` adds one
-    # described by its numbers.
+    # `+e/add [<count>] [elite|weak] <creature>[=<name>]` adds creatures from the bestiary to the
+    # encounter, each with its own id and initiative, and adjusted if the GM says so.
+    # `+e/add [elite|weak] <name>=<description>` adds one of the GM's own making (`Pf2e::Described`),
+    # which is a Plotmaster's or staff's to do.
     class PF2EncounterAddCmd
       include CommandHandler
 
-      attr_accessor :count, :creature, :name
+      attr_accessor :count, :adjustment, :creature, :name
 
       def parse_args
         left, _, right = cmd.args.to_s.partition('=')
-        found = left.strip.match(/\A(\d+)\s+(.+)\z/)
+        found = left.strip.match(/\A(?:(?<count>\d+)\s+)?(?:(?<adjustment>#{Adjustments.names.join('|')})\s+)?(?<creature>.+)\z/i)
 
-        self.count = found ? found[1].to_i.clamp(1, 20) : 1
-        self.creature = found ? found[2].strip : left.strip
+        self.count = found && found[:count] ? found[:count].to_i.clamp(1, 20) : 1
+        self.adjustment = found && found[:adjustment] ? found[:adjustment].downcase : nil
+        self.creature = found ? found[:creature].strip : left.strip
         self.name = right.strip
       end
 
@@ -174,16 +180,27 @@ module AresMUSH
 
         return client.emit_failure(cannot) if cannot
 
-        described = Combatants.described(self.creature, self.name)
+        # A creature the bestiary itself calls elite or weak is that creature, as written.
+        if self.adjustment && Bestiary.named("#{self.adjustment} #{self.creature}")
+          self.creature = "#{self.adjustment} #{self.creature}"
+          self.adjustment = nil
+        end
+
+        described = Described.read(self.creature, self.name)
+
+        return client.emit_failure(t('pf2e.creature_custom_not_open')) if described && !Gm.plotmaster?(enactor)
+        return if described && CharState.emit_error!(client, described)
+
         added = if described
-                  [ Combatants.add_npc(encounter, :described => described) ]
+                  [ Combatants.add_npc(encounter, :described => described.state, :adjustment => self.adjustment) ]
                 else
                   found = Bestiary.find(self.creature)
                   return if CharState.emit_error!(client, found)
+                  return client.emit_failure(t('pf2e.creature_not_open', :creature => found.state)) unless Gm.open?(enactor, found.state)
 
                   self.count.times.map do |index|
                     named = self.name.empty? ? nil : (self.count > 1 ? "#{self.name} #{index + 1}" : self.name)
-                    Combatants.add_npc(encounter, :creature => found.state, :name => named)
+                    Combatants.add_npc(encounter, :creature => found.state, :name => named, :adjustment => self.adjustment)
                   end
                 end
 
@@ -194,6 +211,58 @@ module AresMUSH
                                                :name => named)
           Pf2e::Encounters::Announce.tell(encounter, message, :room => enactor_room)
         end
+      end
+    end
+
+    # `+e/adjust <#id>[,<#id>...]=elite|weak|normal` - makes a creature already in the encounter elite or
+    # weak, or takes the adjustment off. It keeps the hit points it has lost. The GM is told; the room is
+    # not, because what a creature is made of is the GM's to know.
+    class PF2EncounterAdjustCmd
+      include CommandHandler
+
+      attr_accessor :targets, :word
+
+      def parse_args
+        left, _, right = cmd.args.to_s.partition('=')
+
+        self.targets = left.split(',').map(&:strip).reject(&:empty?)
+        self.word = right.strip
+      end
+
+      def required_args
+        [ self.targets.first, self.word ]
+      end
+
+      def handle
+        encounter = Combatants.encounter_here(enactor)
+
+        return client.emit_failure(t('pf2e.not_in_active_encounter')) unless encounter
+
+        cannot = Pf2e.can_modify_encounter(enactor, encounter)
+
+        return client.emit_failure(cannot) if cannot
+
+        adjustment = Adjustments.named(self.word)
+
+        if adjustment == :unknown
+          return client.emit_failure(t('pf2e.adjust_unknown', :adjustment => self.word,
+                                                             :options => (Adjustments.names + [ Adjustments::NONE.first ]).join(', ')))
+        end
+
+        found = self.targets.map { |term| Combatants.find(encounter, term) }
+        failed = found.find(&:err?)
+
+        return if failed && CharState.emit_error!(client, failed)
+
+        adjusted = found.map(&:state)
+        character = adjusted.find { |one| !one.creature? }
+
+        return client.emit_failure(t('pf2e.adjust_not_creature', :who => character.label)) if character
+
+        adjusted.each { |one| one.holder.adjust(adjustment) }
+
+        client.emit_success t('pf2e.adjust_ok', :who => adjusted.map(&:label).join(', '),
+                                                :adjustment => adjustment || Adjustments::NONE.first)
       end
     end
   end

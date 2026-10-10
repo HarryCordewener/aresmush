@@ -6,8 +6,10 @@ module AresMUSH
     # block's maximum less what it has taken - and works out what it resists before anything lands.
     module Harm
 
-      # `{ 'amount' => what they took after resistances, 'applied' => the resistances that counted }`
-      def self.damage(holder, amount, kind = nil, is_dm: false, critical: false)
+      # `{ 'amount' => what they took after resistances, 'applied' => the resistances that counted,
+      #    'fate' => :dead or :spared, where it settled that for a character }`. Whether it may kill is
+      # the encounter's to say unless `is_dm` says.
+      def self.damage(holder, amount, kind = nil, is_dm: nil, critical: false)
         Actors.of(holder).damage(amount, kind, :is_dm => is_dm, :critical => critical)
       end
 

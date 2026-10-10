@@ -978,16 +978,18 @@ module AresMUSH
             expect(Pf2e.condition_level(hero_state, 'Dying')).to eq 2
           end
 
-          # Death is the GM's to say: a check that would kill leaves them one short, and says so.
-          it "should stop one short of death, and tell the GM" do
+          # Whether a check that would kill does is the encounter's to say (`gm_kinds_specs.rb`); this
+          # one's GM has no right to.
+          it "should leave them unconscious where it would kill and may not, and say so" do
             dying(3)
             @dice = 0.25
 
             told = turn
 
-            expect(Pf2e.condition_level(hero_state, 'Dying')).to eq 3
-            expect(Character[@hero.id].pf2_is_dead).to be_falsey
-            expect(told.map { |one| one['key'] }).to include('pf2e.recovery_at_death')
+            expect(Pf2e.condition_level(hero_state, 'Dying')).to eq 0
+            expect(hero_state.pf2_conditions).to have_key('Unconscious')
+            expect(hero_state.pf2_is_dead).to be_falsey
+            expect(told.map { |one| one['key'] }).to include('pf2e.recovery_spared')
           end
 
           it "should roll nothing for someone who is not dying" do

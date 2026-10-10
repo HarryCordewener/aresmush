@@ -81,9 +81,26 @@ module AresMUSH
     it "should kill a character whose Dying reaches four" do
       @char.update(:pf2_conditions => { 'Wounded' => { 'value' => 3, 'status' => true } })
 
-      Pf2eHP.modify_damage(reread, Pf2eHP.get_max_hp(@char), false, true)
+      fate = Pf2eHP.modify_damage(reread, Pf2eHP.get_max_hp(@char), false, true)
 
+      expect(fate).to eq :dead
       expect(reread.pf2_is_dead).to be true
+    end
+
+    it "should do nothing more to the dead" do
+      @char.update(:pf2_is_dead => true, :pf2_conditions => { 'Dying' => { 'value' => 4, 'status' => true } })
+      @hp.update(:damage => Pf2eHP.get_max_hp(@char))
+
+      Pf2eHP.modify_damage(reread, 5, true)
+
+      expect(Pf2eHP.get_current_hp(reread)).to eq 0
+      expect(Pf2e.condition_level(reread, 'Dying')).to eq 4
+    end
+
+    it "should list the dead as dead" do
+      @char.update(:pf2_is_dead => true)
+
+      expect(Pf2e.condition_labels(reread, false).first).to eq 'Dead'
     end
 
     # Doomed lowers the threshold a character dies at.
@@ -148,14 +165,25 @@ module AresMUSH
         expect(Pf2e.condition_level(reread, 'Dying')).to eq 2
       end
 
-      # The rules' Dying 4 is death; damage that may not kill stops short of it.
-      it "should leave them dying rather than dead" do
+      # The rules' Dying 4 is death; damage that may not kill leaves them unconscious instead, no longer
+      # dying and wounded for it.
+      it "should leave them unconscious rather than dead" do
         @char.update(:pf2_conditions => { 'Wounded' => { 'value' => 3, 'status' => true } })
 
-        Pf2eHP.modify_damage(reread, max, false, false)
+        fate = Pf2eHP.modify_damage(reread, max, false, false)
 
+        expect(fate).to eq :spared
         expect(reread.pf2_is_dead).to be_falsey
-        expect(Pf2e.condition_level(reread, 'Dying')).to eq 3
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 0
+        expect(Pf2e.condition_level(reread, 'Wounded')).to eq 4
+        expect(reread.pf2_conditions['Unconscious']['granted_by']).to eq Pf2eHP::NO_HIT_POINTS
+      end
+
+      # Outside an encounter nobody has said a character may die.
+      it "should be what damage is when nobody says" do
+        @char.update(:pf2_conditions => { 'Wounded' => { 'value' => 3, 'status' => true } })
+
+        expect(Pf2eHP.modify_damage(reread, max)).to eq :spared
       end
     end
 

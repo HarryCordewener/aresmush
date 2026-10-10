@@ -4,7 +4,7 @@ module AresMUSH
     # The creatures a GM can add to an encounter: Foundry's bestiaries, imported to `game/bestiary`
     # (`scripts/import_foundry_npcs.py`).
     #
-    # Six thousand stat blocks are too many to hold in config, which is read whole at startup, so the
+    # Three thousand stat blocks are too many to hold in config, which is read whole at startup, so the
     # index of names is read once and a pack's file only when a creature in it is asked for.
     module Bestiary
 
@@ -39,12 +39,19 @@ module AresMUSH
         listed ? pack(listed['pack'])[name] : nil
       end
 
+      # The creature called exactly this, if there is one.
+      def self.named(term)
+        wanted = Domains.slug(term)
+
+        index.keys.find { |name| Domains.slug(name) == wanted }
+      end
+
       # The creature a GM means, by the name they typed.
       def self.find(term)
         wanted = Domains.slug(term)
         names = index.keys
 
-        exact = names.find { |name| Domains.slug(name) == wanted }
+        exact = named(term)
 
         return Ok.new(:state => exact) if exact
 

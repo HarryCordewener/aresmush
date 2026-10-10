@@ -195,7 +195,7 @@ module AresMUSH
 
       describe "a creature described by its numbers" do
         it "should read the numbers off a stat block" do
-          described = Combatants.described('Bandit', 'AC 15 Fort +6 Ref 8 Will 4 Perception 5 HP 20')
+          described = Described.read('Bandit', 'AC 15 Fort +6 Ref 8 Will 4 Perception 5 HP 20').state
 
           expect(described['ac']).to eq 15
           expect(described['saves']).to eq('fortitude' => 6, 'reflex' => 8, 'will' => 4)
@@ -203,7 +203,7 @@ module AresMUSH
         end
 
         it "should be nothing without an AC" do
-          expect(Combatants.described('Grik', 'Grik the Bold')).to be_nil
+          expect(Described.read('Grik', 'Grik the Bold')).to be_nil
         end
       end
 

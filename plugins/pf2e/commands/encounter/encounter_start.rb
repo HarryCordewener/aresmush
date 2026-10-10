@@ -4,7 +4,7 @@ module AresMUSH
     # `+e/start [<stat>][=<encounter id>]` - starts an encounter in the scene, rolling initiative on the
     # stat, and carrying on from the encounter named: whoever was in that one starts this one as they left
     # it. Started during an exploration, it ends the exploration, carries on from it, and brings everyone
-    # exploring into the fight.
+    # exploring into the fight. Any approved character starts one, and is its GM (`Pf2e::Gm`).
     class PF2InitiateCombatCmd
       include CommandHandler
 
@@ -15,13 +15,6 @@ module AresMUSH
 
         self.init = titlecase_arg(stat.strip.empty? ? nil : stat.strip)
         self.from = from.strip.delete_prefix('#').empty? ? nil : from.strip.delete_prefix('#')
-      end
-
-      # Only a GM starts an encounter: staff, or anyone whose role may run them.
-      def check_is_gm
-        return nil if enactor.is_admin? || enactor.has_permission?('run_encounters')
-
-        t('pf2e.encounter_start_gm_only')
       end
 
       def check_from

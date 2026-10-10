@@ -14,10 +14,10 @@ module AresMUSH
         self.from = nil if self.from.empty?
       end
 
-      def check_is_gm
-        return nil if enactor.is_admin? || enactor.has_permission?('run_encounters')
+      def check_is_approved
+        return nil if enactor.is_approved?
 
-        t('pf2e.encounter_start_gm_only')
+        t('dispatcher.not_allowed')
       end
 
       def check_from

@@ -28,30 +28,60 @@ a name only one combatant has. Acting in an encounter - actions, Strikes, spells
 `encounter/join [<encounter ID>=][<stat>]`: Joins an encounter, rolling initiative on the statistic its GM named - Perception unless they said otherwise. If the GM tells you to roll something else, name it: Perception, a skill, or an ability, in any case, by its first letters or an ability's three: `encounter/join 12=stealth`, `encounter/join dex`.
 `+e/sheet[ <#id or name>][/<section>]`: A character's sheet as they stand in this encounter: their Hit Points, conditions and what they are under, which `sheet` does not show. Sections are those of `sheet`.
 `encounter/view [<encounter ID>]`: View the initiative table for the encounter in question: each combatant's id, initiative, conditions, and the cover and concealment set on them. (Alias `tinit <encounter ID>`)
-`+e/creature <#id>`: A creature's name and conditions. The GM sees its whole stat block and hit points.
+`+e/creature <#id>`: A creature's name and conditions. Its stat block and hit points are its GM's to see.
 
 ## Encounter commands for plot runners
 
-An encounter's GM is whoever started it, or whoever it was handed to; staff can run any encounter. A GM's
+Any approved character starts an encounter, and is its GM: whoever started it, or whoever it was handed
+to. Staff can run any encounter. A GM's
 commands reach their encounter from anywhere: in its scene they address it, and away from it they
 address the one encounter the GM runs, or the one chosen with `+e/focus`.
+
+How far an encounter may go depends on who runs it:
+
+- **Anyone** runs one with the creatures of Monster Core and Monster Core 2, each as written or made
+  elite or weak. Their encounter does not kill a character or leave one Drained or Doomed: what would
+  kill leaves the character unconscious instead, no longer dying, and a Drained or Doomed from a
+  creature's ability passes them by. What a character does to themselves still lands.
+- **A Plotmaster** - a role with the `kill_pc` permission - adds any creature of the bestiary, and
+  creatures of their own making. In their encounter a character at the dying value that is death
+  dies, from a hit, persistent damage or a failed recovery check, and Drained and Doomed land.
+  `+e/undo` takes a death back like any other change.
+- **Staff** run any encounter as a Plotmaster does.
 
 `+e/focus [<encounter ID>]`: Which of the encounters you run your commands address while you are away from its scene. With no ID, the only one you run.
 `+e/owner [<encounter ID>=]<character>`: Hands the encounter to someone else, who is its GM from then on.
 
-`encounter [<stat>][=<encounter ID>]`: For a GM - staff, or a role with the `run_encounters` permission. Starts an encounter in the scene, with you as its GM, rolling initiative on `<stat>` (Perception unless you say otherwise). Name an earlier encounter and whoever was in it carries on as they left it: their wounds, conditions, effects and spent spells. Anyone else starts fresh - their own sheet, rested. Started while the party is exploring, it takes over from the exploration: see `help exploration`.
-`+e/add [<count>] <creature>[=<name>]`: Adds creatures from the bestiary - Foundry's bestiaries, six thousand of them - each with its own id, hit points and conditions, and its initiative rolled on its Perception. `+e/add 3 goblin warrior` adds three; `+e/add goblin warrior=Grik` names one. Player characters join with `encounter/join`. (Alias: `jinit`)
-`+e/add <name>=ac <n> fort <n> ref <n> will <n> perception <n> hp <n>`: Adds a creature the bestiary lacks, from the numbers on its stat block. It has no Strikes of its own; roll its attacks with `roll`.
-`+e/bestiary <words>[/<level>]`: Creatures whose names hold the words, at a level if one is given.
-`+e/creature <creature>`: A creature's stat block from the bestiary.
+`encounter [<stat>][=<encounter ID>]`: Starts an encounter in the scene, with you as its GM, rolling initiative on `<stat>` (Perception unless you say otherwise). Name an earlier encounter and whoever was in it carries on as they left it: their wounds, conditions, effects and spent spells. Anyone else starts fresh - their own sheet, rested. Started while the party is exploring, it takes over from the exploration: see `help exploration`.
+`+e/add [<count>] [elite|weak] <creature>[=<name>]`: Adds creatures from the bestiary - the Remaster's, some three thousand of them - each with its own id, hit points and conditions, and its initiative rolled on its Perception. `+e/add 3 goblin warrior` adds three; `+e/add goblin warrior=Grik` names one; `+e/add 2 elite goblin warrior` adds two with Monster Core's elite adjustment. Player characters join with `encounter/join`. (Alias: `jinit`)
+`+e/adjust <#id>[,<#id>...]=elite|weak|normal`: Makes a creature already in the encounter elite or weak, or takes the adjustment off. Elite is two more to its AC, attacks, DCs, saves, Perception and skills, two more damage from its Strikes and abilities (four from what it cannot use every round, and from its spells), more hit points by its level, and a level higher; weak is the same the other way. It keeps the hit points it has lost. Only you are told. This is how one creature serves parties of different levels.
+`+e/add [elite|weak] <name>=<description>`: For a Plotmaster or staff: adds a creature of your own making. See **A creature of your own** below.
+`+e/bestiary <words>[/<level>]`: Creatures you may add whose names hold the words, at a level if one is given.
+`+e/creature <creature>`: A creature's stat block from the bestiary. Not while you are a player in someone else's encounter.
 `encounter/mod [<encounter ID>=]<#id or name>=<new init>`: Sets a combatant's initiative. Whoever's turn it is keeps it.
 `encounter/remove [<encounter ID>=]<#id or name>`: Takes a combatant out of the order; a creature removed is gone. (Alias: `rminit`)
 `encounter/next`: Moves the initiative forward one turn. (Alias: `ninit`)
 `encounter/prev`: Moves the initiative backwards one turn. (Alias: `pinit`)
-`encounter/scan`: Allows the organizer to view details on all player characters who have joined the encounter. (Alias: `tscan`)
+`encounter/scan`: For the GM: everyone in the encounter as they stand, by id - each character and creature's hit points, AC, Perception, saves and whether they have a Reactive Strike, a creature's level and whether it is elite or weak, and beneath each what they are immune to, weak to and resist. (Alias: `tscan`)
 `+e/level <n>`: Sets the party's level for the encounter's difficulty, which is otherwise the characters' average. `+e/level 0` goes back to the average. `+e/view` shows the difficulty: the threat, from trivial to extreme, and the XP behind it, by GM Core's encounter budget.
 `encounter/end <encounter ID>`: Ends an encounter. Trust given for it, the cover and concealment set in it, and what may be used once an encounter all end with it.
 `encounter/restart <encounter ID>`: Restarts an encounter, so long as the scene has not ended.
+
+## A creature of your own
+
+A Plotmaster or staff describes a creature on one line: its figures first, then whatever else it has,
+each part after a semicolon and named by its first word.
+
+`+e/add Bandit Chief=ac 19 hp 45 level 3 fort 9 ref 11 will 7 perception 9 speed 25 str 3 dex 4; skills athletics 9, stealth 11; resist poison 5; weak fire 5; immune sleep; traits humanoid, human; strike shortsword +12 1d6+6 piercing (agile, finesse); ranged shortbow +12 1d6+2 piercing (range 60, deadly d10); ability Hail of Arrows [2]: Each creature in a 15-foot burst takes 3d6 piercing damage (DC 20 basic Reflex save).`
+
+- **Figures**: `ac` and `hp` are needed; `level`, `fort`, `ref`, `will`, `perception`, `speed` (and `fly`, `swim`, `climb`, `burrow`), and its attribute modifiers `str dex con int wis cha`, which stand in for a skill it does not list.
+- `skills <skill> <n>, ...`
+- `immune <type>, ...`; `weak <type> <n>, ...`; `resist <type> <n>, ...`
+- `traits <trait>, ...`; `size <size>`; `rarity <rarity>`; `senses <sense>, ...`
+- `strike <name> <bonus> <damage> <type>[ plus <damage> <type>][ (<traits>)]`, as many as it has. `ranged` for a ranged one, with `range <feet>` among its traits. `1d4 persistent bleed` is persistent damage.
+- `ability <name>[ [<1|2|3|reaction|free|passive>]]: <what it does>`. One whose words give damage and a basic save - `3d6 fire damage (DC 20 basic Reflex save)` - rolls them when it is used with `+e/as <#id>=act <ability>=<targets>`.
+
+It fights as a creature from the bestiary does, and can be made elite or weak.
 
 ## Bonuses and penalties
 

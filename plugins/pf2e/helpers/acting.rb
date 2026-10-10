@@ -719,6 +719,7 @@ module AresMUSH
         blockable = ShieldBlock.before(whom.holder)
         taken = 0
         physical = 0
+        fate = nil
 
         # Precision damage is lost on a target immune to it; the rest of each type is taken together.
         precise, immediate = immediate.partition { |row| row['category'].to_s == 'precision' }
@@ -729,6 +730,7 @@ module AresMUSH
 
         DamageRoll.by_type(immediate + precise).each do |row|
           held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical)
+          fate ||= held['fate']
           taken += held['amount'].to_i
           physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])
           resisted = Array(held['applied']).reject { |one| one['category'] != 'immunity' && one['adjustment'].to_i.zero? }
@@ -748,7 +750,7 @@ module AresMUSH
 
         out['lines'] << told('pf2e.act_damage', :damage => shown.join(' + '), :target => whom.label)
         out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
-        dropped(whom, standing, out)
+        dropped(whom, standing, out, fate)
         offer_block(whom, blockable, taken, physical, critical, out) if blockable && physical.positive?
       end
 
@@ -773,11 +775,17 @@ module AresMUSH
         Actors.of(fresh).creature? ? fresh.hp_left.to_i.positive? : Pf2e.condition_level(fresh, 'Dying')
       end
 
-      # The room is told when a hit drops someone: a creature is down, a character dying, or nearer death.
-      def self.dropped(whom, standing, out)
+      # What a hit that settled a character's fate is told as.
+      FATES = { :dead => 'pf2e.act_dead', :spared => 'pf2e.act_spared' }.freeze
+
+      # The room is told when a hit drops someone: a creature is down, a character dying or nearer
+      # death - or dead, or spared it, which is the `fate` the damage answered with.
+      def self.dropped(whom, standing, out, fate = nil)
         now = still_up(whom.holder)
 
-        if standing == true && now == false
+        if FATES[fate]
+          out['lines'] << told(FATES[fate], :target => whom.label)
+        elsif standing == true && now == false
           out['lines'] << told('pf2e.act_down', :target => whom.label)
         elsif standing.is_a?(Integer) && now.is_a?(Integer) && now > standing
           out['lines'] << told('pf2e.act_dying', :target => whom.label, :value => now)
@@ -832,7 +840,7 @@ module AresMUSH
           each = Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted)
           mechanics = named.equal?(base) ? way_for(base, target) : named
           attack = mechanics['attack']
-          formulas = spell_damage(mechanics, rank)
+          formulas = Adjustments.spell_damage(scene.actor.holder, mechanics, spell_damage(mechanics, rank))
 
           if attack
             spell_attack(each, spell, mechanics, casting, formulas, said, out)
@@ -1123,6 +1131,10 @@ module AresMUSH
         value = one['value'] ? [ one['value'].to_i, before_value.to_i ].max : nil
 
         return if before && (value.nil? || value == before_value.to_i)
+
+        if Gm.spared?(whom.holder, name, scene.actor.label)
+          return out['lines'] << told('pf2e.act_not_lasting', :target => whom.label, :condition => name)
+        end
 
         set = Pf2e.set_condition(whom.holder, name, value || Pf2e.default_condition_value(name))
         return out['lines'] << told(set.key, set.args) if set.err?

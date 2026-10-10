@@ -135,11 +135,15 @@ pf2e:
         shadow plane: Shadow Planes
     region: {}
     terrain: {}
+  # The bestiaries whose creatures anyone may add to an encounter they run. A Plotmaster and staff
+  # add any creature.
+  event_runner_bestiaries:
+    - pathfinder-monster-core
+    - pathfinder-monster-core-2
   permissions:
     modify_sheet: Modify character sheets.
     view_sheets: View other people's character sheets (if sheets are closed).
-    kill_pc: (Associated to DM role) Has the ability to inflict Drained, Doomed, and Dead conditions on PC's.
-    run_encounters: (Associated to DM role) Starts encounters, and runs the ones they start.
+    kill_pc: (Plotmaster) Runs encounters with any creature, one of their own making among them, which may leave a character Drained, Doomed or dead.
     trusted_gm: (Set by an admin) Gives characters items in an encounter they run, with +e/loot.
   prof_progression:
     - untrained

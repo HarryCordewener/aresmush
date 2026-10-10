@@ -24,6 +24,9 @@ module AresMUSH
     # A creature described by its numbers rather than named from the bestiary.
     attribute :described, :type => DataType::Hash, :default => {}
 
+    # What makes it stronger or weaker than its stat block: `elite`, `weak` (`Pf2e::Adjustments`), or nothing.
+    attribute :adjustment
+
     attribute :damage, :type => DataType::Integer, :default => 0
     attribute :temp_hp, :type => DataType::Integer, :default => 0
 
@@ -45,8 +48,21 @@ module AresMUSH
       self.pf2_effects.each { |effect| effect.delete }
     end
 
+    # What it fights with: the bestiary's stat block or the one it was described with, as its adjustment
+    # leaves it.
     def stat_block
-      @stat_block ||= (self.creature ? Pf2e::Bestiary.entry(self.creature) : nil) || self.described || {}
+      @stat_block ||= Pf2e::Adjustments.apply(written_stat_block, self.adjustment)
+    end
+
+    def written_stat_block
+      (self.creature ? Pf2e::Bestiary.entry(self.creature) : nil) || self.described || {}
+    end
+
+    # Elite, weak, or neither from here on. The hit points it has lost stay lost.
+    def adjust(name)
+      update(:adjustment => name)
+      @stat_block = nil
+      update(:damage => [ self.damage.to_i, max_hp ].min)
     end
 
     def pf2_level

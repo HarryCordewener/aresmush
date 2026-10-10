@@ -41,39 +41,35 @@ module AresMUSH
 
       # A dying character's recovery check as their turn starts: a flat check against 10 and their dying
       # value. A critical success takes two off, a success one; a failure adds one, a critical failure
-      # two. At nothing they stop dying, wounded one more and still unconscious. Death is the GM's to
-      # say, so a check that would reach it leaves them one short and says so.
+      # two. At nothing they stop dying, wounded one more and still unconscious; at the value that is
+      # death they die, or are spared it, as the encounter has it (`Pf2eHP.now_dying`).
       RECOVERY = { Degree::CRITICAL_SUCCESS => -2, Degree::SUCCESS => -1, Degree::FAILURE => 1,
                    Degree::CRITICAL_FAILURE => 2 }.freeze
 
       def self.recovery(holder)
         dying = Pf2e.condition_level(holder, 'Dying')
 
-        return [] unless dying.positive? && !Actors.of(holder).creature?
+        return [] unless dying.positive? && !Actors.of(holder).creature? && !holder.pf2_is_dead
 
         dc = Pf2eHP.recovery_dc(holder)
         die = Pf2e.roll_dice(1, 20).first
         degree = Degree.of(die, dc, die)
         value = dying + RECOVERY[degree]
-        fatal_at = 4 - Pf2e.condition_level(holder, 'Doomed')
         told = [ event('pf2e.recovery_check', 'name' => holder.name, 'die' => die, 'dc' => dc,
                        'degree' => Resolve::WORDS[degree]) ]
 
         if value <= 0
-          Pf2e.remove_condition(holder, 'Dying', true)
-          Pf2e.set_condition(holder, 'Wounded', Pf2e.condition_level(holder, 'Wounded') + 1)
-          Pf2e.set_condition(holder, 'Unconscious', nil, 'granted_by' => Pf2eHP::NO_HIT_POINTS)
-          told << event('pf2e.recovery_stable', 'name' => holder.name)
-        elsif value >= fatal_at
-          Pf2e.set_condition(holder, 'Dying', fatal_at - 1)
-          told << event('pf2e.recovery_at_death', 'name' => holder.name, 'value' => fatal_at - 1)
-        else
-          Pf2e.set_condition(holder, 'Dying', value)
-          told << event('pf2e.recovery_dying', 'name' => holder.name, 'value' => value)
+          Pf2eHP.stable(holder)
+          return told << event('pf2e.recovery_stable', 'name' => holder.name)
         end
 
-        told
+        fate = Pf2eHP.now_dying(holder, value, Gm.may_kill?(holder))
+
+        told << event(FATES[fate] || 'pf2e.recovery_dying', 'name' => holder.name, 'value' => value)
       end
+
+      # What a recovery check that would kill is told as.
+      FATES = { :dead => 'pf2e.recovery_dead', :spared => 'pf2e.recovery_spared' }.freeze
 
       def self.turn_ended(encounter, participant, round)
         events = ActiveEffects.expire(encounter, 'turn-end', participant, round) +

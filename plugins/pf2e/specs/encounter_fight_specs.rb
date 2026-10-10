@@ -64,8 +64,6 @@ module AresMUSH
         allow(Scenes).to receive(:add_to_scene)
         allow(Global).to receive(:notifier).and_return(double(:notify_ooc => nil))
         allow(Login).to receive(:notify)
-        allow_any_instance_of(Character).to receive(:has_permission?).and_call_original
-        allow_any_instance_of(Character).to receive(:has_permission?).with('run_encounters') { |char, _| char.name == @gm.name }
 
         @reminded = []
         allow(Login).to receive(:emit_ooc_if_logged_in) { |char, message| @reminded << [ char.name, message ] }
@@ -104,10 +102,6 @@ module AresMUSH
       end
 
       it "should run from the first turn to the end" do
-        # A player cannot start one; the GM can.
-        run(PF2InitiateCombatCmd, 'encounter', @hero)
-        expect(@client.failures.pop).to eq t('pf2e.encounter_start_gm_only')
-
         run(PF2InitiateCombatCmd, 'encounter')
         # What the hero carries as they join is what they carry in the fight.
         potion = PF2Consumable.create(:name => 'Minor Healing Potion', :quantity => 1, :character => Character[@hero.id])

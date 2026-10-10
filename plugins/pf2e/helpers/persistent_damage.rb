@@ -53,14 +53,19 @@ module AresMUSH
       # The end of the character's turn: each kind is dealt, and then its flat check is rolled.
       # Answers what happened, for whoever tells the room.
       def self.end_of_turn(char)
+        return [] if Pf2e.dead?(char)
+
         held(char).flat_map do |one|
           dealt = Pf2e.roll_formula(one['formula'])
 
-          Harm.damage(char, dealt, one['type'], :is_dm => true)
+          standing = Acting.still_up(char)
+          dropped = Acting.report
+          taken = Harm.damage(char, dealt, one['type'])
+          Acting.dropped(Combatants::Combatant.new(char, char.name, nil), standing, dropped, taken['fate'])
 
           check = recovery(char, one)
           events = [ Turns.event('pf2e.persistent_dealt', 'name' => char.name, 'amount' => dealt,
-                                 'type' => one['type']) ]
+                                 'type' => one['type']) ] + dropped['lines']
 
           if check['success']
             remove(char, one['type'])

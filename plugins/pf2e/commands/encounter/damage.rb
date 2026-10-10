@@ -41,18 +41,18 @@ module AresMUSH
           return
         end
 
-        # The /ndc switch means nothing unless the enactor may kill a character: it says whether damage
-        # can bring on the Dead condition.
-        is_dc = self.is_ndc ? false : enactor.has_permission?("kill_pc")
+        # Whether the damage may kill is a Plotmaster's or staff's to say, and /ndc is them saying it may
+        # not. From anyone else it never does.
+        is_dc = !self.is_ndc && Pf2e::Gm.plotmaster?(enactor)
 
         dropped = Pf2e::Acting.report
 
         ok_char_list = targets.map do |holder|
           standing = Pf2e::Acting.still_up(holder)
-          Pf2e::Harm.damage(holder, self.damage, self.kind, :is_dm => is_dc)
+          held = Pf2e::Harm.damage(holder, self.damage, self.kind, :is_dm => is_dc)
 
           Pf2e::Actors.of(holder).notify_damage(self.damage, enactor.name)
-          Pf2e::Acting.dropped(Pf2e::Combatants::Combatant.new(holder, holder.name, nil), standing, dropped)
+          Pf2e::Acting.dropped(Pf2e::Combatants::Combatant.new(holder, holder.name, nil), standing, dropped, held['fate'])
 
           holder.name
         end

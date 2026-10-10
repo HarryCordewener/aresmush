@@ -51,6 +51,14 @@ module AresMUSH
           return
         end
 
+        # Drained and Doomed outlast the encounter: a Plotmaster's or staff's to give a character, and
+        # anyone's to ease.
+        if Gm::LASTING.include?(self.condition) && !Gm.plotmaster?(enactor) &&
+           target_list.any? { |char| Gm.character?(char) && self.value.to_i > Pf2e.condition_level(char, self.condition) }
+          client.emit_failure t('pf2e.condition_not_lasting', :condition => self.condition)
+          return
+        end
+
         # A condition another holds in place cannot be cleared on its own: Unconscious stays while Dying
         # does. Each target answers for itself.
         _refused, done = target_list.partition do |char|
