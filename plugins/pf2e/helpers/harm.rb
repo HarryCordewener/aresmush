@@ -8,9 +8,10 @@ module AresMUSH
 
       # `{ 'amount' => what they took after resistances, 'applied' => the resistances that counted,
       #    'fate' => :dead or :spared, where it settled that for a character }`. Whether it may kill is
-      # the encounter's to say unless `is_dm` says.
-      def self.damage(holder, amount, kind = nil, is_dm: nil, critical: false)
-        Actors.of(holder).damage(amount, kind, :is_dm => is_dm, :critical => critical)
+      # the encounter's to say unless `is_dm` says. `continuing` is the rest of a hit whose first damage
+      # has landed, which drops nobody a second time.
+      def self.damage(holder, amount, kind = nil, is_dm: nil, critical: false, continuing: false)
+        Actors.of(holder).damage(amount, kind, :is_dm => is_dm, :critical => critical, :continuing => continuing)
       end
 
       def self.heal(holder, amount, options = [])

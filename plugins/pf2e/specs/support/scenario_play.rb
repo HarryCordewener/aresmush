@@ -38,12 +38,30 @@ module AresMUSH
           end
         end
 
+        allow(Acting).to receive(:deal).and_wrap_original do |original, scene, whom, rows, out, **opts|
+          before = audit_dying(whom.holder)
+          result = original.call(scene, whom, rows, out, **opts)
+          audit.safely("hit on #{whom.label}") { audit.hit_dropped(whom.label, before, audit_dying(whom.holder), opts[:critical]) } if before
+          result
+        end
+
         allow(Harm).to receive(:damage).and_wrap_original do |original, holder, amount, type = nil, **opts|
           before = audit_hp(holder)
           result = original.call(holder, amount, type, **opts)
           audit.safely("damage to #{holder.name}") { audit.landed(holder, amount, type, before, audit_hp(holder), result) }
           result
         end
+      end
+
+      # A character as a hit finds and leaves them, for what it does to their dying.
+      def audit_dying(holder)
+        fresh = holder.class[holder.id]
+
+        return nil if Actors.of(fresh).creature?
+
+        { 'hp' => Pf2eHP.get_current_hp(fresh), 'dying' => Pf2e.condition_level(fresh, 'Dying'),
+          'wounded' => Pf2e.condition_level(fresh, 'Wounded'), 'doomed' => Pf2e.condition_level(fresh, 'Doomed'),
+          'dead' => Pf2e.dead?(fresh) }
       end
 
       # Hit points with temporary ones, which take damage first.

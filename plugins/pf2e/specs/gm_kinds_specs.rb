@@ -408,6 +408,20 @@ module AresMUSH
             expect(hero.pf2_is_dead).to be true
           end
 
+          # A Viper Vine's jaws deal piercing and poison: one hit, which leaves someone it drops dying.
+          it "should not come from one hit for dealing two kinds of damage" do
+            run(PF2EncounterAddCmd, 'e/add goblin warrior', @plotmaster)
+            goblin = Combatants.find(encounter, '#2').state
+            aria = Combatants.find(encounter, @hero.name).state
+            scene = Acting::Scene.new(encounter, goblin, aria, Character[@plotmaster.id], true)
+            rows = [ { 'amount' => Pf2eHP.get_max_hp(hero), 'type' => 'piercing' }, { 'amount' => 6, 'type' => 'poison' } ]
+
+            Acting.deal(scene, aria, rows, Acting.report, :critical => true)
+
+            expect(hero.pf2_is_dead).to be_falsey
+            expect(Pf2e.condition_level(hero, 'Dying')).to eq 2
+          end
+
           it "should come at the Plotmaster's word" do
             run(PF2ConditionSetCmd, "condition/set #{@hero.name}=dead", @plotmaster)
 

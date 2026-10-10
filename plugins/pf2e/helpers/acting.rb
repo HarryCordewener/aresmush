@@ -728,8 +728,8 @@ module AresMUSH
           precise = []
         end
 
-        DamageRoll.by_type(immediate + precise).each do |row|
-          held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical)
+        DamageRoll.by_type(immediate + precise).each_with_index do |row, index|
+          held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical, :continuing => index.positive?)
           fate ||= held['fate']
           taken += held['amount'].to_i
           physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])

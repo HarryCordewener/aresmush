@@ -48,8 +48,11 @@ module AresMUSH
     # that may not leaves them unconscious. `critical` is a critical hit's, which leaves them two steps
     # nearer death.
     #
+    # `continuing` is the rest of a hit whose first damage has landed: a bite's poison after its
+    # piercing. A hit drops someone once, so what continues it leaves alone someone already at nothing.
+    #
     # Answers what became of them where the damage settled it: `:dead` or `:spared`.
-    def self.modify_damage(char, amount, healing=false, is_dm=nil, kind=nil, options=[], critical: false)
+    def self.modify_damage(char, amount, healing=false, is_dm=nil, kind=nil, options=[], critical: false, continuing: false)
       # Nothing more happens to the dead.
       return nil if char.pf2_is_dead
 
@@ -106,6 +109,8 @@ module AresMUSH
       # already carried; hit again while dying, one higher, or two from a critical hit.
       hp.damage = max_hp
       hp.save
+
+      return nil if continuing && existing_damage >= max_hp
 
       step = critical ? 2 : 1
       dying = Pf2e.condition_level(char, 'Dying')

@@ -131,10 +131,11 @@ module AresMUSH
 
       # What they took after what they resist, and under `fate` what became of them if it settled that:
       # `:dead`, or `:spared` where it would have killed and may not.
-      def damage(amount, kind = nil, is_dm: nil, critical: false)
+      def damage(amount, kind = nil, is_dm: nil, critical: false, continuing: false)
         held = kind ? IWR.apply(IWR.of(@holder), amount.to_i, kind) : { 'amount' => amount.to_i, 'applied' => [] }
 
-        held.merge('fate' => Pf2eHP.modify_damage(@holder, amount.to_i, false, is_dm, kind, [], :critical => critical))
+        held.merge('fate' => Pf2eHP.modify_damage(@holder, amount.to_i, false, is_dm, kind, [], :critical => critical,
+                                                                                               :continuing => continuing))
       end
 
       def heal(amount, options = [])
@@ -322,7 +323,7 @@ module AresMUSH
       # ------------------------------------------------------------------------------
       # Hit points
 
-      def damage(amount, kind = nil, is_dm: nil, critical: false)
+      def damage(amount, kind = nil, is_dm: nil, critical: false, continuing: false)
         Npcs.damage(@holder, amount, kind)
       end
 

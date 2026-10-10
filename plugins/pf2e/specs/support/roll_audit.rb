@@ -339,6 +339,27 @@ module AresMUSH
 
         find('hit points', what, "#{result['amount']} landed but hit points went #{before} -> #{after}")
       end
+
+      # A whole hit on a character, whatever kinds of damage it dealt: one that leaves them at nothing
+      # leaves them Dying 1, or 2 from a critical hit, more by their Wounded - or one or two higher than
+      # they were - and dead only at the value Doomed leaves for it. `before` and `after` are
+      # `{ 'hp' =>, 'dying' =>, 'wounded' =>, 'doomed' =>, 'dead' => }`.
+      def hit_dropped(name, before, after, critical)
+        return if before['dead'] || after['hp'].positive? || (before['hp'].zero? && before['dying'].zero?)
+
+        @counts['hits checked for dying'] += 1
+        expected = (before['dying'].positive? ? before['dying'] : before['wounded']) + (critical ? 2 : 1)
+        fatal = 4 - before['doomed']
+        what = "#{name}, at #{before['hp']} hit points, Dying #{before['dying']}, Wounded #{before['wounded']}"
+
+        if expected >= fatal
+          find('dying', what, "should be dead or spared at Dying #{expected}, and is Dying #{after['dying']}") if !after['dead'] && after['dying'].positive?
+        elsif after['dead']
+          find('dying', what, "died of one#{critical ? ' critical' : ''} hit, which leaves Dying #{expected}")
+        elsif after['dying'] != expected
+          find('dying', what, "one#{critical ? ' critical' : ''} hit should leave Dying #{expected}, and left #{after['dying']}")
+        end
+      end
     end
   end
 end

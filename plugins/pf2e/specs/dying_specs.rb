@@ -204,6 +204,37 @@ module AresMUSH
       end
     end
 
+    # A hit that deals two kinds of damage is one hit: what the first kind dropped, the second does not
+    # drop again.
+    describe "the rest of a hit that has already dropped them" do
+      def max
+        Pf2eHP.get_max_hp(reread)
+      end
+
+      it "should not raise Dying again" do
+        Pf2eHP.modify_damage(@char, max, false, true, nil, [], :critical => true)
+        Pf2eHP.modify_damage(reread, 9, false, true, nil, [], :critical => true, :continuing => true)
+
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 2
+        expect(reread.pf2_is_dead).to be_falsey
+      end
+
+      it "should drop them where the first of it did not" do
+        Pf2eHP.modify_damage(@char, max - 1, false, true)
+        Pf2eHP.modify_damage(reread, 9, false, true, nil, [], :continuing => true)
+
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 1
+      end
+
+      it "should not raise Dying for someone it found dying, more than the hit already has" do
+        Pf2eHP.modify_damage(@char, max, false, true)
+        Pf2eHP.modify_damage(reread, 3, false, true)
+        Pf2eHP.modify_damage(reread, 3, false, true, nil, [], :continuing => true)
+
+        expect(Pf2e.condition_level(reread, 'Dying')).to eq 2
+      end
+    end
+
     it "should leave a character standing who is only hurt" do
       Pf2eHP.modify_damage(@char, 1, false, true)
 
