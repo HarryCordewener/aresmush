@@ -383,8 +383,6 @@ module AresMUSH
         (Actors.of(scene.actor.holder).own_ability(name) || {})['text']
       end
 
-      # A creature's ability that no catalogue holds: its stat block's words, for the GM to run - and where
-      # they say what it deals and the save against it, each target's save rolled and the damage dealt.
       # That a creature uses an ability of its own, at whom, for what it costs, and its stat block's words:
       # all of them where they are the GM's to run, and only its line of figures (`brief`) where the game
       # runs it.
@@ -449,6 +447,8 @@ module AresMUSH
         Err.new(:too_many_actions, 'pf2e.act_actions_range', 'action' => name, 'most' => most)
       end
 
+      # A creature's ability that no catalogue runs: its stat block's words, for the GM - and where they
+      # say what it deals and the save against it, each target's save rolled and the damage dealt.
       def self.announce_ability(scene, name, out, targets = [ scene.target ].compact, said = {})
         own = Actors.of(scene.actor.holder).own_ability(name) || {}
         spent = actions_spent(name, own, said)
@@ -737,9 +737,9 @@ module AresMUSH
         Actors.of(holder).proficiency(kind, name)
       end
 
-      # Whether the last hit on them can still be answered: nothing has moved their hit points since.
-      # Whether someone who is down may still do this: answer the hit that dropped them, or - for a
-      # creature - use what its stat block gives it for the moment it drops.
+      # Whether someone who is down may still do this: answer the hit that dropped them, while nothing
+      # has moved their hit points since, or - for a creature - use what its stat block gives it for the
+      # moment it drops.
       def self.answering?(holder, doing = nil)
         if Actors.of(holder).creature?
           return when_down?(holder, doing) || (Domains.slug(doing) == Domains.slug(ShieldBlock::NAME) && ShieldBlock.offered?(holder))
@@ -1349,8 +1349,6 @@ module AresMUSH
       # ------------------------------------------------------------------------------
       # Spells
 
-      # A spell cast at one or more targets. `cast` is what the caster's magic answered when the slot was
-      # spent - the rank and the casting figures - or, for a creature, its spellcasting.
       # A spell's name and traits as the catalogues give them.
       def self.spell_traits(spell)
         name, mechanics = spell_mechanics(spell)
@@ -1386,7 +1384,9 @@ module AresMUSH
         Ok.new(:state => out)
       end
 
-      # `noted` is what was told of the casting before it: the flat checks it was kept through.
+      # A spell cast at one or more targets. `cast` is what the caster's magic answered when the slot was
+      # spent - the rank and the casting figures - or, for a creature, its spellcasting. `noted` is what
+      # was told of the casting before it: the flat checks it was kept through.
       def self.cast(scene, spell, targets, words, cast: nil, noted: [])
         said = said(words, scene.permitted)
         out = report
