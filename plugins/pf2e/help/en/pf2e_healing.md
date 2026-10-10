@@ -21,4 +21,4 @@ A target may be a combatant's id from `+e/view`: `damage #3=5 fire`.
 ## The GM
 
 `damage[/ndc] <list>=<amount>[ <kind>]`: Damages each of them for `<amount>`. Naming the kind - `fire`, `cold`, `persistent-damage` - lets anything they are immune to, weak to, or resistant to apply before the damage lands; without one, nothing resists it. From a Plotmaster or staff it may kill a character whose dying value reaches death, unless `/ndc` says not; from anyone else it never does, and leaves them unconscious instead.
-`condition/set <list>=<condition>[/<value>]`: Sets `<condition>` on each of them. `<value>` is 1-5; 0 clears the condition. Drained and Doomed are a Plotmaster's or staff's to give a character; anyone running the encounter may lower or clear them.
+`condition/set <list>=<condition>[/<value>]`: Sets `<condition>` on each of them. `<value>` is 1-5; 0 clears the condition. Drained and Doomed are a Plotmaster's or staff's to give a character; anyone running the encounter may lower or clear them. `condition/set <who>=dead` is a Plotmaster's or staff's to say of a character, and `condition/set <who>=dead/0` brings them back, unconscious with no hit points.

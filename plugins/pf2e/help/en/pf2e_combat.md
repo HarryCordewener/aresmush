@@ -46,7 +46,8 @@ How far an encounter may go depends on who runs it:
 - **A Plotmaster** - a role with the `kill_pc` permission - adds any creature of the bestiary, and
   creatures of their own making. In their encounter a character at the dying value that is death
   dies, from a hit, persistent damage or a failed recovery check, and Drained and Doomed land.
-  `+e/undo` takes a death back like any other change.
+  `+e/undo` takes a death back like any other change, and `condition/set <who>=dead/0` brings a
+  character back.
 - **Staff** run any encounter as a Plotmaster does.
 
 `+e/focus [<encounter ID>]`: Which of the encounters you run your commands address while you are away from its scene. With no ID, the only one you run.
