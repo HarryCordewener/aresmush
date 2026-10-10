@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Foundry's bestiaries, as creatures a GM can add to an encounter.
 
-Every `npc` actor in their packs is a full stat block as data: its defences, its Strikes with their
+Only creatures Foundry marks as Remaster (`publication.remaster`, the ORC licence) are read: the game
+does not use Legacy, OGL material. Each keeps the book it is from as `source`.
+
+Every such `npc` actor in their packs is a full stat block as data: its defences, its Strikes with their
 bonuses and damage, its abilities, its spellcasting. An encounter needs those numbers to resolve an action
 against a creature, and a GM acting for one needs its attacks, so each is read into
 `game/bestiary/<pack>.yml`, with `game/bestiary/index.yml` saying which file holds each name.
@@ -157,6 +160,7 @@ def npc_of(doc, pack, refused, words):
     speed = attributes.get('speed') or {}
 
     npc = {'pack': pack,
+           'source': (((system.get('details') or {}).get('publication')) or {}).get('title'),
            'level': ((system.get('details') or {}).get('level') or {}).get('value', 0),
            'size': SIZES.get((traits.get('size') or {}).get('value'), 'medium'),
            'rarity': traits.get('rarity', 'common'),
@@ -238,6 +242,7 @@ def main():
 
     by_pack = collections.defaultdict(dict)
     repeated = 0
+    legacy = 0
     refused = collections.Counter()
     words = rules.strings(args.checkout)
 
@@ -251,6 +256,13 @@ def main():
             continue
 
         if doc.get('type') != 'npc' or not isinstance(doc.get('system'), dict):
+            continue
+
+        # Only what Foundry marks as Remaster: the game plays by the ORC-licensed books, and a creature
+        # from a Legacy one, which Archives of Nethys marks so too, is left out.
+        publication = ((doc['system'].get('details') or {}).get('publication')) or {}
+        if not publication.get('remaster'):
+            legacy += 1
             continue
 
         pack = path.split('/')[2]
@@ -275,7 +287,8 @@ def main():
 
     total = sum(len(one) for one in by_pack.values())
     print('written' if args.write else 'dry run')
-    print(f'  {total} creatures in {len(by_pack)} packs; {repeated} repeats of a name already read')
+    print(f'  {total} creatures in {len(by_pack)} packs; {repeated} repeats of a name already read; '
+          f'{legacy} from Legacy books left out')
     for pack, entries in sorted(by_pack.items(), key=lambda one: -len(one[1]))[:12]:
         print(f'  {len(entries):5d}  {pack}')
 

@@ -11,7 +11,7 @@ module AresMUSH
 
       FORMULA = '\d+d\d+(?:\s*[+-]\s*\d+)?'.freeze
 
-      LISTED = /\A\(?(?<formula>#{FORMULA})\)? (?<type>[a-z]+)(?: damage)?, DC (?<dc>\d+) (?<save>Fortitude|Reflex|Will)/
+      LISTED = /\A\(?(?<formula>#{FORMULA})\)? (?<type>[a-z]+)(?: damage)?, DC (?<dc>\d+) (?:basic )?(?<save>Fortitude|Reflex|Will)/
 
       TOLD = /(?<formula>#{FORMULA}) (?<type>[a-z]+) damage[^%]{0,200}?\(DC (?<dc>\d+) (?:basic )?(?<save>Fortitude|Reflex|Will)/
 

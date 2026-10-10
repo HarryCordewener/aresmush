@@ -1,6 +1,24 @@
 ---
+"Angry Raven":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: -1
+  size: "tiny"
+  rarity: "common"
+  traits: ["animal"]
+  ac: 15
+  hp: 7
+  perception: 5
+  saves: {"fortitude": 2, "reflex": 7, "will": 5}
+  abilities: {"cha": 0, "con": 0, "dex": 3, "int": -4, "str": -3, "wis": 3}
+  speeds: {"land": 10, "swim": 40}
+  senses: ["low-light-vision"]
+  skills: {"Acrobatics": 5, "Deception": 5, "Thievery": 5}
+  strikes: [{"name": "Beak", "bonus": 7, "damage": [["1d4–1", "piercing", null]], "traits": ["finesse"]}]
+  actions: [{"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A raven's melee Strikes deal an additional 1d4 precision damage to Off-Guard creatures.", "rules": [{"key": "DamageDice", "category": "precision", "selector": "strike-damage", "diceNumber": 1, "dieSize": "d4", "predicate": ["target:condition:off-guard"]}, {"key": "RollOption", "option": "target:condition:off-guard", "toggleable": "totm", "label": "Enable abilities that require an off-guard target"}]}]
 "Boggard Guard":
   pack: "standalone-adventures"
+  source: "Pathfinder Game Night: Dawn of the Frogs"
   level: -1
   size: "medium"
   rarity: "common"
@@ -15,8 +33,44 @@
   skills: {"Acrobatics": 4, "Athletics": 5, "Stealth": 4}
   strikes: [{"name": "Tongue", "bonus": 6, "damage": [], "traits": ["reach-10"], "effects": ["Tongue Grab"]}, {"name": "Club", "bonus": 5, "damage": [["1d6+1", "bludgeoning", null]], "traits": []}, {"name": "Sling", "bonus": 6, "damage": [["1d6", "bludgeoning", null]], "traits": ["propulsive", "reload-1"], "range": 50}]
   actions: [{"name": "Warning Croak", "type": "free", "traits": ["auditory"], "text": "Trigger The boggard guard spots a foe before combat begins%rEffect The boggard guard lets loose a cry of warning that other boggards immediately recognize. Boggards within 50 feet get a +2 circumstance bonus on initiative checks made in the next minute and a +2 circumstance bonus on Perception to notice hiding creatures. The boggard then rolls initiative."}, {"name": "Swamp Passage", "type": "passive", "traits": [], "text": "A boggard scout ignores difficult terrain caused by swamp terrain features."}, {"name": "Tongue Grab", "type": "passive", "traits": [], "text": "If the boggard guard hits a creature with their tongue, that creature becomes Grabbed by the boggard. Unlike with a normal Grab, the creature is not Immobilized, but it can't move beyond the reach of the boggard's tongue. The DC to escape dc=15 is 15, or a creature can sever the tongue by hitting AC 12 and dealing at least 1 slashing damage. Though this doesn't deal any damage to the boggard, it prevents them from using their tongue Strike again until they regrow their tongue, which takes a…"}]
+"Boggard Guard (The Dragon's Crown)":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: 1
+  size: "medium"
+  rarity: "common"
+  traits: ["amphibious", "boggard", "humanoid"]
+  ac: 15
+  hp: 24
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 5, "will": 7}
+  abilities: {"cha": 0, "con": 4, "dex": 2, "int": -1, "str": 3, "wis": 2}
+  speeds: {"land": 20, "swim": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 5, "Athletics": 8, "Stealth": 7}
+  strikes: [{"name": "Tongue", "bonus": 8, "damage": [], "traits": ["reach-10"], "effects": ["Tongue Grab"]}, {"name": "Morningstar", "bonus": 8, "damage": [["1d6+3", "bludgeoning", null]], "traits": ["versatile-p"]}]
+  actions: [{"name": "Swamp Passage", "type": "passive", "traits": [], "text": "A boggard scout ignores difficult terrain caused by swamp terrain features."}, {"name": "Terrifying Croak", "type": "action", "traits": ["auditory", "emotion", "fear", "mental"], "cost": 1, "text": "The boggard guard unleashes a terrifying croak. Any non-boggard within 30 feet becomes Frightened 1 unless they succeed at a DC 17 Will save. Those who critically succeed are temporarily immune for 1 minute."}, {"name": "Tongue Grab", "type": "passive", "traits": [], "text": "If the boggard guard hits a creature with their tongue, that creature becomes Grabbed by the boggard. Unlike with a normal Grab, the creature is not Immobilized, but it can't move beyond the reach of the boggard's tongue. A creature can sever the tongue by hitting AC 13 and dealing at least 2 slashing damage. Though this doesn't deal any damage to the boggard, it prevents them from using their tongue Strike again in this adventure."}]
+"Clabberfang":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: 2
+  size: "medium"
+  rarity: "unique"
+  traits: ["aberration"]
+  ac: 16
+  hp: 30
+  perception: 10
+  saves: {"fortitude": 10, "reflex": 9, "will": 6}
+  abilities: {"cha": 1, "con": 4, "dex": 3, "int": 0, "str": 4, "wis": 2}
+  speeds: {"land": 30}
+  skills: {"Acrobatics": 9, "Athletics": 8, "Stealth": 9, "Survival": 6, "Thievery": 9}
+  immunities: ["controlled"]
+  resistances: {"mental": 5}
+  strikes: [{"name": "Glaive", "bonus": 10, "damage": [["1d8+4", "slashing", null]], "traits": ["deadly-d8", "forceful", "reach-10"]}, {"name": "Claw", "bonus": 10, "damage": [["1d6+4", "slashing", null]], "traits": []}, {"name": "Jaws", "bonus": 10, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["agile"], "effects": ["Sinful Bite"]}]
+  actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": [], "rules": [{"key": "FlatModifier", "selector": "saving-throw", "type": "status", "value": 1, "predicate": ["item:magical"]}]}, {"name": "+4 Status to All Saves vs. Mental", "type": "passive", "traits": [], "rules": [{"key": "FlatModifier", "selector": "saving-throw", "type": "status", "value": 4, "predicate": ["item:trait:mental"]}]}, {"name": "Reactive Strike", "type": "reaction", "traits": [], "text": "Trigger A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using.%rEffect The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike."}, {"name": "Sin Scent (Imprecise) 30 feet", "type": "passive", "traits": [], "text": "A sinspawn can smell creatures that reflect its sin as the scent ability. The GM determines which creatures are appropriately sinful.%rScent involves sensing creatures or objects by smell, and is usually a vague sense. The range is listed in the ability, and it functions only if the creature or object being detected emits an aroma (for instance, incorporeal creatures usually do not exude an aroma).%rIf a creature emits a heavy aroma or is upwind, the GM can double or even triple the range of…"}, {"name": "Sinful Bite", "type": "passive", "traits": ["arcane", "emotion", "mental"], "text": "A creature hit by Clabberfang's jaws must attempt a DC 18 Will save as it is assailed by sinful thoughts.%rCritical Success The creature is unaffected.%rSuccess The creature is Sickened 1.%rFailure The creature is Sickened 2.%rCritical Failure The creature is sickened 2 and is Clumsy 2 for 1 minute."}]
 "Giant Swamp Fly":
   pack: "standalone-adventures"
+  source: "Pathfinder Game Night: Dawn of the Frogs"
   level: 1
   size: "medium"
   rarity: "common"
@@ -31,8 +85,76 @@
   skills: {"Acrobatics": 7, "Athletics": 6}
   strikes: [{"name": "Mandibles", "bonus": 8, "damage": [["1d6+3", "piercing", null]], "traits": [], "effects": ["Stinging Bite"]}]
   actions: [{"name": "Avoid the Swat", "type": "reaction", "traits": [], "text": "Trigger The giant fly is targeted with a melee or ranged attack by an attacker it can see%rEffect The giant fly gains a +2 circumstance bonus to AC against the triggering attack. If the attack misses, the giant fly can move up to its fly Speed.", "rules": [{"key": "RollOption", "option": "avoid-the-swat", "toggleable": true}, {"key": "FlatModifier", "selector": "ac", "type": "circumstance", "value": 2, "predicate": ["avoid-the-swat"]}]}, {"name": "Stinging Bite", "type": "passive", "traits": ["disease"], "text": "The bite of a giant swamp fly spreads irritating toxin into the wound. A PC who is bitten by a giant swamp fly must attempt a DC 16 Fortitude save. On a failure, they become Sickened 1, or Sickened 2 on a critical failure."}]
+"Goblin Poppet":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: 0
+  size: "small"
+  rarity: "common"
+  traits: ["construct", "humanoid", "poppet"]
+  ac: 15
+  hp: 20
+  perception: 5
+  saves: {"fortitude": 5, "reflex": 6, "will": 4}
+  abilities: {"cha": 2, "con": 2, "dex": 0, "int": 0, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Crafting": 6, "Intimidation": 4, "Stealth": 6}
+  weaknesses: {"fire": 2}
+  strikes: [{"name": "Dogslicer", "bonus": 8, "damage": [["1d6+1", "slashing", null]], "traits": ["agile", "backstabber"]}, {"name": "Sling", "bonus": 6, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["propulsive", "reload-1"], "range": 50}, {"name": "Fist", "bonus": 8, "damage": [["1d4+1", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}]
+  actions: [{"name": "Pincushion", "type": "reaction", "traits": [], "text": "Trigger The goblin poppet would take piercing damage%rEffect The goblin poppet directs the weapon to a soft part of its body, gaining resistance 5 against the triggering piercing damage."}]
+"Gorst Mundalew":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: 1
+  size: "medium"
+  rarity: "unique"
+  traits: ["human", "humanoid"]
+  ac: 16
+  hp: 18
+  perception: 6
+  saves: {"fortitude": 9, "reflex": 6, "will": 4}
+  abilities: {"cha": 0, "con": 3, "dex": 1, "int": 0, "str": 4, "wis": 0}
+  speeds: {"land": 25}
+  skills: {"Athletics": 6, "Intimidation": 6, "Alcohol Lore": 3}
+  strikes: [{"name": "Fist", "bonus": 7, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["agile", "nonlethal", "unarmed"]}, {"name": "Pewter Mug", "bonus": 6, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["thrown-10"]}]
+  actions: [{"name": "Drunken Flailing", "type": "action", "traits": [], "cost": 1, "text": "Frequency once per round%rEffect The charmed drunkard attempts two fist Strikes, each against a different creature within reach. The multiple attack penalty applies to each Strike as normal."}]
+"Jigsaw Shark":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: 2
+  size: "medium"
+  rarity: "common"
+  traits: ["animal", "aquatic"]
+  ac: 10
+  hp: 10
+  perception: 8
+  saves: {"fortitude": 0, "reflex": 0, "will": 0}
+  abilities: {"cha": -4, "con": 3, "dex": 1, "int": -4, "str": 4, "wis": 1}
+  speeds: {"land": 0, "swim": 30}
+  skills: {"Athletics": 8, "Stealth": 7, "Survival": 5}
+  strikes: [{"name": "Jaws", "bonus": 9, "damage": [["1d10+4", "piercing", null]], "traits": []}]
+  actions: [{"name": "Blood Scent", "type": "passive", "traits": [], "text": "The shark can smell blood in the water from up to 1 mile away."}]
+"King Stankus":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: 3
+  size: "small"
+  rarity: "unique"
+  traits: ["aberration", "goblin"]
+  ac: 19
+  hp: 45
+  perception: 9
+  saves: {"fortitude": 9, "reflex": 11, "will": 6}
+  abilities: {"cha": 2, "con": 2, "dex": 4, "int": -1, "str": 3, "wis": 0}
+  speeds: {"land": 25, "climb": 5, "swim": 20}
+  senses: ["darkvision", "scent"]
+  skills: {"Acrobatics": 10, "Athletics": 9, "Intimidation": 9, "Stealth": 10, "Survival": 7}
+  strikes: [{"name": "Fangs", "bonus": 11, "damage": [["1d6+6", "piercing", null]], "traits": ["finesse"]}]
+  actions: [{"name": "Coiled Strike", "type": "reaction", "traits": [], "text": "Trigger A creature within King Stankus's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using%rRequirements King Stankus is Coiled%rEffect King Stankus attempts a fangs Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, King Stankus disrupts that action. This Strike doesn't count toward King Stankus's multiple attack penalty, and his multiple attack penalty doesn't…"}, {"name": "Coil", "type": "action", "traits": [], "cost": 1, "text": "King Stankus uses an action to coil himself, increasing his reach with his fangs from 5 to 10 feet. After King Stankus Strikes with his fangs, he becomes uncoiled.", "rules": [{"key": "RollOption", "option": "coil", "toggleable": true}, {"key": "AdjustStrike", "property": "weapon-traits", "mode": "add", "definition": ["item:slug:fangs"], "value": "reach-10", "predicate": ["coil"]}]}, {"name": "Goblin Breath", "type": "action", "traits": ["olfactory", "poison"], "cost": 2, "text": "King Stankus belches a cloud of nauseating vapor in a 15-foot cone. Non-goblin creatures within the cloud must succeed at a DC 20 Fortitude save or become Sickened 1. On a critical failure, a creature is also Slowed 1 for as long as it is sickened. (See the Pusk Spells sidebar on page 28 for rules on the slowed condition.) Creatures that successfully save are immune to Goblin Breath for 24 hours. King Stankus can't use Goblin Breath again for 1d4 rounds."}]
 "Leather Cap":
   pack: "standalone-adventures"
+  source: "Pathfinder Game Night: Dawn of the Frogs"
   level: 2
   size: "small"
   rarity: "common"
@@ -47,8 +169,43 @@
   skills: {"Athletics": 6, "Nature": 6}
   strikes: [{"name": "Fist", "bonus": 10, "damage": [["1d6+2", "bludgeoning", null]], "traits": ["agile", "finesse"]}, {"name": "Spore Pod", "bonus": 10, "damage": [["1d6+2", "bludgeoning", null]], "traits": [], "range": 30, "effects": ["Spores"]}]
   actions: [{"name": "Spore Cloud", "type": "action", "traits": ["poison"], "cost": 2, "text": "Frequency once per day%rEffect Leather Cap unleashes a faintly purple cloud of sparkling spores that irritates the eyes and throats of all non-fungus creatures exposed to it. Each creature within 15 feet of Leather Cap must succeed at a DC 16 Fortitude save or take 1d6 poison damage and become Sickened 1."}, {"name": "Spores", "type": "passive", "traits": [], "text": "A creature that takes damage from Leather Cap's spore pod Strike must attempt a DC 16 Fortitude save to avoid becoming Sickened 1 from the spores that burst around them."}]
+"Poppy":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: 2
+  size: "large"
+  rarity: "unique"
+  traits: ["animal"]
+  ac: 17
+  hp: 30
+  perception: 7
+  saves: {"fortitude": 9, "reflex": 7, "will": 5}
+  abilities: {"cha": -4, "con": 3, "dex": 1, "int": -5, "str": 4, "wis": 1}
+  speeds: {"land": 25}
+  senses: ["low-light-vision"]
+  skills: {"Athletics": 8, "Stealth": 7}
+  strikes: [{"name": "Jaws", "bonus": 10, "damage": [["1d10+4", "piercing", null]], "traits": [], "effects": ["Grab"]}, {"name": "New Attack", "bonus": 10, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile"]}]
+  actions: [{"name": "Deep Breath", "type": "passive", "traits": [], "text": "Poppy can hold her breath for about 2 hours."}, {"name": "Death Roll", "type": "action", "traits": ["attack"], "cost": 1, "text": "Requirements Poppy has a creature Grabbed or Restrained%rEffect Poppy tucks her legs and rolls rapidly, twisting her victim. She makes a jaws Strike with a +2 circumstance bonus to the attack roll against the grabbed or restrained creature. If it hits, she also knocks the creature Prone. If it fails, she releases the creature.", "rules": [{"key": "RollOption", "option": "death-roll", "toggleable": true}, {"key": "FlatModifier", "selector": ["attack-roll"], "type": "status", "value": 2, "predicate": ["death-roll"]}]}, {"name": "Grab", "type": "action", "traits": [], "cost": 1, "text": "Requirements The monster's last action was a successful Strike that lists Grab in its damage entry, or the monster has a creature Grabbed or Restrained%rEffect If used after a Strike, the monster attempts to grapple the creature using the body part it attacked with. This attempt neither applies nor counts toward the creature's multiple attack penalty.%rThe monster can instead use Grab and choose one creature it's grabbing or restraining with an appendage that has Grab to automatically extend…"}]
+"Ratfolk Ambusher":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: -1
+  size: "small"
+  rarity: "common"
+  traits: ["humanoid", "ratfolk"]
+  ac: 14
+  hp: 8
+  perception: 5
+  saves: {"fortitude": 3, "reflex": 8, "will": 5}
+  abilities: {"cha": 0, "con": 0, "dex": 3, "int": 1, "str": 1, "wis": 2}
+  speeds: {"land": 25}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 5, "Athletics": 3, "Society": 4, "Stealth": 5, "Thievery": 5}
+  strikes: [{"name": "Dagger", "bonus": 6, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "finesse", "versatile-s"]}, {"name": "Dagger", "bonus": 6, "damage": [["1d4+1", "piercing", null]], "traits": ["agile", "thrown-10", "versatile-s"]}, {"name": "Hand Crossbow", "bonus": 6, "damage": [["1d6", "piercing", null]], "traits": ["reload-1"], "range": 60}, {"name": "Jaws", "bonus": 6, "damage": [["1d4", "piercing", null]], "traits": ["agile", "finesse"]}]
+  actions: [{"name": "Ambush Tactics", "type": "passive", "traits": [], "text": "On the first round of combat, if a ratfolk ambusher rolls Stealth for initiative, creatures that haven't acted are Off-Guard to the ratfolk ambusher."}, {"name": "Sneak Attack", "type": "passive", "traits": [], "text": "A ratfolk ambusher's Strikes deal 1 extra precision damage to Off-Guard creatures.", "rules": [{"key": "RollOption", "option": "target:condition:off-guard", "toggleable": "totm", "label": "Enable abilities that require an off-guard target"}, {"key": "FlatModifier", "selector": ["strike-damage"], "value": 1, "damageCategory": "precision", "predicate": ["target:condition:off-guard"]}]}, {"name": "Swarming", "type": "passive", "traits": [], "text": "A ratfolk ambusher fights well with their allies and doesn't mind getting up close and personal in combat. As a result, a ratfolk ambusher can end their movement in the same square as an ally that also has this ability. Only two such creatures can share the same space."}]
 "Swamp Beetle":
   pack: "standalone-adventures"
+  source: "Pathfinder Game Night: Dawn of the Frogs"
   level: -1
   size: "small"
   rarity: "common"
@@ -64,6 +221,7 @@
   actions: [{"name": "Splatter", "type": "passive", "traits": [], "text": "When a swamp beetle dies, it splatters everyone next to it with foul-smelling acid. PCs next to the swamp beetle take 1 acid damage. The other beetles are immune to this damage."}]
 "Two Tusk":
   pack: "standalone-adventures"
+  source: "Pathfinder Game Night: Dawn of the Frogs"
   level: 2
   size: "large"
   rarity: "common"
@@ -78,8 +236,29 @@
   skills: {"Acrobatics": 6, "Athletics": 8, "Stealth": 5}
   strikes: [{"name": "Tusks", "bonus": 11, "damage": [["1d8+4", "piercing", null]], "traits": ["deadly-d10"]}, {"name": "Slime Squirt", "bonus": 9, "damage": [], "traits": [], "range": 30, "effects": ["Entangling Slime"]}]
   actions: [{"name": "+2 to Fortitude Saves vs. Grapple", "type": "passive", "traits": [], "rules": [{"key": "FlatModifier", "selector": "fortitude", "value": 2, "predicate": ["action:grapple"]}]}, {"name": "Belly Grease", "type": "action", "traits": [], "cost": 3, "text": "Two Tusk extrudes a slippery grease from his ventral glands to coat the barge under him and in a 5-foot emanation, turning the affected area into uneven ground for 10 minutes, after which it dries to a putrid crust. The DC to balance dc=18 across the grease is 18."}, {"name": "Entangling Slime", "type": "passive", "traits": [], "text": "A creature struck by Two Tusk's slime squirt becomes Clumsy 1 and takes a –5-foot penalty to Speed for 1 hour or until the slime is removed. A PC can use an Interact action to splash swamp water on themself to wash away the stuff and remove this penalty.%rEffect: Entangling Slime"}]
+"Velour":
+  pack: "standalone-adventures"
+  source: "Pathfinder Game Night: The Dragon's Crown"
+  level: 2
+  size: "tiny"
+  rarity: "unique"
+  traits: ["fiend", "unholy"]
+  ac: 22
+  hp: 24
+  perception: 8
+  saves: {"fortitude": 5, "reflex": 10, "will": 8}
+  abilities: {"cha": 2, "con": 0, "dex": 4, "int": 1, "str": -1, "wis": 2}
+  speeds: {"land": 20, "fly": 30}
+  senses: ["darkvision"]
+  skills: {"Acrobatics": 8, "Arcana": 7, "Deception": 8, "Religion": 6}
+  weaknesses: {"holy": 3}
+  resistances: {"poison": 3}
+  strikes: [{"name": "Stinger", "bonus": 11, "damage": [["1d4", "piercing", null]], "traits": ["agile", "finesse", "magical", "reach-0", "unholy"], "effects": ["Imp Venom"]}]
+  actions: [{"name": "Telepathy (Touch)", "type": "passive", "traits": ["aura", "magical", "mental"], "text": "A monster with telepathy can communicate mentally with any creatures within the listed radius, as long as they share a language. This doesn't give any special access to their thoughts, and communicates no more information than normal speech would."}, {"name": "Fiendish Healing", "type": "action", "traits": ["concentrate", "divine", "healing", "vitality"], "cost": 1, "text": "Frequency once per round.%rEffect The imp regains 1d6 healing Hit Points."}, {"name": "Imp Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 17 Fortitude%rMaximum Duration 6 rounds%rStage 1 1d6 poison damage and Clumsy 1 (1 round)%rStage 2 1d6 poison damage, clumsy 1, and Slowed 1 (1 round)"}, {"name": "Teasing Taunt", "type": "action", "traits": ["auditory", "concentrate", "emotion", "mental"], "cost": 1, "text": "Velour teases and insults a character within 30 feet. That PC must attempt a DC 18 Will save to avoid becoming Off-Guard until the start of Velour's next turn as a result of the taunting."}]
+  spellcasting: [{"name": "Divine Innate Spells", "tradition": "divine", "type": "innate", "dc": 18, "attack": 10, "spells": {"0": ["Detect Magic"], "1": ["Charm"], "2": ["Invisibility (At Will, Self Only)", "Noise Blast"]}}]
 "Young Monitor Lizard":
   pack: "standalone-adventures"
+  source: "Pathfinder Game Night: Dawn of the Frogs"
   level: 1
   size: "medium"
   rarity: "common"
@@ -96,6 +275,7 @@
   actions: [{"name": "Lurching Charge", "type": "action", "traits": [], "cost": 2, "text": "The young monitor lizard Strides twice and then makes a jaws Strike. If it moves at least 20 feet from where it started, it gets a +2 circumstance bonus on the attack roll.", "rules": [{"key": "FlatModifier", "selector": "jaws-attack", "type": "circumstance", "value": 2, "predicate": ["lurching-charge"]}, {"key": "RollOption", "option": "lurching-charge", "domain": "attack", "toggleable": true}]}, {"name": "Young Monitor Lizard Venom", "type": "passive", "traits": ["poison"], "text": "Saving Throw DC 15 Fortitude%rMaximum Duration 4 rounds%rStage 1 1d4 poison damage%rStage 2 1d6 poison damage"}]
 "Zungur":
   pack: "standalone-adventures"
+  source: "Pathfinder Game Night: Dawn of the Frogs"
   level: 3
   size: "medium"
   rarity: "unique"

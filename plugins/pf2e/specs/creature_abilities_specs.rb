@@ -10,6 +10,11 @@ module AresMUSH
           'formula' => '2d10+17', 'type' => 'bludgeoning', 'dc' => 40, 'save' => 'fortitude')
       end
 
+      it "should read it where the save is called basic" do
+        expect(CreatureAbilities.damage_save('(1d8) bludgeoning, DC 17 basic Fortitude%rThe monster deals the listed amount.')).to eq(
+          'formula' => '1d8', 'type' => 'bludgeoning', 'dc' => 17, 'save' => 'fortitude')
+      end
+
       it "should read a breath's damage and the save its sentence names" do
         text = 'The fire scamp breathes flames in a 15-foot cone that deals 2d4 fire damage to each creature ' \
                'within the area (DC 17 Reflex save).'
