@@ -161,7 +161,7 @@ module AresMUSH
 
         # A healing potion's vitality heals the living; to the undead it is nothing.
         it "should do nothing for an undead creature" do
-          run(PF2EncounterAddCmd, 'e/add goblin zombie', @gm)
+          run(PF2EncounterAddCmd, 'e/add zombie shambler', @gm)
           zombie = PF2Encounter[@encounter.id].npcs.to_a.first
           zombie.update(:damage => 5)
 

@@ -20,7 +20,7 @@ module AresMUSH
       def check_valid_condition
         condition_list = Global.read_config('pf2e_conditions').keys
         self.condition = Pf2e.canonical_condition(self.condition)
-        return nil if condition_list.include? self.condition
+        return nil if condition_list.include?(self.condition) || self.condition == Pf2e::DEAD
         return t('pf2e.condition_not_found', :options => condition_list.sort.join(", "))
       end
 
@@ -43,6 +43,8 @@ module AresMUSH
           client.emit_failure t('pf2e.cannot_damage_pc')
           return
         end
+
+        return death(target_list, encounter) if self.condition == Pf2e::DEAD
 
         condition_details = Global.read_config('pf2e_conditions', self.condition)
 
@@ -72,6 +74,31 @@ module AresMUSH
           :target => done.map { |t| t.name }.sort.join(", ")
         )
 
+      end
+
+      # `dead` is a Plotmaster's or staff's to say of a character, and `dead/0` any GM's to take back.
+      # Either is told as what happened in the fight.
+      def death(target_list, encounter)
+        return client.emit_failure(t('pf2e.dead_not_creature')) unless target_list.all? { |char| Gm.character?(char) }
+
+        raising = self.value == 0
+
+        unless raising || Gm.plotmaster?(enactor)
+          return client.emit_failure(t('pf2e.condition_not_lasting', :condition => self.condition))
+        end
+
+        changed = target_list.select { |char| Pf2e.dead?(char) == raising }
+        changed.each { |char| raising ? Pf2eHP.revive(char) : Pf2eHP.kill(char) }
+
+        return client.emit_failure(t('pf2e.dead_nothing_to_do')) if changed.empty?
+
+        lines = changed.map { |char| t(raising ? 'pf2e.act_revived' : 'pf2e.act_dead', :target => char.name).strip }.join('%r')
+
+        if encounter
+          Pf2e::Encounters::Announce.tell(PF2Encounter[encounter.id], lines, :room => enactor_room, :story => true)
+        else
+          enactor_room.emit lines
+        end
       end
 
     end

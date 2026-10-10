@@ -89,6 +89,8 @@ module AresMUSH
       # under and for how long, what will burn at its end, and the auras they project - whose reach the
       # map knows and this does not, so the reminder asks.
       def self.reminder(holder, round)
+        return t('pf2e.turn_dead', :name => holder.name) if Pf2e.dead?(holder)
+
         lines = [ t('pf2e.turn_reminder', :name => holder.name, :round => round, :summary => TurnState.summary(holder)) ]
 
         effects = ActiveEffects.on(holder).map { |effect| "#{effect.name}: #{ActiveEffects.remaining(effect)}" }

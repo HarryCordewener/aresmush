@@ -66,6 +66,10 @@ module AresMUSH
         allow(Login).to receive(:emit_ooc_if_logged_in)
         allow(Login).to receive(:notify)
         allow_any_instance_of(Character).to receive(:is_approved?).and_return(true)
+
+        # The GM is a Plotmaster, who adds any creature and one of their own making.
+        allow_any_instance_of(Character).to receive(:has_permission?).and_call_original
+        allow_any_instance_of(Character).to receive(:has_permission?).with('kill_pc') { |char, _| char.name == @gm.name }
       end
 
       after(:each) do
@@ -979,17 +983,15 @@ module AresMUSH
           end
 
           # Whether a check that would kill does is the encounter's to say (`gm_kinds_specs.rb`); this
-          # one's GM has no right to.
-          it "should leave them unconscious where it would kill and may not, and say so" do
+          # one's GM is a Plotmaster.
+          it "should kill where it reaches the value that is death, and say so" do
             dying(3)
             @dice = 0.25
 
             told = turn
 
-            expect(Pf2e.condition_level(hero_state, 'Dying')).to eq 0
-            expect(hero_state.pf2_conditions).to have_key('Unconscious')
-            expect(hero_state.pf2_is_dead).to be_falsey
-            expect(told.map { |one| one['key'] }).to include('pf2e.recovery_spared')
+            expect(hero_state.pf2_is_dead).to be true
+            expect(told.map { |one| one['key'] }).to include('pf2e.recovery_dead')
           end
 
           it "should roll nothing for someone who is not dying" do

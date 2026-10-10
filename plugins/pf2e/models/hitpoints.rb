@@ -128,13 +128,25 @@ module AresMUSH
       end
 
       if may_kill
-        char.update(pf2_is_dead: true)
-        Pf2e.set_condition(char, 'Dying', fatal_at(char))
+        kill(char)
         return :dead
       end
 
       stable(char)
       :spared
+    end
+
+    # Dead: no hit points, and dying at the value that is death.
+    def self.kill(char)
+      get_hp_obj(char).update(damage: get_max_hp(char), temp_hp: 0)
+      char.update(pf2_is_dead: true)
+      Pf2e.set_condition(char, 'Dying', fatal_at(char))
+    end
+
+    # Dead no longer: as someone who stopped dying, to be healed awake.
+    def self.revive(char)
+      char.update(pf2_is_dead: false)
+      stable(char)
     end
 
     # No longer dying, with no hit points: unconscious until healed, and wounded one more.

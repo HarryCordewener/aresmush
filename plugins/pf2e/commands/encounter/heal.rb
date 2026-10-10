@@ -40,6 +40,11 @@ module AresMUSH
 
         return if targets.empty?
 
+        dead, targets = targets.partition { |holder| Pf2e.dead?(holder) }
+        dead.each { |holder| client.emit_failure t('pf2e.heal_dead', :name => holder.name) }
+
+        return if targets.empty?
+
         ok_char_list = targets.map do |holder|
           Pf2e::Harm.heal(holder, self.damage, Pf2e.circumstances([ self.action ].compact))
           holder.name

@@ -549,6 +549,11 @@ en:
     act_dying: "  %{target} is dying: Dying %{value}."
     act_spared: "  %{target} would have died, and is unconscious instead: this encounter does not kill."
     act_dead: "  %{target} is dead."
+    act_revived: "  %{target} is no longer dead: unconscious, with no hit points."
+    turn_dead: "%{name} is dead. +e/next moves on; condition/set %{name}=dead/0 brings them back."
+    heal_dead: "%{name} is dead, and healing does nothing for them. condition/set %{name}=dead/0 brings them back, and +e/undo takes back what killed them."
+    dead_not_creature: "Dead is said of a character. A creature with no hit points left is down."
+    dead_nothing_to_do: "That changes nothing: nobody named is in the state you are taking them out of."
     act_not_lasting: "  %{target} is spared %{condition}: this encounter does not leave a character with it."
     act_healed:
       one: "  %{target} recovers 1 Hit Point."

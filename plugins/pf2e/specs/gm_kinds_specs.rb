@@ -362,6 +362,13 @@ module AresMUSH
             expect(Pf2e.condition_level(hero, 'Dying')).to eq 0
           end
 
+          it "should not come at an event runner's word" do
+            run(PF2ConditionSetCmd, "condition/set #{@hero.name}=dead", @runner)
+
+            expect(@client.failures).to eq [ t('pf2e.condition_not_lasting', :condition => 'Dead') ]
+            expect(hero.pf2_is_dead).to be_falsey
+          end
+
           it "should end with whoever was spared healed awake" do
             struck(@runner)
 
@@ -401,6 +408,23 @@ module AresMUSH
             expect(hero.pf2_is_dead).to be true
           end
 
+          it "should come at the Plotmaster's word" do
+            run(PF2ConditionSetCmd, "condition/set #{@hero.name}=dead", @plotmaster)
+
+            expect(@client.failures).to eq []
+            expect(hero.pf2_is_dead).to be true
+            expect(Pf2eHP.get_current_hp(hero)).to eq 0
+            expect(heard).to include(t('pf2e.act_dead', :target => @hero.name).strip)
+          end
+
+          it "should not be said of a creature, which is down at no hit points" do
+            run(PF2EncounterAddCmd, 'e/add goblin warrior', @plotmaster)
+
+            run(PF2ConditionSetCmd, 'condition/set #2=dead', @plotmaster)
+
+            expect(@client.failures).to eq [ t('pf2e.dead_not_creature') ]
+          end
+
           it "should not come from damage the Plotmaster says may not kill" do
             at_deaths_door
 
@@ -427,6 +451,36 @@ module AresMUSH
 
               expect(hero.pf2_is_dead).to be true
               expect(Pf2eHP.get_current_hp(hero)).to eq 0
+            end
+
+            it "should be all they are listed as under" do
+              expect(Pf2e.condition_labels(hero, false)).to eq [ 'Dead' ]
+            end
+
+            it "should be what their turn tells them" do
+              reminder = Turns.reminder(hero, 2)
+
+              expect(reminder).to eq t('pf2e.turn_dead', :name => @hero.name)
+            end
+
+            it "should be what a GM who heals them is told" do
+              run(PF2HealPlayerCmd, "heal #{@hero.name}=5", @plotmaster)
+
+              expect(@client.failures).to eq [ t('pf2e.heal_dead', :name => @hero.name) ]
+            end
+
+            it "should be taken off by the GM, leaving them unconscious with no hit points" do
+              run(PF2ConditionSetCmd, "condition/set #{@hero.name}=dead/0", @plotmaster)
+
+              expect(@client.failures).to eq []
+              expect(hero.pf2_is_dead).to be_falsey
+              expect(Pf2e.condition_level(hero, 'Dying')).to eq 0
+              expect(hero.pf2_conditions).to have_key('Unconscious')
+              expect(heard).to include(t('pf2e.act_revived', :target => @hero.name).strip)
+
+              Harm.heal(hero, 5)
+              expect(Pf2eHP.get_current_hp(hero)).to eq 5
+              expect(hero.pf2_conditions).to_not have_key('Unconscious')
             end
 
             it "should show in the encounter" do

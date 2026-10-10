@@ -117,18 +117,18 @@ module AresMUSH
     def self.condition_labels(char, colored = true)
       colors = colored ? (Global.read_config('pf2e', 'condition_colors') || {}) : {}
 
-      listed = held_conditions(char).sort.map do |name, held|
+      return [ DEAD ] if dead?(char)
+
+      held_conditions(char).sort.map do |name, held|
         value = held['value'] ? " #{held['value']}" : ''
         from = held['granted_by'] ? " (#{held['granted_by']})" : ''
 
         "#{colors[name]}#{name}#{value}#{colored ? '%xn' : ''}#{from}"
       end
-
-      dead?(char) ? [ DEAD ] + listed : listed
     end
 
-    # Death is not a condition the catalogue holds: it is said of a character, and listed first among
-    # what they are under.
+    # Death is not a condition the catalogue holds: it is said of a character, and is all they are
+    # listed as under. `condition/set <who>=dead` says it, and `dead/0` takes it back.
     DEAD = 'Dead'.freeze
 
     def self.dead?(char)
