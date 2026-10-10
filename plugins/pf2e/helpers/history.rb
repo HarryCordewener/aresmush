@@ -39,13 +39,16 @@ module AresMUSH
 
       KEY = :pf2e_recording
 
+      # When a row was made and last saved, which are no part of what a change moved.
+      STAMPS = [ :created_at, :updated_at ].freeze
+
       def self.snapshot(encounter)
         encounter = PF2Encounter[encounter.id]
         held = { 'encounter' => plain(FIELDS.to_h { |field| [ field, encounter.public_send(field) ] }) }
 
         owned.each do |name, (_model, members)|
           held[name] = members.call(encounter).to_h do |one|
-            [ one.id.to_s, plain(one.attributes.except(:created_at, :updated_at)) ]
+            [ one.id.to_s, plain(one.attributes.except(*STAMPS)) ]
           end
         end
 
@@ -64,12 +67,15 @@ module AresMUSH
 
           members.call(encounter).each { |one| one.delete unless wanted.key?(one.id.to_s) }
 
+          # What had nothing in it then has no place in the copy, and is emptied again.
+          unset = (model.attributes - STAMPS).to_h { |field| [ field, nil ] }
+
           wanted.each do |id, attributes|
             attributes = attributes.transform_keys(&:to_sym)
             found = model[id]
 
             if found
-              found.update_attributes(attributes)
+              found.update_attributes(unset.merge(attributes))
               found.save
             else
               model.new(attributes.merge(:id => id)).save

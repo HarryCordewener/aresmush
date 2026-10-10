@@ -82,7 +82,7 @@ module AresMUSH
       end
 
       it "should take back a creature added, and bring back one removed" do
-        rat = Combatants.described('Rat', 'ac 12 hp 5 perception 2')
+        rat = Described.read('Rat', 'ac 12 hp 5 perception 2').state
 
         History.recording(encounter, 'GM: add') { Combatants.add_npc(encounter, :described => rat, :initiative => 5) }
         npc = encounter.npcs.to_a.first
@@ -99,6 +99,17 @@ module AresMUSH
         History.undo(encounter)
         expect(encounter.npcs.to_a).to eq []
         expect(Combatants.all(encounter).map(&:label)).to eq [ @hero.name ]
+      end
+
+      # What is set for the first time has nothing in the copy from before to be put back over it.
+      it "should empty again what a change set for the first time" do
+        History.recording(encounter, 'GM: explore') { standing.update(:exploration_activity => 'Scout') }
+
+        History.undo(encounter)
+        expect(standing.exploration_activity).to be_nil
+
+        History.redo(encounter)
+        expect(standing.exploration_activity).to eq 'Scout'
       end
 
       it "should take back an effect put on someone" do
