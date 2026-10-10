@@ -179,6 +179,35 @@ module AresMUSH
       end
     end
 
+    # `+e/reload [<weapon>]` - load again a weapon that has been shot: as many actions as it takes.
+    class PF2EncounterReloadCmd
+      include CommandHandler
+      include ActsInEncounter
+
+      attr_accessor :weapon, :actor
+
+      def parse_args
+        self.weapon = trim_arg(cmd.args)
+      end
+
+      def required_args
+        []
+      end
+
+      def handle
+        encounter = Combatants.encounter_here(enactor)
+        actor = acting_as(encounter, self.actor)
+
+        return if CharState.emit_error!(client, actor)
+
+        done = Acting.reload(scene_for(encounter, actor.state, nil), self.weapon)
+
+        return if CharState.emit_error!(client, done)
+
+        tell(encounter, done.state, actor.state)
+      end
+    end
+
     # `+e/cast <spell>[=<target>,<target>...][/rank <n>][/class <class>][/<circumstance>...]`
     #
     # A character's spell is cast through their magic first, which spends the slot, the focus point or the
@@ -281,7 +310,7 @@ module AresMUSH
       # after this one.
       def self.verbs
         { 'act' => PF2EncounterActCmd, 'strike' => PF2EncounterStrikeCmd, 'cast' => PF2EncounterCastCmd,
-          'enter' => PF2EncounterAuraCmd, 'leave' => PF2EncounterAuraCmd }
+          'reload' => PF2EncounterReloadCmd, 'enter' => PF2EncounterAuraCmd, 'leave' => PF2EncounterAuraCmd }
       end
 
       def parse_args

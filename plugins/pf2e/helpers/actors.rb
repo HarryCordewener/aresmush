@@ -242,6 +242,13 @@ module AresMUSH
         weapons + unarmed + Pf2eCombat.granted_strikes(@holder).map { |one| [ [ one['name'] ], one ] } + bombs
       end
 
+      # The attack as made with the weapon in two hands, where that deals more: nothing where it does not.
+      def two_handed(attack)
+        weapon = Pf2egear::Inventory.held(@holder, 'weapons').find { |one| one.id.to_s == attack['id'].to_s }
+
+        weapon && weapon.wp_damage_2h ? Pf2eCombat.attack_descriptor(@holder, weapon, true) : nil
+      end
+
       def strike_damage(attack, check, critical)
         degree = critical ? Degree::CRITICAL_SUCCESS : Degree::SUCCESS
         instances = Damage.of(@holder, attack, check.options + [ "check:outcome:#{Degree::SLUGS[degree]}" ])['instances']
@@ -460,9 +467,19 @@ module AresMUSH
         Npcs.strikes(@holder).map { |one| [ [ one['name'] ], one ] }
       end
 
-      # The stat block's formula for the Strike, and what its rules add to it.
+      # A Strike with the `two-hand-d12` trait, at that die.
+      def two_handed(attack)
+        die = WeaponTraits.traits(attack).filter_map { |trait| trait[/\Atwo-hand-(d\d+)\z/, 1] }.first
+        first, *rest = Array(attack['damage'])
+
+        die && first ? attack.merge('damage' => [ [ first[0].to_s.sub(/d\d+/, die), first[1], first[2] ] ] + rest) : nil
+      end
+
+      # The stat block's formula for the Strike, and what its rules and its traits add to it.
       def strike_damage(attack, check, critical)
-        extras = Npcs.strike_damage(@holder, attack, check.options)
+        extras = Npcs.strike_damage(@holder, attack, check.options) + Array(attack['bonus_damage']).map do |row|
+          { 'formula' => row['value'].to_s, 'type' => WeaponTraits.kind(attack), 'category' => row['category'], 'bucket' => 'doubling' }
+        end
 
         DamageRoll.merged(DamageRoll.of_formulas(attack['damage'], critical, attack) +
                           DamageRoll.of_extras(extras, critical))

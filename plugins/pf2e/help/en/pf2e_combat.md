@@ -105,6 +105,7 @@ be:
   use any of them early.
 - **What it is for good** - a zombie's Slowed 1 and its having no reactions - is on it from the start,
   and stays whatever is cleared.
+- **A Strike that takes loading** is shot once: `+e/as #5=reload` loads it again.
 - **Its spells** are counted: each preparation of a prepared spell, the slots of a rank for a
   spontaneous caster, once a day for an innate spell unless its stat block says otherwise. Past that
   you are warned, and it is cast.

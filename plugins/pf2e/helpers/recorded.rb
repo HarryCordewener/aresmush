@@ -18,7 +18,7 @@ module AresMUSH
     end
 
     # Every command that changes an encounter. Held here, after the commands load, rather than in each.
-    [ PF2EncounterActCmd, PF2EncounterStrikeCmd, PF2EncounterCastCmd, PF2EncounterAsCmd, PF2EncounterAuraCmd,
+    [ PF2EncounterActCmd, PF2EncounterStrikeCmd, PF2EncounterCastCmd, PF2EncounterReloadCmd, PF2EncounterAsCmd, PF2EncounterAuraCmd,
       PF2EncounterCoverCmd, PF2EncounterConcealCmd, PF2EncounterTrustCmd, PF2EncounterOptionCmd,
       PF2InitJoinCmd, PF2EncounterAddCmd, PF2EncounterAdjustCmd, PF2EncounterAfflictionCmd, PF2EncounterNextCmd, PF2EncounterPrevCmd, PF2InitModCmd,
       PF2EncounterRemoveCmd, PF2DamagePlayerCmd, PF2HealPlayerCmd, PF2ConditionSetCmd, PF2EffectAddCmd,

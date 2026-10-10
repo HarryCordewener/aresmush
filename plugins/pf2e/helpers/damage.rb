@@ -78,7 +78,8 @@ module AresMUSH
         # A bomb's persistent and splash damage are the bomb's own, so they always apply.
         bomb_dice, bomb_flat = Consumables.bomb_rows(attack)
         met_dice += bomb_dice
-        met_flat += bomb_flat
+        # What the weapon's traits add to this Strike is the Strike's to say (`WeaponTraits`).
+        met_flat += bomb_flat + Array(attack['bonus_damage'])
 
         # An override adjusts the weapon's own dice rather than adding any of its own, so it is taken
         # out before the rest are added up.

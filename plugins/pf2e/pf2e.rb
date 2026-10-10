@@ -212,6 +212,8 @@ module AresMUSH
           return PF2EncounterActCmd
         when "strike"
           return PF2EncounterStrikeCmd
+        when "reload"
+          return PF2EncounterReloadCmd
         when "cast"
           return PF2EncounterCastCmd
         when "as"

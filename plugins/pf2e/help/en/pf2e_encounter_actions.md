@@ -101,6 +101,17 @@ ranged attack cannot reach.
 Anything else is a circumstance the rules may ask about: `unintelligible`, a skill for Aid, a variant
 like `stabilize`.
 
+`two-handed` - A weapon that deals more in two hands is held in them: `+e/strike #3=bastard sword/two-handed`.
+`piercing`, `slashing`, `bludgeoning` - Which kind of damage a versatile weapon deals this time.
+`nonlethal`, `lethal` - A blow meant not to kill from a weapon that kills, or to kill from one that does
+not: 2 less to hit. A nonlethal blow that takes someone's last hit points knocks them out.
+`volley` - The target is inside a volley weapon's short range: 2 less to hit.
+A weapon's other traits count themselves: sweep and backswing add to the roll to hit by what you struck
+at before in the turn, forceful to the damage, and backstabber against someone off-guard.
+
+`+e/reload [<weapon>]` - Load again a weapon you have shot that takes loading - a crossbow, a sling -
+for as many actions as its reload. It will not shoot again until you have.
+
 `silver`, `cold iron`, `holy`, `magical` and the like - What your weapon is made of or carries, which
 the game cannot see. A creature weak to it takes more, and a resistance that excepts it does not apply:
 `+e/strike #3=longsword/cold iron`.

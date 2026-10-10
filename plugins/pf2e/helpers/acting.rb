@@ -890,6 +890,10 @@ module AresMUSH
         stopped = Restraints.refusal(scene.actor, 'Strike', [ 'attack' ])
         return stopped if stopped
 
+        attack = as_wielded(scene.actor.holder, attack, said['words'])
+        return attack if attack.is_a?(Err)
+        return unloaded(attack) if Loading.unloaded?(scene.actor.holder, attack)
+
         # What has swallowed someone cannot attack them, and is off-guard to them.
         if Holding.inside?(scene.target.holder, scene.actor.label)
           return Err.new(:swallowed, 'pf2e.swallowed_cannot_attack', 'actor' => scene.actor.label, 'target' => scene.target.label)
@@ -915,6 +919,12 @@ module AresMUSH
         extra = increments > 1 ? [ { 'source' => "range increment #{increments}", 'slug' => 'range-penalty',
                                      'type' => 'untyped', 'value' => -2 * (increments - 1) } ] : []
 
+        # What the Strikes before this one in the turn give it, by the weapon's traits. A reaction's
+        # Strike is no part of the turn's run of them.
+        earlier = reaction ? [] : Array(TurnState.turn(scene.actor.holder)['strikes'])
+        extra += WeaponTraits.attack_modifiers(attack, earlier, scene.target.label, said['words'])
+        attack = attack.merge('bonus_damage' => WeaponTraits.damage_modifiers(attack, earlier, off_guard?(scene, said)))
+
         unseen = unseen_attacker?(scene)
         rolled = attack_roll(scene, attack, check, said, extra, out)
         out['lines'] << rolled['line']
@@ -934,6 +944,7 @@ module AresMUSH
 
         # A bomb is thrown whatever it does.
         Consumables.spend!(scene.actor.holder, attack['consumable']) if attack['consumable']
+        Loading.shot(scene.actor.holder, attack)
 
         struck = { 'strike' => attack['name'], 'target' => scene.target.label, 'hit' => rolled['hit'] ? true : false,
                    'effects' => Array(attack['effects']) }
@@ -944,6 +955,45 @@ module AresMUSH
           TurnState.spend(scene.actor.holder, 'Strike', :cost => spent ? 1 : 0, :type => 'action', :attack => true,
                                                         :struck => struck)
         end
+
+        Ok.new(:state => out)
+      end
+
+      # The attack as its wielder said they make it: in two hands, with which edge, to kill or not.
+      def self.as_wielded(holder, attack, words)
+        if WeaponTraits.two_hands?(words)
+          attack = Actors.of(holder).two_handed(attack) ||
+                   (return Err.new(:not_two_hand, 'pf2e.strike_not_two_hand', 'weapon' => attack['name']))
+        end
+
+        WeaponTraits.wielded(attack, words)
+      end
+
+      def self.unloaded(attack)
+        Err.new(:unloaded, 'pf2e.strike_unloaded', 'weapon' => attack['name'],
+                                                   'actions' => Actions::COSTS[WeaponTraits.reload(attack).clamp(1, 3)])
+      end
+
+      # Whether the target is off-guard to this attack: by a condition, by being flanked, or by not
+      # seeing who attacks.
+      def self.off_guard?(scene, said)
+        said['flanking'] || said['inside'] || unseen_attacker?(scene) || Pf2e.held_conditions(scene.target.holder).key?('Off-Guard')
+      end
+
+      # A weapon loaded again: as many actions as it takes, each an Interact.
+      def self.reload(scene, term)
+        loaded = Loading.reload(scene.actor.holder, attacks_of(scene.actor.holder).map(&:last), term)
+
+        return Err.new(:nothing_to_reload, 'pf2e.reload_nothing') unless loaded
+
+        stopped = Restraints.refusal(scene.actor, 'Interact', [ 'manipulate' ])
+        return stopped if stopped
+
+        cost = WeaponTraits.reload(loaded).clamp(1, 3)
+        out = report
+        out['lines'] << told('pf2e.reloaded', :actor => scene.actor.label, :weapon => loaded['name'], :actions => Actions::COSTS[cost])
+        Loading.load(scene.actor.holder, loaded)
+        TurnState.spend(scene.actor.holder, 'Interact', :cost => cost, :type => 'action')
 
         Ok.new(:state => out)
       end
@@ -1865,10 +1915,28 @@ module AresMUSH
                                       :attack => Array(entry['traits']).include?('attack') && !entry['no_map'],
                                       :frequency => frequency)
 
+        reloaded(scene, entry, out)
+
         return unless frequency && before >= frequency['max'].to_i
 
         out['lines'] << told('pf2e.act_frequency_reached', :action => name, :max => frequency['max'],
                                                         :per => frequency['per'], :used => before + 1)
+      end
+
+      # An action that has its taker Interact to reload does: the first of their weapons that needs it.
+      # A tactic that has others reload is not one.
+      RELOADS = /\bInteract to reload\b/i
+
+      def self.reloaded(scene, entry, out)
+        return unless entry['description'].to_s.match?(RELOADS) && !Array(entry['traits']).include?('tactic')
+
+        holder = scene.actor.holder
+        loaded = Loading.reload(holder, attacks_of(holder).map(&:last))
+
+        return unless loaded
+
+        Loading.load(holder, loaded)
+        out['lines'] << told('pf2e.act_reloaded', :actor => scene.actor.label, :weapon => loaded['name'])
       end
 
       def self.refused(out, said)
