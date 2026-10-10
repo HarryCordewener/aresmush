@@ -36,12 +36,15 @@ module AresMUSH
         able(found.state, doing)
       end
 
-      # A creature with no hit points left, or a character knocked out, does nothing - but for answering
-      # the hit that knocked them out, which the rules have happen before it lands, and for what a
-      # creature's stat block gives it to do as it drops.
+      # What leaves someone unable to act at all.
+      HELPLESS = %w{Unconscious Paralyzed Petrified}.freeze
+
+      # A creature with no hit points left, or anyone knocked out, paralyzed or turned to stone, does
+      # nothing - but for answering the hit that knocked them out, which the rules have happen before it
+      # lands, and for what a creature's stat block gives it to do as it drops.
       def able(combatant, doing = nil)
         holder = combatant.holder
-        down = Actors.of(holder).creature? ? holder.hp_left.to_i <= 0 : Pf2e.held_conditions(holder).key?('Unconscious')
+        down = (Actors.of(holder).creature? && holder.hp_left.to_i <= 0) || (Pf2e.held_conditions(holder).keys & HELPLESS).any?
 
         return Ok.new(:state => combatant) unless down && !Acting.answering?(holder, doing)
 

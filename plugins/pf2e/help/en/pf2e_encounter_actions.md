@@ -91,6 +91,34 @@ ranged attack cannot reach.
 Anything else is a circumstance the rules may ask about: `unintelligible`, a skill for Aid, a variant
 like `stabilize`.
 
+`silver`, `cold iron`, `holy`, `magical` and the like - What your weapon is made of or carries, which
+the game cannot see. A creature weak to it takes more, and a resistance that excepts it does not apply:
+`+e/strike #3=longsword/cold iron`.
+
+## Holding and being held
+
+A creature that grabs you holds you, and `+e/view` says who. While you are held:
+
+- Grabbed or restrained, you are immobilized: an action that moves you is refused.
+- Grabbed, anything that takes your hands - Interact, most spells - rolls a DC 5 flat check first, and
+  is lost on a 4 or less. A spell lost this way is not spent.
+- Restrained, you can do nothing with the attack or manipulate trait but Escape or Force Open.
+- `+e/act escape` is against whoever holds you, without naming it.
+- The hold ends when its turn says, when you Escape, or when whoever holds you drops.
+
+Swallowed or engulfed, you are inside the creature: grabbed there with no end to it, slowed, and
+taking its damage at the end of each of your turns. It is off-guard to you. A single blow of piercing
+or slashing damage as great as its Rupture value cuts you out, and so does an Escape.
+
+## Afflictions
+
+A venom, a disease or a curse has stages. You save as you catch it - a failure is stage 1, a critical
+failure stage 2 - and again at the end of your turn when a stage counted in rounds has had its time:
+down a stage for a success, two for a critical success, up one for a failure, two for a critical
+failure. Below stage 1 you are free of it. What a stage does to you is yours while you are at it, and
+`+e/view` names the affliction beside each condition it gave you. Your turn's reminder says when a
+save is due.
+
 ## What happens
 
 A consequence the action states outright happens: a successful Trip knocks the target prone, a

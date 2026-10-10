@@ -79,7 +79,7 @@ module AresMUSH
         # Time has passed: what ran out ends, what heals heals, what burns burns. The room is told each.
         Pf2e::Turns.advanced(encounter, ending, ending_round, initlist[this_init].label,
                              moved.state['round']).each do |event|
-          notice = t(event['key'], **Pf2e::CharState.symbolize(event['args']))
+          notice = Pf2e::Telling.render(event)
 
           Pf2e::Encounters::Announce.tell(encounter, notice, :room => enactor_room, :story => true)
         end

@@ -79,6 +79,15 @@ module AresMUSH
           expect(text_of(elite, 'Fire Breath')).to include('deals 4d6+4 fire damage', 'DC 22 basic Reflex', 'again for 1d4 rounds')
         end
 
+        it "should add to the first of what an ability deals, and not to each kind of it" do
+          swallow = { 'name' => 'Swallow Whole', 'type' => 'action', 'cost' => 1,
+                      'text' => "Medium, (1d8+1) bludgeoning, 1d6 acid, Rupture 5%rIf a swallowed creature is of the maximum size " \
+                                "listed, the monster can't use Swallow Whole again." }
+          adjusted = Adjustments.apply(block.merge('actions' => [ swallow ]), 'elite')
+
+          expect(text_of(adjusted, 'Swallow Whole')).to start_with('Medium, (1d8+3) bludgeoning, 1d6 acid, Rupture 5')
+        end
+
         it "should leave alone a flat check, extra damage and persistent damage" do
           expect(text_of(elite, 'Burning')).to eq block['actions'].last['text']
         end

@@ -506,7 +506,7 @@ en:
     act_persistent_ended: "  %{target} no longer takes persistent %{type} damage."
     act_hp_left: "%{target}: %{hp} HP."
     act_crit_spec: "  Critical specialization (%{group}):"
-    act_cannot_act: "%{actor} is out of the fight - no hit points left, or unconscious - and can do nothing."
+    act_cannot_act: "%{actor} can do nothing: no hit points left, or unconscious, paralyzed or petrified."
     act_own_command: "%{action} has a command of its own: %{command}."
     act_one_target: "%{action} is aimed at one target. Only an ability that deals damage against a save takes several."
     drain_name_a_spell: "Name the spell to cast again: +e/act drain bonded item/<spell>."

@@ -216,7 +216,7 @@ module AresMUSH
           run(PF2EncounterScanCmd, 'e/scan')
           run(PF2EncounterCreatureCmd, 'e/creature #2')
 
-          expect(heard).to match(/Goblin Warrior #2\s*%bElite 1/)
+          expect(heard).to match(/#2\s+Goblin Warrior\s*%bElite 1/)
           expect(heard).to include('Elite Creature 1')
         end
 

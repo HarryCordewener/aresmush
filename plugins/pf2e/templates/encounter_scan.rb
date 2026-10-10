@@ -63,7 +63,10 @@ module AresMUSH
         figures = one.creature? ? CREATURE : CHARACTER
         saves = %w{fortitude reflex will}.map { |save| left(signed(figures['save'].call(holder, save)), 4) }
 
-        "%b#{left(one.ref, 4)}#{left(one.label, 18)}%b#{left(figures['kind'].call(holder), 12)}%b" \
+        # The id has its own column, so a name that ends with it is shown without.
+        name = one.label.sub(/ #{Regexp.escape(one.ref)}\z/, '')
+
+        "%b#{left(one.ref, 4)}#{left(name, 18)}%b#{left(figures['kind'].call(holder), 12)}%b" \
           "#{left(figures['hp'].call(holder), 15)}%b#{left(figures['ac'].call(holder), 3)}%b" \
           "#{left(signed(figures['perception'].call(holder)), 4)}%b#{saves.join('%b')}%b" \
           "#{figures['reactive'].call(holder) ? 'Y' : 'N'}"

@@ -934,11 +934,15 @@ module AresMUSH
 
         felt = []
         sharp = 0
+        # A hit brings someone a step nearer death once, by whichever kind of its damage first gets through.
+        stepped = false
 
-        DamageRoll.by_type(immediate + precise).each_with_index do |row, index|
-          held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical, :continuing => index.positive?,
+        DamageRoll.by_type(immediate + precise).each do |row|
+          was = still_up(whom.holder)
+          held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical, :continuing => stepped,
                                                                       :about => Array(out['about']) + Array(row['categories']),
                                                                       :once => felt)
+          stepped ||= !held['fate'].nil? || still_up(whom.holder) != was
           fate ||= held['fate']
           taken += held['amount'].to_i
           physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])

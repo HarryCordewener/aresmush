@@ -68,6 +68,35 @@ How far an encounter may go depends on who runs it:
 `encounter/end <encounter ID>`: Ends an encounter. Trust given for it, the cover and concealment set in it, and what may be used once an encounter all end with it.
 `encounter/restart <encounter ID>`: Restarts an encounter, so long as the scene has not ended.
 
+## Running a creature
+
+`+e/as <#id>=strike <target>[=<Strike>]`, `=act <ability>[=<targets>]`, `=cast <spell>=<targets>` and
+`=enter <aura>=<targets>` act for a creature. What its stat block gives it is run where the rules can
+be:
+
+- **A Strike's follow-up** - Grab, Knockdown, Push and their Improved forms - is offered when the Strike
+  that lists it hits, and is its very next action: `+e/as #5=act grab=#2`. A Grab on someone it already
+  holds tightens the hold to the end of its next turn, without a roll.
+- **Constrict** crushes everyone it holds, or those you name among them. **Swallow Whole** needs it to
+  hold the target; **Engulf** and **Trample** take every target you name. **Rend** needs two hits
+  running with its listed Strike. **Ferocity** is offered when it drops.
+- **An ability that calls for a save** - a breath, a gaze, a swarm's bites - is aimed at as many as you
+  name, and each rolls it: `+e/as #5=act flame breath=#1,#2,#3`. What its outcomes name is left on
+  them, and damage in its words is dealt by the save.
+- **An aura with a save** - Frightful Presence, Stench - is rolled by whoever you put inside it with
+  `+e/as #5=enter frightful presence=#1,#2`. Whoever has saved is immune for as long as its words say.
+- **A venom or disease** on its Strike is saved against as the Strike hits, and runs its stages from
+  there. `+e/affliction <who>=<name>/<stage>` moves it by hand: a stage counted in days, a cure with 0.
+- **A breath that takes rounds to come back**, and a reaction already spent, are yours to allow: you
+  are told when the breath is back, and warned if you use either early.
+- **A circumstance** its stat block makes a toggle - Pack Attack, a charge - is off until you say it
+  holds: `/pack attack` on the Strike, or `+e/option #5=pack-attack/on`.
+- **Immunities, weaknesses and resistances** apply by what the damage is: a swarm resists a blade and
+  is hurt more by a fireball; a devil's resistance lets silver through. `encounter/scan` lists them.
+- **The incapacitation trait** moves the outcome a degree for a creature too strong for the effect.
+
+Anything else on its stat block is told with its words when used, for you to run.
+
 ## A creature of your own
 
 A Plotmaster or staff describes a creature on one line: its figures first, then whatever else it has,
@@ -77,10 +106,10 @@ each part after a semicolon and named by its first word.
 
 - **Figures**: `ac` and `hp` are needed; `level`, `fort`, `ref`, `will`, `perception`, `speed` (and `fly`, `swim`, `climb`, `burrow`), and its attribute modifiers `str dex con int wis cha`, which stand in for a skill it does not list.
 - `skills <skill> <n>, ...`
-- `immune <type>, ...`; `weak <type> <n>, ...`; `resist <type> <n>, ...`
+- `immune <type>, ...`; `weak <type> <n>, ...`; `resist <type> <n>[ except <type>[ or <type>]], ...`: `resist physical 10 except silver`
 - `traits <trait>, ...`; `size <size>`; `rarity <rarity>`; `senses <sense>, ...`
 - `strike <name> <bonus> <damage> <type>[ plus <damage> <type>][ (<traits>)]`, as many as it has. `ranged` for a ranged one, with `range <feet>` among its traits. `1d4 persistent bleed` is persistent damage.
-- `ability <name>[ [<1|2|3|reaction|free|passive>]]: <what it does>`. One whose words give damage and a basic save - `3d6 fire damage (DC 20 basic Reflex save)` - rolls them when it is used with `+e/as <#id>=act <ability>=<targets>`.
+- `ability <name>[ [<1|2|3|reaction|free|passive>]]: <what it does>`. One whose words give a save rolls it when used with `+e/as <#id>=act <ability>=<targets>`: damage against it - `3d6 fire damage (DC 20 basic Reflex save)` - is dealt by the save, and outcomes written as a stat block writes them, each on a line of its own after `%r` - `Failure The creature is Frightened 2.` - leave the conditions they name.
 
 It fights as a creature from the bestiary does, and can be made elite or weak.
 

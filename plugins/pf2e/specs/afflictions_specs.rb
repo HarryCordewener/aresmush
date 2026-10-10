@@ -187,6 +187,21 @@ module AresMUSH
         expect(Afflictions.on(npc(3))).to eq []
       end
 
+      it "should leave whoever a stage paralyzes unable to act" do
+        as(2, "act giant wasp venom=#{@hero.name}", FightBench::LOW)
+        run(PF2EncounterAfflictionCmd, "e/affliction #{@hero.name}=giant wasp venom/3")
+        hero_types('e/strike #2=fist')
+
+        expect(refused).to eq [ t('pf2e.act_cannot_act', :actor => @hero.name) ]
+      end
+
+      it "should leave a paralyzed creature unable to act too" do
+        Pf2e.set_condition(npc, 'Paralyzed')
+        as(2, "strike #{@hero.name}")
+
+        expect(refused).to eq [ t('pf2e.act_cannot_act', :actor => 'Giant Wasp #2') ]
+      end
+
       it "should remind them of it as their turn starts" do
         as(2, "act giant wasp venom=#{@hero.name}", FightBench::LOW)
 

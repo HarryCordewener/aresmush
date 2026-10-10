@@ -37,8 +37,9 @@ module AresMUSH
       # A DC an ability names, which a flat check's is not.
       DC = /\bDC (\d+)\b(?! flat)/
 
-      # An ability it cannot use every round deals twice the difference.
-      LIMITED = /\bFrequency\b|\bonce per\b|can't use [^.%]{1,60} again/i
+      # An ability it cannot use every round deals twice the difference: one with a frequency, or one it
+      # cannot use again for some rounds.
+      LIMITED = /\bFrequency\b|\bonce per\b|can't use [^.%]{1,60} again for\b/i
 
       def self.names
         ROWS.keys
@@ -91,7 +92,8 @@ module AresMUSH
 
         amount = text.match?(LIMITED) ? by * 2 : by
 
-        text.gsub(DC) { "DC #{$1.to_i + by}" }.gsub(self.dealt) { plus($~[:formula], amount) }
+        # The first of what it deals, as the first of a Strike's damage is.
+        text.gsub(DC) { "DC #{$1.to_i + by}" }.sub(self.dealt) { plus($~[:formula], amount) }
       end
 
       # A formula with a flat amount more or less: `1d8+6` and 2 is `1d8+8`, `1d6` and -2 is `1d6-2`.

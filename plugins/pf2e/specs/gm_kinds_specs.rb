@@ -422,6 +422,21 @@ module AresMUSH
             expect(Pf2e.condition_level(hero, 'Dying')).to eq 2
           end
 
+          # What the first kind of damage did not get through - temporary hit points, a resistance - the
+          # second still can: the hit drops them a step once, whichever kind of its damage lands.
+          it "should bring someone dying a step nearer for a hit whose second kind of damage is what lands" do
+            run(PF2EncounterAddCmd, 'e/add goblin warrior', @plotmaster)
+            hero.update(:damage => Pf2eHP.get_max_hp(hero), :temp_hp => 3)
+            Pf2e.set_condition(hero, 'Dying', 1)
+            goblin = Combatants.find(encounter, '#2').state
+            aria = Combatants.find(encounter, @hero.name).state
+            scene = Acting::Scene.new(encounter, goblin, aria, Character[@plotmaster.id], true)
+
+            Acting.deal(scene, aria, [ { 'amount' => 3, 'type' => 'fire' }, { 'amount' => 5, 'type' => 'piercing' } ], Acting.report)
+
+            expect(Pf2e.condition_level(hero, 'Dying')).to eq 2
+          end
+
           it "should come at the Plotmaster's word" do
             run(PF2ConditionSetCmd, "condition/set #{@hero.name}=dead", @plotmaster)
 
