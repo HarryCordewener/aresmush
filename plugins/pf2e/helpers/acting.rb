@@ -299,10 +299,12 @@ module AresMUSH
           dc = defence && defence['dc']
         end
 
-        result = Resolve.roll(rolled_check, :dc => dc, :extra => extra)
+        spared = scene.target && Incapacitation.spares?(entry['traits'], scene.target.holder, :source => scene.actor.holder)
+        result = Resolve.roll(rolled_check, :dc => dc, :extra => extra, :shift => Incapacitation.shift(spared, :against))
         statistic = stat_name ? stat_name.to_s : kind.capitalize
 
         out['lines'] << check_line(scene, name, statistic, result, check, defence, dc)
+        out['lines'] << told('pf2e.act_incapacitation_against', :target => scene.target.label) if spared
         out['detail'] += detail_lines(name, statistic, result, defence)
 
         return unless result['degree']
@@ -863,7 +865,7 @@ module AresMUSH
 
         targets.each do |target|
           each = Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted)
-          mechanics = named.equal?(base) ? way_for(base, target) : named
+          mechanics = (named.equal?(base) ? way_for(base, target) : named).merge('cast_rank' => rank)
           attack = mechanics['attack']
           out['about'] = DamageAbout.of_spell(mechanics)
 
@@ -1044,11 +1046,14 @@ module AresMUSH
         check = Check.of(target.holder, 'save', save, Resolve.seen_as(scene.actor.holder, 'origin') + Array(mechanics['traits']))
         # Standard or greater cover helps a Reflex save against an area.
         extra = save == 'reflex' && mechanics['area'] ? [ Resolve.cover_modifier(cover_of(scene, {}), 'reflex') ].compact : []
-        result = Resolve.roll(check, :dc => dc, :extra => extra)
+        spared = Incapacitation.spares?(mechanics['traits'], target.holder, :rank => mechanics['cast_rank'],
+                                                                           :source => scene.actor.holder)
+        result = Resolve.roll(check, :dc => dc, :extra => extra, :shift => Incapacitation.shift(spared, :theirs))
 
         out['lines'] << told('pf2e.act_save_line', :target => target.label, :save => save.capitalize,
                                                 :roll => Telling.roll(result), :dc => dc,
                                                 :degree => Telling.degree(result['degree'], false))
+        out['lines'] << told('pf2e.act_incapacitation', :target => target.label) if spared
         out['detail'] += detail_lines("#{target.label}'s #{save}", save, result, nil)
 
         heal_or_hurt(scene, mechanics, formulas, result['degree'], out) if formulas.any?

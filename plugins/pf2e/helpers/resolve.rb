@@ -12,15 +12,19 @@ module AresMUSH
       # `extra` are modifiers this one roll carries that no figure does: a range increment, an action's
       # own circumstance penalty. They are stacked with the figure's, so a circumstance penalty the
       # action carries does not stack with one the character already has.
-      def self.roll(check, dc: nil, extra: [])
+      # `shift` moves the outcome once everything else has had its say, as the incapacitation trait does.
+      def self.roll(check, dc: nil, extra: [], shift: 0)
         breakdown = restacked(check.breakdown, extra)
         rolled = d20([ check ])
         total = rolled['face'] + breakdown['total'].to_i
 
         check.rolled!(total, dc, rolled['die'])
 
+        degree = degree([ check ], total, dc, rolled['die'])
+        degree = Degree.shift(degree, shift) if degree && shift != 0
+
         rolled.except('face').merge('modifier' => breakdown['total'].to_i, 'total' => total, 'dc' => dc,
-                                    'degree' => degree([ check ], total, dc, rolled['die']), 'breakdown' => breakdown)
+                                    'degree' => degree, 'shift' => shift, 'breakdown' => breakdown)
       end
 
       FORTUNE = { 'keep-higher' => 'fortune', 'keep-lower' => 'misfortune' }.freeze

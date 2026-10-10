@@ -550,6 +550,8 @@ en:
     act_dying: "  %{target} is dying: Dying %{value}."
     act_spared: "  %{target} would have died, and is unconscious instead: this encounter does not kill."
     act_dead: "  %{target} is dead."
+    act_incapacitation: "  %{target} is too strong to be taken out by it (incapacitation): their outcome is one degree better."
+    act_incapacitation_against: "  %{target} is too strong to be taken out by it (incapacitation): the outcome is one degree worse."
     act_immune: "  %{target} is immune (%{to}): nothing of it touches them."
     act_crit_immune: "  %{target} is immune to critical hits, and takes a hit's damage."
     act_revived: "  %{target} is no longer dead: unconscious, with no hit points."
