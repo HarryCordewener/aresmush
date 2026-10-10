@@ -42,6 +42,7 @@ module AresMUSH
         @gm = Character.create(:name => "Gm#{rand(1000000)}", :room => @room)
         Roles.add_role(@gm, 'approved')
         @gm = Character[@gm.id]
+        @staff = @gm
 
         say "# #{@name}: a party of #{@seats.size} at level #{@level}, in a scene"
         say ''

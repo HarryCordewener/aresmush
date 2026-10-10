@@ -97,6 +97,30 @@ module AresMUSH
       }.freeze
 
       # An adventure's two fights, with an exploration before each: creatures none of FIGHTS uses.
+      # Fights for each kind of GM. An event runner's are Monster Core's creatures, made elite or weak to
+      # suit the party; a Plotmaster's bring one of their own making and a creature from another book.
+      GM_FIGHTS = {
+        :runner => { 1 => [ [ [ 2, 'weak Wolf' ], [ 1, 'elite Giant Rat' ] ], [ [ 1, 'elite Python' ], [ 1, 'Kobold Warrior' ] ] ],
+                     6 => [ [ [ 1, 'weak Stone Giant' ], [ 1, 'elite Basilisk' ] ], [ [ 1, 'Frost Drake' ], [ 2, 'elite Dire Wolf' ] ] ] },
+        :plotmaster => { 11 => [ [ 'elite Warlord=ac 31 hp 190 level 11 fort 22 ref 18 will 20 perception 21 str 6 dex 3; ' \
+                                   'skills athletics 23, intimidation 21; resist physical 5; weak cold iron 10; immune fear; ' \
+                                   'strike greataxe +24 2d12+12 slashing (sweep, reach 10); ranged javelin +21 2d6+10 piercing (range 30); ' \
+                                   'ability Whirlwind [2]: Each creature within reach takes 4d8 slashing damage (DC 30 basic Reflex save).',
+                                   [ 2, 'Guard' ] ],
+                                 [ [ 1, 'elite Fire Giant' ], [ 1, 'weak Lich' ] ] ] }
+      }.freeze
+
+      # Fights against creatures with the most to do: grabs and what follows them, swallowing, auras of
+      # fear, breaths that take rounds to come back, venoms with stages, reactions, and spells. Played by
+      # a GM who uses all of it (`CreaturePlay`).
+      BY_THE_BOOK = {
+        1 => [ [ [ 1, 'Python' ], [ 2, 'Wolf' ] ], [ [ 1, 'Giant Rat' ], [ 1, 'Orc Veteran' ], [ 1, 'Ghoul Stalker' ] ] ],
+        6 => [ [ [ 1, 'elite Snapping Flytrap' ], [ 2, 'Giant Wasp' ] ], [ [ 1, 'Dullahan' ], [ 1, 'Forest Troll' ] ] ],
+        11 => [ [ [ 1, 'Adamantine Dragon (Young)' ], [ 1, 'Nuckelavee' ] ], [ [ 1, 'Diabolic Dragon (Young)' ], [ 1, 'Garadasura' ] ] ],
+        16 => [ [ [ 1, 'Adamantine Dragon (Ancient)' ], [ 1, 'Jotund Troll' ] ], [ [ 1, 'Phasmadaemon' ], [ 1, 'Thulgant' ] ] ],
+        20 => [ [ [ 1, 'Diabolic Dragon (Ancient)' ], [ 1, 'Urveth' ] ], [ [ 1, 'Tor Linnorm' ], [ 1, 'Nessari' ] ] ]
+      }.freeze
+
       ADVENTURES = {
         1 => [ [ [ 1, 'Python' ], [ 1, 'Fire Scamp' ] ], [ [ 1, 'Draugr' ], [ 1, 'Wolf Skeleton' ] ] ],
         6 => [ [ [ 1, 'Zombie Hulk' ], [ 1, 'Iron Hag' ] ], [ [ 1, 'Skittering Slayer' ] ] ],

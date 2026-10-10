@@ -50,7 +50,7 @@ module AresMUSH
       # With none left standing, the GM brings in another of the wave's creatures, so every probe has a
       # target.
       def aim
-        type(@gm, "e/add 1 #{@wave.first.last}") unless foe
+        type(@gm, "e/add #{adding(@wave.first)}") unless foe
         row = foe
         [ "##{row['id']}", Pf2eNpc[row['npc']] ]
       end
@@ -139,6 +139,11 @@ module AresMUSH
           wanted = { 3 => 2, 2 => 1 }.fetch(degree, 0)
           now = value_of(holder, 'Frightened')
 
+          # The mindless and the fearless are untouched by it, whatever would have been rolled.
+          if IWR.immune_to_effect?(IWR.for(holder), Actions.info('Demoralize')['traits']) || Pf2e.immune_to?(holder, 'Frightened')
+            next [ now == before, "an immune target went from Frightened #{before} to #{now}" ]
+          end
+
           next [ true, nil ] if wanted.zero? && now == before
           next [ false, "degree #{degree} should leave Frightened #{wanted}, holds #{now}" ] unless now == [ wanted, before ].max
           next [ true, nil ] if holder.class[holder.id].hp_left.zero?
@@ -221,24 +226,37 @@ module AresMUSH
         probe('Bless is +1 status to the attack of whoever it is on') do
           ref, _holder = aim
           type(@gm, "effect/add #{blessed.name}=bless")
-          type(blessed, "e/strike #{ref}=#{weapon_of(blessed) || 'fist'}")
+          struck = type(blessed, "e/strike #{ref}=#{weapon_of(blessed) || 'fist'}")
+
+          # Someone restrained, or inside what they would strike at, makes no Strike to read.
+          next [ true, nil ] unless struck.ok?
+
           rows = rows_of((@audit.last_roll(blessed.name) || {})['result'])
           [ rows.any? { |row| row['type'] == 'status' && row['value'].to_i == 1 }, "no +1 status: #{rows.map { |row| [ row['source'], row['type'], row['value'] ] }.inspect}" ]
         end
 
         helper = @party.first
         healed = @party[2]
-        probe('a potion given to a dying ally ends their dying, and leaves them wounded and awake') do
-          type(@gm, "damage #{healed.name}=#{hp_of(healed)}")
-          dying = value_of(state_of(healed), 'Dying')
-          type(@gm, "e/loot #{helper.name}=Healing Potion (Minor)")
-          potion = state_of(helper).consumables.to_a.index { |one| one.name == 'Healing Potion (Minor)' }
-          type(helper, "e/use consumables=#{potion}/#{healed.name}")
-          held = conditions_of(state_of(healed))
+        carries = lambda do |char|
+          state_of(char).consumables.to_a.index { |one| one.name.start_with?('Healing Potion') && one.quantity.to_i.positive? }
+        end
 
-          [ dying.positive? && !held.key?('Dying') && !held.key?('Unconscious') && value_of(state_of(healed), 'Wounded') >= 1 &&
-              hp_of(healed).positive?,
-            "dying #{dying}; after the potion #{held.keys}, #{hp_of(healed)} hit points" ]
+        # A GM trusted to gives a potion out; under any other, whoever still carries one spends it.
+        type(@gm, "e/loot #{helper.name}=Healing Potion (Minor)") if Character[@gm.id].has_permission?('trusted_gm')
+        helper = ([ helper ] + @party - [ healed ]).find { |char| carries.call(char) }
+
+        if helper
+          probe('a potion given to a dying ally ends their dying, and leaves them wounded and awake') do
+            type(@gm, "condition/set #{healed.name}=wounded/0") if value_of(state_of(healed), 'Wounded').positive?
+            type(@gm, "damage #{healed.name}=#{hp_of(healed)}")
+            dying = value_of(state_of(healed), 'Dying')
+            type(helper, "e/use consumables=#{carries.call(helper)}/#{healed.name}")
+            held = conditions_of(state_of(healed))
+
+            [ dying.positive? && !held.key?('Dying') && !held.key?('Unconscious') && value_of(state_of(healed), 'Wounded') >= 1 &&
+                hp_of(healed).positive?,
+              "dying #{dying}; after the potion #{held.keys}, #{hp_of(healed)} hit points" ]
+          end
         end
 
         # A night's rest restores Constitution times level, at least level, and ends what a fight left.
@@ -257,6 +275,8 @@ module AresMUSH
 
         dropped = @party[1]
         probe('a character brought to 0 is dying, and healed is wounded') do
+          # Unwounded, so that going to nothing is Dying 1 and neither death nor being spared it.
+          type(@gm, "condition/set #{dropped.name}=wounded/0") if value_of(state_of(dropped), 'Wounded').positive?
           type(@gm, "damage #{dropped.name}=#{hp_of(dropped)}")
           dying = value_of(state_of(dropped), 'Dying')
           type(@gm, "heal #{dropped.name}=#{max_hp_of(dropped)}")
@@ -290,8 +310,11 @@ module AresMUSH
         result = mechanics['attack'] ? attack && attack['result'] : save && save['result']
 
         return unless result && result['degree']
+        # A target immune to the spell is passed by, and rolls nothing new to read.
+        return if IWR.immune_to_effect?(IWR.for(holder), mechanics['traits'])
 
         wanted = Array((mechanics['outcomes'] || {})[Degree::NAMES[result['degree']]]).select { |one| one['condition'] }
+                 .reject { |one| Pf2e.immune_to?(holder, Pf2e.canonical_condition(one['condition'])) }
         held = conditions_of(holder)
 
         wanted.each do |one|
@@ -314,7 +337,8 @@ module AresMUSH
 
         @audit.counts['turns checked for dying'] += 1
         rolled = told.any? { |line| line.include?('recovery check') }
-        dying_now = value_of(holder, 'Dying').positive?
+        # The dead roll nothing.
+        dying_now = value_of(holder, 'Dying').positive? && !Pf2e.dead?(holder.class[holder.id])
 
         return if rolled || !dying_now
 

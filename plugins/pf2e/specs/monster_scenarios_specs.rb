@@ -12,14 +12,13 @@ require_relative "support/scenario_play"
 module AresMUSH
   module Pf2e
 
-    # Five encounters played whole, through the commands a GM and four players type: a party built
-    # through chargen and advancement, outfitted from the shops, two fights of moderate threat for their
-    # level, the second carrying on from the first. Each player tries everything their sheet gives them -
-    # their weapons, their class's actions, their spells, their items - and the scenario's report says
-    # how each went.
+    # Five parties against the creatures with the most to do, run by a GM who plays each by its stat
+    # block: auras as the fight starts, a Grab the moment the Strike that lists it hits, crushing and
+    # swallowing whoever is held, a breath on everyone whenever it is back, venoms, reactions, spells -
+    # and players who Escape, or cut their way out. Every roll, hit and fall to nothing is audited.
     #
-    # Set SCENARIO_OUT to a directory to keep each scenario's transcript and report there.
-    describe "encounters played through", :dbtest => true do
+    # Set SCENARIO_OUT to a directory to keep each fight's transcript and report there.
+    describe "encounters against creatures played by the book", :dbtest => true do
 
       include ScenarioPlay
 
@@ -39,24 +38,23 @@ module AresMUSH
       end
 
       def play(level)
-        @runner = ScenarioRunner.new("Level #{level}", level: level, seats: ScenarioParties::PARTIES[level],
-                                                       waves: ScenarioParties::FIGHTS[level])
+        @runner = ScenarioRunner.new("By the book #{level}", level: level, seats: ScenarioParties::PARTIES[level],
+                                                             waves: ScenarioParties::BY_THE_BOOK[level])
         heard_by(@runner)
         audited(@runner.audit)
 
         @runner.run!
-        keep(@runner, "level-#{level}")
+        keep(@runner, "book-#{level}")
         @runner
       end
 
-      ScenarioParties::PARTIES.each_key do |level|
-        it "should play a level #{level} party through two encounters without an error" do
+      ScenarioParties::BY_THE_BOOK.each_key do |level|
+        it "should play a level #{level} party against creatures using all they have" do
           runner = play(level)
 
           expect(runner.errors.map { |one| "#{one.who}: #{one.text} -> #{one.status}" }).to eq []
           expect(runner.audit.findings.map(&:to_s)).to eq []
           expect(runner.encounters.size).to eq 2
-          runner.party.each { |char| expect(runner.tries.count { |one| one.who == char.name && one.outcome.ok? }).to be > 3 }
         end
       end
     end

@@ -12,6 +12,8 @@ module AresMUSH
     class ScenarioRunner
       include InteractionProbes
       include ExplorationPlay
+      include GmProbes
+      include CreaturePlay
 
       # One player's seat: the character's class and origin, and what they carry.
       #
@@ -44,15 +46,21 @@ module AresMUSH
       # The plugins a typed command can reach: the game's own and the scenes it is played in.
       PLAYED = AutoBuilder::PLUGINS + [ 'Scenes' ]
 
-      attr_reader :name, :level, :seats, :waves, :lines, :tries, :outcomes, :party, :gm, :encounters,
-                  :build_notes, :audit, :probes, :explorations, :scene
+      attr_reader :name, :level, :seats, :waves, :lines, :tries, :outcomes, :party, :gm, :staff, :encounters,
+                  :build_notes, :audit, :probes, :explorations, :scene, :gm_kind
 
-      def initialize(name, level:, seats:, waves:, rounds: 6)
+      # The role a Plotmaster holds, which carries the one permission that makes them one.
+      PLOTMASTER = 'plotmaster'.freeze
+
+      # `gm_kind` is who runs the fights: `:staff`, a `:plotmaster`, or a `:runner` - any approved
+      # character. Whoever it is, the party's runes are etched by staff.
+      def initialize(name, level:, seats:, waves:, rounds: 6, gm_kind: :staff)
         @name = name
         @level = level
         @seats = seats
         @waves = waves
         @rounds = rounds
+        @gm_kind = gm_kind
         @lines = []
         @tries = []
         @outcomes = []
@@ -144,12 +152,24 @@ module AresMUSH
         @room = Room.create(:name => "#{@name} Hall #{rand(1000000)}")
         @scene = Scene.create(:room => @room, :title => @name)
         @room.update(:scene => @scene)
+        seat_gm!
+
+        say "# #{@name}: a party of #{@seats.size} at level #{@level}, run by #{Gm.kind(@gm)}"
+        say ''
+      end
+
+      # The GM, and the staff member who outfits the party - the same character where the GM is staff.
+      def seat_gm!
         @gm = Character.create(:name => "Gm#{rand(1000000)}", :room => @room)
         Roles.add_role(@gm, 'approved')
-        @gm = Character[@gm.id]
 
-        say "# #{@name}: a party of #{@seats.size} at level #{@level}"
-        say ''
+        if @gm_kind == :plotmaster
+          Role.create(:name => PLOTMASTER, :permissions => [ 'kill_pc' ]) unless Role.find_one_by_name(PLOTMASTER)
+          Roles.add_role(@gm, PLOTMASTER)
+        end
+
+        @gm = Character[@gm.id]
+        @staff = @gm_kind == :staff ? @gm : Character.create(:name => "Staff#{rand(1000000)}", :room => @room)
       end
 
       def gm_name
@@ -217,15 +237,15 @@ module AresMUSH
 
       def etch!(char, runes, weapons, armor)
         weapons.times do |n|
-          type(@gm, "etch/potency #{char.name}=weapons/#{n}/#{runes['potency']}") if runes['potency'].to_i > 0
-          type(@gm, "etch/striking #{char.name}=weapons/#{n}/#{runes['striking']}") if runes['striking'].to_i > 0
-          Array(runes['property']).each { |rune| type(@gm, "etch/property #{char.name}=weapons/#{n}/#{rune}") }
+          type(@staff, "etch/potency #{char.name}=weapons/#{n}/#{runes['potency']}") if runes['potency'].to_i > 0
+          type(@staff, "etch/striking #{char.name}=weapons/#{n}/#{runes['striking']}") if runes['striking'].to_i > 0
+          Array(runes['property']).each { |rune| type(@staff, "etch/property #{char.name}=weapons/#{n}/#{rune}") }
         end
 
         return unless armor
 
-        type(@gm, "etch/potency #{char.name}=armor/0/#{runes['armor_potency']}") if runes['armor_potency'].to_i > 0
-        type(@gm, "etch/resilient #{char.name}=armor/0/#{runes['resilient']}") if runes['resilient'].to_i > 0
+        type(@staff, "etch/potency #{char.name}=armor/0/#{runes['armor_potency']}") if runes['armor_potency'].to_i > 0
+        type(@staff, "etch/resilient #{char.name}=armor/0/#{runes['resilient']}") if runes['resilient'].to_i > 0
       end
 
       # A prepared caster fills every slot they have, with spells that do something in a fight first.
@@ -282,7 +302,7 @@ module AresMUSH
         return if items.empty?
 
         items.each do |item|
-          type(@gm, "formulas/add #{char.name}=consumables/#{item}")
+          type(@staff, "formulas/add #{char.name}=consumables/#{item}")
           type(char, "alchemy/prepare #{item}/2")
         end
 
@@ -300,7 +320,7 @@ module AresMUSH
       # from the exploration, which brings everyone into it with initiative rolled.
       def fight!(wave, carries_on: nil, from_exploration: false)
         @wave = wave
-        say "## Encounter: #{wave.map { |count, creature| "#{count} #{creature}" }.join(', ')}"
+        say "## Encounter: #{wave.map { |entry| adding(entry) }.join(', ')}"
 
         type(@gm, carries_on ? "encounter =#{carries_on.id}" : 'encounter')
         @encounter = PF2Encounter.scene_active_encounter(Scene[@scene.id])
@@ -313,10 +333,12 @@ module AresMUSH
           @party.each { |char| type(char, 'e/join') }
           type(@gm, 'e/rest') unless carries_on
         end
-        wave.each { |count, creature| type(@gm, "e/add #{count} #{creature}") }
+        wave.each { |entry| type(@gm, "e/add #{adding(entry)}") }
         type(@gm, 'e/view')
+        type(@gm, 'e/scan')
         type(@gm, 'e/next')
         interactions!
+        gm_probes!
 
         @rounds.times do |round|
           break if foes.empty?
@@ -341,12 +363,19 @@ module AresMUSH
         type(@gm, 'e/history')
         type(@gm, 'e/undo')
         type(@gm, 'e/redo')
-        type(@gm, 'e/award')
-        @party.each { |char| type(@gm, "e/award #{encounter.id}=#{char.name}=80/10 gp") }
+        # Rewards are staff's to pay, whoever ran the fight.
+        type(@staff, "e/award #{encounter.id}")
+        @party.each { |char| type(@staff, "e/award #{encounter.id}=#{char.name}=80/10 gp") }
         type(@gm, "encounter/end #{encounter.id}")
 
         say ''
         @encounter
+      end
+
+      # What the GM types after `e/add` for one entry of a wave: a count and a creature, or - for a
+      # creature of the GM's own making - the whole of it.
+      def adding(entry)
+        entry.is_a?(String) ? entry : entry.join(' ')
       end
 
       def act_on_turn
@@ -410,50 +439,15 @@ module AresMUSH
       # uses one of its own abilities or spells. The probes knock a character out on purpose; spreading
       # the blows lets everyone play the fight through.
 
-      def creature_turn(row)
-        target = @party.reject { |char| down?(char) }.max_by { |char| hp_of(char) } || @party.first
-        npc = Pf2eNpc[row['npc']]
-        block = npc.stat_block || {}
-
-        type(@gm, "e/as ##{row['id']}=strike #{target.name}")
-
-        # A player answers a hit with what the game offers: Nimble Dodge where it would turn the hit, then
-        # Shield Block behind a raised shield.
-        AttackAnswers.offered(state_of(target)).first(1).each { |name| attempt(target, :act, name, "e/act #{name.downcase}") }
-        attempt(target, :act, 'Shield Block', 'e/act shield block') if ShieldBlock.offered?(state_of(target))
-
-        unless @tried[:creatures][row['id']]
-          @tried[:creatures][row['id']] = true
-
-          ability = Array(block['actions']).find { |one| %w{action free}.include?(one['type'].to_s) }
-          type(@gm, "e/as ##{row['id']}=act #{ability['name']}=#{target.name}") if ability
-
-          spell = creature_spell(block)
-          type(@gm, "e/as ##{row['id']}=cast #{spell}=#{target.name}") if spell
-        end
-
-        type(@gm, "e/creature ##{row['id']}")
-      end
-
-      def creature_spell(block)
-        casting = Array(block['spellcasting']).first
-
-        return nil unless casting
-
-        spells = casting['spells'] || {}
-        rank = spells.keys.reject { |key| key.to_s == '0' }.max_by(&:to_i)
-
-        rank ? Array(spells[rank]).find { |spell| fighting?(spell) } || Array(spells[rank]).first : nil
-      end
-
       # ------------------------------------------------------------------------------
       # A player's turn: up to three things they have not yet tried, else a Strike.
 
       def player_turn(char)
         return if down?(char)
 
-        # Someone who starts their turn on the ground gets up first.
+        # Someone who starts their turn on the ground gets up first, and someone held gets free.
         type(char, 'e/act stand') if (state_of(char).pf2_conditions || {}).key?('Prone')
+        struggle(char)
 
         agenda = (@agendas ||= {})[[ char.id, encounter.id ]] ||= agenda_for(char)
         undone = agenda.reject { |kind, what, _text| @tried[char.id].key?([ kind, what ]) }
@@ -465,6 +459,7 @@ module AresMUSH
           break if foes.empty?
 
           attempt(char, kind, what, command)
+          gm_reacts!(char, kind)
         end
 
         return unless undone.empty? && foe
@@ -699,7 +694,7 @@ module AresMUSH
       def cleanup!
         @encounters.each { |one| PF2Encounter[one.id]&.delete }
         @party.each { |char| Character[char.id]&.delete }
-        [ @gm, @scene, @room ].each { |one| one&.class&.[](one.id)&.delete }
+        [ @gm, @staff, @scene, @room ].compact.uniq(&:id).each { |one| one.class[one.id]&.delete }
       end
     end
   end

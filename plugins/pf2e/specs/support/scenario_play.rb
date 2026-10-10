@@ -7,13 +7,14 @@ module AresMUSH
     module ScenarioPlay
 
       # The room's emits, and what a player or the GM is told on their own, go to the runner's
-      # transcript; the GM is the only admin.
+      # transcript; the runner's staff member is the only admin, who is its GM unless the scenario seats
+      # another kind.
       def heard_by(runner)
         allow_any_instance_of(Room).to receive(:emit) { |_room, message| runner.heard(message) }
         allow_any_instance_of(Room).to receive(:emit_ooc) { |_room, message| runner.heard(message) }
         allow(Login).to receive(:emit_ooc_if_logged_in) { |who, message| runner.heard(message, who&.name) }
         allow(Login).to receive(:emit_if_logged_in) { |who, message| runner.heard(message, who&.name) }
-        allow_any_instance_of(Character).to receive(:is_admin?) { |char| char.id == runner.gm&.id }
+        allow_any_instance_of(Character).to receive(:is_admin?) { |char| char.id == runner.staff&.id }
       end
 
       # Every roll, defence and hit the fight makes, handed to the audit as it happens.
@@ -59,7 +60,7 @@ module AresMUSH
 
         return nil if Actors.of(fresh).creature?
 
-        { 'hp' => Pf2eHP.get_current_hp(fresh), 'dying' => Pf2e.condition_level(fresh, 'Dying'),
+        { 'hp' => Pf2eHP.get_current_hp(fresh), 'temp' => fresh.temp_hp.to_i, 'dying' => Pf2e.condition_level(fresh, 'Dying'),
           'wounded' => Pf2e.condition_level(fresh, 'Wounded'), 'doomed' => Pf2e.condition_level(fresh, 'Doomed'),
           'dead' => Pf2e.dead?(fresh) }
       end

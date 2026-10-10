@@ -117,7 +117,7 @@ module AresMUSH
         steps = if total >= dc + 10 then 3 elsif total >= dc then 2 elsif total <= dc - 10 then 0 else 1 end
         steps += 1 if face.to_i == 20 && result['die']
         steps -= 1 if face.to_i == 1 && result['die']
-        steps = steps.clamp(0, 3)
+        steps = (steps.clamp(0, 3) + result['shift'].to_i).clamp(0, 3)
 
         return if steps == result['degree']
 
@@ -343,9 +343,11 @@ module AresMUSH
       # A whole hit on a character, whatever kinds of damage it dealt: one that leaves them at nothing
       # leaves them Dying 1, or 2 from a critical hit, more by their Wounded - or one or two higher than
       # they were - and dead only at the value Doomed leaves for it. `before` and `after` are
-      # `{ 'hp' =>, 'dying' =>, 'wounded' =>, 'doomed' =>, 'dead' => }`.
+      # `{ 'hp' =>, 'temp' =>, 'dying' =>, 'wounded' =>, 'doomed' =>, 'dead' => }`.
       def hit_dropped(name, before, after, critical)
         return if before['dead'] || after['hp'].positive? || (before['hp'].zero? && before['dying'].zero?)
+        # Temporary hit points on someone already down may have taken all of it.
+        return if before['hp'].zero? && before['temp'].to_i.positive?
 
         @counts['hits checked for dying'] += 1
         expected = (before['dying'].positive? ? before['dying'] : before['wounded']) + (critical ? 2 : 1)
