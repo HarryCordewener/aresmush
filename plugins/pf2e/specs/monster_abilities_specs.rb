@@ -79,6 +79,13 @@ module AresMUSH
         end
 
         # It is an attack, and the creature's second of the turn after the Strike that grabbed.
+        it "should tell the room its figures, and not the rule its GM knows" do
+          swallow!
+
+          expect(heard).to include('Medium, (1d8+1) bludgeoning, 1d6 acid, Rupture 5')
+          expect(heard).to_not include('The monster attempts to swallow')
+        end
+
         it "should roll Athletics against their Reflex DC, as an attack" do
           swallow!
 

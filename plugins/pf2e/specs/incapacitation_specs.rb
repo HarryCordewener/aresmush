@@ -77,6 +77,21 @@ module AresMUSH
         Telling.lines(Acting.cast(scene, 'Charm', [ target ], []).state['lines']).join("\n")
       end
 
+      # A stat block lists a spell with how it is cast: `Charm (At Will)`.
+      it "should cast a spell its stat block lists with a note after its name" do
+        victim = Combatants.add_npc(encounter, :described => { 'name' => 'Victim', 'level' => 1, 'ac' => 10, 'hp' => 50,
+                                                                'perception' => 0, 'traits' => [],
+                                                                'saves' => { 'fortitude' => 0, 'reflex' => 0, 'will' => 0 } },
+                                               :initiative => 5).state['npc']
+        doru = Combatants.find(encounter, "##{@doru.number}").state
+        target = Combatants.find(encounter, "##{victim.number}").state
+        scene = Acting::Scene.new(encounter, doru, target, @gm, true)
+
+        told = Telling.lines(Acting.cast(scene, 'Charm (At Will)', [ target ], []).state['lines']).join("\n")
+
+        expect(told).to include('casts Charm at rank 1', 'rolls Will')
+      end
+
       it "should leave a creature of twice the spell's rank or less with the outcome it rolled" do
         expect(charmed(2).gsub(/%x\w/, '')).to include('critical failure')
       end

@@ -307,7 +307,7 @@ module AresMUSH
         return refused if refused
 
         use.out['about'] = DamageAbout.of_ability(own)
-        Acting.announce(scene, name, own, use.targets, use.out)
+        Acting.announce(scene, name, own, use.targets, use.out, :brief => true)
         Recharge.used(scene, name, own, use.out)
         row['run'].call(use)
         Acting.paid(scene, name, own, use.out) unless row['paid']

@@ -270,14 +270,17 @@ module AresMUSH
 
       # A creature's ability that no catalogue holds: its stat block's words, for the GM to run - and where
       # they say what it deals and the save against it, each target's save rolled and the damage dealt.
-      # That a creature uses an ability of its own, at whom, for what it costs, and its stat block's words.
-      def self.announce(scene, name, own, targets, out)
+      # That a creature uses an ability of its own, at whom, for what it costs, and its stat block's words:
+      # all of them where they are the GM's to run, and only its line of figures (`brief`) where the game
+      # runs it.
+      def self.announce(scene, name, own, targets, out, brief: false)
         cost = own['type'] == 'action' ? Actions::COSTS[own['cost'].to_i] || 'one action' : Actions::TYPES[own['type']]
         aimed = targets.map(&:label).join(', ')
+        words = brief ? own['text'].to_s.split('%r').first : own['text']
 
         out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => name, :cost => cost,
                                                 :target => aimed.empty? ? '' : told('pf2e.act_at', :target => aimed))
-        out['lines'] << told('pf2e.act_note', :text => own['text']) if own['text']
+        out['lines'] << told('pf2e.act_note', :text => words) unless words.to_s.empty?
       end
 
       # What using it costs the turn. A reaction already spent is the GM's to allow, and they are told.
@@ -372,6 +375,7 @@ module AresMUSH
       def self.saved_against(scene, name, target, immune, degree)
         return unless immune && scene.encounter && degree
         return if immune['after'] == 'success' && degree < Degree::SUCCESS
+        return if immune['after'] == 'critical' && degree < Degree::CRITICAL_SUCCESS
 
         held = TurnState.of(target.holder)[LATELY] || {}
         till = scene.encounter.round.to_i + immune['rounds'].to_i
@@ -1188,10 +1192,13 @@ module AresMUSH
         TurnState.spend(holder, spell, :cost => cost, :type => kind, :attack => !!attack)
       end
 
+      # A creature's stat block lists a spell with how it is cast after its name - `Fly (Constant)`,
+      # `Charm (At Will)` - and the spell is the name before that.
       def self.spell_mechanics(spell)
         catalogue = Global.read_config('pf2e_spell_mechanics') || {}
+        named = [ spell.to_s.strip, spell.to_s.sub(/\s*\([^)]*\)\s*\z/, '').strip ].uniq
 
-        catalogue.find { |name, _| name.casecmp?(spell.to_s.strip) } || [ spell, nil ]
+        named.filter_map { |one| catalogue.find { |name, _| name.casecmp?(one) } }.first || [ spell, nil ]
       end
 
       # The rank a spell is cast at: what the caster said, what the slot was, or its own; a cantrip is half

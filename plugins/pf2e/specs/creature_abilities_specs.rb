@@ -73,6 +73,13 @@ module AresMUSH
           )
         end
 
+        it "should read an immunity that only a critical success gives, from that outcome's own paragraph" do
+          text = 'Each creature must attempt a DC 34 Will save.%rCritical Success The creature is unaffected and is ' \
+                 'temporarily immune for 24 hours.%rSuccess The creature is Stupefied 1 for 1 round.'
+
+          expect(CreatureAbilities.saving(text)['immune']).to eq('after' => 'critical', 'rounds' => 1000)
+        end
+
         it "should read an immunity that only a success gives" do
           expect(CreatureAbilities.saving(stench)['immune']).to eq('after' => 'success', 'rounds' => 10)
         end

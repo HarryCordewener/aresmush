@@ -119,22 +119,25 @@ module AresMUSH
         { 'failure' => failure, 'criticalFailure' => worse.any? && found[:aside].match?(/\A\s*(?:plus|and)\b/i) ? failure + worse : (worse.any? ? worse : failure) }
       end
 
-      # For how long whoever has saved is immune to it afterwards, and whether that takes a success.
-      IMMUNE = /[^.%]*temporarily immune[^.%]*/i
-
+      # For how long whoever has saved is immune to it afterwards, and after which outcomes: any, a
+      # success, or - said in the critical success's own paragraph - only that.
       def self.immune_after(text)
-        sentence = text[IMMUNE]
+        line = text.split('%r').map(&:strip).find { |one| one.match?(/temporarily immune/i) }
 
-        return nil unless sentence
+        return nil unless line
 
+        sentence = line.split(/(?<=\.)\s+/).find { |one| one.match?(/temporarily immune/i) }
         rounds = if (found = sentence.match(/for (\d+) rounds?/i)) then found[1].to_i
                  elsif (found = sentence.match(/for (\d+) minutes?/i)) then found[1].to_i * 10
                  elsif sentence.match?(/until the (?:start|beginning|end) of/i) then 1
                  else 1000
                  end
+        after = if line.match?(/\ACritical Success\b/) then 'critical'
+                elsif sentence.match?(/\bsucceeds\b|\bsuccess\b/i) && !sentence.match?(/regardless/i) then 'success'
+                else 'any'
+                end
 
-        { 'after' => sentence.match?(/\bsucceeds\b|\bsuccess\b/i) && !sentence.match?(/regardless/i) ? 'success' : 'any',
-          'rounds' => rounds }
+        { 'after' => after, 'rounds' => rounds }
       end
 
       #   { 'formula' => '2d10+17', 'type' => 'bludgeoning', 'dc' => 40, 'save' => 'fortitude' }, or nil

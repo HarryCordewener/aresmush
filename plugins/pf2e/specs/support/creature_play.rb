@@ -175,7 +175,8 @@ module AresMUSH
           rank = spells.keys.reject { |key| key.to_s == '0' }.max_by(&:to_i)
           high = rank ? Array(spells[rank]).find { |spell| fighting?(spell) } || Array(spells[rank]).first : nil
 
-          [ high, Array(spells['0']).find { |spell| fighting?(spell) } ].compact
+          # A constant spell is already on it, and is not cast.
+          [ high, Array(spells['0']).find { |spell| fighting?(spell) } ].compact.reject { |spell| spell.match?(/\(constant\)/i) }
         end.uniq
       end
 
