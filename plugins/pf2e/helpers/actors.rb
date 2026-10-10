@@ -39,6 +39,15 @@ module AresMUSH
       end
 
       # An ability or a Strike's follow-up that no action catalogue holds, by the name typed.
+      # The conditions that are part of what they are, each with where it comes from.
+      def permanent_conditions
+        []
+      end
+
+      def reactions?
+        true
+      end
+
       def own_ability(_term)
         nil
       end
@@ -143,14 +152,37 @@ module AresMUSH
                                                                                                    :resisted => true))
       end
 
+      # What they regained, which is no more than they had lost.
       def heal(amount, options = [])
+        before = Pf2eHP.get_hp_obj(@holder).damage.to_i
+
         Pf2eHP.modify_damage(@holder, amount.to_i, true, false, nil, options)
 
-        amount.to_i
+        before - Pf2eHP.get_hp_obj(@holder).damage.to_i
       end
 
       def hit_points
         @holder.hp ? "#{Pf2eHP.get_current_hp(@holder)} / #{Pf2eHP.get_max_hp(@holder)}" : '---'
+      end
+
+      # The damage they have taken and the temporary hit points they have left, which is what a hit moves.
+      def standing
+        hp = Pf2eHP.get_hp_obj(@holder)
+
+        [ hp.damage.to_i, hp.temp_hp.to_i ]
+      end
+
+      def stand_at(damage, temp_hp)
+        Pf2eHP.get_hp_obj(@holder).update(:damage => damage, :temp_hp => temp_hp)
+      end
+
+      # The shield they have equipped.
+      def shield
+        Pf2egear::Inventory.held(@holder, 'shields').find(&:equipped)
+      end
+
+      def has_action?(name)
+        Actions.owned?(@holder, name)
       end
 
       # ------------------------------------------------------------------------------
@@ -338,6 +370,31 @@ module AresMUSH
 
       def hit_points
         "#{@holder.hp_left} / #{@holder.max_hp}"
+      end
+
+      def standing
+        [ @holder.damage.to_i, @holder.temp_hp.to_i ]
+      end
+
+      def stand_at(damage, temp_hp)
+        @holder.update(:damage => damage, :temp_hp => temp_hp)
+      end
+
+      def permanent_conditions
+        Npcs.permanent_conditions(@holder)
+      end
+
+      def reactions?
+        Npcs.reactions?(@holder)
+      end
+
+      # Its stat block's shield, with what this one of it has taken.
+      def shield
+        Npcs.shield(@holder)
+      end
+
+      def has_action?(name)
+        !own_ability(name).nil?
       end
 
       # ------------------------------------------------------------------------------

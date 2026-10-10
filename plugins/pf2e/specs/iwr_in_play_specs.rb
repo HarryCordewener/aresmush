@@ -216,6 +216,123 @@ module AresMUSH
         end
       end
 
+      # What a creature is keeps things out without its stat block saying so.
+      describe "a construct" do
+        before(:each) do
+          run(PF2EncounterAddCmd, 'e/add Golem=ac 5 hp 200; traits construct')
+          @client.said.clear
+        end
+
+        %w{bleed poison spirit vitality void}.each do |kind|
+          it "should take no #{kind} damage" do
+            expect(taken { run(PF2DamagePlayerCmd, "damage #2=12 #{kind}") }).to eq 0
+          end
+        end
+
+        it "should take damage of any other kind" do
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 fire') }).to eq 12
+        end
+
+        it "should take nothing from a blow that is nonlethal" do
+          expect(taken { run(PF2EncounterStrikeCmd, 'e/strike #2=fist', @hero) }).to eq 0
+        end
+
+        it "should not be given a condition its kind is immune to" do
+          run(PF2ConditionSetCmd, 'condition/set #2=sickened/1')
+
+          expect(@client.failures).to eq [ t('pf2e.condition_immune', :name => 'Golem #2', :condition => 'Sickened') ]
+        end
+
+        it "should be listed with what it is immune to" do
+          run(PF2EncounterScanCmd, 'e/scan')
+
+          expect(heard).to include('Immune bleed, death-effects, disease')
+        end
+      end
+
+      describe "a mindless creature" do
+        before(:each) do
+          run(PF2EncounterAddCmd, 'e/add Husk=ac 5 hp 200 will 0; traits mindless')
+          @client.said.clear
+        end
+
+        it "should be untouched by anything mental" do
+          run(PF2EncounterActCmd, 'e/act demoralize=#2', @hero)
+
+          expect(npc.pf2_conditions).to_not have_key('Frightened')
+          expect(heard).to include(t('pf2e.act_immune', :target => 'Husk #2', :to => 'mental').strip)
+        end
+      end
+
+      describe "a swarm" do
+        before(:each) do
+          run(PF2EncounterAddCmd, 'e/add Rats=ac 5 hp 200 reflex 0 fortitude 0; traits swarm')
+          @client.said.clear
+        end
+
+        %w{Grabbed Prone Restrained}.each do |condition|
+          it "should not be #{condition.downcase}" do
+            run(PF2ConditionSetCmd, "condition/set #2=#{condition.downcase}")
+
+            expect(@client.failures).to eq [ t('pf2e.condition_immune', :name => 'Rats #2', :condition => condition) ]
+          end
+        end
+
+        it "should not be knocked down by a Trip that succeeds" do
+          run(PF2EncounterActCmd, 'e/act trip=#2', @hero)
+
+          expect(npc.pf2_conditions).to_not have_key('Prone')
+        end
+      end
+
+      # Vitality harms only what void heals, and void only what it does not.
+      describe "void and vitality" do
+        it "should leave the living untouched by vitality, and harm them with void" do
+          run(PF2EncounterAddCmd, 'e/add Wolf=ac 5 hp 200')
+
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 vitality') }).to eq 0
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 void') }).to eq 12
+        end
+
+        it "should leave the undead untouched by void, and harm them with vitality" do
+          run(PF2EncounterAddCmd, 'e/add Ghoul=ac 5 hp 200; traits undead')
+
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 void') }).to eq 0
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 vitality') }).to eq 12
+        end
+
+        it "should say why nothing was taken" do
+          run(PF2EncounterAddCmd, 'e/add Wolf=ac 5 hp 200')
+          @client.said.clear
+          run(PF2DamagePlayerCmd, 'damage #2=12 vitality')
+
+          expect(heard).to include('immune')
+        end
+
+        it "should leave a living character untouched by vitality" do
+          run(PF2DamagePlayerCmd, "damage #{@hero.name}=5 vitality")
+
+          expect(Pf2eHP.get_hp_obj(CombatantStates.of(encounter, Character[@hero.id])).damage.to_i).to eq 0
+        end
+
+        it "should harm an undead character with vitality, and not with void" do
+          CombatantStates.of(encounter, Character[@hero.id]).update(:pf2_traits => [ 'undead' ])
+          run(PF2DamagePlayerCmd, "damage #{@hero.name}=5 void")
+          run(PF2DamagePlayerCmd, "damage #{@hero.name}=4 vitality")
+
+          expect(Pf2eHP.get_hp_obj(CombatantStates.of(encounter, Character[@hero.id])).damage.to_i).to eq 4
+        end
+
+        # What everything living shares is not worth a line on each of them.
+        it "should not be listed among a creature's immunities" do
+          run(PF2EncounterAddCmd, 'e/add Wolf=ac 5 hp 200')
+          @client.said.clear
+          run(PF2EncounterScanCmd, 'e/scan')
+
+          expect(heard).to_not include('vitality')
+        end
+      end
+
       # A skeleton guard is mindless: immune to anything mental, which Demoralize is.
       describe "a creature immune to a kind of effect" do
         before(:each) do

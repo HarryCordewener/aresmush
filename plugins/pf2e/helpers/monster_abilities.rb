@@ -46,11 +46,12 @@ module AresMUSH
 
       SIZE_WORDS = { 'tiny' => 0, 'small' => 1, 'medium' => 2, 'large' => 3, 'huge' => 4, 'gargantuan' => 5 }.freeze
 
-      # How big someone is, as a place in the order of sizes. A character whose sheet does not say is Medium.
+      # How big someone is, as a place in the order of sizes: a creature's stat block's size, and a
+      # character's as their ancestry and their effects leave it.
       def self.size_of(holder)
-        named = Actors.of(holder).creature? ? holder.stat_block['size'] : holder.pf2_size
+        return Size::SIZES.index(Size.of(holder)['size']) unless Actors.of(holder).creature?
 
-        SIZE_WORDS.fetch(named.to_s.downcase, SIZE_WORDS['medium'])
+        SIZE_WORDS.fetch(holder.stat_block['size'].to_s.downcase, SIZE_WORDS['medium'])
       end
 
       # `makes one Fangs Strike and two Tail Strikes`, `Strides and makes a Strike`: the Strikes an

@@ -13,7 +13,7 @@ module AresMUSH
 
       LISTED = /\A\(?(?<formula>#{FORMULA})\)? (?<type>[a-z]+)(?: damage)?, DC (?<dc>\d+) (?:basic )?(?<save>Fortitude|Reflex|Will)/
 
-      TOLD = /(?<formula>#{FORMULA}) (?<type>[a-z]+) damage[^%]{0,200}?\(DC (?<dc>\d+) (?:basic )?(?<save>Fortitude|Reflex|Will)/
+      TOLD = /\(?(?<formula>#{FORMULA})\)? (?<type>[a-z]+) damage[^%]{0,200}?\(DC (?<dc>\d+) (?:basic )?(?<save>Fortitude|Reflex|Will)/
 
       OUTCOMES = /Critical Success|Critical Failure/
 
@@ -42,7 +42,7 @@ module AresMUSH
                 [ /\buntil the (?:start|beginning) of (?:its|their|the creature's|the target's) next turn\b/i, ->(_) { 'its-next-turn-start' } ] ].freeze
 
       # Words that make a condition depend on something this does not follow.
-      DEPENDS = /\balready\b|\bunless\b|\bwhile\b|\bas long as\b|\bif (?!it fails|the (?:creature|target) fails)/i
+      DEPENDS = /\balready\b|\bunless\b|\bwhile\b|(?<!\bfor )\bas long as\b|\bif (?!it fails|the (?:creature|target) fails)/i
 
       # Whether an ability's words give a save at all, by either reading.
       def self.saves?(text)
@@ -55,7 +55,9 @@ module AresMUSH
       #     'outcomes' => { 'failure' => [ { 'condition' => 'Frightened', 'value' => 2 } ], ... },
       #     'outcome_text' => { 'failure' => 'The creature is Frightened 2.' },
       #     'immune' => { 'after' => 'any', 'rounds' => 10 } }
-      def self.saving(text)
+      #
+      # `actions` is how many were spent on it, where what it deals is by that.
+      def self.saving(text, actions = nil)
         text = text.to_s
         found = text.match(SAVE)
 
@@ -70,23 +72,41 @@ module AresMUSH
                                      spoken_outcomes(text)
 
         { 'dc' => found[:dc].to_i, 'save' => found[:save].downcase, 'basic' => !found[:basic].nil?,
-          'damage' => dealt(text), 'persistent' => burning(text), 'outcomes' => outcomes, 'outcome_text' => paragraphs,
+          'damage' => by_actions(text).fetch(actions) { by_actions(text).values.first || dealt(text) },
+          'persistent' => burning(text), 'outcomes' => outcomes, 'outcome_text' => paragraphs,
           'immune' => immune_after(text) }
       end
 
       # The persistent damage whoever fails the save also takes: `Creatures that fail the save also take
       # 1d4 persistent fire damage`.
       def self.burning(text)
-        text.scan(/\bfail[^.%]*?(#{FORMULA}) persistent ([a-z]+) damage/i).map { |formula, type| [ formula.delete(' '), type ] }
+        text.scan(/\bfail[^.%]*?(#{FORMULA})\)? persistent ([a-z]+) damage/i).map { |formula, type| [ formula.delete(' '), type ] }
       end
 
       # The damage the words deal against the save: `takes 1d6 piercing damage`. Damage a sentence gives to
       # one outcome alone is that outcome's.
       def self.dealt(text)
-        plain = sentences(text).reject { |sentence| spoken_of(sentence) }.join(' ')
-        found = plain.match(/(?<formula>#{FORMULA}) (?<type>[a-z]+) damage/)
+        plain = sentences(text).reject { |sentence| spoken_of(sentence) || closing(sentence) }.join(' ')
+        found = plain.match(DEALS)
 
         found && found[:type] != 'persistent' ? [ [ found[:formula].delete(' '), found[:type] ] ] : []
+      end
+
+      # What an ability that takes one to three actions deals for each number of them, where its words
+      # list that line by line: `2 (2d6+9) bludgeoning damage`.
+      #
+      #   { 1 => [ [ '1d8', 'bludgeoning' ], [ '1d6', 'sonic' ] ], 2 => [ [ '2d6+9', 'bludgeoning' ] ] }
+      def self.by_actions(text)
+        lines = text.to_s.split('%r').map(&:strip)
+
+        return {} unless lines.first.to_s.match?(/\A1 to [23]\z/)
+
+        lines.each_with_object({}) do |line, out|
+          found = line.match(/\A([123]) (.*\bdamage\b.*)\z/)
+          dealt = found ? found[2].scan(DEALS).map { |formula, type| [ formula.delete(' '), type ] } : []
+
+          out[found[1].to_i] = dealt if dealt.any?
+        end
       end
 
       # The conditions a stretch of words leaves, each with how long where its words say.
@@ -122,9 +142,18 @@ module AresMUSH
         [ 'success', /\A(?:on a success|a creature that succeeds)\b/i ]
       ].freeze
 
-      ASIDE = /\((?<aside>[^)]*)\)/
+      # ... or closes: `becoming Frightened 2 on a failure`, which is then about its last clause.
+      CLOSES = [
+        [ 'criticalFailure', /\bon a critical failure\z/i ],
+        [ 'failure', /\bon a (?:failure|failed save)\z/i ],
+        [ 'success', /\bon a success\z/i ]
+      ].freeze
+
+      # An aside that is about an outcome, and not a formula in brackets.
+      ASIDE = /\((?<aside>(?!#{FORMULA}\))[^)]*)\)/
       WORSE = /critical failure|critically fails/i
-      TAKES = /takes? (?<formula>#{FORMULA}) (?<type>[a-z]+) damage/
+      DEALS = /\(?(?<formula>#{FORMULA})\)? (?<type>[a-z]+) damage/
+      TAKES = /takes? #{DEALS.source}/
 
       def self.sentences(text)
         text.split('%r').flat_map { |line| line.split(/(?<=[.!?])\s+/) }.map(&:strip).reject(&:empty?)
@@ -133,6 +162,14 @@ module AresMUSH
       # Which outcome a sentence is about, by how it opens.
       def self.spoken_of(sentence)
         OPENS.find { |_outcome, pattern| sentence.match?(pattern) }&.first
+      end
+
+      # The outcome a sentence closes with and the clause that is about it, or nothing.
+      def self.closing(sentence)
+        bare = sentence.sub(ASIDE, '').strip.delete_suffix('.')
+        outcome = CLOSES.find { |_outcome, pattern| bare.match?(pattern) }&.first
+
+        outcome && [ outcome, "#{bare.split(/,\s*/).last} #{sentence[ASIDE]}" ]
       end
 
       def self.spoken_outcomes(text)
@@ -145,6 +182,8 @@ module AresMUSH
           if (found = sentence.match(SUCCEED_OR))
             outcome = 'failure'
             body = "#{found[:else]} #{found[:aside] ? "(#{found[:aside]})" : ''}"
+          elsif outcome.nil? && (found = closing(sentence))
+            outcome, body = found
           end
 
           next if outcome.nil?

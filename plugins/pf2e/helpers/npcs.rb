@@ -69,7 +69,8 @@ module AresMUSH
         held = options(npc, domains) + Array(options)
 
         met = Effects.modifiers(sources, domains, context, held).select { |one| one['met'] }
-        own = [ Stat.multiple_attack(kind, name, sources, domains, held, context) ].compact
+        own = [ Stat.multiple_attack(kind, name, sources, domains, held, context),
+                kind.to_s == 'ac' ? Pf2eCombat.raised_shield(npc) : nil ].compact
         adjusted = Modifiers.adjust(own + met, Rules.modifier_adjustments(sources, domains, held, context))
 
         Modifiers.breakdown(base.to_i, adjusted).merge('domains' => domains)
@@ -186,9 +187,15 @@ module AresMUSH
           out[kind.downcase] = Rules.declarations(sources(npc), facts(npc), kind, context(npc))
         end
 
-        { 'immunity' => Array(block['immunities']).map { |type| { 'type' => [ type ] } } + granted['immunity'],
+        { 'immunity' => immunities(block).map { |type| { 'type' => [ type ] } } + granted['immunity'] +
+                        IWR.of_mode(facts(npc)),
           'weakness' => listed(block['weaknesses']) + granted['weakness'],
           'resistance' => listed(block['resistances']) + granted['resistance'] }
+      end
+
+      # What a stat block is immune to: what it lists, and what its traits bring.
+      def self.immunities(block)
+        Array(block['immunities']) + IWR.of_traits(block['traits'], block['immunities'])
       end
 
       # A stat block's weaknesses or resistances as entries: each is a value, or a value with what it
@@ -220,11 +227,110 @@ module AresMUSH
         held = IWR.apply(iwr(npc), amount.to_i, kind, about, :once => once)
         taken = held['amount']
         soaked = [ npc.temp_hp.to_i, taken ].min
+        before = npc.hp_left
 
         npc.update(:temp_hp => npc.temp_hp.to_i - soaked, :damage => [ npc.damage.to_i + taken - soaked, npc.max_hp ].min)
         Turns.damaged(npc, kind) if kind
 
-        held
+        held.merge('segments' => segments_lost(npc, before))
+      end
+
+      # ------------------------------------------------------------------------------
+      # What it is for good
+
+      # `A zombie is permanently Slowed 1 and can't use reactions.`
+      PERMANENTLY = /\b(?:is|are|they're) permanently (Slowed|Quickened)(?: (\d))?/i
+      NO_REACTIONS = /\bpermanently Slowed\b[^.%]*\bcan't use reactions\b/i
+
+      # The conditions a creature's stat block gives it for as long as it is that creature: a passive's
+      # rule granting one, or its words. Each with the ability it comes from, as
+      # `ActiveEffects.derived_conditions` answers.
+      def self.permanent_conditions(npc)
+        passives(npc).flat_map do |ability|
+          ruled = Grants.of(ability['rules']).select { |grant| grant['catalogue'] == 'conditions' && grant['predicate'].nil? }
+                        .map { |grant| grant.slice('name', 'value') }
+          said = opening(ability).scan(PERMANENTLY).map { |name, value| { 'name' => name.capitalize, 'value' => value&.to_i } }
+
+          (ruled.any? ? ruled : said).map { |grant| [ grant, ability['name'] ] }
+        end
+      end
+
+      def self.reactions?(npc)
+        passives(npc).none? { |ability| opening(ability).match?(NO_REACTIONS) }
+      end
+
+      def self.passives(npc)
+        Array(npc.stat_block['actions']).select { |one| one['type'] == 'passive' }
+      end
+
+      def self.opening(ability)
+        ability['text'].to_s.split('%r').first.to_s
+      end
+
+      # ------------------------------------------------------------------------------
+      # Its shield
+
+      # A stat block's shield as the shield code reads one a character carries: what it is, and what
+      # this creature's has taken.
+      class Shield
+        attr_reader :name, :hardness, :hp, :ac_bonus
+
+        def initialize(npc, held)
+          @npc = npc
+          @name = held['name'] || 'Shield'
+          @hardness = held['hardness'].to_i
+          @hp = held['hp'].to_i
+          @ac_bonus = held['ac'].to_i
+        end
+
+        def nickname
+          nil
+        end
+
+        def equipped
+          true
+        end
+
+        def damage
+          @npc.shield_damage.to_i
+        end
+
+        def update(changes)
+          @npc.update(:shield_damage => changes[:damage]) if changes.key?(:damage)
+        end
+      end
+
+      def self.shield(npc)
+        held = npc.stat_block['shield']
+
+        held ? Shield.new(npc, held) : nil
+      end
+
+      # ------------------------------------------------------------------------------
+      # A troop's thresholds
+
+      # `Thresholds 60 (3 segments), 30 (2 segments)`, in its hit points' details or opening its Troop
+      # Defenses: the hit points it loses a segment below, and the segments it then has.
+      THRESHOLDS = /Thresholds? ((?:\d+ \(\d+ segments?\)(?:, )?)+)/i
+
+      def self.thresholds(npc)
+        block = npc.stat_block
+        listed = [ block['hp_details'] ] + Array(block['actions']).map { |one| one['text'].to_s.split('%r').first }
+
+        listed.filter_map { |words| words.to_s[THRESHOLDS, 1] }.first.to_s.scan(/(\d+) \((\d+)/)
+              .map { |hp, segments| { 'hp' => hp.to_i, 'segments' => segments.to_i } }
+      end
+
+      # The lowest threshold damage has just taken a troop below, which is from then on the most hit
+      # points it has: `{ 'hp' => 60, 'segments' => 3 }`, or nothing.
+      def self.segments_lost(npc, before)
+        crossed = thresholds(npc).select { |one| before >= one['hp'] && npc.hp_left < one['hp'] }.min_by { |one| one['hp'] }
+
+        return nil unless crossed
+
+        npc.update(:damage => npc.damage.to_i - (npc.max_hp - crossed['hp']), :hp_cap => crossed['hp'])
+
+        crossed
       end
 
       # What heals it as its turn starts. Its abilities' FastHealing rules where it has any - they carry

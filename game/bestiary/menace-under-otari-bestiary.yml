@@ -509,6 +509,7 @@
   speeds: {"land": 25}
   senses: ["darkvision"]
   skills: {"Athletics": 6, "Stealth": 6}
+  shield: {"name": "Shield", "hardness": 5, "hp": 20, "ac": 2}
   strikes: [{"name": "Longsword", "bonus": 8, "damage": [["1d8+3", "slashing", null]], "traits": ["versatile-p"]}, {"name": "Shortbow", "bonus": 8, "damage": [["1d6", "piercing", null]], "traits": ["deadly-d10", "reload-0"], "range": 60}]
   actions: [{"name": "Formation", "type": "passive", "traits": [], "text": "When they're adjacent to at least two other allies, the hobgoblin soldier gains a +1 circumstance bonus to AC and saving throws.", "rules": [{"key": "RollOption", "option": "formation", "toggleable": true}, {"key": "FlatModifier", "selector": ["ac", "saving-throw"], "type": "circumstance", "value": 1, "predicate": ["formation"]}]}, {"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "The hobgoblin soldier lifts up their shield to get a +2 circumstance bonus to AC until the start of their next turn"}, {"name": "Shield Block", "type": "reaction", "traits": [], "text": "If they Raised a Shield since their last turn, the hobgoblin can spend their reaction to block a Strike. Reduce the damage by 5, but the hobgoblin and the shield both take the remaining damage, possibly breaking or destroying the shield."}]
 "Horned Dragon (Juvenile, BB)":
@@ -1172,6 +1173,7 @@
   speeds: {"land": 20}
   senses: ["darkvision"]
   skills: {"Athletics": 8, "Intimidation": 5, "Stealth": 5}
+  shield: {"name": "Steel Shield", "hardness": 5, "hp": 20, "ac": 2}
   strikes: [{"name": "Spear", "bonus": 10, "damage": [["1d6+4", "piercing", null]], "traits": []}, {"name": "Heavy Crossbow", "bonus": 8, "damage": [["1d10", "piercing", null]], "traits": ["reload-2"], "range": 120}]
   actions: [{"name": "Raise a Shield", "type": "action", "traits": [], "cost": 1, "text": "The umbral gnome warrior lifts up their shield to get a +2 circumstance bonus to AC until the start of their next turn."}, {"name": "Shield Block", "type": "reaction", "traits": [], "text": "If the umbral gnome warrior has their shield raised, they can spend your reaction to block a physical attack. Reduce the amount of damage by 5, but then the umbral gnome warrior and their shield both take any damage leftover. This might break or destroy the shield. The shield has a maximum of 20 Hit Points."}]
   spellcasting: [{"name": "Primal Innate Spells", "tradition": "primal", "type": "innate", "dc": 15, "attack": 7, "spells": {"1": ["Illusory Disguise"]}}]

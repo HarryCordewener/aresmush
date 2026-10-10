@@ -63,18 +63,23 @@ module AresMUSH
         is_dc = !self.is_ndc && Pf2e::Gm.plotmaster?(enactor)
 
         dropped = Pf2e::Acting.report
+        changed = []
 
         ok_char_list = targets.map do |holder|
           standing = Pf2e::Acting.still_up(holder)
           held = Pf2e::Harm.damage(holder, self.damage, self.kind, :is_dm => is_dc, :about => self.about)
+          why = Pf2e::IWR.words(held['applied'])
+          changed << t('pf2e.damage_taken', :name => holder.name, :taken => held['amount'], :why => why.join(', ')) if why.any?
 
           Pf2e::Actors.of(holder).notify_damage(self.damage, enactor.name)
-          Pf2e::Acting.dropped(Pf2e::Combatants::Combatant.new(holder, holder.name, nil), standing, dropped, held['fate'])
+          Pf2e::Acting.dropped(Pf2e::Combatants::Combatant.new(holder, holder.name, nil), standing, dropped, held)
 
           holder.name
         end
 
         client.emit_success t('pf2e.damage_applied_ok', :list => ok_char_list.sort.join(", "), :amount => self.damage)
+        # What someone resists or is weak to is the GM's to know of the damage they named.
+        changed.each { |line| client.emit_ooc line }
 
         # The room is told who it dropped, as a Strike tells it.
         Pf2e::Telling.lines(dropped['lines']).each { |line| enactor_room.emit line.strip }

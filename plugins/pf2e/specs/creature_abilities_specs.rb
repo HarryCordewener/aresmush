@@ -153,6 +153,51 @@ module AresMUSH
           expect(CreatureAbilities.saving(text)).to include('dc' => 22, 'save' => 'fortitude', 'outcomes' => {})
         end
 
+        # A poltergeist's Frighten.
+        it "should read an outcome a sentence closes with, and what a critical failure adds for as long as it lasts" do
+          text = 'Each creature within 30 feet must attempt a DC 21 Will save, becoming Frightened 2 on a failure. ' \
+                 "On a critical failure, it's also Fleeing for as long as it's frightened. " \
+                 'On a success, the creature is temporarily immune for 1 minute.'
+          read = CreatureAbilities.saving(text)
+
+          expect(read['outcomes']['failure']).to eq [ { 'condition' => 'Frightened', 'value' => 2 } ]
+          expect(read['outcomes']['criticalFailure']).to eq [ { 'condition' => 'Frightened', 'value' => 2 }, { 'condition' => 'Fleeing' } ]
+          expect(read['immune']).to eq('after' => 'success', 'rounds' => 10)
+        end
+
+        it "should read damage whose formula is in brackets" do
+          text = 'The triggering enemy takes (2d8+9) bludgeoning damage (DC 25 basic Reflex save).'
+
+          expect(CreatureAbilities.saving(text)).to include('dc' => 25, 'basic' => true, 'damage' => [ %w{2d8+9 bludgeoning} ])
+        end
+
+        # A troop's attack: one to three actions, and more damage for each.
+        describe "whose damage is by the actions spent on it" do
+          def onslaught
+            '1 to 3%rFrequency once per round%rEffect The soldiers lash out (DC 18 basic Reflex save). The damage depends ' \
+              'on the number of actions.%r1 1d8 bludgeoning damage plus 1d6 sonic damage%r2 (2d6+9) bludgeoning damage%r' \
+              '3 (3d6+10) bludgeoning damage'
+          end
+
+          it "should read what each number of actions deals" do
+            expect(CreatureAbilities.by_actions(onslaught)).to eq(
+              1 => [ %w{1d8 bludgeoning}, %w{1d6 sonic} ], 2 => [ %w{2d6+9 bludgeoning} ], 3 => [ %w{3d6+10 bludgeoning} ]
+            )
+          end
+
+          it "should deal the least where nobody says how many" do
+            expect(CreatureAbilities.saving(onslaught)['damage']).to eq [ %w{1d8 bludgeoning}, %w{1d6 sonic} ]
+          end
+
+          it "should deal what the actions spent deal" do
+            expect(CreatureAbilities.saving(onslaught, 3)['damage']).to eq [ %w{3d6+10 bludgeoning} ]
+          end
+
+          it "should have nothing to say of an ability with one cost" do
+            expect(CreatureAbilities.by_actions('Deals 2d6 fire damage (DC 20 basic Reflex save).')).to eq({})
+          end
+        end
+
         it "should have nothing to say of an affliction, which has stages" do
           expect(CreatureAbilities.saving('Saving Throw DC 19 Fortitude%rMaximum Duration 6 rounds%rStage 1 Clumsy 1 (1 round)')).to be_nil
         end

@@ -32,8 +32,8 @@ module AresMUSH
       # Their turn has begun: three actions, a reaction, no attacks yet, and anything limited per turn or
       # per round is theirs again.
       def self.started(holder, round, stunned = 0)
-        write(holder, 'turn' => { 'round' => round.to_i, 'actions' => 0, 'attacks' => 0, 'reaction' => false,
-                                  'stunned' => stunned.to_i })
+        write(holder, 'turn' => { 'round' => round.to_i, 'actions' => 0, 'attacks' => 0,
+                                  'reaction' => !Actors.of(holder).reactions?, 'stunned' => stunned.to_i })
         reset(holder, 'turn')
       end
 
@@ -112,8 +112,14 @@ module AresMUSH
         penalty = map_penalty(now['attacks'].to_i)
 
         t('pf2e.turn_summary', :used => now['actions'].to_i, :total => [ actions(holder), 0 ].max,
-                               :reaction => now['reaction'] ? t('pf2e.reaction_spent') : t('pf2e.reaction_ready'),
+                               :reaction => reaction_words(holder, now),
                                :attack => penalty.zero? ? t('pf2e.attack_no_penalty') : t('pf2e.attack_penalty', :penalty => penalty))
+      end
+
+      def self.reaction_words(holder, now)
+        return t('pf2e.reaction_none') unless Actors.of(holder).reactions?
+
+        now['reaction'] ? t('pf2e.reaction_spent') : t('pf2e.reaction_ready')
       end
 
       def self.map_penalty(attacks)

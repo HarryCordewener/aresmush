@@ -66,6 +66,21 @@ module AresMUSH
         expect(events.map { |one| one['key'] }).to include 'pf2e.fast_healing'
       end
 
+      it "should say what was regained, which is no more than was lost" do
+        hurt(4)
+        Pf2e::ActiveEffects.apply(reread, 'Call Upon the Ancient Life', :encounter => @fight)
+
+        healed = starts.find { |one| one['key'] == 'pf2e.fast_healing' }
+
+        expect(healed['args']['count']).to eq 4
+      end
+
+      it "should say nothing of someone with nothing to regain" do
+        Pf2e::ActiveEffects.apply(reread, 'Call Upon the Ancient Life', :encounter => @fight)
+
+        expect(starts.map { |one| one['key'] }).to_not include 'pf2e.fast_healing'
+      end
+
       it "should read a formula over the character" do
         hurt(30)
         Pf2e::ActiveEffects.apply(reread, 'Crimson Shroud', :encounter => @fight)

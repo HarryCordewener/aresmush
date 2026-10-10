@@ -35,9 +35,45 @@ module AresMUSH
         options = Effects.options(char)
         context = Effects.context(char)
 
-        KINDS.each_with_object({}) do |kind, out|
+        held = KINDS.each_with_object({}) do |kind, out|
           out[kind.downcase] = Rules.declarations(sources, options, kind, context)
         end
+
+        held.merge('immunity' => held['immunity'] + of_mode(Effects.facts(char)))
+      end
+
+      # ------------------------------------------------------------------------------
+      # What someone is
+
+      # What a creature's traits keep out without its stat block saying so (`creature/helpers.ts`).
+      CONSTRUCT = %w{bleed death-effects disease doomed drained fatigued healing nonlethal-attacks paralyzed poison
+                     sickened spirit unconscious vitality void}.freeze
+      BY_TRAIT = { 'construct' => CONSTRUCT, 'mindless' => %w{mental}, 'swarm' => %w{grabbed prone restrained} }.freeze
+
+      # Vitality harms only what void heals, and void only what it does not (`actor/base.ts`): the kind
+      # of damage each mode of being is untouched by.
+      UNTOUCHED = { 'undead' => 'void', 'living' => 'vitality' }.freeze
+
+      # The immunities a creature's traits bring, beyond the ones it already lists.
+      def self.of_traits(traits, listed = [])
+        slugs = Array(traits).map { |one| Domains.slug(one) }
+        slugs -= [ 'construct' ] if slugs.include?('eidolon')
+        have = Array(listed).map { |one| Domains.slug(one) }
+
+        BY_TRAIT.select { |trait, _| slugs.include?(trait) }.values.flatten.uniq - have
+      end
+
+      # The immunity a mode of being is, held apart from the ones worth listing: everything living
+      # shares it.
+      def self.of_mode(facts)
+        kind = UNTOUCHED[facts.find { |one| one.start_with?('self:mode:') }.to_s.split(':').last]
+
+        kind ? [ { 'type' => [ kind ], 'implied' => true } ] : []
+      end
+
+      # The entries worth listing for someone.
+      def self.listed(entries)
+        Array(entries).reject { |entry| entry['implied'] }
       end
 
       # ------------------------------------------------------------------------------
@@ -75,6 +111,13 @@ module AresMUSH
         'magic' => [ { 'or' => %w{origin:action:trait:impulse item:from-spell item:type:spell} } ],
         'magical' => [ { 'or' => %w{item:magical origin:action:trait:magical} + TRADITIONS.map { |one| "origin:action:trait:#{one}" } } ],
         'non-magical' => [ { 'not' => 'item:magical' } ],
+        # All the damage of an attack with the nonlethal trait.
+        'nonlethal-attacks' => [ 'item:trait:nonlethal' ],
+        'object-immunities' => [ { 'or' => %w{bleed mental poison spirit vitality void}.map { |kind| "damage:type:#{kind}" } +
+                                           %w{origin:action:trait:vitality origin:action:trait:void} +
+                                           [ { 'and' => [ 'item:type:condition',
+                                                          { 'or' => %w{doomed drained fatigued paralyzed sickened unconscious}
+                                                                    .map { |name| "item:slug:#{name}" } } ] } ] } ],
         'persistent-damage' => [ { 'or' => [ 'damage:category:persistent',
                                              { 'and' => %w{item:type:condition item:slug:persistent-damage} } ] } ],
         'precision' => [ 'damage:component:precision' ],
@@ -85,8 +128,9 @@ module AresMUSH
         'weapons' => [ 'item:type:weapon', { 'not' => 'item:category:unarmed' } ]
       }.freeze
 
-      # A weakness to a material is also to what counts as it.
-      ALSO = { 'cold-iron' => 'sovereign-steel', 'silver' => 'dawnsilver' }.freeze
+      # A weakness to a material is also to what counts as it, and so is a resistance to adamantine.
+      ALSO = { 'weakness' => { 'cold-iron' => 'sovereign-steel', 'silver' => 'dawnsilver' },
+               'resistance' => { 'adamantine' => 'keep-stone' } }.freeze
 
       # Weaknesses to what does not itself deal damage - holy, water - which a hit feels once however many
       # kinds of damage it deals.
@@ -120,7 +164,7 @@ module AresMUSH
       end
 
       def self.material(type, category)
-        also = category == 'weakness' ? ALSO[type] : nil
+        also = (ALSO[category] || {})[type]
 
         also ? [ { 'or' => [ "damage:material:#{type}", "damage:material:#{also}" ] } ] : [ "damage:material:#{type}" ]
       end
@@ -180,6 +224,12 @@ module AresMUSH
         notes << "double against #{doubled.join(', ')}" if doubled.any?
 
         notes.empty? ? type : "#{type} (#{notes.join('; ')})"
+      end
+
+      # What changed some damage, in a few words each: `immune`, `weakness 5`, `resistance -3`.
+      def self.words(applied)
+        Array(applied).reject { |one| one['category'] != 'immunity' && one['adjustment'].to_i.zero? }
+                      .map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
       end
 
       # ------------------------------------------------------------------------------

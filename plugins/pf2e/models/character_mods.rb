@@ -54,7 +54,6 @@ module AresMUSH
     attribute :pf2_viewsheet, :type => DataType::Hash, :default => {}
     attribute :pf2_to_assign, :type => DataType::Hash, :default => {}
     attribute :pf2_level_tracker, :type => DataType::Hash, :default => {}
-    attribute :pf2_size, :default => ""
     attribute :pf2_movement, :type => DataType::Hash, :default => {}
     attribute :pf2_roll_aliases, :type => DataType::Hash, :default => {}
     attribute :pf2_actions, :type => DataType::Hash, :default => {}

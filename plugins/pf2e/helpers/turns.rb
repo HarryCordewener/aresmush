@@ -214,8 +214,11 @@ module AresMUSH
           next nil if one['type'] == 'regeneration' && off
           next nil unless one['value'].positive?
 
-          Harm.heal(char, one['value'])
-          event('pf2e.fast_healing', 'name' => char.name, 'count' => one['value'].to_i, 'source' => one['source'])
+          regained = Harm.heal(char, one['value'])
+          # Someone with nothing to regain is not said to regain it every round.
+          next nil unless regained.positive?
+
+          event('pf2e.fast_healing', 'name' => char.name, 'count' => regained, 'source' => one['source'])
         end.compact
       end
 

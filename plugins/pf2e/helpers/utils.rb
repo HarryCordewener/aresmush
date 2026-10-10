@@ -475,7 +475,6 @@ module AresMUSH
       :pf2_formula_book => {},
       :advancing => nil,
       :pf2_level_tracker => {},
-      :pf2_size => '',
       :pf2_roll_aliases => {},
       :pf2_actions => {},
       :pf2_is_dead => nil,

@@ -16,23 +16,22 @@ module AresMUSH
 
       PHYSICAL = %w{bludgeoning piercing slashing}.freeze
 
-      # The shield they could block with: equipped, raised, and not broken.
+      # The shield they could block with: equipped - or their stat block's - raised, and not broken.
       def self.raised(holder)
-        return nil unless Actors.of(holder).carries_items?
         return nil unless ActiveEffects.named_on(holder, 'Effect: Raise a Shield').any?
 
-        shield = Pf2egear::Inventory.held(holder, 'shields').find(&:equipped)
+        shield = Actors.of(holder).shield
 
         shield && !broken?(shield) ? shield : nil
       end
 
-      # Why a character cannot Raise a Shield - none equipped, or the one they have is broken - or nil.
-      # A creature's shield is its stat block's, and the GM's to judge.
+      # Why someone cannot Raise a Shield - none equipped, or the one they have is broken - or nil. A
+      # creature whose stat block gives it none raises what its GM says it has.
       def self.cannot_raise(holder)
-        return nil unless Actors.of(holder).carries_items?
+        actor = Actors.of(holder)
+        shield = actor.shield
 
-        shield = Pf2egear::Inventory.held(holder, 'shields').find(&:equipped)
-
+        return nil if shield.nil? && actor.creature?
         return Err.new(:no_shield, 'pf2e.raise_shield_none') unless shield
         return Err.new(:broken_shield, 'pf2e.raise_shield_broken', 'shield' => shield.nickname || shield.name) if broken?(shield)
 
@@ -52,9 +51,9 @@ module AresMUSH
       def self.before(holder)
         return nil unless raised(holder)
 
-        hp = Pf2eHP.get_hp_obj(holder)
+        damage, temp_hp = Actors.of(holder).standing
 
-        { 'damage' => hp.damage.to_i, 'temp_hp' => hp.temp_hp.to_i, 'conditions' => holder.pf2_conditions || {} }
+        { 'damage' => damage, 'temp_hp' => temp_hp, 'conditions' => holder.pf2_conditions || {} }
       end
 
       def self.remember(holder, before, taken, physical, critical)
@@ -66,7 +65,7 @@ module AresMUSH
       def self.offered?(holder)
         hit = TurnState.of(holder)['struck']
 
-        Actions.owned?(holder, NAME) && !TurnState.turn(holder)['reaction'] && hit &&
+        Actors.of(holder).has_action?(NAME) && !TurnState.turn(holder)['reaction'] && hit &&
           hit['after'] == AttackAnswers.standing(holder) && raised(holder)
       end
 
@@ -82,7 +81,7 @@ module AresMUSH
         blocked = [ shield.hardness.to_i, hit['physical'].to_i ].min
         rest = hit['physical'].to_i - blocked
 
-        Pf2eHP.get_hp_obj(holder).update(:damage => hit['before']['damage'], :temp_hp => hit['before']['temp_hp'])
+        Actors.of(holder).stand_at(hit['before']['damage'], hit['before']['temp_hp'])
         holder.update(:pf2_conditions => hit['before']['conditions'])
         Harm.damage(holder, hit['taken'].to_i - blocked, nil, :critical => hit['critical']) if hit['taken'].to_i > blocked
         shield.update(:damage => shield.damage.to_i + rest)

@@ -61,7 +61,7 @@ module AresMUSH
           standing = Acting.still_up(char)
           dropped = Acting.report
           taken = Harm.damage(char, dealt, one['type'], :about => [ 'persistent' ])
-          Acting.dropped(Combatants::Combatant.new(char, char.name, nil), standing, dropped, taken['fate'])
+          Acting.dropped(Combatants::Combatant.new(char, char.name, nil), standing, dropped, taken)
 
           check = recovery(char, one)
           events = [ Turns.event('pf2e.persistent_dealt', 'name' => char.name, 'amount' => dealt,

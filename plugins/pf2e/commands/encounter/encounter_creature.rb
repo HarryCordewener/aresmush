@@ -34,6 +34,7 @@ module AresMUSH
         lines << "AC #{block['ac']}; Fort #{signed(saves(block, 'fortitude'))}, Ref #{signed(saves(block, 'reflex'))}, " \
                  "Will #{signed(saves(block, 'will'))}"
         lines << "HP #{block['hp']}#{block['hp_details'] ? " (#{block['hp_details']})" : ''}#{iwr(block)}"
+        lines << shield_line(block['shield'], npc) if block['shield']
         lines << "Speed #{(block['speeds'] || {}).map { |kind, feet| kind == 'land' ? "#{feet} feet" : "#{kind} #{feet} feet" }.join(', ')}"
 
         Array(block['strikes']).each { |strike| lines << strike_line(strike) }
@@ -49,6 +50,14 @@ module AresMUSH
         end
 
         lines
+      end
+
+      # `Shield Wooden Shield +2 (Hardness 3, HP 8 / 12, BT 6)`, with what the creature's own has left.
+      def self.shield_line(shield, npc = nil)
+        left = npc ? "#{[ shield['hp'].to_i - npc.shield_damage.to_i, 0 ].max} / " : ''
+
+        "Shield #{shield['name']} #{signed(shield['ac'])} (Hardness #{shield['hardness']}, HP #{left}#{shield['hp']}, " \
+          "BT #{shield['hp'].to_i / 2})"
       end
 
       def self.signed(value)
@@ -79,7 +88,7 @@ module AresMUSH
 
       def self.iwr(block)
         parts = []
-        parts << "Immunities #{block['immunities'].join(', ')}" if block['immunities']
+        parts << "Immunities #{Npcs.immunities(block).join(', ')}" if Npcs.immunities(block).any?
         parts << "Weaknesses #{Npcs.listed_words(block['weaknesses']).join(', ')}" if block['weaknesses']
         parts << "Resistances #{Npcs.listed_words(block['resistances']).join(', ')}" if block['resistances']
 

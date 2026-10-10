@@ -122,7 +122,7 @@ module AresMUSH
         listed = name == ESCAPE ? (Holding.inside(scene.actor.holder) || {})['escape_dc'] : nil
         words = Array(words) + [ listed.to_s ] if listed && Array(words).none? { |word| word.to_s.match?(/\A\d+\z/) }
 
-        stopped = Restraints.refusal(scene.actor, name, traits_of(scene, name))
+        stopped = Restraints.refusal(scene.actor, name, traits_of(scene, name)) || SizeLimit.refusal(scene, name)
         return stopped if stopped
 
         command = COMMANDS[Domains.slug(name)]
@@ -167,8 +167,8 @@ module AresMUSH
         refused(out, said)
         out['lines'] << risked['line'] if risked
 
-        # A creature's own ability, which no catalogue holds.
-        return announce_ability(scene, name, out, targets) if entry.empty?
+        # A creature's own ability: one no catalogue holds, or one the catalogue only lists.
+        return announce_ability(scene, name, out, targets, said) if entry.empty? || (own && !run_by_catalogue?(name, entry))
 
         if entry['check']
           check_action(scene, name, entry, said, out)
@@ -304,8 +304,33 @@ module AresMUSH
         out['lines'] << told('pf2e.act_push_distance', :feet => listed.to_i, :twice => listed.to_i * 2) if listed
       end
 
-      def self.announce_ability(scene, name, out, targets = [ scene.target ].compact)
+      # Whether the catalogue gives an action something the game runs: a check, an effect on whoever
+      # does it, or what it always leaves.
+      def self.run_by_catalogue?(name, entry)
+        !!(entry['check'] || entry['self_effect']) || Array(Actions.consequences(Domains.slug(name))['always']).any?
+      end
+
+      # How many actions go on an ability that takes one or more - `1 to 3` - which is what was said, or
+      # one. Nothing for an ability with one cost.
+      def self.actions_spent(name, own, said)
+        most = own['text'].to_s[/\A1 to ([23])(?:%r|\z)/, 1].to_i
+
+        return nil if most.zero?
+
+        asked = (said['actions'] || 1).to_i
+
+        return asked if asked.between?(1, most)
+
+        Err.new(:too_many_actions, 'pf2e.act_actions_range', 'action' => name, 'most' => most)
+      end
+
+      def self.announce_ability(scene, name, out, targets = [ scene.target ].compact, said = {})
         own = Actors.of(scene.actor.holder).own_ability(name) || {}
+        spent = actions_spent(name, own, said)
+
+        return spent if spent.is_a?(Err)
+
+        own = own.merge('cost' => spent) if spent
         announce(scene, name, own, targets, out)
         Recharge.used(scene, name, own, out)
 
@@ -314,7 +339,7 @@ module AresMUSH
         if affliction
           targets.each { |target| Afflictions.catch(scene, target, affliction, out) }
         else
-          ability_saves(scene, name, own, targets, out)
+          ability_saves(scene, name, own, targets, out, spent)
         end
 
         paid(scene, name, own, out)
@@ -325,8 +350,9 @@ module AresMUSH
       # A creature's ability whose words call for a save: each target rolls it, takes what the words deal
       # by how they rolled, and is left with what the outcome names. Whoever is immune to it - by a trait
       # of it, or for having saved against it lately - is passed by. Answers whether there was a save.
-      def self.ability_saves(scene, name, own, targets, out)
-        figures = CreatureAbilities.saving(own['text'])
+      # `spent` is how many actions went on it, where what it deals is by that.
+      def self.ability_saves(scene, name, own, targets, out, spent = nil)
+        figures = CreatureAbilities.saving(own['text'], spent)
         listed = figures ? nil : CreatureAbilities.damage_save(own['text'])
 
         return false unless figures || listed
@@ -573,7 +599,9 @@ module AresMUSH
       # Whether someone who is down may still do this: answer the hit that dropped them, or - for a
       # creature - use what its stat block gives it for the moment it drops.
       def self.answering?(holder, doing = nil)
-        return when_down?(holder, doing) if Actors.of(holder).creature?
+        if Actors.of(holder).creature?
+          return when_down?(holder, doing) || (Domains.slug(doing) == Domains.slug(ShieldBlock::NAME) && ShieldBlock.offered?(holder))
+        end
 
         %w{attacked struck}.any? do |key|
           hit = TurnState.of(holder)[key]
@@ -582,10 +610,16 @@ module AresMUSH
         end
       end
 
+      # A trigger that is the creature's own dropping: `Trigger The vampire is reduced to 0 HP.` One that
+      # opens with another - an ally, a living creature nearby - is about theirs.
+      DROPPING = /\ATrigger (?!An? |One of )[^%.]*?\b(?:(?:is|would be) reduced to|drops to|reaches) 0 (?:HP|Hit Points)/
+
       def self.when_down?(holder, doing)
         own = doing ? Actors.of(holder).own_ability(doing) : nil
 
-        !own.nil? && (MonsterAbilities.row(own['name']) || {})['when_down'] == true
+        return false if own.nil?
+
+        (MonsterAbilities.row(own['name']) || {})['when_down'] == true || own['text'].to_s.match?(DROPPING)
       end
 
       # What a creature that has just dropped may still do, for its GM to use.
@@ -967,6 +1001,7 @@ module AresMUSH
         sharp = 0
         # A hit brings someone a step nearer death once, by whichever kind of its damage first gets through.
         stepped = false
+        segments = nil
 
         DamageRoll.by_type(immediate + precise).each do |row|
           was = still_up(whom.holder)
@@ -975,13 +1010,12 @@ module AresMUSH
                                                                       :once => felt)
           stepped ||= !held['fate'].nil? || still_up(whom.holder) != was
           fate ||= held['fate']
+          segments = held['segments'] || segments
           taken += held['amount'].to_i
           physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])
           sharp += held['amount'].to_i if %w{piercing slashing}.include?(DamageRoll.kind(row['type']).to_s)
-          resisted = Array(held['applied']).reject { |one| one['category'] != 'immunity' && one['adjustment'].to_i.zero? }
-                                           .map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
           kind = row['categories'] == [ 'splash' ] ? "splash #{row['type']}" : row['type']
-          notes = (row['splash'].to_i.positive? ? [ "with #{row['splash']} splash" ] : []) + resisted
+          notes = (row['splash'].to_i.positive? ? [ "with #{row['splash']} splash" ] : []) + IWR.words(held['applied'])
           shown << "#{held['amount']} #{kind}#{notes.empty? ? '' : " (#{notes.join(', ')})"}"
         end
 
@@ -995,7 +1029,7 @@ module AresMUSH
 
         out['lines'] << told('pf2e.act_damage', :damage => shown.join(' + '), :target => whom.label)
         out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
-        dropped(whom, standing, out, fate)
+        dropped(whom, standing, out, 'fate' => fate, 'segments' => segments)
         freed = scene.actor ? Holding.cut_free(scene.actor, whom, sharp) : nil
         out['lines'] << freed if freed
         offer_block(whom, blockable, taken, physical, critical, out) if blockable && physical.positive?
@@ -1007,7 +1041,8 @@ module AresMUSH
 
         return unless ShieldBlock.offered?(whom.holder)
 
-        out['lines'] << told('pf2e.act_follow_up', :effect => ShieldBlock::NAME, :command => '+e/act shield block')
+        command = Actors.of(whom.holder).creature? ? "+e/as ##{whom.holder.number}=act shield block" : '+e/act shield block'
+        out['lines'] << told('pf2e.act_follow_up', :effect => ShieldBlock::NAME, :command => command)
       end
 
       def self.iwr_of(holder)
@@ -1036,9 +1071,16 @@ module AresMUSH
       FATES = { :dead => 'pf2e.act_dead', :spared => 'pf2e.act_spared' }.freeze
 
       # The room is told when a hit drops someone: a creature is down, a character dying or nearer
-      # death - or dead, or spared it, which is the `fate` the damage answered with.
-      def self.dropped(whom, standing, out, fate = nil)
+      # death - or dead, or spared it, which is the `fate` the damage answered with. A troop still up that
+      # the damage took below a threshold has lost a segment.
+      def self.dropped(whom, standing, out, held = {})
         now = still_up(whom.holder)
+        fate = held['fate']
+        lost = held['segments']
+
+        if lost && now == true
+          out['lines'] << told('pf2e.act_segment_lost', :target => whom.label, :segments => lost['segments'], :hp => lost['hp'])
+        end
 
         if FATES[fate]
           out['lines'] << told(FATES[fate], :target => whom.label)
@@ -1223,7 +1265,7 @@ module AresMUSH
       # `Charm (At Will)` - and the spell is the name before that.
       def self.spell_mechanics(spell)
         catalogue = Global.read_config('pf2e_spell_mechanics') || {}
-        named = [ spell.to_s.strip, spell.to_s.sub(/\s*\([^)]*\)\s*\z/, '').strip ].uniq
+        named = [ spell.to_s.strip, spell.to_s.sub(/(?:\s*\([^)]*\))+\s*\z/, '').strip ].uniq
 
         named.filter_map { |one| catalogue.find { |name, _| name.casecmp?(one) } }.first || [ spell, nil ]
       end

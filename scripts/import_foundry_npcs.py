@@ -172,6 +172,29 @@ def casting_of(item, spells):
             'spells': {rank: sorted(set(names)) for rank, names in sorted(ranks.items(), key=lambda one: int(one[0]))}}
 
 
+# What a reinforcing rune adds to a shield's Hardness and Hit Points, and the most it brings them to
+# (`item/physical/runes.ts`).
+REINFORCING = {1: ((3, 8), (44, 64)), 2: ((3, 10), (52, 80)), 3: ((3, 13), (64, 104)), 4: ((5, 15), (80, 120)),
+               5: ((5, 17), (84, 136)), 6: ((7, 20), (108, 160))}
+
+
+def reinforced(base, rune):
+    increase, most = rune
+    return max(base, most) if base + increase > most else base + increase
+
+
+def shield_of(item):
+    system = item['system']
+    hardness = system.get('hardness') or 0
+    hp = (system.get('hp') or {}).get('max') or 0
+    rune = REINFORCING.get((system.get('runes') or {}).get('reinforcing') or 0)
+
+    if rune:
+        hardness, hp = reinforced(hardness, rune[0]), reinforced(hp, rune[1])
+
+    return {'name': item['name'], 'hardness': hardness, 'hp': hp, 'ac': system.get('acBonus') or 0}
+
+
 def npc_of(doc, pack, refused, words):
     system = doc['system']
     attributes = system.get('attributes') or {}
@@ -214,6 +237,10 @@ def npc_of(doc, pack, refused, words):
         held = {one.get('type'): valued(one) for one in attributes.get(field) or [] if one.get('type')}
         if held:
             npc[field] = held
+
+    shields = [shield_of(one) for one in items if one['type'] == 'shield']
+    if shields:
+        npc['shield'] = shields[0]
 
     strikes = [strike_of(one, refused, words) for one in items if one['type'] == 'melee']
     if strikes:

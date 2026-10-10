@@ -92,6 +92,11 @@ module AresMUSH
         expect(told).to include('casts Charm at rank 1', 'rolls Will')
       end
 
+      # `Dominate (At Will) (See Dominate)`: how it is cast, and where the creature's own words on it are.
+      it "should know a spell listed with more than one note after its name" do
+        expect(Acting.spell_mechanics('Charm (At Will) (See Charm)').first).to eq 'Charm'
+      end
+
       it "should leave a creature of twice the spell's rank or less with the outcome it rolled" do
         expect(charmed(2).gsub(/%x\w/, '')).to include('critical failure')
       end

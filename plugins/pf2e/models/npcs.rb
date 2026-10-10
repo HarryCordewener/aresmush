@@ -28,7 +28,13 @@ module AresMUSH
     attribute :adjustment
 
     attribute :damage, :type => DataType::Integer, :default => 0
+
+    # The most hit points a troop has once it has fallen below a threshold, which is that threshold.
+    attribute :hp_cap, :type => DataType::Integer
     attribute :temp_hp, :type => DataType::Integer, :default => 0
+
+    # What its shield has taken, where its stat block gives it one.
+    attribute :shield_damage, :type => DataType::Integer, :default => 0
 
     attribute :pf2_conditions, :type => DataType::Hash, :default => {}
 
@@ -73,9 +79,12 @@ module AresMUSH
       Array(stat_block['traits'])
     end
 
-    # The stat block's hit points as its conditions leave them: Drained lowers the maximum.
+    # The stat block's hit points as its conditions leave them: Drained lowers the maximum, and so does a
+    # troop's falling below a threshold.
     def max_hp
-      (Pf2e::Npcs.stat(self, 'hp') || {})['total'] || stat_block['hp'].to_i
+      full = (Pf2e::Npcs.stat(self, 'hp') || {})['total'] || stat_block['hp'].to_i
+
+      self.hp_cap.to_i.positive? ? [ full, self.hp_cap ].min : full
     end
 
     def hp_left

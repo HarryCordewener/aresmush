@@ -87,12 +87,23 @@ be:
   `+e/as #5=enter frightful presence=#1,#2`. Whoever has saved is immune for as long as its words say.
 - **A venom or disease** on its Strike is saved against as the Strike hits, and runs its stages from
   there. `+e/affliction <who>=<name>/<stage>` moves it by hand: a stage counted in days, a cure with 0.
+- **An ability that takes one action or more** - a troop's attack, `1 to 3` on its first line - deals
+  what the actions you spend deal: `+e/as #5=act shambling onslaught=#1,#2/actions 2`. One, unless you say.
+- **A shield** on its stat block is raised and blocked with as a character's is: `+e/as #5=act raise a
+  shield`, and `+e/as #5=act shield block` when a hit it could block says so. `+e/creature #5` shows
+  what the shield has taken.
+- **A troop** loses a segment as its hit points fall below each threshold, which is then the most it has.
+- **What its dropping triggers** - a vampire's Mist Escape, Ferocity - is offered as it drops, and is
+  all it can still do.
 - **A breath that takes rounds to come back**, and a reaction already spent, are yours to allow: you
   are told when the breath is back, and warned if you use either early.
 - **A circumstance** its stat block makes a toggle - Pack Attack, a charge - is off until you say it
   holds: `/pack attack` on the Strike, or `+e/option #5=pack-attack/on`.
 - **Immunities, weaknesses and resistances** apply by what the damage is: a swarm resists a blade and
   is hurt more by a fireball; a devil's resistance lets silver through. `encounter/scan` lists them.
+  What a creature is counts without its stat block saying so: a construct, a mindless creature and a
+  swarm have their kind's immunities, vitality harms only the undead, and void only the living.
+  `damage` tells you what was taken where that is not what you named.
 - **The incapacitation trait** moves the outcome a degree for a creature too strong for the effect.
 
 Anything else on its stat block is told with its words when used, for you to run.
@@ -108,6 +119,7 @@ each part after a semicolon and named by its first word.
 - `skills <skill> <n>, ...`
 - `immune <type>, ...`; `weak <type> <n>, ...`; `resist <type> <n>[ except <type>[ or <type>]], ...`: `resist physical 10 except silver`
 - `traits <trait>, ...`; `size <size>`; `rarity <rarity>`; `senses <sense>, ...`
+- `shield [<name>] <hardness> <hit points>[ +<bonus>]`: `shield 5 20`, raised for +2 to AC unless you say, and blocked with.
 - `strike <name> <bonus> <damage> <type>[ plus <damage> <type>][ (<traits>)]`, as many as it has. `ranged` for a ranged one, with `range <feet>` among its traits. `1d4 persistent bleed` is persistent damage.
 - `ability <name>[ [<1|2|3|reaction|free|passive>]]: <what it does>`. One whose words give a save rolls it when used with `+e/as <#id>=act <ability>=<targets>`: damage against it - `3d6 fire damage (DC 20 basic Reflex save)` - is dealt by the save, and outcomes written as a stat block writes them, each on a line of its own after `%r` - `Failure The creature is Frightened 2.` - leave the conditions they name.
 

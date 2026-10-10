@@ -311,6 +311,33 @@ module AresMUSH
         end
       end
 
+      describe "what a construct or an object keeps out" do
+        it "should take nothing from an attack that is nonlethal" do
+          construct = held(:immunity => [ entry('nonlethal-attacks') ])
+
+          expect(IWR.apply(construct, 10, 'bludgeoning', [ 'item:trait:nonlethal' ])['amount']).to eq 0
+          expect(IWR.apply(construct, 10, 'bludgeoning')['amount']).to eq 10
+        end
+
+        it "should take none of the damage an object is immune to, nor its conditions" do
+          object = held(:immunity => [ entry('object-immunities') ])
+
+          expect(%w{bleed mental poison spirit vitality void}.map { |kind| IWR.apply(object, 10, kind)['amount'] }).to eq [ 0 ] * 6
+          expect(IWR.apply(object, 10, 'fire')['amount']).to eq 10
+          expect(IWR.immune_to_condition?(object, 'Sickened')).to be true
+          expect(IWR.immune_to_condition?(object, 'Prone')).to be false
+        end
+      end
+
+      describe "a material that counts as another" do
+        it "should have a resistance let keep stone through where it lets adamantine" do
+          golem = held(:resistance => [ entry('physical', 10).merge('exceptions' => [ 'adamantine' ]) ])
+
+          expect(IWR.apply(golem, 12, 'slashing', [ 'damage:material:keep-stone' ])['amount']).to eq 12
+          expect(IWR.apply(golem, 12, 'slashing')['amount']).to eq 2
+        end
+      end
+
       describe "immunity to critical hits" do
         it "should be asked of a critical hit" do
           ooze = held(:immunity => [ entry('critical-hits'), entry('precision') ])

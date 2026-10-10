@@ -50,8 +50,8 @@ module AresMUSH
       end
 
       # What the character's effects bring with them for as long as they last: an effect that knocks you
-      # prone, a stance that makes you off-guard.
-      ActiveEffects.derived_conditions(char).each do |grant, effect|
+      # prone, a stance that makes you off-guard. And what a creature's stat block makes it for good.
+      (ActiveEffects.derived_conditions(char) + Actors.of(char).permanent_conditions).each do |grant, effect|
         name = canonical_condition(grant['name'])
 
         next if held.key?(name)

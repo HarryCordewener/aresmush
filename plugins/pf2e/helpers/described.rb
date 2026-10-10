@@ -49,7 +49,8 @@ module AresMUSH
         'rarity' => ->(block, words) { block.merge('rarity' => words.downcase) },
         'strike' => ->(block, words) { strike(words).then { |read| read && block.merge('strikes' => Array(block['strikes']) + [ read ]) } },
         'ranged' => ->(block, words) { strike(words).then { |read| read && block.merge('strikes' => Array(block['strikes']) + [ read ]) } },
-        'ability' => ->(block, words) { ability(words).then { |read| read && block.merge('actions' => Array(block['actions']) + [ read ]) } }
+        'ability' => ->(block, words) { ability(words).then { |read| read && block.merge('actions' => Array(block['actions']) + [ read ]) } },
+        'shield' => ->(block, words) { shield(words).then { |read| read && shielded(block, read) } }
       }.freeze
 
       ALIASES = { 'skill' => 'skills', 'immunities' => 'immune', 'immunity' => 'immune', 'weakness' => 'weak',
@@ -57,7 +58,13 @@ module AresMUSH
                   'melee' => 'strike', 'sense' => 'senses' }.freeze
 
       # What a part that could not be read is refused as.
-      REFUSALS = { 'strike' => :described_strike, 'ranged' => :described_strike, 'ability' => :described_ability }.freeze
+      REFUSALS = { 'strike' => :described_strike, 'ranged' => :described_strike, 'ability' => :described_ability,
+                   'shield' => :described_shield }.freeze
+
+      SHIELD = /\A(?:(?<name>.*?[a-z].*?)\s+)?(?<hardness>\d+)\s+(?<hp>\d+)(?:\s+\+?(?<ac>\d+))?\z/i
+      BLOCKS = 'Trigger The creature has its shield raised and takes damage from a physical attack.%r' \
+               "Effect The shield prevents the creature from taking damage up to the shield's Hardness. " \
+               'The creature and the shield each take any remaining damage.'.freeze
 
       # The stat block described, an error saying which part could not be read, or nothing where the
       # words are no description at all - a name, as `+e/add goblin warrior=Grik` gives one.
@@ -156,6 +163,24 @@ module AresMUSH
         { 'name' => titled(found[:name]), 'bonus' => found[:bonus].to_i,
           'damage' => damage.map { |one| [ one[:formula].delete(' '), slug(one[:type]), one[:persistent] ? 'persistent' : nil ] },
           'traits' => listed(found[:traits].to_s).map { |one| slug(one).sub(/\Arange-(\d+)\z/, 'range-increment-\1') } }
+      end
+
+      # `tower shield 5 20 +3`: a name if it has one, its Hardness and Hit Points, and what it adds to AC
+      # raised where that is not 2.
+      def self.shield(words)
+        found = words.match(SHIELD)
+
+        found && { 'name' => titled(found[:name] || 'Shield'), 'hardness' => found[:hardness].to_i, 'hp' => found[:hp].to_i,
+                   'ac' => (found[:ac] || 2).to_i }
+      end
+
+      # A creature with a shield blocks with it.
+      def self.shielded(block, shield)
+        listed = Array(block['actions'])
+        blocks = listed.any? { |one| one['name'].casecmp?(ShieldBlock::NAME) }
+        reaction = { 'name' => ShieldBlock::NAME, 'type' => 'reaction', 'cost' => nil, 'traits' => [], 'text' => BLOCKS }
+
+        block.merge('shield' => shield, 'actions' => blocks ? listed : listed + [ reaction ])
       end
 
       # `Fire Breath [2]: The bandit breathes fire...`

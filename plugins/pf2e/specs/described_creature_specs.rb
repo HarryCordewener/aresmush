@@ -72,6 +72,28 @@ module AresMUSH
         expect(block('ac 15 hp 20; senses darkvision, scent 30 feet')['senses']).to eq [ 'darkvision', 'scent 30 feet' ]
       end
 
+      describe "a shield" do
+        it "should be its Hardness and its Hit Points, raised for +2 to AC" do
+          expect(block('ac 15 hp 20; shield 5 20')['shield']).to eq('name' => 'Shield', 'hardness' => 5, 'hp' => 20, 'ac' => 2)
+        end
+
+        it "should take a name and a bonus of its own" do
+          expect(block('ac 15 hp 20; shield tower shield 5 20 +3')['shield']).to eq(
+            'name' => 'Tower Shield', 'hardness' => 5, 'hp' => 20, 'ac' => 3
+          )
+        end
+
+        it "should give the creature Shield Block" do
+          expect(block('ac 15 hp 20; shield 5 20')['actions'].map { |one| one.slice('name', 'type') }).to eq [
+            { 'name' => 'Shield Block', 'type' => 'reaction' }
+          ]
+        end
+
+        it "should be refused without both figures, with how to write one" do
+          expect(read('ac 15 hp 20; shield 5').code).to eq :described_shield
+        end
+      end
+
       describe "a Strike" do
         it "should be its name, its bonus and what it deals" do
           expect(block('ac 15 hp 20; strike shortsword +9 1d6+4 piercing')['strikes']).to eq [

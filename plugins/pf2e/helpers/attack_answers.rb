@@ -67,9 +67,7 @@ module AresMUSH
 
       # What their hit points stand at, which an answer checks has not moved since the hit.
       def self.standing(holder)
-        hp = Pf2eHP.get_hp_obj(holder)
-
-        [ hp.damage.to_i, hp.temp_hp.to_i ]
+        Actors.of(holder).standing
       end
 
       # The hit as it left them, once it is dealt.

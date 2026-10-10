@@ -59,6 +59,8 @@ just taken: its bonus is put against the attack's roll, and a hit it turns into 
 hit it could turn says so.
 Shield Block answers a hit you have just taken while your shield is raised: its Hardness comes off the
 hit's physical damage, and you and the shield each take the rest. A hit you could block says so.
+Disarm, Grapple, Reposition, Shove and Trip work on nothing more than one size larger than you: two
+with Titan Wrestler, and three if you are also legendary in Athletics.
 
 `+e/strike <target>[=<weapon>][/<circumstance>...]` - Strike, with your first equipped weapon or the one
 you name (by name or nickname, or an unarmed attack like `fist`). A hit rolls the damage and deals it,

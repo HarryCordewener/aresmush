@@ -76,7 +76,7 @@ module AresMUSH
       def iwr_line(one)
         held = (one.creature? ? CREATURE : CHARACTER)['iwr'].call(one.holder)
         parts = IWR_WORDS.filter_map do |kind, word|
-          listed = Array(held[kind]).map { |entry| [ IWR.label(entry), entry['value'] ].compact.join(' ') }
+          listed = IWR.listed(held[kind]).map { |entry| [ IWR.label(entry), entry['value'] ].compact.join(' ') }
 
           listed.empty? ? nil : "#{word} #{listed.join(', ')}"
         end

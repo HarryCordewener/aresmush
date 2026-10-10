@@ -72,7 +72,7 @@ module AresMUSH
 
         it "should not swallow someone larger than it can" do
           grab!
-          @hero.update(:pf2_size => 'Large')
+          @hero.update(:pf2_movement => { 'Size' => 'L' })
           as(2, "act swallow whole=#{@hero.name}")
 
           expect(refused).to eq [ t('pf2e.swallow_too_big', :actor => 'Snapping Flytrap #2', :target => @hero.name, :size => 'medium') ]
@@ -624,6 +624,281 @@ module AresMUSH
 
           expect(heard).to include("#{@hero.name} rolls Fortitude", 'vs DC 25')
           expect(Pf2e.condition_level(hero, 'Slowed')).to eq 1
+        end
+      end
+
+      # Shambler Troop: Shambling Onslaught, one or two actions, (2d6+5) or (2d6+9) bludgeoning against a
+      # DC 18 basic Reflex save. Every die at half its faces is a failed save, and 3 on each d6.
+      describe "an ability that takes one action or more, and deals more for each" do
+        def hit_points
+          60
+        end
+
+        before(:each) do
+          add('shambler troop')
+          next_turn
+        end
+
+        it "should deal what one action deals where nobody says how many" do
+          as(2, "act shambling onslaught=#{@hero.name}", 0.5)
+
+          expect(heard).to include('one action', '11 bludgeoning')
+          expect(TurnState.turn(npc)['actions']).to eq 1
+        end
+
+        it "should deal what the actions said deal, and spend them" do
+          as(2, "act shambling onslaught=#{@hero.name}/actions 2", 0.5)
+
+          expect(heard).to include('two actions', '15 bludgeoning')
+          expect(TurnState.turn(npc)['actions']).to eq 2
+        end
+
+        it "should not be given more actions than it takes" do
+          as(2, "act shambling onslaught=#{@hero.name}/actions 3", 0.5)
+
+          expect(refused).to eq [ t('pf2e.act_actions_range', :action => 'Shambling Onslaught', :most => 2) ]
+        end
+      end
+
+      # Zombie Shambler: "A zombie is permanently Slowed 1 and can't use reactions."
+      describe "a creature its stat block slows for good" do
+        before(:each) do
+          add('zombie shambler')
+          next_turn
+        end
+
+        it "should be slowed" do
+          expect(Pf2e.condition_level(npc, 'Slowed')).to eq 1
+        end
+
+        it "should have two actions in its turn, and no reaction" do
+          expect(TurnState.summary(npc)).to include('0 of 2 actions used', t('pf2e.reaction_none'))
+        end
+
+        it "should stay slowed whatever is taken off it" do
+          run(PF2ConditionSetCmd, 'condition/set #2=slowed/0')
+
+          expect(Pf2e.condition_level(npc, 'Slowed')).to eq 1
+        end
+
+        it "should be shown slowed by what slows it" do
+          run(PF2EncounterCreatureCmd, 'e/creature #2')
+
+          expect(heard).to include('Slowed 1 (Slow)')
+        end
+      end
+
+      # Shambler Troop says the same in words alone, with no rule behind them.
+      describe "a creature whose words alone slow it for good" do
+        before(:each) do
+          add('shambler troop')
+          next_turn
+        end
+
+        it "should have two actions in its turn, and no reaction" do
+          expect(TurnState.summary(npc)).to include('0 of 2 actions used', t('pf2e.reaction_none'))
+        end
+      end
+
+      # Hobgoblin Soldier: AC 18, 20 hit points, Shield Block, and a Wooden Shield: +2 to AC raised, Hardness
+      # 3, 12 Hit Points. The hero's claw hits it for 7 with every die at four fifths of its faces.
+      describe "a creature with a shield" do
+        before(:each) do
+          add('hobgoblin soldier')
+          next_turn
+          as(2, 'act raise a shield')
+        end
+
+        def clawed
+          hero_types('e/strike #2=claw', 0.8)
+        end
+
+        it "should have the shield's bonus to its AC while the shield is raised" do
+          expect(Npcs.stat(npc, 'ac')['total']).to eq 20
+        end
+
+        it "should be offered the block when something physical hits it" do
+          clawed
+
+          expect(heard).to include('Shield Block may follow: +e/as #2=act shield block')
+        end
+
+        it "should take the shield's Hardness off the hit, and share the rest with the shield" do
+          clawed
+          as(2, 'act shield block')
+
+          expect(refused).to eq []
+          expect([ npc.hp_left, npc.shield_damage ]).to eq [ 16, 4 ]
+        end
+
+        it "should spend its reaction on the block" do
+          clawed
+          as(2, 'act shield block')
+
+          expect(TurnState.turn(npc)['reaction']).to be_truthy
+        end
+
+        it "should block the hit that dropped it" do
+          npc.update(:damage => 15)
+          clawed
+          as(2, 'act shield block')
+
+          expect(refused).to eq []
+          expect(npc.hp_left).to eq 1
+        end
+
+        it "should have its shield break at half the shield's Hit Points, and not raise it again" do
+          npc.update(:shield_damage => 3)
+          clawed
+          as(2, 'act shield block')
+
+          expect(heard).to include('Wooden Shield is broken')
+
+          as(2, 'act raise a shield')
+
+          expect(refused).to eq [ t('pf2e.raise_shield_broken', :shield => 'Wooden Shield') ]
+        end
+
+        it "should show its shield, and what the shield has taken, to its GM" do
+          npc.update(:shield_damage => 4)
+          run(PF2EncounterCreatureCmd, 'e/creature #2')
+
+          expect(heard).to include('Wooden Shield +2 (Hardness 3, HP 8 / 12, BT 6)')
+        end
+      end
+
+      describe "a creature described with a shield" do
+        before(:each) do
+          add('Guard=ac 16 hp 20; shield 5 20')
+          next_turn
+          as(2, 'act raise a shield')
+        end
+
+        it "should raise it for +2 to its AC" do
+          expect(Npcs.stat(npc, 'ac')['total']).to eq 18
+        end
+
+        it "should block with it" do
+          hero_types('e/strike #2=claw', 0.8)
+          as(2, 'act shield block')
+
+          expect(refused).to eq []
+          expect([ npc.hp_left, npc.shield_damage ]).to eq [ 18, 2 ]
+        end
+      end
+
+      # Shambler Troop: 90 hit points, "Thresholds 60 (3 segments), 30 (2 segments)".
+      describe "a troop" do
+        before(:each) do
+          add('shambler troop')
+          @client.said.clear
+        end
+
+        it "should lose a segment as it falls below a threshold, which is then the most hit points it has" do
+          run(PF2DamagePlayerCmd, 'damage #2=35 fire')
+
+          expect(heard).to include(t('pf2e.act_segment_lost', :target => 'Shambler Troop #2', :segments => 3, :hp => 60).strip)
+          expect([ npc.hp_left, npc.max_hp ]).to eq [ 55, 60 ]
+        end
+
+        it "should not lose one at the threshold itself" do
+          run(PF2DamagePlayerCmd, 'damage #2=30 fire')
+
+          expect(heard).to_not include('segment')
+          expect([ npc.hp_left, npc.max_hp ]).to eq [ 60, 90 ]
+        end
+
+        it "should be healed no higher than the threshold it fell below" do
+          run(PF2DamagePlayerCmd, 'damage #2=35 fire')
+          run(PF2HealPlayerCmd, 'heal #2=20')
+
+          expect(npc.hp_left).to eq 60
+        end
+
+        it "should lose a segment for each threshold one blow takes it below" do
+          run(PF2DamagePlayerCmd, 'damage #2=70 fire')
+
+          expect(heard).to include(t('pf2e.act_segment_lost', :target => 'Shambler Troop #2', :segments => 2, :hp => 30).strip)
+          expect([ npc.hp_left, npc.max_hp ]).to eq [ 20, 30 ]
+        end
+
+        it "should lose one to a Strike" do
+          npc.update(:damage => 29)
+          hero_types('e/strike #2=claw', 0.9)
+
+          expect(heard).to include('loses a segment: 3 are left')
+        end
+
+        it "should be down, and nothing more, at no hit points" do
+          run(PF2DamagePlayerCmd, 'damage #2=90 fire')
+
+          expect(heard).to include('is down')
+          expect(heard).to_not include('segment')
+        end
+      end
+
+      # Vampire Count: Drink Blood and Change Shape are also the names of things a character can do, which
+      # the catalogue lists with nothing the game runs.
+      describe "an ability with the name of an action the catalogue only lists" do
+        before(:each) do
+          add('vampire count')
+          next_turn
+        end
+
+        it "should be the creature's own, with its stat block's words" do
+          as(2, "act drink blood=#{@hero.name}")
+
+          expect(heard).to include('Vampire Count #2 uses Drink Blood', 'sinks its fangs')
+        end
+      end
+
+      # Vampire Count: 65 hit points, resisting 7 of anything physical. Mist Escape, "Trigger The vampire
+      # is reduced to 0 HP."
+      describe "an ability a creature's dropping triggers" do
+        before(:each) do
+          add('vampire count')
+          next_turn
+          run(PF2DamagePlayerCmd, 'damage #2=72 slashing')
+        end
+
+        it "should be offered to the GM when the creature drops" do
+          expect(heard).to include('Mist Escape may follow')
+        end
+
+        it "should be used by the creature though it is down" do
+          as(2, 'act mist escape')
+
+          expect(refused).to eq []
+          expect(heard).to include('Vampire Count #2 uses Mist Escape')
+        end
+
+        it "should not let it do anything else" do
+          as(2, 'act turn to mist')
+
+          expect(refused).to eq [ t('pf2e.act_cannot_act', :actor => 'Vampire Count #2') ]
+        end
+      end
+
+      # Poltergeist: Frighten, a DC 21 Will save "becoming Frightened 2 on a failure", and Fleeing as well on
+      # a critical failure.
+      describe "an ability whose sentence closes with the outcome it is about" do
+        before(:each) do
+          add('poltergeist')
+          next_turn
+        end
+
+        it "should leave what the failure leaves" do
+          as(2, "act frighten=#{@hero.name}", 0.5)
+
+          expect(Pf2e.condition_level(hero, 'Frightened')).to eq 2
+          expect(held).to_not have_key('Fleeing')
+        end
+
+        it "should leave on a critical failure what it adds as well" do
+          as(2, "act frighten=#{@hero.name}", FightBench::LOW)
+
+          expect(Pf2e.condition_level(hero, 'Frightened')).to eq 2
+          expect(held).to have_key('Fleeing')
         end
       end
 
