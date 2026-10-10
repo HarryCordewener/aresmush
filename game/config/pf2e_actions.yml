@@ -307,6 +307,14 @@ pf2e_actions:
     traits: ["transcendence"]
     strikes: {"count": 1}
     description: "Requirements Your previous action was to Strike with the Unfailing Bow%rEffect You repeat your motions exactly, your attack landing in the same location as your previous shot. You make a Strike against the same target. The result of your d20 roll is the same as the result of the required shot, though any penalties (such as your multiple attack penalty) apply normally to this shot and you don't automatically adjust the degree of success if the initial roll was a natural 1 or 20."
+  "Assisted Recovery":
+    from: "action"
+    for: "everyone"
+    type: "action"
+    cost: 2
+    category: "basic"
+    traits: []
+    description: "You take steps to help yourself or an ally recover from persistent damage - dousing a flame, washing off acid - which allows an additional flat check at once. The GM may lower the DC to 10 for help that is particularly appropriate."
   "Assisting Shot":
     from: "feat"
     type: "action"

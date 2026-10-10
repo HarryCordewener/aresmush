@@ -41,7 +41,7 @@ module AresMUSH
         Array(block['strikes']).each { |strike| lines << strike_line(strike) }
 
         Array(block['spellcasting']).each do |casting|
-          spells = (casting['spells'] || {}).map { |rank, names| "#{rank == '0' ? 'Cantrips' : "Rank #{rank}"}: #{names.join(', ')}" }
+          spells = (casting['spells'] || {}).map { |rank, names| "#{rank_words(casting, rank)}: #{spell_words(casting, names)}" }
           lines << "#{casting['name']} DC #{casting['dc']}, attack #{signed(casting['attack'])}; #{spells.join('; ')}"
         end
 
@@ -51,6 +51,24 @@ module AresMUSH
         end
 
         lines
+      end
+
+      # `Rank 4 (3 slots)` for a spontaneous caster's.
+      def self.rank_words(casting, rank)
+        return 'Cantrips' if rank.to_s == '0'
+
+        slots = (casting['slots'] || {})[rank.to_s]
+
+        "Rank #{rank}#{slots ? " (#{slots} slots)" : ''}"
+      end
+
+      # A rank's spells, one prepared more than once or cast more than once a day saying how often.
+      def self.spell_words(casting, names)
+        names.tally.map do |name, count|
+          times = [ count, (casting['uses'] || {})[name].to_i ].max
+
+          times > 1 ? "#{name} (x#{times})" : name
+        end.join(', ')
       end
 
       # `Shield Wooden Shield +2 (Hardness 3, HP 8 / 12, BT 6)`, with what the creature's own has left.

@@ -182,9 +182,48 @@ module AresMUSH
       # The spellcasting that holds a spell, or the first there is.
       def self.casting(npc, spell = nil)
         entries = Array(npc.stat_block['spellcasting'])
+        wanted = spell_base(spell)
 
-        entries.find { |one| (one['spells'] || {}).values.flatten.any? { |name| name.casecmp?(spell.to_s) } } ||
+        entries.find { |one| (one['spells'] || {}).values.flatten.any? { |name| spell_base(name).casecmp?(wanted) } } ||
           entries.first
+      end
+
+      # A spell as a stat block lists it, without the notes after its name: `Charm (At Will)` is Charm.
+      def self.spell_base(name)
+        name.to_s.sub(/(?:\s*\([^)]*\))+\s*\z/, '').strip
+      end
+
+      # A spell a stat block lets its creature cast as often as it likes.
+      FREELY = /\([^)]*\b(?:at will|constant)\b[^)]*\)/i
+
+      # How often a creature may cast a spell in a day, and what its castings of it are counted under:
+      # each preparation of a prepared spell, the slots of its rank for a spontaneous one, and once - or
+      # as often as its entry says - for an innate one. Nothing for a cantrip, a spell it has at will or
+      # constantly, or one it does not list.
+      #
+      #   { 'key' => 'Divine Prepared Spells: Fear', 'max' => 1 }
+      #   { 'key' => 'Divine Spontaneous Spells: rank 4', 'max' => 3, 'rank' => 4 }
+      def self.spell_limit(npc, spell, rank = nil)
+        entry = casting(npc, spell)
+        wanted = spell_base(spell)
+        listed = ((entry || {})['spells'] || {}).flat_map do |at, names|
+          names.select { |name| spell_base(name).casecmp?(wanted) }.map { |name| [ at.to_s, name ] }
+        end
+
+        return nil if listed.empty? || listed.any? { |at, name| at == '0' || name.match?(FREELY) }
+
+        if entry['slots']
+          at = entry['slots'].key?(rank.to_s) ? rank.to_s : listed.first.first
+
+          return entry['slots'][at] && { 'key' => "#{entry['name']}: rank #{at}", 'max' => entry['slots'][at].to_i, 'rank' => at.to_i }
+        end
+
+        most = case entry['type']
+               when 'prepared' then listed.size
+               when 'innate' then listed.sum { |_at, name| ((entry['uses'] || {})[name] || 1).to_i }
+               end
+
+        most && { 'key' => "#{entry['name']}: #{wanted}", 'max' => most }
       end
 
       # ------------------------------------------------------------------------------

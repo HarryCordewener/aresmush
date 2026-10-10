@@ -325,8 +325,14 @@ def value(held):
 
 
 # What the rules give everyone to do that their packs hold no item for. Retching is in the words of the
-# sickened condition: a Fortitude save against the DC of what sickened you (`dc_from`).
+# sickened condition: a Fortitude save against the DC of what sickened you (`dc_from`). An assisted
+# recovery is in those of persistent damage.
 OWN = {
+    'Assisted Recovery': {
+        'from': 'action', 'for': 'everyone', 'type': 'action', 'cost': 2, 'category': 'basic', 'traits': [],
+        'description': 'You take steps to help yourself or an ally recover from persistent damage - dousing a flame, '
+                       'washing off acid - which allows an additional flat check at once. The GM may lower the DC to 10 '
+                       'for help that is particularly appropriate.'},
     'Retch': {
         'from': 'action', 'for': 'everyone', 'type': 'action', 'cost': 1, 'category': 'basic', 'traits': [],
         'check': {'slug': 'retch', 'statistic': ['fortitude'], 'options': ['action:retch'], 'dc_from': 'Sickened',

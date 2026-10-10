@@ -139,8 +139,11 @@ module AresMUSH
         unshielded = name == ShieldBlock::RAISE && ShieldBlock.cannot_raise(scene.actor.holder)
         return unshielded if unshielded
 
-        unready = against_own_condition(scene, name, words)
+        unready = against_own_condition(scene, name, words) || way_refused(scene, name, words)
         return unready if unready
+
+        return assisted_recovery(scene, name, words) if name == ASSISTED_RECOVERY
+        return Delay.act(scene, report) if name == Delay::NAME
 
         targets ||= [ scene.target ].compact
         own = Actors.of(scene.actor.holder).own_ability(name)
@@ -190,6 +193,72 @@ module AresMUSH
       end
 
       ESCAPE = 'Escape'.freeze
+      ASSISTED_RECOVERY = 'Assisted Recovery'.freeze
+
+      # What a way of doing an action needs of its target, and the DC it is against where that is the
+      # target's to give: First Aid stabilizes the dying against 5 more than their recovery DC, and stops
+      # bleeding against the DC of what made them bleed, which has to be said.
+      WAYS = {
+        'administer-first-aid:stabilize' => {
+          'needs' => ->(target) { Pf2e.condition_level(target.holder, 'Dying').positive? ? nil : 'pf2e.first_aid_not_dying' },
+          'dc' => ->(target) { 5 + Pf2eHP.recovery_dc(target.holder) }
+        },
+        'administer-first-aid:stop-bleeding' => {
+          'needs' => ->(target) { PersistentDamage.held(target.holder).any? { |one| one['type'] == 'bleed' } ? nil : 'pf2e.first_aid_not_bleeding' },
+          'said' => 'pf2e.first_aid_needs_dc'
+        }
+      }.freeze
+
+      def self.way_of(name, words, permitted)
+        check = Actions.info(name)['check']
+        variant = check && check['variants'] ? variant_of(check, said(words, permitted)) : nil
+
+        variant ? WAYS["#{check['slug'] || Domains.slug(name)}:#{variant['variant']}"] : nil
+      end
+
+      # The refusal of an action done a way its target does not call for, or that needs a DC nobody gave.
+      def self.way_refused(scene, name, words)
+        way = way_of(name, words, scene.permitted)
+
+        return nil unless way && scene.target
+
+        unmet = way['needs'].call(scene.target)
+
+        return Err.new(:way_unmet, unmet, 'target' => scene.target.label) if unmet
+        return nil unless way['said'] && said(words, scene.permitted)['dc'].nil?
+
+        Err.new(:way_needs_dc, way['said'], 'target' => scene.target.label)
+      end
+
+      # Two actions spent helping someone - themselves, where nobody is named - against persistent damage:
+      # another flat check now, against its own DC or the one the GM allows for help that is apt.
+      def self.assisted_recovery(scene, name, words)
+        said = said(words, scene.permitted)
+        whom = scene.target || scene.actor
+        kinds = PersistentDamage.held(whom.holder).map { |one| one['type'] }
+        named = said['words'].map { |word| Domains.slug(word) } & kinds
+
+        return Err.new(:nothing_persistent, 'pf2e.assisted_nothing', 'target' => whom.label) if kinds.empty?
+        return Err.new(:which_persistent, 'pf2e.assisted_which', 'kinds' => kinds.join(', ')) if named.empty? && kinds.size > 1
+
+        out = report
+        out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => name, :cost => Actions.cost(name),
+                                                :target => scene.target ? told('pf2e.act_at', :target => whom.label) : '')
+        recovered(whom, named.first || kinds.first, said['dc'], out)
+        spend(scene, name, Actions.info(name), out)
+
+        Ok.new(:state => out)
+      end
+
+      # Another flat check against someone's persistent damage, told.
+      def self.recovered(whom, type, dc, out)
+        check = PersistentDamage.assisted(whom.holder, type, dc)
+
+        return unless check
+
+        out['lines'] << told(check['success'] ? 'pf2e.act_persistent_check_ended' : 'pf2e.act_persistent_check_goes_on',
+                             :target => whom.label, :type => check['type'], :die => check['die'], :dc => check['dc'])
+      end
 
       # An action that is a check against the DC of what put a condition on whoever takes it - Retch,
       # against what sickened them - needs them to have the condition, and the DC: the one kept from the
@@ -526,7 +595,9 @@ module AresMUSH
                 (attack ? attack_penalty(scene.actor.holder) : [])
 
         defence = nil
+        way = WAYS["#{slug}:#{check['variant']}"]
         dc = said['dc'] || check['dc'] || condition_dc(scene.actor.holder, check['dc_from'])
+        dc ||= way['dc'].call(scene.target) if way && way['dc'] && scene.target
 
         if dc.nil? && check['against'] && scene.target
           defence = Resolve.defence(scene.target.holder, check['against'],
@@ -640,11 +711,23 @@ module AresMUSH
           return when_down?(holder, doing) || (Domains.slug(doing) == Domains.slug(ShieldBlock::NAME) && ShieldBlock.offered?(holder))
         end
 
+        return false unless answers_a_hit?(holder, doing)
+
         %w{attacked struck}.any? do |key|
           hit = TurnState.of(holder)[key]
 
           hit && hit['after'] == AttackAnswers.standing(holder)
         end
+      end
+
+      # Whether what someone means to do is a reaction that answers a hit: Shield Block, or one that
+      # raises their AC against the attack.
+      def self.answers_a_hit?(holder, doing)
+        found = doing.to_s.strip.empty? ? nil : Actions.find(doing)
+
+        return false unless found&.ok?
+
+        found.state == ShieldBlock::NAME || !AttackAnswers.answer(holder, found.state).nil?
       end
 
       # A trigger that is the creature's own dropping: `Trigger The vampire is reduced to 0 HP.` One that
@@ -1040,6 +1123,7 @@ module AresMUSH
         # A hit brings someone a step nearer death once, by whichever kind of its damage first gets through.
         stepped = false
         segments = nil
+        fell = false
 
         DamageRoll.by_type(immediate + precise).each do |row|
           was = still_up(whom.holder)
@@ -1048,6 +1132,7 @@ module AresMUSH
                                                                       :once => felt)
           stepped ||= !held['fate'].nil? || still_up(whom.holder) != was
           fate ||= held['fate']
+          fell ||= held['fell']
           segments = held['segments'] || segments
           taken += held['amount'].to_i
           physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])
@@ -1067,7 +1152,7 @@ module AresMUSH
 
         out['lines'] << told('pf2e.act_damage', :damage => shown.join(' + '), :target => whom.label)
         out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
-        dropped(whom, standing, out, 'fate' => fate, 'segments' => segments)
+        dropped(whom, standing, out, 'fate' => fate, 'segments' => segments, 'fell' => fell)
         freed = scene.actor ? Holding.cut_free(scene.actor, whom, sharp) : nil
         out['lines'] << freed if freed
         offer_block(whom, blockable, taken, physical, critical, out) if blockable && physical.positive?
@@ -1106,7 +1191,7 @@ module AresMUSH
       end
 
       # What a hit that settled a character's fate is told as.
-      FATES = { :dead => 'pf2e.act_dead', :spared => 'pf2e.act_spared' }.freeze
+      FATES = { :dead => 'pf2e.act_dead', :spared => 'pf2e.act_spared', :knocked_out => 'pf2e.act_knocked_out' }.freeze
 
       # The room is told when a hit drops someone: a creature is down, a character dying or nearer
       # death - or dead, or spared it, which is the `fate` the damage answered with. A troop still up that
@@ -1133,8 +1218,15 @@ module AresMUSH
           return
         end
 
+        encounter = Gm.encounter_of(whom.holder)
+        encounter &&= PF2Encounter[encounter.id]
+
         # Whoever has dropped holds nobody any longer.
-        out['lines'].concat(Holding.let_go(Gm.encounter_of(whom.holder), whom.label))
+        out['lines'].concat(Holding.let_go(encounter, whom.label))
+
+        # A character who lost their last hit points acts from now on just before the turn they fell in.
+        before = held['fell'] && fate != :dead && encounter ? Combatants.before_current(encounter, whom.label) : nil
+        out['lines'] << told('pf2e.act_order_moved', :target => whom.label, :before => before) if before
       end
 
       # A character's attacks by what they would call them: the weapons they have equipped, their
@@ -1204,7 +1296,8 @@ module AresMUSH
 
         targets.each do |target|
           each = Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted)
-          mechanics = (named.equal?(base) ? way_for(base, target) : named).merge('cast_rank' => rank)
+          mechanics = (named.equal?(base) ? way_for(base, target) : way_for(base, target, named['time']) || named)
+                        .merge('cast_rank' => rank)
           attack = mechanics['attack']
           out['about'] = DamageAbout.of_spell(mechanics, spell)
 
@@ -1213,7 +1306,7 @@ module AresMUSH
 
           if attack
             spell_attack(each, spell, mechanics, casting, formulas, said, out)
-          elsif mechanics['save']
+          elsif mechanics['save'] && !mends?(mechanics, formulas, target)
             spell_save(each, spell, mechanics, dc, formulas, out)
           elsif formulas.any?
             spell_unopposed(each, mechanics, formulas, out)
@@ -1226,7 +1319,7 @@ module AresMUSH
 
         spell_effect(scene, spell, rank, out) if targets.empty? && !named['attack'] && !named['save']
 
-        spend_casting(scene.actor.holder, spell, named['time'], named['attack'])
+        spend_casting(scene, spell, named['time'], named['attack'], rank, out)
 
         Ok.new(:state => out)
       end
@@ -1245,17 +1338,22 @@ module AresMUSH
         mechanics.merge(chosen.reject { |field, _| field == 'name' }).merge('name' => chosen['name'])
       end
 
-      # A spell cast one way against the undead and another for anyone else - Lay on Hands - cast without
-      # saying which, is cast the way its target calls for.
-      def self.way_for(mechanics, target)
+      # A spell cast one way against the undead and another for anyone else - Lay on Hands, Heal with two
+      # actions - is cast the way its target calls for. `time` is the actions it was cast with, where the
+      # caster said: the ways that take that many are the ones chosen among, and nothing is answered where
+      # they do not differ by who the target is.
+      def self.way_for(mechanics, target, time = nil)
         variants = Array(mechanics['variants'])
+        variants = variants.select { |one| one['time'].to_s == time.to_s } if time
         undead = variants.find { |one| one['name'].to_s.match?(/undead/i) }
 
-        return mechanics unless undead
+        return (time ? nil : mechanics) unless undead
 
         chosen = Effects.facts(target.holder).include?('self:mode:undead') ? undead : (variants - [ undead ]).first
 
-        chosen ? mechanics.merge(chosen.reject { |field, _| field == 'name' }).merge('name' => chosen['name']) : mechanics
+        return (time ? nil : mechanics) unless chosen
+
+        mechanics.merge(chosen.reject { |field, _| field == 'name' }).merge('name' => chosen['name'])
       end
 
       # Whether the caster has to say which way they cast a spell before it is spent: where the way decides
@@ -1291,12 +1389,24 @@ module AresMUSH
       # The spell by its own name, and what it does: `[ 'Fear', { … } ]`, or the name as typed and nothing.
       # A spell's casting time is its cost: `2` is two actions, `1 to 3` counts the least, a reaction
       # spends the reaction, and anything longer is not cast in a turn.
-      def self.spend_casting(holder, spell, time, attack)
+      #
+      # A creature's casting is counted against what its stat block gives it of the spell in a day: past
+      # that it is its GM's to allow, and they are told.
+      def self.spend_casting(scene, spell, time, attack, rank, out)
+        holder = scene.actor.holder
         kind = time.to_s.match?(/reaction/i) ? 'reaction' : 'action'
         cost = time.to_s[/\A\d+/].to_i
         cost = 0 if time.to_s.match?(/minute|hour|day/i)
+        limit = Actors.of(holder).creature? ? Npcs.spell_limit(holder, spell, rank) : nil
+        before = limit ? TurnState.used(holder, limit['key']) : 0
 
-        TurnState.spend(holder, spell, :cost => cost, :type => kind, :attack => !!attack)
+        TurnState.spend(holder, limit ? limit['key'] : spell, :cost => cost, :type => kind, :attack => !!attack,
+                                                              :frequency => limit && { 'max' => limit['max'], 'per' => 'day' })
+
+        return unless limit && before >= limit['max']
+
+        out['gm'] << (limit['rank'] ? told('pf2e.cast_no_slot', :actor => scene.actor.label, :rank => limit['rank'], :max => limit['max'])
+                                    : told('pf2e.cast_none_left', :actor => scene.actor.label, :spell => spell, :max => limit['max']))
       end
 
       # A creature's stat block lists a spell with how it is cast after its name - `Fly (Constant)`,
@@ -1431,13 +1541,20 @@ module AresMUSH
       end
 
       # Damage that heals the living and hurts the undead, or the reverse, by the spell's vitality or void.
-      def self.heal_or_hurt(scene, mechanics, formulas, degree, out)
-        heals = formulas.select { |_f, _t, _c, kinds| Array(kinds).include?('healing') }
-        mode = Effects.facts(scene.target.holder).find { |one| one.start_with?('self:mode:') }.to_s.split(':').last
+      # Whether a spell mends this target: it heals, and is not the kind of energy that harms what they
+      # are. Whoever it mends saves against nothing.
+      def self.mends?(mechanics, formulas, target)
+        mode = Effects.facts(target.holder).find { |one| one.start_with?('self:mode:') }.to_s.split(':').last
         traits = Array(mechanics['traits'])
         hurts_this = (traits.include?('vitality') && mode == 'undead') || (traits.include?('void') && mode != 'undead')
 
-        if heals.any? && !hurts_this
+        formulas.any? { |_f, _t, _c, kinds| Array(kinds).include?('healing') } && !hurts_this
+      end
+
+      def self.heal_or_hurt(scene, mechanics, formulas, degree, out)
+        heals = formulas.select { |_f, _t, _c, kinds| Array(kinds).include?('healing') }
+
+        if mends?(mechanics, formulas, scene.target)
           amount = heals.sum { |formula, *_| Pf2e.roll_formula(formula) }
           Harm.heal(scene.target.holder, amount)
           out['lines'] << told('pf2e.act_healed', :target => scene.target.label, :count => amount)
@@ -1497,6 +1614,9 @@ module AresMUSH
           if one['condition'] then condition_consequence(scene, whom, one, out)
           elsif one['remove'] then removal_consequence(scene, whom, one, out)
           elsif one['lower'] then lower_consequence(whom, one, out)
+          elsif one['dying'] then dying_consequence(whom, one, out)
+          elsif one['recover'] then recovered(whom, one['recover'], one['dc'], out)
+          elsif one['suffer'] then suffer_consequence(scene, whom, one, out)
           elsif one['effect'] then effect_consequence(scene, whom, one, rank, out)
           elsif one['heal']
             amount = Pf2e.roll_formula(one['heal']) + (one['bonus'] || {})[dc.to_s].to_i
@@ -1511,6 +1631,23 @@ module AresMUSH
             out['lines'] << told('pf2e.act_persistent_ended', :target => whom.label, :type => one['persistent'])
           end
         end
+      end
+
+      # Someone dying brought nearer death, which may be their death.
+      def self.dying_consequence(whom, one, out)
+        value = Pf2e.condition_level(whom.holder, 'Dying') + one['dying'].to_i
+        fate = Pf2eHP.now_dying(whom.holder, value, Gm.may_kill?(whom.holder))
+
+        out['lines'] << (FATES[fate] ? told(FATES[fate], :target => whom.label) : told('pf2e.act_dying', :target => whom.label, :value => value))
+      end
+
+      # Their persistent damage of a kind, dealt them now.
+      def self.suffer_consequence(scene, whom, one, out)
+        held = PersistentDamage.held(whom.holder).find { |each| each['type'] == Domains.slug(one['suffer']) }
+
+        return unless held
+
+        deal(scene, whom, [ { 'amount' => Pf2e.roll_formula(held['formula']), 'type' => held['type'], 'formula' => held['formula'] } ], out)
       end
 
       # A condition with a value made less: at nothing, it is gone.
@@ -1588,7 +1725,12 @@ module AresMUSH
         Array(one['remove']).map { |name| Pf2e.canonical_condition(name) }.select { |name| held.key?(name) }.each do |name|
           next if Holding::HOLDS.include?(name) && theirs && theirs != scene.actor.label
 
-          value = held[name].is_a?(Hash) ? held[name]['value'] : nil
+          # Whoever stops dying with no hit points is unconscious still, and wounded for it.
+          if name == 'Dying' && Gm.character?(whom.holder) && Pf2eHP.get_current_hp(whom.holder).zero?
+            Pf2eHP.stable(whom.holder)
+            next out['lines'] << told('pf2e.recovery_stable', :name => whom.label)
+          end
+
           removed = Pf2e.remove_condition(whom.holder, name)
 
           next out['lines'] << told(removed.key, removed.args) if removed.err?

@@ -154,22 +154,48 @@ def ability_of(item, refused, words):
 
 
 def casting_of(item, spells):
+    """A spellcasting entry: its spells by rank, and how often each may be cast.
+
+    A prepared caster's are what it has in its slots, so one prepared twice is listed twice and one
+    prepared in a higher slot is listed at that rank. A spontaneous caster's slots are counted by rank
+    (`slots`), and an innate spell cast more than once a day says how often (`uses`)."""
     system = item['system']
     dc = system.get('spelldc') or {}
+    kind = (system.get('prepared') or {}).get('value')
     own = [one for one in spells if (one['system'].get('location') or {}).get('value') == item['_id']]
+    by_id = {one['_id']: one for one in own}
+    slots = system.get('slots') or {}
     ranks = collections.defaultdict(list)
+    prepared = {rank[4:]: [by_id[one['id']]['name'] for one in (held or {}).get('prepared') or [] if one.get('id') in by_id]
+                for rank, held in slots.items()}
 
-    for spell in own:
-        location = spell['system'].get('location') or {}
-        traits = (spell['system'].get('traits') or {}).get('value') or []
-        rank = 0 if 'cantrip' in traits else (location.get('heightenedLevel') or
-                                              (spell['system'].get('level') or {}).get('value') or 1)
-        ranks[str(rank)].append(spell['name'])
+    if kind == 'prepared' and any(prepared.values()):
+        for rank, names in prepared.items():
+            ranks[rank].extend(names)
+    else:
+        for spell in own:
+            location = spell['system'].get('location') or {}
+            traits = (spell['system'].get('traits') or {}).get('value') or []
+            rank = 0 if 'cantrip' in traits else (location.get('heightenedLevel') or
+                                                  (spell['system'].get('level') or {}).get('value') or 1)
+            ranks[str(rank)].append(spell['name'])
 
-    return {'name': item['name'], 'tradition': (system.get('tradition') or {}).get('value'),
-            'type': (system.get('prepared') or {}).get('value'),
-            'dc': dc.get('dc'), 'attack': dc.get('value'),
-            'spells': {rank: sorted(set(names)) for rank, names in sorted(ranks.items(), key=lambda one: int(one[0]))}}
+    entry = {'name': item['name'], 'tradition': (system.get('tradition') or {}).get('value'),
+             'type': kind,
+             'dc': dc.get('dc'), 'attack': dc.get('value'),
+             'spells': {rank: sorted(names) for rank, names in sorted(ranks.items(), key=lambda one: int(one[0])) if names}}
+
+    if kind == 'spontaneous':
+        counted = {rank[4:]: int((held or {}).get('max') or 0) for rank, held in slots.items()}
+        entry['slots'] = {rank: count for rank, count in sorted(counted.items(), key=lambda one: int(one[0])) if count and rank != '0'}
+
+    if kind == 'innate':
+        uses = {one['name']: int(((one['system'].get('location') or {}).get('uses') or {}).get('max') or 0) for one in own}
+        uses = {name: count for name, count in sorted(uses.items()) if count > 1}
+        if uses:
+            entry['uses'] = uses
+
+    return entry
 
 
 # What a reinforcing rune adds to a shield's Hardness and Hit Points, and the most it brings them to

@@ -424,7 +424,7 @@
   skills: {"Acrobatics": 7, "Stealth": 7, "Fire Lore": 7}
   strikes: [{"name": "Torch", "bonus": 7, "damage": [["1d4", "bludgeoning", null], ["1", "fire", null]], "traits": ["fire"]}]
   actions: [{"name": "Goblin Scuttle", "type": "reaction", "traits": [], "text": "If a goblin ally ends a move action adjacent to the goblin igniter, the igniter can use their reaction to Step."}]
-  spellcasting: [{"name": "Spells", "tradition": "arcane", "type": "innate", "dc": 16, "attack": 6, "spells": {"0": ["Caustic Blast", "Electric Arc", "Light"], "1": ["Breathe Fire"]}}]
+  spellcasting: [{"name": "Spells", "tradition": "arcane", "type": "innate", "dc": 16, "attack": 6, "spells": {"0": ["Caustic Blast", "Electric Arc", "Light"], "1": ["Breathe Fire"]}, "uses": {"Breathe Fire": 3}}]
 "Goblin Warrior (BB)":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box: Secrets of the Unlit Star"
@@ -549,7 +549,7 @@
   resistances: {"poison": 5}
   strikes: [{"name": "Claw", "bonus": 7, "damage": [["1d6-1", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 3, "damage": [["1d8-1", "bludgeoning", null]], "traits": []}]
   actions: [{"name": "Sneak Attack", "type": "passive", "traits": [], "text": "Zolgran deals an extra 1d6 damage to creatures that have the Off-Guard condition.", "rules": [{"key": "DamageDice", "selector": "strike-damage", "diceNumber": 1, "dieSize": "d6", "predicate": ["target:condition:off-guard"]}, {"key": "RollOption", "option": "target:condition:off-guard", "toggleable": "totm", "label": "Enable abilities that require an off-guard target"}]}]
-  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "prepared", "dc": 20, "attack": 12, "spells": {"0": ["Detect Magic", "Figment", "Gouging Claw", "Message"], "1": ["Command", "Force Barrage"]}}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "prepared", "dc": 20, "attack": 12, "spells": {"0": ["Detect Magic", "Figment", "Gouging Claw", "Message"], "1": ["Command", "Force Barrage", "Force Barrage", "Force Barrage"]}}]
 "Kobold Mage (Black, BB)":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box"
@@ -568,7 +568,7 @@
   resistances: {"acid": 5}
   strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
   actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy.", "rules": [{"key": "RollOption", "option": "scamper", "toggleable": true}, {"key": "FlatModifier", "selector": "land-speed", "value": 5, "predicate": ["scamper"]}, {"key": "FlatModifier", "selector": "ac", "type": "circumstance", "value": 2, "predicate": ["scamper"]}]}]
-  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage", "Force Barrage", "Force Barrage"]}}]
 "Kobold Mage (Blue, BB)":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box"
@@ -587,7 +587,7 @@
   resistances: {"electricity": 5}
   strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
   actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy.", "rules": [{"key": "RollOption", "option": "scamper", "toggleable": true}, {"key": "FlatModifier", "selector": "land-speed", "value": 5, "predicate": ["scamper"]}, {"key": "FlatModifier", "selector": "ac", "type": "circumstance", "value": 2, "predicate": ["scamper"]}]}]
-  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage", "Force Barrage", "Force Barrage"]}}]
 "Kobold Mage (Green, BB)":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box"
@@ -606,7 +606,7 @@
   resistances: {"poison": 5}
   strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
   actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy.", "rules": [{"key": "RollOption", "option": "scamper", "toggleable": true}, {"key": "FlatModifier", "selector": "land-speed", "value": 5, "predicate": ["scamper"]}, {"key": "FlatModifier", "selector": "ac", "type": "circumstance", "value": 2, "predicate": ["scamper"]}]}]
-  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage", "Force Barrage", "Force Barrage"]}}]
 "Kobold Mage (Red, BB)":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box"
@@ -625,7 +625,7 @@
   resistances: {"fire": 5}
   strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
   actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy.", "rules": [{"key": "RollOption", "option": "scamper", "toggleable": true}, {"key": "FlatModifier", "selector": "land-speed", "value": 5, "predicate": ["scamper"]}, {"key": "FlatModifier", "selector": "ac", "type": "circumstance", "value": 2, "predicate": ["scamper"]}]}]
-  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage", "Force Barrage", "Force Barrage"]}}]
 "Kobold Mage (White, BB)":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box"
@@ -644,7 +644,7 @@
   resistances: {"cold": 5}
   strikes: [{"name": "Claw", "bonus": 6, "damage": [["1d6+2", "slashing", null]], "traits": ["agile", "finesse", "unarmed"]}, {"name": "Staff", "bonus": 6, "damage": [["1d8+2", "bludgeoning", null]], "traits": []}]
   actions: [{"name": "Scamper", "type": "action", "traits": [], "cost": 1, "text": "If the kobold is adjacent to at least one enemy, the kobold Strides up to 30 feet and gains a +2 circumstance bonus to AC against reactions triggered by this movement. The kobold must end this movement in a space that's not adjacent to any enemy.", "rules": [{"key": "RollOption", "option": "scamper", "toggleable": true}, {"key": "FlatModifier", "selector": "land-speed", "value": 5, "predicate": ["scamper"]}, {"key": "FlatModifier", "selector": "ac", "type": "circumstance", "value": 2, "predicate": ["scamper"]}]}]
-  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage"]}}]
+  spellcasting: [{"name": "Wizard Spells", "tradition": "arcane", "type": "innate", "dc": 18, "attack": 8, "spells": {"0": ["Detect Magic", "Figment", "Shield", "Telekinetic Projectile"], "1": ["Command", "Force Barrage", "Force Barrage", "Force Barrage"]}}]
 "Kobold Scout (BB)":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box"
@@ -732,7 +732,7 @@
   resistances: {"all-damage": {"value": 5, "except": ["force", "ghost-touch", "vitality"], "double": ["non-magical"]}}
   strikes: [{"name": "Shadow Hand", "bonus": 10, "damage": [["2d6+3", "void", null]], "traits": ["finesse", "magical"]}, {"name": "Shadow Blast", "bonus": 8, "damage": [["2d6", "void", null]], "traits": ["magical"], "range": 60}]
   actions: [{"name": "Incorporeal", "type": "passive", "traits": [], "text": "Lukahn has no body and can pass through physical objects, though he can't end his turn inside one. Most checks that use Strength and require a body, such as Grapple and Shove, don't work against Lukahn, and he can't use them."}, {"name": "Light Vulnerability", "type": "passive", "traits": [], "text": "Attacks against Lukahn are treated as magical if he or the weapon being used against him is in light."}, {"name": "Shadow Veil", "type": "reaction", "traits": [], "text": "Trigger Lukahn is targeted by a melee attack%rEffect Lukahn gains a +2 circumstance bonus to AC against the triggering attack.", "rules": [{"key": "RollOption", "option": "shadow-veil", "toggleable": true}, {"key": "FlatModifier", "selector": ["ac"], "type": "circumstance", "value": 2, "predicate": ["shadow-veil"]}]}]
-  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 21, "attack": 11, "spells": {"0": ["Detect Magic", "Haunting Hymn", "Message", "Telekinetic Projectile"], "1": ["Concordant Choir", "Fear", "Ill Omen"], "2": ["Laughing Fit", "Noise Blast"]}}]
+  spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 21, "attack": 11, "spells": {"0": ["Detect Magic", "Haunting Hymn", "Message", "Telekinetic Projectile"], "1": ["Concordant Choir", "Fear", "Ill Omen"], "2": ["Laughing Fit", "Noise Blast"]}, "slots": {"1": 3, "2": 3}}]
 "Magnetic Skink":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box: Secrets of the Unlit Star"
@@ -1032,7 +1032,7 @@
   weaknesses: {"cold-iron": 3}
   strikes: [{"name": "Claw", "bonus": 10, "damage": [["1d10+2", "slashing", null]], "traits": ["agile", "magical", "unarmed"]}]
   actions: [{"name": "+1 Status to All Saves vs. Magic", "type": "passive", "traits": [], "rules": [{"key": "FlatModifier", "selector": "saving-throw", "type": "status", "value": 1, "predicate": ["item:magical"]}]}, {"name": "Slithering Steps", "type": "passive", "traits": [], "text": "Shulzara is not affected by difficult terrain due to water."}]
-  spellcasting: [{"name": "Arcane Spontaneous Spells", "tradition": "arcane", "type": "spontaneous", "dc": 18, "attack": 8, "spells": {"0": ["Frostbite", "Light", "Message", "Shield"], "1": ["Fear", "Hydraulic Push", "Mud Pit"]}}]
+  spellcasting: [{"name": "Arcane Spontaneous Spells", "tradition": "arcane", "type": "spontaneous", "dc": 18, "attack": 8, "spells": {"0": ["Frostbite", "Light", "Message", "Shield"], "1": ["Fear", "Hydraulic Push", "Mud Pit"]}, "slots": {"1": 3}}]
 "Skeletal Giant (BB)":
   pack: "menace-under-otari-bestiary"
   source: "Pathfinder Beginner Box"

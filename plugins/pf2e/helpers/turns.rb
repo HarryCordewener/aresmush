@@ -32,6 +32,7 @@ module AresMUSH
 
         return events unless holder
 
+        events += Delay.lost(holder)
         events += stunned(holder, round)
         Equipment.lapse!(holder, 'turn')
         ActiveEffects.on(holder).each { |effect| ActiveEffects.give_temp_hp(holder, effect, 'on_turn_start') }
@@ -86,7 +87,16 @@ module AresMUSH
       # What a recovery check that would kill is told as.
       FATES = { :dead => 'pf2e.recovery_dead', :spared => 'pf2e.recovery_spared' }.freeze
 
+      # The order moves on from a turn. Whoever delayed in it has had it end already.
       def self.turn_ended(encounter, participant, round)
+        holder = Combatants.holder_named(encounter, participant)
+
+        holder && Delay.passing?(holder) ? [] : ending(encounter, participant, round)
+      end
+
+      # What the end of a turn brings: effects that last until then, fear easing, what burns, a hold's
+      # damage, an affliction's next stage.
+      def self.ending(encounter, participant, round)
         events = ActiveEffects.expire(encounter, 'turn-end', participant, round) +
                  ActiveEffects.unsustained(encounter, participant, round) +
                  conditions_ended(encounter, 'turn-end', participant, round)

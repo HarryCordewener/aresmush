@@ -17,6 +17,9 @@
 #   heal       hit points they regain, as a formula, and `bonus` more by the DC the check was against
 #   persistent persistent damage of this type ended
 #   lower      a condition with a value made less, `by` so much; at nothing it is gone
+#   dying      their dying made worse, by so much
+#   recover    another flat check against persistent damage of this type, now, at `dc` where one is given
+#   suffer     persistent damage of this type dealt them now
 pf2e_action_consequences:
   "trip":
     criticalSuccess: [{"on": "target", "condition": "Prone"}, {"on": "target", "damage": "1d6", "type": "bludgeoning"}]
@@ -56,9 +59,11 @@ pf2e_action_consequences:
   "administer-first-aid:stabilize":
     criticalSuccess: [{"on": "target", "remove": ["Dying"]}]
     success: [{"on": "target", "remove": ["Dying"]}]
+    criticalFailure: [{"on": "target", "dying": 1}]
   "administer-first-aid:stop-bleeding":
-    criticalSuccess: [{"on": "target", "persistent": "bleed"}]
-    success: [{"on": "target", "persistent": "bleed"}]
+    criticalSuccess: [{"on": "target", "recover": "bleed", "dc": 10}]
+    success: [{"on": "target", "recover": "bleed", "dc": 10}]
+    criticalFailure: [{"on": "target", "suffer": "bleed"}]
   "battle-medicine":
     criticalSuccess: [{"on": "target", "heal": "4d8", "bonus": {"20": 10, "30": 30, "40": 50}}]
     success: [{"on": "target", "heal": "2d8", "bonus": {"20": 10, "30": 30, "40": 50}}]

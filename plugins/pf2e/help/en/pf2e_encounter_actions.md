@@ -59,6 +59,11 @@ just taken: its bonus is put against the attack's roll, and a hit it turns into 
 hit it could turn says so.
 Shield Block answers a hit you have just taken while your shield is raised: its Hardness comes off the
 hit's physical damage, and you and the shield each take the rest. A hit you could block says so.
+`+e/act delay`, as your turn begins, waits for a better moment: what ends your turn happens at once,
+the GM moves the order on, and `+e/act delay` again after someone else's turn brings you back, to act
+then and from that place in the order from there on. A round gone by without returning is a turn lost.
+Heal and Harm mend one kind of creature and harm the other: whoever they mend rolls nothing, whoever
+they harm has a basic Fortitude save, and two actions' 8 more is for the mending alone.
 Sickened, `+e/act retch` spends an action on a Fortitude save against the DC of what sickened you: one
 less on a success, two on a critical success. Where the GM set the condition by hand, say the DC:
 `+e/act retch/18`.

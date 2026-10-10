@@ -8,7 +8,7 @@ module AresMUSH
       # What may be said of the damage after its kind, each a word or two: what it is made of, and how
       # it came. Asked for rather than held, because the helpers load after the commands.
       def sayable
-        Pf2e::IWR::MATERIALS + %w{magical holy unholy area splash precision persistent spell ghost-touch}
+        Pf2e::IWR::MATERIALS + %w{magical holy unholy area splash precision persistent spell ghost-touch nonlethal}
       end
 
       # `damage <who>=<how much>` or `<how much> <kind> [<what else is so of it>...]`, so a resistance

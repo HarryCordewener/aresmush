@@ -80,6 +80,20 @@ module AresMUSH
         end
       end
 
+      # Another flat check against one kind of it, now - an assisted recovery - at its own DC or the one
+      # given. Answers the check, with the damage ended where it was made, or nothing where they take none
+      # of that kind.
+      def self.assisted(char, type, dc = nil)
+        one = held(char).find { |each| each['type'] == Domains.slug(type) }
+
+        return nil unless one
+
+        check = recovery(char, dc ? one.merge('dc' => dc) : one)
+        remove(char, one['type']) if check['success']
+
+        check.merge('type' => one['type'])
+      end
+
       # The flat check that ends it: a d20 against its DC, rolled twice where fortune or misfortune reaches
       # a recovery check.
       def self.recovery(char, one)

@@ -146,11 +146,16 @@ module AresMUSH
       # `:dead`, or `:spared` where it would have killed and may not.
       def damage(amount, kind = nil, is_dm: nil, critical: false, continuing: false, about: [], once: nil)
         held = IWR.apply(IWR.of(@holder), amount.to_i, kind, about, :once => once)
+        had = Pf2eHP.get_current_hp(@holder).positive?
+        fate = Pf2eHP.modify_damage(@holder, held['amount'], false, is_dm, kind, [], :critical => critical,
+                                                                                   :continuing => continuing, :resisted => true,
+                                                                                   :nonlethal => IWR.facts(nil, about).include?(NONLETHAL))
 
-        held.merge('fate' => Pf2eHP.modify_damage(@holder, held['amount'], false, is_dm, kind, [], :critical => critical,
-                                                                                                   :continuing => continuing,
-                                                                                                   :resisted => true))
+        # `fell` is that this is what took their last hit points.
+        held.merge('fate' => fate, 'fell' => had && !Pf2eHP.get_current_hp(@holder).positive?)
       end
+
+      NONLETHAL = 'item:trait:nonlethal'.freeze
 
       # What they regained, which is no more than they had lost.
       def heal(amount, options = [])
@@ -484,7 +489,9 @@ module AresMUSH
       # The rank the stat block lists the spell at; a cantrip is half its level, rounded up.
       def listed_spell_rank(spell)
         listed = Npcs.casting(@holder, spell)
-        rank = (listed && listed['spells'] || {}).find { |_rank, names| names.any? { |one| one.casecmp?(spell) } }&.first
+        rank = (listed && listed['spells'] || {}).find do |_rank, names|
+          names.any? { |one| Npcs.spell_base(one).casecmp?(Npcs.spell_base(spell)) }
+        end&.first
 
         return nil unless rank
         return (@holder.pf2_level / 2.0).ceil.clamp(1, 10) if rank.to_s == '0'

@@ -53,9 +53,12 @@ module AresMUSH
     # `resisted` is damage whose immunities, weaknesses and resistances the caller has already applied,
     # knowing more about it than its kind.
     #
-    # Answers what became of them where the damage settled it: `:dead` or `:spared`.
+    # `nonlethal` is damage that knocks out and does not kill: whoever it reduces to nothing is
+    # unconscious, and not dying.
+    #
+    # Answers what became of them where the damage settled it: `:dead`, `:spared` or `:knocked_out`.
     def self.modify_damage(char, amount, healing=false, is_dm=nil, kind=nil, options=[], critical: false, continuing: false,
-                           resisted: false)
+                           resisted: false, nonlethal: false)
       # Nothing more happens to the dead.
       return nil if char.pf2_is_dead
 
@@ -80,6 +83,14 @@ module AresMUSH
         hp.update(damage: (existing_damage - amount).clamp(floor, max_hp))
         woken(char)
         return nil
+      end
+
+      # Damage of twice their hit points or more in one blow is death, whatever their dying - but for a
+      # blow not meant to kill, which does not.
+      if max_hp.positive? && amount >= 2 * max_hp && !nonlethal
+        hp.update(damage: max_hp, temp_hp: 0)
+
+        return now_dying(char, fatal_at(char), is_dm)
       end
 
       # Deduct from temp_hp first, if any, overflow goes to HP.
@@ -117,6 +128,11 @@ module AresMUSH
 
       step = critical ? 2 : 1
       dying = Pf2e.condition_level(char, 'Dying')
+
+      if nonlethal && dying.zero?
+        knocked_out(char)
+        return :knocked_out
+      end
 
       now_dying(char, dying.positive? ? dying + step : step + Pf2e.condition_level(char, 'Wounded'), is_dm)
     end
@@ -161,6 +177,11 @@ module AresMUSH
     def self.stable(char)
       Pf2e.remove_condition(char, 'Dying', true)
       Pf2e.set_condition(char, 'Wounded', Pf2e.condition_level(char, 'Wounded') + 1)
+      Pf2e.set_condition(char, 'Unconscious', nil, 'granted_by' => NO_HIT_POINTS)
+    end
+
+    # Knocked out by a blow not meant to kill: unconscious with no hit points, and no nearer death.
+    def self.knocked_out(char)
       Pf2e.set_condition(char, 'Unconscious', nil, 'granted_by' => NO_HIT_POINTS)
     end
 

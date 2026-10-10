@@ -147,6 +147,25 @@ module AresMUSH
         encounter.update(:next_init => pointer(encounter, rows(encounter), sorted), :participants => sorted)
       end
 
+      # Someone moved to act directly before whoever's turn it is, from here on: who was reduced to no hit
+      # points in that turn, or returns from a Delay. Answers whose turn that is where they were moved, and
+      # nothing where it is their own or they already act directly before it.
+      def self.before_current(encounter, label)
+        order = rows(encounter)
+        current = ActiveEffects.current_turn(encounter)
+        at = order.index { |row| row['name'] == current }
+
+        return nil unless at && current != label && order.any? { |row| row['name'] == label }
+        return nil if order[at - 1]['name'] == label
+
+        theirs = order[at]['init'].to_f
+        init = at.zero? ? theirs + 1 : (order[at - 1]['init'].to_f + theirs) / 2
+
+        write(encounter, order.map { |row| row['name'] == label ? row.merge('init' => init) : row })
+
+        current
+      end
+
       # `next_init` is one past whoever's turn it is. It follows them wherever a sort puts them; if they
       # have left, it points at whoever was to come after them.
       def self.pointer(encounter, was, sorted)

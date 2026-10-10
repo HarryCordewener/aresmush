@@ -668,6 +668,107 @@ module AresMUSH
         end
       end
 
+      # Grioth Cultist: Fear prepared once and Heal twice (DC 20), Divine Lance a cantrip, and Phantom Pain
+      # an innate spell of another tradition (DC 19).
+      describe "a creature that prepares its spells" do
+        def hit_points
+          200
+        end
+
+        before(:each) do
+          add('grioth cultist')
+          next_turn
+        end
+
+        def none_left(spell, most)
+          t('pf2e.cast_none_left', :actor => 'Grioth Cultist #2', :spell => spell, :max => most).strip
+        end
+
+        it "should cast one it prepared without a word" do
+          as(2, "cast fear=#{@hero.name}")
+
+          expect(heard).to_not include('yours to allow')
+        end
+
+        it "should warn its GM when it casts one again that it prepared once, and go ahead" do
+          as(2, "cast fear=#{@hero.name}")
+          as(2, "cast fear=#{@hero.name}")
+
+          expect(refused).to eq []
+          expect(heard).to include('casts Fear', none_left('Fear', 1))
+        end
+
+        it "should cast one it prepared twice, twice" do
+          2.times { as(2, "cast heal=#{@hero.name}") }
+
+          expect(heard).to_not include('yours to allow')
+
+          as(2, "cast heal=#{@hero.name}")
+
+          expect(heard).to include(none_left('Heal', 2))
+        end
+
+        it "should cast a cantrip as often as it likes" do
+          3.times { as(2, "cast divine lance=#{@hero.name}") }
+
+          expect(heard).to_not include('yours to allow')
+        end
+
+        it "should cast an innate spell once a day" do
+          as(2, "cast phantom pain=#{@hero.name}")
+          as(2, "cast phantom pain=#{@hero.name}")
+
+          expect(heard).to include(none_left('Phantom Pain', 1))
+        end
+
+        it "should cast a spell with the figures of the entry that lists it" do
+          as(2, "cast phantom pain=#{@hero.name}")
+
+          expect(heard).to include('vs DC 19')
+        end
+
+        it "should show how often each is prepared" do
+          run(PF2EncounterCreatureCmd, 'e/creature #2')
+
+          expect(heard).to include('Rank 2: Dispel Magic, Heal, Noise Blast', 'Rank 1: Fear, Harm, Heal, Ventriloquism')
+        end
+      end
+
+      # Bone Prophet: a spontaneous caster with three rank 4 slots, Harm among its rank 4 spells, and
+      # Ventriloquism at will among its innate ones.
+      describe "a creature that casts from slots" do
+        def hit_points
+          400
+        end
+
+        before(:each) do
+          add('bone prophet')
+          next_turn
+        end
+
+        it "should warn its GM when the slots of a rank are spent, and go ahead" do
+          3.times { as(2, "cast harm=#{@hero.name}") }
+
+          expect(heard).to_not include('yours to allow')
+
+          as(2, "cast harm=#{@hero.name}")
+
+          expect(heard).to include(t('pf2e.cast_no_slot', :actor => 'Bone Prophet #2', :rank => 4, :max => 3).strip)
+        end
+
+        it "should cast a spell it has at will as often as it likes" do
+          3.times { as(2, 'cast ventriloquism (at will)') }
+
+          expect(heard).to_not include('yours to allow')
+        end
+
+        it "should show the slots it has" do
+          run(PF2EncounterCreatureCmd, 'e/creature #2')
+
+          expect(heard).to include('Rank 4 (3 slots): Fly, Harm, Read Omens, Talking Corpse')
+        end
+      end
+
       # Will-o'-Wisp: Feed on Fear, "Frequency once per round".
       describe "an ability with a limit on how often it is used" do
         before(:each) do
