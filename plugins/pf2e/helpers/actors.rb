@@ -43,6 +43,10 @@ module AresMUSH
         nil
       end
 
+      def own_abilities
+        []
+      end
+
       def follow_up(_term)
         nil
       end
@@ -379,7 +383,11 @@ module AresMUSH
       end
 
       def own_ability(term)
-        Array(@holder.stat_block['actions']).find { |one| one['name'].casecmp?(term.to_s.strip) }
+        own_abilities.find { |one| one['name'].casecmp?(term.to_s.strip) }
+      end
+
+      def own_abilities
+        Array(@holder.stat_block['actions'])
       end
 
       def follow_up(term)

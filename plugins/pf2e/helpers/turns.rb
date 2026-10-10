@@ -79,7 +79,7 @@ module AresMUSH
 
         return events unless holder
 
-        events + less_frightened(holder) + PersistentDamage.end_of_turn(holder)
+        events + less_frightened(holder) + PersistentDamage.end_of_turn(holder) + Holding.turn_ended(encounter, participant)
       end
 
       # ------------------------------------------------------------------------------

@@ -92,7 +92,7 @@ module AresMUSH
       # What this one attack gives the defender: cover, and the off-guard of being flanked.
       def self.defender_extra(scene, said, against)
         [ Resolve.cover_modifier(cover_of(scene, said), against),
-          said['flanking'] && against.to_s == 'ac' ? Resolve::FLANKED : nil ].compact
+          (said['flanking'] || said['inside']) && against.to_s == 'ac' ? Resolve::FLANKED : nil ].compact
       end
 
       # ------------------------------------------------------------------------------
@@ -118,6 +118,10 @@ module AresMUSH
         scene = escaping(scene) if name == ESCAPE
         return scene if scene.is_a?(Err)
 
+        # Out of something that swallowed or engulfed them, at the DC it lists.
+        listed = name == ESCAPE ? (Holding.inside(scene.actor.holder) || {})['escape_dc'] : nil
+        words = Array(words) + [ listed.to_s ] if listed && Array(words).none? { |word| word.to_s.match?(/\A\d+\z/) }
+
         stopped = Restraints.refusal(scene.actor, name, traits_of(scene, name))
         return stopped if stopped
 
@@ -136,7 +140,8 @@ module AresMUSH
         return unshielded if unshielded
 
         targets ||= [ scene.target ].compact
-        ability = MonsterAbilities.row(name)
+        own = Actors.of(scene.actor.holder).own_ability(name)
+        ability = own ? MonsterAbilities.row(name, own, scene.actor.holder) : nil
         if targets.size > 1 && !CreatureAbilities.damage_save(own_text(scene, name)) && !(ability && ability['several'])
           return Err.new(:one_target, 'pf2e.act_one_target', 'action' => name)
         end
@@ -144,8 +149,7 @@ module AresMUSH
         risked = Restraints.risked(scene.actor, name, traits_of(scene, name))
         return lost(scene, name, risked) if risked && !risked['kept']
 
-        own = Actors.of(scene.actor.holder).own_ability(name)
-        return MonsterAbilities.use(scene, name, own, targets) if ability && own
+        return MonsterAbilities.use(scene, name, own, targets) if ability
 
         return strike(scene, nil, words) if name == 'Strike'
 
@@ -167,6 +171,7 @@ module AresMUSH
 
         if entry['check']
           check_action(scene, name, entry, said, out)
+          push_distance(scene, term, out) if follow && follow['action'] == 'Shove'
         elsif entry['self_effect']
           self_action(scene, name, entry, said, out)
         else
@@ -274,15 +279,31 @@ module AresMUSH
         out['lines'] << told('pf2e.act_note', :text => own['text']) if own['text']
       end
 
-      # What using it costs the turn.
-      def self.paid(scene, name, own)
+      # What using it costs the turn. A reaction already spent is the GM's to allow, and they are told.
+      def self.paid(scene, name, own, out = nil)
+        reaction_spent(scene, out) if out && own['type'] == 'reaction'
+
         TurnState.spend(scene.actor.holder, name, :cost => own['cost'] || 1, :type => own['type'] || 'action',
                                                   :attack => Array(own['traits']).include?('attack'))
+      end
+
+      def self.reaction_spent(scene, out)
+        return unless TurnState.turn(scene.actor.holder)['reaction']
+
+        out['gm'] << told('pf2e.act_reaction_spent', :actor => scene.actor.label)
+      end
+
+      # A Push whose stat block lists how far: that far on a success, and twice it on a critical success.
+      def self.push_distance(scene, term, out)
+        listed = Array(Actors.of(scene.actor.holder).own_abilities).map { |one| one['name'].to_s[/\A(?:Improved )?Push (\d+) feet\z/i, 1] }.compact.first
+
+        out['lines'] << told('pf2e.act_push_distance', :feet => listed.to_i, :twice => listed.to_i * 2) if listed
       end
 
       def self.announce_ability(scene, name, out, targets = [ scene.target ].compact)
         own = Actors.of(scene.actor.holder).own_ability(name) || {}
         announce(scene, name, own, targets, out)
+        Recharge.used(scene, name, own, out)
 
         dealt = CreatureAbilities.damage_save(own['text'])
         if dealt
@@ -298,7 +319,7 @@ module AresMUSH
           end
         end
 
-        paid(scene, name, own)
+        paid(scene, name, own, out)
 
         Ok.new(:state => out)
       end
@@ -478,12 +499,27 @@ module AresMUSH
       end
 
       # Whether the last hit on them can still be answered: nothing has moved their hit points since.
-      def self.answering?(holder)
+      # Whether someone who is down may still do this: answer the hit that dropped them, or - for a
+      # creature - use what its stat block gives it for the moment it drops.
+      def self.answering?(holder, doing = nil)
+        return when_down?(holder, doing) if Actors.of(holder).creature?
+
         %w{attacked struck}.any? do |key|
           hit = TurnState.of(holder)[key]
 
           hit && hit['after'] == AttackAnswers.standing(holder)
         end
+      end
+
+      def self.when_down?(holder, doing)
+        own = doing ? Actors.of(holder).own_ability(doing) : nil
+
+        !own.nil? && (MonsterAbilities.row(own['name']) || {})['when_down'] == true
+      end
+
+      # What a creature that has just dropped may still do, for its GM to use.
+      def self.offered_when_down(holder)
+        Array(holder.stat_block['actions']).map { |one| one['name'] }.select { |name| when_down?(holder, name) }
       end
 
       def self.attack_answer(scene, name, entry)
@@ -594,9 +630,16 @@ module AresMUSH
         stopped = Restraints.refusal(scene.actor, 'Strike', [ 'attack' ])
         return stopped if stopped
 
+        # What has swallowed someone cannot attack them, and is off-guard to them.
+        if Holding.inside?(scene.target.holder, scene.actor.label)
+          return Err.new(:swallowed, 'pf2e.swallowed_cannot_attack', 'actor' => scene.actor.label, 'target' => scene.target.label)
+        end
+        said = said.merge('inside' => true) if Holding.inside?(scene.actor.holder, scene.target.label)
+
         if reaction
           out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => reaction,
                                                   :cost => Actions.cost(reaction), :target => target_phrase(scene))
+          reaction_spent(scene, out)
         end
 
         # Range increments are a ranged or thrown attack's; a melee Strike ignores them.
@@ -674,6 +717,7 @@ module AresMUSH
         parts = []
         parts << told('pf2e.act_nth_attack', :nth => [ attacks + 1, 3 ].min == 2 ? '2nd' : '3rd') if attacks.positive? && !said['no_map']
         parts << told('pf2e.act_flanking') if said['flanking']
+        parts << told('pf2e.act_from_inside') if said['inside']
         parts << told('pf2e.act_range', :range => said['range']) if said['range'].to_i > 1
         cover = cover_of(scene, said)
         parts << told('pf2e.act_cover_level', :level => cover) if cover
@@ -709,6 +753,7 @@ module AresMUSH
         follow_ups(scene, attack, out)
 
         critical_specialization(scene, attack, out) if critical
+        Recharge.critical_hit(scene, out) if critical
 
         return unless answerable
 
@@ -830,6 +875,7 @@ module AresMUSH
         end
 
         felt = []
+        sharp = 0
 
         DamageRoll.by_type(immediate + precise).each_with_index do |row, index|
           held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical, :continuing => index.positive?,
@@ -838,6 +884,7 @@ module AresMUSH
           fate ||= held['fate']
           taken += held['amount'].to_i
           physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])
+          sharp += held['amount'].to_i if %w{piercing slashing}.include?(DamageRoll.kind(row['type']).to_s)
           resisted = Array(held['applied']).reject { |one| one['category'] != 'immunity' && one['adjustment'].to_i.zero? }
                                            .map { |one| one['category'] == 'immunity' ? 'immune' : "#{one['category']} #{one['adjustment']}" }
           kind = row['categories'] == [ 'splash' ] ? "splash #{row['type']}" : row['type']
@@ -856,6 +903,8 @@ module AresMUSH
         out['lines'] << told('pf2e.act_damage', :damage => shown.join(' + '), :target => whom.label)
         out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
         dropped(whom, standing, out, fate)
+        freed = scene.actor ? Holding.cut_free(scene.actor, whom, sharp) : nil
+        out['lines'] << freed if freed
         offer_block(whom, blockable, taken, physical, critical, out) if blockable && physical.positive?
       end
 
@@ -902,6 +951,9 @@ module AresMUSH
           out['lines'] << told(FATES[fate], :target => whom.label)
         elsif standing == true && now == false
           out['lines'] << told('pf2e.act_down', :target => whom.label)
+          offered_when_down(whom.holder).each do |name|
+            out['lines'] << told('pf2e.act_follow_up', :effect => name, :command => "+e/as ##{whom.holder.number}=act #{name.downcase}")
+          end
         elsif standing.is_a?(Integer) && now.is_a?(Integer) && now > standing
           out['lines'] << told('pf2e.act_dying', :target => whom.label, :value => now)
         else

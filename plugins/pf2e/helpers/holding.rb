@@ -13,9 +13,6 @@ module AresMUSH
       # In the order asked: restrained is the tighter hold.
       HOLDS = %w{Restrained Grabbed}.freeze
 
-      # What being swallowed or engulfed slows them by, and is taken off with.
-      INSIDE = 'held inside'.freeze
-
       def self.conditions(holder)
         holder.pf2_conditions || {}
       end
@@ -54,11 +51,10 @@ module AresMUSH
         Combatants.all(encounter).select { |one| one.holder && holds?(label, one.holder) }
       end
 
-      # Lets someone go: the hold, and what being inside their holder did to them.
+      # Lets someone go. What the hold brought with it - the slowness of being swallowed - goes with it,
+      # as anything a condition grants does.
       def self.release(holder)
         HOLDS.each { |name| Pf2e.remove_condition(holder, name, true) if conditions(holder).key?(name) }
-        slowed = conditions(holder)['Slowed']
-        Pf2e.remove_condition(holder, 'Slowed', true) if slowed.is_a?(Hash) && slowed['granted_by'] == INSIDE
       end
 
       # A holder that drops, or leaves the fight, lets go of everyone it holds. Answers a line for each,
@@ -79,15 +75,70 @@ module AresMUSH
         name, entry = hold(target.holder)
         ends = Turns.expiry_for('next-turn-end', encounter, actor.label, target.label)
 
+        # Someone held inside is held until they get out.
         target.holder.update(:pf2_conditions => conditions(target.holder).merge(name => entry.merge('expires' => ends))) unless entry['inside']
 
         Telling.event('pf2e.hold_extended', :actor => actor.label, :target => target.label)
       end
 
+      # ------------------------------------------------------------------------------
+      # Held inside: swallowed, or engulfed
+
       # What someone is inside, if their holder has swallowed or engulfed them:
       # `{ 'kind' => 'Swallow Whole', 'damage' => [ [ '1d8+1', 'bludgeoning' ] ], 'rupture' => 5 }`.
       def self.inside(holder)
         (hold(holder) || [])[1]&.fetch('inside', nil)
+      end
+
+      # Whether one combatant is inside another.
+      def self.inside?(holder, label)
+        !inside(holder).nil? && by(holder) == label
+      end
+
+      # Puts someone inside their holder: grabbed there with no end to it, and slowed while they are.
+      def self.put_inside(holder, label, inside)
+        Pf2e.remove_condition(holder, 'Restrained', true)
+        Pf2e.set_condition(holder, 'Grabbed') unless conditions(holder).key?('Grabbed')
+
+        list = conditions(holder)
+        holder.update(:pf2_conditions => list.merge('Grabbed' => list['Grabbed'].except('expires').merge('by' => label, 'inside' => inside)))
+
+        Pf2e.set_condition(holder, 'Slowed', 1, 'granted_by' => 'Grabbed') unless conditions(holder).key?('Slowed')
+      end
+
+      # What being inside deals: as they go in, and at the end of each of their turns while whatever
+      # holds them still stands.
+      def self.digest(encounter, target, out)
+        within = inside(target.holder)
+        keeper = within && encounter ? Combatants.find(encounter, by(target.holder)) : nil
+
+        return unless keeper&.ok? && Acting.still_up(keeper.state.holder) && Array(within['damage']).any?
+
+        rows = DamageRoll.of_formulas(within['damage'].map { |formula, type| [ formula, type, nil ] }, false)
+
+        Acting.deal(Acting::Scene.new(encounter, keeper.state, target, nil, true), target, rows, out)
+      end
+
+      # The end of someone's turn inside something. Answers what happened, for whoever tells the room.
+      def self.turn_ended(encounter, label)
+        found = Combatants.find(encounter, label)
+
+        return [] unless found.ok? && inside(found.state.holder)
+
+        out = Acting.report
+        digest(encounter, found.state, out)
+        out['lines']
+      end
+
+      # Someone inside cuts their way out with a single blow of piercing or slashing damage as great as
+      # the Rupture value. Answers the line that says so, or nothing.
+      def self.cut_free(actor, target, sharp)
+        within = inside(actor.holder)
+
+        return nil unless within && by(actor.holder) == target.label && within['rupture'] && sharp >= within['rupture'].to_i
+
+        release(actor.holder)
+        Telling.event('pf2e.hold_cut_free', :target => actor.label, :actor => target.label)
       end
     end
   end
