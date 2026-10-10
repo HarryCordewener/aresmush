@@ -32,11 +32,26 @@ module AresMUSH
 
         return events unless holder
 
-        TurnState.started(holder, round)
+        events += stunned(holder, round)
         Equipment.lapse!(holder, 'turn')
         ActiveEffects.on(holder).each { |effect| ActiveEffects.give_temp_hp(holder, effect, 'on_turn_start') }
 
         events + heal(holder) + recovery(holder)
+      end
+
+      # The turn starts, and being stunned is paid for out of it: as many actions as its value, which
+      # falls by what it took.
+      def self.stunned(holder, round)
+        value = Pf2e.condition_level(holder, 'Stunned')
+        lost = [ value, TurnState.regained(holder) ].min
+
+        TurnState.started(holder, round, lost)
+
+        return [] unless lost.positive?
+
+        Pf2e.set_condition(holder, 'Stunned', value - lost)
+
+        [ event('pf2e.turn_stunned', 'name' => holder.name, 'lost' => lost, 'left' => value - lost) ]
       end
 
       # A dying character's recovery check as their turn starts: a flat check against 10 and their dying

@@ -328,6 +328,8 @@ module AresMUSH
 
         return if CharState.emit_error!(client, found)
 
+        return client.emit_ooc(t('pf2e.turn_dead', :name => found.state.label)) if Pf2e.dead?(found.state.holder)
+
         client.emit_ooc t('pf2e.turn_of', :name => found.state.label, :summary => TurnState.summary(found.state.holder))
       end
     end

@@ -333,6 +333,7 @@ module AresMUSH
 
         figures ||= { 'dc' => listed['dc'], 'save' => listed['save'], 'basic' => true,
                       'damage' => [ [ listed['formula'], listed['type'] ] ], 'outcomes' => {}, 'outcome_text' => {} }
+        figures = figures.merge('outcomes' => borrowed_outcomes(scene, own)) if figures['outcomes'].empty?
         # Damage with no outcomes of its own to scale it is a basic save's, as an area's is.
         basic = figures['basic'] || figures['outcome_text'].empty?
         mechanics = figures.slice('save', 'outcomes', 'outcome_text').merge('basic' => basic, 'traits' => Array(own['traits']))
@@ -358,6 +359,17 @@ module AresMUSH
         end
 
         true
+      end
+
+      # The outcomes of a save that is another ability's: a medusa's Focus Gaze is a save "against the
+      # medusa's petrifying gaze", and leaves what that leaves.
+      def self.borrowed_outcomes(scene, own)
+        words = own['text'].to_s.downcase
+        other = Actors.of(scene.actor.holder).own_abilities.find do |one|
+          one['name'] != own['name'] && words.match?(/\bagainst\b[^.%]*\b#{Regexp.escape(one['name'].downcase)}\b/)
+        end
+
+        other ? (CreatureAbilities.saving(other['text']) || {})['outcomes'] || {} : {}
       end
 
       # Immunity for a while to something already saved against: a dragon's presence, a ghoul's stench.
@@ -674,7 +686,8 @@ module AresMUSH
       end
 
       # `hold` keeps a hit's damage in the report's `held` for the caller to deal, with what else it hit.
-      def self.strike(scene, weapon_term, words, reaction: nil, melee: false, spent: true, hold: false)
+      # `quiet` is a reaction's Strike made as part of something already announced.
+      def self.strike(scene, weapon_term, words, reaction: nil, melee: false, spent: true, hold: false, quiet: false)
         said = said(words, scene.permitted)
         out = report
         out['held'] = [] if hold
@@ -696,8 +709,10 @@ module AresMUSH
         said = said.merge('inside' => true) if Holding.inside?(scene.actor.holder, scene.target.label)
 
         if reaction
-          out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => reaction,
-                                                  :cost => Actions.cost(reaction), :target => target_phrase(scene))
+          unless quiet
+            out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => reaction,
+                                                    :cost => Actions.cost(reaction), :target => target_phrase(scene))
+          end
           reaction_spent(scene, out)
         end
 
@@ -840,10 +855,22 @@ module AresMUSH
           elsif (affliction = Afflictions.of_creature(scene.actor.holder, effect))
             # A venom the Strike carries: whoever it hit saves against it now.
             Afflictions.catch(scene, scene.target, affliction, out)
+          elsif (rider = rider_of(scene.actor.holder, effect)) && CreatureAbilities.saving(rider['text'])
+            # What else the Strike carries, where it is a save: whoever it hit rolls it now.
+            out['lines'] << told('pf2e.act_rider', :effect => rider['name'])
+            ability_saves(scene, rider['name'], rider, [ scene.target ], out)
           else
             out['lines'] << told('pf2e.act_attack_effects', :effects => effect)
           end
         end
+      end
+
+      # The ability a Strike's effect names. A stat block may put the creature's name before it on the
+      # Strike: a lich's `Lich Siphon Life` is its Siphon Life.
+      def self.rider_of(holder, effect)
+        wanted = Domains.slug(effect)
+
+        Actors.of(holder).own_abilities.find { |one| wanted == Domains.slug(one['name']) || wanted.end_with?("-#{Domains.slug(one['name'])}") }
       end
 
       # A creature's follow-up after a Strike that lists it: the action it attempts, and what it costs.
@@ -1300,13 +1327,24 @@ module AresMUSH
 
       # What an outcome leaves on the target. Where it leaves nothing the engine can set and deals no
       # damage, its own words are told, so the room knows what Command's failure makes the target do.
+      # An outcome whose words open `As a failure, but...` is that other outcome, and something more.
+      AS_ANOTHER = /\AAs (?:a |the )?(critical )?(failure|success)\b/i
+
       def self.outcome(scene, mechanics, degree, formulas, out)
         named = Degree::NAMES[degree]
         held = Array((mechanics['outcomes'] || {})[named])
+        words = (mechanics['outcome_text'] || {})[named]
+        like = held.empty? && words ? words.match(AS_ANOTHER) : nil
+
+        if like
+          other = "#{like[1] ? 'critical' : ''}#{like[1] ? like[2].capitalize : like[2].downcase}"
+          held = Array((mechanics['outcomes'] || {})[other])
+          # What it adds is in its words, which the room is told with what the other leaves.
+          out['lines'] << told('pf2e.act_outcome_words', :words => words) if held.any? || formulas.any?
+        end
 
         consequences(scene, held.map { |one| one.merge('on' => 'target') }, out)
 
-        words = (mechanics['outcome_text'] || {})[named]
         out['lines'] << told('pf2e.act_outcome_words', :words => words) if words && held.empty? && formulas.empty?
       end
 

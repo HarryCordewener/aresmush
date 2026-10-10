@@ -31,9 +31,15 @@ module AresMUSH
 
       # Their turn has begun: three actions, a reaction, no attacks yet, and anything limited per turn or
       # per round is theirs again.
-      def self.started(holder, round)
-        write(holder, 'turn' => { 'round' => round.to_i, 'actions' => 0, 'attacks' => 0, 'reaction' => false })
+      def self.started(holder, round, stunned = 0)
+        write(holder, 'turn' => { 'round' => round.to_i, 'actions' => 0, 'attacks' => 0, 'reaction' => false,
+                                  'stunned' => stunned.to_i })
         reset(holder, 'turn')
+      end
+
+      # The actions a turn would hold before anything is taken from it: three, and one more if quickened.
+      def self.regained(holder)
+        ACTIONS + (Pf2e.held_conditions(holder).key?('Quickened') ? 1 : 0)
       end
 
       # Everything limited to a period starts over.
@@ -92,11 +98,12 @@ module AresMUSH
         attacks.positive? ? [ "map:increases:#{[ attacks, 2 ].min}" ] : []
       end
 
-      # How many actions the turn holds: three, one more if quickened, fewer if slowed or stunned.
+      # How many actions the turn holds: three, one more if quickened, fewer by what being stunned took
+      # as it started or by slowed, whichever is more - what stunned takes counts toward slowed.
       def self.actions(holder)
-        quickened = Pf2e.held_conditions(holder).key?('Quickened') ? 1 : 0
+        taken = [ Pf2e.condition_level(holder, 'Slowed'), turn(holder)['stunned'].to_i ].max
 
-        ACTIONS + quickened - Pf2e.condition_level(holder, 'Slowed') - Pf2e.condition_level(holder, 'Stunned')
+        [ regained(holder) - taken, 0 ].max
       end
 
       # `2 of 3 actions used, reaction ready, next attack at -5`.

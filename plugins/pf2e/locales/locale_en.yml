@@ -588,6 +588,8 @@ en:
     affliction_reminder: "  Afflicted: %{name}, stage %{stage} (%{words})%{due}."
     affliction_due: ", with a save against it at the end of this turn"
     affliction_waiting: "nothing yet, for %{onset}"
+    turn_stunned: "%{name} loses %{lost} actions to being stunned (Stunned %{left} left)."
+    act_rider: "  The Strike carries %{effect}:"
     act_immune: "  %{target} is immune (%{to}): nothing of it touches them."
     act_crit_immune: "  %{target} is immune to critical hits, and takes a hit's damage."
     act_revived: "  %{target} is no longer dead: unconscious, with no hit points."

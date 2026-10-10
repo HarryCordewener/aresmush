@@ -544,6 +544,89 @@ module AresMUSH
         end
       end
 
+      # Leopard: Pounce, a Stride and then a Strike.
+      describe "an ability that is a Strike it does not name" do
+        before(:each) do
+          add('leopard')
+          next_turn
+        end
+
+        it "should make the Strike with its first" do
+          as(2, "act pounce=#{@hero.name}", FightBench::HIGH)
+
+          expect(heard).to include("strikes #{@hero.name} with Jaws")
+          expect(TurnState.turn(npc)['actions']).to eq 1
+        end
+      end
+
+      # Giant Anaconda: Greater Constrict, whose failure also knocks out.
+      describe "Greater Constrict" do
+        def hit_points
+          200
+        end
+
+        before(:each) do
+          add('giant anaconda')
+          next_turn
+          as(2, "strike #{@hero.name}=jaws", FightBench::HITS)
+          as(2, "act grab=#{@hero.name}", 0.5)
+        end
+
+        it "should leave whoever fails the save unconscious, as its words say" do
+          as(2, 'act greater constrict', FightBench::LOW)
+
+          expect(held).to have_key('Unconscious')
+        end
+
+        it "should not knock out whoever makes it" do
+          as(2, 'act greater constrict', 1.0)
+
+          expect(held).to_not have_key('Unconscious')
+        end
+      end
+
+      # Lich: its Hand lists Siphon Life - a DC 34 Fortitude save or Drained 1 - and it casts Dominate,
+      # whose critical failure is "as a failure, but".
+      describe "a lich" do
+        def hit_points
+          400
+        end
+
+        before(:each) do
+          add('lich')
+          next_turn
+        end
+
+        it "should have whoever its touch hits save against what the touch carries" do
+          as(2, "strike #{@hero.name}", FightBench::HITS)
+
+          expect(heard).to include("#{@hero.name} rolls Fortitude", 'vs DC 34')
+          expect(Pf2e.condition_level(hero, 'Drained')).to eq 1
+        end
+
+        it "should leave on a critical failure what a failure leaves, where its words say as a failure" do
+          as(2, "cast dominate=#{@hero.name}", FightBench::LOW)
+
+          expect(held).to have_key('Controlled')
+          expect(heard).to include('As a failure, but')
+        end
+      end
+
+      # Medusa: Focus Gaze is a save "against the medusa's petrifying gaze", whose failure is Slowed 1.
+      describe "an ability whose save is another's" do
+        before(:each) do
+          add('medusa')
+          next_turn
+        end
+
+        it "should leave what the other's outcomes leave" do
+          as(2, "act focus gaze=#{@hero.name}", 0.3)
+
+          expect(heard).to include("#{@hero.name} rolls Fortitude", 'vs DC 25')
+          expect(Pf2e.condition_level(hero, 'Slowed')).to eq 1
+        end
+      end
+
       # Orc Veteran: Reactive Strike.
       describe "a reaction already spent" do
         before(:each) do

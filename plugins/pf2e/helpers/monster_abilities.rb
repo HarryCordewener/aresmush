@@ -53,20 +53,23 @@ module AresMUSH
         SIZE_WORDS.fetch(named.to_s.downcase, SIZE_WORDS['medium'])
       end
 
-      # `makes one Fangs Strike and two Tail Strikes`: the Strikes an ability's words say it makes, in
-      # order, where they say so plainly. One with a penalty or a condition of its own is the GM's.
+      # `makes one Fangs Strike and two Tail Strikes`, `Strides and makes a Strike`: the Strikes an
+      # ability's words say it makes, in order, where they say so plainly - by name, or `nil` for its first.
+      # One whose Strike has rules of its own - a penalty, more damage, what a hit then does - is the GM's.
       NUMBERS = { 'a' => 1, 'an' => 1, 'one' => 1, 'two' => 2, 'three' => 3 }.freeze
-      STRIKES = /\b(#{NUMBERS.keys.join('|')})\s+([a-z][a-z' -]*?)\s+Strikes?\b/i
-      NOT_PLAIN = /penalty|different target|instead|\bif\b/i
+      STRIKES = /\bmak(?:es?|ing)\b[^.%]*?\b(#{NUMBERS.keys.join('|')})\s+(?:([a-z][a-z' -]*?)\s+)?Strikes?\b(?:\s+and\s+(#{NUMBERS.keys.join('|')})\s+([a-z][a-z' -]*?)\s+Strikes?\b)?/i
+      NOT_PLAIN = /penalty|bonus|different target|instead|rather than|compares|counts? as|\bextra\b|\badditional\b|if (?:it|the|both|either|any)[^.%]*\bhits?\b|on a (?:hit|success|failure)|it has grabbed/i
 
       def self.strikes_in(own, holder)
         text = own['text'].to_s
+        found = text.match?(NOT_PLAIN) ? nil : text.match(STRIKES)
 
-        return [] if text.match?(NOT_PLAIN)
+        return [] unless found
 
-        found = text.scan(STRIKES).flat_map { |count, strike| [ strike.strip ] * NUMBERS[count.downcase] }
+        named = [ [ found[1], found[2] ], [ found[3], found[4] ] ].reject { |count, _strike| count.nil? }
+                  .flat_map { |count, strike| [ strike && strike.strip ] * NUMBERS[count.downcase] }
 
-        found.all? { |strike| Acting.attack_for(holder, strike) } ? found : []
+        named.all? { |strike| strike.nil? || Acting.attack_for(holder, strike) } ? named : []
       end
 
       # ------------------------------------------------------------------------------
@@ -201,11 +204,11 @@ module AresMUSH
 
         return found if found
 
-        own && holder && strikes_in(own, holder).any? ? SEVERAL_STRIKES : nil
+        own && holder && !strikes_in(own, holder).empty? ? SEVERAL_STRIKES : nil
       end
 
       # One use of an ability: who uses it, on whom, and the stat block's entry for it.
-      Use = Struct.new(:scene, :name, :own, :targets, :out) do
+      Use = Struct.new(:scene, :name, :own, :targets, :out, :paid) do
         def actor
           scene.actor
         end
@@ -260,7 +263,8 @@ module AresMUSH
         # A target's save against the listed DC, with the listed damage where there is any. Answers the
         # degree.
         def save(target, figures)
-          mechanics = { 'save' => figures['save'], 'basic' => figures['basic'], 'traits' => Array(own['traits']) }
+          mechanics = { 'save' => figures['save'], 'basic' => figures['basic'], 'traits' => Array(own['traits']),
+                        'outcomes' => CreatureAbilities.spoken_outcomes(own['text'].to_s) }
 
           Acting.spell_save(at(target), name, mechanics, figures['dc'], MonsterAbilities.formulas(figures), out)
         end
@@ -287,9 +291,12 @@ module AresMUSH
         end
 
         # A Strike that is part of the ability, told with the rest of it. `spent` is whether the Strike
-        # costs an action of its own.
+        # costs an action of its own. A reaction's Strike is outside the multiple attack penalty, and
+        # spends the reaction itself.
         def strike(target, weapon, spent)
-          done = Acting.strike(at(target), weapon, [], :spent => spent)
+          reacting = own['type'] == 'reaction'
+          self.paid = true if reacting
+          done = Acting.strike(at(target), weapon, [], :spent => spent, :reaction => reacting ? name : nil, :quiet => true)
 
           return out['lines'] << Telling.event(done.key, done.args) if done.err?
 
@@ -310,7 +317,7 @@ module AresMUSH
         Acting.announce(scene, name, own, use.targets, use.out, :brief => true)
         Recharge.used(scene, name, own, use.out)
         row['run'].call(use)
-        Acting.paid(scene, name, own, use.out) unless row['paid']
+        Acting.paid(scene, name, own, use.out) unless row['paid'] || use.paid
 
         Ok.new(:state => use.out)
       end

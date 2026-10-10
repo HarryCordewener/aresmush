@@ -238,6 +238,10 @@ module AresMUSH
           expect(IWR.apply(ghost, 12, 'slashing')['amount']).to eq 2
         end
 
+        it "should say what it is doubled against where it is named" do
+          expect(IWR.label(ghost['resistance'].first)).to eq 'all-damage (except force; double against non-magical)'
+        end
+
         it "should be itself against anything else" do
           expect(IWR.apply(ghost, 12, 'slashing', [ 'magical' ])['amount']).to eq 7
         end

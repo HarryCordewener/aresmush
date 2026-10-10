@@ -84,6 +84,45 @@ module AresMUSH
           expect(CreatureAbilities.saving(stench)['immune']).to eq('after' => 'success', 'rounds' => 10)
         end
 
+        it "should read outcomes given as sentences: on a failure, and what a critical failure makes of it" do
+          text = 'The ghost laments its fate, forcing each living creature within 30 feet to attempt a DC 21 Will save. ' \
+                 'On a failure, a creature becomes Frightened 2 (or Frightened 3 on a critical failure). On a success, a ' \
+                 "creature is temporarily immune to this ghost's frightful moan for 1 minute."
+
+          expect(CreatureAbilities.saving(text)).to include(
+            'outcomes' => { 'failure' => [ { 'condition' => 'Frightened', 'value' => 2 } ],
+                            'criticalFailure' => [ { 'condition' => 'Frightened', 'value' => 3 } ] },
+            'immune' => { 'after' => 'success', 'rounds' => 10 }
+          )
+        end
+
+        it "should read what a creature that fails becomes" do
+          text = '(1d10+7) bludgeoning, DC 26 basic Fortitude%rThe monster deals the listed amount of damage. A creature ' \
+                 'that fails this save falls Unconscious, and a creature that succeeds is then temporarily immune.'
+
+          expect(CreatureAbilities.saving(text)['outcomes']['failure']).to eq [ { 'condition' => 'Unconscious' } ]
+        end
+
+        it "should read an outcome that opens with if it fails, and how long it lasts" do
+          text = '30 feet.%rWhen a creature ends its turn in the aura, it must attempt a DC 25 Fortitude save. If the ' \
+                 'creature fails, it becomes Slowed 1 for 1 minute.'
+
+          expect(CreatureAbilities.saving(text)['outcomes']['failure']).to eq [ { 'condition' => 'Slowed', 'value' => 1, 'until' => 'rounds:10' } ]
+        end
+
+        it "should read a save named some words before its or-else, and damage only a critical failure takes" do
+          text = 'DC 16 Reflex%rEffect The triggering creature must succeed at a Reflex saving throw against the listed DC ' \
+                 'or fall off the creature and land Prone. If the save is a critical failure, the triggering creature also ' \
+                 'takes 1d6 bludgeoning damage in addition to the normal damage for the fall.'
+          read = CreatureAbilities.saving(text)
+
+          expect(read['damage']).to eq []
+          expect(read['outcomes']).to eq(
+            'failure' => [ { 'condition' => 'Prone' } ],
+            'criticalFailure' => [ { 'condition' => 'Prone' }, { 'damage' => '1d6', 'type' => 'bludgeoning' } ]
+          )
+        end
+
         it "should read how long a condition lasts" do
           text = 'The creature must succeed at a DC 20 Will save or be Stunned 1 and Dazzled for 1 minute.'
 

@@ -174,7 +174,12 @@ module AresMUSH
         type = Array(entry['type']).join('/')
         excepted = Array(entry['exceptions']).map { |one| one.is_a?(Hash) ? (one['label'].to_s.split('.').last || 'some') : one }
 
-        excepted.empty? ? type : "#{type} (except #{excepted.join(', ')})"
+        doubled = Array(entry['doubleVs']).map { |one| one.is_a?(Hash) ? (one['label'].to_s.split('.').last || 'some') : one }
+        notes = []
+        notes << "except #{excepted.join(', ')}" if excepted.any?
+        notes << "double against #{doubled.join(', ')}" if doubled.any?
+
+        notes.empty? ? type : "#{type} (#{notes.join('; ')})"
       end
 
       # ------------------------------------------------------------------------------

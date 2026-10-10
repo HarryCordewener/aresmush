@@ -80,9 +80,11 @@ module AresMUSH
         text.scan(/\bfail[^.%]*?(#{FORMULA}) persistent ([a-z]+) damage/i).map { |formula, type| [ formula.delete(' '), type ] }
       end
 
-      # The damage the words deal against the save: `takes 1d6 piercing damage`.
+      # The damage the words deal against the save: `takes 1d6 piercing damage`. Damage a sentence gives to
+      # one outcome alone is that outcome's.
       def self.dealt(text)
-        found = text.match(/(?<formula>#{FORMULA}) (?<type>[a-z]+) damage/)
+        plain = sentences(text).reject { |sentence| spoken_of(sentence) }.join(' ')
+        found = plain.match(/(?<formula>#{FORMULA}) (?<type>[a-z]+) damage/)
 
         found && found[:type] != 'persistent' ? [ [ found[:formula].delete(' '), found[:type] ] ] : []
       end
@@ -102,21 +104,84 @@ module AresMUSH
         end
       end
 
-      # Outcomes a sentence gives: `must succeed at a Fortitude save or become Sickened 1 (plus Slowed 1 ...
-      # on a critical failure)`. A critical failure is the failure and whatever its own clause adds.
-      SUCCEED_OR = /must succeed (?:at|on) [^.]*?(?:save|saving throw) or (?<else>[^.(]*)(?:\((?<aside>[^)]*)\))?/i
+      # ------------------------------------------------------------------------------
+      # Outcomes a sentence gives
+      #
+      #   must succeed at a Fortitude save or become Sickened 1 (plus Slowed 1 ... on a critical failure)
+      #   On a failure, a creature becomes Frightened 2 (or Frightened 3 on a critical failure).
+      #   A creature that fails this save falls Unconscious.
+      #   If the save is a critical failure, the triggering creature also takes 1d6 bludgeoning damage.
+
+      SUCCEED_OR = /must succeed (?:at|on) [^.]*?(?:save|saving throw)[^.]*? or (?<else>[^.(]*)(?:\((?<aside>[^)]*)\))?/i
+
+      # How a sentence says which outcome it is about, most particular first.
+      OPENS = [
+        [ 'criticalFailure', /\A(?:on a critical failure|if the save is a critical failure|if (?:it|the creature|the target|a creature) critically fails|a creature that critically fails)\b/i ],
+        [ 'criticalSuccess', /\Aon a critical success\b/i ],
+        [ 'failure', /\A(?:on a failure|on a failed save|if (?:it|the creature|the target|a creature) fails|a creature that fails|(?:those|creatures) that fail)\b/i ],
+        [ 'success', /\A(?:on a success|a creature that succeeds)\b/i ]
+      ].freeze
+
+      ASIDE = /\((?<aside>[^)]*)\)/
+      WORSE = /critical failure|critically fails/i
+      TAKES = /takes? (?<formula>#{FORMULA}) (?<type>[a-z]+) damage/
+
+      def self.sentences(text)
+        text.split('%r').flat_map { |line| line.split(/(?<=[.!?])\s+/) }.map(&:strip).reject(&:empty?)
+      end
+
+      # Which outcome a sentence is about, by how it opens.
+      def self.spoken_of(sentence)
+        OPENS.find { |_outcome, pattern| sentence.match?(pattern) }&.first
+      end
 
       def self.spoken_outcomes(text)
-        found = text.match(SUCCEED_OR)
+        out = {}
 
-        return {} unless found && !found[:else].match?(DEPENDS)
+        sentences(text).each do |sentence|
+          outcome = spoken_of(sentence)
+          body = sentence
 
-        failure = conditions_in(found[:else])
-        worse = found[:aside].to_s.match?(/critical failure|critically fails/i) ? conditions_in(found[:aside]) : []
+          if (found = sentence.match(SUCCEED_OR))
+            outcome = 'failure'
+            body = "#{found[:else]} #{found[:aside] ? "(#{found[:aside]})" : ''}"
+          end
 
-        return {} if failure.empty?
+          next if outcome.nil?
 
-        { 'failure' => failure, 'criticalFailure' => worse.any? && found[:aside].match?(/\A\s*(?:plus|and)\b/i) ? failure + worse : (worse.any? ? worse : failure) }
+          aside = body[ASIDE, :aside].to_s
+          said = body.sub(ASIDE, '').sub(OPENS.assoc(outcome).last, '')
+
+          # Past how it opens, what hangs on something else is left to its words.
+          next if said.match?(DEPENDS)
+
+          main = leaves(said)
+          worse = aside.match?(WORSE) ? leaves(aside) : []
+
+          out[outcome] = Array(out[outcome]) + main if main.any?
+
+          next unless outcome == 'failure' && worse.any?
+
+          # `plus` and `and` add to what a failure leaves; `or` is what a critical failure leaves instead.
+          out['criticalFailure'] = aside.match?(/\A\s*(?:plus|and)\b/i) ? main + worse : worse
+        end
+
+        # What a critical failure adds, it adds to a failure; with nothing said of it, it is a failure.
+        if out['failure']
+          also = Array(out['criticalFailure'])
+          said_instead = also.any? { |one| one['condition'] && out['failure'].any? { |held| held['condition'] == one['condition'] } }
+          out['criticalFailure'] = said_instead ? also : out['failure'] + also
+        end
+
+        out
+      end
+
+      # What a stretch of words leaves on whoever it is about: conditions, and damage it says they take.
+      def self.leaves(words)
+        taken = words.to_enum(:scan, TAKES).map { { 'damage' => $~[:formula].delete(' '), 'type' => $~[:type] } }
+                     .reject { |one| one['type'] == 'persistent' }
+
+        conditions_in(words) + taken
       end
 
       # For how long whoever has saved is immune to it afterwards, and after which outcomes: any, a

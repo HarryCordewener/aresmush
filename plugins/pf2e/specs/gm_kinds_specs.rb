@@ -9,6 +9,20 @@ module AresMUSH
     # creature, one of their own making among them, and it may do all three.
     describe "who runs an encounter", :dbtest => true do
 
+      class FightClientTurn
+        attr_reader :said
+
+        def initialize
+          @said = []
+        end
+
+        def logged_in?
+          true
+        end
+
+        %w{emit_success emit emit_ooc emit_failure}.each { |name| define_method(name) { |message| @said << message.to_s } }
+      end
+
       class GmKindClient
         attr_reader :failures, :said
 
@@ -490,6 +504,13 @@ module AresMUSH
               reminder = Turns.reminder(hero, 2)
 
               expect(reminder).to eq t('pf2e.turn_dead', :name => @hero.name)
+            end
+
+            it "should be what their own count of the turn says" do
+              hero_turn = FightClientTurn.new
+              PF2EncounterTurnCmd.new(hero_turn, Command.new('e/turn'), Character[@hero.id]).on_command
+
+              expect(hero_turn.said.join).to include(t('pf2e.turn_dead', :name => @hero.name))
             end
 
             it "should be what a GM who heals them is told" do
