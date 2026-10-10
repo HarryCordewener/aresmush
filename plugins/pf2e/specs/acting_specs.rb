@@ -504,16 +504,31 @@ module AresMUSH
           expect(aura['effects'].map { |one| one['name'] }).to include('Effect: Harmonizing Aura (Allies)')
         end
 
-        # A toggle is on until someone says otherwise, as a character's is (`RollOptions`): Air Scamp's
-        # fast healing holds in open air, and the GM switches it off when the scamp is not.
-        it "should heal by its ability's rule, which the GM can switch off" do
+        # A creature's toggle is a circumstance, off until the GM says it holds: Air Scamp's fast healing
+        # is for open air, and a wolf's Pack Attack for when its pack is beside the target.
+        it "should heal by its ability's rule once the GM says its circumstance holds" do
           add('air scamp')
-          expect(Turns.healing(npc(2)).sum { |one| one['value'] }).to eq 2
+          expect(Turns.healing(npc(2)).sum { |one| one['value'] }).to eq 0
 
-          run(PF2EncounterOptionCmd, 'e/option #2=fast-healing/off')
+          run(PF2EncounterOptionCmd, 'e/option #2=fast-healing/on')
 
           expect(@client.failures).to eq []
-          expect(Turns.healing(npc(2)).sum { |one| one['value'] }).to eq 0
+          expect(Turns.healing(npc(2)).sum { |one| one['value'] }).to eq 2
+        end
+
+        it "should leave a wolf's Pack Attack out of its damage until the GM says its pack is there" do
+          add('wolf')
+          add('Dummy=ac 15 hp 100')
+          @dice = 0.6
+          run(PF2EncounterAsCmd, 'e/as #2=strike #3')
+          alone = npc(3).damage
+
+          npc(3).update(:damage => 0)
+          run(PF2EncounterAsCmd, 'e/as #2=strike #3/pack attack')
+
+          # 1d6+2 at 12 in 20 is 4 + 2; the pack adds 1d4, which is 3.
+          expect(alone).to eq 6
+          expect(npc(3).damage).to eq 9
         end
 
         it "should add an ability's damage to a critical Strike" do

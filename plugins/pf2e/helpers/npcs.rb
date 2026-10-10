@@ -92,8 +92,10 @@ module AresMUSH
         owned = Array(block['actions']).map { |one| [ one, Domains.slug(one['name']) ] } +
                 Array(block['strikes']).map { |one| [ one, strike_id(one) ] }
 
+        # What a toggle on one of them switches is a circumstance of the moment - allies beside the
+        # target for Pack Attack, a charge before the Strike - so it is off until the GM says it holds.
         owned.reject { |one, _id| Array(one['rules']).empty? }.map do |one, id|
-          Effects.source(one['name'], one['rules'],
+          Effects.source(one['name'], one['rules'], 'kind' => Effects::DOES,
                          'item' => { 'id' => id, '_id' => id, 'level' => npc.pf2_level })
         end
       end
