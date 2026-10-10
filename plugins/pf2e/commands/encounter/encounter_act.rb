@@ -191,6 +191,11 @@ module AresMUSH
         # Asked before the spell is spent, so a caster who has to choose loses nothing by not having.
         return if CharState.emit_error!(client, Acting.way_needed(self.spell, self.words))
 
+        # A caster who is held may not get the spell off, and then it is not spent either.
+        stopped = Acting.casting_stopped(scene_for(encounter, actor.state, nil), self.spell)
+        return if stopped && CharState.emit_error!(client, stopped)
+        return tell(encounter, stopped.state) if stopped
+
         cast = Actors.of(actor.state.holder).spends_spells? ? spend_the_spell(actor.state.holder) : nil
 
         if cast.is_a?(String)

@@ -44,6 +44,10 @@ module AresMUSH
 
         leaving = found.state
 
+        # Whoever leaves holds nobody any longer.
+        freed = Pf2e::Telling.lines(Pf2e::Holding.let_go(encounter, leaving.label))
+        Pf2e::Encounters::Announce.tell(encounter, freed.join('%r'), :room => enactor_room, :story => true) if freed.any?
+
         Pf2e::Combatants.leave(encounter, leaving.number)
 
         # A creature removed from the fight is gone, with whatever it was under.

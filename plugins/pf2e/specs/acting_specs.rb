@@ -459,6 +459,10 @@ module AresMUSH
         # the damage by the save, basic as an area's or a Constrict's is.
         it "should roll the save against an ability's damage and deal it" do
           add('python')
+          # Constrict is for whoever the python holds (`holding_specs.rb`).
+          state = CombatantStates.of(PF2Encounter[@encounter.id], Character[@hero.id])
+          Pf2e.set_condition(state, 'Grabbed')
+          Holding.mark(state, 'Grabbed', 'Python #2')
           @dice = 0.05
           run(PF2EncounterAsCmd, "e/as #2=act constrict=#{@hero.name}")
 

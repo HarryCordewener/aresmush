@@ -48,12 +48,16 @@ module AresMUSH
       end
 
       # An action was used. `cost` is what the catalogue says it costs; a reaction spends the reaction, a
-      # free action nothing, and an attack counts toward the multiple attack penalty.
-      def self.spend(holder, name, cost: 1, type: 'action', attack: false, frequency: nil)
+      # free action nothing, and an attack counts toward the multiple attack penalty. `struck` is a
+      # Strike's own account - `{ 'strike' =>, 'target' =>, 'hit' =>, 'effects' => }` - kept as the last
+      # thing done, which is what a Grab or a Rend asks about, and in the turn's run of Strikes.
+      def self.spend(holder, name, cost: 1, type: 'action', attack: false, frequency: nil, struck: nil)
         now = turn(holder)
         now = now.merge('actions' => now['actions'].to_i + cost.to_i) if type == 'action'
         now = now.merge('reaction' => true) if type == 'reaction'
         now = now.merge('attacks' => now['attacks'].to_i + 1) if attack
+        # A reaction is no part of the turn's own run of actions.
+        now = now.merge('last' => struck, 'strikes' => Array(now['strikes']) + [ struck ].compact) unless type == 'reaction'
 
         changes = { 'turn' => now }
 
@@ -64,6 +68,16 @@ module AresMUSH
         end
 
         write(holder, changes)
+      end
+
+      # Whether the last thing done this turn was a hit on this target with a Strike that lists the
+      # follow-up: Grab after a Strike with Grab or Improved Grab.
+      def self.followed?(holder, follow_up, target_label)
+        last = turn(holder)['last']
+        wanted = Domains.slug(follow_up).delete_prefix('improved-')
+
+        !last.nil? && last['hit'] && last['target'] == target_label &&
+          Array(last['effects']).any? { |effect| Domains.slug(effect).delete_prefix('improved-').start_with?(wanted) }
       end
 
       # How many times an action has been used in its period.

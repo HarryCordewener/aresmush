@@ -45,6 +45,8 @@ module AresMUSH
         info = {} unless info.is_a?(Hash)
 
         out[name] = { 'value' => info['value'], 'granted_by' => info['granted_by'], 'derived' => false }
+        # Who holds them, where the condition is a hold (`Holding`).
+        out[name]['by'] = info['by'] if info['by']
       end
 
       # What the character's effects bring with them for as long as they last: an effect that knocks you
@@ -122,6 +124,7 @@ module AresMUSH
       held_conditions(char).sort.map do |name, held|
         value = held['value'] ? " #{held['value']}" : ''
         from = held['granted_by'] ? " (#{held['granted_by']})" : ''
+        from = " (by #{held['by']})" if held['by']
 
         "#{colors[name]}#{name}#{value}#{colored ? '%xn' : ''}#{from}"
       end

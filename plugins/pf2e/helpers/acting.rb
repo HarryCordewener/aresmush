@@ -110,6 +110,17 @@ module AresMUSH
 
         return name if name.is_a?(Err)
 
+        if follow
+          followed = follow_up(scene, follow, term)
+          return followed if followed
+        end
+
+        scene = escaping(scene) if name == ESCAPE
+        return scene if scene.is_a?(Err)
+
+        stopped = Restraints.refusal(scene.actor, name, traits_of(scene, name))
+        return stopped if stopped
+
         command = COMMANDS[Domains.slug(name)]
         return Err.new(:own_command, 'pf2e.act_own_command', 'action' => name, 'command' => command) if command
 
@@ -125,9 +136,16 @@ module AresMUSH
         return unshielded if unshielded
 
         targets ||= [ scene.target ].compact
-        if targets.size > 1 && !CreatureAbilities.damage_save(own_text(scene, name))
+        ability = MonsterAbilities.row(name)
+        if targets.size > 1 && !CreatureAbilities.damage_save(own_text(scene, name)) && !(ability && ability['several'])
           return Err.new(:one_target, 'pf2e.act_one_target', 'action' => name)
         end
+
+        risked = Restraints.risked(scene.actor, name, traits_of(scene, name))
+        return lost(scene, name, risked) if risked && !risked['kept']
+
+        own = Actors.of(scene.actor.holder).own_ability(name)
+        return MonsterAbilities.use(scene, name, own, targets) if ability && own
 
         return strike(scene, nil, words) if name == 'Strike'
 
@@ -142,6 +160,7 @@ module AresMUSH
         said = said(words, scene.permitted)
         out = report
         refused(out, said)
+        out['lines'] << risked['line'] if risked
 
         # A creature's own ability, which no catalogue holds.
         return announce_ability(scene, name, out, targets) if entry.empty?
@@ -159,6 +178,59 @@ module AresMUSH
         spend(scene, name, entry, out)
 
         Ok.new(:state => out)
+      end
+
+      ESCAPE = 'Escape'.freeze
+
+      # The traits of what is being done: the catalogue's, or the creature's own ability's.
+      def self.traits_of(scene, name)
+        own = Actors.of(scene.actor.holder).own_ability(name)
+
+        Array((own || Actions.info(name))['traits'])
+      end
+
+      # An action a grabbed creature's flat check lost: it is spent, and nothing comes of it.
+      def self.lost(scene, name, risked)
+        out = report
+        out['lines'] << risked['line']
+        spend(scene, name, Actions.info(name), out)
+
+        Ok.new(:state => out)
+      end
+
+      # What a creature's follow-up to a Strike needs before it is attempted. A Grab on someone it
+      # already holds tightens the hold without a roll, which is all of the action; anything else needs
+      # the Strike that lists it to have just hit this target. Answers the outcome where there is nothing
+      # left to attempt, and nothing where the attempt goes ahead.
+      def self.follow_up(scene, follow, term)
+        label = Domains.slug(term).split('-').map(&:capitalize).join(' ')
+        held = follow['action'] == 'Grapple' ? Holding.held_by(scene.encounter, scene.actor.label) : []
+        target = scene.target || (held.size == 1 ? held.first : nil)
+
+        if target && held.any? { |one| one.label == target.label }
+          out = report
+          out['lines'] << Holding.tighten(scene.encounter, scene.actor, target)
+          # Keeping a hold costs an action, even for a creature whose Grab is free after a hit.
+          TurnState.spend(scene.actor.holder, label, :cost => 1, :type => 'action')
+
+          return Ok.new(:state => out)
+        end
+
+        return nil if scene.target && TurnState.followed?(scene.actor.holder, term, scene.target.label)
+
+        Err.new(:follow_up_needs_hit, 'pf2e.follow_up_needs_hit', 'action' => label, 'actor' => scene.actor.label)
+      end
+
+      # Escape is from whoever holds them, where nobody is named; with nothing holding them there is
+      # nothing to escape.
+      def self.escaping(scene)
+        return Err.new(:escape_nothing, 'pf2e.escape_nothing') unless Holding.held?(scene.actor.holder)
+        return scene if scene.target
+
+        by = Holding.by(scene.actor.holder)
+        holder = by && scene.encounter ? Combatants.find(scene.encounter, by) : nil
+
+        holder&.ok? ? Scene.new(scene.encounter, scene.actor, holder.state, scene.enactor, scene.permitted) : scene
       end
 
       # A follow-up is the action it attempts, named for the ability, costing what the ability costs, and
@@ -192,14 +264,25 @@ module AresMUSH
 
       # A creature's ability that no catalogue holds: its stat block's words, for the GM to run - and where
       # they say what it deals and the save against it, each target's save rolled and the damage dealt.
-      def self.announce_ability(scene, name, out, targets = [ scene.target ].compact)
-        own = Actors.of(scene.actor.holder).own_ability(name) || {}
+      # That a creature uses an ability of its own, at whom, for what it costs, and its stat block's words.
+      def self.announce(scene, name, own, targets, out)
         cost = own['type'] == 'action' ? Actions::COSTS[own['cost'].to_i] || 'one action' : Actions::TYPES[own['type']]
         aimed = targets.map(&:label).join(', ')
 
         out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => name, :cost => cost,
                                                 :target => aimed.empty? ? '' : told('pf2e.act_at', :target => aimed))
         out['lines'] << told('pf2e.act_note', :text => own['text']) if own['text']
+      end
+
+      # What using it costs the turn.
+      def self.paid(scene, name, own)
+        TurnState.spend(scene.actor.holder, name, :cost => own['cost'] || 1, :type => own['type'] || 'action',
+                                                  :attack => Array(own['traits']).include?('attack'))
+      end
+
+      def self.announce_ability(scene, name, out, targets = [ scene.target ].compact)
+        own = Actors.of(scene.actor.holder).own_ability(name) || {}
+        announce(scene, name, own, targets, out)
 
         dealt = CreatureAbilities.damage_save(own['text'])
         if dealt
@@ -215,8 +298,7 @@ module AresMUSH
           end
         end
 
-        TurnState.spend(scene.actor.holder, name, :cost => own['cost'] || 1, :type => own['type'] || 'action',
-                                                  :attack => Array(own['traits']).include?('attack'))
+        paid(scene, name, own)
 
         Ok.new(:state => out)
       end
@@ -509,6 +591,9 @@ module AresMUSH
 
         return Err.new(:no_attack, 'pf2e.act_no_attack', 'attack' => weapon_term.to_s) unless attack
 
+        stopped = Restraints.refusal(scene.actor, 'Strike', [ 'attack' ])
+        return stopped if stopped
+
         if reaction
           out['lines'] << told('pf2e.act_announced', :actor => scene.actor.label, :action => reaction,
                                                   :cost => Actions.cost(reaction), :target => target_phrase(scene))
@@ -545,7 +630,10 @@ module AresMUSH
         if reaction
           TurnState.spend(scene.actor.holder, reaction, :type => 'reaction')
         else
-          TurnState.spend(scene.actor.holder, 'Strike', :cost => spent ? 1 : 0, :type => 'action', :attack => true)
+          TurnState.spend(scene.actor.holder, 'Strike', :cost => spent ? 1 : 0, :type => 'action', :attack => true,
+                                                        :struck => { 'strike' => attack['name'], 'target' => scene.target.label,
+                                                                     'hit' => rolled['hit'] ? true : false,
+                                                                     'effects' => Array(attack['effects']) })
         end
 
         Ok.new(:state => out)
@@ -816,7 +904,12 @@ module AresMUSH
           out['lines'] << told('pf2e.act_down', :target => whom.label)
         elsif standing.is_a?(Integer) && now.is_a?(Integer) && now > standing
           out['lines'] << told('pf2e.act_dying', :target => whom.label, :value => now)
+        else
+          return
         end
+
+        # Whoever has dropped holds nobody any longer.
+        out['lines'].concat(Holding.let_go(Gm.encounter_of(whom.holder), whom.label))
       end
 
       # A character's attacks by what they would call them: the weapons they have equipped, their
@@ -842,6 +935,27 @@ module AresMUSH
 
       # A spell cast at one or more targets. `cast` is what the caster's magic answered when the slot was
       # spent - the rank and the casting figures - or, for a creature, its spellcasting.
+      # What stops a spell before it is spent: a caster restrained cannot cast one that takes their hands,
+      # and one grabbed loses it on a failed flat check. Answers the refusal, the report of a spell lost,
+      # or nothing where it is cast.
+      def self.casting_stopped(scene, spell)
+        name, mechanics = spell_mechanics(spell)
+        traits = Array((mechanics || {})['traits'])
+        traits = Array((Global.read_config('pf2e_spells', name) || {})['traits']) if traits.empty?
+
+        stopped = Restraints.refusal(scene.actor, name, traits)
+        return stopped if stopped
+
+        risked = Restraints.risked(scene.actor, name, traits)
+        return nil if risked.nil? || risked['kept']
+
+        out = report
+        out['lines'] << risked['line']
+        TurnState.spend(scene.actor.holder, name, :cost => ((mechanics || {})['time'] || 2).to_i.clamp(1, 3), :type => 'action')
+
+        Ok.new(:state => out)
+      end
+
       def self.cast(scene, spell, targets, words, cast: nil)
         said = said(words, scene.permitted)
         out = report
@@ -1059,6 +1173,8 @@ module AresMUSH
         heal_or_hurt(scene, mechanics, formulas, result['degree'], out) if formulas.any?
 
         outcome(scene, mechanics, result['degree'], formulas, out)
+
+        result['degree']
       end
 
       # What an outcome leaves on the target. Where it leaves nothing the engine can set and deals no
@@ -1138,7 +1254,7 @@ module AresMUSH
           next unless whom
 
           if one['condition'] then condition_consequence(scene, whom, one, out)
-          elsif one['remove'] then removal_consequence(whom, one, out)
+          elsif one['remove'] then removal_consequence(scene, whom, one, out)
           elsif one['effect'] then effect_consequence(scene, whom, one, rank, out)
           elsif one['heal']
             amount = Pf2e.roll_formula(one['heal']) + (one['bonus'] || {})[dc.to_s].to_i
@@ -1174,6 +1290,7 @@ module AresMUSH
 
         ends = scene.encounter && one['until'] ? Turns.expiry_for(one['until'], scene.encounter, scene.actor.label, whom.label) : nil
         expire_at(whom.holder, name, ends) if ends
+        Holding.mark(whom.holder, name, scene.actor.label) unless whom.label == scene.actor.label
 
         shown = value ? "#{name} #{value}" : name
         timed_by = one['until'].to_s.start_with?('its-') ? whom.label : scene.actor.label
@@ -1199,10 +1316,15 @@ module AresMUSH
         holder.update(:pf2_conditions => list)
       end
 
-      def self.removal_consequence(whom, one, out)
+      # What an outcome takes off someone. A hold on a target is only the holder's own to lose: a failed
+      # Grapple does not shake loose what another creature holds.
+      def self.removal_consequence(scene, whom, one, out)
         held = whom.holder.pf2_conditions || {}
+        theirs = one['on'] == 'target' ? Holding.by(whom.holder) : nil
 
         Array(one['remove']).map { |name| Pf2e.canonical_condition(name) }.select { |name| held.key?(name) }.each do |name|
+          next if Holding::HOLDS.include?(name) && theirs && theirs != scene.actor.label
+
           value = held[name].is_a?(Hash) ? held[name]['value'] : nil
           removed = Pf2e.remove_condition(whom.holder, name)
 
