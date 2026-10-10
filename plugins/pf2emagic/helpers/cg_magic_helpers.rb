@@ -472,7 +472,7 @@ module AresMUSH
       return [ spell_list[exact_match] ] if exact_match
 
       # If not, return a list of partial matches.
-      spell_list.select {|spell| spell.downcase.match? term.downcase}
+      spell_list.select {|spell| spell.downcase.include?(term.downcase)}
     end
 
     def self.cg_magic_warnings(magic, to_assign)

@@ -198,6 +198,25 @@ module AresMUSH
           end
         end
 
+        describe "how often it may be used" do
+          it "should read once per round" do
+            expect(CreatureAbilities.frequency('Frequency once per round%rEffect The wisp feeds.')).to eq('max' => 1, 'per' => 'round')
+          end
+
+          it "should read a number of times in a day" do
+            expect(CreatureAbilities.frequency('Frequency three times per day%rEffect It roars.')).to eq('max' => 3, 'per' => 'day')
+          end
+
+          it "should read ten minutes and a minute as the periods the game keeps" do
+            expect(CreatureAbilities.frequency('Frequency once per 10 minutes')['per']).to eq 'PT10M'
+            expect(CreatureAbilities.frequency('Frequency once per minute')['per']).to eq 'PT1M'
+          end
+
+          it "should have nothing to say of words that give none" do
+            expect(CreatureAbilities.frequency('The kraken moves through the water.')).to be_nil
+          end
+        end
+
         it "should have nothing to say of an affliction, which has stages" do
           expect(CreatureAbilities.saving('Saving Throw DC 19 Fortitude%rMaximum Duration 6 rounds%rStage 1 Clumsy 1 (1 round)')).to be_nil
         end

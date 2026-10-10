@@ -1130,6 +1130,7 @@
   saves: {"fortitude": 17, "reflex": 10, "will": 9}
   abilities: {"cha": -5, "con": 6, "dex": -1, "int": -5, "str": 6, "wis": 0}
   speeds: {"land": 30}
+  hardness: 10
   senses: ["darkvision"]
   skills: {"Athletics": 17}
   weaknesses: {"fire": 5}
@@ -1223,6 +1224,7 @@
   saves: {"fortitude": 17, "reflex": 10, "will": 9}
   abilities: {"cha": -5, "con": 6, "dex": -1, "int": -5, "str": 6, "wis": 0}
   speeds: {"land": 30}
+  hardness: 10
   senses: ["darkvision"]
   skills: {"Athletics": 17}
   strikes: [{"name": "Stone Fist", "bonus": 19, "damage": [["2d12+6", "bludgeoning", null]], "traits": ["magical"], "effects": ["Grab"]}, {"name": "Flaming Coal", "bonus": 12, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["fire", "magical"], "range": 80}]

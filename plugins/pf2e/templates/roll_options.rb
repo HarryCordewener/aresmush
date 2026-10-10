@@ -8,14 +8,34 @@ module AresMUSH
     class PF2RollOptionsTemplate < ErbTemplateRenderer
       include CommonTemplateFields
 
-      def initialize(declared)
+      # `combatant` is who a GM is reading them for in an encounter - `#5` - or nothing for a character
+      # reading their own.
+      def initialize(declared, combatant = nil)
         @declared = declared
+        @combatant = combatant
 
         super File.dirname(__FILE__) + "/roll_options.erb"
       end
 
       def any?
         @declared.any?
+      end
+
+      def title
+        @combatant ? "Circumstances #{@combatant} Has" : 'Circumstances Your Gear And Feats Offer'
+      end
+
+      # The command that switches one, for whoever is reading.
+      def switch
+        @combatant ? "+e/option #{@combatant}=<name>/off" : 'sheet/option <name>=off'
+      end
+
+      def back
+        @combatant ? '/default' : '=default'
+      end
+
+      def none
+        @combatant ? "Nothing #{@combatant} has offers a circumstance of its own." : 'Nothing you are carrying offers a circumstance of its own.'
       end
 
       def rows

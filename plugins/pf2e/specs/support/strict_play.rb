@@ -34,7 +34,8 @@ module AresMUSH
         creatures.each { |one| type(@gm, "e/add #{one}") }
 
         rows = Combatants.rows(encounter)
-        rows.select { |row| row['npc'] }.each_with_index { |row, i| type(@gm, "encounter/mod ##{row['id']}=#{60 - i}") }
+        rows.select { |row| row['npc'] }.sort_by { |row| row['id'].to_i }
+            .each_with_index { |row, i| type(@gm, "encounter/mod ##{row['id']}=#{60 - i}") }
         @party.each_with_index { |char, i| type(@gm, "encounter/mod #{char.name}=#{40 - i}") }
         type(@gm, 'e/next')
 

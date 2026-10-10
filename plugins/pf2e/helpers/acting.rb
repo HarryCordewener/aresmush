@@ -139,10 +139,13 @@ module AresMUSH
         unshielded = name == ShieldBlock::RAISE && ShieldBlock.cannot_raise(scene.actor.holder)
         return unshielded if unshielded
 
+        unready = against_own_condition(scene, name, words)
+        return unready if unready
+
         targets ||= [ scene.target ].compact
         own = Actors.of(scene.actor.holder).own_ability(name)
         ability = own ? MonsterAbilities.row(name, own, scene.actor.holder) : nil
-        if targets.size > 1 && !CreatureAbilities.saves?(own_text(scene, name)) && !(ability && ability['several']) &&
+        if targets.size > 1 && !(ability ? ability['several'] : CreatureAbilities.saves?(own_text(scene, name))) &&
            !Afflictions.read(name, own_text(scene, name))
           return Err.new(:one_target, 'pf2e.act_one_target', 'action' => name)
         end
@@ -187,6 +190,29 @@ module AresMUSH
       end
 
       ESCAPE = 'Escape'.freeze
+
+      # An action that is a check against the DC of what put a condition on whoever takes it - Retch,
+      # against what sickened them - needs them to have the condition, and the DC: the one kept from the
+      # save that left it, or the one they say.
+      def self.against_own_condition(scene, name, words)
+        condition = (Actions.info(name)['check'] || {})['dc_from']
+
+        return nil unless condition
+
+        held = (scene.actor.holder.pf2_conditions || {})[condition]
+
+        return Err.new(:not_condition, 'pf2e.act_not_condition', 'action' => name, 'condition' => condition) unless held
+        return nil if said(words, scene.permitted)['dc'] || condition_dc(scene.actor.holder, condition)
+
+        Err.new(:needs_dc, 'pf2e.act_needs_dc', 'action' => name, 'condition' => condition)
+      end
+
+      # The DC of the save that left a condition on someone, where the game rolled it.
+      def self.condition_dc(holder, condition)
+        held = (holder.pf2_conditions || {})[condition.to_s]
+
+        held.is_a?(Hash) ? held['dc'] : nil
+      end
 
       # The traits of what is being done: the catalogue's, or the creature's own ability's.
       def self.traits_of(scene, name)
@@ -283,12 +309,22 @@ module AresMUSH
         out['lines'] << told('pf2e.act_note', :text => words) unless words.to_s.empty?
       end
 
-      # What using it costs the turn. A reaction already spent is the GM's to allow, and they are told.
+      # What using it costs the turn. A reaction already spent, and an ability used more often than its
+      # words allow, are the GM's to allow, and they are told.
       def self.paid(scene, name, own, out = nil)
+        holder = scene.actor.holder
+        frequency = CreatureAbilities.frequency(own['text'])
+        before = TurnState.used(holder, name)
+
         reaction_spent(scene, out) if out && own['type'] == 'reaction'
 
-        TurnState.spend(scene.actor.holder, name, :cost => own['cost'] || 1, :type => own['type'] || 'action',
-                                                  :attack => Array(own['traits']).include?('attack'))
+        TurnState.spend(holder, name, :cost => own['cost'] || 1, :type => own['type'] || 'action',
+                                      :attack => Array(own['traits']).include?('attack'), :frequency => frequency)
+
+        return unless out && frequency && before >= frequency['max']
+
+        out['gm'] << told('pf2e.act_frequency_reached', :action => name, :max => frequency['max'], :per => frequency['per'],
+                                                      :used => before + 1)
       end
 
       def self.reaction_spent(scene, out)
@@ -490,7 +526,7 @@ module AresMUSH
                 (attack ? attack_penalty(scene.actor.holder) : [])
 
         defence = nil
-        dc = said['dc'] || check['dc']
+        dc = said['dc'] || check['dc'] || condition_dc(scene.actor.holder, check['dc_from'])
 
         if dc.nil? && check['against'] && scene.target
           defence = Resolve.defence(scene.target.holder, check['against'],
@@ -502,6 +538,7 @@ module AresMUSH
         spared = scene.target && Incapacitation.spares?(entry['traits'], scene.target.holder, :source => scene.actor.holder)
         result = Resolve.roll(rolled_check, :dc => dc, :extra => extra, :shift => Incapacitation.shift(spared, :against))
         statistic = stat_name ? stat_name.to_s : kind.capitalize
+        statistic = statistic.capitalize if kind == 'save'
 
         out['lines'] << check_line(scene, name, statistic, result, check, defence, dc)
         out['lines'] << told('pf2e.act_incapacitation_against', :target => scene.target.label) if spared
@@ -778,13 +815,14 @@ module AresMUSH
         # A bomb is thrown whatever it does.
         Consumables.spend!(scene.actor.holder, attack['consumable']) if attack['consumable']
 
+        struck = { 'strike' => attack['name'], 'target' => scene.target.label, 'hit' => rolled['hit'] ? true : false,
+                   'effects' => Array(attack['effects']) }
+
         if reaction
-          TurnState.spend(scene.actor.holder, reaction, :type => 'reaction')
+          TurnState.spend(scene.actor.holder, reaction, :type => 'reaction', :struck => struck)
         else
           TurnState.spend(scene.actor.holder, 'Strike', :cost => spent ? 1 : 0, :type => 'action', :attack => true,
-                                                        :struck => { 'strike' => attack['name'], 'target' => scene.target.label,
-                                                                     'hit' => rolled['hit'] ? true : false,
-                                                                     'effects' => Array(attack['effects']) })
+                                                        :struck => struck)
         end
 
         Ok.new(:state => out)
@@ -1051,8 +1089,8 @@ module AresMUSH
 
       # Whether the target is immune to an effect with one of these traits, which is then all of what
       # happens to them: the room is told, and nothing is rolled.
-      def self.immune?(traits, out, target)
-        found = target ? IWR.immune_to_effect?(IWR.for(target.holder), traits) : nil
+      def self.immune?(traits, out, target, about = [])
+        found = target ? IWR.immune_to_effect?(IWR.for(target.holder), traits, about) : nil
 
         out['lines'] << told('pf2e.act_immune', :target => target.label, :to => found) if found
 
@@ -1168,9 +1206,9 @@ module AresMUSH
           each = Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted)
           mechanics = (named.equal?(base) ? way_for(base, target) : named).merge('cast_rank' => rank)
           attack = mechanics['attack']
-          out['about'] = DamageAbout.of_spell(mechanics)
+          out['about'] = DamageAbout.of_spell(mechanics, spell)
 
-          next if immune?(mechanics['traits'], out, target)
+          next if immune?(mechanics['traits'], out, target, DamageAbout.spell(spell))
           formulas = Adjustments.spell_damage(scene.actor.holder, mechanics, spell_damage(mechanics, rank))
 
           if attack
@@ -1362,7 +1400,9 @@ module AresMUSH
 
         heal_or_hurt(scene, mechanics, formulas, result['degree'], out) if formulas.any?
 
+        out['dc'] = dc
         outcome(scene, mechanics, result['degree'], formulas, out)
+        out.delete('dc')
 
         result['degree']
       end
@@ -1456,6 +1496,7 @@ module AresMUSH
 
           if one['condition'] then condition_consequence(scene, whom, one, out)
           elsif one['remove'] then removal_consequence(scene, whom, one, out)
+          elsif one['lower'] then lower_consequence(whom, one, out)
           elsif one['effect'] then effect_consequence(scene, whom, one, rank, out)
           elsif one['heal']
             amount = Pf2e.roll_formula(one['heal']) + (one['bonus'] || {})[dc.to_s].to_i
@@ -1470,6 +1511,20 @@ module AresMUSH
             out['lines'] << told('pf2e.act_persistent_ended', :target => whom.label, :type => one['persistent'])
           end
         end
+      end
+
+      # A condition with a value made less: at nothing, it is gone.
+      def self.lower_consequence(whom, one, out)
+        name = Pf2e.canonical_condition(one['lower'])
+        left = [ Pf2e.condition_level(whom.holder, name) - one['by'].to_i, 0 ].max
+        known = (whom.holder.pf2_conditions || {})[name]
+        changed = Pf2e.set_condition(whom.holder, name, left)
+
+        return out['lines'] << told(changed.key, changed.args) if changed.err?
+        return out['lines'] << told('pf2e.act_no_longer', :target => whom.label, :condition => name) if left.zero?
+
+        note_on(whom.holder, name, known.slice('dc', 'expires')) if known.is_a?(Hash)
+        out['lines'] << told('pf2e.act_now', :target => whom.label, :condition => "#{name} #{left}", :until => '')
       end
 
       # A condition set. One already held at a higher value stays at it, which is the rule for gaining a
@@ -1491,6 +1546,8 @@ module AresMUSH
 
         ends = scene.encounter && one['until'] ? Turns.expiry_for(one['until'], scene.encounter, scene.actor.label, whom.label) : nil
         expire_at(whom.holder, name, ends) if ends
+        # The DC of the save that left it, which recovering from it is rolled against.
+        note_on(whom.holder, name, 'dc' => out['dc']) if out['dc']
         Holding.mark(whom.holder, name, scene.actor.label) unless whom.label == scene.actor.label
 
         shown = value ? "#{name} #{value}" : name
@@ -1509,11 +1566,16 @@ module AresMUSH
       end
 
       def self.expire_at(holder, name, ends)
+        note_on(holder, name, 'expires' => ends)
+      end
+
+      # A condition someone holds, with something more known of it.
+      def self.note_on(holder, name, known)
         list = holder.pf2_conditions || {}
 
         return unless list[name].is_a?(Hash)
 
-        list[name] = list[name].merge('expires' => ends)
+        list[name] = list[name].merge(known)
         holder.update(:pf2_conditions => list)
       end
 

@@ -218,6 +218,10 @@ def npc_of(doc, pack, refused, words):
     for other in speed.get('otherSpeeds') or []:
         npc['speeds'][other.get('type')] = other.get('value')
 
+    hardness = (attributes.get('hardness') or {}).get('value')
+    if hardness:
+        npc['hardness'] = hardness
+
     hp_details = (attributes.get('hp') or {}).get('details')
     if hp_details:
         npc['hp_details'] = hp_details

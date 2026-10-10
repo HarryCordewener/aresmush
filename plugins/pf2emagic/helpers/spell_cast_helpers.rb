@@ -15,8 +15,8 @@ module AresMUSH
       splist = Entries.focus_spells(magic, focus_type)
       cantrip_list = Entries.focus_cantrips(magic, focus_type)
 
-      spname = splist.select { |sp| sp.downcase.match? spell.downcase }
-      cantrip_match = cantrip_list.select { |sp| sp.downcase.match? spell.downcase }
+      spname = splist.select { |sp| sp.downcase.include?(spell.downcase) }
+      cantrip_match = cantrip_list.select { |sp| sp.downcase.include?(spell.downcase) }
 
       if spname.empty? && !cantrip_match.empty?
         return t('pf2e.multiple_matches', :element => 'spell') if cantrip_match.size > 1
@@ -58,7 +58,7 @@ module AresMUSH
 
       splist = Entries.focus_cantrips(magic, focus_type)
 
-      spname = splist.select { |sp| sp.downcase.match? spell.downcase }
+      spname = splist.select { |sp| sp.downcase.include?(spell.downcase) }
 
       return t('pf2emagic.no_match', :item => "spells") if spname.empty?
       return t('pf2e.multiple_matches', :element => 'spell') if spname.size > 1
@@ -483,8 +483,12 @@ module AresMUSH
       focus_spells = Entries.focus_spells(magic, focus_type)
       focus_cantrips = Entries.focus_cantrips(magic, focus_type)
 
-      spell_match = focus_spells.select { |sp| sp.downcase.match? spell.downcase }
-      cantrip_match = focus_cantrips.select { |sp| sp.downcase.match? spell.downcase }
+      # A name that is a spell in its own right is that spell: `heal` is Heal, whatever Heal Animal is.
+      named = get_spells_by_name(spell)
+      return nil if named.size == 1 && named.first.casecmp?(spell.strip) && !(focus_spells + focus_cantrips).include?(named.first)
+
+      spell_match = focus_spells.select { |sp| sp.downcase.include?(spell.downcase) }
+      cantrip_match = focus_cantrips.select { |sp| sp.downcase.include?(spell.downcase) }
 
       return nil if spell_match.empty? && cantrip_match.empty?
 

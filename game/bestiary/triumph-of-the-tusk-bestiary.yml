@@ -485,6 +485,7 @@
   saves: {"fortitude": 21, "reflex": 11, "will": 13}
   abilities: {"cha": -5, "con": 6, "dex": -2, "int": -5, "str": 7, "wis": 0}
   speeds: {"land": 15}
+  hardness: 8
   senses: ["darkvision"]
   skills: {"Athletics": 22}
   strikes: [{"name": "Door", "bonus": 21, "damage": [["2d12+9", "bludgeoning", null], ["1d8", "fire", null]], "traits": ["magical"], "effects": ["Improved Grab"]}]

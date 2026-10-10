@@ -112,7 +112,7 @@ module AresMUSH
         'magical' => [ { 'or' => %w{item:magical origin:action:trait:magical} + TRADITIONS.map { |one| "origin:action:trait:#{one}" } } ],
         'non-magical' => [ { 'not' => 'item:magical' } ],
         # All the damage of an attack with the nonlethal trait.
-        'nonlethal-attacks' => [ 'item:trait:nonlethal' ],
+        'nonlethal-attacks' => [ 'damage', 'item:trait:nonlethal' ],
         'object-immunities' => [ { 'or' => %w{bleed mental poison spirit vitality void}.map { |kind| "damage:type:#{kind}" } +
                                            %w{origin:action:trait:vitality origin:action:trait:void} +
                                            [ { 'and' => [ 'item:type:condition',
@@ -318,9 +318,9 @@ module AresMUSH
       end
 
       # The immunity that keeps out an effect with these traits - a spell, an action, an ability - by its
-      # name, or nothing.
-      def self.immune_to_effect?(held, traits)
-        facts = [ 'item:type:effect' ] + Array(traits).map { |trait| "item:trait:#{Domains.slug(trait)}" }
+      # name, or nothing. `about` is what else is so of it: that it is a spell, and which.
+      def self.immune_to_effect?(held, traits, about = [])
+        facts = [ 'item:type:effect' ] + Array(traits).map { |trait| "item:trait:#{Domains.slug(trait)}" } + Array(about)
         found = Array(held['immunity']).find { |entry| about?(entry, facts, 'immunity') }
 
         found ? label(found) : nil

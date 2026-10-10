@@ -19,6 +19,7 @@ module AresMUSH
       FIGURES = [
         { 'words' => %w{ac}, 'at' => [ 'ac' ] },
         { 'words' => %w{hp}, 'at' => [ 'hp' ] },
+        { 'words' => %w{hardness}, 'at' => [ 'hardness' ] },
         { 'words' => %w{level lvl}, 'at' => [ 'level' ] },
         { 'words' => %w{perception per}, 'at' => [ 'perception' ] },
         { 'words' => %w{fort fortitude}, 'at' => %w{saves fortitude} },

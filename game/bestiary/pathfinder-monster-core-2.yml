@@ -251,6 +251,7 @@
   saves: {"fortitude": 31, "reflex": 21, "will": 19}
   abilities: {"cha": -5, "con": 8, "dex": 2, "int": -5, "str": 9, "wis": 0}
   speeds: {"land": 50}
+  hardness: 15
   senses: ["darkvision"]
   skills: {"Athletics": 27}
   strikes: [{"name": "Fist", "bonus": 32, "damage": [["3d12+17", "bludgeoning", null]], "traits": ["magical", "reach-30", "unarmed"], "effects": ["Improved Grab"]}, {"name": "Foot", "bonus": 32, "damage": [["3d8+17", "bludgeoning", null]], "traits": ["agile", "magical", "reach-20", "unarmed"]}]
@@ -268,6 +269,7 @@
   saves: {"fortitude": 21, "reflex": 11, "will": 13}
   abilities: {"cha": -5, "con": 6, "dex": -2, "int": -5, "str": 7, "wis": 0}
   speeds: {"land": 15}
+  hardness: 10
   senses: ["darkvision"]
   skills: {"Athletics": 18}
   strikes: [{"name": "Door", "bonus": 21, "damage": [["2d12+9", "bludgeoning", null], ["1d8", "fire", null]], "traits": ["magical"], "effects": ["Improved Grab"]}]
@@ -285,6 +287,7 @@
   saves: {"fortitude": 9, "reflex": 8, "will": 3}
   abilities: {"cha": -5, "con": 4, "dex": 3, "int": -5, "str": 1, "wis": 0}
   speeds: {"land": 20}
+  hardness: 3
   senses: ["darkvision"]
   skills: {"Acrobatics": 8}
   immunities: ["precision"]
@@ -303,6 +306,7 @@
   saves: {"fortitude": 29, "reflex": 19, "will": 17}
   abilities: {"cha": -5, "con": 8, "dex": 2, "int": -5, "str": 9, "wis": 0}
   speeds: {"land": 20}
+  hardness: 14
   senses: ["darkvision"]
   skills: {"Athletics": 24}
   strikes: [{"name": "Arm", "bonus": 27, "damage": [["3d12+11", "bludgeoning", null]], "traits": ["magical", "reach-15"], "effects": ["Grab"]}, {"name": "Rock", "bonus": 27, "damage": [["3d10+11", "bludgeoning", null]], "traits": ["brutal", "magical"], "range": 120}]
@@ -6569,6 +6573,7 @@
   saves: {"fortitude": 22, "reflex": 25, "will": 16}
   abilities: {"cha": -5, "con": 5, "dex": 6, "int": -5, "str": 6, "wis": 2}
   speeds: {"land": 40}
+  hardness: 10
   senses: ["darkvision"]
   skills: {"Acrobatics": 23, "Athletics": 23}
   strikes: [{"name": "Blade", "bonus": 23, "damage": [["2d12+12", "slashing", null]], "traits": ["agile", "sweep"]}]
@@ -7290,6 +7295,7 @@
   saves: {"fortitude": 17, "reflex": 15, "will": 12}
   abilities: {"cha": -5, "con": 4, "dex": 6, "int": -5, "str": 2, "wis": 3}
   speeds: {"land": 40, "swim": 40}
+  hardness: 8
   senses: ["darkvision"]
   skills: {"Athletics": 15}
   immunities: ["mental"]

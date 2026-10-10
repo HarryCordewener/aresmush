@@ -108,7 +108,17 @@ module AresMUSH
       # What is true of it and what has been switched on for it: a toggle its abilities declare, off
       # until a GM says otherwise.
       def self.options(npc, domains = nil)
-        facts(npc) + RollOptions.active(npc, domains)
+        facts(npc) + hit_point_facts(npc, domains) + RollOptions.active(npc, domains)
+      end
+
+      # How hurt it is, as a rule about that asks: an animated armor's armour breaks below half its hit
+      # points (`hp-percent`). Not said while its hit points themselves are being worked out.
+      def self.hit_point_facts(npc, domains)
+        return [] if Array(domains).include?('hp')
+
+        most = npc.max_hp
+
+        [ "hp-remaining:#{npc.hp_left}", "hp-percent:#{most.positive? ? npc.hp_left * 100 / most : 0}" ]
       end
 
       # What is true of the creature, in Foundry's spelling: its level, its traits and the mode of being
@@ -224,7 +234,7 @@ module AresMUSH
       #
       #   { 'amount' => what it took, 'applied' => the immunities, weaknesses and resistances that counted }
       def self.damage(npc, amount, kind = nil, about = [], once: nil)
-        held = IWR.apply(iwr(npc), amount.to_i, kind, about, :once => once)
+        held = hardened(npc, IWR.apply(iwr(npc), amount.to_i, kind, about, :once => once), about, once)
         taken = held['amount']
         soaked = [ npc.temp_hp.to_i, taken ].min
         before = npc.hp_left
@@ -233,6 +243,31 @@ module AresMUSH
         Turns.damaged(npc, kind) if kind
 
         held.merge('segments' => segments_lost(npc, before))
+      end
+
+      # ------------------------------------------------------------------------------
+      # Hardness
+
+      # The Hardness of adamantine, which halves the Hardness of anything no harder than it.
+      ADAMANTINE = 10
+
+      # A creature's Hardness comes off what a hit deals it, once: `once` holds what the hit's earlier
+      # damage has already been absorbed of it.
+      def self.hardened(npc, held, about, once)
+        hardness = npc.stat_block['hardness'].to_i
+
+        return held if hardness.zero? || held['amount'] <= 0
+
+        hardness /= 2 if hardness <= ADAMANTINE && IWR.facts(nil, about).include?('damage:material:adamantine')
+        spent = Array(once).sum { |one| one.is_a?(Hash) ? one['hardness'].to_i : 0 }
+        absorbed = [ hardness - spent, held['amount'] ].min
+
+        return held unless absorbed.positive?
+
+        once << { 'hardness' => absorbed } if once
+
+        held.merge('amount' => held['amount'] - absorbed,
+                   'applied' => held['applied'] + [ { 'category' => 'hardness', 'type' => 'hardness', 'adjustment' => -absorbed } ])
       end
 
       # ------------------------------------------------------------------------------

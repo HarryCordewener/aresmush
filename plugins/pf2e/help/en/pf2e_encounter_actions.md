@@ -59,6 +59,9 @@ just taken: its bonus is put against the attack's roll, and a hit it turns into 
 hit it could turn says so.
 Shield Block answers a hit you have just taken while your shield is raised: its Hardness comes off the
 hit's physical damage, and you and the shield each take the rest. A hit you could block says so.
+Sickened, `+e/act retch` spends an action on a Fortitude save against the DC of what sickened you: one
+less on a success, two on a critical success. Where the GM set the condition by hand, say the DC:
+`+e/act retch/18`.
 Disarm, Grapple, Reposition, Shove and Trip work on nothing more than one size larger than you: two
 with Titan Wrestler, and three if you are also legendary in Athletics.
 
@@ -148,7 +151,8 @@ turn. Frightened eases by one at the end of each of its holder's turns.
 ## Your turn
 
 `+e/turn [<who>]` - How many actions you have used this turn, whether your reaction is spent, and what
-your next attack's penalty is. Nothing is refused: the GM can always say yes.
+your next attack's penalty is. Nothing is refused: the GM can always say yes. Going past the actions
+your turn holds is said in the room.
 When your turn starts you are told what matters: your actions, what you are under and for how long,
 persistent damage, and your auras.
 

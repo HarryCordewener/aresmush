@@ -48,6 +48,7 @@
   saves: {"fortitude": 13, "reflex": 6, "will": 6}
   abilities: {"cha": -5, "con": 5, "dex": 0, "int": -5, "str": 4, "wis": 0}
   speeds: {"land": 15}
+  hardness: 7
   senses: ["darkvision"]
   skills: {"Athletics": 12}
   strikes: [{"name": "Door", "bonus": 12, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["magical"]}, {"name": "Clothes Whip", "bonus": 12, "damage": [["1d4+4", "bludgeoning", null]], "traits": ["disarm", "magical", "nonlethal", "reach-10", "trip"], "effects": ["Clothes Grab"]}]
@@ -122,6 +123,7 @@
   saves: {"fortitude": 8, "reflex": 11, "will": 9}
   abilities: {"cha": -5, "con": 0, "dex": 1, "int": -5, "str": 0, "wis": 1}
   speeds: {"land": 15}
+  hardness: 4
   senses: ["darkvision"]
   skills: {"Athletics": 8}
   strikes: [{"name": "Bristles", "bonus": 10, "damage": [["1d4+6", "bludgeoning", null]], "traits": ["agile", "finesse", "magical"], "effects": ["Dust"]}]
@@ -421,6 +423,7 @@
   saves: {"fortitude": 8, "reflex": 5, "will": 5}
   abilities: {"cha": -5, "con": 3, "dex": 0, "int": -5, "str": 4, "wis": 0}
   speeds: {"land": 20}
+  hardness: 5
   skills: {"Athletics": 11}
   strikes: [{"name": "Shovel Teeth", "bonus": 11, "damage": [["1d8+4", "slashing", null]], "traits": []}]
   actions: [{"name": "Wild Curse", "type": "passive", "traits": ["curse", "magical"], "text": "The Dig Beast is loaded with cursed energy but also is hard to control. At the start of its turn, roll 1d6 #Wild Curse. On a 1–2 it is Slowed 1 until end of its turn, on a 3–4 it is neither slowed nor Quickened (unless from another effect), and on a 5–6 it is quickened until the end of its turn."}, {"name": "Crashing Ram", "type": "action", "traits": [], "cost": 2, "text": "The Dig Beast rushes at a target and crashes into it. The Dig Beast strides twice and performs a shovel teeth attack against each adjacent target. These attacks count against its multiple attack penalty, but the multiple attack penalty doesn't increase until after all the attacks."}]

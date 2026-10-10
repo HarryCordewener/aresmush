@@ -56,8 +56,9 @@ module AresMUSH
       end
 
       # Tells the room, and records it in the encounter and as a line of the scene's story. What only the
-      # GM sees goes to them.
-      def tell(encounter, out)
+      # GM sees goes to them. `actor` is who did it, where it was something done in their turn.
+      def tell(encounter, out, actor = nil)
+        over_turn(encounter, actor, out) if actor
         message = Telling.lines(out['lines']).join('%r')
 
         if encounter
@@ -69,6 +70,17 @@ module AresMUSH
         tell_gm(encounter, out['gm'])
 
         enactor.update(:pf2_last_roll => out['detail'])
+      end
+
+      # Said, and not refused, when what was just done takes someone past the actions their turn holds:
+      # the game does not know everything a turn may be owed.
+      def over_turn(encounter, actor, out)
+        return unless encounter && ActiveEffects.current_turn(encounter) == actor.label
+
+        used = TurnState.turn(actor.holder)['actions'].to_i
+        total = TurnState.actions(actor.holder)
+
+        out['lines'] << Telling.event('pf2e.act_over_turn', :actor => actor.label, :used => used, :total => total) if used > total
       end
 
       def tell_gm(encounter, lines)
@@ -119,7 +131,7 @@ module AresMUSH
 
         return if CharState.emit_error!(client, done)
 
-        tell(encounter, done.state)
+        tell(encounter, done.state, actor.state)
       end
     end
 
@@ -152,7 +164,7 @@ module AresMUSH
 
         return if CharState.emit_error!(client, done)
 
-        tell(encounter, done.state)
+        tell(encounter, done.state, actor.state)
       end
     end
 
@@ -212,7 +224,7 @@ module AresMUSH
 
         return if CharState.emit_error!(client, done)
 
-        tell(encounter, done.state)
+        tell(encounter, done.state, actor.state)
       end
 
       # The caster's magic spends the spell and answers with what it was cast at, or says why it could not.
@@ -324,13 +336,18 @@ module AresMUSH
 
         return client.emit_failure(t('pf2e.not_in_active_encounter')) unless encounter
 
-        found = Combatants.find(encounter, self.who || enactor.name)
+        found = Combatants.find(encounter, self.who || whose_turn(encounter))
 
         return if CharState.emit_error!(client, found)
 
         return client.emit_ooc(t('pf2e.turn_dead', :name => found.state.label)) if Pf2e.dead?(found.state.holder)
 
         client.emit_ooc t('pf2e.turn_of', :name => found.state.label, :summary => TurnState.summary(found.state.holder))
+      end
+
+      # Their own turn, for someone in the fight; for anyone else - its GM - that of whoever is acting.
+      def whose_turn(encounter)
+        Combatants.find(encounter, enactor.name).ok? ? enactor.name : ActiveEffects.current_turn(encounter)
       end
     end
   end

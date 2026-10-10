@@ -311,7 +311,36 @@ module AresMUSH
         end
       end
 
+      # A will-o'-wisp is immune to all spells but a few it names.
+      describe "immunity to magic" do
+        def wisp
+          excepted = { 'definition' => [ 'item:type:spell', { 'or' => %w{item:slug:force-barrage item:slug:quandary} } ],
+                       'label' => 'PF2E.IWR.Custom.WispVulnerabilities' }
+
+          held(:immunity => [ entry('magic').merge('exceptions' => [ excepted ]) ])
+        end
+
+        it "should keep out a spell and all it does" do
+          expect(IWR.immune_to_effect?(wisp, %w{mental nonlethal}, DamageAbout.spell('Daze'))).to eq 'magic (except WispVulnerabilities)'
+        end
+
+        it "should let in a spell it excepts" do
+          expect(IWR.immune_to_effect?(wisp, %w{force}, DamageAbout.spell('Force Barrage'))).to be_nil
+          expect(IWR.apply(wisp, 10, 'force', DamageAbout.spell('Force Barrage'))['amount']).to eq 10
+        end
+
+        it "should not keep out what is no spell" do
+          expect(IWR.immune_to_effect?(wisp, %w{mental emotion fear})).to be_nil
+        end
+      end
+
       describe "what a construct or an object keeps out" do
+        it "should not keep out what a nonlethal spell does besides its damage" do
+          construct = held(:immunity => [ entry('nonlethal-attacks') ])
+
+          expect(IWR.immune_to_effect?(construct, %w{mental nonlethal}, DamageAbout.spell('Daze'))).to be_nil
+        end
+
         it "should take nothing from an attack that is nonlethal" do
           construct = held(:immunity => [ entry('nonlethal-attacks') ])
 

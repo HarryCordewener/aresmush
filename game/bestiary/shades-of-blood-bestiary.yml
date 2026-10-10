@@ -66,6 +66,7 @@
   saves: {"fortitude": 15, "reflex": 15, "will": 9}
   abilities: {"cha": -5, "con": 4, "dex": 4, "int": -5, "str": 6, "wis": 0}
   speeds: {"land": 30}
+  hardness: 10
   senses: ["darkvision"]
   skills: {"Acrobatics": 15, "Athletics": 17}
   immunities: ["precision"]

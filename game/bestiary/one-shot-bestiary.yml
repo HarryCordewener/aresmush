@@ -87,6 +87,7 @@
   saves: {"fortitude": 0, "reflex": 0, "will": 0}
   abilities: {"cha": 0, "con": 0, "dex": 0, "int": 0, "str": 0, "wis": 0}
   speeds: {"land": 20}
+  hardness: 3
   strikes: [{"name": "Object", "bonus": 11, "damage": [["1d6+3", "bludgeoning", null]], "traits": []}]
 "Yrdris, Master of the Fanespire":
   pack: "one-shot-bestiary"
@@ -101,6 +102,7 @@
   saves: {"fortitude": 17, "reflex": 10, "will": 9}
   abilities: {"cha": -5, "con": 6, "dex": -1, "int": -5, "str": 6, "wis": 0}
   speeds: {"land": 30}
+  hardness: 10
   senses: ["darkvision"]
   skills: {"Athletics": 17}
   strikes: [{"name": "Stone Fist", "bonus": 19, "damage": [["2d12+6", "bludgeoning", null]], "traits": ["magical"], "effects": ["Grab"]}]

@@ -16,6 +16,7 @@
 #   damage     damage they take, as a formula and a `type`
 #   heal       hit points they regain, as a formula, and `bonus` more by the DC the check was against
 #   persistent persistent damage of this type ended
+#   lower      a condition with a value made less, `by` so much; at nothing it is gone
 pf2e_action_consequences:
   "trip":
     criticalSuccess: [{"on": "target", "condition": "Prone"}, {"on": "target", "damage": "1d6", "type": "bludgeoning"}]
@@ -38,6 +39,9 @@ pf2e_action_consequences:
     criticalSuccess: [{"on": "target", "condition": "Off-Guard", "until": "next-turn-end"}]
     success: [{"on": "target", "condition": "Off-Guard", "until": "turn-end"}]
     criticalFailure: [{"on": "actor", "condition": "Off-Guard", "until": "next-turn-end"}]
+  "retch":
+    criticalSuccess: [{"on": "actor", "lower": "Sickened", "by": 2}]
+    success: [{"on": "actor", "lower": "Sickened", "by": 1}]
   "escape":
     criticalSuccess: [{"on": "actor", "remove": ["Grabbed", "Immobilized", "Restrained"]}]
     success: [{"on": "actor", "remove": ["Grabbed", "Immobilized", "Restrained"]}]

@@ -87,16 +87,25 @@ be:
   `+e/as #5=enter frightful presence=#1,#2`. Whoever has saved is immune for as long as its words say.
 - **A venom or disease** on its Strike is saved against as the Strike hits, and runs its stages from
   there. `+e/affliction <who>=<name>/<stage>` moves it by hand: a stage counted in days, a cure with 0.
+- **An ability that Strikes each of several targets** - a hydra's Storm of Jaws - Strikes each one you
+  name under the one penalty, which moves on once they are all made. One whose Strike follows a failed
+  save - a harpy's Hungry Winds - rolls the save, and Strikes whoever fails.
 - **An ability that takes one action or more** - a troop's attack, `1 to 3` on its first line - deals
   what the actions you spend deal: `+e/as #5=act shambling onslaught=#1,#2/actions 2`. One, unless you say.
 - **A shield** on its stat block is raised and blocked with as a character's is: `+e/as #5=act raise a
   shield`, and `+e/as #5=act shield block` when a hit it could block says so. `+e/creature #5` shows
   what the shield has taken.
+- **Hardness** comes off each hit it takes, and adamantine as hard as it halves that: `damage #5=12
+  slashing adamantine`.
 - **A troop** loses a segment as its hit points fall below each threshold, which is then the most it has.
 - **What its dropping triggers** - a vampire's Mist Escape, Ferocity - is offered as it drops, and is
   all it can still do.
-- **A breath that takes rounds to come back**, and a reaction already spent, are yours to allow: you
-  are told when the breath is back, and warned if you use either early.
+- **A breath that takes rounds to come back**, a reaction already spent, and an ability used more often
+  than its Frequency allows are yours to allow: you are told when the breath is back, and warned if you
+  use any of them early.
+- **What it is for good** - a zombie's Slowed 1 and its having no reactions - is on it from the start,
+  and stays whatever is cleared.
+- **Immunity to magic** keeps out a spell and all it does, but for the spells it names.
 - **A circumstance** its stat block makes a toggle - Pack Attack, a charge - is off until you say it
   holds: `/pack attack` on the Strike, or `+e/option #5=pack-attack/on`.
 - **Immunities, weaknesses and resistances** apply by what the damage is: a swarm resists a blade and
@@ -115,7 +124,7 @@ each part after a semicolon and named by its first word.
 
 `+e/add Bandit Chief=ac 19 hp 45 level 3 fort 9 ref 11 will 7 perception 9 speed 25 str 3 dex 4; skills athletics 9, stealth 11; resist poison 5; weak fire 5; immune sleep; traits humanoid, human; strike shortsword +12 1d6+6 piercing (agile, finesse); ranged shortbow +12 1d6+2 piercing (range 60, deadly d10); ability Hail of Arrows [2]: Each creature in a 15-foot burst takes 3d6 piercing damage (DC 20 basic Reflex save).`
 
-- **Figures**: `ac` and `hp` are needed; `level`, `fort`, `ref`, `will`, `perception`, `speed` (and `fly`, `swim`, `climb`, `burrow`), and its attribute modifiers `str dex con int wis cha`, which stand in for a skill it does not list.
+- **Figures**: `ac` and `hp` are needed; `hardness`, `level`, `fort`, `ref`, `will`, `perception`, `speed` (and `fly`, `swim`, `climb`, `burrow`), and its attribute modifiers `str dex con int wis cha`, which stand in for a skill it does not list.
 - `skills <skill> <n>, ...`
 - `immune <type>, ...`; `weak <type> <n>, ...`; `resist <type> <n>[ except <type>[ or <type>]], ...`: `resist physical 10 except silver`
 - `traits <trait>, ...`; `size <size>`; `rarity <rarity>`; `senses <sense>, ...`

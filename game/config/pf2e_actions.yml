@@ -5878,6 +5878,15 @@ pf2e_actions:
     category: "defensive"
     traits: ["mythic", "occult"]
     description: "Trigger Your turn begins%rEffect Spend a Mythic Point. Take the same actions in the same order, using the same die roll results to resolve those actions, as you did in the preserved moment, and apply modifiers to those rolls as they currently exist (not as they were when you recorded the loop), but at mythic proficiency. The exact details of how you accomplish your restored actions can change—you need not move in the exact same pattern or distance with a repeated Stride, for example, nor must you make a repeated Strike against the same foe you attacked in the first set of actions, but you do need to use the same type of movement when you Stride, and you do need to use the same type of weapon to Strike. If at any point during your turn you are unable to take the next action in the loop, your turn ends and you become Stunned 1. For example, if you restored the above example against the firewyrm in a round where you were fighting an ogre and you weren't able to attempt a Strike with a longsword against the ogre as your second action, you would become stunned 1. Likewise, if at the end of your turn there was nothing for you to try to Climb, you would become stunned 1. You can preserve…"
+  "Retch":
+    from: "action"
+    for: "everyone"
+    type: "action"
+    cost: 1
+    category: "basic"
+    traits: []
+    check: {"slug": "retch", "statistic": ["fortitude"], "options": ["action:retch"], "dc_from": "Sickened", "notes": {"criticalSuccess": "You reduce your sickened value by 2.", "success": "You reduce your sickened value by 1."}}
+    description: "You spend an action retching in an attempt to recover from being Sickened: a Fortitude save against the DC of the effect that made you sickened.%rCritical Success You reduce your sickened value by 2.%rSuccess You reduce your sickened value by 1."
   "Retraining":
     from: "action"
     for: "everyone"

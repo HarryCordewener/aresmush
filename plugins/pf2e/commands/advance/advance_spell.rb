@@ -287,7 +287,7 @@ module AresMUSH
         old = if open_slot
           "open"
         elsif self.old_value
-          list.select { |s| s.to_s.downcase.match? self.old_value.downcase }.first
+          list.select { |s| s.to_s.downcase.include?(self.old_value.downcase) }.first
         else
           nil
         end

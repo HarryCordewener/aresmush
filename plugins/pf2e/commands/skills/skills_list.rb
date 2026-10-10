@@ -15,7 +15,7 @@ module AresMUSH
         skills_list = skills_list.reject { |skill| Pf2e.lore_skill?(skill, skills[skill]) }
 
         if self.term
-          skills_list = skills_list.filter { |skill| skill.downcase.match? self.term }
+          skills_list = skills_list.filter { |skill| skill.downcase.include?(self.term) }
         end
 
         template = PF2SkillsListTemplate.new([ [ nil, skills_list ] ], nil, nil, nil, t('pf2e.skills_list_lore_note'))

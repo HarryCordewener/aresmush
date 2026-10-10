@@ -36,9 +36,15 @@ module AresMUSH
                     .flat_map { |word| IWR.fact(word) }
       end
 
+      # That something is a spell, and which: what an immunity to magic asks, and what it excepts.
+      def self.spell(name)
+        [ 'item:type:spell', "item:slug:#{Domains.slug(name)}" ]
+      end
+
       # A spell's: magical, with its traits, and dealt to an area where it has one.
-      def self.of_spell(mechanics)
-        [ 'item:type:spell', 'item:magical' ] + traits(mechanics['traits']) + (mechanics['area'].to_s.empty? ? [] : [ 'area-damage' ])
+      def self.of_spell(mechanics, name = nil)
+        (name ? spell(name) : [ 'item:type:spell' ]) + [ 'item:magical' ] + traits(mechanics['traits']) +
+          (mechanics['area'].to_s.empty? ? [] : [ 'area-damage' ])
       end
 
       # A creature's ability's: its traits, and an area where its words give it one.

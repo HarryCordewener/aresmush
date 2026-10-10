@@ -68,6 +68,7 @@
   saves: {"fortitude": 10, "reflex": 3, "will": 4}
   abilities: {"cha": -5, "con": 4, "dex": -3, "int": -5, "str": 3, "wis": 0}
   speeds: {"land": 20}
+  hardness: 9
   senses: ["darkvision"]
   skills: {"Athletics": 9}
   shield: {"name": "Wooden Shield", "hardness": 3, "hp": 12, "ac": 2}
@@ -572,6 +573,7 @@
   saves: {"fortitude": 16, "reflex": 9, "will": 9}
   abilities: {"cha": -5, "con": 5, "dex": -2, "int": -5, "str": 5, "wis": 0}
   speeds: {"land": 20}
+  hardness: 8
   senses: ["darkvision"]
   skills: {"Athletics": 15}
   strikes: [{"name": "Fist", "bonus": 15, "damage": [["1d8+10", "bludgeoning", null]], "traits": ["magical", "unarmed"], "effects": ["Grab"]}]
@@ -755,6 +757,7 @@
   saves: {"fortitude": 14, "reflex": 14, "will": 8}
   abilities: {"cha": 2, "con": 3, "dex": 3, "int": -5, "str": 4, "wis": -1}
   speeds: {"land": 25, "fly": 60}
+  hardness: 4
   senses: ["darkvision", "scent"]
   skills: {"Acrobatics": 12, "Athletics": 13, "Intimidation": 11, "Stealth": 12, "Survival": 10}
   strikes: [{"name": "Beak", "bonus": 15, "damage": [["2d8+5", "piercing", null]], "traits": ["deadly-d10", "unarmed"]}, {"name": "Talon", "bonus": 15, "damage": [["2d6+5", "piercing", null]], "traits": ["agile", "unarmed"]}, {"name": "Wing", "bonus": 15, "damage": [["2d6+5", "bludgeoning", null]], "traits": ["reach-10", "unarmed"]}]
@@ -772,6 +775,7 @@
   saves: {"fortitude": 22, "reflex": 18, "will": 20}
   abilities: {"cha": -5, "con": 4, "dex": 5, "int": -5, "str": 7, "wis": 5}
   speeds: {"land": 15}
+  hardness: 15
   senses: ["tremorsense"]
   skills: {"Athletics": 21, "Stealth": 22}
   weaknesses: {"acid": 10}
@@ -790,6 +794,7 @@
   saves: {"fortitude": 20, "reflex": 18, "will": 16}
   abilities: {"cha": -5, "con": 4, "dex": 3, "int": -5, "str": 6, "wis": 3}
   speeds: {"land": 25}
+  hardness: 13
   senses: ["darkvision"]
   skills: {"Athletics": 19}
   weaknesses: {"acid": 10}
@@ -808,6 +813,7 @@
   saves: {"fortitude": 18, "reflex": 15, "will": 13}
   abilities: {"cha": -5, "con": 4, "dex": 3, "int": -5, "str": 6, "wis": 1}
   speeds: {"land": 30, "climb": 20}
+  hardness: 11
   senses: ["darkvision"]
   skills: {"Athletics": 18}
   weaknesses: {"acid": 10}
@@ -826,6 +832,7 @@
   saves: {"fortitude": 17, "reflex": 13, "will": 11}
   abilities: {"cha": -5, "con": 4, "dex": 2, "int": -5, "str": 6, "wis": 0}
   speeds: {"land": 20}
+  hardness: 9
   senses: ["darkvision"]
   skills: {"Athletics": 17}
   weaknesses: {"acid": 10}
@@ -845,6 +852,7 @@
   saves: {"fortitude": 17, "reflex": 13, "will": 11}
   abilities: {"cha": -5, "con": 4, "dex": 2, "int": -5, "str": 6, "wis": 0}
   speeds: {"land": 20}
+  hardness: 8
   senses: ["darkvision"]
   skills: {"Athletics": 17}
   shield: {"name": "Shield", "hardness": 5, "hp": 25, "ac": 2}

@@ -69,9 +69,19 @@ module AresMUSH
 
         return if done.empty?
 
-        client.emit_success t('pf2e.condition_set_ok',
+        # What is part of what someone is - a zombie's slowness, an effect's condition - stays while that
+        # does, and whoever cleared it is told.
+        kept = self.value == 0 ? done.select { |char| Pf2e.held_conditions(char).key?(self.condition) } : []
+        kept.each do |char|
+          client.emit_ooc t('pf2e.condition_kept', :condition => self.condition, :target => char.name,
+                                                  :from => Pf2e.held_conditions(char)[self.condition]['granted_by'])
+        end
+
+        return if (done - kept).empty?
+
+        client.emit_success t(self.value == 0 ? 'pf2e.condition_cleared_ok' : 'pf2e.condition_set_ok',
           :condition => self.condition,
-          :target => done.map { |t| t.name }.sort.join(", ")
+          :target => (done - kept).map { |t| t.name }.sort.join(", ")
         )
 
       end

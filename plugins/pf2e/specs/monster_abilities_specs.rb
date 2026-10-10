@@ -604,6 +604,14 @@ module AresMUSH
           expect(Pf2e.condition_level(hero, 'Drained')).to eq 1
         end
 
+        it "should not touch with a spell what is immune to magic" do
+          add("will-o'-wisp")
+          as(2, 'cast dominate=#3', FightBench::LOW)
+
+          expect(heard).to include("Will-o'-Wisp #3 is immune (magic")
+          expect(npc(3).pf2_conditions).to_not have_key('Controlled')
+        end
+
         it "should leave on a critical failure what a failure leaves, where its words say as a failure" do
           as(2, "cast dominate=#{@hero.name}", FightBench::LOW)
 
@@ -660,6 +668,184 @@ module AresMUSH
         end
       end
 
+      # Will-o'-Wisp: Feed on Fear, "Frequency once per round".
+      describe "an ability with a limit on how often it is used" do
+        before(:each) do
+          add("will-o'-wisp")
+          next_turn
+          as(2, "act feed on fear=#{@hero.name}")
+        end
+
+        it "should be used once without a word" do
+          expect(heard).to_not include('is meant for')
+        end
+
+        it "should warn its GM when used again before it is back, and go ahead" do
+          as(2, "act feed on fear=#{@hero.name}")
+
+          expect(refused).to eq []
+          expect(heard).to include('Feed on Fear has been used 2 times; it is meant for 1 per round')
+        end
+
+        it "should be back at its next turn" do
+          turn_to(@hero.name)
+          turn_to("Will-o'-Wisp #2")
+          as(2, "act feed on fear=#{@hero.name}")
+
+          expect(heard).to_not include('is meant for')
+        end
+      end
+
+      # Mimic: Object Lesson is a reaction that makes a jaws Strike, and its Jaws list Improved Grab.
+      describe "a Strike made as a reaction" do
+        def hit_points
+          200
+        end
+
+        before(:each) do
+          add('mimic')
+          next_turn
+          as(2, "act object lesson=#{@hero.name}")
+        end
+
+        it "should be followed by what the Strike lists" do
+          as(2, "act improved grab=#{@hero.name}", FightBench::HIGH)
+
+          expect(refused).to eq []
+          expect(held.keys & %w{Grabbed Restrained}).to_not be_empty
+        end
+      end
+
+      # Hydra: Storm of Jaws, "a number of Strikes up to its number of heads, each against a different
+      # target", the multiple attack penalty not increasing until after them all.
+      describe "an ability that Strikes each of several targets" do
+        def hit_points
+          200
+        end
+
+        before(:each) do
+          add('hydra')
+          add('Dummy=ac 10 hp 200')
+          next_turn
+        end
+
+        it "should Strike each target named, none further into the multiple attack penalty than the first" do
+          as(2, "act storm of jaws=#{@hero.name},#3")
+
+          expect(refused).to eq []
+          expect(heard.scan('with Fangs').size).to eq 2
+          expect(heard).to_not include('2nd attack')
+        end
+
+        it "should count each of them toward the penalty once they are all made" do
+          as(2, "act storm of jaws=#{@hero.name},#3")
+          as(2, "strike #{@hero.name}")
+
+          expect(heard).to include('3rd attack')
+        end
+
+        it "should cost what the ability costs" do
+          as(2, "act storm of jaws=#{@hero.name},#3")
+
+          expect(TurnState.turn(npc)['actions']).to eq 2
+        end
+      end
+
+      # Harpy: Hungry Winds, "must succeed at a DC 21 Fortitude save or be pulled adjacent to the harpy,
+      # where they make a jaws Strike against the target."
+      describe "an ability whose Strike follows a failed save" do
+        def hit_points
+          200
+        end
+
+        before(:each) do
+          add('harpy')
+          next_turn
+        end
+
+        it "should roll the save, and Strike whoever fails it" do
+          as(2, "act hungry winds=#{@hero.name}", 0.5)
+
+          expect(heard).to include("#{@hero.name} rolls Fortitude", 'vs DC 21', 'with Jaws')
+        end
+
+        it "should not Strike whoever makes it" do
+          as(2, "act hungry winds=#{@hero.name}", 1.0)
+
+          expect(heard).to include("#{@hero.name} rolls Fortitude")
+          expect(heard).to_not include('with Jaws')
+        end
+      end
+
+      # Animated Armor: AC 17, 20 hit points, Hardness 9, and Construct Armor that breaks - AC 13 - below
+      # half its hit points or on a critical hit.
+      describe "a creature with Hardness" do
+        before(:each) do
+          add('animated armor')
+          @client.said.clear
+        end
+
+        def taken
+          before = npc.damage
+          yield
+          npc.damage - before
+        end
+
+        it "should take its Hardness off the damage it takes, and tell its GM" do
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 slashing') }).to eq 3
+          expect(heard).to include('hardness -9')
+        end
+
+        it "should take nothing from a blow its Hardness covers" do
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=9 slashing') }).to eq 0
+        end
+
+        it "should have half its Hardness against adamantine as hard as it" do
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 slashing adamantine') }).to eq 8
+        end
+
+        it "should take its Hardness off a hit once, however many kinds of damage the hit deals" do
+          once = []
+          first = Npcs.damage(npc, 6, 'slashing', [], :once => once)['amount']
+          second = Npcs.damage(npc, 6, 'fire', [], :once => once)['amount']
+
+          expect([ first, second ]).to eq [ 0, 3 ]
+        end
+
+        it "should show its Hardness on its stat block" do
+          run(PF2EncounterCreatureCmd, 'e/creature #2')
+
+          expect(heard).to include('HP 20, Hardness 9')
+        end
+
+        it "should keep its AC while its armour holds" do
+          run(PF2DamagePlayerCmd, 'damage #2=19 slashing')
+
+          expect(Npcs.stat(npc, 'ac')['total']).to eq 17
+        end
+
+        it "should lose 4 from its AC below half its hit points" do
+          run(PF2DamagePlayerCmd, 'damage #2=20 slashing')
+
+          expect(Npcs.stat(npc, 'ac')['total']).to eq 13
+        end
+
+        it "should lose 4 from its AC when its GM says a critical hit broke the armour" do
+          run(PF2EncounterOptionCmd, 'e/option #2=construct-armor/on')
+
+          expect(Npcs.stat(npc, 'ac')['total']).to eq 13
+        end
+      end
+
+      describe "a creature described with Hardness" do
+        it "should take it off what it takes" do
+          add('Statue=ac 16 hp 40 hardness 5')
+          run(PF2DamagePlayerCmd, 'damage #2=12 slashing')
+
+          expect(npc.damage).to eq 7
+        end
+      end
+
       # Zombie Shambler: "A zombie is permanently Slowed 1 and can't use reactions."
       describe "a creature its stat block slows for good" do
         before(:each) do
@@ -675,10 +861,38 @@ module AresMUSH
           expect(TurnState.summary(npc)).to include('0 of 2 actions used', t('pf2e.reaction_none'))
         end
 
-        it "should stay slowed whatever is taken off it" do
+        it "should stay slowed whatever is taken off it, and its GM be told why" do
           run(PF2ConditionSetCmd, 'condition/set #2=slowed/0')
 
           expect(Pf2e.condition_level(npc, 'Slowed')).to eq 1
+          expect(heard).to include(t('pf2e.condition_kept', :condition => 'Slowed', :target => 'Zombie Shambler #2', :from => 'Slow'))
+          expect(heard).to_not include('set on')
+        end
+
+        it "should be said to have gone past what its turn holds when it has, and not before" do
+          turn_to('Zombie Shambler #2')
+          as(2, "strike #{@hero.name}")
+          as(2, "strike #{@hero.name}")
+
+          expect(heard).to_not include('actions this turn holds')
+
+          as(2, "strike #{@hero.name}")
+
+          expect(heard).to include(t('pf2e.act_over_turn', :actor => 'Zombie Shambler #2', :used => 3, :total => 2).strip)
+        end
+
+        it "should have its GM told its turn, who is nobody in the fight" do
+          turn_to('Zombie Shambler #2')
+          run(PF2EncounterTurnCmd, 'e/turn')
+
+          expect(refused).to eq []
+          expect(heard).to include("Zombie Shambler #2", '0 of 2 actions used')
+        end
+
+        it "should list its circumstances with the command that switches one" do
+          run(PF2EncounterOptionCmd, 'e/option #2')
+
+          expect(heard).to include('Nothing #2 has offers a circumstance of its own.')
         end
 
         it "should be shown slowed by what slows it" do

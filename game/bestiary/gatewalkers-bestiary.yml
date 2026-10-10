@@ -67,6 +67,7 @@
   saves: {"fortitude": 22, "reflex": 20, "will": 18}
   abilities: {"cha": -5, "con": 5, "dex": 5, "int": -5, "str": 7, "wis": 5}
   speeds: {"land": 40, "swim": 40}
+  hardness: 11
   senses: ["darkvision"]
   skills: {"Athletics": 24}
   immunities: ["mental"]
@@ -106,6 +107,7 @@
   saves: {"fortitude": 17, "reflex": 11, "will": 11}
   abilities: {"cha": -5, "con": 5, "dex": -3, "int": -5, "str": 6, "wis": 0}
   speeds: {"land": 15}
+  hardness: 10
   senses: ["darkvision"]
   skills: {"Athletics": 15}
   strikes: [{"name": "Drawer", "bonus": 17, "damage": [["2d8+9", "bludgeoning", null]], "traits": ["magical"]}, {"name": "Poison Bottle", "bonus": 14, "damage": [["2d6+3", "bludgeoning", null]], "traits": ["magical", "thrown-20"], "effects": ["Poison Stock"]}]
@@ -917,6 +919,7 @@
   saves: {"fortitude": 11, "reflex": 4, "will": 4}
   abilities: {"cha": -5, "con": 5, "dex": -2, "int": -5, "str": 4, "wis": 0}
   speeds: {"land": 20}
+  hardness: 4
   senses: ["darkvision"]
   skills: {"Athletics": 9}
   strikes: [{"name": "Warhammer", "bonus": 10, "damage": [["1d8+4", "bludgeoning", null]], "traits": ["shove"]}]

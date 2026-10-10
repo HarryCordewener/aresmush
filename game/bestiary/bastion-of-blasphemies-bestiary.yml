@@ -1265,6 +1265,7 @@
   saves: {"fortitude": 10, "reflex": 3, "will": 4}
   abilities: {"cha": -5, "con": 4, "dex": -3, "int": -5, "str": 3, "wis": 0}
   speeds: {"land": 20}
+  hardness: 9
   senses: ["darkvision"]
   skills: {"Athletics": 9}
   strikes: [{"name": "Glaive", "bonus": 10, "damage": [["1d8+4", "slashing", null]], "traits": ["deadly-d8", "forceful", "magical", "reach-10"], "effects": ["Tetanus"]}, {"name": "Gauntlet", "bonus": 9, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "free-hand", "magical"], "effects": ["Tetanus"]}]

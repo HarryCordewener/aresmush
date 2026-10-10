@@ -244,6 +244,19 @@ module AresMUSH
         { 'after' => after, 'rounds' => rounds }
       end
 
+      # How often an ability may be used, where its words say so on a line of their own - `Frequency once
+      # per round` - as the catalogue gives an action's: `{ 'max' => 1, 'per' => 'round' }`, a minute and
+      # ten minutes as `TurnState` names them.
+      FREQUENCY = /\AFrequency (once|twice|one|two|three|four|five|\d+)(?: times?)? (?:per|every) (round|turn|minute|10 minutes|hour|day)\b/i
+      TIMES = { 'once' => 1, 'one' => 1, 'twice' => 2, 'two' => 2, 'three' => 3, 'four' => 4, 'five' => 5 }.freeze
+      PER = { 'minute' => 'PT1M', '10 minutes' => 'PT10M' }.freeze
+
+      def self.frequency(text)
+        found = text.to_s.split('%r').filter_map { |line| line.strip.match(FREQUENCY) }.first
+
+        found && { 'max' => TIMES[found[1].downcase] || found[1].to_i, 'per' => PER[found[2].downcase] || found[2].downcase }
+      end
+
       #   { 'formula' => '2d10+17', 'type' => 'bludgeoning', 'dc' => 40, 'save' => 'fortitude' }, or nil
       def self.damage_save(text)
         text = text.to_s

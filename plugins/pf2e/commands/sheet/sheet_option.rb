@@ -19,8 +19,13 @@ module AresMUSH
         enactor
       end
 
+      # Who the list is headed for, where that is not whoever reads it.
+      def listed_for
+        nil
+      end
+
       def handle
-        return client.emit PF2RollOptionsTemplate.new(Pf2e::RollOptions.declared(holder)).render if
+        return client.emit PF2RollOptionsTemplate.new(Pf2e::RollOptions.declared(holder), listed_for).render if
           self.option.blank?
 
         found = Pf2e::RollOptions.find(holder, self.option)
@@ -94,6 +99,10 @@ module AresMUSH
 
       def holder
         @combatant&.holder
+      end
+
+      def listed_for
+        @combatant.ref
       end
 
       def handle

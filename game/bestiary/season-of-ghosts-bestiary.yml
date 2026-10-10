@@ -50,6 +50,7 @@
   saves: {"fortitude": 11, "reflex": 13, "will": 7}
   abilities: {"cha": -5, "con": 2, "dex": 4, "int": -5, "str": 5, "wis": 0}
   speeds: {"land": 0, "fly": 20}
+  hardness: 8
   senses: ["darkvision"]
   skills: {"Acrobatics": 13}
   strikes: [{"name": "Battle Axe", "bonus": 14, "damage": [["1d8+7", "slashing", null], ["1d6", "bleed", "persistent"]], "traits": ["sweep"]}]
@@ -67,6 +68,7 @@
   saves: {"fortitude": 9, "reflex": 8, "will": 3}
   abilities: {"cha": -5, "con": 4, "dex": 3, "int": -5, "str": 1, "wis": 0}
   speeds: {"land": 20}
+  hardness: 3
   senses: ["darkvision"]
   skills: {"Acrobatics": 8}
   immunities: ["precision"]

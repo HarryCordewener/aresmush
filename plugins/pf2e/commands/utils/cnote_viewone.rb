@@ -42,7 +42,7 @@ module AresMUSH
 
         # The list of cnotes is a hash on the character. Grab and filter for notename, noting that a partial match can grab more than one key.
 
-        cnotes = char.pf2_cnotes.select { |key, value| key.downcase.match? self.notename }
+        cnotes = char.pf2_cnotes.select { |key, value| key.downcase.include?(self.notename) }
 
         template = PF2CNoteTemplate.new(char, cnotes, client)
 

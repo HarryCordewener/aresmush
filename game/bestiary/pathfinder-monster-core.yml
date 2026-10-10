@@ -274,6 +274,7 @@
   saves: {"fortitude": 10, "reflex": 3, "will": 4}
   abilities: {"cha": -5, "con": 4, "dex": -3, "int": -5, "str": 3, "wis": 0}
   speeds: {"land": 20}
+  hardness: 9
   senses: ["darkvision"]
   skills: {"Athletics": 9}
   strikes: [{"name": "Glaive", "bonus": 10, "damage": [["1d8+4", "slashing", null]], "traits": ["deadly-d8", "forceful", "magical", "reach-10"]}, {"name": "Gauntlet", "bonus": 9, "damage": [["1d6+4", "bludgeoning", null]], "traits": ["agile", "free-hand", "magical"]}]
@@ -291,6 +292,7 @@
   saves: {"fortitude": 3, "reflex": 6, "will": 3}
   abilities: {"cha": -5, "con": 0, "dex": 1, "int": -5, "str": 0, "wis": 0}
   speeds: {"land": 15}
+  hardness: 2
   senses: ["darkvision"]
   skills: {"Athletics": 5}
   strikes: [{"name": "Bristles", "bonus": 6, "damage": [["1d4", "bludgeoning", null]], "traits": ["agile", "finesse", "magical"], "effects": ["Dust"]}]
@@ -308,6 +310,7 @@
   saves: {"fortitude": 12, "reflex": 5, "will": 5}
   abilities: {"cha": -5, "con": 5, "dex": -2, "int": -5, "str": 4, "wis": 0}
   speeds: {"land": 20}
+  hardness: 6
   senses: ["darkvision"]
   skills: {"Athletics": 11}
   strikes: [{"name": "Fist", "bonus": 11, "damage": [["1d8+6", "bludgeoning", null]], "traits": ["magical", "unarmed"], "effects": ["Grab"]}]
@@ -2943,6 +2946,7 @@
   saves: {"fortitude": 17, "reflex": 10, "will": 9}
   abilities: {"cha": -5, "con": 6, "dex": -1, "int": -5, "str": 6, "wis": 0}
   speeds: {"land": 30}
+  hardness: 10
   senses: ["darkvision"]
   skills: {"Athletics": 17}
   strikes: [{"name": "Stone Fist", "bonus": 19, "damage": [["2d12+6", "bludgeoning", null]], "traits": ["magical"], "effects": ["Grab"]}, {"name": "Flaming Coal", "bonus": 12, "damage": [["2d6+6", "bludgeoning", null]], "traits": ["fire", "magical"], "range": 80}]

@@ -1,12 +1,12 @@
 <%= header %>
-<%= center("#{title_color}Circumstances Your Gear And Feats Offer", 78) %>%xn
+<%= center("#{title_color}#{title}", 78) %>%xn
 <%= divider %>
 <% if any? %>
 <% rows.each do |r| %>
 <%= r %>
 <% end %>
-<%= "%r%b%bTurn one off with %xh%xcsheet/option <name>=off%xn, or back with %xh%xc=default%xn." %>
+<%= "%r%b%bTurn one off with %xh%xc#{switch}%xn, or back with %xh%xc#{back}%xn." %>
 <% else %>
-<%= "%b%bNothing you are carrying offers a circumstance of its own." %>
+<%= "%b%b#{none}" %>
 <% end %>
 <%= footer %>

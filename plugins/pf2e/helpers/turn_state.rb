@@ -62,8 +62,13 @@ module AresMUSH
         now = now.merge('actions' => now['actions'].to_i + cost.to_i) if type == 'action'
         now = now.merge('reaction' => true) if type == 'reaction'
         now = now.merge('attacks' => now['attacks'].to_i + 1) if attack
-        # A reaction is no part of the turn's own run of actions.
-        now = now.merge('last' => struck, 'strikes' => Array(now['strikes']) + [ struck ].compact) unless type == 'reaction'
+        # A reaction is no part of the turn's own run of actions - but a Strike made as one is the last
+        # thing done, which is what a Grab then follows.
+        if type != 'reaction'
+          now = now.merge('last' => struck, 'strikes' => Array(now['strikes']) + [ struck ].compact)
+        elsif struck
+          now = now.merge('last' => struck)
+        end
 
         changes = { 'turn' => now }
 
@@ -89,6 +94,12 @@ module AresMUSH
       # How many times an action has been used in its period.
       def self.used(holder, name)
         ((of(holder)['uses'] || {})[name] || {})['count'].to_i
+      end
+
+      # The attacks made this turn stand at `count`: an ability that makes several under one penalty
+      # counts them once they are all made.
+      def self.attacks_at(holder, count)
+        write(holder, 'turn' => turn(holder).merge('attacks' => count.to_i))
       end
 
       # Foundry's option for which attack of the turn this is: the second is `map:increases:1`.

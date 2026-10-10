@@ -853,6 +853,7 @@
   saves: {"fortitude": 32, "reflex": 26, "will": 20}
   abilities: {"cha": 4, "con": 8, "dex": 5, "int": -2, "str": 8, "wis": 0}
   speeds: {"land": null, "fly": 30}
+  hardness: 5
   hp_details: "void healing"
   senses: ["lifesense"]
   skills: {"Athletics": 30, "Deception": 27, "Intimidation": 27, "Stealth": 25, "Survival": 21}

@@ -324,6 +324,20 @@ def value(held):
     return json.dumps(held, ensure_ascii=False)
 
 
+# What the rules give everyone to do that their packs hold no item for. Retching is in the words of the
+# sickened condition: a Fortitude save against the DC of what sickened you (`dc_from`).
+OWN = {
+    'Retch': {
+        'from': 'action', 'for': 'everyone', 'type': 'action', 'cost': 1, 'category': 'basic', 'traits': [],
+        'check': {'slug': 'retch', 'statistic': ['fortitude'], 'options': ['action:retch'], 'dc_from': 'Sickened',
+                  'notes': {'criticalSuccess': 'You reduce your sickened value by 2.',
+                            'success': 'You reduce your sickened value by 1.'}},
+        'description': 'You spend an action retching in an attempt to recover from being Sickened: a Fortitude save '
+                       'against the DC of the effect that made you sickened.%rCritical Success You reduce your '
+                       'sickened value by 2.%rSuccess You reduce your sickened value by 1.'},
+}
+
+
 def rendered(entries):
     lines = ['---', 'pf2e_actions:']
 
@@ -378,6 +392,9 @@ def main():
         if one and not NOT_ONE.search(text):
             kind = attack_kind(one.group(1))
             entry['strikes'] = {'count': 1, **({'attack': kind} if kind else {})}
+
+    for name, entry in OWN.items():
+        entries.setdefault(name, entry)
 
     if args.write:
         open(os.path.join(CONFIG, OUT), 'w').write(rendered(entries))

@@ -802,6 +802,7 @@
   saves: {"fortitude": 28, "reflex": 24, "will": 21}
   abilities: {"cha": -5, "con": 7, "dex": 4, "int": -5, "str": 8, "wis": 3}
   speeds: {"land": 35}
+  hardness: 15
   senses: ["darkvision"]
   skills: {"Athletics": 30}
   strikes: [{"name": "Doors", "bonus": 28, "damage": [["3d12+14", "bludgeoning", null]], "traits": ["magical"], "effects": ["Improved Grab"]}, {"name": "Leg", "bonus": 28, "damage": [["2d6", "bleed", "persistent"], ["3d4+14", "piercing", null]], "traits": ["agile", "magical"]}]

@@ -73,6 +73,29 @@ module AresMUSH
         named.all? { |strike| strike.nil? || Acting.attack_for(holder, strike) } ? named : []
       end
 
+      # `makes up to four vine Strikes, each against a different target`: the Strike it is made with where
+      # the words name one, the most targets where they give a number, and whether the Strikes move the
+      # multiple attack penalty on by one or by each of them. Nothing where the Strikes carry a penalty
+      # or a bonus of their own, which is the GM's.
+      MANY = NUMBERS.merge('four' => 4, 'five' => 5, 'six' => 6).freeze
+      EACH = /\beach against a different (?:target|creature|enemy|foe)\b/i
+      EACH_STRIKE = /\b(?:makes?|attempts?) (?:(?:up to )?(a number of|an?|#{MANY.keys.join('|')}) )?(?:([a-z][a-z' -]*?) )?Strikes?\b(.*?),? each against/i
+
+      def self.strike_each(own, holder)
+        sentence = CreatureAbilities.sentences(own['text'].to_s).find { |one| one.match?(EACH) }
+        found = sentence&.match(EACH_STRIKE)
+
+        return nil unless found && !found[3].match?(/penalty|bonus/i)
+        return nil if found[2] && !Acting.attack_for(holder, found[2].strip)
+
+        { 'weapon' => found[2]&.strip, 'most' => found[1].to_s.match?(/\Aan?\z/i) ? nil : MANY[found[1].to_s.downcase],
+          'as_one' => own['text'].to_s.match?(/counts? as one attack/i) }
+      end
+
+      # `must succeed at a DC 21 Fortitude save or be pulled adjacent to the harpy, where they make a jaws
+      # Strike`: the Strike made at whoever fails the save, by name where the words name it.
+      SAVE_OR_STRIKE = /must succeed (?:at|on) an? DC \d+ (?:Fortitude|Reflex|Will) (?:save|saving throw) or [^.%]*?\bmakes? an? (?:([a-z][a-z' -]*?) )?Strike\b/i
+
       # ------------------------------------------------------------------------------
       # The abilities
 
@@ -187,6 +210,46 @@ module AresMUSH
         end
       }.freeze
 
+      # An ability that Strikes each of the targets named, none further into the multiple attack penalty
+      # than the first: the penalty moves on once they are all made.
+      STRIKE_EACH = {
+        'several' => true,
+        'refusal' => lambda do |use|
+          most = strike_each(use.own, use.actor.holder)['most']
+
+          return use.needs_target if use.targets.empty?
+
+          most && use.targets.size > most ? Err.new(:too_many_targets, 'pf2e.act_too_many_targets', 'action' => use.name, 'most' => most) : nil
+        end,
+        'run' => lambda do |use|
+          each = strike_each(use.own, use.actor.holder)
+          made = TurnState.turn(use.actor.holder)['attacks'].to_i
+
+          use.targets.each do |target|
+            use.strike(target, each['weapon'], false)
+            TurnState.attacks_at(use.actor.holder, made)
+          end
+
+          TurnState.attacks_at(use.actor.holder, made + (each['as_one'] ? 1 : use.targets.size))
+        end
+      }.freeze
+
+      # An ability whose Strike is made at whoever fails its save.
+      STRIKE_ON_FAILURE = {
+        'several' => true,
+        'refusal' => ->(use) { use.targets.empty? ? use.needs_target : nil },
+        'run' => lambda do |use|
+          figures = CreatureAbilities.saving(use.own['text'])
+          weapon = use.own['text'].to_s[SAVE_OR_STRIKE, 1]
+
+          use.targets.each do |target|
+            degree = use.save(target, figures)
+
+            use.strike(target, weapon, false) if degree && degree <= Degree::FAILURE
+          end
+        end
+      }.freeze
+
       ROWS = {
         'constrict' => CONSTRICT,
         'greater-constrict' => CONSTRICT,
@@ -204,8 +267,11 @@ module AresMUSH
         found = ROWS[Domains.slug(name).sub(/-\d+-feet\z/, '')]
 
         return found if found
+        return nil unless own && holder
+        return STRIKE_EACH if strike_each(own, holder)
+        return STRIKE_ON_FAILURE if own['text'].to_s.match?(SAVE_OR_STRIKE) && CreatureAbilities.saving(own['text'])
 
-        own && holder && !strikes_in(own, holder).empty? ? SEVERAL_STRIKES : nil
+        strikes_in(own, holder).empty? ? nil : SEVERAL_STRIKES
       end
 
       # One use of an ability: who uses it, on whom, and the stat block's entry for it.
