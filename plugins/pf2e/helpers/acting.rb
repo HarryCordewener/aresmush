@@ -84,15 +84,28 @@ module AresMUSH
         said['cover'] || (scene.encounter && scene.target ? (scene.encounter.cover || {})[scene.target.number.to_s] : nil)
       end
 
+      # How hard the target is to see, for whoever is attacking it: what is set on it or said of it, or
+      # that the attacker is blinded or dazzled, whichever asks the harder flat check.
       def self.concealment_of(scene, said)
-        said['concealment'] ||
-          (scene.encounter && scene.target ? (scene.encounter.concealment || {})[scene.target.number.to_s] : nil)
+        theirs = said['concealment'] ||
+                 (scene.encounter && scene.target ? (scene.encounter.concealment || {})[scene.target.number.to_s] : nil)
+        held = scene.actor ? Pf2e.held_conditions(scene.actor.holder) : {}
+        own = Resolve::UNSEEING.keys.find { |condition| held.key?(condition.capitalize) }
+
+        [ theirs, own ].compact.max_by { |one| Resolve.flat_dc(one) }
+      end
+
+      # Whether whoever is attacked cannot see their attacker, and is off-guard to it for that.
+      def self.unseen_attacker?(scene)
+        return false unless scene.encounter && scene.actor
+
+        %w{hidden undetected}.include?((scene.encounter.concealment || {})[scene.actor.number.to_s])
       end
 
       # What this one attack gives the defender: cover, and the off-guard of being flanked.
       def self.defender_extra(scene, said, against)
         [ Resolve.cover_modifier(cover_of(scene, said), against),
-          (said['flanking'] || said['inside']) && against.to_s == 'ac' ? Resolve::FLANKED : nil ].compact
+          (said['flanking'] || said['inside'] || unseen_attacker?(scene)) && against.to_s == 'ac' ? Resolve::FLANKED : nil ].compact
       end
 
       # ------------------------------------------------------------------------------
@@ -122,7 +135,8 @@ module AresMUSH
         listed = name == ESCAPE ? (Holding.inside(scene.actor.holder) || {})['escape_dc'] : nil
         words = Array(words) + [ listed.to_s ] if listed && Array(words).none? { |word| word.to_s.match?(/\A\d+\z/) }
 
-        stopped = Restraints.refusal(scene.actor, name, traits_of(scene, name)) || SizeLimit.refusal(scene, name)
+        stopped = Restraints.refusal(scene.actor, name, traits_of(scene, name), :type => type_of(scene, name)) ||
+                  SizeLimit.refusal(scene, name)
         return stopped if stopped
 
         command = COMMANDS[Domains.slug(name)]
@@ -153,7 +167,7 @@ module AresMUSH
           return Err.new(:one_target, 'pf2e.act_one_target', 'action' => name)
         end
 
-        risked = Restraints.risked(scene.actor, name, traits_of(scene, name))
+        risked = Restraints.risked(scene.actor, name, traits_of(scene, name), :type => type_of(scene, name))
         return lost(scene, name, risked) if risked && !risked['kept']
 
         return MonsterAbilities.use(scene, name, own, targets) if ability
@@ -171,7 +185,7 @@ module AresMUSH
         said = said(words, scene.permitted)
         out = report
         refused(out, said)
-        out['lines'] << risked['line'] if risked
+        out['lines'].concat(risked['lines']) if risked
 
         # A creature's own ability: one no catalogue holds, or one the catalogue only lists.
         return announce_ability(scene, name, out, targets, said) if entry.empty? || (own && !run_by_catalogue?(name, entry))
@@ -283,6 +297,12 @@ module AresMUSH
         held.is_a?(Hash) ? held['dc'] : nil
       end
 
+      def self.type_of(scene, name)
+        own = Actors.of(scene.actor.holder).own_ability(name)
+
+        (own || Actions.info(name))['type']
+      end
+
       # The traits of what is being done: the catalogue's, or the creature's own ability's.
       def self.traits_of(scene, name)
         own = Actors.of(scene.actor.holder).own_ability(name)
@@ -293,7 +313,7 @@ module AresMUSH
       # An action a grabbed creature's flat check lost: it is spent, and nothing comes of it.
       def self.lost(scene, name, risked)
         out = report
-        out['lines'] << risked['line']
+        out['lines'].concat(risked['lines'])
         spend(scene, name, Actions.info(name), out)
 
         Ok.new(:state => out)
@@ -578,7 +598,11 @@ module AresMUSH
         check = check.merge(variant) if variant
         slug = check['slug'] || Domains.slug(name)
 
-        figure = statistic_for(scene.actor.holder, check['statistic'], said)
+        # What is known of a creature is recalled against its level and rarity, with a skill that knows
+        # its kind unless the actor names another.
+        known = slug == 'recall-knowledge' && scene.target ? Knowledge.of(scene.target.holder) : nil
+        fitting = known ? Array(check['statistic']) & known['skills'].map(&:downcase) : []
+        figure = statistic_for(scene.actor.holder, fitting.empty? || names_a_skill?(said) ? check['statistic'] : fitting, said)
 
         if figure.is_a?(Err)
           out['lines'] << told(figure.key, figure.args)
@@ -598,11 +622,13 @@ module AresMUSH
         way = WAYS["#{slug}:#{check['variant']}"]
         dc = said['dc'] || check['dc'] || condition_dc(scene.actor.holder, check['dc_from'])
         dc ||= way['dc'].call(scene.target) if way && way['dc'] && scene.target
+        dc ||= known['dc'] if known
+        against = check['against'] || AIMED[slug]
 
-        if dc.nil? && check['against'] && scene.target
-          defence = Resolve.defence(scene.target.holder, check['against'],
+        if dc.nil? && against && scene.target
+          defence = Resolve.defence(scene.target.holder, against,
                                     :options => Resolve.seen_as(scene.actor.holder, 'origin'),
-                                    :extra => defender_extra(scene, said, check['against']))
+                                    :extra => defender_extra(scene, said, against))
           dc = defence && defence['dc']
         end
 
@@ -611,7 +637,7 @@ module AresMUSH
         statistic = stat_name ? stat_name.to_s : kind.capitalize
         statistic = statistic.capitalize if kind == 'save'
 
-        out['lines'] << check_line(scene, name, statistic, result, check, defence, dc)
+        out['lines'] << check_line(scene, name, statistic, result, defence ? check.merge('against' => against) : check, defence, dc)
         out['lines'] << told('pf2e.act_incapacitation_against', :target => scene.target.label) if spared
         out['detail'] += detail_lines(name, statistic, result, defence)
 
@@ -629,6 +655,14 @@ module AresMUSH
 
         consequences(scene, applied, out, :rank => rank_of(scene.actor.holder, kind, stat_name), :dc => dc,
                                           :options => Array(check['options']))
+      end
+
+      # What an action with no defence of its own is against, where it is aimed at someone: Seek, against
+      # their Stealth.
+      AIMED = { 'seek' => 'stealth' }.freeze
+
+      def self.names_a_skill?(said)
+        said['words'].any? { |word| %w{skill lore}.include?(Array(Stat.identify(word)).first) }
       end
 
       # The way of doing the action the actor named - `stabilize` for First Aid - or its first. The
@@ -881,8 +915,11 @@ module AresMUSH
         extra = increments > 1 ? [ { 'source' => "range increment #{increments}", 'slug' => 'range-penalty',
                                      'type' => 'untyped', 'value' => -2 * (increments - 1) } ] : []
 
+        unseen = unseen_attacker?(scene)
         rolled = attack_roll(scene, attack, check, said, extra, out)
         out['lines'] << rolled['line']
+        # Whoever struck from hiding is seen for it.
+        conceal(scene, scene.actor, nil, out) if unseen
 
         # A hit kept to be answered is the last attack's; one that misses leaves nothing to answer.
         unless rolled['hit'] || scene.target.creature?
@@ -916,7 +953,7 @@ module AresMUSH
       #   { 'line' => what the room sees, 'result' => the roll, 'hit' => whether it hit }
       def self.attack_roll(scene, attack, check, said, extra, out)
         concealment = concealment_of(scene, said)
-        flat = concealment ? Resolve.flat(Resolve::CONCEALMENT[concealment]) : nil
+        flat = concealment ? Resolve.flat(Resolve.flat_dc(concealment)) : nil
 
         if flat && !flat['success']
           return { 'hit' => false,
@@ -1151,6 +1188,7 @@ module AresMUSH
         return if shown.empty?
 
         out['lines'] << told('pf2e.act_damage', :damage => shown.join(' + '), :target => whom.label)
+        shaken_out(whom, taken, out)
         out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
         dropped(whom, standing, out, 'fate' => fate, 'segments' => segments, 'fell' => fell)
         freed = scene.actor ? Holding.cut_free(scene.actor, whom, sharp) : nil
@@ -1166,6 +1204,17 @@ module AresMUSH
 
         command = Actors.of(whom.holder).creature? ? "+e/as ##{whom.holder.number}=act shield block" : '+e/act shield block'
         out['lines'] << told('pf2e.act_follow_up', :effect => ShieldBlock::NAME, :command => command)
+      end
+
+      # Someone confused who is hurt by an attack or a spell rolls a DC 11 flat check to come out of it.
+      CONFUSED = 11
+
+      def self.shaken_out(whom, taken, out)
+        return unless taken.positive? && (whom.holder.pf2_conditions || {}).key?('Confused')
+
+        flat = Resolve.flat(CONFUSED)
+        Pf2e.remove_condition(whom.holder, 'Confused') if flat['success']
+        out['lines'] << told(flat['success'] ? 'pf2e.confused_ended' : 'pf2e.confused_goes_on', :target => whom.label, :die => flat['die'])
       end
 
       def self.iwr_of(holder)
@@ -1252,30 +1301,46 @@ module AresMUSH
 
       # A spell cast at one or more targets. `cast` is what the caster's magic answered when the slot was
       # spent - the rank and the casting figures - or, for a creature, its spellcasting.
-      # What stops a spell before it is spent: a caster restrained cannot cast one that takes their hands,
-      # and one grabbed loses it on a failed flat check. Answers the refusal, the report of a spell lost,
-      # or nothing where it is cast.
-      def self.casting_stopped(scene, spell)
+      # A spell's name and traits as the catalogues give them.
+      def self.spell_traits(spell)
         name, mechanics = spell_mechanics(spell)
         traits = Array((mechanics || {})['traits'])
         traits = Array((Global.read_config('pf2e_spells', name) || {})['traits']) if traits.empty?
 
-        stopped = Restraints.refusal(scene.actor, name, traits)
-        return stopped if stopped
+        [ name, traits ]
+      end
 
-        risked = Restraints.risked(scene.actor, name, traits)
-        return nil if risked.nil? || risked['kept']
+      # What stops a spell before it is spent: a caster restrained cannot cast one that takes their
+      # hands, nor one raging a spell that takes concentration.
+      def self.casting_refused(scene, spell)
+        name, traits = spell_traits(spell)
 
+        Restraints.refusal(scene.actor, name, traits, :spell => true)
+      end
+
+      # The flat checks a spell is risked on once it is spent - grabbed, deafened, stupefied - rolled:
+      # whether it is kept, and the lines that say so. Nothing where none is called for.
+      def self.casting_risked(scene, spell)
+        name, traits = spell_traits(spell)
+
+        Restraints.risked(scene.actor, name, traits, :spell => true)
+      end
+
+      # A spell lost to one of those checks: its actions are spent, and so is the spell.
+      def self.casting_lost(scene, spell, risked, cast = nil)
+        name, mechanics = spell_mechanics(spell)
         out = report
-        out['lines'] << risked['line']
-        TurnState.spend(scene.actor.holder, name, :cost => ((mechanics || {})['time'] || 2).to_i.clamp(1, 3), :type => 'action')
+        out['lines'].concat(risked['lines'])
+        spend_casting(scene, name, (mechanics || {})['time'] || 2, false, spell_rank(scene.actor.holder, name, mechanics, {}, cast), out)
 
         Ok.new(:state => out)
       end
 
-      def self.cast(scene, spell, targets, words, cast: nil)
+      # `noted` is what was told of the casting before it: the flat checks it was kept through.
+      def self.cast(scene, spell, targets, words, cast: nil, noted: [])
         said = said(words, scene.permitted)
         out = report
+        out['lines'].concat(noted)
         refused(out, said)
         spell, base = spell_mechanics(spell)
         named = base && variant(base, said)
@@ -1471,8 +1536,10 @@ module AresMUSH
         check = Check.of(scene.actor.holder, 'spell_attack', casting || {}, options)
         extra = attack_penalty(scene.actor.holder)
 
+        unseen = unseen_attacker?(scene)
         rolled = attack_roll(scene, { 'name' => spell }, check, said, extra, out)
         out['lines'] << rolled['line']
+        conceal(scene, scene.actor, nil, out) if unseen
 
         if rolled['hit'] && formulas.any?
           critical = rolled['result']['degree'] == Degree::CRITICAL_SUCCESS
@@ -1614,6 +1681,8 @@ module AresMUSH
           if one['condition'] then condition_consequence(scene, whom, one, out)
           elsif one['remove'] then removal_consequence(scene, whom, one, out)
           elsif one['lower'] then lower_consequence(whom, one, out)
+          elsif one['seen'] then seen_consequence(scene, whom, one, out)
+          elsif one['unseen'] then unseen_consequence(scene, whom, one, out)
           elsif one['dying'] then dying_consequence(whom, one, out)
           elsif one['recover'] then recovered(whom, one['recover'], one['dc'], out)
           elsif one['suffer'] then suffer_consequence(scene, whom, one, out)
@@ -1631,6 +1700,37 @@ module AresMUSH
             out['lines'] << told('pf2e.act_persistent_ended', :target => whom.label, :type => one['persistent'])
           end
         end
+      end
+
+      # Someone hidden found, by so many steps: what was undetected is hidden, and what was hidden seen.
+      # What only conceals them - fog, dim light - is not seen through.
+      def self.seen_consequence(scene, whom, one, out)
+        now = scene.encounter && (scene.encounter.concealment || {})[whom.number.to_s]
+
+        return unless %w{hidden undetected}.include?(now)
+
+        conceal(scene, whom, now == 'undetected' && one['seen'].to_i < 2 ? 'hidden' : nil, out)
+      end
+
+      # How well hidden someone now is. Hiding leaves someone undetected as they were.
+      def self.unseen_consequence(scene, whom, one, out)
+        return unless scene.encounter
+
+        now = (scene.encounter.concealment || {})[whom.number.to_s]
+        wanted = one['unseen'] == 'observed' ? nil : one['unseen']
+
+        return if now == wanted || (wanted == 'hidden' && now == 'undetected')
+
+        conceal(scene, whom, wanted, out)
+      end
+
+      def self.conceal(scene, whom, level, out)
+        held = (scene.encounter.concealment || {}).dup
+        level ? held[whom.number.to_s] = level : held.delete(whom.number.to_s)
+        scene.encounter.update(:concealment => held)
+
+        out['lines'] << (level ? told('pf2e.act_concealment_now', :target => whom.label, :level => level)
+                               : told('pf2e.act_concealment_none', :target => whom.label))
       end
 
       # Someone dying brought nearer death, which may be their death.

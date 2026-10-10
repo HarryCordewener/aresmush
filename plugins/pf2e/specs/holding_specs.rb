@@ -255,14 +255,14 @@ module AresMUSH
         it "should lose an action that takes their hands on a flat check of 4 or less" do
           hero_types(PF2EncounterActCmd, 'e/act interact', 0.2)
 
-          expect(heard).to include(t('pf2e.act_grabbed_lost', :actor => @hero.name, :action => 'Interact', :die => 4).strip)
+          expect(heard).to include(t('pf2e.act_risk_lost', :actor => @hero.name, :condition => 'Grabbed', :action => 'Interact', :die => 4, :dc => 5).strip)
           expect(TurnState.turn(hero)['actions']).to eq 1
         end
 
         it "should keep an action that takes their hands on a flat check of 5 or more" do
           hero_types(PF2EncounterActCmd, 'e/act interact', 0.25)
 
-          expect(heard).to include(t('pf2e.act_grabbed_kept', :actor => @hero.name, :die => 5).strip)
+          expect(heard).to include(t('pf2e.act_risk_kept', :actor => @hero.name, :condition => 'Grabbed', :action => 'Interact', :die => 5, :dc => 5).strip)
           expect(heard).to include('uses Interact')
         end
 
@@ -320,7 +320,7 @@ module AresMUSH
           Pf2e.set_condition(npc(4), 'Grabbed')
 
           as(4, "cast charm=#{@hero.name}", 0.2)
-          expect(heard).to include(t('pf2e.act_grabbed_lost', :actor => 'Doru #4', :action => 'Charm', :die => 4).strip)
+          expect(heard).to include(t('pf2e.act_risk_lost', :actor => 'Doru #4', :condition => 'Grabbed', :action => 'Charm', :die => 4, :dc => 5).strip)
           expect(heard).to_not include('casts Charm')
 
           as(4, "cast charm=#{@hero.name}", 0.5)

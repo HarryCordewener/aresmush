@@ -44,13 +44,32 @@ module AresMUSH
         return t(whom.key, **Pf2e::CharState.symbolize(whom.args)) if whom.err?
 
         @taker = whom.state
-        nil
+        # Whoever drinks their own is one and the same: what the potion does and the action it takes are
+        # written to the one copy of them.
+        @user = self.use_option ? Pf2e::Combatants.find(encounter, enactor.name) : whom
+        able = @user.ok? ? able(@user.state) : @user
+
+        return t(able.key, **Pf2e::CharState.symbolize(able.args)) if able.err?
+
+        cannot_take(found.state.name)
       end
 
+      # Someone sickened cannot willingly swallow anything.
+      def cannot_take(name)
+        swallowed = (Array(Pf2e::Consumables.info(name)['traits']) & %w{potion elixir}).any?
+
+        return nil unless swallowed && Pf2e.held_conditions(@taker.holder).key?('Sickened')
+
+        t('pf2e.sickened_cannot_ingest', :target => @taker.label, :item => name)
+      end
+
+      # It takes an action to use.
       def consumed(item)
         encounter = Pf2e::Combatants.encounter_here(enactor)
+        out = Pf2e::Consumables.take(encounter, enactor.name, @taker, item.name)
 
-        tell(encounter, Pf2e::Consumables.take(encounter, enactor.name, @taker, item.name))
+        Pf2e::TurnState.spend(@user.state.holder, 'Interact', :cost => 1, :type => 'action')
+        tell(encounter, out, @user.state)
       end
     end
 

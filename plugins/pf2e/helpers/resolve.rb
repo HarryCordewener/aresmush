@@ -134,6 +134,14 @@ module AresMUSH
       COVER = { 'lesser' => 1, 'standard' => 2, 'greater' => 4 }.freeze
       CONCEALMENT = { 'concealed' => 5, 'hidden' => 11, 'undetected' => 11 }.freeze
 
+      # What an attacker who cannot see well is to everything they attack: hidden from the blinded, and
+      # concealed from the dazzled.
+      UNSEEING = { 'blinded' => 11, 'dazzled' => 5 }.freeze
+
+      def self.flat_dc(why)
+        CONCEALMENT[why] || UNSEEING[why]
+      end
+
       # Cover's bonus to AC, and to a Reflex save against an area where the cover is standard or better.
       def self.cover_modifier(level, against = 'ac')
         value = COVER[level.to_s]

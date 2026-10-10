@@ -39,16 +39,27 @@ module AresMUSH
       # What leaves someone unable to act at all.
       HELPLESS = %w{Unconscious Paralyzed Petrified}.freeze
 
+      # What someone paralyzed can still do: it takes only the mind.
+      MIND_ONLY = [ 'Recall Knowledge' ].freeze
+
       # A creature with no hit points left, or anyone knocked out, paralyzed or turned to stone, does
       # nothing - but for answering the hit that knocked them out, which the rules have happen before it
       # lands, and for what a creature's stat block gives it to do as it drops.
       def able(combatant, doing = nil)
         holder = combatant.holder
-        down = (Actors.of(holder).creature? && holder.hp_left.to_i <= 0) || (Pf2e.held_conditions(holder).keys & HELPLESS).any?
+        helpless = Pf2e.held_conditions(holder).keys & HELPLESS
+        down = (Actors.of(holder).creature? && holder.hp_left.to_i <= 0) || helpless.any?
 
         return Ok.new(:state => combatant) unless down && !Acting.answering?(holder, doing)
+        return Ok.new(:state => combatant) if helpless == [ 'Paralyzed' ] && mind_only?(doing)
 
         Err.new(:cannot_act, 'pf2e.act_cannot_act', 'actor' => combatant.label)
+      end
+
+      def mind_only?(doing)
+        found = doing.to_s.strip.empty? ? nil : Actions.find(doing)
+
+        !found.nil? && found.ok? && MIND_ONLY.include?(found.state)
       end
 
       def scene_for(encounter, actor, target)
@@ -207,10 +218,9 @@ module AresMUSH
         # Asked before the spell is spent, so a caster who has to choose loses nothing by not having.
         return if CharState.emit_error!(client, Acting.way_needed(self.spell, self.words))
 
-        # A caster who is held may not get the spell off, and then it is not spent either.
-        stopped = Acting.casting_stopped(scene_for(encounter, actor.state, nil), self.spell)
-        return if stopped && CharState.emit_error!(client, stopped)
-        return tell(encounter, stopped.state) if stopped
+        # A caster who cannot cast it at all is refused before the spell is spent.
+        scene = scene_for(encounter, actor.state, nil)
+        return if CharState.emit_error!(client, Acting.casting_refused(scene, self.spell) || Ok.new(:state => nil))
 
         cast = Actors.of(actor.state.holder).spends_spells? ? spend_the_spell(actor.state.holder) : nil
 
@@ -220,7 +230,12 @@ module AresMUSH
         end
 
         spell = cast.is_a?(Hash) ? cast['spell name'] : self.spell
-        done = Acting.cast(scene_for(encounter, actor.state, nil), spell, found, self.words, :cast => cast)
+
+        # One who may not get it off rolls for it with the spell spent, and loses it with its actions.
+        risked = Acting.casting_risked(scene, spell)
+        return tell(encounter, Acting.casting_lost(scene, spell, risked, cast).state, actor.state) if risked && !risked['kept']
+
+        done = Acting.cast(scene, spell, found, self.words, :cast => cast, :noted => risked ? risked['lines'] : [])
 
         return if CharState.emit_error!(client, done)
 

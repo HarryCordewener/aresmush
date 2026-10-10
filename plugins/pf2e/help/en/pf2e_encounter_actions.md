@@ -111,10 +111,23 @@ A creature that grabs you holds you, and `+e/view` says who. While you are held:
 
 - Grabbed or restrained, you are immobilized: an action that moves you is refused.
 - Grabbed, anything that takes your hands - Interact, most spells - rolls a DC 5 flat check first, and
-  is lost on a 4 or less. A spell lost this way is not spent.
+  is lost on a 4 or less. A spell lost this way is spent, with its actions.
 - Restrained, you can do nothing with the attack or manipulate trait but Escape or Force Open.
 - `+e/act escape` is against whoever holds you, without naming it.
 - The hold ends when its turn says, when you Escape, or when whoever holds you drops.
+
+Other conditions stop or risk what you do in the same way:
+
+- Prone, you move only to Crawl or Stand.
+- Raging, you use nothing that takes concentration but Seek, unless it has the rage trait.
+- Fleeing or confused, you cannot Delay or Ready; confused, you use no reactions, and roll a DC 11 flat
+  check to come out of it each time an attack or a spell hurts you.
+- Deafened, an auditory action rolls a DC 5 flat check or is lost. Stupefied, a spell rolls one against
+  5 and the condition's value.
+- Blinded, everything you attack is hidden from you: a DC 11 flat check before the attack. Dazzled,
+  concealed: DC 5.
+- Sickened, you cannot drink a potion or an elixir. `+e/use` takes an action.
+- Paralyzed, you can still Recall Knowledge.
 
 Swallowed or engulfed, you are inside the creature: grabbed there with no end to it, slowed, and
 taking its damage at the end of each of your turns. It is off-guard to you. A single blow of piercing
@@ -175,6 +188,15 @@ Reflex save against an area too.
 `+e/conceal <target>=<none|concealed|hidden|undetected>` - An attack against it rolls a flat check
 first: DC 5 concealed, DC 11 hidden or undetected. Against an undetected target, the GM says whether
 you guessed its square.
+
+Whoever is hidden from or undetected by those it attacks has them off-guard to it, and is seen once it
+has made the attack.
+`+e/act seek=<target>` is your Perception against its Stealth DC: a success finds what was undetected
+- now hidden - and sees what was hidden; a critical success sees either. `+e/act hide=<target>` and
+`+e/act sneak=<target>` are your Stealth against its Perception DC, and leave you hidden or undetected
+as the outcome has it.
+`+e/act recall knowledge=<creature>` is against the DC of its level and rarity, with a skill that knows
+its kind unless you name one: `/religion`. The GM answers what the outcome earns.
 
 Concealment is set on the target for everyone, where the rules make it a matter of who is looking: a
 creature hidden from one character can be in plain sight of another who has darkvision. When that
