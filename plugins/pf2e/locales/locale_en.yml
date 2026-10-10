@@ -577,6 +577,8 @@ en:
     recharge_set: "%{actor}'s %{action} is back in round %{round} (%{rounds} rounds)."
     recharge_not_back: "%{actor}'s %{action} is not back until round %{round}: used on your say."
     recharge_back: "%{actor}'s %{action} is back: a critical hit recharges it."
+    act_temp_immune: "  %{target} has saved against %{action} lately, and is immune to it for now."
+    aura_entered_save: "%{target} is inside %{actor}'s %{aura}."
     act_immune: "  %{target} is immune (%{to}): nothing of it touches them."
     act_crit_immune: "  %{target} is immune to critical hits, and takes a hit's damage."
     act_revived: "  %{target} is no longer dead: unconscious, with no hit points."

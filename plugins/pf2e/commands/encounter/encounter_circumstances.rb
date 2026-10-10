@@ -121,6 +121,20 @@ module AresMUSH
 
       attr_accessor :aura, :targets, :actor
 
+      # A creature's aura whose words call for a save - a dragon's presence, a ghoul's stench - has
+      # whoever enters it roll that save. Answers what happened, or nothing where the aura is not one.
+      def aura_save(encounter, emitter, target)
+        own = Actors.of(emitter.holder).own_abilities.find { |one| Domains.slug(one['name']) == self.aura }
+
+        return nil unless own && CreatureAbilities.saving(own['text'])
+
+        out = Acting.report
+        out['lines'] << Telling.event('pf2e.aura_entered_save', :target => target.label, :actor => emitter.label, :aura => own['name'])
+        Acting.ability_saves(Acting::Scene.new(encounter, emitter, target, enactor, true), own['name'], own, [ target ], out)
+
+        Telling.lines(out['lines']).join('%r')
+      end
+
       def parse_args
         aura, _, targets = cmd.args.to_s.partition('=')
         self.aura = Domains.slug(aura)
@@ -153,8 +167,11 @@ module AresMUSH
             return if CharState.emit_error!(client, done)
 
             names = done.state.map(&:name)
-            message = names.empty? ? t('pf2e.aura_nothing', :target => target.label, :aura => self.aura) :
-                        t('pf2e.aura_entered', :target => target.label, :aura => self.aura, :effects => names.join(', '))
+            saved = names.empty? ? aura_save(encounter, emitter, target) : nil
+            message = if saved then saved
+                      elsif names.empty? then t('pf2e.aura_nothing', :target => target.label, :aura => self.aura)
+                      else t('pf2e.aura_entered', :target => target.label, :aura => self.aura, :effects => names.join(', '))
+                      end
           else
             done = Auras.leave(emitter.holder, target.holder, self.aura)
             message = t('pf2e.aura_left', :target => target.label, :aura => self.aura,

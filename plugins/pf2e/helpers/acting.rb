@@ -142,7 +142,7 @@ module AresMUSH
         targets ||= [ scene.target ].compact
         own = Actors.of(scene.actor.holder).own_ability(name)
         ability = own ? MonsterAbilities.row(name, own, scene.actor.holder) : nil
-        if targets.size > 1 && !CreatureAbilities.damage_save(own_text(scene, name)) && !(ability && ability['several'])
+        if targets.size > 1 && !CreatureAbilities.saves?(own_text(scene, name)) && !(ability && ability['several'])
           return Err.new(:one_target, 'pf2e.act_one_target', 'action' => name)
         end
 
@@ -305,23 +305,62 @@ module AresMUSH
         announce(scene, name, own, targets, out)
         Recharge.used(scene, name, own, out)
 
-        dealt = CreatureAbilities.damage_save(own['text'])
-        if dealt
-          mechanics = { 'save' => dealt['save'], 'basic' => true, 'traits' => Array(own['traits']) }
-          formulas = [ [ dealt['formula'], dealt['type'], nil, [ 'damage' ] ] ]
-          out['about'] = DamageAbout.of_ability(own)
-
-          targets.each do |target|
-            next if immune?(own['traits'], out, target)
-
-            spell_save(Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted), name, mechanics,
-                       dealt['dc'], formulas, out)
-          end
-        end
+        ability_saves(scene, name, own, targets, out)
 
         paid(scene, name, own, out)
 
         Ok.new(:state => out)
+      end
+
+      # A creature's ability whose words call for a save: each target rolls it, takes what the words deal
+      # by how they rolled, and is left with what the outcome names. Whoever is immune to it - by a trait
+      # of it, or for having saved against it lately - is passed by. Answers whether there was a save.
+      def self.ability_saves(scene, name, own, targets, out)
+        figures = CreatureAbilities.saving(own['text'])
+        listed = figures ? nil : CreatureAbilities.damage_save(own['text'])
+
+        return false unless figures || listed
+
+        figures ||= { 'dc' => listed['dc'], 'save' => listed['save'], 'basic' => true,
+                      'damage' => [ [ listed['formula'], listed['type'] ] ], 'outcomes' => {}, 'outcome_text' => {} }
+        # Damage with no outcomes of its own to scale it is a basic save's, as an area's is.
+        basic = figures['basic'] || figures['outcome_text'].empty?
+        mechanics = figures.slice('save', 'outcomes', 'outcome_text').merge('basic' => basic, 'traits' => Array(own['traits']))
+        formulas = figures['damage'].map { |formula, type| [ formula, type, nil, [ 'damage' ] ] }
+        out['about'] = DamageAbout.of_ability(own)
+
+        targets.each do |target|
+          next if immune?(own['traits'], out, target)
+          next if lately_saved?(scene, name, target, out)
+
+          degree = spell_save(Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted), name,
+                              mechanics, figures['dc'], formulas, out)
+          saved_against(scene, name, target, figures['immune'], degree)
+        end
+
+        true
+      end
+
+      # Immunity for a while to something already saved against: a dragon's presence, a ghoul's stench.
+      LATELY = 'saved'.freeze
+
+      def self.lately_saved?(scene, name, target, out)
+        till = (TurnState.of(target.holder)[LATELY] || {})["#{name}@#{scene.actor.label}"].to_i
+
+        return false unless scene.encounter && till > scene.encounter.round.to_i
+
+        out['lines'] << told('pf2e.act_temp_immune', :target => target.label, :action => name)
+        true
+      end
+
+      def self.saved_against(scene, name, target, immune, degree)
+        return unless immune && scene.encounter && degree
+        return if immune['after'] == 'success' && degree < Degree::SUCCESS
+
+        held = TurnState.of(target.holder)[LATELY] || {}
+        till = scene.encounter.round.to_i + immune['rounds'].to_i
+
+        TurnState.write(target.holder, LATELY => held.merge("#{name}@#{scene.actor.label}" => till))
       end
 
       def self.target_phrase(scene)

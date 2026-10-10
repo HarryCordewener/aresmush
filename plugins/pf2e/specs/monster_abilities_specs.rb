@@ -407,6 +407,123 @@ module AresMUSH
         end
       end
 
+      # Dullahan: Frightful Presence, 30 feet, DC 23 Will; Frightened 1, 2 or 4 by the save, and immune for
+      # a minute after it whatever was rolled.
+      describe "an aura that calls for a save" do
+        before(:each) do
+          add('dullahan')
+          next_turn
+        end
+
+        it "should have whoever enters it roll the save, and leave what the outcome says" do
+          as(2, "enter frightful presence=#{@hero.name}", FightBench::LOW)
+
+          expect(refused).to eq []
+          expect(heard).to include("#{@hero.name} rolls Will", 'vs DC 23')
+          expect(Pf2e.condition_level(hero, 'Frightened')).to eq 4
+        end
+
+        # A natural 20 from a level 1 hero falls short of DC 23, and is a success for being a 20.
+        it "should leave what a success leaves on a success" do
+          as(2, "enter frightful presence=#{@hero.name}", 1.0)
+
+          expect(Pf2e.condition_level(hero, 'Frightened')).to eq 1
+        end
+
+        it "should not be saved against again while they are immune to it" do
+          as(2, "enter frightful presence=#{@hero.name}", 1.0)
+          Pf2e.remove_condition(hero, 'Frightened')
+          as(2, "enter frightful presence=#{@hero.name}", FightBench::LOW)
+
+          expect(heard).to include(t('pf2e.act_temp_immune', :target => @hero.name, :action => 'Frightful Presence').strip)
+          expect(held).to_not have_key('Frightened')
+        end
+      end
+
+      describe "an ability of the GM's own making that calls for a save" do
+        before(:each) do
+          add('Wraith=ac 15 hp 30; ability Dread: DC 5 Will%rCritical Success The creature is unaffected by the dread.%r' \
+              'Success The creature is Frightened 1.%rFailure The creature is Frightened 2 and Stunned 1.')
+          next_turn
+        end
+
+        it "should leave nothing on a critical success, and say what its words say of it" do
+          as(2, "act dread=#{@hero.name}", 1.0)
+
+          expect(held).to_not have_key('Frightened')
+          expect(heard).to include('unaffected by the dread')
+        end
+
+        it "should leave every condition a failure names" do
+          as(2, "act dread=#{@hero.name}", FightBench::LOW)
+
+          expect(Pf2e.condition_level(hero, 'Frightened')).to eq 2
+          expect(Pf2e.condition_level(hero, 'Stunned')).to eq 1
+        end
+      end
+
+      # Ghoul Stalker: Stench, DC 14 Fortitude, sickened on a failure; immune for a minute on a success.
+      describe "an aura whose save only a success makes them immune to" do
+        before(:each) do
+          add('ghoul stalker')
+          next_turn
+        end
+
+        it "should sicken on a failure, and be saved against again" do
+          as(2, "enter stench=#{@hero.name}", 0.3)
+          expect(Pf2e.condition_level(hero, 'Sickened')).to eq 1
+
+          as(2, "enter stench=#{@hero.name}", 0.3)
+          expect(heard).to include("#{@hero.name} rolls Fortitude")
+        end
+
+        it "should leave them immune after a success" do
+          as(2, "enter stench=#{@hero.name}", 1.0)
+          as(2, "enter stench=#{@hero.name}", FightBench::LOW)
+
+          expect(heard).to include(t('pf2e.act_temp_immune', :target => @hero.name, :action => 'Stench').strip)
+        end
+      end
+
+      # Basilisk, level 5: Petrifying Gaze, DC 22 Fortitude, incapacitation.
+      describe "an ability that calls for a save and deals nothing" do
+        before(:each) do
+          add('basilisk')
+          next_turn
+        end
+
+        it "should roll the save for the GM to read its words against" do
+          as(2, "act petrifying gaze=#{@hero.name}", FightBench::LOW)
+
+          expect(heard).to include("#{@hero.name} rolls Fortitude", 'vs DC 22', 'critical failure')
+        end
+
+        it "should go one degree better for a creature of higher level than the basilisk" do
+          @hero.update(:pf2_level => 6)
+          as(2, "act petrifying gaze=#{@hero.name}", FightBench::LOW)
+
+          expect(heard).to include(t('pf2e.act_incapacitation', :target => @hero.name).strip)
+          expect(heard).to match(/vs DC 22 - failure/)
+        end
+      end
+
+      # Rat Swarm: Swarming Bites, 1d6 piercing to each enemy in its space, DC 17 basic Reflex.
+      describe "an ability whose damage and save are in its sentence" do
+        before(:each) do
+          add('rat swarm')
+          add('goblin warrior')
+          next_turn
+        end
+
+        it "should be aimed at as many as are in it, each saving" do
+          as(2, "act swarming bites=#{@hero.name},#3", FightBench::LOW)
+
+          expect(refused).to eq []
+          expect(heard).to include("#{@hero.name} rolls Reflex", 'Goblin Warrior #3 rolls Reflex')
+          expect(hero_hp).to be < Pf2eHP.get_max_hp(hero)
+        end
+      end
+
       # Orc Veteran: Reactive Strike.
       describe "a reaction already spent" do
         before(:each) do
