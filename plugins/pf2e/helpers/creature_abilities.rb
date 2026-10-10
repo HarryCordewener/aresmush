@@ -70,7 +70,14 @@ module AresMUSH
                                      spoken_outcomes(text)
 
         { 'dc' => found[:dc].to_i, 'save' => found[:save].downcase, 'basic' => !found[:basic].nil?,
-          'damage' => dealt(text), 'outcomes' => outcomes, 'outcome_text' => paragraphs, 'immune' => immune_after(text) }
+          'damage' => dealt(text), 'persistent' => burning(text), 'outcomes' => outcomes, 'outcome_text' => paragraphs,
+          'immune' => immune_after(text) }
+      end
+
+      # The persistent damage whoever fails the save also takes: `Creatures that fail the save also take
+      # 1d4 persistent fire damage`.
+      def self.burning(text)
+        text.scan(/\bfail[^.%]*?(#{FORMULA}) persistent ([a-z]+) damage/i).map { |formula, type| [ formula.delete(' '), type ] }
       end
 
       # The damage the words deal against the save: `takes 1d6 piercing damage`.

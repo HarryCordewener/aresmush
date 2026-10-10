@@ -383,6 +383,19 @@ module AresMUSH
           next_turn
         end
 
+        it "should leave whoever fails the save burning, as its words say" do
+          as(2, "act flame breath=#{@hero.name}", FightBench::LOW)
+
+          expect(PersistentDamage.held(hero).map { |one| one['type'] }).to eq [ 'fire' ]
+          expect(heard).to include('persistent fire')
+        end
+
+        it "should not leave whoever makes it burning" do
+          as(2, "act flame breath=#{@hero.name}", 1.0)
+
+          expect(PersistentDamage.held(hero)).to eq []
+        end
+
         it "should tell the GM when it is back" do
           as(2, "act flame breath=#{@hero.name}", 0.5)
 

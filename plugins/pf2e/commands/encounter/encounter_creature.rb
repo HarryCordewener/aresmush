@@ -45,7 +45,7 @@ module AresMUSH
 
         Array(block['actions']).each do |ability|
           cost = ability['type'] == 'action' ? "[#{ability['cost'] || 1}]" : "[#{ability['type']}]"
-          lines << "%xh#{ability['name']}%xn #{cost} #{ability['text']}"
+          lines << "%xh#{ability['name']}%xn #{cost} #{brief(ability['text'])}"
         end
 
         lines
@@ -53,6 +53,15 @@ module AresMUSH
 
       def self.signed(value)
         value.to_i.negative? ? value.to_s : "+#{value.to_i}"
+      end
+
+      # An ability's words at a stat block's length. Using the ability tells all of them.
+      BRIEF = 400
+
+      def self.brief(text)
+        text = text.to_s
+
+        text.length > BRIEF ? "#{text[0, BRIEF].rpartition(' ').first}…" : text
       end
 
       def self.saves(block, name)

@@ -343,6 +343,15 @@ module AresMUSH
           degree = spell_save(Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted), name,
                               mechanics, figures['dc'], formulas, out)
           saved_against(scene, name, target, figures['immune'], degree)
+
+          next unless degree && degree <= Degree::FAILURE
+
+          # What whoever failed also burns with.
+          Array(figures['persistent']).each do |formula, type|
+            PersistentDamage.add(target.holder, formula, type)
+            out['lines'] << told('pf2e.act_damage', :target => target.label,
+                                                 :damage => told('pf2e.act_persistent', :formula => formula, :type => type))
+          end
         end
 
         true

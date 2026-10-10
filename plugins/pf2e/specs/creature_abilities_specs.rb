@@ -92,6 +92,13 @@ module AresMUSH
                                                            'damage' => [ %w{1d6 piercing} ])
         end
 
+        it "should read the persistent damage a failure also takes" do
+          text = 'The fire scamp breathes flames in a 15-foot cone that deals 2d4 fire damage to each creature within the area ' \
+                 '(DC 17 basic Reflex save). Creatures that fail the save also take 1d4 persistent fire damage.'
+
+          expect(CreatureAbilities.saving(text)).to include('damage' => [ %w{2d4 fire} ], 'persistent' => [ %w{1d4 fire} ])
+        end
+
         it "should leave a condition that depends on something else to the words" do
           text = 'That creature must attempt a DC 22 Fortitude save. If it fails and has not already been slowed by this ability, ' \
                  'it becomes Slowed 1. If the creature was already slowed by this ability, a failed save causes the creature to be ' \

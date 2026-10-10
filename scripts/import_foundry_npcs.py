@@ -37,7 +37,9 @@ import import_foundry_rules as rules  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BESTIARY = os.path.join(ROOT, 'game', 'bestiary')
 INDEX = 'index.yml'
-ABILITY_TEXT = 500
+# An ability's words are kept whole: what it does is read from them - its save, its outcomes, an
+# affliction's stages - and a stage cut off is a stage lost.
+ABILITY_TEXT = None
 
 SIZES = {'tiny': 'tiny', 'sm': 'small', 'med': 'medium', 'lg': 'large', 'huge': 'huge', 'grg': 'gargantuan'}
 TYPES = {'action': 'action', 'reaction': 'reaction', 'free': 'free', 'passive': 'passive'}
