@@ -40,7 +40,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d6"]}
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}, {"condition": "Drained", "value": 1, "until": "rounds:1"}, {"condition": "Enfeebled", "value": 1, "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}, {"condition": "Drained", "value": 1, "until": "rounds:1"}, {"condition": "Enfeebled", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}, {"condition": "Drained", "value": 1, "until": "rounds:1"}, {"condition": "Enfeebled", "value": 1, "until": "rounds:1"}], "criticalFailure": [{"condition": "Clumsy", "value": 1, "until": "rounds:10"}, {"condition": "Drained", "value": 1, "until": "rounds:10"}, {"condition": "Enfeebled", "value": 1, "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage and is your choice of Clumsy 1, Drained 1, or Enfeebled 1 for 1 round.", "failure": "The target takes full damage and is clumsy 1, drained 1, and enfeebled 1 for 1 round.", "criticalFailure": "The creature takes double damage and is clumsy 1, drained 1, and enfeebled 1 for 1 minute."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Access Lore":
@@ -405,7 +405,7 @@ pf2e_spell_mechanics:
     basic: false
     damage: [{"formula": "4d8", "type": "mental", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d8"]}
-    outcomes: {"failure": [{"condition": "Stunned", "value": 1}]}
+    outcomes: {"failure": [{"condition": "Stunned", "value": 1}], "criticalFailure": [{"condition": "Stunned", "value": 1}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage and is Stunned 1.", "criticalFailure": "The creature takes double damage and is stunned 1. You're unaffected by the triggering mental effect."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Annunciation of the Outer Gate":
@@ -480,6 +480,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "5-foot burst"
     range: "30 feet"
+    outcomes: {"failure": [{"condition": "Fascinated"}]}
     outcome_text: {"criticalSuccess": "The creature disbelieves the illusion and is unaffected by it.", "success": "The creature is Fascinated by the wealth until it has completed its first action on its next turn.", "failure": "The creature is Fascinated by the illusion."}
   "Approximate":
     rank: 0
@@ -686,7 +687,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d8"]}
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 2}], "criticalFailure": [{"condition": "Off-Guard", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 2}], "criticalFailure": [{"condition": "Off-Guard", "until": "rounds:1"}, {"condition": "Frightened", "value": 2}]}
     outcome_text: {"criticalSuccess": "The target takes no damage, with a brief sensation of pain followed by a pleasant memory.", "success": "The target takes half damage and is Frightened 1.", "failure": "The target takes full damage and is Frightened 2.", "criticalFailure": "The target takes double damage and is frightened 2 and Off-Guard for 1 round."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Augmented Body":
@@ -910,7 +911,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 living humanoid"
     range: "touch"
-    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}], "failure": [{"effect": "Spell Effect: Bestial Curse (Failure)"}], "criticalFailure": [{"effect": "Spell Effect: Bestial Curse (Critical Failure)"}]}
+    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}], "failure": [{"effect": "Spell Effect: Bestial Curse (Failure)"}, {"condition": "Clumsy", "value": 1}], "criticalFailure": [{"effect": "Spell Effect: Bestial Curse (Critical Failure)"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target's body gains minor bestial features. Its insides churn as they partially transform, causing it to be Clumsy 1 for 1 round. When it recovers from the clumsy condition, its features revert to normal, and the spell ends.", "failure": "The target transforms into a bestial form for 1 hour. The target becomes clumsy 1 and gains weakness 1 to silver. It gains a claw, hoof, horn, or jaws Strike (your choice) that uses the target's unarmed Strike statistics except that the damage type changes to bludgeoning, piercing, or slashing, as appropriate. Whenever the target attempts to use any manipulate action, it must succeed at a DC 5 Flat or the action is lost.%rSpell Effect: Bestial Curse (Failure)", "criticalFailure": "As failure, but the duration is unlimited.%rSpell Effect: Bestial Curse (Critical Failure)"}
   "Bilocation":
     rank: 9
@@ -1043,7 +1044,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "4d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}, {"formula": "6d6", "type": "fire", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["1d6", "1d6"]}
     area: "120-foot line"
-    outcomes: {"failure": [{"condition": "Prone"}]}
+    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Prone"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage, and it falls Prone.", "criticalFailure": "The creature takes double damage, and it falls prone."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Bless":
@@ -1101,7 +1102,7 @@ pf2e_spell_mechanics:
     save: "will"
     basic: false
     area: "30-foot cone"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "its-next-turn-start"}], "failure": [{"condition": "Blinded", "until": "its-next-turn-start"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "its-next-turn-start"}], "failure": [{"condition": "Blinded", "until": "its-next-turn-start"}], "criticalFailure": [{"condition": "Blinded", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Dazzled until the start of its next turn.", "failure": "The creature is Blinded until the start of its next turn.", "criticalFailure": "The creature is Blinded for 1 minute."}
   "Blinding Bottle":
     rank: 5
@@ -1140,7 +1141,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Blinded", "until": "its-next-turn-start"}]}
+    outcomes: {"success": [{"condition": "Blinded", "until": "its-next-turn-start"}], "failure": [{"condition": "Blinded", "until": "rounds:10"}], "criticalFailure": [{"condition": "Blinded"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Blinded until its next turn begins.", "failure": "The target is Blinded for 1 minute.", "criticalFailure": "The target is Blinded permanently."}
   "Blink Charge":
     rank: 5
@@ -1297,7 +1298,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "10", "type": "bleed", "category": null, "kinds": ["damage"]}]
     target: "1 of your thralls"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Drained", "value": 1}], "criticalFailure": [{"condition": "Drained", "value": 2}]}
+    outcomes: {"success": [{"condition": "Drained", "value": 1}], "failure": [{"condition": "Drained", "value": 1}], "criticalFailure": [{"condition": "Drained", "value": 2}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Drained 1.", "failure": "The creature is drained 1, and a single thrall is created in an unoccupied space adjacent to the field.", "criticalFailure": "The creature becomes Drained 2, and 2 thralls are created in unoccupied spaces adjacent to the field."}
     damage_scale: {"criticalSuccess": 0}
   "Blunt the Final Blade":
@@ -1582,7 +1583,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d6"]}
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"criticalSuccess": [{"condition": "Blinded", "until": "rounds:1"}, {"condition": "Dazzled", "until": "rounds:10"}]}
+    outcomes: {"criticalSuccess": [{"condition": "Blinded", "until": "rounds:1"}, {"condition": "Dazzled", "until": "rounds:10"}], "success": [{"condition": "Blinded", "until": "rounds:1"}]}
   "Buffeting Winds":
     rank: 1
     traits: ["air", "concentrate", "manipulate", "nonlethal"]
@@ -1796,7 +1797,7 @@ pf2e_spell_mechanics:
     save: "will"
     basic: false
     area: "15-foot emanation"
-    outcomes: {"success": [{"condition": "Fascinated"}]}
+    outcomes: {"success": [{"condition": "Fascinated"}], "failure": [{"condition": "Fascinated"}], "criticalFailure": [{"condition": "Fascinated"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected and temporarily immune for 1 hour.", "success": "The creature is Fascinated with you for its next action, then is temporarily immune for 1 hour.", "failure": "The creature is Fascinated with you.", "criticalFailure": "The creature is Fascinated with you, and its attitude toward you improves by one step."}
   "Carrion Mire":
     rank: 2
@@ -1929,7 +1930,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d10"]}
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Fascinated", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Fascinated", "until": "rounds:1"}], "failure": [{"condition": "Fascinated", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The target takes half damage and is Fascinated with you for 1 round.", "failure": "The target takes full damage and is fascinated with you for 1 round. While fascinated with you, the target must succeed at a DC 5 Flat when attempting to Cast a Spell or use an action with the auditory trait. On a failure, the action is disrupted as the target blurts praise for you instead of saying what it intended.", "criticalFailure": "As failure, but double damage and the effect lasts for 1 minute."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Charged Javelin":
@@ -2032,7 +2033,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 living creature"
     range: "touch"
-    outcomes: {"success": [{"condition": "Enfeebled", "value": 2, "until": "rounds:1"}], "failure": [{"condition": "Drained", "value": 1}], "criticalFailure": [{"condition": "Drained", "value": 2}]}
+    outcomes: {"success": [{"condition": "Enfeebled", "value": 2, "until": "rounds:1"}], "failure": [{"condition": "Drained", "value": 1}, {"condition": "Enfeebled", "value": 2, "until": "rounds:10"}], "criticalFailure": [{"condition": "Drained", "value": 2}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Enfeebled 2 for 1 round.", "failure": "The target is enfeebled 2 for 1 minute and Drained 1. The target is also filled with listlessness and ennui. For 1 round, if the target tries to use a move action, it must succeed at a Will save against your spell DC or the action is lost; this effect has the mental and emotion traits.", "criticalFailure": "As failure, but the creature is permanently enfeebled 2 and Drained 2 (although magic such as Sound Body can remove these conditions)."}
   "Chromatic Armor":
     rank: 4
@@ -2096,7 +2097,7 @@ pf2e_spell_mechanics:
     time: "2"
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Blinded", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Blinded", "until": "rounds:1"}], "criticalFailure": [{"condition": "Blinded", "until": "rounds:10"}]}
     variants: [{"name": "Cinder Swarm (Fire Ants)", "save": "reflex", "basic": true, "damage": [{"formula": "3d6", "type": "piercing", "category": null, "kinds": ["damage"]}, {"formula": "2d6", "type": "fire", "category": "persistent", "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6", "0"]}}, {"name": "Cinder Swarm (Fireflies)", "save": "fortitude", "basic": false, "damage": [{"formula": "3d6", "type": "fire", "category": null, "kinds": ["damage"]}], "heightening": {"interval": 1, "damage": ["2d6"]}}]
   "Circle of Protection":
     rank: 3
@@ -2138,7 +2139,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 undead creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Stunned", "value": 1, "until": "rounds:1"}, {"condition": "Confused", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Stunned", "value": 1, "until": "rounds:1"}, {"condition": "Confused", "until": "rounds:1"}], "failure": [{"condition": "Controlled"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Stunned 1 and Confused for 1 round as it fights off your commands.", "failure": "The target becomes controlled by you and follows your orders. It (or the creature previously controlling it) can attempt a new Will save at the end of each of its turns; on a success, the spell ends, and the creature becomes stunned 1 and confused for 1 round. If you issue an obviously self-destructive order, the target doesn't act until you issue a new order.", "criticalFailure": "As failure, but the target (or the creature previously controlling it) receives a new save only if you give it a new order that is against its nature."}
   "Clairaudience":
     rank: 3
@@ -2619,7 +2620,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d4"]}
     area: "5-foot burst"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Sickened", "value": 1}], "criticalFailure": [{"condition": "Sickened", "value": 2}]}
+    outcomes: {"success": [{"condition": "Sickened", "value": 1}], "failure": [{"condition": "Sickened", "value": 1}], "criticalFailure": [{"condition": "Sickened", "value": 2}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage and becomes Sickened 1.", "failure": "The target takes full damage and becomes sickened 1.", "criticalFailure": "The target takes double damage and becomes Sickened 2."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Corpse Communion":
@@ -2801,7 +2802,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 2, "damage": ["1d10"]}
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Enfeebled", "value": 1, "until": "rounds:10"}], "criticalFailure": [{"condition": "Enfeebled", "value": 2, "until": "rounds:10"}, {"condition": "Immobilized", "until": "rounds:10"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Enfeebled", "value": 1, "until": "rounds:10"}, {"condition": "Dazzled", "until": "rounds:10"}], "criticalFailure": [{"condition": "Enfeebled", "value": 2, "until": "rounds:10"}, {"condition": "Immobilized", "until": "rounds:10"}, {"condition": "Dazzled", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target's head is encased in iron, causing them to be Dazzled for 1 round and take 1d10 persistent fire damage.", "failure": "The target's head, arms, and chest are all encased. The target is dazzled and Enfeebled 1 for 1 minute or until they Escape. They also take 1d10 persistent fire damage.", "criticalFailure": "The target's legs and feet are also encased. The target is dazzled, Enfeebled 2, and Immobilized for 1 minute or until they Escape. They also take 1d10 persistent fire damage."}
     damage_scale: {"criticalSuccess": 0}
   "Crusade":
@@ -2820,7 +2821,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d6"]}
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"failure": [{"condition": "Off-Guard"}], "criticalFailure": [{"condition": "Immobilized"}, {"effect": "Spell Effect: Crushing Ground"}]}
+    outcomes: {"failure": [{"condition": "Off-Guard"}], "criticalFailure": [{"condition": "Immobilized"}, {"effect": "Spell Effect: Crushing Ground"}, {"condition": "Off-Guard"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage.", "failure": "The target takes full damage, is Off-Guard, and takes a –10-foot circumstance penalty to Speed.", "criticalFailure": "The target takes double damage and is off-guard and Immobilized. It can attempt to escape against your spell DC. If it doesn't Escape, the target takes an additional 2d6 bludgeoning damage when the spell ends.%rSpell Effect: Crushing Ground"}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Cry of Destruction":
@@ -2882,7 +2883,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d6"]}
     target: "1 Large or smaller object, construct, or living creature"
     range: "touch"
-    outcomes: {"failure": [{"condition": "Clumsy", "value": 1}, {"condition": "Enfeebled", "value": 1}], "criticalFailure": [{"condition": "Clumsy", "value": 1}, {"condition": "Enfeebled", "value": 1}]}
+    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}, {"condition": "Enfeebled", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Clumsy", "value": 1}, {"condition": "Enfeebled", "value": 1}], "criticalFailure": [{"condition": "Clumsy", "value": 1}, {"condition": "Enfeebled", "value": 1}]}
     outcome_text: {"criticalSuccess": "The living creature is unaffected.", "success": "The living creature briefly ages, becoming clumsy 1 and enfeebled 1 for 1 round.", "failure": "As success, with a duration of 1 hour.", "criticalFailure": "As success, with an unlimited duration."}
     damage_scale: {"criticalSuccess": 0}
   "Curse of Recoil":
@@ -2893,7 +2894,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Off-Guard", "until": "its-next-turn-start"}], "failure": [{"effect": "Spell Effect: Curse of Recoil (Failure)"}], "criticalFailure": [{"effect": "Spell Effect: Curse of Recoil (Critical Failure)"}]}
+    outcomes: {"success": [{"condition": "Off-Guard", "until": "its-next-turn-start"}], "failure": [{"effect": "Spell Effect: Curse of Recoil (Failure)"}, {"condition": "Off-Guard", "until": "its-next-turn-start"}], "criticalFailure": [{"effect": "Spell Effect: Curse of Recoil (Critical Failure)"}, {"condition": "Off-Guard", "until": "its-next-turn-start"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The recoil from their ranged attack causes the target to be Off-Guard until the beginning of their next turn.", "failure": "The recoil imposes a –1 status penalty to the ranged attack and renders the target off-guard until the beginning of their next turn.%rSpell Effect: Curse of Recoil (Failure)", "criticalFailure": "The recoil imposes a –2 status penalty to the ranged attack and renders the target off-guard until the beginning of their next turn. Until the start of their next turn, any additional ranged attacks made with the same weapon, spell, or ability take the same penalty.%rSpell Effect: Curse of Recoil (Critical Failure)"}
   "Curse of Slippery Steps":
     rank: 1
@@ -3051,7 +3052,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 living creature"
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Fatigued", "until": "rounds:1"}, {"condition": "Enfeebled", "value": 1, "until": "rounds:1"}], "criticalFailure": [{"condition": "Enfeebled", "value": 2}]}
+    outcomes: {"success": [{"condition": "Fatigued", "until": "rounds:1"}, {"condition": "Enfeebled", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Fatigued"}, {"condition": "Enfeebled", "value": 1}], "criticalFailure": [{"condition": "Enfeebled", "value": 2}, {"condition": "Fatigued"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Fatigued and Enfeebled 1 for 1 round.", "failure": "The target is fatigued and enfeebled 1 for the duration.", "criticalFailure": "The target is fatigued and Enfeebled 2 for the duration. The fatigued condition doesn't end when the spell's duration does (but can still be removed with a night's rest or by similar means)."}
   "Daydreamer's Curse":
     rank: 4
@@ -3080,7 +3081,7 @@ pf2e_spell_mechanics:
     save: "fortitude"
     basic: false
     area: "15-foot cone"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Blinded", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Blinded", "until": "rounds:1"}, {"condition": "Dazzled", "until": "rounds:10"}], "criticalFailure": [{"condition": "Blinded", "until": "rounds:1"}, {"condition": "Dazzled"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Dazzled for 1 round.", "failure": "The creature is Blinded for 1 round and Dazzled for 1 minute. The creature can spend an Interact action rubbing its eyes to end the Blinded condition.", "criticalFailure": "The creature is Blinded for 1 round and Dazzled for 1 hour."}
   "Dead Weight":
     rank: 1
@@ -3090,7 +3091,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 of your thralls"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Off-Guard"}], "failure": [{"condition": "Slowed", "value": 1}], "criticalFailure": [{"condition": "Slowed", "value": 2}]}
+    outcomes: {"success": [{"condition": "Off-Guard"}], "failure": [{"condition": "Slowed", "value": 1}, {"condition": "Off-Guard"}], "criticalFailure": [{"condition": "Slowed", "value": 2}, {"condition": "Off-Guard"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Off-Guard.", "failure": "The target is Slowed 1 and off-guard.", "criticalFailure": "The target is Slowed 2 and off-guard."}
   "Deafness":
     rank: 2
@@ -3100,7 +3101,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Deafened", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Deafened", "until": "rounds:1"}], "failure": [{"condition": "Deafened", "until": "rounds:100"}], "criticalFailure": [{"condition": "Deafened"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Deafened for 1 round.", "failure": "The target is Deafened for 10 minutes.", "criticalFailure": "The target is Deafened permanently."}
   "Death Knell":
     rank: 2
@@ -3631,7 +3632,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "7d10", "type": "spirit", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["1d10"]}
     area: "40-foot emanation"
-    outcomes: {"failure": [{"condition": "Enfeebled", "value": 2, "until": "rounds:10"}], "criticalFailure": [{"condition": "Paralyzed", "until": "rounds:10"}]}
+    outcomes: {"failure": [{"condition": "Enfeebled", "value": 2, "until": "rounds:10"}], "criticalFailure": [{"condition": "Paralyzed", "until": "rounds:10"}, {"condition": "Enfeebled", "value": 2, "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage and is Enfeebled 2 for 1 minute.", "criticalFailure": "The creature takes double damage and is enfeebled 2 for 1 minute. If you're on your home plane and the creature is not, the creature is sent back to its home plane. A creature of 10th level or lower must also succeed at a Will save or be Paralyzed for 1 minute; if it critically fails, it dies (this is a death effect)."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Divine Dragon's Watch":
@@ -3717,7 +3718,7 @@ pf2e_spell_mechanics:
     save: "will"
     basic: false
     area: "15-foot cone"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Stunned", "value": 1, "until": "rounds:1"}, {"condition": "Blinded", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Stunned", "value": 1, "until": "rounds:1"}, {"condition": "Blinded", "until": "rounds:1"}, {"condition": "Dazzled", "until": "rounds:10"}], "criticalFailure": [{"condition": "Blinded", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Dazzled for 1 round.", "failure": "The creature is Stunned 1, Blinded for 1 round, and dazzled for 1 minute.", "criticalFailure": "The creature is stunned for 1 round and blinded for 1 minute."}
   "Dome of Tranquility":
     rank: 1
@@ -3954,7 +3955,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "4d8", "type": "sonic", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 2, "damage": ["3d8"]}
     area: "30-foot cone"
-    outcomes: {"success": [{"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 2}], "criticalFailure": [{"condition": "Fleeing", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 2}], "criticalFailure": [{"condition": "Fleeing", "until": "rounds:1"}, {"condition": "Frightened", "value": 2}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage and is Frightened 1.", "failure": "The creature takes full damage and is Frightened 2.", "criticalFailure": "The creature takes double damage, is frightened 2, and is Fleeing for 1 round."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Earth and Sky":
@@ -4335,7 +4336,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "2 to 4 creatures in range"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Off-Guard", "until": "its-next-turn-start"}], "failure": [{"condition": "Stupefied", "value": 1}], "criticalFailure": [{"condition": "Enfeebled", "value": 1}, {"condition": "Clumsy", "value": 1}]}
+    outcomes: {"success": [{"condition": "Off-Guard", "until": "its-next-turn-start"}], "failure": [{"condition": "Stupefied", "value": 1}, {"condition": "Off-Guard"}], "criticalFailure": [{"condition": "Enfeebled", "value": 1}, {"condition": "Clumsy", "value": 1}, {"condition": "Stupefied", "value": 1}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature's fate becomes distorted, and momentary conflicting glimpses of the immediate future cause the creature to become Off-Guard until the start of its next turn.", "failure": "As success, but the creature is off-guard for the duration of the spell. If more than one of the targets failed to resist this spell, the creature also becomes Stupefied 1 for the duration of the spell as its fate and those of the other creatures continue to clash and strain against each other.", "criticalFailure": "As failure, but any creature that becomes stupefied 1 for the duration of the spell also becomes Enfeebled 1 and Clumsy 1 for the spell's duration."}
   "Entangling Flora":
     rank: 2
@@ -4431,7 +4432,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature with a land Speed greater than yours"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "next-turn-end"}, {"effect": "Spell Effect: Equal Footing (Success)"}], "criticalFailure": [{"condition": "Clumsy", "value": 2, "until": "rounds:10"}, {"effect": "Spell Effect: Equal Footing (Failure or Critical Failure)"}]}
+    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "next-turn-end"}, {"effect": "Spell Effect: Equal Footing (Success)"}], "failure": [{"condition": "Clumsy", "value": 1, "until": "rounds:10"}], "criticalFailure": [{"condition": "Clumsy", "value": 2, "until": "rounds:10"}, {"effect": "Spell Effect: Equal Footing (Failure or Critical Failure)"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Clumsy 1 and takes a –10-foot status penalty to all its Speeds until the end of your next turn.%rSpell Effect: Equal Footing (Success)", "failure": "The target is clumsy 1 and takes a –15-foot status penalty to all its Speeds for 1 minute. During this time, it can't benefit from bonuses to its Speeds or take other penalties to its Speeds.", "criticalFailure": "The target is Clumsy 2 and takes a –15-foot status penalty to all its Speeds for 1 minute. During this time, it can't benefit from bonuses to its Speeds or take other penalties to its Speeds.%rSpell Effect: Equal Footing (Failure or Critical Failure)"}
   "Eradicate Undeath":
     rank: 4
@@ -4538,7 +4539,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "5-foot cube"
     range: "touch"
-    outcomes: {"failure": [{"condition": "Prone"}]}
+    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Prone"}]}
     outcome_text: {"success": "The creature is unaffected and can choose to either descend the pit without damage or move to the nearest available space of its choice.", "failure": "The creature falls Prone in the nearest available space of its choice or falls into the pit if it prefers.", "criticalFailure": "The creature falls into the pit excavated by the spell and lands prone, taking falling damage as normal."}
   "Exploding Earth":
     rank: 2
@@ -4578,7 +4579,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Drained", "value": 1, "until": "rounds:1"}, {"condition": "Clumsy", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Drained", "value": 2, "until": "rounds:10"}], "criticalFailure": [{"condition": "Drained", "value": 3, "until": "rounds:10"}, {"condition": "Clumsy", "value": 2, "until": "rounds:10"}]}
+    outcomes: {"success": [{"condition": "Drained", "value": 1, "until": "rounds:1"}, {"condition": "Clumsy", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Drained", "value": 2, "until": "rounds:10"}, {"condition": "Clumsy", "value": 1, "until": "rounds:10"}], "criticalFailure": [{"condition": "Drained", "value": 3, "until": "rounds:10"}, {"condition": "Clumsy", "value": 2, "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target becomes Drained 1 and Clumsy 1 for 1 round.", "failure": "The target becomes Drained 2 and clumsy 1 for 1 minute.", "criticalFailure": "The target becomes Drained 3 and Clumsy 2 for 1 minute."}
   "Extend Blood Magic":
     rank: 3
@@ -4667,7 +4668,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "30-foot cylinder"
     range: "120 feet"
-    outcomes: {"criticalSuccess": [{"condition": "Prone"}], "failure": [{"condition": "Stunned", "value": 2}]}
+    outcomes: {"criticalSuccess": [{"condition": "Prone"}], "success": [{"condition": "Prone"}], "failure": [{"condition": "Stunned", "value": 2}, {"condition": "Prone"}], "criticalFailure": [{"condition": "Prone", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected, and if it was flying, it isn't knocked Prone even though it took falling damage.", "success": "The creature is knocked prone.", "failure": "The creature is knocked prone and Stunned 2.", "criticalFailure": "The creature is knocked prone and stunned for 1 round."}
   "Falling Stars":
     rank: 9
@@ -4795,7 +4796,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "8d6", "type": "mental", "category": null, "kinds": ["damage"]}]
     target: "1 living creature"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Slowed", "value": 1}]}
+    outcomes: {"failure": [{"condition": "Slowed", "value": 1}], "criticalFailure": [{"condition": "Slowed", "value": 1}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes 4d6 mental damage, and then an aura of shimmering mist with a 10-foot emanation surrounds the creature. This mist isn't dense enough to affect sight, but it does cause the creature and any of its allies in the aura to take a –1 status penalty to all skill checks.", "failure": "As success, but the creature takes an initial 8d6 mental damage and is then Slowed 1 for the duration of the effect.", "criticalFailure": "As success, but the creature takes an initial 16d6 mental damage, then is slowed 1 for the duration of the effect. Any of the target's allies who begin their turn in the 10-foot emanation is slowed 1 for 1 round."}
     damage_scale: {"criticalSuccess": 0}
   "Favorable Review":
@@ -4825,7 +4826,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"condition": "Blinded", "until": "its-next-turn-end"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Dazzled", "until": "rounds:10"}], "criticalFailure": [{"condition": "Blinded", "until": "its-next-turn-end"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Dazzled for 1 round.", "failure": "The creature is dazzled for 1 minute.", "criticalFailure": "The creature gains Light Blindness for 1 minute. If the creature is already exposed to bright light, it immediately becomes Blinded until the end of its next turn, as it isn't acclimated to its newly acquired light blindness."}
   "Fearful Feast":
     rank: 4
@@ -4951,7 +4952,7 @@ pf2e_spell_mechanics:
     time: "3"
     damage: [{"formula": "5d8", "type": "piercing", "category": null, "kinds": ["damage"]}, {"formula": "5d8", "type": "poison", "category": null, "kinds": ["damage"]}]
     range: "500 feet"
-    outcomes: {"success": [{"condition": "Sickened", "value": 2}], "failure": [{"condition": "Sickened", "value": 3}, {"condition": "Deafened"}], "criticalFailure": [{"condition": "Sickened", "value": 4}, {"condition": "Stunned", "value": 1}]}
+    outcomes: {"success": [{"condition": "Sickened", "value": 2}], "failure": [{"condition": "Sickened", "value": 3}, {"condition": "Deafened"}], "criticalFailure": [{"condition": "Sickened", "value": 4}, {"condition": "Stunned", "value": 1}, {"condition": "Deafened"}]}
   "Final Sacrifice":
     rank: 2
     traits: ["concentrate", "fire", "manipulate"]
@@ -5017,7 +5018,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d6"]}
     area: "20-foot burst"
     range: "500 feet"
-    outcomes: {"failure": [{"condition": "Blinded", "until": "rounds:1"}, {"condition": "Deafened", "until": "rounds:1"}], "criticalFailure": [{"condition": "Dazzled", "until": "rounds:10"}]}
+    outcomes: {"failure": [{"condition": "Blinded", "until": "rounds:1"}, {"condition": "Deafened", "until": "rounds:1"}], "criticalFailure": [{"condition": "Dazzled", "until": "rounds:10"}, {"condition": "Blinded", "until": "rounds:1"}, {"condition": "Deafened", "until": "rounds:10"}]}
     outcome_text: {"success": "The creature is unaffected.", "failure": "The creature is Blinded and Deafened for 1 round.", "criticalFailure": "The creature is blinded for 1 round and Dazzled and deafened for 1 minute."}
   "Fishing Spot":
     rank: 1
@@ -5696,7 +5697,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d6"]}
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Slowed", "value": 1}, {"condition": "Stunned", "value": 1}], "criticalFailure": [{"condition": "Slowed", "value": 2}]}
+    outcomes: {"success": [{"condition": "Slowed", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Slowed", "value": 1}, {"condition": "Stunned", "value": 1}], "criticalFailure": [{"condition": "Slowed", "value": 2}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage and is slowed 1 for 1 round. The spell ends.", "failure": "The target takes full damage, is Slowed 1, and must attempt a Fortitude save at the end of each of its turns; this ongoing save has the incapacitation trait. On a failed save, the slowed condition increases by 1 (or 2 on a critical failure), to a maximum of slowed 4. On a success, the slowed condition decreases by 1. If at any point the slowed condition is reduced to 0, the spell ends.%rOnce a creature's actions are reduced to 0 by this slowed condition, the creature is completely encased in ice. It continues making saves against glacial heart, possibly allowing it to reduce its slowed condition enough that it can act. This ice has Hardness 4 and 8 Hit Points, and its DC to Force Open is your spell DC. Breaking the ice frees the creature and ends the spell. If someone other than the target breaks the ice from outside, the target is Stunned 1 and takes any damage dealt by the breaking effect in excess of the ice's Hit Points.", "criticalFailure": "As failure, but the target takes double damage and is initially Slowed 2."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Glacial Skewer":
@@ -5817,6 +5818,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 2, "damage": ["2d6"]}
     area: "20-foot burst"
     range: "120 feet"
+    outcomes: {"success": [{"condition": "Grabbed", "until": "its-next-turn-start"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is grabbed until the beginning of its next turn or it Escapes.", "failure": "The creature is grabbed until the spell ends or it Escapes.", "criticalFailure": "The creature is restrained until the spell ends or it Escapes."}
     damage_scale: {"criticalSuccess": 0}
   "Gnaw at the Moon":
@@ -5868,6 +5870,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 2, "damage": ["1d6"]}
     area: "10-foot burst"
     range: "60 feet"
+    outcomes: {"failure": [{"condition": "Grabbed"}], "criticalFailure": [{"condition": "Restrained"}]}
     outcome_text: {"success": "The creature is unaffected.", "failure": "The creature is grabbed by the earth.", "criticalFailure": "The creature is restrained by the earth."}
     damage_scale: {"success": 0}
   "Grasping Grave":
@@ -5918,7 +5921,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "6d4", "type": "bludgeoning", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d4"]}
     area: "30-foot cone"
-    outcomes: {"failure": [{"condition": "Prone"}]}
+    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Prone"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage.", "failure": "The target takes full damage and falls Prone.", "criticalFailure": "The target takes double damage and falls prone."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Gravity Weapon":
@@ -5980,7 +5983,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "2d4", "type": "bludgeoning", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d4"]}
     area: "15-foot cone"
-    outcomes: {"failure": [{"condition": "Dazzled", "until": "rounds:1"}]}
+    outcomes: {"failure": [{"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"condition": "Dazzled", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature takes no damage.", "success": "The creature takes half damage.", "failure": "The creature takes full damage and is Dazzled for 1 round.", "criticalFailure": "The creature takes double damage and is dazzled for 1 minute."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Groom Companion":
@@ -6019,7 +6022,7 @@ pf2e_spell_mechanics:
     basic: false
     damage: [{"formula": "2d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}]
     area: "60-foot line"
-    outcomes: {"failure": [{"condition": "Prone"}]}
+    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Prone"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature can't move against the wind.", "failure": "The creature is knocked Prone. If it was flying, it takes the effects of critical failure instead.", "criticalFailure": "The creature is pushed 30 feet in the wind's direction, knocked prone, and takes 2d6 bludgeoning damage."}
     damage_scale: {"criticalSuccess": 0}
   "Hag's Fruit":
@@ -6526,7 +6529,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "6d12", "type": "mental", "category": null, "kinds": ["damage"]}]
     target: "up to 10 creatures"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Frightened", "value": 2}], "failure": [{"condition": "Paralyzed", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Frightened", "value": 2}], "failure": [{"condition": "Paralyzed", "until": "rounds:1"}, {"condition": "Frightened", "value": 2}], "criticalFailure": [{"condition": "Frightened", "value": 2}, {"condition": "Paralyzed", "until": "rounds:2"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Frightened 2 and takes half the mental damage.", "failure": "The target is frightened 2, is Paralyzed for 1 round, and takes the full mental damage.", "criticalFailure": "The target is frightened 2, is paralyzed for 2 rounds, and takes double the mental damage."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Hypnotize":
@@ -6537,6 +6540,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "10-foot burst"
     range: "120 feet"
+    outcomes: {"failure": [{"condition": "Fascinated"}], "criticalFailure": [{"condition": "Fascinated"}]}
     outcome_text: {"success": "The target is unaffected.", "failure": "The target is fascinated by the cloud.", "criticalFailure": "The target is fascinated by the cloud. While it remains fascinated, it can't use reactions."}
   "Ibex's Harvest":
     rank: 3
@@ -6584,7 +6588,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 2, "damage": ["1d8", "1d8"]}
     area: "10-foot burst"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Dazzled", "until": "rounds:3"}], "criticalFailure": [{"condition": "Dazzled", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage and is Dazzled for 1 round.", "failure": "The creature takes full damage and is dazzled for 3 rounds.", "criticalFailure": "The creature takes double damage, takes 1d4 persistent fire damage, and is dazzled for 1 minute."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Ignition":
@@ -6718,7 +6722,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d6"]}
     target: "1 living creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Off-Guard"}, {"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 2}, {"condition": "Stunned", "value": 1}], "criticalFailure": [{"condition": "Frightened", "value": 3}, {"condition": "Paralyzed"}]}
+    outcomes: {"success": [{"condition": "Off-Guard"}, {"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 2}, {"condition": "Stunned", "value": 1}, {"condition": "Off-Guard"}], "criticalFailure": [{"condition": "Frightened", "value": 3}, {"condition": "Paralyzed"}, {"condition": "Off-Guard"}, {"condition": "Stunned", "value": 1}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is unaffected for 1 round. On the second round, it becomes Off-Guard. Finally, on the third round, it becomes Frightened 1. At the end of the third round, it takes half damage.", "failure": "The creature is immediately off-guard. On the second round, it becomes Frightened 2. Finally, on the third round, it also becomes Stunned 1. At the end of the third round, the creature takes full damage.", "criticalFailure": "The creature is immediately off-guard and Frightened 3. On the second round, it becomes stunned 1. Finally, on the third round, it also becomes Paralyzed. At the end of the third round, the creature takes double damage."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Implement of Destruction":
@@ -6772,7 +6776,7 @@ pf2e_spell_mechanics:
     attack: true
     target: "1 willing creature"
     range: "30 feet"
-    outcomes: {"criticalSuccess": [{"condition": "Clumsy", "value": 1, "until": "rounds:100"}, {"condition": "Stupefied", "value": 1, "until": "rounds:100"}]}
+    outcomes: {"criticalSuccess": [{"condition": "Clumsy", "value": 1, "until": "rounds:100"}, {"condition": "Stupefied", "value": 1, "until": "rounds:100"}], "success": [{"condition": "Clumsy", "value": 1}, {"condition": "Stupefied", "value": 1}], "criticalFailure": [{"condition": "Clumsy", "value": 1}, {"condition": "Stupefied", "value": 1}]}
   "Incarnate Ancient Specter":
     rank: 7
     traits: ["concentrate", "incarnate", "manipulate"]
@@ -6823,7 +6827,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "4d6", "type": "spirit", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d6"]}
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Off-Guard", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Off-Guard", "until": "rounds:1"}], "failure": [{"condition": "Off-Guard", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature's shadow is curious and stretches toward your shadow, but it stays attached. The creature is Off-Guard for 1 round.", "failure": "The creature's shadow detaches to join the dance. The creature takes 4d6 spirit damage and is off-guard for 1 round.", "criticalFailure": "As failure, but the creature takes 8d6 spirit damage.%rDepart (darkness) Darkness Crescendo The shadows dance a short minuet, and then your shadow bows and returns to your side. It releases a globe of darkness in a 20-foot burst centered on you, which lasts for 1 minute. Light does not enter the area, and any non-magical light sources, such as torches or lanterns, do not emanate any light while inside the area, even if their light radius would extend beyond the darkness. This also suppresses magical light of your spell's rank or lower. Light can't pass through this area, so creatures in it can't see outside. From outside, it appears as a globe of pure darkness."}
     damage_scale: {"criticalSuccess": 0}
   "Incarnate Skeletal Giant":
@@ -6835,7 +6839,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "6d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d6"]}
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Prone"}], "failure": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}], "criticalFailure": [{"condition": "Clumsy", "value": 2, "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Prone"}], "failure": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}, {"condition": "Prone", "until": "rounds:1"}], "criticalFailure": [{"condition": "Clumsy", "value": 2, "until": "rounds:1"}, {"condition": "Prone", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is knocked Prone.", "failure": "The creature is knocked prone and Clumsy 1 for 1 round.", "criticalFailure": "The creature is knocked prone and Clumsy 2 for 1 round.%rDepart Terrible Blows The skeletal giant reaches out with its great hands and attempts to flatten its master's foes. Up to 2 different targets within 30 feet of the giant take 6d6 bludgeoning damage (basic Reflex save)."}
   "Incarnate Tempest of Shades":
     rank: 7
@@ -6844,14 +6848,14 @@ pf2e_spell_mechanics:
     save: "fortitude"
     basic: false
     range: "100 feet"
-    outcomes: {"success": [{"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 3}], "criticalFailure": [{"condition": "Fleeing", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 3}], "criticalFailure": [{"condition": "Fleeing", "until": "rounds:1"}, {"condition": "Frightened", "value": 3}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Frightened 1.", "failure": "The creature is Frightened 3.", "criticalFailure": "The creature is frightened 3. It's also Fleeing for 1 round or until it's no longer frightened, whichever comes first."}
   "Incarnate Wild Rose":
     rank: 6
     traits: ["concentrate", "incarnate", "manipulate", "plant"]
     time: "3"
     range: "100 feet"
-    outcomes: {"failure": [{"condition": "Grabbed"}], "criticalFailure": [{"condition": "Enfeebled", "value": 3, "until": "rounds:10"}], "success": [{"condition": "Enfeebled", "value": 2, "until": "rounds:1"}]}
+    outcomes: {"failure": [{"condition": "Enfeebled", "value": 2, "until": "rounds:10"}], "criticalFailure": [{"condition": "Enfeebled", "value": 3, "until": "rounds:10"}], "success": [{"condition": "Enfeebled", "value": 2, "until": "rounds:1"}]}
   "Incendiary Ashes":
     rank: 3
     traits: ["concentrate", "fire", "focus", "manipulate", "oracle"]
@@ -6892,7 +6896,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d4"]}
     area: "20-foot burst"
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Prone"}, {"condition": "Unconscious"}]}
+    outcomes: {"success": [{"condition": "Prone"}, {"condition": "Unconscious"}], "criticalFailure": [{"condition": "Prone"}, {"condition": "Unconscious"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature lies down to rest, becoming Prone. If they were already prone, they instead drift off to sleep, becoming Unconscious.", "failure": "As success, except that the creature is so happy lying down that they cannot attempt to Stand or otherwise maneuver themself off of the ground on their next turn, though they can Crawl (potentially to escape the spell's area).", "criticalFailure": "The creature immediately lies down and drifts off to sleep, becoming prone and unconscious. Any creature in the area who is already unconscious when you Cast the Spell (or whose turn ends in the spell's area while they are unconscious) takes 6d4 spirit damage as their life force is drained away through their dreams. This damage does not automatically wake them."}
     damage_scale: {"criticalSuccess": 0}
   "Inertia Lock":
@@ -6950,7 +6954,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Slowed", "value": 1}], "failure": [{"condition": "Frightened", "value": 1}], "criticalFailure": [{"condition": "Slowed", "value": 2}, {"condition": "Frightened", "value": 2}]}
+    outcomes: {"success": [{"condition": "Slowed", "value": 1}], "failure": [{"condition": "Frightened", "value": 1}, {"condition": "Slowed", "value": 1, "until": "rounds:1"}], "criticalFailure": [{"condition": "Slowed", "value": 2}, {"condition": "Frightened", "value": 2}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is momentarily overwhelmed with ennui. It becomes Slowed 1 as it grapples mentally with the pointlessness of existence, but at the end of the target's next turn, the spell effect ends.", "failure": "The target is slowed 1 and Frightened 1 from the sense of ennui, and remains slowed and can't reduce the frightened condition below 1 as long as the spell is sustained. At the start of the target's turn, choose one creature within 30 feet of the target to attempt a Will save as well; on a failure, that creature is slowed 1 for 1 round; either way, they are then temporarily immune to this casting of infectious ennui. (Ennui does not continue to spread from this secondary target.)", "criticalFailure": "As failure, but the primary target is Slowed 2 and Frightened 2."}
   "Infectious Enthusiasm":
     rank: 0
@@ -7271,7 +7275,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Frightened", "value": 1}]}
+    outcomes: {"success": [{"condition": "Frightened", "value": 1}], "failure": [{"condition": "Frightened", "value": 1}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Frightened 1.", "failure": "The target is frightened 1. On its next turn, it must Stride in your direction (stopping if its movement brings it adjacent to you), then Drop Prone before using actions to do anything else. The target can't use hostile actions against you for the spell's duration. If you use a hostile action against the target, the spell ends.", "criticalFailure": "As failure, but hostility doesn't end the effect."}
   "Knock":
     rank: 2
@@ -7480,7 +7484,7 @@ pf2e_spell_mechanics:
     save: "will"
     basic: false
     area: "5-foot emanation"
-    outcomes: {"success": [{"condition": "Sickened", "value": 1}], "failure": [{"condition": "Stupefied", "value": 1, "until": "rounds:10"}, {"condition": "Frightened", "value": 1}], "criticalFailure": [{"condition": "Frightened", "value": 2}]}
+    outcomes: {"success": [{"condition": "Sickened", "value": 1}], "failure": [{"condition": "Stupefied", "value": 1, "until": "rounds:10"}, {"condition": "Frightened", "value": 1}], "criticalFailure": [{"condition": "Frightened", "value": 2}, {"condition": "Stupefied", "value": 1, "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected and temporarily immune for 1 hour.", "success": "The creature is Sickened 1.", "failure": "The creature is Stupefied 1 for 1 minute and Frightened 1.", "criticalFailure": "The creature is stupefied 1 for 1 minute and Frightened 2. It can't reduce the value of its frightened condition below 1 as long as it remains stupefied by this spell."}
   "Light":
     rank: 0
@@ -7588,7 +7592,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d6"]}
     area: "10-foot burst"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "next-turn-start"}], "failure": [{"condition": "Prone", "until": "next-turn-start"}], "criticalFailure": [{"condition": "Clumsy", "value": 2, "until": "next-turn-start"}]}
+    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "next-turn-start"}], "failure": [{"condition": "Prone", "until": "next-turn-start"}, {"condition": "Clumsy", "value": 1, "until": "next-turn-start"}], "criticalFailure": [{"condition": "Clumsy", "value": 2, "until": "next-turn-start"}, {"condition": "Prone", "until": "next-turn-start"}]}
     outcome_text: {"criticalSuccess": "The target takes no damage.", "success": "The target takes half damage and is Clumsy 1 until the beginning of your next turn.", "failure": "The target takes full damage, is knocked Prone, and is clumsy 1 until the beginning of your next turn.", "criticalFailure": "The target takes double damage, is knocked prone, and is Clumsy 2 until the beginning of your next turn."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Living Thunderbolt":
@@ -7703,7 +7707,7 @@ pf2e_spell_mechanics:
     save: "will"
     basic: false
     area: "60-foot emanation"
-    outcomes: {"success": [{"condition": "Slowed", "value": 1, "until": "rounds:1"}], "criticalFailure": [{"condition": "Off-Guard"}]}
+    outcomes: {"success": [{"condition": "Slowed", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Fascinated"}], "criticalFailure": [{"condition": "Off-Guard"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Slowed 1 for 1 round.", "failure": "The creature becomes fascinated and compelled to move toward the sound of your cry on its turn. As long as it is in the emanation and can hear, it must spend at least one of its actions on each of its turns to move closer to you.", "criticalFailure": "As failure, but the creature must spend all its actions moving toward the sound. Additionally, the creature is Off-Guard."}
   "Mad Monkeys":
     rank: 3
@@ -7711,7 +7715,7 @@ pf2e_spell_mechanics:
     time: "2"
     area: "5-foot burst"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Deafened", "until": "rounds:1"}]}
+    outcomes: {"failure": [{"condition": "Deafened", "until": "rounds:1"}], "criticalFailure": [{"condition": "Deafened", "until": "rounds:10"}]}
   "Magic Hide":
     rank: 1
     traits: ["focus", "manipulate", "ranger"]
@@ -7757,7 +7761,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}], "criticalFailure": [{"condition": "Slowed", "value": 1}]}
+    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Clumsy", "value": 3, "until": "rounds:10"}], "criticalFailure": [{"condition": "Slowed", "value": 1}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Clumsy 1 and takes a –10-foot status penalty to its Speed for 1 round.", "failure": "The target is clumsy 3 and takes a –10-foot status penalty to its Speed for 1 minute.", "criticalFailure": "As failure, but the target is also Slowed 1 for the duration."}
   "Magnetic Acceleration":
     rank: 3
@@ -7846,7 +7850,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d6"]}
     target: "1 target"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Stupefied", "value": 2, "until": "rounds:1"}], "failure": [{"condition": "Slowed", "value": 1}], "criticalFailure": [{"condition": "Stupefied", "value": 4}]}
+    outcomes: {"success": [{"condition": "Stupefied", "value": 2, "until": "rounds:1"}], "failure": [{"condition": "Slowed", "value": 1}, {"condition": "Stupefied", "value": 2, "until": "rounds:10"}], "criticalFailure": [{"condition": "Stupefied", "value": 4}, {"condition": "Slowed", "value": 1}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage and is Stupefied 2 for 1 round.", "failure": "The creature takes full damage and is stupefied 2 for 1 minute. While affected, the creature must attempt another save at the start of its turn; on a failure, it's Slowed 1 for that turn as it sobs uncontrollably.", "criticalFailure": "The creature takes double damage and for 1 minute, it's Stupefied 4 and slowed 1 as it sobs uncontrollably."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Mantis Form":
@@ -7862,7 +7866,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "8d6", "type": "force", "category": null, "kinds": ["damage"]}]
     target: "1 creature"
     range: "120 feet"
-    outcomes: {"failure": [{"condition": "Immobilized", "until": "rounds:1"}]}
+    outcomes: {"failure": [{"condition": "Immobilized", "until": "rounds:1"}], "criticalFailure": [{"condition": "Immobilized", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage.", "failure": "The target takes full damage and is Immobilized for 1 round.", "criticalFailure": "The target takes double damage and is immobilized for 1 minute. At the end of each of its turns, the target can attempt to Escape. The Escape DC is equal to your spell DC."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Mantle of Heaven's Slopes":
@@ -7925,7 +7929,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Frightened", "value": 2}]}
+    outcomes: {"failure": [{"condition": "Frightened", "value": 2}], "criticalFailure": [{"condition": "Frightened", "value": 2}]}
     outcome_text: {"success": "The creature is unaffected.", "failure": "The creature becomes Frightened 2 before using its action.", "criticalFailure": "The creature becomes frightened 2, and its action fails and is wasted."}
   "Massacre":
     rank: 9
@@ -8050,7 +8054,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"criticalFailure": [{"condition": "Stunned", "value": 2}]}
+    outcomes: {"failure": [{"condition": "Stunned", "value": 1}], "criticalFailure": [{"condition": "Stunned", "value": 2}]}
     outcome_text: {"criticalSuccess": "You are Stunned 1 and the spell ends.", "success": "The target is unaffected.", "failure": "The target is stunned 1.", "criticalFailure": "The target is Stunned 2."}
   "Mind Probe":
     rank: 5
@@ -8076,7 +8080,7 @@ pf2e_spell_mechanics:
     time: "1 day"
     target: "2 creatures of the same ancestry, whose respective levels are no more than twice the rank of the ritual"
     range: "10 feet"
-    outcomes: {"criticalSuccess": [{"effect": "Spell Effect: Mind Swap (Critical Success)"}], "criticalFailure": [{"condition": "Stupefied", "value": 2}]}
+    outcomes: {"criticalSuccess": [{"effect": "Spell Effect: Mind Swap (Critical Success)"}], "criticalFailure": [{"condition": "Stupefied", "value": 2}, {"condition": "Confused"}]}
   "Mind of Menace":
     rank: 3
     traits: ["concentrate", "contingency", "emotion", "fear", "manipulate", "mental"]
@@ -8208,7 +8212,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d6"]}
     target: "1 creature"
     range: "120 feet"
-    outcomes: {"criticalSuccess": [{"condition": "Dazzled", "until": "rounds:10"}]}
+    outcomes: {"criticalSuccess": [{"condition": "Dazzled", "until": "rounds:10"}], "success": [{"condition": "Dazzled", "until": "rounds:1"}]}
   "Moonburst":
     rank: 7
     traits: ["cold", "concentrate", "light", "manipulate", "vitality"]
@@ -8325,7 +8329,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "10-foot burst"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"condition": "Slowed", "value": 1, "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"condition": "Slowed", "value": 1, "until": "rounds:1"}, {"condition": "Dazzled", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Dazzled for 1 round. If the creature moves to outside area, they can spend 1 action to rub their eyes, removing the dazzled condition.", "failure": "The creature becomes dazzled for 1 round.", "criticalFailure": "The creature becomes dazzled and Slowed 1 for 1 round."}
   "Musical Accompaniment":
     rank: 0
@@ -8511,7 +8515,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d10"]}
     area: "10-foot burst"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Deafened", "until": "rounds:1"}], "criticalFailure": [{"condition": "Stunned", "value": 1}]}
+    outcomes: {"failure": [{"condition": "Deafened", "until": "rounds:1"}], "criticalFailure": [{"condition": "Stunned", "value": 1}, {"condition": "Deafened", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage and is Deafened for 1 round.", "criticalFailure": "The creature takes double damage, is deafened for 1 minute, and is Stunned 1."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Nothing Up My Sleeve":
@@ -8733,7 +8737,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "the triggering creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "next-turn-start"}], "failure": [{"condition": "Off-Guard", "until": "next-turn-start"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "next-turn-start"}], "failure": [{"condition": "Off-Guard", "until": "next-turn-start"}, {"condition": "Dazzled", "until": "next-turn-start"}], "criticalFailure": [{"condition": "Dazzled", "until": "next-turn-start"}, {"condition": "Off-Guard", "until": "next-turn-start"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is thrown off by your display. The creature becomes Dazzled until the start of your turn.", "failure": "The creature fully believes your performance, leaving itself open. The creature becomes dazzled and Off-Guard until the start of your turn.", "criticalFailure": "The creature is enraptured by the display. The creature uses its remaining actions to watch you in awe. It then remains dazzled and off-guard until the start of your turn."}
   "Overstuff":
     rank: 1
@@ -8743,7 +8747,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 living creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Sickened", "value": 1}], "criticalFailure": [{"condition": "Sickened", "value": 2}, {"effect": "Spell Effect: Overstuff"}]}
+    outcomes: {"success": [{"condition": "Sickened", "value": 1}], "failure": [{"condition": "Sickened", "value": 1}], "criticalFailure": [{"condition": "Sickened", "value": 2}, {"effect": "Spell Effect: Overstuff"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Sickened 1, but if it spends an action to end the condition, it succeeds automatically.", "failure": "The target is sickened 1.", "criticalFailure": "The target is Sickened 2.%rSpell Effect: Overstuff"}
   "Overwhelming Memory":
     rank: 3
@@ -8781,7 +8785,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Confused", "until": "rounds:1"}]}
+    outcomes: {"failure": [{"condition": "Confused", "until": "rounds:1"}], "criticalFailure": [{"condition": "Confused", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature becomes Unfriendly to all creatures to which it wasn't already hostile, even those that were previously allies. It treats no one as an ally for 1 minute. Each of its former allies within its reach must attempt a save against pack breaker.", "failure": "As success, but the creature is also Confused for 1 round.", "criticalFailure": "As success, but the creature is confused for 1 minute."}
   "Pact Broker":
     rank: 0
@@ -8817,7 +8821,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d6"]}
     target: "1 living creature"
     range: "100 feet"
-    outcomes: {"failure": [{"condition": "Sickened", "value": 1, "until": "rounds:1"}, {"condition": "Deafened", "until": "rounds:1"}], "criticalFailure": [{"condition": "Sickened", "value": 2, "until": "rounds:10"}]}
+    outcomes: {"failure": [{"condition": "Sickened", "value": 1, "until": "rounds:1"}, {"condition": "Deafened", "until": "rounds:1"}], "criticalFailure": [{"condition": "Sickened", "value": 2, "until": "rounds:10"}, {"condition": "Deafened", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage.", "failure": "The target takes full damage, is Sickened 1, and is Deafened for 1 round.", "criticalFailure": "The target takes double damage, is Sickened 2, and is deafened for 1 minute."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Painted Scout":
@@ -8842,7 +8846,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Stunned", "value": 1}], "failure": [{"condition": "Paralyzed", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Stunned", "value": 1}], "failure": [{"condition": "Paralyzed", "until": "rounds:1"}], "criticalFailure": [{"condition": "Paralyzed", "until": "rounds:4"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Stunned 1.", "failure": "The target is Paralyzed for 1 round.", "criticalFailure": "The target is Paralyzed for 4 rounds. At the end of each of its turns, it can attempt a new Will save to reduce the remaining duration by 1 round, or end it entirely on a critical success."}
   "Paranoia":
     rank: 2
@@ -9057,7 +9061,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "16d6", "type": "mental", "category": null, "kinds": ["damage"]}]
     target: "any number of creatures"
     range: "120 feet"
-    outcomes: {"failure": [{"condition": "Confused", "until": "next-turn-start"}]}
+    outcomes: {"failure": [{"condition": "Confused", "until": "next-turn-start"}], "criticalFailure": [{"condition": "Confused", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage and can't use reactions until the start of your next turn.", "failure": "The target takes full damage and is Confused until the start of your next turn.", "criticalFailure": "The target takes double damage and is confused for 1 minute."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Phantasmal Calamity":
@@ -9181,7 +9185,7 @@ pf2e_spell_mechanics:
     time: "2"
     save: "will"
     basic: false
-    outcomes: {"success": [{"condition": "Fascinated"}]}
+    outcomes: {"success": [{"condition": "Fascinated"}], "failure": [{"condition": "Fascinated"}], "criticalFailure": [{"condition": "Controlled"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Fascinated with you.", "failure": "The creature is fascinated by you and uses all its actions to move toward you and compliment your performance. This effect ends if a hostile action is used against the affected creature.", "criticalFailure": "The target gains the minion trait and is controlled by you. This effect ends if a hostile action is used against the affected creature, or if you direct the creature to use any action that causes it harm."}
   "Pierce the Sky":
     rank: 9
@@ -9191,7 +9195,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "6d12", "type": "electricity", "category": null, "kinds": ["damage"]}, {"formula": "6d6", "type": "sonic", "category": null, "kinds": ["damage"]}]
     target: "up to 3 creatures"
     range: "120 feet"
-    outcomes: {"criticalSuccess": [{"condition": "Deafened", "until": "rounds:10"}]}
+    outcomes: {"criticalSuccess": [{"condition": "Deafened", "until": "rounds:10"}], "success": [{"condition": "Deafened", "until": "rounds:1"}]}
   "Piercing Jet":
     rank: 2
     traits: ["attack", "concentrate", "manipulate", "water"]
@@ -9219,7 +9223,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 or more creatures that have shadows"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Immobilized", "until": "rounds:1"}]}
+    outcomes: {"failure": [{"condition": "Immobilized", "until": "rounds:1"}], "criticalFailure": [{"condition": "Immobilized", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes a –10-foot status penalty to its Speeds for 1 round.", "failure": "The target is Immobilized for 1 round. An affected creature can Escape its shadow's grasp with a check against your spell DC to end the effect.", "criticalFailure": "As failure, but the target is immobilized for 1 minute."}
   "Pinpoint":
     rank: 8
@@ -9313,7 +9317,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "8d8", "type": "poison", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d8"]}
     range: "100 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Stupefied", "value": 1, "until": "rounds:10"}], "criticalFailure": [{"condition": "Stupefied", "value": 2, "until": "rounds:10"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Stupefied", "value": 1, "until": "rounds:10"}, {"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"condition": "Stupefied", "value": 2, "until": "rounds:10"}, {"condition": "Dazzled", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage and becomes Dazzled for 1 round.", "failure": "The creature takes full damage, becomes dazzled for 1 round, and becomes Stupefied 1 for 1 minute.", "criticalFailure": "The creature takes double damage, is dazzled for 1 round, and becomes Stupefied 2 for 1 minute."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Poltergeist's Fury":
@@ -9352,7 +9356,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 living creature"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Controlled"}]}
+    outcomes: {"failure": [{"condition": "Controlled"}], "criticalFailure": [{"condition": "Controlled"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "You possess the target but can't control it. You ride along in the body while the spell lasts.", "failure": "You possess the target and take partial control of it. You no longer have a separate turn; instead, you might control the target. At the start of each of the target's turns, it attempts another Will save. If it fails, it's Controlled by you on that turn; if it succeeds, it chooses its own actions; and if it critically succeeds, it forces you out and the spell ends.", "criticalFailure": "You possess the target fully, and it can only watch as you manipulate it like a puppet. The target is controlled by you."}
   "Power Word Blind":
     rank: 7
@@ -9413,7 +9417,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "20-foot burst"
     range: "500 feet"
-    outcomes: {"success": [{"condition": "Deafened", "until": "its-next-turn-end"}, {"condition": "Clumsy", "value": 1, "until": "its-next-turn-end"}], "failure": [{"condition": "Clumsy", "value": 2}], "criticalFailure": [{"condition": "Deafened"}]}
+    outcomes: {"success": [{"condition": "Deafened", "until": "its-next-turn-end"}, {"condition": "Clumsy", "value": 1, "until": "its-next-turn-end"}], "failure": [{"condition": "Clumsy", "value": 2}, {"condition": "Deafened"}], "criticalFailure": [{"condition": "Deafened"}, {"condition": "Clumsy", "value": 2}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Deafened and Clumsy 1 until the end of its next turn, after which it's temporarily immune for 1 hour.", "failure": "The creature is deafened and Clumsy 2. At the end of each of its turns, it can attempt a new save if it's no longer in the pressure zone. On a success, it ends the effects and is temporarily immune for 1 hour.", "criticalFailure": "The creature is deafened and clumsy 2 for the duration of the spell.%rA creature Deafened by this spell can attempt to end the condition by popping its ears. It can use a single action to attempt a new Fortitude save, losing the deafened condition from this spell on a success. Some creatures with anatomies that lack inner ears or joints might be immune to these effects, as determined by the GM."}
   "Prestidigitation":
     rank: 0
@@ -9628,7 +9632,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "its-next-turn-end"}], "failure": [{"condition": "Slowed", "value": 1}], "criticalFailure": [{"condition": "Slowed", "value": 2}]}
+    outcomes: {"success": [{"condition": "Clumsy", "value": 1, "until": "its-next-turn-end"}], "failure": [{"condition": "Slowed", "value": 1}, {"condition": "Clumsy", "value": 1}], "criticalFailure": [{"condition": "Slowed", "value": 2}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The strings impede the target's movements, but you can't control them. The target is Clumsy 1 until the end of its next turn.", "failure": "The target is clumsy 1 and Slowed 1. Additionally, when you Cast this Spell and the first time you Sustain it on subsequent turns, you can force the target to Stride or Strike. If you force the target to Stride, you determine the path it takes; you can't force it to Stride into a space where it can't stand easily. This is forced movement. If you cause the creature to Strike, it makes a melee Strike against a creature within its reach using your spell attack modifier. The target can't hit itself this way. On a hit, the Strike deals 7d6 bludgeoning, piercing, or slashing damage, as appropriate. None of the target's equipment or abilities modify this Strike. This Strike contributes to and uses your multiple attack penalty. At the end of its turn, the target can attempt a Fortitude save against your spell DC to free itself from the threads. On a success, the spell ends.", "criticalFailure": "As failure, but the target is Slowed 2, and you can force the target to use 2 actions when you Cast or Sustain the spell."}
   "Purging Toxins":
     rank: 3
@@ -9720,7 +9724,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 fire"
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "its-next-turn-end"}], "failure": [{"condition": "Sickened", "value": 1}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "its-next-turn-end"}], "failure": [{"condition": "Sickened", "value": 1}], "criticalFailure": [{"condition": "Blinded", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected", "success": "The creature is unaffected.", "failure": "The creature is Sickened 1.", "criticalFailure": "The creature is Sickened 1 and cannot recover from the sickened condition while in the area of the smoke cloud."}
   "Qi Blast":
     rank: 3
@@ -9869,7 +9873,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Clumsy", "value": 1}], "failure": [{"condition": "Clumsy", "value": 2}, {"condition": "Immobilized"}], "criticalFailure": [{"condition": "Restrained"}]}
+    outcomes: {"success": [{"condition": "Clumsy", "value": 1}], "failure": [{"condition": "Clumsy", "value": 2}, {"condition": "Immobilized"}], "criticalFailure": [{"condition": "Restrained"}, {"condition": "Clumsy", "value": 2}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Clumsy 1 as their feet are bound within stone. This condition lasts until they move from their current position.", "failure": "The target is Clumsy 2 and Immobilized as their legs are encased in rock. The clumsy condition lasts until they move from their current position, and they can Escape from being immobilized with a check against your spell DC.", "criticalFailure": "The target is clumsy 2 and Restrained as nearly their entire body is covered in basalt. The clumsy condition lasts until they move from their current position, and they can Escape from being restrained with a successful check against your spell DC."}
   "Ranger's Bramble":
     rank: 3
@@ -10369,14 +10373,14 @@ pf2e_spell_mechanics:
     time: "2 hours"
     target: "1 object of up to 4th level"
     range: "15 feet"
-    outcomes: {"failure": [{"condition": "Doomed", "value": 1}]}
+    outcomes: {"failure": [{"condition": "Doomed", "value": 1}], "criticalFailure": [{"condition": "Doomed", "value": 1}]}
   "Rite of the Red Star":
     rank: 8
     traits: ["teleportation"]
     time: "1 hour"
     target: "Doorway to the Red Star"
     range: "all casters must be physically located within the stone ring of the Doorway to the Red Star"
-    outcomes: {"success": [{"condition": "Drained", "value": 1}]}
+    outcomes: {"success": [{"condition": "Drained", "value": 1}], "failure": [{"condition": "Drained", "value": 1}]}
   "Ritual Obstruction":
     rank: 5
     traits: ["concentrate", "curse", "manipulate"]
@@ -10748,7 +10752,7 @@ pf2e_spell_mechanics:
     save: "fortitude"
     basic: false
     damage: [{"formula": "3d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}]
-    outcomes: {"failure": [{"condition": "Prone"}]}
+    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Prone"}]}
     outcome_text: {"success": "The creature is unaffected.", "failure": "The creature is knocked Prone. If the creature was Swimming, it gets a critical failure instead.", "criticalFailure": "The creature is pushed 20 feet in the wave's direction, is knocked Prone, and takes 3d6 bludgeoning damage."}
     damage_scale: {"success": 0}
   "Sea of Thought":
@@ -10904,7 +10908,7 @@ pf2e_spell_mechanics:
     basic: false
     damage: [{"formula": "3d8", "type": "mental", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 2, "damage": ["1d8"]}
-    outcomes: {"success": [{"condition": "Off-Guard"}]}
+    outcomes: {"success": [{"condition": "Off-Guard"}], "failure": [{"condition": "Off-Guard"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Off-Guard against the triggering attack.", "failure": "The creature is off-guard against the triggering attack and takes full damage from your illusory projectile.", "criticalFailure": "As failure, but double damage."}
     damage_scale: {"criticalSuccess": 0, "failure": 1, "criticalFailure": 2}
   "Shadow Raid":
@@ -10955,7 +10959,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "14d4", "type": "void", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["2d4"]}
     area: "30-foot emanation"
-    outcomes: {"success": [{"condition": "Enfeebled", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Enfeebled", "value": 2, "until": "rounds:1"}], "criticalFailure": [{"condition": "Stunned", "value": 1, "until": "rounds:1"}, {"condition": "Immobilized", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Enfeebled", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Enfeebled", "value": 2, "until": "rounds:1"}], "criticalFailure": [{"condition": "Stunned", "value": 1, "until": "rounds:1"}, {"condition": "Immobilized", "until": "rounds:1"}, {"condition": "Enfeebled", "value": 2, "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage and is Enfeebled 1 for 1 round.", "failure": "The creature takes full damage and is Enfeebled 2 for 1 round.", "criticalFailure": "The creature takes double damage, is Stunned 1, and enfeebled 2 for 1 round, and Immobilized for 1 round or until it Escapes, whichever comes first."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Shaken Confidence":
@@ -11032,6 +11036,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
+    outcomes: {"success": [{"condition": "Confused"}], "failure": [{"condition": "Confused"}], "criticalFailure": [{"condition": "Confused"}]}
     outcome_text: {"criticalSuccess": "You are Confused for 1 round.", "success": "At the start of your next turn, you spend your first action with the Confused condition, then act normally.", "failure": "The target spends the first action of each of its turns Confused. The duration is 1 minute.", "criticalFailure": "The target is Confused. The duration is 1 minute."}
   "Shatter":
     rank: 2
@@ -11352,6 +11357,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "5-foot burst"
     range: "30 feet"
+    outcomes: {"failure": [{"condition": "Unconscious"}], "criticalFailure": [{"condition": "Unconscious"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes a –1 status penalty to Perception checks for 1 round.", "failure": "The creature falls unconscious. If it's still unconscious after 1 minute, it wakes up automatically.", "criticalFailure": "The creature falls unconscious. If it's still unconscious after 1 hour, it wakes up automatically."}
   "Sleepless Season":
     rank: 6
@@ -11359,7 +11365,7 @@ pf2e_spell_mechanics:
     time: "4 hours"
     area: "5280-foot square"
     range: "5 miles"
-    outcomes: {"criticalSuccess": [{"condition": "Fatigued"}, {"condition": "Enfeebled", "value": 1}]}
+    outcomes: {"criticalSuccess": [{"condition": "Fatigued"}, {"condition": "Enfeebled", "value": 1}], "success": [{"condition": "Fatigued"}]}
   "Sliding Blocks":
     rank: 4
     traits: ["concentrate", "earth", "manipulate"]
@@ -11464,6 +11470,7 @@ pf2e_spell_mechanics:
     basic: true
     target: "up to 4 dead creatures or up to 4 undead creatures"
     range: "30 feet"
+    outcomes: {"success": [{"condition": "Slowed", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Slowed", "value": 1, "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The undead takes 5d6 vitality damage.", "success": "The undead takes 10d6 vitality damage and is slowed 1 for 1 round.", "failure": "The undead takes 100 vitality damage and is slowed 1 for 1 minute.", "criticalFailure": "The undead is destroyed."}
   "Song of the Soul":
     rank: 1
@@ -11573,7 +11580,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 willing creature"
     range: "touch"
-    outcomes: {"failure": [{"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"effect": "Spell Effect: Sparkleskin"}]}
+    outcomes: {"failure": [{"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"effect": "Spell Effect: Sparkleskin"}, {"condition": "Dazzled", "until": "rounds:3"}]}
     outcome_text: {"failure": "The creature is Dazzled for 1 round.", "criticalFailure": "The creature is dazzled for 3 rounds.%rSpell Effect: Sparkleskin"}
   "Speak With Magic":
     rank: 3
@@ -11873,7 +11880,7 @@ pf2e_spell_mechanics:
     damage: [{"formula": "2d4", "type": "fire", "category": null, "kinds": ["damage"]}]
     heightening: {"interval": 1, "damage": ["1d4"]}
     area: "15-foot cone"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Dazzled", "until": "rounds:3"}], "criticalFailure": [{"condition": "Dazzled", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage and is Dazzled for 1 round.", "failure": "The creature takes full damage and is dazzled for 3 rounds.", "criticalFailure": "The creature takes double damage and is dazzled for 1 minute."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Spy's Mark":
@@ -11907,7 +11914,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "30-foot cylinder"
     range: "100"
-    outcomes: {"success": [{"condition": "Fascinated"}]}
+    outcomes: {"success": [{"condition": "Fascinated"}], "failure": [{"condition": "Fascinated", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected and temporarily immune to stars of another sky for 1 day.", "success": "The creature is Fascinated by the beauty of the sky and rises 20 feet into the air. Creatures without a fly Speed remain in the air for the spell's duration but fall when they recover from their fascinated condition. A creature that reaches the top of the cylinder doesn't rise farther but takes 5d10 mental damage each time it starts its turn there due to a desire to become more immersed in the sky. Creatures without souls take double damage. If this damage drops the creature to 0 Hit Points, it dies instantly.", "failure": "As success, but the creature rises 50 feet into the air. Additionally, hostile actions don't affect its fascinated condition for 1 round.", "criticalFailure": "As failure, but the creature rises 100 feet into the air."}
   "Stasis":
     rank: 4
@@ -12085,7 +12092,7 @@ pf2e_spell_mechanics:
     heightening: {"fixed": {"7": ["8d6"], "9": ["10d6"]}}
     area: "15-foot burst"
     range: "60 feet"
-    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Stunned", "value": 1}]}
+    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Stunned", "value": 1}, {"condition": "Prone"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage and is knocked Prone.", "criticalFailure": "The creature takes double damage, is knocked prone, and is Stunned 1."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Stormwind Flight":
@@ -12638,7 +12645,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["2d6"]}
     area: "10-foot burst"
     range: "500 feet"
-    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Stunned", "value": 1}]}
+    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Stunned", "value": 1}, {"condition": "Prone"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage and is knocked Prone.", "criticalFailure": "The creature takes double damage, is knocked prone, and is Stunned 1."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
     variants: [{"name": "10-foot Burst", "damage": [{"formula": "14d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}]}, {"name": "30-foot Line", "area": "30-foot line", "damage": [{"formula": "14d6", "type": "bludgeoning", "category": null, "kinds": ["damage"]}]}]
@@ -12958,7 +12965,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 2, "damage": ["2d6", "2d6"]}
     area: "20-foot burst"
     range: "100 feet"
-    outcomes: {"failure": [{"condition": "Deafened", "until": "rounds:10"}]}
+    outcomes: {"failure": [{"condition": "Deafened", "until": "rounds:10"}], "criticalFailure": [{"condition": "Deafened"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half damage.", "failure": "The creature takes full damage and is Deafened for 1 minute.", "criticalFailure": "The creature takes double damage and is deafened for 1 hour."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Thundering Dominance":
@@ -13057,7 +13064,7 @@ pf2e_spell_mechanics:
     time: "2"
     save: "will"
     basic: false
-    outcomes: {"success": [{"condition": "Sickened", "value": 1, "until": "its-turn-end"}], "failure": [{"condition": "Slowed", "value": 1, "until": "its-next-turn-end"}], "criticalFailure": [{"condition": "Sickened", "value": 2}]}
+    outcomes: {"success": [{"condition": "Sickened", "value": 1, "until": "its-turn-end"}], "failure": [{"condition": "Slowed", "value": 1, "until": "its-next-turn-end"}, {"condition": "Sickened", "value": 1}], "criticalFailure": [{"condition": "Sickened", "value": 2}, {"condition": "Slowed", "value": 1}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected and immune to this spell's effects for the remainder of the spell's duration.", "success": "The creature is Sickened 1 until the end of its turn.", "failure": "The creature is sickened 1. In addition, it becomes Slowed 1 until the end of its next turn.", "criticalFailure": "As failure, but Sickened 2 and the creature remains slowed 1 for the rest of the spell's duration."}
   "Tornadic Gale":
     rank: 5
@@ -13079,7 +13086,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 foe, and either yourself or 1 ally"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Slowed", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Quickened", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Slowed", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Quickened", "until": "rounds:1"}, {"condition": "Slowed", "value": 1, "until": "rounds:3"}], "criticalFailure": [{"condition": "Slowed", "value": 1, "until": "rounds:30"}]}
     outcome_text: {"criticalSuccess": "The targets are unaffected.", "success": "The foe is Slowed 1 for 1 round, and the other target is unaffected.", "failure": "The foe is slowed 1 for 3 rounds and the other target is Quickened for 1 round. It can use the extra action to Step, Stride, or Strike.", "criticalFailure": "The foe is slowed 1 for 3 minutes and the other target is quickened for 1 minute. It can use the extra action to Step, Stride, or Strike."}
   "Torturous Trauma":
     rank: 0
@@ -13108,7 +13115,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 living creature"
     range: "touch"
-    outcomes: {"success": [{"condition": "Stupefied", "value": 1, "until": "next-turn-end"}], "failure": [{"condition": "Stupefied", "value": 2, "until": "next-turn-end"}], "criticalFailure": [{"condition": "Stupefied", "value": 2, "until": "rounds:10"}]}
+    outcomes: {"success": [{"condition": "Stupefied", "value": 1, "until": "next-turn-end"}], "failure": [{"condition": "Stupefied", "value": 2, "until": "next-turn-end"}], "criticalFailure": [{"condition": "Stupefied", "value": 2, "until": "rounds:10"}, {"condition": "Prone"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Stupefied 1 until the end of your next turn.", "failure": "The target is Stupefied 2 until the end of your next turn.", "criticalFailure": "The target is Stupefied 2 for 1 minute and is forced to its knees, becoming prone."}
   "Touch of Undeath":
     rank: 1
@@ -13480,7 +13487,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Dazzled"}], "failure": [{"condition": "Stupefied", "value": 1}]}
+    outcomes: {"success": [{"condition": "Dazzled"}], "failure": [{"condition": "Stupefied", "value": 1}, {"condition": "Dazzled"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Dazzled until they Interact to clear their vision.", "failure": "The target is dazzled and Stupefied 1, and one ongoing emotion effect on them of your choice that has a lower counteract rank than this spell is suppressed for the spell's duration.", "criticalFailure": "As failure, and the target can't speak for as long as they are stupefied."}
   "Unexpected Transposition":
     rank: 6
@@ -13606,7 +13613,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["3d4"]}
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Off-Guard", "until": "its-next-turn-start"}], "criticalFailure": [{"condition": "Stunned", "value": 1, "until": "next-turn-start"}]}
+    outcomes: {"failure": [{"condition": "Off-Guard", "until": "its-next-turn-start"}], "criticalFailure": [{"condition": "Stunned", "value": 1, "until": "next-turn-start"}, {"condition": "Off-Guard", "until": "next-turn-start"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature takes half the mental damage.", "failure": "The creature takes full damage and is Off-Guard until the start of its turn.", "criticalFailure": "The creature takes double damage, becomes Stunned 1, and is off-guard until the start of your next turn."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Unrelenting Gravity":
@@ -13617,7 +13624,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Encumbered", "until": "rounds:1"}], "failure": [{"condition": "Prone", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Encumbered", "until": "rounds:1"}], "failure": [{"condition": "Prone", "until": "rounds:1"}], "criticalFailure": [{"condition": "Prone", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Encumbered for 1 round.", "failure": "The target falls Prone and is encumbered for 1 round. Additionally, if this spell causes the target to fall, the DC to Arrest a Fall is your spell DC.", "criticalFailure": "The target falls prone and is encumbered for 1 round. Additionally, if this spell causes the target to fall, the target can't Arrest a Fall, and falling damage is doubled."}
   "Unrelenting Observation":
     rank: 8
@@ -13639,7 +13646,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "20-foot burst"
     range: "60 feet"
-    outcomes: {"failure": [{"condition": "Prone"}]}
+    outcomes: {"failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Prone"}]}
     outcome_text: {"success": "The creature is unaffected.", "failure": "The creature is knocked Prone. If the creature was Flying, it gets a critical failure instead.", "criticalFailure": "The creature is pushed 30 feet away from the center of the burst, is knocked Prone, and takes 2d6 bludgeoning damage."}
   "Unseen Heralds":
     rank: 3
@@ -13655,7 +13662,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"success": [{"condition": "Fascinated", "until": "rounds:1"}], "failure": [{"condition": "Frightened", "value": 2}], "criticalFailure": [{"condition": "Frightened", "value": 3}]}
+    outcomes: {"success": [{"condition": "Fascinated", "until": "rounds:1"}], "failure": [{"condition": "Frightened", "value": 2}, {"condition": "Fascinated", "until": "rounds:10"}], "criticalFailure": [{"condition": "Frightened", "value": 3}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Fascinated by the knowledge you shared for 1 round.", "failure": "The target is fascinated by the knowledge for 1 minute. The target can end this fascination early by attempting a skill check to Recall Knowledge to understand the knowledge using the chosen skill (using your spell DC as the DC); regardless of the result, the target becomes Frightened 2, but if they failed the check, they can't reduce their frightened condition below 1 for the remainder of the spell's duration.", "criticalFailure": "As failure, but the target becomes Frightened 3 if they attempt to Recall Knowledge."}
   "Unsettling Perspective":
     rank: 4
@@ -13730,7 +13737,7 @@ pf2e_spell_mechanics:
     time: "2"
     area: "150-foot burst"
     range: "500 feet"
-    outcomes: {"success": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Restrained"}]}
+    outcomes: {"success": [{"condition": "Prone"}], "failure": [{"condition": "Prone"}], "criticalFailure": [{"condition": "Restrained"}]}
   "Uplifting Overture":
     rank: 0
     traits: ["bard", "cantrip", "composition", "concentrate", "emotion", "mental"]
@@ -13747,7 +13754,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d8", "1d8"]}
     area: "30-foot cone"
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Deafened", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Deafened", "until": "rounds:1"}], "failure": [{"condition": "Deafened", "until": "rounds:10"}], "criticalFailure": [{"condition": "Deafened"}]}
     outcome_text: {"criticalSuccess": "The creature takes half damage.", "success": "The creature takes half damage and is Deafened for 1 round.", "failure": "The creature takes full damage and is deafened for 1 minute.", "criticalFailure": "The creature takes double damage and is permanently deafened."}
     damage_scale: {"criticalSuccess": 0.5, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Vacuum":
@@ -13793,7 +13800,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 1, "damage": ["1d4", "1d4"]}
     target: "1 creature"
     range: "30 feet"
-    outcomes: {"failure": [{"condition": "Immobilized", "until": "rounds:1"}]}
+    outcomes: {"failure": [{"condition": "Immobilized", "until": "rounds:1"}], "criticalFailure": [{"condition": "Immobilized", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage.", "failure": "The target is briefly trapped within the vampiric maiden. The target takes full damage and is Immobilized by the iron maiden for 1 round or until it uses an Interact action to extricate itself, whichever comes first.", "criticalFailure": "The target takes double damage and is immobilized by the vampiric maiden for 1 round or until it Escapes (the DC is your spell DC), whichever comes first."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Vampiric Revelry":
@@ -13867,7 +13874,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "20-foot burst"
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "its-next-turn-start"}], "criticalFailure": [{"effect": "Spell Effect: Veil of Spirits"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "its-next-turn-start"}], "failure": [{"condition": "Dazzled", "until": "its-next-turn-start"}], "criticalFailure": [{"effect": "Spell Effect: Veil of Spirits"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "The creature is Dazzled until the beginning of its next turn.", "failure": "The creature is dazzled and gains a weakness to spirit damage equal to half your level until the beginning of its next turn as spiritual energy clings to it. A creature with spiritsense can't use that imprecise sense while it's dazzled in this way.", "criticalFailure": "As failure, but the weakness is equal to your level.%rSpell Effect: Veil of Spirits"}
   "Vengeful Glare":
     rank: 1
@@ -13903,6 +13910,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "10-foot burst"
     range: "120 feet"
+    outcomes: {"failure": [{"condition": "Blinded"}], "criticalFailure": [{"condition": "Blinded", "until": "rounds:10"}]}
     outcome_text: {"success": "The creature is unaffected.", "failure": "The creature is Blinded by the pattern. If it exits the pattern, it can attempt a new save to recover from the Blinded condition at the end of each of its turns, to a maximum duration of 1 minute.", "criticalFailure": "The creature is Blinded for 1 minute."}
   "Vibrant Thorns":
     rank: 1
@@ -13966,7 +13974,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Stupefied", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Fascinated", "until": "rounds:1"}], "criticalFailure": [{"condition": "Stupefied", "value": 2, "until": "rounds:10"}]}
+    outcomes: {"success": [{"condition": "Stupefied", "value": 1, "until": "rounds:1"}], "failure": [{"condition": "Fascinated", "until": "rounds:1"}, {"condition": "Stupefied", "value": 1, "until": "rounds:1"}], "criticalFailure": [{"condition": "Stupefied", "value": 2, "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is intrigued by the vision, becoming Stupefied 1 for 1 round.", "failure": "The target is entranced by the vision, becoming stupefied 1 for 1 round and moving toward the image's location via the most direct route possible for 1 round, bypassing any obvious hazards and enemies in the way. The target is then Fascinated by the illusion for 1 round.", "criticalFailure": "As failure, except the target is Stupefied 2 and becomes fascinated by the illusion for 1 minute instead of 1 round."}
   "Vision of Death":
     rank: 4
@@ -14241,7 +14249,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Confused"}]}
+    outcomes: {"success": [{"condition": "Confused"}], "failure": [{"condition": "Confused", "until": "rounds:10"}], "criticalFailure": [{"condition": "Confused"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target spends the first action on its next turn with the Confused condition.", "failure": "The target is Confused for 1 minute.", "criticalFailure": "The target is Confused permanently."}
   "Warp Step":
     rank: 0
@@ -14323,7 +14331,7 @@ pf2e_spell_mechanics:
     save: "will"
     basic: false
     area: "30-foot cone"
-    outcomes: {"success": [{"condition": "Slowed", "value": 1}]}
+    outcomes: {"success": [{"condition": "Slowed", "value": 1}], "criticalFailure": [{"condition": "Slowed", "value": 1, "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected.", "success": "For 1 round, the creature can't use reactions and must attempt another save at the start of its turn; on a failure, it is Slowed 1 for that turn as it sobs uncontrollably.", "failure": "As success, but the duration is 1 minute.", "criticalFailure": "As failure, and the creature is automatically slowed 1 for 1 minute."}
   "Weaken Earth":
     rank: 1
@@ -14392,6 +14400,7 @@ pf2e_spell_mechanics:
     basic: false
     area: "10-foot burst"
     range: "30 feet"
+    outcomes: {"criticalFailure": [{"condition": "Immobilized", "until": "its-next-turn-start"}]}
     outcome_text: {"criticalSuccess": "The creature is unaffected, and it doesn't need to attempt further Athletics checks or saving throws against the web this turn. If it used an Athletics check, it clears the web from every square it leaves during its movement.", "success": "The creature is unaffected during its action. If it used an Athletics check, it clears the web from every square it leaves during its movement.", "failure": "The creature takes a –10-foot circumstance penalty to its Speeds until the start of its next turn.", "criticalFailure": "The creature is immobilized until the start of its next turn, after which it takes a –10-foot circumstance penalty to its Speeds for 1 round. It can attempt to Escape to remove its immobilized condition."}
   "Web of Eyes":
     rank: 3
@@ -14415,7 +14424,7 @@ pf2e_spell_mechanics:
     heightening: {"interval": 2, "damage": ["1d12", "1d12"]}
     target: "1 creature"
     range: "120 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}, {"condition": "Stunned", "value": 1}], "failure": [{"condition": "Stunned", "value": 2}], "criticalFailure": [{"condition": "Stunned", "value": 3}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}, {"condition": "Stunned", "value": 1}], "failure": [{"condition": "Stunned", "value": 2}, {"condition": "Dazzled", "until": "rounds:10"}], "criticalFailure": [{"condition": "Stunned", "value": 3}, {"condition": "Dazzled", "until": "rounds:10"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target takes half damage, is Dazzled for 1 round, and is Stunned 1.", "failure": "The target takes full damage, is dazzled for 1 minute, and is Stunned 2.", "criticalFailure": "The target takes double damage, is dazzled for 1 minute, and is Stunned 3."}
     damage_scale: {"criticalSuccess": 0, "success": 0.5, "failure": 1, "criticalFailure": 2}
   "Weird":
@@ -14734,7 +14743,7 @@ pf2e_spell_mechanics:
     basic: false
     target: "1 creature"
     range: "60 feet"
-    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"condition": "Blinded", "until": "rounds:1"}]}
+    outcomes: {"success": [{"condition": "Dazzled", "until": "rounds:1"}], "failure": [{"condition": "Dazzled", "until": "rounds:1"}], "criticalFailure": [{"condition": "Blinded", "until": "rounds:1"}]}
     outcome_text: {"criticalSuccess": "The target is unaffected.", "success": "The target is Dazzled for 1 round.", "failure": "The target is dazzled for 1 round. While the spell persists, as long as you can see the night sky and the target is visible from the same night sky, you can sense the approximate direction and distance to the creature by Sustaining the spell. This is enough to track the creature, but not pinpoint their exact square (for instance, to make an attack). You can set a number of zenith stars equal to your Wisdom modifier; if you exceed this number, your oldest zenith star is automatically Dismissed.", "criticalFailure": "As failure, but the target is Blinded for 1 round."}
   "Zephyr Slip":
     rank: 4

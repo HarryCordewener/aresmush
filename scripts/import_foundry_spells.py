@@ -71,6 +71,8 @@ UNTIL = [(re.compile(r'until the end of (?:your|the caster\'s) next turn', re.I)
          (re.compile(r'for (\d+) minutes?', re.I), lambda found: f'rounds:{int(found.group(1)) * 10}')]
 
 
+VALUED_NAMES = ('Clumsy', 'Doomed', 'Drained', 'Enfeebled', 'Frightened', 'Sickened', 'Slowed', 'Stunned', 'Stupefied')
+
 # The conditions this game has, which is what an outcome may leave: a spell that links an attitude -
 # Charm's Friendly - leaves no condition the engine knows.
 CONDITIONS = set(yaml.safe_load(open(os.path.join(CONFIG, 'pf2e_conditions.yml')))['pf2e_conditions'])
@@ -138,11 +140,58 @@ def effects_in(effects_text):
     return found
 
 
+# A condition an outcome's paragraph names without linking it, which Foundry does once a condition has
+# been linked earlier in the description: Blindness links Blinded in its success and writes "blinded for
+# 1 minute" in its failure. Only what leaves a creature worse off, and only in a paragraph that is one
+# outcome's own.
+UNLINKED = ('Blinded', 'Confused', 'Controlled', 'Dazzled', 'Deafened', 'Fascinated', 'Fatigued', 'Fleeing',
+            'Grabbed', 'Immobilized', 'Off-Guard', 'Paralyzed', 'Petrified', 'Prone', 'Restrained', 'Unconscious')
+NAMED = re.compile(r'\b(?:(' + '|'.join(VALUED_NAMES) + r')\s+(\d+)|(' + '|'.join(UNLINKED) + r'))\b', re.I)
+
+# A sentence that says a condition is not so, or is another's, or is so only on some further condition:
+# "the creature is off-guard for as long as it's immobilized", "such as dropping prone".
+NOT_SO = re.compile(r"\b(?:not|no longer|isn't|aren't|can't|cannot|immune|unless|rather than|instead of|as if|as though|"
+                    r"ends?|remove[sd]?|reduc\w+|recover\w*|if|such as|while|as long as|can|may|might|would|choose[sd]?|either|"
+                    r"already|whenever|when)\b", re.I)
+
+
+def unlinked_in(text, already):
+    """What an outcome's paragraph leaves that it names without a link, beyond what its links gave."""
+    blank = LINK.sub(lambda found: '#' * len(found.group(0)), re.sub(r'<[^>]+>', lambda found: ' ' * len(found.group(0)), text))
+    durations = sorted((match.start(), key(match)) for pattern, key in UNTIL for match in pattern.finditer(blank))
+    held = {one['condition'] for one in already if 'condition' in one}
+    found = []
+
+    for match in NAMED.finditer(blank):
+        name = (match.group(1) or match.group(3)).title().replace('Off-guard', 'Off-Guard')
+        start = max(blank.rfind('.', 0, match.start()), blank.rfind(';', 0, match.start())) + 1
+        ends = [at for at in (blank.find('.', match.end()), blank.find(';', match.end())) if at >= 0]
+        sentence = blank[start:min(ends) if ends else len(blank)]
+
+        if name in held or name not in CONDITIONS or NOT_SO.search(sentence) or THE_CASTER.search(sentence):
+            continue
+
+        one = {'condition': name}
+        if match.group(2):
+            one['value'] = int(match.group(2))
+        until = duration_of(blank, durations, match)
+        # An end the sentence gives in words this does not read is left to the words.
+        if not until and re.search(r'\buntil\b', sentence, re.I):
+            continue
+        if until and name != 'Frightened':
+            one['until'] = until
+        held.add(name)
+        found.append(one)
+
+    return found
+
+
 def outcomes_of(description):
     out = {}
 
     for label, text in PARAGRAPH.findall(description or ''):
         held = effects_in(text)
+        held = held + unlinked_in(text, held)
         if held:
             out[OUTCOMES[label]] = held
 
@@ -163,7 +212,7 @@ SPOKEN = [(re.compile(r'critically fails|critical failure|critically failed', re
 AMBIGUOUS = re.compile(r'must succeed|unless|\bStrike\b|Heightened', re.I)
 
 # A condition with a value, written without a link.
-VALUED = ('Clumsy', 'Doomed', 'Drained', 'Enfeebled', 'Frightened', 'Sickened', 'Slowed', 'Stunned', 'Stupefied')
+VALUED = VALUED_NAMES
 PLAIN = re.compile(r'\b(' + '|'.join(VALUED) + r')\s+(\d+)\b', re.I)
 
 
