@@ -135,6 +135,190 @@ module AresMUSH
         it "should do nothing when the damage has no kind" do
           expect(IWR.apply(held(:resistance => [ entry('fire', 5) ]), 12, nil)['amount']).to eq 12
         end
+
+        it "should read a weapon's letter as its kind of damage" do
+          expect(IWR.apply(held(:resistance => [ entry('slashing', 5) ]), 12, 'S')['amount']).to eq 7
+        end
+      end
+
+      # A type may be a whole category of damage: bludgeoning, piercing and slashing are physical.
+      describe "a category of damage" do
+        it "should take physical for bludgeoning, piercing and slashing" do
+          swarm = held(:resistance => [ entry('physical', 6) ])
+
+          %w{bludgeoning piercing slashing}.each { |kind| expect(IWR.apply(swarm, 10, kind)['amount']).to eq 4 }
+          expect(IWR.apply(swarm, 10, 'fire')['amount']).to eq 10
+        end
+
+        it "should take energy for fire, cold and the rest, and not for poison or mental" do
+          warded = held(:resistance => [ entry('energy', 5) ])
+
+          %w{acid cold electricity fire force sonic vitality void}.each { |kind| expect(IWR.apply(warded, 10, kind)['amount']).to eq 5 }
+          %w{poison mental slashing spirit}.each { |kind| expect(IWR.apply(warded, 10, kind)['amount']).to eq 10 }
+        end
+      end
+
+      # What the damage is made of and how it came, beyond its kind: silver, magical, from a spell, in an area.
+      describe "what else is so of the damage" do
+        it "should weaken by a material the weapon is made of" do
+          fey = held(:weakness => [ entry('cold-iron', 5) ])
+
+          expect(IWR.apply(fey, 10, 'slashing', [ 'cold iron' ])['amount']).to eq 15
+          expect(IWR.apply(fey, 10, 'slashing')['amount']).to eq 10
+        end
+
+        it "should weaken by a trait the attack has" do
+          fiend = held(:weakness => [ entry('holy', 5) ])
+
+          expect(IWR.apply(fiend, 10, 'slashing', [ 'holy' ])['amount']).to eq 15
+          expect(IWR.apply(fiend, 10, 'slashing', [ 'magical' ])['amount']).to eq 10
+        end
+
+        it "should weaken a swarm by damage dealt to an area, and by a splash" do
+          swarm = held(:weakness => [ entry('area-damage', 3), entry('splash-damage', 3) ])
+
+          expect(IWR.apply(swarm, 6, 'fire', [ 'area' ])['amount']).to eq 9
+          expect(IWR.apply(swarm, 2, 'fire', [ 'splash' ])['amount']).to eq 5
+          expect(IWR.apply(swarm, 6, 'fire')['amount']).to eq 6
+        end
+
+        it "should resist what comes from a spell" do
+          golem = held(:resistance => [ entry('spells', 20) ])
+
+          expect(IWR.apply(golem, 30, 'fire', [ 'spell' ])['amount']).to eq 10
+          expect(IWR.apply(golem, 30, 'fire')['amount']).to eq 30
+        end
+
+        it "should take a fact spelled as the rules spell it" do
+          fey = held(:weakness => [ entry('cold-iron', 5) ])
+
+          expect(IWR.apply(fey, 10, 'slashing', [ 'damage:material:cold-iron' ])['amount']).to eq 15
+        end
+      end
+
+      describe "an exception" do
+        def devil
+          held(:resistance => [ entry('physical', 10).merge('exceptions' => [ 'silver' ]) ])
+        end
+
+        it "should let through what it names" do
+          expect(IWR.apply(devil, 12, 'slashing', [ 'silver' ])['amount']).to eq 12
+        end
+
+        it "should leave the rest resisted" do
+          expect(IWR.apply(devil, 12, 'slashing')['amount']).to eq 2
+        end
+
+        it "should say what it excepts where it applied" do
+          expect(IWR.apply(devil, 12, 'slashing')['applied'].first['type']).to eq 'physical (except silver)'
+        end
+
+        it "should let through a kind of damage it names" do
+          ghost = held(:resistance => [ entry('all-damage', 5).merge('exceptions' => %w{force ghost-touch spirit vitality}) ])
+
+          expect(IWR.apply(ghost, 12, 'force')['amount']).to eq 12
+          expect(IWR.apply(ghost, 12, 'slashing', [ 'ghost touch' ])['amount']).to eq 12
+          expect(IWR.apply(ghost, 12, 'slashing', [ 'magical' ])['amount']).to eq 7
+        end
+
+        it "should be read where it is a description of its own" do
+          entry = entry('physical', 5).merge('exceptions' => [ { 'definition' => [ 'item:category:unarmed' ] } ])
+
+          expect(IWR.apply(held(:resistance => [ entry ]), 12, 'bludgeoning', [ 'unarmed' ])['amount']).to eq 12
+          expect(IWR.apply(held(:resistance => [ entry ]), 12, 'bludgeoning')['amount']).to eq 7
+        end
+      end
+
+      describe "a resistance doubled against something" do
+        def ghost
+          held(:resistance => [ entry('all-damage', 5).merge('exceptions' => [ 'force' ], 'doubleVs' => [ 'non-magical' ]) ])
+        end
+
+        it "should be doubled against it" do
+          expect(IWR.apply(ghost, 12, 'slashing')['amount']).to eq 2
+        end
+
+        it "should be itself against anything else" do
+          expect(IWR.apply(ghost, 12, 'slashing', [ 'magical' ])['amount']).to eq 7
+        end
+
+        it "should win over a plain resistance it then exceeds" do
+          both = held(:resistance => ghost['resistance'] + [ entry('slashing', 7) ])
+
+          expect(IWR.apply(both, 12, 'slashing')['amount']).to eq 2
+          expect(IWR.apply(both, 12, 'slashing', [ 'magical' ])['amount']).to eq 5
+        end
+      end
+
+      # A weakness to something that is not itself a kind of damage - holy, water - is felt once in a hit,
+      # however many kinds of damage the hit deals.
+      describe "a weakness felt once in a hit" do
+        it "should apply to the first of the hit's damage and not the rest" do
+          fiend = held(:weakness => [ entry('holy', 5) ])
+          felt = []
+
+          first = IWR.apply(fiend, 10, 'slashing', [ 'holy' ], :once => felt)
+          second = IWR.apply(fiend, 4, 'fire', [ 'holy' ], :once => felt)
+
+          expect([ first['amount'], second['amount'] ]).to eq [ 15, 4 ]
+        end
+
+        it "should apply to each kind of damage where it is a weakness to damage itself" do
+          troll = held(:weakness => [ entry('fire', 10) ])
+          felt = []
+
+          first = IWR.apply(troll, 10, 'fire', [], :once => felt)
+          second = IWR.apply(troll, 4, 'fire', [], :once => felt)
+
+          expect([ first['amount'], second['amount'] ]).to eq [ 20, 14 ]
+        end
+      end
+
+      # Immunity to a condition or to a kind of effect is not about damage: it is asked of what would land.
+      describe "immunity to a condition or an effect" do
+        def undead
+          held(:immunity => %w{paralyzed fear-effects death-effects poison mental sleep}.map { |type| entry(type) })
+        end
+
+        it "should hold against the condition it names" do
+          expect(IWR.immune_to_condition?(undead, 'Paralyzed')).to be true
+          expect(IWR.immune_to_condition?(undead, 'Frightened')).to be false
+        end
+
+        it "should hold against an effect with the trait it names" do
+          expect(IWR.immune_to_effect?(undead, %w{emotion fear mental})).to eq 'fear-effects'
+          expect(IWR.immune_to_effect?(undead, %w{death void})).to eq 'death-effects'
+          expect(IWR.immune_to_effect?(undead, %w{poison})).to eq 'poison'
+          expect(IWR.immune_to_effect?(undead, %w{incapacitation sleep})).to eq 'sleep'
+        end
+
+        it "should not hold against an effect without it" do
+          expect(IWR.immune_to_effect?(undead, %w{fire attack})).to be_nil
+        end
+
+        it "should still take the damage of a kind it is not immune to" do
+          expect(IWR.apply(undead, 10, 'fire')['amount']).to eq 10
+          expect(IWR.apply(undead, 10, 'poison')['amount']).to eq 0
+          expect(IWR.apply(undead, 10, 'mental')['amount']).to eq 0
+        end
+
+        it "should not be taken for immunity to damage" do
+          expect(IWR.apply(held(:immunity => [ entry('paralyzed'), entry('fear-effects') ]), 10, 'slashing')['amount']).to eq 10
+        end
+      end
+
+      describe "immunity to critical hits" do
+        it "should be asked of a critical hit" do
+          ooze = held(:immunity => [ entry('critical-hits'), entry('precision') ])
+
+          expect(IWR.immune?(ooze, [ 'critical' ])).to be true
+          expect(IWR.immune?(ooze, [ 'precision' ])).to be true
+          expect(IWR.immune?(held(:immunity => [ entry('precision') ]), [ 'critical' ])).to be false
+        end
+
+        it "should not take ordinary damage" do
+          expect(IWR.apply(held(:immunity => [ entry('critical-hits') ]), 10, 'slashing')['amount']).to eq 10
+        end
       end
     end
   end

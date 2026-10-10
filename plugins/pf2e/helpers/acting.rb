@@ -205,8 +205,11 @@ module AresMUSH
         if dealt
           mechanics = { 'save' => dealt['save'], 'basic' => true, 'traits' => Array(own['traits']) }
           formulas = [ [ dealt['formula'], dealt['type'], nil, [ 'damage' ] ] ]
+          out['about'] = DamageAbout.of_ability(own)
 
           targets.each do |target|
+            next if immune?(own['traits'], out, target)
+
             spell_save(Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted), name, mechanics,
                        dealt['dc'], formulas, out)
           end
@@ -261,6 +264,10 @@ module AresMUSH
 
       # An action whose check is rolled against something: a target's defence, or a DC.
       def self.check_action(scene, name, entry, said, out)
+        out['about'] = DamageAbout.traits(entry['traits'])
+
+        return if immune?(entry['traits'], out, scene.target)
+
         check = entry['check']
         variant = variant_of(check, said)
         check = check.merge(variant) if variant
@@ -589,8 +596,12 @@ module AresMUSH
       # What a Strike does when it hits.
       def self.hit(scene, attack, check, result, out)
         critical = result['degree'] == Degree::CRITICAL_SUCCESS
-        rows = Actors.of(scene.actor.holder).strike_damage(attack, check, critical)
+        # A critical hit on something immune to critical hits is a critical hit that deals a hit's damage.
+        doubled = critical && !IWR.immune?(iwr_of(scene.target.holder), [ 'critical' ])
+        out['lines'] << told('pf2e.act_crit_immune', :target => scene.target.label) if critical && !doubled
+        rows = Actors.of(scene.actor.holder).strike_damage(attack, check, doubled)
         answerable = !scene.target.creature?
+        out['about'] = DamageAbout.of_attack(attack, check.options)
 
         if answerable
           calm = critical ? Actors.of(scene.actor.holder).strike_damage(attack, check, false) : rows
@@ -728,8 +739,12 @@ module AresMUSH
           precise = []
         end
 
+        felt = []
+
         DamageRoll.by_type(immediate + precise).each_with_index do |row, index|
-          held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical, :continuing => index.positive?)
+          held = Harm.damage(whom.holder, row['amount'], row['type'], :critical => critical, :continuing => index.positive?,
+                                                                      :about => Array(out['about']) + Array(row['categories']),
+                                                                      :once => felt)
           fate ||= held['fate']
           taken += held['amount'].to_i
           physical += held['amount'].to_i if ShieldBlock.physical?(row['type'])
@@ -764,7 +779,17 @@ module AresMUSH
       end
 
       def self.iwr_of(holder)
-        Actors.of(holder).creature? ? Npcs.iwr(holder) : IWR.of(holder)
+        IWR.for(holder)
+      end
+
+      # Whether the target is immune to an effect with one of these traits, which is then all of what
+      # happens to them: the room is told, and nothing is rolled.
+      def self.immune?(traits, out, target)
+        found = target ? IWR.immune_to_effect?(IWR.for(target.holder), traits) : nil
+
+        out['lines'] << told('pf2e.act_immune', :target => target.label, :to => found) if found
+
+        !found.nil?
       end
 
       # Whether someone is on their feet: a creature with hit points left, a character not yet dying -
@@ -840,6 +865,9 @@ module AresMUSH
           each = Scene.new(scene.encounter, scene.actor, target, scene.enactor, scene.permitted)
           mechanics = named.equal?(base) ? way_for(base, target) : named
           attack = mechanics['attack']
+          out['about'] = DamageAbout.of_spell(mechanics)
+
+          next if immune?(mechanics['traits'], out, target)
           formulas = Adjustments.spell_damage(scene.actor.holder, mechanics, spell_damage(mechanics, rank))
 
           if attack

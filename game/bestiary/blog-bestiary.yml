@@ -14,7 +14,7 @@
   speeds: {"land": 30}
   skills: {"Arcana": 3, "Athletics": 3, "Stealth": 7}
   weaknesses: {"area-damage": 4, "splash-damage": 4}
-  resistances: {"physical": 6}
+  resistances: {"physical": {"value": 6, "except": ["bludgeoning"]}}
   actions: [{"name": "Cloud of Allergens", "type": "reaction", "traits": [], "text": "Trigger The swarm rolls initiative%rEffect The dust bunnies stir, kicking up a cloud in a 15-foot burst centered on the swarm that lasts for 1 minute. Creatures who enter or start their turn in this cloud must attempt a DC 16 Fortitude save or take a –1 circumstance penalty to skill checks that have the concentration trait and all Perception checks as their sensory organs become impaired.%rEffect: Cloud of Allergens", "rules": [{"key": "Note", "selector": "initiative", "title": "{item|name}", "text": "{item|system.description.value}"}]}, {"name": "Dust to Dust", "type": "passive", "traits": [], "text": "When a dust bunny swarm is destroyed, it re-forms after 2d4 days in the area in which it was destroyed unless the location has been significantly cleaned of all dust and debris."}, {"name": "Pummeling Dust", "type": "action", "traits": [], "cost": 1, "text": "Each enemy in the swarm's space takes 1d6 bludgeoning damage with a DC 16 basic Reflex save. A creature that fails its save cannot use reactions for 1 round as they sneeze uncontrollably."}]
 "Rt5rrmn":
   pack: "blog-bestiary"

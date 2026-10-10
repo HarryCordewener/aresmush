@@ -90,6 +90,24 @@ def rules_of(item, refused, words):
     return taken
 
 
+def valued(one):
+    """A weakness's or resistance's value, or - where it excepts something, or doubles against
+    something - the value with what it excepts and doubles against, each by its name."""
+    named = lambda held: [entry if isinstance(entry, str) else (entry.get('label') or '').split('.')[-1]
+                          for entry in held or []]
+    excepted, doubled = named(one.get('exceptions')), named(one.get('doubleVs'))
+
+    if not excepted and not doubled:
+        return one.get('value')
+
+    held = {'value': one.get('value')}
+    if excepted:
+        held['except'] = excepted
+    if doubled:
+        held['double'] = doubled
+    return held
+
+
 def strike_of(item, refused, words):
     system = item['system']
     rolls = system.get('damageRolls') or {}
@@ -191,7 +209,7 @@ def npc_of(doc, pack, refused, words):
     if immunities:
         npc['immunities'] = immunities
     for field in ('weaknesses', 'resistances'):
-        held = {one.get('type'): one.get('value') for one in attributes.get(field) or [] if one.get('type')}
+        held = {one.get('type'): valued(one) for one in attributes.get(field) or [] if one.get('type')}
         if held:
             npc[field] = held
 

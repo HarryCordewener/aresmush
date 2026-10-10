@@ -3,20 +3,37 @@ module AresMUSH
     class PF2DamagePlayerCmd
       include CommandHandler
 
-      attr_accessor :target, :damage, :is_ndc, :kind
+      attr_accessor :target, :damage, :is_ndc, :kind, :about
 
-      # `damage <who>=<how much>` or `<how much> <kind>`, so a resistance has something to resist. A
-      # kind nobody names is damage of no kind, which nothing resists.
+      # What may be said of the damage after its kind, each a word or two: what it is made of, and how
+      # it came. Asked for rather than held, because the helpers load after the commands.
+      def sayable
+        Pf2e::IWR::MATERIALS + %w{magical holy unholy area splash precision persistent spell ghost-touch}
+      end
+
+      # `damage <who>=<how much>` or `<how much> <kind> [<what else is so of it>...]`, so a resistance
+      # has something to resist: `12 slashing silver`, `10 fire area`. A kind nobody names is damage of no
+      # kind, which nothing resists.
       def parse_args
         args = cmd.parse_args(ArgParser.arg1_equals_arg2)
 
         self.target = list_arg(args.arg1)
 
         amount, _, named = args.arg2.to_s.strip.partition(' ')
+        kind, self.about = kind_and_about(named.strip.downcase)
 
         self.damage = integer_arg(amount)
-        self.kind = named.strip.empty? ? nil : named.strip.downcase
+        self.kind = kind.empty? ? nil : kind
         self.is_ndc = cmd.switch_is?("ndc")
+      end
+
+      # The words after the amount: those that say something of the damage, and before them its kind.
+      def kind_and_about(named)
+        slug = named.tr(' ', '-')
+        said = sayable.select { |word| slug.match?(/(?:\A|-)#{Regexp.escape(word)}(?:-damage)?(?:-|\z)/) }
+        kind = said.reduce(slug) { |rest, word| rest.sub(/(?:\A|-)#{Regexp.escape(word)}(?:-damage)?(?=-|\z)/, '') }
+
+        [ kind.delete_prefix('-').tr('-', ' ').strip, said ]
       end
 
       def required_args
@@ -49,7 +66,7 @@ module AresMUSH
 
         ok_char_list = targets.map do |holder|
           standing = Pf2e::Acting.still_up(holder)
-          held = Pf2e::Harm.damage(holder, self.damage, self.kind, :is_dm => is_dc)
+          held = Pf2e::Harm.damage(holder, self.damage, self.kind, :is_dm => is_dc, :about => self.about)
 
           Pf2e::Actors.of(holder).notify_damage(self.damage, enactor.name)
           Pf2e::Acting.dropped(Pf2e::Combatants::Combatant.new(holder, holder.name, nil), standing, dropped, held['fate'])

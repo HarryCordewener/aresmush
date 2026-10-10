@@ -127,6 +127,11 @@ module AresMUSH
       end
     end
 
+    # Whether they are immune to a condition, which then never lands on them however it came.
+    def self.immune_to?(char, condition)
+      IWR.immune_to_condition?(IWR.for(char), condition)
+    end
+
     # Death is not a condition the catalogue holds: it is said of a character, and is all they are
     # listed as under. `condition/set <who>=dead` says it, and `dead/0` takes it back.
     DEAD = 'Dead'.freeze
@@ -144,6 +149,7 @@ module AresMUSH
       condition = canonical_condition(condition)
 
       return remove_condition(char, condition) if value && value.zero?
+      return Err.new(:immune, 'pf2e.condition_immune', 'name' => char.name, 'condition' => condition) if immune_to?(char, condition)
 
       list = char.pf2_conditions || {}
       cv = list[condition] || {}

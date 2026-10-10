@@ -5,7 +5,7 @@ module AresMUSH
     # figures first, then each other part after a semicolon, named by its first word.
     #
     #   ac 18 hp 30 fort 8 ref 9 will 5 perception 7 level 2 speed 25 str 4;
-    #   skills athletics 8, stealth 9; immune poison; weak fire 5; resist physical 3;
+    #   skills athletics 8, stealth 9; immune poison; weak fire 5; resist physical 3 except silver;
     #   traits humanoid, human; size medium; senses darkvision;
     #   strike shortsword +9 1d6+4 piercing (agile, finesse);
     #   ranged shortbow +9 1d6 piercing (range 60, deadly d10);
@@ -41,8 +41,8 @@ module AresMUSH
       PARTS = {
         'skills' => ->(block, words) { valued(words).then { |read| read && block.merge('skills' => read.transform_keys { |skill| titled(skill) }) } },
         'immune' => ->(block, words) { block.merge('immunities' => listed(words).map { |one| slug(one) }) },
-        'weak' => ->(block, words) { valued(words).then { |read| read && block.merge('weaknesses' => read.transform_keys { |one| slug(one) }) } },
-        'resist' => ->(block, words) { valued(words).then { |read| read && block.merge('resistances' => read.transform_keys { |one| slug(one) }) } },
+        'weak' => ->(block, words) { resisted(words).then { |read| read && block.merge('weaknesses' => read) } },
+        'resist' => ->(block, words) { resisted(words).then { |read| read && block.merge('resistances' => read) } },
         'traits' => ->(block, words) { block.merge('traits' => listed(words).map { |one| slug(one) }) },
         'senses' => ->(block, words) { block.merge('senses' => listed(words).map(&:downcase)) },
         'size' => ->(block, words) { block.merge('size' => words.downcase) },
@@ -121,6 +121,21 @@ module AresMUSH
         read = listed(words).map { |one| one.match(/\A(.+?)\s+[+-]?(\d+)\z/) }
 
         read.all? ? read.to_h { |found| [ found[1], found[2].to_i ] } : nil
+      end
+
+      # `physical 10 except silver, cold 5`: what each is worth, with what a resistance lets through.
+      EXCEPTING = /\A(?<type>.+?)\s+[+-]?(?<value>\d+)(?:\s+except\s+(?<except>.+))?\z/i
+
+      def self.resisted(words)
+        read = listed(words).map { |one| one.match(EXCEPTING) }
+
+        return nil unless read.all?
+
+        read.to_h do |found|
+          excepted = found[:except].to_s.split(/\s+or\s+|\s+and\s+/).map { |one| slug(one) }
+
+          [ slug(found[:type]), excepted.empty? ? found[:value].to_i : { 'value' => found[:value].to_i, 'except' => excepted } ]
+        end
       end
 
       def self.slug(word)

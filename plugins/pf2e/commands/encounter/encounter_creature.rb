@@ -71,8 +71,8 @@ module AresMUSH
       def self.iwr(block)
         parts = []
         parts << "Immunities #{block['immunities'].join(', ')}" if block['immunities']
-        parts << "Weaknesses #{block['weaknesses'].map { |type, value| "#{type} #{value}" }.join(', ')}" if block['weaknesses']
-        parts << "Resistances #{block['resistances'].map { |type, value| "#{type} #{value}" }.join(', ')}" if block['resistances']
+        parts << "Weaknesses #{Npcs.listed_words(block['weaknesses']).join(', ')}" if block['weaknesses']
+        parts << "Resistances #{Npcs.listed_words(block['resistances']).join(', ')}" if block['resistances']
 
         parts.empty? ? '' : "; #{parts.join('; ')}"
       end

@@ -50,14 +50,17 @@ module AresMUSH
     #
     # `continuing` is the rest of a hit whose first damage has landed: a bite's poison after its
     # piercing. A hit drops someone once, so what continues it leaves alone someone already at nothing.
+    # `resisted` is damage whose immunities, weaknesses and resistances the caller has already applied,
+    # knowing more about it than its kind.
     #
     # Answers what became of them where the damage settled it: `:dead` or `:spared`.
-    def self.modify_damage(char, amount, healing=false, is_dm=nil, kind=nil, options=[], critical: false, continuing: false)
+    def self.modify_damage(char, amount, healing=false, is_dm=nil, kind=nil, options=[], critical: false, continuing: false,
+                           resisted: false)
       # Nothing more happens to the dead.
       return nil if char.pf2_is_dead
 
       is_dm = Pf2e::Gm.may_kill?(char) if is_dm.nil?
-      amount = Pf2e::IWR.apply(Pf2e::IWR.of(char), amount, kind)['amount'] if kind && !healing
+      amount = Pf2e::IWR.apply(Pf2e::IWR.of(char), amount, kind)['amount'] if kind && !healing && !resisted
       Pf2e::Turns.damaged(char, kind) if kind && !healing
       amount = healed(char, amount, options) if healing
 

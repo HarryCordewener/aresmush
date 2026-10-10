@@ -267,7 +267,7 @@
   senses: ["darkvision"]
   skills: {"Stealth": 12}
   immunities: ["poison", "unconscious", "bleed", "void"]
-  resistances: {"all-damage": 5}
+  resistances: {"all-damage": {"value": 5, "except": ["force", "ghost-touch", "spirit", "vitality"], "double": ["non-magical"]}}
   strikes: [{"name": "Ghostly Hand", "bonus": 13, "damage": [["2d6+2", "void", null]], "traits": ["agile", "finesse", "magical"]}]
   actions: [{"name": "Site Bound", "type": "passive", "traits": [], "text": "A ghost can stray no more than 120 feet from where it was killed or the place it haunts. Some are bound to items or creatures that were special to them rather than a location."}, {"name": "Incorporeal", "type": "passive", "traits": [], "text": "A ghost has no body and can pass through physical objects, though it can't end its turn inside one. Most checks that use Strength and require a body, such as Grapple, don't work against a ghost, and a ghost can't attempt such checks.", "rules": [{"key": "Immunity", "type": "precision"}]}, {"name": "Rejuvenation", "type": "passive", "traits": ["divine"], "text": "Setting right the injustice that led to the ghost's death allows it to move on to the afterlife. Otherwise, when destroyed, the ghost re-forms after 2d4 days within the location it's bound to, fully healed."}, {"name": "Frightful Moan", "type": "action", "traits": ["divine", "emotion", "fear", "mental"], "cost": 2, "text": "Each living creature within 30 feet who hears the ghost must attempt a DC 21 Will save. On a failure, a creature gains the Frightened 2 condition (or Frightened 3 on a critical failure).%rOn a success, a creature can't be affected by this ghost's Frightful Moan for 1 minute."}]
 "Ghoul Stalker (BB)":
@@ -727,7 +727,7 @@
   senses: ["darkvision"]
   skills: {"Acrobatics": 10, "Intimidation": 12, "Religion": 10, "Stealth": 14}
   immunities: ["bleed", "poison", "precision", "unconscious", "void"]
-  resistances: {"all-damage": 5}
+  resistances: {"all-damage": {"value": 5, "except": ["force", "ghost-touch", "vitality"], "double": ["non-magical"]}}
   strikes: [{"name": "Shadow Hand", "bonus": 10, "damage": [["2d6+3", "void", null]], "traits": ["finesse", "magical"]}, {"name": "Shadow Blast", "bonus": 8, "damage": [["2d6", "void", null]], "traits": ["magical"], "range": 60}]
   actions: [{"name": "Incorporeal", "type": "passive", "traits": [], "text": "Lukahn has no body and can pass through physical objects, though he can't end his turn inside one. Most checks that use Strength and require a body, such as Grapple and Shove, don't work against Lukahn, and he can't use them."}, {"name": "Light Vulnerability", "type": "passive", "traits": [], "text": "Attacks against Lukahn are treated as magical if he or the weapon being used against him is in light."}, {"name": "Shadow Veil", "type": "reaction", "traits": [], "text": "Trigger Lukahn is targeted by a melee attack%rEffect Lukahn gains a +2 circumstance bonus to AC against the triggering attack.", "rules": [{"key": "RollOption", "option": "shadow-veil", "toggleable": true}, {"key": "FlatModifier", "selector": ["ac"], "type": "circumstance", "value": 2, "predicate": ["shadow-veil"]}]}]
   spellcasting: [{"name": "Occult Spontaneous Spells", "tradition": "occult", "type": "spontaneous", "dc": 21, "attack": 11, "spells": {"0": ["Detect Magic", "Haunting Hymn", "Message", "Telekinetic Projectile"], "1": ["Concordant Choir", "Fear", "Ill Omen"], "2": ["Laughing Fit", "Noise Blast"]}}]
@@ -937,7 +937,7 @@
   senses: ["darkvision"]
   skills: {"Acrobatics": 10, "Stealth": 14}
   immunities: ["poison", "unconscious", "bleed", "void", "precision"]
-  resistances: {"all-damage": 5}
+  resistances: {"all-damage": {"value": 5, "except": ["force", "ghost-touch", "vitality"], "double": ["non-magical"]}}
   strikes: [{"name": "Shadow Hand", "bonus": 15, "damage": [["2d6+3", "void", null]], "traits": ["finesse", "magical"]}]
   actions: [{"name": "Incorporeal", "type": "passive", "traits": [], "text": "A shadow has no body and can pass through physical objects, though it can't end its turn inside one. Most checks that use Strength and require a body, such as Grapple and Shove, don't work against a shadow, and a shadow can't use them."}, {"name": "Light Vulnerability", "type": "passive", "traits": [], "text": "Attacks against the shadow are treated as magical if the shadow or the weapon being used is in light."}, {"name": "Slink in Shadows", "type": "passive", "traits": [], "text": "The shadow can Hide or end its Sneak in a creature's or object's shadow."}, {"name": "Steal Shadow", "type": "action", "traits": ["divine"], "cost": 1, "text": "If the shadow hits a living creature with a Strike on its previous action, it can use this action to pull at the target's shadow, imposing a –1 status penalty to Athletics and to attack rolls and damage rolls that use Strength (Enfeebled 1). The penalty increases each time a shadow uses this ability to a maximum of –4. The penalty decreases by 1 every hour."}]
 "Shadow Bat":
@@ -992,7 +992,7 @@
   senses: ["darkvision"]
   skills: {"Acrobatics": 10, "Intimidation": 12, "Religion": 10, "Stealth": 14}
   immunities: ["bleed", "poison", "precision", "unconscious", "void"]
-  resistances: {"all-damage": 5}
+  resistances: {"all-damage": {"value": 5, "except": ["force", "ghost-touch", "vitality"], "double": ["non-magical"]}}
   strikes: [{"name": "Shadow Hand", "bonus": 10, "damage": [["2d6+3", "void", null]], "traits": ["finesse", "magical"]}, {"name": "Shadow Blast", "bonus": 8, "damage": [["2d6", "void", null]], "traits": ["magical"], "range": 60}]
   actions: [{"name": "Incorporeal", "type": "passive", "traits": [], "text": "The shadow priest has no body and can pass through physical objects, though they can't end their turn inside one. Most checks that use Strength and require a body, such as Grapple and Shove, don't work against the shadow priest, and the shadow priest can't use them."}, {"name": "Light Vulnerability", "type": "passive", "traits": [], "text": "Attacks against the shadow priest are treated as magical if the shadow priest or the weapon being used against them is in light."}, {"name": "Shadow Veil", "type": "reaction", "traits": [], "text": "If the shadow priest is targeted by a melee attack, they can use their reaction to gain a +2 circumstance bonus to AC against the triggering attack.", "rules": [{"key": "RollOption", "option": "shadow-veil", "toggleable": true}, {"key": "FlatModifier", "selector": ["ac"], "type": "circumstance", "value": 2, "predicate": ["shadow-veil"]}]}]
 "Shadow Twigjack":

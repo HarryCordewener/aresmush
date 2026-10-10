@@ -185,17 +185,37 @@ module AresMUSH
         end
 
         { 'immunity' => Array(block['immunities']).map { |type| { 'type' => [ type ] } } + granted['immunity'],
-          'weakness' => (block['weaknesses'] || {}).map { |type, value| { 'type' => [ type ], 'value' => value.to_i } } +
-            granted['weakness'],
-          'resistance' => (block['resistances'] || {}).map { |type, value| { 'type' => [ type ], 'value' => value.to_i } } +
-            granted['resistance'] }
+          'weakness' => listed(block['weaknesses']) + granted['weakness'],
+          'resistance' => listed(block['resistances']) + granted['resistance'] }
+      end
+
+      # A stat block's weaknesses or resistances as entries: each is a value, or a value with what it
+      # excepts and what it is doubled against.
+      def self.listed(held)
+        (held || {}).map do |type, value|
+          value = { 'value' => value } unless value.is_a?(Hash)
+
+          { 'type' => [ type ], 'value' => value['value'].to_i, 'exceptions' => Array(value['except']),
+            'doubleVs' => Array(value['double']) }
+        end
+      end
+
+      # `physical 10 (except silver)`, `all-damage 5 (except force; double against non-magical)`.
+      def self.listed_words(held)
+        listed(held).map do |entry|
+          notes = []
+          notes << "except #{entry['exceptions'].join(', ')}" if entry['exceptions'].any?
+          notes << "double against #{entry['doubleVs'].join(', ')}" if entry['doubleVs'].any?
+
+          "#{entry['type'].first} #{entry['value']}#{notes.empty? ? '' : " (#{notes.join('; ')})"}"
+        end
       end
 
       # Damage to a creature, after what it resists: temporary hit points first, then its own.
       #
       #   { 'amount' => what it took, 'applied' => the immunities, weaknesses and resistances that counted }
-      def self.damage(npc, amount, kind = nil)
-        held = kind ? IWR.apply(iwr(npc), amount.to_i, kind) : { 'amount' => amount.to_i, 'applied' => [] }
+      def self.damage(npc, amount, kind = nil, about = [], once: nil)
+        held = IWR.apply(iwr(npc), amount.to_i, kind, about, :once => once)
         taken = held['amount']
         soaked = [ npc.temp_hp.to_i, taken ].min
 

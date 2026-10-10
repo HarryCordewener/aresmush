@@ -177,6 +177,7 @@ en:
     boost_not_working: "%xrboost/unset is currently unavailable. To restart your boost assignments, enter '%xwcg/restore info%xn%xr' followed by '%xwcommit info%xn%xr' to return to this section.%xn"
 
     cannot_assign_type: "You don't have that type of %{element} to assign."
+    condition_immune: "%{name} is immune to %{condition}."
     condition_not_lasting: "%{condition} is a Plotmaster's or staff's to give a character."
     cannot_damage_pc: "You must be a DM or the organizer of an active combat to run this command."
     cannot_find_cginfo: "You must choose %{prereq} before you can see options for %{element}."
@@ -549,6 +550,8 @@ en:
     act_dying: "  %{target} is dying: Dying %{value}."
     act_spared: "  %{target} would have died, and is unconscious instead: this encounter does not kill."
     act_dead: "  %{target} is dead."
+    act_immune: "  %{target} is immune (%{to}): nothing of it touches them."
+    act_crit_immune: "  %{target} is immune to critical hits, and takes a hit's damage."
     act_revived: "  %{target} is no longer dead: unconscious, with no hit points."
     turn_dead: "%{name} is dead. +e/next moves on; condition/set %{name}=dead/0 brings them back."
     heal_dead: "%{name} is dead, and healing does nothing for them. condition/set %{name}=dead/0 brings them back, and +e/undo takes back what killed them."
