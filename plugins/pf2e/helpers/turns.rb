@@ -79,7 +79,8 @@ module AresMUSH
 
         return events unless holder
 
-        events + less_frightened(holder) + PersistentDamage.end_of_turn(holder) + Holding.turn_ended(encounter, participant)
+        events + less_frightened(holder) + PersistentDamage.end_of_turn(holder) + Holding.turn_ended(encounter, participant) +
+          Afflictions.turn_ended(encounter, participant, round)
       end
 
       # ------------------------------------------------------------------------------
@@ -102,6 +103,8 @@ module AresMUSH
         PersistentDamage.held(holder).each do |one|
           lines << t('pf2e.turn_persistent', :formula => one['formula'], :type => one['type'])
         end
+
+        lines.concat(Afflictions.reminders(holder, round))
 
         Auras.of(holder).each do |aura|
           lines << t('pf2e.turn_aura', :aura => aura['slug'], :radius => aura['radius'])

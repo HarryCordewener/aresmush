@@ -142,7 +142,8 @@ module AresMUSH
         targets ||= [ scene.target ].compact
         own = Actors.of(scene.actor.holder).own_ability(name)
         ability = own ? MonsterAbilities.row(name, own, scene.actor.holder) : nil
-        if targets.size > 1 && !CreatureAbilities.saves?(own_text(scene, name)) && !(ability && ability['several'])
+        if targets.size > 1 && !CreatureAbilities.saves?(own_text(scene, name)) && !(ability && ability['several']) &&
+           !Afflictions.read(name, own_text(scene, name))
           return Err.new(:one_target, 'pf2e.act_one_target', 'action' => name)
         end
 
@@ -305,7 +306,13 @@ module AresMUSH
         announce(scene, name, own, targets, out)
         Recharge.used(scene, name, own, out)
 
-        ability_saves(scene, name, own, targets, out)
+        affliction = Afflictions.read(name, own['text'], own['traits'])
+
+        if affliction
+          targets.each { |target| Afflictions.catch(scene, target, affliction, out) }
+        else
+          ability_saves(scene, name, own, targets, out)
+        end
 
         paid(scene, name, own, out)
 
@@ -817,6 +824,9 @@ module AresMUSH
           if FOLLOW_UPS.key?(Domains.slug(effect))
             out['lines'] << told('pf2e.act_follow_up', :effect => effect,
                                                     :command => "+e/as #{scene.actor.ref}=act #{Domains.slug(effect).tr('-', ' ')}=#{scene.target.ref}")
+          elsif (affliction = Afflictions.of_creature(scene.actor.holder, effect))
+            # A venom the Strike carries: whoever it hit saves against it now.
+            Afflictions.catch(scene, scene.target, affliction, out)
           else
             out['lines'] << told('pf2e.act_attack_effects', :effects => effect)
           end

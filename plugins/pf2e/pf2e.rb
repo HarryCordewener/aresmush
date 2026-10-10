@@ -282,6 +282,8 @@ module AresMUSH
           return PF2EncounterAddCmd
         when "adjust"
           return PF2EncounterAdjustCmd
+        when "affliction"
+          return PF2EncounterAfflictionCmd
         when "scan"
           return PF2EncounterScanCmd
         when "end"
