@@ -142,7 +142,8 @@ module AresMUSH
 
       # The order, sorted, with the turn still on whoever held it.
       def self.write(encounter, rows)
-        sorted = rows.sort_by { |row| -row['init'].to_f }
+        # Those on the same count stay in the order they were given.
+        sorted = rows.each_with_index.sort_by { |row, at| [ -row['init'].to_f, at ] }.map(&:first)
 
         encounter.update(:next_init => pointer(encounter, rows(encounter), sorted), :participants => sorted)
       end
@@ -160,8 +161,11 @@ module AresMUSH
 
         theirs = order[at]['init'].to_f
         init = at.zero? ? theirs + 1 : (order[at - 1]['init'].to_f + theirs) / 2
+        moved = order.find { |row| row['name'] == label }.merge('init' => init)
+        rest = order.reject { |row| row['name'] == label }
 
-        write(encounter, order.map { |row| row['name'] == label ? row.merge('init' => init) : row })
+        # Placed, and not only counted: between two on the same count, the count alone does not say where.
+        write(encounter, rest.take_while { |row| row['name'] != current } + [ moved ] + rest.drop_while { |row| row['name'] != current })
 
         current
       end

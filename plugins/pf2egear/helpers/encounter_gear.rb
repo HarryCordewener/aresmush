@@ -46,7 +46,8 @@ module AresMUSH
         @taker = whom.state
         # Whoever drinks their own is one and the same: what the potion does and the action it takes are
         # written to the one copy of them.
-        @user = self.use_option ? Pf2e::Combatants.find(encounter, enactor.name) : whom
+        own = Pf2e::Combatants.find(encounter, enactor.name)
+        @user = own.ok? && own.state.label == whom.state.label ? whom : own
         able = @user.ok? ? able(@user.state) : @user
 
         return t(able.key, **Pf2e::CharState.symbolize(able.args)) if able.err?

@@ -231,6 +231,16 @@ module AresMUSH
           expect(refused).to eq []
         end
 
+        it "should be risked on a flat check by someone grabbed, as anything that takes the hands is" do
+          strikes('heavy crossbow')
+          run(PF2ConditionSetCmd, "condition/set #{@hero.name}=grabbed")
+          hero_types('e/reload', 0.2)
+
+          expect(heard).to include(t('pf2e.act_risk_lost', :actor => @hero.name, :condition => 'Grabbed', :action => 'Interact',
+                                                         :die => 4, :dc => 5).strip)
+          expect(Loading.held(hero)).to eq [ 'Heavy Crossbow' ]
+        end
+
         it "should have nothing to reload while it is loaded" do
           hero_types('e/reload')
 

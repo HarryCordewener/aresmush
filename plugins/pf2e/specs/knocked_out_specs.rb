@@ -98,6 +98,31 @@ module AresMUSH
         end
       end
 
+      # The giant rat's jaws, in its own turn, on a hero with one hit point left.
+      describe "by a Strike in the turn of someone later in the order" do
+        before(:each) do
+          Pf2eHP.modify_damage(hero, Pf2eHP.get_max_hp(hero) - 1, false, true)
+          next_turn
+          as(3, "strike #{@hero.name}", FightBench::HIGH)
+        end
+
+        it "should move them to act directly before that one, and keep them there" do
+          expect(dying).to be > 0
+          expect(order).to eq [ 'Ogre Warrior #2', @hero.name, 'Giant Rat #3' ]
+        end
+      end
+
+      describe "in the turn of one of two who act on the same count" do
+        it "should move them between the two" do
+          run(PF2InitModCmd, 'encounter/mod #3=60')
+          first, second = order.first(2)
+          turn_to(second)
+          run(PF2DamagePlayerCmd, "damage #{@hero.name}=40 slashing")
+
+          expect(order).to eq [ first, @hero.name, second ]
+        end
+      end
+
       describe "in their own turn" do
         it "should leave them where they are in the order" do
           turn_to(@hero.name)
@@ -134,6 +159,15 @@ module AresMUSH
 
           expect(Pf2e.dead?(hero)).to be false
           expect(dying).to eq 1
+        end
+
+        # A maul that burns: neither kind of its damage is twice the hero's hit points, and together
+        # they are.
+        it "should count the whole of a blow that deals two kinds of damage" do
+          add('Brute=ac 10 hp 50; strike maul +30 3d10 bludgeoning plus 3d10 fire')
+          as(4, "strike #{@hero.name}", 1.0)
+
+          expect(Pf2e.dead?(hero)).to be true
         end
 
         it "should spare them where the damage may not kill" do

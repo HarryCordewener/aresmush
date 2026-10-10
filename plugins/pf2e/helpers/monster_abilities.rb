@@ -94,7 +94,8 @@ module AresMUSH
 
       # `must succeed at a DC 21 Fortitude save or be pulled adjacent to the harpy, where they make a jaws
       # Strike`: the Strike made at whoever fails the save, by name where the words name it.
-      SAVE_OR_STRIKE = /must succeed (?:at|on) an? DC \d+ (?:Fortitude|Reflex|Will) (?:save|saving throw) or [^.%]*?\bmakes? an? (?:([a-z][a-z' -]*?) )?Strike\b/i
+      # What lasts until someone makes a Strike is no Strike of this ability's.
+      SAVE_OR_STRIKE = /must succeed (?:at|on) an? DC \d+ (?:Fortitude|Reflex|Will) (?:save|saving throw) or (?:(?!\buntil\b)[^.%])*?\bmakes? an? (?:([a-z][a-z' -]*?) )?Strike\b/i
 
       # ------------------------------------------------------------------------------
       # The abilities

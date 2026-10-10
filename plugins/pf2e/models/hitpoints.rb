@@ -137,6 +137,17 @@ module AresMUSH
       now_dying(char, dying.positive? ? dying + step : step + Pf2e.condition_level(char, 'Wounded'), is_dm)
     end
 
+    # The whole of one blow, where it dealt more than one kind of damage: twice their hit points or more
+    # is death, as it is of a blow of one kind. Answers what became of them, or nothing.
+    def self.massive(char, taken)
+      max_hp = get_max_hp(char)
+
+      return nil if char.pf2_is_dead || !max_hp.positive? || taken < 2 * max_hp
+
+      get_hp_obj(char).update(damage: max_hp, temp_hp: 0)
+      now_dying(char, fatal_at(char), Pf2e::Gm.may_kill?(char))
+    end
+
     # The value at which dying is death, which Doomed lowers.
     def self.fatal_at(char)
       4 - Pf2e.condition_level(char, 'Doomed')

@@ -291,6 +291,15 @@ module AresMUSH
           expect(spent).to eq 1
         end
 
+        it "should be healed by it where they name themselves as who takes it" do
+          before = hero_hp
+          typed(Pf2egear::PF2EncounterUseCmd, "e/use consumables=0/#{@hero.name}", @hero, 0.5)
+
+          expect(refused).to eq []
+          expect(hero_hp).to be > before
+          expect(spent).to eq 1
+        end
+
         it "should not drink it sickened" do
           gm_sets(@hero.name, 'sickened/1')
           drinks

@@ -385,14 +385,18 @@ module AresMUSH
 
       # `Thresholds 60 (3 segments), 30 (2 segments)`, in its hit points' details or opening its Troop
       # Defenses: the hit points it loses a segment below, and the segments it then has.
-      THRESHOLDS = /Thresholds? ((?:\d+ \(\d+ segments?\)(?:, )?)+)/i
+      # Its full hit points are sometimes listed with them, for the segments it starts with, and are no
+      # threshold.
+      THRESHOLDS = /Thresholds?\b/i
 
       def self.thresholds(npc)
         block = npc.stat_block
+        full = (npc.respond_to?(:written_stat_block) ? npc.written_stat_block : block)['hp'].to_i
         listed = [ block['hp_details'] ] + Array(block['actions']).map { |one| one['text'].to_s.split('%r').first }
 
-        listed.filter_map { |words| words.to_s[THRESHOLDS, 1] }.first.to_s.scan(/(\d+) \((\d+)/)
+        listed.find { |words| words.to_s.match?(THRESHOLDS) }.to_s.scan(/(\d+) \((\d+) segments?\)/)
               .map { |hp, segments| { 'hp' => hp.to_i, 'segments' => segments.to_i } }
+              .select { |one| one['hp'] < full }.uniq
       end
 
       # The lowest threshold damage has just taken a troop below, which is from then on the most hit

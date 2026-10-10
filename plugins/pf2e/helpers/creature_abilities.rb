@@ -68,11 +68,12 @@ module AresMUSH
         # An outcome with no paragraph of its own is the one beside it: a critical failure is a failure.
         paragraphs['criticalFailure'] ||= paragraphs['failure'] if paragraphs['failure']
         paragraphs['criticalSuccess'] ||= paragraphs['success'] if paragraphs['success']
+        basic = !found[:basic].nil?
         outcomes = paragraphs.any? ? paragraphs.transform_values { |words| conditions_in(words) }.reject { |_k, held| held.empty? } :
-                                     spoken_outcomes(text)
+                                     spoken_outcomes(text, basic)
 
-        { 'dc' => found[:dc].to_i, 'save' => found[:save].downcase, 'basic' => !found[:basic].nil?,
-          'damage' => by_actions(text).fetch(actions) { by_actions(text).values.first || dealt(text) },
+        { 'dc' => found[:dc].to_i, 'save' => found[:save].downcase, 'basic' => basic,
+          'damage' => by_actions(text).fetch(actions) { by_actions(text).values.first || dealt(text, basic) },
           'persistent' => burning(text), 'outcomes' => outcomes, 'outcome_text' => paragraphs,
           'immune' => immune_after(text) }
       end
@@ -84,9 +85,11 @@ module AresMUSH
       end
 
       # The damage the words deal against the save: `takes 1d6 piercing damage`. Damage a sentence gives to
-      # one outcome alone is that outcome's.
-      def self.dealt(text)
-        plain = sentences(text).reject { |sentence| spoken_of(sentence) || closing(sentence) }.join(' ')
+      # one outcome alone is that outcome's - and what whoever does not succeed takes is a failure's,
+      # unless the save is basic, where it is the save's own to scale.
+      def self.dealt(text, basic = false)
+        plain = sentences(text).reject { |sentence| spoken_of(sentence) || closing(sentence) || (!basic && sentence.match?(SUCCEED_OR)) }
+                               .join(' ')
         found = plain.match(DEALS)
 
         found && found[:type] != 'persistent' ? [ [ found[:formula].delete(' '), found[:type] ] ] : []
@@ -172,7 +175,8 @@ module AresMUSH
         outcome && [ outcome, "#{bare.split(/,\s*/).last} #{sentence[ASIDE]}" ]
       end
 
-      def self.spoken_outcomes(text)
+      # `basic` is that the save is a basic one, whose damage is its own and no outcome's.
+      def self.spoken_outcomes(text, basic = false)
         out = {}
 
         sentences(text).each do |sentence|
@@ -195,6 +199,7 @@ module AresMUSH
           next if said.match?(DEPENDS)
 
           main = leaves(said)
+          main = main.reject { |one| one['damage'] } if basic && sentence.match?(SUCCEED_OR)
           worse = aside.match?(WORSE) ? leaves(aside) : []
 
           out[outcome] = Array(out[outcome]) + main if main.any?

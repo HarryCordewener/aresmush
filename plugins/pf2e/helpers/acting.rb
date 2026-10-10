@@ -990,9 +990,15 @@ module AresMUSH
         return stopped if stopped
 
         cost = WeaponTraits.reload(loaded).clamp(1, 3)
+        risked = Restraints.risked(scene.actor, 'Interact', [ 'manipulate' ])
         out = report
-        out['lines'] << told('pf2e.reloaded', :actor => scene.actor.label, :weapon => loaded['name'], :actions => Actions::COSTS[cost])
-        Loading.load(scene.actor.holder, loaded)
+        out['lines'].concat(risked['lines']) if risked
+
+        if risked.nil? || risked['kept']
+          out['lines'] << told('pf2e.reloaded', :actor => scene.actor.label, :weapon => loaded['name'], :actions => Actions::COSTS[cost])
+          Loading.load(scene.actor.holder, loaded)
+        end
+
         TurnState.spend(scene.actor.holder, 'Interact', :cost => cost, :type => 'action')
 
         Ok.new(:state => out)
@@ -1229,6 +1235,11 @@ module AresMUSH
           shown << "#{held['amount']} #{kind}#{notes.empty? ? '' : " (#{notes.join(', ')})"}"
         end
 
+        # Twice someone's hit points in the whole of one blow is death, whatever kinds of damage made it up.
+        if fate.nil? && Gm.character?(whom.holder) && !Array(out['about']).include?(CharacterActor::NONLETHAL)
+          fate = Pf2eHP.massive(whom.holder, taken)
+        end
+
         # Words already, because they join the rest of the hit in one line.
         persistent.each do |row|
           PersistentDamage.add(whom.holder, row['formula'], row['type'])
@@ -1240,7 +1251,8 @@ module AresMUSH
         out['lines'] << told('pf2e.act_damage', :damage => shown.join(' + '), :target => whom.label)
         shaken_out(whom, taken, out)
         out['gm'] << told('pf2e.act_hp_left', :target => whom.label, :hp => Harm.hit_points(whom.holder))
-        dropped(whom, standing, out, 'fate' => fate, 'segments' => segments, 'fell' => fell)
+        dropped(whom, standing, out, 'fate' => fate, 'segments' => segments, 'fell' => fell,
+                                     'encounter' => scene.encounter, 'actor' => scene.actor)
         freed = scene.actor ? Holding.cut_free(scene.actor, whom, sharp) : nil
         out['lines'] << freed if freed
         offer_block(whom, blockable, taken, physical, critical, out) if blockable && physical.positive?
@@ -1317,11 +1329,15 @@ module AresMUSH
           return
         end
 
-        encounter = Gm.encounter_of(whom.holder)
-        encounter &&= PF2Encounter[encounter.id]
+        # The encounter as whoever is telling this holds it, so what is written to it here is not written
+        # over by what they write next.
+        encounter = held['encounter'] || Gm.encounter_of(whom.holder)&.then { |one| PF2Encounter[one.id] }
 
-        # Whoever has dropped holds nobody any longer.
-        out['lines'].concat(Holding.let_go(encounter, whom.label))
+        # Whoever has dropped holds nobody any longer. Whoever dropped them may be one of those let go,
+        # and is read again so that what they do next is written over their release, not under it.
+        released = Holding.let_go(encounter, whom.label)
+        out['lines'].concat(released)
+        held['actor'].holder.load! if released.any? && held['actor']
 
         # A character who lost their last hit points acts from now on just before the turn they fell in.
         before = held['fell'] && fate != :dead && encounter ? Combatants.before_current(encounter, whom.label) : nil

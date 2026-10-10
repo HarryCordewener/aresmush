@@ -171,6 +171,22 @@ module AresMUSH
           expect(CreatureAbilities.saving(text)).to include('dc' => 25, 'basic' => true, 'damage' => [ %w{2d8+9 bludgeoning} ])
         end
 
+        describe "whose words are succeed, or take damage" do
+          it "should deal it to whoever fails, and to nobody twice" do
+            read = CreatureAbilities.saving('Each creature in the area must succeed at a DC 19 Fortitude save or take 2d6 acid damage and become Sickened 1.')
+
+            expect(read['damage']).to eq []
+            expect(read['outcomes']['failure']).to eq [ { 'condition' => 'Sickened', 'value' => 1 }, { 'damage' => '2d6', 'type' => 'acid' } ]
+          end
+
+          it "should be the save's own damage where the save is basic, and no outcome's" do
+            read = CreatureAbilities.saving('Each creature must succeed at a DC 22 basic Will save or take 3d8 mental damage and be Fascinated.')
+
+            expect(read['damage']).to eq [ %w{3d8 mental} ]
+            expect(read['outcomes']['failure']).to eq [ { 'condition' => 'Fascinated' } ]
+          end
+        end
+
         # A troop's attack: one to three actions, and more damage for each.
         describe "whose damage is by the actions spent on it" do
           def onslaught

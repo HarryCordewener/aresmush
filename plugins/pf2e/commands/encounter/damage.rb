@@ -72,7 +72,7 @@ module AresMUSH
           changed << t('pf2e.damage_taken', :name => holder.name, :taken => held['amount'], :why => why.join(', ')) if why.any?
 
           Pf2e::Actors.of(holder).notify_damage(self.damage, enactor.name)
-          Pf2e::Acting.dropped(Pf2e::Combatants::Combatant.new(holder, holder.name, nil), standing, dropped, held)
+          Pf2e::Acting.dropped(Pf2e::Combatants::Combatant.new(holder, holder.name, nil), standing, dropped, held.merge('encounter' => encounter))
 
           holder.name
         end

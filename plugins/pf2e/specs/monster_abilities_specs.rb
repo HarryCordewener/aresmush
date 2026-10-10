@@ -1102,6 +1102,68 @@ module AresMUSH
         end
       end
 
+      describe "a troop's thresholds as its stat block writes them" do
+        def troop(hp, details, defenses = nil)
+          actions = defenses ? [ { 'name' => 'Troop Defenses', 'type' => 'passive', 'text' => defenses } ] : []
+
+          double(:stat_block => { 'hp' => hp, 'hp_details' => details, 'actions' => actions })
+        end
+
+        it "should not take its full hit points for one" do
+          held = Npcs.thresholds(troop(360, 'Thresholds 360 (4 segments), 240 (3 segments), 140 (2 segments)'))
+
+          expect(held).to eq [ { 'hp' => 240, 'segments' => 3 }, { 'hp' => 140, 'segments' => 2 } ]
+        end
+
+        it "should read them where they are written twice over" do
+          held = Npcs.thresholds(troop(210, '(4 segments); Thresholds 210 (4 segments); Thresholds 140 (3 segments), 70 (2 segments)'))
+
+          expect(held).to eq [ { 'hp' => 140, 'segments' => 3 }, { 'hp' => 70, 'segments' => 2 } ]
+        end
+
+        it "should read them from its Troop Defenses where its hit points say nothing" do
+          held = Npcs.thresholds(troop(90, nil, 'Thresholds 60 (3 segments), 30 (2 segments)%rTroops are composed of many.'))
+
+          expect(held).to eq [ { 'hp' => 60, 'segments' => 3 }, { 'hp' => 30, 'segments' => 2 } ]
+        end
+      end
+
+      describe "words that are a save, and then a Strike at whoever fails it" do
+        it "should be a harpy's" do
+          text = 'A target within 20 feet must succeed at a DC 21 Fortitude save or be pulled adjacent to the harpy, where they make a jaws Strike against the target.'
+
+          expect(text.match?(MonsterAbilities::SAVE_OR_STRIKE)).to be true
+        end
+
+        it "should not be a penalty that lasts until the target makes a Strike" do
+          text = 'The target must succeed at a DC 18 Will save or take a -1 circumstance penalty to attack rolls until it makes a successful Strike.'
+
+          expect(text.match?(MonsterAbilities::SAVE_OR_STRIKE)).to be false
+        end
+      end
+
+      # Ghoul Stalker: 16 hit points, and a Claw that grabs.
+      describe "someone who drops what holds them" do
+        def hit_points
+          100
+        end
+
+        before(:each) do
+          add('ghoul stalker')
+          next_turn
+          Pf2e.set_condition(hero, 'Grabbed')
+          Holding.mark(hero, 'Grabbed', 'Ghoul Stalker #2')
+        end
+
+        it "should be held no longer" do
+          npc.update(:damage => npc.max_hp - 1)
+          hero_types('e/strike #2=claw', FightBench::HIGH)
+
+          expect(heard).to include('is down')
+          expect(held.keys & %w{Grabbed Restrained}).to be_empty
+        end
+      end
+
       # Shambler Troop: 90 hit points, "Thresholds 60 (3 segments), 30 (2 segments)".
       describe "a troop" do
         before(:each) do
