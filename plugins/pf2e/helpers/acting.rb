@@ -1070,12 +1070,16 @@ module AresMUSH
           deal(scene, scene.target, rows, out, :critical => critical)
         end
 
+        Recharge.critical_hit(scene, out) if critical
+
+        # What the hit goes on to do, it does to the living.
+        return if Pf2e.dead?(scene.target.holder)
+
         Consumables.effect(scene.encounter, scene.actor.label, scene.target, attack['effect'], out) if attack['bomb'] && attack['effect']
 
         follow_ups(scene, attack, out)
 
         critical_specialization(scene, attack, out) if critical
-        Recharge.critical_hit(scene, out) if critical
 
         return unless answerable
 
@@ -1191,6 +1195,9 @@ module AresMUSH
       # `critical` is a critical hit's, or a critically failed save's: one that drops a character leaves
       # them nearer death.
       def self.deal(scene, whom, rows, out, critical: false)
+        # Nothing more happens to the dead.
+        return out['lines'] << told('pf2e.act_already_dead', :target => whom.label) if Pf2e.dead?(whom.holder)
+
         # Nothing to deal - a basic save critically succeeded - is told as nothing, not as 0 damage.
         if rows.all? { |row| row['amount'].to_i <= 0 && row['category'].to_s != 'persistent' }
           return out['lines'] << told('pf2e.act_unharmed', :target => whom.label)

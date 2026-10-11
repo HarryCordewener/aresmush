@@ -141,8 +141,13 @@ module AresMUSH
 
         @tries << Try.new(:who => char.name, :kind => kind, :what => what, :text => text, :outcome => outcome)
         @tried[char.id][[ kind, what ]] = outcome
-        @audit.safely("#{char.name}: #{text}") { spell_outcome!(char, text) } if outcome.ok? && text.start_with?('e/cast')
+        @audit.safely("#{char.name}: #{text}") { spell_outcome!(char, text) } if outcome.ok? && text.start_with?('e/cast') && !lost?(outcome)
         outcome
+      end
+
+      # A spell lost to a flat check - its caster grabbed, deafened or stupefied - does nothing to read.
+      def lost?(outcome)
+        outcome.said.any? { |line| line.to_s.include?('The action is lost') }
       end
 
       # ------------------------------------------------------------------------------
@@ -416,7 +421,7 @@ module AresMUSH
       end
 
       def down?(char)
-        hp_of(char) <= 0
+        hp_of(char) <= 0 || Pf2e.dead?(state_of(char))
       end
 
       # The GM's correction for a player knocked out: what play at a table would be the cleric's next
@@ -448,6 +453,8 @@ module AresMUSH
         # Someone who starts their turn on the ground gets up first, and someone held gets free.
         type(char, 'e/act stand') if (state_of(char).pf2_conditions || {}).key?('Prone')
         struggle(char)
+        # A crossbow shot last turn is loaded before anything else is done with it.
+        type(char, 'e/reload') if Loading.held(state_of(char)).any?
 
         agenda = (@agendas ||= {})[[ char.id, encounter.id ]] ||= agenda_for(char)
         undone = agenda.reject { |kind, what, _text| @tried[char.id].key?([ kind, what ]) }

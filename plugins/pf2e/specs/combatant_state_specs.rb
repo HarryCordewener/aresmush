@@ -62,6 +62,13 @@ module AresMUSH
         expect(Pf2eHP[@hp.id].damage).to eq 0
       end
 
+      it "should start with every weapon loaded, whatever was shot in the encounter before" do
+        state = joined(@first)
+        TurnState.write(state, Loading::KEY => [ 'Heavy Crossbow' ])
+
+        expect(Loading.held(joined(second(:from => @first)))).to eq []
+      end
+
       it "should start fresh where the encounter carries on from nothing" do
         Pf2eHP.modify_damage(joined(@first), 7)
 

@@ -106,7 +106,10 @@ module AresMUSH
 
         probe('a successful Grapple leaves the target grabbed, and grabbed is off-guard') do
           ref, holder = aim
-          type(striker, "e/act grapple=#{ref}")
+          tried = type(striker, "e/act grapple=#{ref}")
+          # Something more than a size larger is not grappled at all.
+          next [ tried.failures.first.include?('too large'), "refused: #{tried.failures.first}" ] if tried.failures.any?
+
           degree = (@audit.last_roll(striker.name) || {}).dig('result', 'degree').to_i
           held = conditions_of(holder)
           wanted = { 3 => 'Restrained', 2 => 'Grabbed' }[degree]
@@ -124,6 +127,7 @@ module AresMUSH
         if archer
           probe('the third range increment is -4 to the attack') do
             ref, _holder = aim
+            type(archer, 'e/reload') if Loading.held(state_of(archer)).any?
             type(archer, "e/strike #{ref}=#{ranged_of(archer)}/range 3")
             rows = rows_of((@audit.last_roll(archer.name) || {})['result'])
             [ rows.any? { |row| row['value'].to_i == -4 && row['source'].to_s.include?('range') }, "no -4 range penalty in #{rows.map { |row| [ row['source'], row['value'] ] }.inspect}" ]
@@ -166,7 +170,9 @@ module AresMUSH
 
         probe('a successful Trip leaves the target prone, and prone is off-guard') do
           ref, holder = aim
-          type(striker, "e/act trip=#{ref}")
+          tried = type(striker, "e/act trip=#{ref}")
+          next [ tried.failures.first.include?('too large'), "refused: #{tried.failures.first}" ] if tried.failures.any?
+
           degree = (@audit.last_roll(striker.name) || {}).dig('result', 'degree')
           prone = conditions_of(holder).key?('Prone')
 
@@ -243,7 +249,7 @@ module AresMUSH
 
         # A GM trusted to gives a potion out; under any other, whoever still carries one spends it.
         type(@gm, "e/loot #{helper.name}=Healing Potion (Minor)") if Character[@gm.id].has_permission?('trusted_gm')
-        helper = ([ helper ] + @party - [ healed ]).find { |char| carries.call(char) }
+        helper = ([ helper ] + @party - [ healed ]).find { |char| carries.call(char) && !down?(char) }
 
         if helper
           probe('a potion given to a dying ally ends their dying, and leaves them wounded and awake') do
@@ -311,7 +317,7 @@ module AresMUSH
 
         return unless result && result['degree']
         # A target immune to the spell is passed by, and rolls nothing new to read.
-        return if IWR.immune_to_effect?(IWR.for(holder), mechanics['traits'])
+        return if IWR.immune_to_effect?(IWR.for(holder), mechanics['traits'], DamageAbout.spell(spell))
 
         wanted = Array((mechanics['outcomes'] || {})[Degree::NAMES[result['degree']]]).select { |one| one['condition'] }
                  .reject { |one| Pf2e.immune_to?(holder, Pf2e.canonical_condition(one['condition'])) }

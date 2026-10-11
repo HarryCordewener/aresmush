@@ -178,6 +178,40 @@ module AresMUSH
         end
       end
 
+      # Wyvern: a Stinger that carries Wyvern Venom.
+      describe "someone killed" do
+        before(:each) do
+          add('wyvern')
+          run(PF2ConditionSetCmd, "condition/set #{@hero.name}=dead")
+          @client.said.clear
+        end
+
+        it "should take nothing more from a Strike, which says so" do
+          as(4, "strike #{@hero.name}=stinger", FightBench::HIGH)
+
+          expect(heard).to include(t('pf2e.act_already_dead', :target => @hero.name).strip)
+          expect(heard).to_not include('Damage to')
+        end
+
+        it "should save against nothing the Strike carries" do
+          as(4, "strike #{@hero.name}=stinger", FightBench::HIGH)
+
+          expect(heard).to_not include('Wyvern Venom')
+        end
+      end
+
+      describe "someone a Strike kills" do
+        it "should save against nothing the Strike carries" do
+          add('wyvern')
+          Pf2eHP.modify_damage(hero, Pf2eHP.get_max_hp(hero), false, true)
+          Pf2e.set_condition(hero, 'Dying', 3)
+          as(4, "strike #{@hero.name}=stinger", FightBench::HIGH)
+
+          expect(Pf2e.dead?(hero)).to be true
+          expect(heard).to_not include('Wyvern Venom')
+        end
+      end
+
       # A nonlethal blow knocks out and does not kill.
       describe "by a nonlethal blow" do
         before(:each) do

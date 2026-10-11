@@ -47,6 +47,8 @@ module AresMUSH
       # As they left another encounter, effects and all.
       def self.carried(encounter, char, prior)
         state = Pf2eCombatantState.create(fields(prior).merge(:character => char, :encounter => encounter))
+        # There was time between the two to load what was shot.
+        TurnState.write(state, Loading::KEY => nil)
 
         prior.pf2_effects.each do |effect|
           own = effect.attributes.except(:character_id, :npc_id, :state_id, :encounter_id)

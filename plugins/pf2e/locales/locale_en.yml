@@ -582,6 +582,7 @@ en:
     act_dying: "  %{target} is dying: Dying %{value}."
     act_spared: "  %{target} would have died, and is unconscious instead: this encounter does not kill."
     act_dead: "  %{target} is dead."
+    act_already_dead: "  %{target} is dead already, and nothing more happens to them."
     act_knocked_out: "  %{target} is knocked out: unconscious, and not dying."
     act_order_moved: "  %{target} now acts just before %{before}."
     act_incapacitation: "  %{target} is too strong to be taken out by it (incapacitation): their outcome is one degree better."

@@ -138,6 +138,7 @@ module AresMUSH
       # Someone is exposed: they save, and a failure starts it - or, for a poison they already carry,
       # worsens it.
       def self.catch(scene, target, affliction, out)
+        return if Pf2e.dead?(target.holder)
         return if Acting.immune?(affliction['traits'], out, target)
 
         held = on(target.holder).find { |one| one['name'] == affliction['name'] }
@@ -223,6 +224,7 @@ module AresMUSH
         found = Combatants.find(encounter, label)
 
         return [] unless found.ok? && found.state.holder && on(found.state.holder).any?
+        return [] if Pf2e.dead?(found.state.holder)
 
         target = found.state
         round = round.to_i
