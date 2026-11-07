@@ -136,6 +136,7 @@ module AresMUSH
         [ "self:level:#{char.pf2_level.to_i}" ] +
           named('self:trait', Array(char.pf2_traits)) +
           mode_facts(Array(char.pf2_traits)) +
+          void_healing_facts(Array(char.pf2_special).any? { |one| one.to_s.casecmp?(VOID_HEALING_SPECIAL) }) +
           effect_facts(char) +
           named('heritage', [ info['heritage'] ]) +
           named('ancestry', [ info['ancestry'] ]) +
@@ -172,6 +173,20 @@ module AresMUSH
                end
 
         [ "self:mode:#{mode}" ]
+      end
+
+      # Void healing: drawing health from void energy instead of vitality. Everything undead has it, and
+      # so does a Dar, who is living all the same. Whoever has it is hurt by vitality and not healed by
+      # it, takes no void damage, and is healed by the void effects that heal the undead.
+      VOID_HEALING = 'self:void-healing'.freeze
+      VOID_HEALING_SPECIAL = 'Void Healing'.freeze
+
+      def self.void_healing_facts(held)
+        held ? [ VOID_HEALING ] : []
+      end
+
+      def self.void_healing?(facts)
+        facts.include?('self:mode:undead') || facts.include?(VOID_HEALING)
       end
 
       # The character's traits as their effects leave them: Humanoid Form makes them humanoid, Soul Thief

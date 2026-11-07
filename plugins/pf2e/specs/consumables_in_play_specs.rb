@@ -171,6 +171,16 @@ module AresMUSH
           expect(said).to include(t('pf2e.consumable_no_effect', :item => 'Healing Potion (Minor)', :target => zombie.name))
         end
 
+        # A Dar is living, but has void healing: the potion's vitality does nothing for them either.
+        it "should do nothing for a Dar" do
+          Character[@ally.id].update(:pf2_special => [ 'Void Healing' ])
+
+          use("consumables=0/#{@ally.name}")
+
+          expect(standing(@ally).damage).to eq 10
+          expect(said).to include(t('pf2e.consumable_no_effect', :item => 'Healing Potion (Minor)', :target => @ally.name))
+        end
+
         it "should be taken back, potion and all, by the GM" do
           use('consumables=0')
           run(PF2EncounterUndoCmd, 'e/undo', @gm)

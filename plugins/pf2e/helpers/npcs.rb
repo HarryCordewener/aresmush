@@ -123,16 +123,25 @@ module AresMUSH
       end
 
       # What is true of the creature, in Foundry's spelling: its level, its traits and the mode of being
-      # they imply, the effects it is under and its conditions.
+      # they imply, whether it has void healing, the effects it is under and its conditions.
       def self.facts(npc)
         SheetReads.memo(npc, :effect_facts) do
           traits = npc.pf2_traits
 
           [ "self:level:#{npc.pf2_level}", 'self:type:npc' ] +
             Effects.named('self:trait', traits) + Effects.mode_facts(traits) +
+            Effects.void_healing_facts(void_healing?(npc.stat_block)) +
             Effects.effect_facts(npc) +
             Effects.named('self:condition', Pf2e.held_conditions(npc).keys)
         end
+      end
+
+      # A stat block says a creature has void healing in its hit points' details, `rejuvenation, void
+      # healing`, and an older one calls it negative healing.
+      VOID_HEALING = /\b(?:void|negative) healing\b/i
+
+      def self.void_healing?(block)
+        (block || {})['hp_details'].to_s.match?(VOID_HEALING)
       end
 
       def self.context(npc)

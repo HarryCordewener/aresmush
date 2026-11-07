@@ -145,6 +145,17 @@ module AresMUSH
           expect(Acting.way_needed('Lay on Hands', []).ok?).to be true
         end
 
+        # A Dar is living but has void healing, so Lay on Hands harms them as it harms the undead.
+        it "should cast Lay on Hands the undead way on whoever has void healing" do
+          lay_on_hands = Acting.spell_mechanics('Lay on Hands').last
+          ways = { :living => [ 'self:mode:living' ], :dar => [ 'self:mode:living', Effects::VOID_HEALING ],
+                   :undead => [ 'self:mode:undead' ] }
+          allow(Effects).to receive(:facts) { |holder| ways[holder] }
+
+          expect(ways.keys.map { |holder| Acting.way_for(lay_on_hands, double(:holder => holder))['name'] })
+            .to eq [ 'Lay on Hands (Healing)', 'Lay on Hands (Vs. Undead)', 'Lay on Hands (Vs. Undead)' ]
+        end
+
         it "should find a variant by a word of its name" do
           darts = Acting.spell_mechanics('Needle Darts').last
 

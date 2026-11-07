@@ -323,6 +323,23 @@ module AresMUSH
           expect(Pf2eHP.get_hp_obj(CombatantStates.of(encounter, Character[@hero.id])).damage.to_i).to eq 4
         end
 
+        # A Dar is living, and has void healing all the same.
+        it "should harm a Dar character with vitality, and not with void" do
+          Character[@hero.id].update(:pf2_special => [ 'Low-Light Vision', 'Void Healing' ])
+          run(PF2DamagePlayerCmd, "damage #{@hero.name}=5 void")
+          run(PF2DamagePlayerCmd, "damage #{@hero.name}=4 vitality")
+
+          expect(Pf2eHP.get_hp_obj(CombatantStates.of(encounter, Character[@hero.id])).damage.to_i).to eq 4
+          expect(Effects.facts(CombatantStates.of(encounter, Character[@hero.id]))).to include 'self:mode:living'
+        end
+
+        it "should harm a living creature with void healing with vitality, and not with void" do
+          run(PF2EncounterAddCmd, 'e/add Dhampir Wizard')
+
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 void') }).to eq 0
+          expect(taken { run(PF2DamagePlayerCmd, 'damage #2=12 vitality') }).to eq 12
+        end
+
         # What everything living shares is not worth a line on each of them.
         it "should not be listed among a creature's immunities" do
           run(PF2EncounterAddCmd, 'e/add Wolf=ac 5 hp 200')

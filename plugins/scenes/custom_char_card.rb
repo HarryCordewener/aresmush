@@ -22,8 +22,8 @@ module AresMUSH
       # A few characters have things players need to know about in combat.
       # Warnings like these should take the form warn_ so that they cna be matched by a CSS class if desired.
 
-      if char.pf2_special.include? "Negative Healing"
-        return_hash[:warn_nh] = "Negative Healing: Check with player before using healing effects."
+      if Array(char.pf2_special).include? Pf2e::Effects::VOID_HEALING_SPECIAL
+        return_hash[:warn_nh] = "Void Healing: Harmed by vitality and healed by void effects."
       end
 
       return_hash

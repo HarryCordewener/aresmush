@@ -1636,7 +1636,8 @@ module AresMUSH
       end
 
       # A spell cast one way against the undead and another for anyone else - Lay on Hands, Heal with two
-      # actions - is cast the way its target calls for. `time` is the actions it was cast with, where the
+      # actions - is cast the way its target calls for, and its undead way is for whoever has void
+      # healing, a living Dar among them. `time` is the actions it was cast with, where the
       # caster said: the ways that take that many are the ones chosen among, and nothing is answered where
       # they do not differ by who the target is.
       def self.way_for(mechanics, target, time = nil)
@@ -1646,7 +1647,7 @@ module AresMUSH
 
         return (time ? nil : mechanics) unless undead
 
-        chosen = Effects.facts(target.holder).include?('self:mode:undead') ? undead : (variants - [ undead ]).first
+        chosen = Effects.void_healing?(Effects.facts(target.holder)) ? undead : (variants - [ undead ]).first
 
         return (time ? nil : mechanics) unless chosen
 
@@ -1885,11 +1886,12 @@ module AresMUSH
 
       # Damage that heals the living and hurts the undead, or the reverse, by the spell's vitality or void.
       # Whether a spell mends this target: it heals, and is not the kind of energy that harms what they
-      # are. Whoever it mends saves against nothing.
+      # are. Vitality harms whoever has void healing, and void everyone else. Whoever it mends saves
+      # against nothing.
       def self.mends?(mechanics, formulas, target)
-        mode = Effects.facts(target.holder).find { |one| one.start_with?('self:mode:') }.to_s.split(':').last
+        void_healing = Effects.void_healing?(Effects.facts(target.holder))
         traits = Array(mechanics['traits'])
-        hurts_this = (traits.include?('vitality') && mode == 'undead') || (traits.include?('void') && mode != 'undead')
+        hurts_this = (traits.include?('vitality') && void_healing) || (traits.include?('void') && !void_healing)
 
         formulas.any? { |_f, _t, _c, kinds| Array(kinds).include?('healing') } && !hurts_this
       end

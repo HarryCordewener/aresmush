@@ -50,10 +50,6 @@ module AresMUSH
                      sickened spirit unconscious vitality void}.freeze
       BY_TRAIT = { 'construct' => CONSTRUCT, 'mindless' => %w{mental}, 'swarm' => %w{grabbed prone restrained} }.freeze
 
-      # Vitality harms only what void heals, and void only what it does not (`actor/base.ts`): the kind
-      # of damage each mode of being is untouched by.
-      UNTOUCHED = { 'undead' => 'void', 'living' => 'vitality' }.freeze
-
       # The immunities a creature's traits bring, beyond the ones it already lists.
       def self.of_traits(traits, listed = [])
         slugs = Array(traits).map { |one| Domains.slug(one) }
@@ -64,11 +60,15 @@ module AresMUSH
       end
 
       # The immunity a mode of being is, held apart from the ones worth listing: everything living
-      # shares it.
+      # shares it. Vitality harms only what void heals, and void only what it does not (`actor/base.ts`),
+      # so whoever has void healing is untouched by void and everyone else living or undead by vitality.
+      # A construct's immunity to both comes from its trait.
       def self.of_mode(facts)
-        kind = UNTOUCHED[facts.find { |one| one.start_with?('self:mode:') }.to_s.split(':').last]
+        mode = facts.find { |one| one.start_with?('self:mode:') }.to_s.split(':').last
 
-        kind ? [ { 'type' => [ kind ], 'implied' => true } ] : []
+        return [] unless %w{living undead}.include?(mode)
+
+        [ { 'type' => [ Effects.void_healing?(facts) ? 'void' : 'vitality' ], 'implied' => true } ]
       end
 
       # The entries worth listing for someone.

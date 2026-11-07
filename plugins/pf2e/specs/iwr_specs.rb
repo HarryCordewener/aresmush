@@ -311,6 +311,48 @@ module AresMUSH
         end
       end
 
+      # Vitality harms only what has void healing, and void only what has not. A Dar has it while living.
+      describe "the energy a mode of being is untouched by" do
+        def untouched(*facts)
+          IWR.of_mode(facts).flat_map { |one| one['type'] }
+        end
+
+        it "should keep vitality from the living" do
+          expect(untouched('self:mode:living')).to eq [ 'vitality' ]
+        end
+
+        it "should keep void from the undead" do
+          expect(untouched('self:mode:undead')).to eq [ 'void' ]
+        end
+
+        it "should keep void from the living who have void healing" do
+          expect(untouched('self:mode:living', Effects::VOID_HEALING)).to eq [ 'void' ]
+        end
+
+        it "should leave a construct's to its trait" do
+          expect(untouched('self:mode:construct')).to eq []
+        end
+
+        it "should not be listed" do
+          expect(IWR.listed(IWR.of_mode([ 'self:mode:living', Effects::VOID_HEALING ]))).to eq []
+        end
+      end
+
+      describe "void healing" do
+        it "should be had by the undead and by whoever is said to have it" do
+          expect(Effects.void_healing?([ 'self:mode:undead' ])).to be true
+          expect(Effects.void_healing?([ 'self:mode:living', Effects::VOID_HEALING ])).to be true
+          expect(Effects.void_healing?([ 'self:mode:living' ])).to be false
+        end
+
+        it "should be read from a stat block's hit point details, under either name" do
+          expect(Npcs.void_healing?('hp_details' => 'rejuvenation, void healing')).to be true
+          expect(Npcs.void_healing?('hp_details' => 'negative healing')).to be true
+          expect(Npcs.void_healing?('hp_details' => 'fast healing 5')).to be false
+          expect(Npcs.void_healing?({})).to be false
+        end
+      end
+
       # A will-o'-wisp is immune to all spells but a few it names.
       describe "immunity to magic" do
         def wisp

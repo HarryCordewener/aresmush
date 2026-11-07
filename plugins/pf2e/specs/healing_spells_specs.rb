@@ -77,6 +77,39 @@ module AresMUSH
           expect(heard).to include("#{@hero.name} rolls Fortitude", '4 void')
         end
       end
+
+      # A Dar has void healing, so each spell treats them as it treats the undead, though they are living.
+      describe "on a Dar" do
+        before(:each) do
+          Character[@hero.id].update(:pf2_special => [ 'Low-Light Vision', 'Void Healing' ])
+        end
+
+        it "should be harmed by Heal with two actions, against the save and without the 8" do
+          cast("heal=#{@hero.name}/actions 2")
+
+          expect(heard).to include("#{@hero.name} rolls Fortitude", '4 vitality')
+          expect(heard).to_not include("#{@hero.name} recovers")
+        end
+
+        it "should be harmed by Heal with one" do
+          cast("heal=#{@hero.name}/actions 1")
+
+          expect(heard).to include("#{@hero.name} rolls Fortitude", '4 vitality')
+        end
+
+        it "should be mended by Harm with two actions by 8 more, and roll no save for it" do
+          cast("harm=#{@hero.name}/actions 2")
+
+          expect(heard).to include("#{@hero.name} recovers 12")
+          expect(heard).to_not include('rolls Fortitude')
+        end
+
+        it "should be mended by Harm with one" do
+          cast("harm=#{@hero.name}/actions 1")
+
+          expect(heard).to include("#{@hero.name} recovers 4")
+        end
+      end
     end
   end
 end

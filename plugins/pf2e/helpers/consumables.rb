@@ -4,8 +4,8 @@ module AresMUSH
     # What a consumable does when it is used in a fight, from what the catalogue says of it
     # (`scripts/import_foundry_consumables.py`):
     #
-    #   heal       the Hit Points it restores, rolled; `heal_type` vitality heals only the living and void
-    #              only the undead
+    #   heal       the Hit Points it restores, rolled; `heal_type` vitality heals only those without void
+    #              healing and void only those with it
     #   effect     the `Effect: …` it leaves on whoever takes it
     #   bomb       it is thrown rather than taken: a Strike, with its dice, persistent and splash damage
     #
@@ -63,13 +63,14 @@ module AresMUSH
                                      'traits' => Array(entry['traits']) })
       end
 
-      # Vitality heals the living and does nothing for the undead; void the reverse; untyped either.
+      # Vitality heals the living and does nothing for whoever has void healing, the undead and a Dar;
+      # void the reverse; untyped either.
       def self.heals?(holder, type)
-        undead = Effects.facts(holder).include?('self:mode:undead')
+        void_healing = Effects.void_healing?(Effects.facts(holder))
 
         case type.to_s
-        when 'vitality' then !undead
-        when 'void' then undead
+        when 'vitality' then !void_healing
+        when 'void' then void_healing
         else true
         end
       end
