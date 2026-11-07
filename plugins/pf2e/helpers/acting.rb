@@ -1637,12 +1637,16 @@ module AresMUSH
 
       # A spell cast one way against the undead and another for anyone else - Lay on Hands, Heal with two
       # actions - is cast the way its target calls for, and its undead way is for whoever has void
-      # healing, a living Dar among them. `time` is the actions it was cast with, where the
-      # caster said: the ways that take that many are the ones chosen among, and nothing is answered where
-      # they do not differ by who the target is.
+      # healing, a living Dar among them. `time` is the actions the caster chose, or the spell's least
+      # when omitted, as spend_casting counts it. Only ways taking that many are chosen among; a way
+      # without its own time inherits the spell's. With an explicit time, nothing is answered where
+      # the ways do not differ by who the target is.
       def self.way_for(mechanics, target, time = nil)
         variants = Array(mechanics['variants'])
-        variants = variants.select { |one| one['time'].to_s == time.to_s } if time
+        casting_time = time || mechanics['time'].to_s[/\A\d+/]
+        if casting_time
+          variants = variants.select { |one| (one['time'] || mechanics['time']).to_s == casting_time.to_s }
+        end
         undead = variants.find { |one| one['name'].to_s.match?(/undead/i) }
 
         return (time ? nil : mechanics) unless undead
@@ -1907,6 +1911,13 @@ module AresMUSH
           out['lines'] << healed(scene.target.label, amount, DamageRoll.dice_of(rows))
           return
         end
+
+        # Healing that cannot mend this target does nothing, unless the formula also deals damage.
+        # Older formula entries without kinds keep their damage behavior.
+        formulas = formulas.reject do |_formula, _type, _category, kinds|
+          Array(kinds).include?('healing') && !Array(kinds).include?('damage')
+        end
+        return if formulas.empty?
 
         factor = degree ? damage_factor(mechanics, degree) : 1
 

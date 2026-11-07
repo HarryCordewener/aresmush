@@ -78,6 +78,48 @@ module AresMUSH
         end
       end
 
+      # The default and the selected variant must agree on both the effect and the actions spent.
+      { :living => false, :dar => true, :undead => true }.each do |kind, void_healing|
+        context "routing a spell to #{kind}" do
+          before(:each) do
+            Character[@hero.id].update(:pf2_special => [ 'Void Healing' ]) if kind == :dar
+          end
+
+          def damage_of(kind)
+            kind == :undead ? npc(3).damage : Pf2eHP.get_hp_obj(hero).damage
+          end
+
+          [ nil, 1, 2 ].each do |actions|
+            it "should resolve Harm with #{actions || 'omitted'} actions and spend the same amount" do
+              target = kind == :undead ? '#3' : @hero.name
+              before = damage_of(kind)
+              spent = TurnState.turn(npc(2))['actions'].to_i
+
+              cast("harm=#{target}#{actions ? "/actions #{actions}" : ''}")
+
+              amount = void_healing && actions == 2 ? 12 : 4
+              expect(refused).to eq []
+              expect(damage_of(kind)).to eq(before + (void_healing ? -amount : amount))
+              expect(TurnState.turn(npc(2))['actions'].to_i - spent).to eq(actions || 1)
+              expect(heard.include?('rolls Fortitude')).to eq !void_healing
+            end
+          end
+
+          { 'Gentle Breeze' => 10, 'Healing Well' => 16 }.each do |spell, amount|
+            it "should never turn #{spell}'s healing into damage" do
+              target = kind == :undead ? '#3' : @hero.name
+              before = damage_of(kind)
+
+              cast("#{spell}=#{target}/force")
+
+              expect(refused).to eq []
+              expect(damage_of(kind)).to eq(before - (void_healing ? 0 : amount))
+              expect(heard).not_to include('rolls Fortitude')
+            end
+          end
+        end
+      end
+
       # A Dar has void healing, so each spell treats them as it treats the undead, though they are living.
       describe "on a Dar" do
         before(:each) do
